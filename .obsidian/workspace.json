@@ -59,7 +59,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-council",
+                "query": "tag:#alpha-proxima",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -233,6 +233,7 @@
   },
   "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "03_AI_COUNCIL/Ethics Council Charter.md",
     "03_AI_COUNCIL/Departments/LUMIAION Charter.md",
     "04_DECISIONS/ADR-0001 - The Founding Decision.md",
     "08_SYSTEMS/Institutional Relationship Map.md",
@@ -249,7 +250,6 @@
     "07_RESEARCH/RP-001/RP-001 Canonical Glossary.md",
     "07_RESEARCH/RP-001",
     "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
-    "03_AI_COUNCIL/Ethics Council Charter.md",
     "00_CONSTITUTION/Book III - Knowledge Integrity.md",
     "08_SYSTEMS/LUMIAION Architecture Spec v0.1.md",
     "01_VISION/Alpha Proxima — 10 Year Vision.md",
