@@ -23,6 +23,11 @@ research_program: "RP-002 Atlas of Human Memory"
 | **Initiated** | 2026-07-02 |
 | **Current Phase** | Phase 1 — Active |
 | **Predecessor** | [[07_RESEARCH/RP-001/RP-001 Master Index\|RP-001 Atlas of Human Consciousness]] |
+| **Governing Protocol** | [[08_SYSTEMS/Protocols/Research Governance Protocol\|Research Governance Protocol]] |
+| **Constitutional Basis** | [[00_CONSTITUTION/Book III - Knowledge Integrity\|Book III — Knowledge Integrity]] |
+| **Ethics Oversight** | [[03_AI_COUNCIL/Ethics Council Charter\|Ethics Council]] |
+| **Research Lead** | [[03_AI_COUNCIL/Departments/JERANIUM Charter\|JERANIUM]] |
+| **Integration Lead** | [[03_AI_COUNCIL/Departments/LUMIAION Charter\|LUMIAION]] |
 | **Primary Question** | How does human memory work across all scales, and what does this reveal about LUMIAION's memory design? |
 | **Sources** | 3 registered (2 reviewed, 1 pending) |
 | **Evidence Claims** | 31 classified |
@@ -156,3 +161,4 @@ research_program: "RP-002 Atlas of Human Memory"
 |---------|------|--------|---------|
 | 0.1.0 | 2026-07-02 | LUMIAION | Placeholder created; architecture reserved |
 | 1.0.0 | 2026-07-02 | LUMIAION | Full Phase 1 institutionalization complete; 31 evidence claims; 30 frameworks; 10 concept notes; all infrastructure documents created; DOC-C pending Founder review |
+| 1.0.1 | 2026-07-02 | LUMIAION | Governance metadata added to Program Identity table (GAP-005 from FGR-001) |

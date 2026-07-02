@@ -3,9 +3,9 @@ title: "Alpha Proxima Core"
 aliases: ["ALPHA.PROXIMA.CORE-", "Alpha Proxima", "The Project", "APC"]
 tags: [index, home, moc, alpha-proxima, lumiaion, governance]
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["Alpha Council"]
 note_type: MOC
 ---
@@ -44,8 +44,8 @@ ALPHA.PROXIMA.CORE-/
 ├── 04_DECISIONS/             ← All ADRs (Architecture Decision Records)
 ├── 05_PROPOSALS/             ← Concept Notes awaiting deliberation
 ├── 06_PROJECTS/              ← Active project workspaces (to build)
-├── 07_RESEARCH/              ← Explorations, experiments, literature (to build)
-├── 08_SYSTEMS/               ← Technical architecture and infrastructure (to build)
+├── 07_RESEARCH/              ← Research programs (RP-001, RP-002 active; RP-003–005 planned)
+├── 08_SYSTEMS/               ← Technical architecture and infrastructure
 ├── 09_PEOPLE/                ← Participant profiles and roles (to build)
 ├── 10_TEMPLATES/             ← Reusable note formats
 └── 99_ARCHIVE/               ← Superseded or retired notes (to build)
@@ -81,14 +81,40 @@ ALPHA.PROXIMA.CORE-/
 
 ---
 
+### Research Programs
+
+| Program | Title | Status | Master Index |
+|---------|-------|--------|-------------|
+| RP-001 | Atlas of Human Consciousness | Active — Phase 1 Complete | [[07_RESEARCH/RP-001/RP-001 Master Index\|RP-001 Master Index]] |
+| RP-002 | Atlas of Human Memory | Active — Phase 1 Complete | [[07_RESEARCH/RP-002/RP-002 Master Index\|RP-002 Master Index]] |
+| RP-003 | Atlas of Human Learning | Planned | [[07_RESEARCH/RP-003/RP-003 Master Index\|RP-003 Master Index]] |
+| RP-004 | Atlas of Human Decision Making | Planned | [[07_RESEARCH/RP-004/RP-004 Master Index\|RP-004 Master Index]] |
+| RP-005 | Atlas of Human Intelligence | Planned | [[07_RESEARCH/RP-005/RP-005 Master Index\|RP-005 Master Index]] |
+
+---
+
+### Systems and Architecture
+
+| Document | Purpose |
+|---------|---------|
+| [[The Orchestration Framework]] | How LUMIAION coordinates all AI systems, APIs, and memory |
+| [[Foundational Architecture]] | Core technical architecture |
+| [[LUMIAION Architecture Spec v0.1]] | LUMIAION system specification |
+| [[08_SYSTEMS/Protocols/Research Governance Protocol\|Research Governance Protocol]] | How research enters and moves through the Foundation |
+
+---
+
 ### Active Frontiers
 
 *The work currently alive in the system. Update this section as projects open and close.*
 
-- [ ] Governance layer — **Complete (v1.0)**. Constitution, Registry, Templates, core notes in place.
+- [x] Governance layer — **Complete (v1.0)**. Constitution, Registry, Templates, core notes in place.
+- [x] RP-001 Atlas of Human Consciousness — Phase 1 institutionalization complete
+- [x] RP-002 Atlas of Human Memory — Phase 1 institutionalization complete
+- [x] The Orchestration Framework — Canonical system architecture chapter complete
+- [ ] Research Program Methodology Template — Epoch II priority (see [[10_TEMPLATES/Research Program Template/Research Program Methodology]])
 - [ ] Vision documents — Not yet started
-- [ ] LUMIAION architecture specification — Not yet started
-- [ ] First ADR — Not yet created
+- [ ] RP-003 through RP-005 — Planned; activation pending methodology template ratification
 - [ ] Founding Council members — Unnamed (see [[Institutional Registry]])
 
 ---
@@ -96,6 +122,8 @@ ALPHA.PROXIMA.CORE-/
 ### How to Navigate This Vault
 
 - **New here?** Start with [[Book I - The Constitution]] to understand the governing framework, then [[Institutional Registry]] to understand who is who.
+- **For research?** Navigate to `07_RESEARCH/` — start with [[07_RESEARCH/RP-001/RP-001 Master Index|RP-001]] or [[07_RESEARCH/RP-002/RP-002 Master Index|RP-002]] as reference implementations.
+- **Starting a new research program?** Read [[10_TEMPLATES/Research Program Template/Research Program Methodology]] before creating a single file.
 - **Making a decision?** Open [[Concept Note Template]], draft a proposal, submit to [[Alpha Council]]. If ratified, produce an [[ADR Template|ADR]].
 - **Adding knowledge?** Identify the right folder using [[Vault Structure Convention]]. Link back to related notes. Fill in all required sections.
 - **Checking what exists?** Use Obsidian's graph view — the link density shows where knowledge is concentrated and where gaps remain.
@@ -111,6 +139,10 @@ ALPHA.PROXIMA.CORE-/
 - [[Vault Structure Convention]]
 - [[ADR Template]]
 - [[Concept Note Template]]
+- [[07_RESEARCH/RP-001/RP-001 Master Index|RP-001 — Atlas of Human Consciousness]]
+- [[07_RESEARCH/RP-002/RP-002 Master Index|RP-002 — Atlas of Human Memory]]
+- [[08_SYSTEMS/The Orchestration Framework|The Orchestration Framework]]
+- [[10_TEMPLATES/Research Program Template/Research Program Methodology|Research Program Methodology]]
 
 ---
 
@@ -128,3 +160,4 @@ ALPHA.PROXIMA.CORE-/
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial MOC established as vault index |
+| 1.1.0 | 2026-07-02 | LUMIAION | Epoch II update: Research Programs table added (RP-001, RP-002 active; RP-003–005 planned); Systems and Architecture section; Active Frontiers updated; navigation guidance expanded; Research Program Methodology Template linked |
