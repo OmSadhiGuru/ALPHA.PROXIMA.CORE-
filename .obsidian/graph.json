@@ -2,21 +2,70 @@
   "collapse-filter": true,
   "search": "",
   "showTags": true,
-  "showAttachments": true,
+  "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
-  "collapse-display": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:00_CONSTITUTION OR file:(\"Founding Principles\")",
+      "color": { "a": 1, "rgb": 16109321 }
+    },
+    {
+      "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
+      "color": { "a": 1, "rgb": 9130230 }
+    },
+    {
+      "query": "path:09_OFFICES",
+      "color": { "a": 1, "rgb": 6512369 }
+    },
+    {
+      "query": "path:07_RESEARCH",
+      "color": { "a": 1, "rgb": 1095553 }
+    },
+    {
+      "query": "path:06_GOVERNANCE",
+      "color": { "a": 1, "rgb": 3719160 }
+    },
+    {
+      "query": "path:08_SYSTEMS",
+      "color": { "a": 1, "rgb": 16348950 }
+    },
+    {
+      "query": "path:04_DECISIONS",
+      "color": { "a": 1, "rgb": 15884286 }
+    },
+    {
+      "query": "path:03_AI_COUNCIL",
+      "color": { "a": 1, "rgb": 1358036 }
+    },
+    {
+      "query": "path:01_VISION OR path:02_STRATEGY",
+      "color": { "a": 1, "rgb": 14246127 }
+    },
+    {
+      "query": "path:10_TEMPLATES",
+      "color": { "a": 1, "rgb": 9868950 }
+    },
+    {
+      "query": "path:05_PROPOSALS",
+      "color": { "a": 1, "rgb": 16744272 }
+    },
+    {
+      "query": "path:99_ARCHIVE",
+      "color": { "a": 1, "rgb": 7893836 }
+    }
+  ],
+  "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 2.24162326388889,
-  "lineSizeMultiplier": 2.39411024305556,
+  "textFadeMultiplier": -1.5,
+  "nodeSizeMultiplier": 1.8,
+  "lineSizeMultiplier": 1.2,
   "collapse-forces": true,
-  "centerStrength": 0,
-  "repelStrength": 11.2838541666667,
-  "linkStrength": 0.574696180555556,
-  "linkDistance": 407,
+  "centerStrength": 0.15,
+  "repelStrength": 14,
+  "linkStrength": 0.45,
+  "linkDistance": 320,
   "scale": 0.08762081790777727,
   "close": false
 }
