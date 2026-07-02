@@ -5,7 +5,7 @@ tags: [research, rp-001, source, perplexity, consciousness, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.1.1"
 authors: ["JERANIUM"]
 research_program: "RP-001 Atlas of Human Consciousness"
 document_id: DOC-001
@@ -34,7 +34,7 @@ document_id: DOC-001
 
 DOC-001 was the first external research artifact commissioned for RP-001. Its purpose was to establish the initial landscape of consciousness science — the scope, major frameworks, and key empirical debates — before deeper comparative analysis.
 
-It is cited in the Canonical Synthesis as one of three primary sources, though its content has not yet been reviewed due to PDF rendering limitations in the current environment. This source note will be updated after Founder review.
+It is cited in the Canonical Synthesis as one of three primary sources. Full 16-page content was reviewed 2026-07-02 and all material claims have been extracted and integrated into the Evidence Registry and Canonical Synthesis.
 
 ---
 
@@ -90,3 +90,4 @@ DOC-001 delivered substantially more than initially anticipated. As a 16-page co
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | JERANIUM | Initial note; content pending review |
 | 1.1.0 | 2026-07-02 | JERANIUM | Full content reviewed; actual contribution documented; source quality revised to Medium-High |
+| 1.1.1 | 2026-07-02 | LUMIAION | Removed stale "not yet reviewed" sentence from Role in RP-001 section; content was contradicted by Access Status |
