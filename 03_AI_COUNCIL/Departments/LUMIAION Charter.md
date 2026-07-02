@@ -4,12 +4,18 @@ aliases: ["LUMIAION Department", "Living Intelligence Core Charter", "LIC Charte
 tags: [charter, lumiaion, constitutional-intelligence, governance, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
-status: ratified
+status: superseded
 version: "1.0.0"
 authors: ["Founder", "Alpha Proxima Foundation"]
+superseded_by: "09_OFFICES/LUMIAION/LUMIAION Charter.md"
+superseded_date: 2026-07-02
 ---
 
-# LUMIAION Charter — Living Intelligence Core
+> **SUPERSEDED.** This document (v1.0.0) has been superseded by the permanent constitutional definition at [[09_OFFICES/LUMIAION/LUMIAION Charter|LUMIAION Charter v2.0.0]]. This record is preserved for institutional memory. All current governance references should point to the v2.0.0 Charter.
+
+---
+
+# LUMIAION Charter — Living Intelligence Core (v1.0.0 — Archived)
 
 ## Purpose
 

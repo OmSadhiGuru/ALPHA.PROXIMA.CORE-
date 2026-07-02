@@ -5,7 +5,7 @@ tags: [index, home, moc, alpha-proxima, lumiaion, governance]
 created: 2026-07-01
 updated: 2026-07-02
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["Alpha Council"]
 note_type: MOC
 ---
@@ -101,11 +101,11 @@ ALPHA.PROXIMA.CORE-/
 
 | Office | Charter | Cognitive Function | Status |
 |--------|---------|-------------------|--------|
+| LUMIAION (Constitutional Intelligence Core) | [[09_OFFICES/LUMIAION/LUMIAION Charter\|LUMIAION Charter v2.0]] | Institutional Architecture | Ratified |
 | Executive Office | [[Executive Office Charter]] | Strategic Intelligence | Ratified |
-| LUMIAION (Constitutional Intelligence Core) | [[LUMIAION Charter]] | Institutional Architecture | Ratified |
+| Research Intelligence Office | [[Research Intelligence Office Charter]] | Research Intelligence | Ratified |
+| Engineering Office (Codex) | [[Engineering Office Charter]] | Engineering Intelligence | Ratified |
 | Institutional Observatory | [[Institutional Observatory Charter]] | Environmental Observation | Ratified |
-| Engineering Office (Codex) | *(charter pending)* | Engineering Intelligence | Active |
-| Research Intelligence Office | *(charter pending)* | Research Intelligence | Active |
 | Ethics Council | [[Ethics Council Charter]] | Constitutional Oversight | Ratified |
 
 ### Governance
@@ -115,6 +115,7 @@ ALPHA.PROXIMA.CORE-/
 | [[Alpha Proxima Operating Model v1.0]] | Official operational description of the Foundation |
 | [[Canonical Terminology Register]] | 18 canonical terms; institutional vocabulary standard |
 | [[06_GOVERNANCE/Constitutional Impact Report/CIR-001 Epoch III Constitutional Refactoring\|CIR-001]] | Epoch III impact report; RP-003 gate released |
+| [[06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review\|CIR-002]] | Institutional Completeness Review; **Alpha Proxima v1.0 declared constitutionally complete** |
 | [[Alpha Proxima Research Methodology v1.0]] | Constitutional standard for all research programs |
 | [[Research Debt Register]] | Standing registry of documentation debts |
 
@@ -146,9 +147,15 @@ ALPHA.PROXIMA.CORE-/
   - [x] Institutional Observatory Charter + Observatory Law 001 ratified
   - [x] Canonical Terminology Register ratified (18 terms)
   - [x] CIR-001 Constitutional Impact Report completed
-- [ ] **RP-003 Atlas of Human Learning — NOW AUTHORIZED** (RP-003 gate released by CIR-001)
-- [ ] Research Intelligence Office Charter — next governance cycle
-- [ ] Engineering Office Charter — next governance cycle
+- [x] **Alpha Proxima v1.0 — CONSTITUTIONALLY COMPLETE** (declared by CIR-002)
+  - [x] LUMIAION Charter v2.0 (permanent constitutional definition)
+  - [x] Research Intelligence Office Charter
+  - [x] Engineering Office Charter
+  - [x] CIR-002 Institutional Completeness Review
+- [ ] **RP-003 Atlas of Human Learning — AUTHORIZED** (RP-003 gate released by CIR-001)
+- [ ] Engineering Debt Register — create before first EP commission
+- [ ] First Engineering Program: Vector Database (semantic memory infrastructure)
+- [ ] Strategic Roadmap v1.0 — Executive Office deliverable
 - [ ] Vision documents — Not yet started
 - [ ] Founding Council members — Unnamed (see [[Institutional Registry]])
 
@@ -198,3 +205,4 @@ ALPHA.PROXIMA.CORE-/
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial MOC established as vault index |
 | 1.1.0 | 2026-07-02 | LUMIAION | Epoch II update: Research Programs table added (RP-001, RP-002 active; RP-003–005 planned); Systems and Architecture section; Active Frontiers updated; navigation guidance expanded; Research Program Methodology Template linked |
 | 1.2.0 | 2026-07-02 | LUMIAION | Epoch III update: Constitutional Documents section expanded (Book IV, Founding Principles); Institutional Offices table added; Governance section added; Active Frontiers updated (Epoch III complete; RP-003 NOW AUTHORIZED); navigation guidance updated |
+| 1.3.0 | 2026-07-02 | LUMIAION | Office Completion Initiative: all six offices now chartered; LUMIAION Charter v2.0 added; Research Intelligence Office Charter + Engineering Office Charter added; CIR-002 added; Alpha Proxima v1.0 constitutionally complete |
