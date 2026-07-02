@@ -5,7 +5,7 @@ tags: [research, rp-001, consciousness, master-index, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "2.0.0"
+version: "2.1.0"
 authors: ["Frederick Belizaire Gunville", "LUMIAION"]
 research_program: "RP-001 Atlas of Human Consciousness"
 canon_status: under_review
@@ -61,7 +61,7 @@ RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research G
 | `11 Canonical Glossary/` | Authoritative definitions of key terms |
 | `12 Evidence Registry/` | Every claim classified and source-traced |
 | `13 Research Graph/` | Network of linked concept notes |
-| `13 Research Graph/Concepts/` | 11 individual concept notes |
+| `13 Research Graph/Concepts/` | 15 individual concept notes |
 | `14 Open Questions/` | Registered open questions with classification |
 | `15 Future Experiments/` | Research opportunities and future directions |
 | `16 Visual Knowledge/` | Diagrams and visual artifacts |
@@ -82,16 +82,16 @@ RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research G
 ### The Canonical Documents
 - [[09 Canonical Synthesis/RP-001 Canonical Synthesis]] — institutional synthesis; 7 sections; full evidence classification
 - [[12 Evidence Registry/RP-001 Evidence Registry]] — every claim classified and source-traced
-- [[10 Theory Matrix/RP-001 Theory Matrix]] — 7 theories × 9 dimensions
+- [[10 Theory Matrix/RP-001 Theory Matrix]] — 11 frameworks × 9 dimensions
 - [[08 Comparative Framework/RP-001 Comparative Framework]] — source comparison
 
 ### Source Archive
 - [[ARCHIVE/ARCHIVE Philosophy]] — immutability rules
-- [[ARCHIVE/DOC-001 Architecture of Human Consciousness]] — Perplexity (content pending review)
+- [[ARCHIVE/DOC-001 Architecture of Human Consciousness]] — Perplexity (reviewed 2026-07-02 — fully integrated)
 - [[ARCHIVE/DOC-003 Comparative Framework - SanaLab]] — SanaLab 21-page comparative framework
 - [[ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab]] — SanaLab 3-page architectural deep dive
 
-### Research Knowledge Graph (11 Concept Notes)
+### Research Knowledge Graph (15 Concept Notes)
 - [[13 Research Graph/Concepts/Consciousness]]
 - [[13 Research Graph/Concepts/Global Neuronal Workspace Theory]]
 - [[13 Research Graph/Concepts/Integrated Information Theory]]
@@ -103,6 +103,10 @@ RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research G
 - [[13 Research Graph/Concepts/Neural Correlates of Consciousness]]
 - [[13 Research Graph/Concepts/Default Mode Network]]
 - [[13 Research Graph/Concepts/Meta Awareness]]
+- [[13 Research Graph/Concepts/Orchestrated Objective Reduction]]
+- [[13 Research Graph/Concepts/4E Cognition]]
+- [[13 Research Graph/Concepts/Illusionism]]
+- [[13 Research Graph/Concepts/Panpsychism]]
 
 ### Supporting Documents
 - [[03 Source Registry/RP-001 Source Registry]]
@@ -127,13 +131,13 @@ RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research G
 | Theory Matrix | ✓ Complete |
 | Canonical Synthesis | ✓ Draft complete — under review |
 | Evidence Registry | ✓ All Phase 1 claims registered |
-| Research Knowledge Graph | ✓ 11 concept notes created |
+| Research Knowledge Graph | ✓ 15 concept notes created |
 | Canonical Glossary | ✓ Active — building |
 | Open Questions | ✓ Active |
 | NotebookLM Package | ✓ Active |
 | RP-002 through RP-006 placeholders | ✓ Created |
 | Standards Council evaluation | ✓ Complete — deferral recommended |
-| DOC-001 (Perplexity) review | ⏳ Pending Founder review |
+| DOC-001 (Perplexity) review | ✓ Reviewed 2026-07-02 — fully integrated |
 | DOC-002 (Gemini) delivery | ⏳ Pending |
 | Research Council / canon review | ⏳ Pending |
 
@@ -155,3 +159,4 @@ RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research G
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | Frederick Belizaire Gunville / LUMIAION | Program initiated; initial infrastructure; intake phase |
 | 2.0.0 | 2026-07-02 | LUMIAION / JERANIUM | Phase 1 institutionalization complete; 22-subfolder architecture; ARCHIVE; Canonical Synthesis; 11 concept notes; Evidence Registry; RP-002–006 placeholders; Standards Council evaluation |
+| 2.1.0 | 2026-07-02 | LUMIAION | Corrected stale counts and statuses after DOC-001 integration: concept notes 11→15; theory matrix 7→11 frameworks; DOC-001 ARCHIVE link updated; DOC-001 Phase 1 status marked complete |
