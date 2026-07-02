@@ -40,21 +40,24 @@ It is cited in the Canonical Synthesis as one of three primary sources, though i
 
 ## Access Status
 
-**Current status:** PDF archived; content not reviewed in session  
-**Reason:** `poppler-utils` not installed in the processing environment  
-**Action required:** Founder to review DOC-001 and update this note with any material claims, page references, and conflicts identified
+**Current status:** ✓ Reviewed 2026-07-02 — full 16-page content reviewed  
+**Method:** PDF rendered directly in session  
+**Review completed by:** LUMIAION/JERANIUM
 
 ---
 
-## Anticipated Contribution
+## Actual Contribution
 
-Based on its commissioning brief, DOC-001 is expected to:
-- Survey the major neuroscientific and philosophical frameworks for consciousness
-- Map the empirical evidence base for each major theory
-- Identify key open questions in the field
-- Provide citation pathways to primary literature
+DOC-001 delivered substantially more than initially anticipated. As a 16-page comprehensive literature review, it provided:
 
-These contributions will be assessed against DOC-003 and DOC-004 during Founder review.
+1. **Historical periodisation** — the most complete timeline in the RP-001 source set (Descartes → Nagel 1974 → Baars 1988 → Crick & Koch 1990 → Chalmers 1995 → Cogitate 2025)
+2. **11 theoretical frameworks** — 8 major theories + 4E Cognition, Illusionism, Panpsychism (4 not in DOC-003/004)
+3. **Refined COGITATE results** — asymmetric: posterior encoding confirmed (IIT anatomy), frontal ignition failed (GNW prediction), IIT internal connectivity also not observed
+4. **3 new consensus claims** — feedforward insufficiency, covert consciousness (NEJM 2024), animal consciousness (NY Declaration 2024)
+5. **Binding Problem** — named as a distinct open question
+6. **5 recent developments** (2021–2026)
+7. **Primary literature registry** — 10 key papers with journal citations
+8. **10 recommended books**
 
 ---
 
@@ -69,7 +72,7 @@ These contributions will be assessed against DOC-003 and DOC-004 during Founder 
 | Recency | 2026-07-01 |
 | Potential bias | May overrepresent Western academic literature |
 
-**Overall:** Medium — useful for literature mapping; specific claims require verification
+**Overall:** Medium-High (revised upward from Medium after full review) — more comprehensive and better structured than initially assessed; evidence classification summary internally consistent; primary literature registry adds significant institutional value
 
 ---
 
@@ -85,4 +88,5 @@ These contributions will be assessed against DOC-003 and DOC-004 during Founder 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-07-02 | JERANIUM | Initial note; content pending Founder review |
+| 1.0.0 | 2026-07-02 | JERANIUM | Initial note; content pending review |
+| 1.1.0 | 2026-07-02 | JERANIUM | Full content reviewed; actual contribution documented; source quality revised to Medium-High |

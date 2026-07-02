@@ -47,6 +47,9 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 | C-002 | Local recurrent processing and long-range global broadcasting are both reliably associated with conscious access | C | DOC-003, DOC-004 | p.4, p.2 | Confirmed across masking, binocular rivalry, anesthesia, sleep paradigms |
 | C-003 | The brain operates as a prediction machine, continuously minimizing prediction errors | C | DOC-003 | p.7 | Well-established in perceptual and motor domains |
 | C-004 | No single theory of consciousness is complete; every major theory explains some phenomena and fails to explain others | C | DOC-003, DOC-004 | p.2, p.3 | Confirmed by adversarial collaboration results |
+| C-005 | Feedforward processing alone is insufficient for consciousness | C | DOC-001 | p.11 | TMS and masking studies consistent across labs |
+| C-006 | Consciousness can be dissociated from behavioural responsiveness — up to 25% of unresponsive patients retain covert awareness | C | DOC-001 | p.11-12 | Bodien et al., NEJM, 2024 |
+| C-007 | Mammals and birds are conscious | C | DOC-001 | p.11 | New York Declaration on Animal Consciousness, April 2024; 500+ signatories |
 
 ### Class M — Competing Models
 
@@ -65,7 +68,7 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 | E-001 | GNWT and IIT are complementary architectural layers — IIT governs structural substrate capacity; GNWT governs functional routing capacity | E | DOC-004 | p.3 | Alpha Proxima's foundational integration; not yet replicated at scale |
 | E-002 | Posterior cortical hot zones (parietal, temporal, occipital) are at least equally important as prefrontal areas for phenomenal consciousness | E | DOC-003, DOC-004 | p.4-5, p.2 | Consistent with IIT and RPT; inconsistent with strong GNWT claims |
 | E-003 | The Salience Network serves as threshold gate between local Φ-modifications and global ignition | E | DOC-004 | p.2 | Theoretical interpretation; network neuroscience framing |
-| E-004 | COGITATE (GNWT vs. IIT) results partially support both theories without decisively confirming either | E | DOC-003 | p.2, p.15 | Adversarial collaboration ongoing |
+| E-004 | COGITATE (GNWT vs. IIT): prefrontal ignition at stimulus offset failed preregistered test; posterior cortex robustly encodes visual content | E | DOC-001, DOC-003 | p.2-3, p.10; p.2, p.15 | Asymmetric result — posterior anatomy (IIT) confirmed; frontal mechanism (GNW) challenged; IIT internal connectivity also not observed |
 
 ### Class Q — Open Questions
 
@@ -73,7 +76,8 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 |----------|----------|-------|--------|-------|
 | Q-001 | Why are physical processes accompanied by subjective experience at all? (The Hard Problem) | Q | DOC-003 | p.4, p.6, p.16; No current theory resolves this |
 | Q-002 | Is prefrontal involvement necessary for conscious experience, or only for reportability and metacognitive monitoring? | Q | DOC-003, DOC-004 | p.4, p.15, p.2 |
-| Q-003 | If GNWT-like global broadcast, HOT/AST-like self-models, and PP/Active Inference generative hierarchies were implemented in AI, would that be sufficient for consciousness? | Q | DOC-003 | p.16 |
+| Q-003 | If GNWT-like global broadcast, HOT/AST-like self-models, and PP/Active Inference generative hierarchies were implemented in AI, would that be sufficient for consciousness? | Q | DOC-003, DOC-001 | p.16; p.10 | Active ethical debate 2024–2026; 100+ expert paper warning of AI suffering |
+| Q-004 | The Binding Problem: how does the brain integrate distributed neural processes into unified conscious experience? | Q | DOC-001 | p.10 | Gamma oscillations (~40 Hz) proposed; mixed empirical support |
 
 ### Class S — Speculative Hypotheses
 
@@ -81,6 +85,9 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 |----------|------------|-------|--------|-------|
 | S-001 | Consciousness may be graded or stacked — local recurrent loops (RPT), regional hot zones (IIT), full global access (GNWT) representing distinct levels | S | DOC-003 | p.16 |
 | S-002 | A hybrid architecture combining GNWT workspace + PP/Active Inference backbone + HOT/AST self-model could constitute genuinely introspectable AI | S | DOC-003 | p.16-17 |
+| S-003 | Consciousness arises from quantum computations in microtubules (Orch OR) | S | DOC-001 | p.7 | Dominant objection: decoherence in warm/wet brain environment |
+| S-004 | Phenomenal consciousness as naively conceived does not exist (Illusionism) | S | DOC-001 | p.8 | Hard Problem dissolves; Alpha Proxima does not adopt this position |
+| S-005 | Consciousness (or proto-conscious properties) is fundamental and ubiquitous in nature (Panpsychism) | S | DOC-001 | p.8, p.11 | IIT has panpsychist implications; combination problem unresolved |
 
 ### Class P — Phenomenological Claims
 
@@ -92,7 +99,7 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 
 | Claim ID | Origin | Status |
 |----------|--------|--------|
-| TBD | DOC-001 (Perplexity) | Pending Founder review of PDF — claims to be extracted and registered |
+| — | DOC-001 (Perplexity) | ✓ Reviewed 2026-07-02 — all claims extracted and registered (C-005 through C-007, E-004 updated, Q-004, S-003 through S-005) |
 | TBD | DOC-002 (Gemini) | Pending artifact delivery |
 
 ---
@@ -109,4 +116,5 @@ Per [[Book III - Knowledge Integrity]], Art. II:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-07-02 | LUMIAION / JERANIUM | Initial registry; all claims from Canonical Synthesis registered; DOC-001 and DOC-002 pending |
+| 1.0.0 | 2026-07-02 | LUMIAION / JERANIUM | Initial registry; DOC-003 and DOC-004 claims registered; DOC-001 pending |
+| 1.1.0 | 2026-07-02 | LUMIAION / JERANIUM | DOC-001 (Perplexity) fully integrated: C-005 to C-007 added; E-004 refined; Q-004 added; S-003 to S-005 added; DOC-002 still pending |
