@@ -35,14 +35,10 @@
             "id": "61b304b58f24939e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/graph.json",
-                "bFile": ".obsidian/graph.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: graph.json  (Working Tree)"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
             }
           }
         ],
@@ -308,6 +304,8 @@
   },
   "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "10_TEMPLATES/Concept Note Template.md",
+    "04_DECISIONS/ADR-0001 - The Founding Decision.md",
     "00_CONSTITUTION/Book I - The Constitution.md",
     "08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md",
     "08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md",
@@ -342,8 +340,6 @@
     "08_SYSTEMS/Engineering Toolkit/dependency_analyzer.py",
     "08_SYSTEMS/Engineering Toolkit/vault_statistics.py",
     "08_SYSTEMS/Engineering Toolkit/metadata_migrator.py",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Metadata Migration Report v1.1.md",
-    "99_ARCHIVE/Engineering Cleanup/ES-002 Metadata Migration Phase 1/06 Source - SanaLab.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
