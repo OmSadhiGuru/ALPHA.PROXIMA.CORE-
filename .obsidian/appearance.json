@@ -2,5 +2,6 @@
   "translucency": false,
   "accentColor": "#f2cf21",
   "cssTheme": "Shade Sanctuary",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "showRibbon": false
 }
