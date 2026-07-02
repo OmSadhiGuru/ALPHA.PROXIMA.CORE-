@@ -85,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -233,6 +234,7 @@
   },
   "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "03_AI_COUNCIL/Departments/SOHMA Charter.md",
     "07_RESEARCH/RP-001/RP-001 Comparative Framework.md",
     "03_AI_COUNCIL/Ethics Council Charter.md",
     "03_AI_COUNCIL/Departments/LUMIAION Charter.md",
@@ -260,7 +262,6 @@
     "08_SYSTEMS/Protocols",
     "08_SYSTEMS/Future Expansion Protocol.md",
     "08_SYSTEMS/Foundational Architecture.md",
-    "03_AI_COUNCIL/Engine Registry.md",
     "03_AI_COUNCIL/Departments",
     "99_ARCHIVE",
     "10_TEMPLATES",
