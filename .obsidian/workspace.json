@@ -231,8 +231,12 @@
       "smart-connections:Smart Connections: Open random connection": false
     }
   },
-  "active": "25f2ca6587598c19",
+  "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "08_SYSTEMS/Automation/vault_note.py",
+    "08_SYSTEMS/Automation/Vault Note Generator.md",
+    "08_SYSTEMS/Automation",
+    "10_TEMPLATES/Implementation Note Template.md",
     "08_SYSTEMS/The Orchestration Framework.md",
     "07_RESEARCH/RP-006/RP-006 Master Index.md",
     "07_RESEARCH/RP-006",
@@ -256,7 +260,6 @@
     "07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md",
     "07_RESEARCH/RP-001/19 Related Laws",
     "07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md",
-    "07_RESEARCH/RP-001/18 Related Constitution",
     "07_RESEARCH/RP-001/17 NotebookLM Package/RP-001 NotebookLM Source Pack.md",
     "07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md",
     "07_RESEARCH/RP-001/15 Future Experiments/RP-001 Future Research Opportunities.md",
@@ -266,9 +269,6 @@
     "07_RESEARCH/RP-001/13 Research Graph/Concepts/Panpsychism.md",
     "07_RESEARCH/RP-001/13 Research Graph/Concepts/Attention Schema Theory.md",
     "07_RESEARCH/RP-001/13 Research Graph/Concepts/Orchestrated Objective Reduction.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Neural Correlates of Consciousness.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Meta Awareness.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Integrated Information Theory.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
