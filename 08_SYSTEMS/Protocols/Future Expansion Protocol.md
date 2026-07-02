@@ -7,6 +7,11 @@ updated: 2026-07-02
 status: active
 version: "1.0.0"
 authors: ["Founder", "Alpha Proxima Foundation"]
+artifact_type: protocol
+institutional_owner: "Alpha Proxima Foundation"
+dependencies: ["[[Book I - The Constitution]]", "[[Concept Note Template]]", "[[ADR Template]]"]
+related_documents: ["[[Book I - The Constitution]]", "[[Concept Note Template]]", "[[ADR Template]]", "[[Institutional Registry]]", "[[AI Council Registry]]", "[[Institutional Relationship Map]]", "[[Foundational Architecture]]"]
+related_research_programs: []
 ---
 
 # Future Expansion Protocol

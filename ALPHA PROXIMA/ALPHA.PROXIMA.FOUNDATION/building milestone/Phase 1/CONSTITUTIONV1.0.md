@@ -1,3 +1,21 @@
+---
+title: "CONSTITUTIONV1.0"
+aliases: ["CONSTITUTIONV1.0"]
+tags: [legacy, constitution, alpha-proxima]
+created: 2026-07-02
+updated: 2026-07-02
+status: archived
+version: "0.1.0"
+authors: ["CODEX"]
+artifact_type: legacy-note
+institutional_owner: "Alpha Proxima Foundation"
+dependencies: []
+related_documents: ["[[Book I - The Constitution]]"]
+related_research_programs: []
+---
+
+# CONSTITUTIONV1.0
+
 ## Prime Directive
 
 Every profound insight must eventually become a practical tool.

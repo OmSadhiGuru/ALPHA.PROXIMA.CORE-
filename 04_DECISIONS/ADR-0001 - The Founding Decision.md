@@ -1,6 +1,6 @@
 ---
 title: "ADR-0001 - The Founding Decision"
-aliases: ["ADR-0001", "Founding Decision", "Foundation Act"]
+aliases: ["ADR-0001", "The Founding Decision", "Founding Decision", "Foundation Act"]
 tags: [adr, founding, constitutional, alpha-proxima, lumiaion, governance]
 created: 2026-07-02
 updated: 2026-07-02

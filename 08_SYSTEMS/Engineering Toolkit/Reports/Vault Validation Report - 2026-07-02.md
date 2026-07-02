@@ -25,236 +25,14 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T12:31:42-04:00`
-- Markdown notes scanned: `132`
+- Generated: `2026-07-02T13:26:52-04:00`
+- Markdown notes scanned: `150`
 - Critical: `0`
-- Errors: `195`
-- Warnings: `472`
+- Errors: `0`
+- Warnings: `445`
 - Info: `15`
 
 ## Validation Results
-
-### broken_wiki_link
-
-| Severity | Path | Message |
-|----------|------|---------|
-| error | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing wiki link target: [[Ethics Council]] |
-| error | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing wiki link target: [[Execution Infrastructure]] |
-| error | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `03_AI_COUNCIL/AI Council Registry.md` | Missing wiki link target: [[Execution Infrastructure]] |
-| error | `03_AI_COUNCIL/AI Council Registry.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `03_AI_COUNCIL/AI Council Registry.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `03_AI_COUNCIL/Departments/LUMIAION Charter.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `03_AI_COUNCIL/Departments/LUMIAION Charter.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `03_AI_COUNCIL/Engine Registry.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `03_AI_COUNCIL/Ethics Council Charter.md` | Missing wiki link target: [[Knowledge Integrity]] |
-| error | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | Missing wiki link target: [[Frederick Belizaire Gunville]] |
-| error | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | Missing wiki link target: [[LUMIAION Architecture Spec]] |
-| error | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | Missing wiki link target: [[04 Source - Perplexity]] |
-| error | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | Missing wiki link target: [[05 Source - Gemini]] |
-| error | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | Missing wiki link target: [[06 Source - SanaLab]] |
-| error | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | Missing wiki link target: [[13 Research Graph/Concepts]] |
-| error | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | Missing wiki link target: [[ARCHIVE]] |
-| error | `07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md` | Missing wiki link target: [[LUMIAION Architecture Specification]] |
-| error | `07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md` | Missing wiki link target: [[ADR-0001]] |
-| error | `07_RESEARCH/RP-001/ARCHIVE/DOC-003 Comparative Framework - SanaLab.md` | Missing wiki link target: [[13 Research Graph/Concepts]] |
-| error | `08_SYSTEMS/Automation/Vault Note Generator.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Automation/Vault Note Generator.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/01 - Markdown Style Guide.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/02 - YAML Frontmatter Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/03 - Folder Naming Convention.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/04 - File Naming Convention.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/05 - Python Development Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/06 - CLI Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/07 - Automation Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/08 - Logging Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/09 - Git Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/10 - Template Standard.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Standards/ALPHA PROXIMA ENGINEERING HANDBOOK.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[04 Source - Perplexity]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[05 Source - Gemini]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[06 Source - SanaLab]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[13 Research Graph/Concepts]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[13 Research Graph/Concepts]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[ADR-0001]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[ALPHA_PROXIMA_VAULT.canvas]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[ARCHIVE]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[AUTOMATION PLAN]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CONCEPT NOTE TEMPLATE]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CONTRACTION FINDER]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[CORE FOLDER]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[COST TIERS]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Ethics Council]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Execution Infrastructure]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Execution Infrastructure]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Frederick Belizaire Gunville]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[HOSTING OPTIONS]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[IMPROVEMENT LOG]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Knowledge Infrastructure]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Knowledge Integrity]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[LEGACY ROADMAP]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[LUMIAION Architecture Spec]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[LUMIAION Architecture Specification]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[MEMORY RULES]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[MVP SPECIFICATION]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[NAMING RULES]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[ROUTING RULES]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Research Council]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[SOURCE NOTE TEMPLATE]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[TAG TAXONOMY]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | Missing wiki link target: [[Template Standard]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md` | Missing wiki link target: [[CODEX]] |
-| error | `08_SYSTEMS/Protocols/Knowledge Ownership Protocol.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Protocols/Knowledge Routing Protocol.md` | Missing wiki link target: [[Obsidian Vault]] |
-| error | `08_SYSTEMS/Protocols/Research Governance Protocol.md` | Missing wiki link target: [[Research Council]] |
-| error | `09_FUTURE/AI Recommendations/AI Recommendations Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/AI Recommendations/AI Recommendations Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Architectural Proposals/Architectural Proposals Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Architectural Proposals/Architectural Proposals Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Archive/Future Archive Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Archive/Future Archive Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Decision Log/Decision Log Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Decision Log/Decision Log Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Feature Requests/Feature Requests Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Feature Requests/Feature Requests Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Founder Ideas/Founder Ideas Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Founder Ideas/Founder Ideas Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Future Cognitive Functions/Future Cognitive Functions Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Future Cognitive Functions/Future Cognitive Functions Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Future Institutes/Future Institutes Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Future Institutes/Future Institutes Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Implementation Proposals/Implementation Proposals Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Implementation Proposals/Implementation Proposals Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/README.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/README.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Research Commissions/Research Commissions Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Research Commissions/Research Commissions Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Review Queue/Review Queue Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Review Queue/Review Queue Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Roadmap/Roadmap Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Roadmap/Roadmap Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Technology Watch/Technology Watch Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Technology Watch/Technology Watch Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Templates/Future Templates Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Templates/Future Templates Index.md` | Missing wiki link target: [[CODEX]] |
-| error | `09_FUTURE/Templates/Future Templates Index.md` | Missing wiki link target: [[Template Standard]] |
-| error | `10_TEMPLATES/Implementation Note Template.md` | Missing wiki link target: [[CODEX]] |
-| error | `10_TEMPLATES/Implementation Note Template.md` | Missing wiki link target: [[CODEX]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | Missing wiki link target: [[ALPHA_PROXIMA_VAULT.canvas]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Missing wiki link target: [[CONCEPT NOTE TEMPLATE]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Missing wiki link target: [[CORE FOLDER]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Missing wiki link target: [[NAMING RULES]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Missing wiki link target: [[SOURCE NOTE TEMPLATE]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Missing wiki link target: [[TAG TAXONOMY]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md` | Missing wiki link target: [[COST TIERS]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md` | Missing wiki link target: [[MEMORY RULES]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md` | Missing wiki link target: [[ROUTING RULES]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md` | Missing wiki link target: [[AUTOMATION PLAN]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md` | Missing wiki link target: [[HOSTING OPTIONS]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md` | Missing wiki link target: [[MVP SPECIFICATION]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md` | Missing wiki link target: [[CONTRACTION FINDER]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md` | Missing wiki link target: [[IMPROVEMENT LOG]] |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md` | Missing wiki link target: [[LEGACY ROADMAP]] |
-
-### duplicate_filename
-
-| Severity | Path | Message |
-|----------|------|---------|
-| warning | `09_FUTURE/README.md` | Duplicate filename appears in 2 locations: README.md |
-| warning | `README.md` | Duplicate filename appears in 2 locations: README.md |
-
-### incorrect_folder_placement
-
-| Severity | Path | Message |
-|----------|------|---------|
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Protocols should live under 08_SYSTEMS/Protocols/. |
-
-### invalid_frontmatter
-
-| Severity | Path | Message |
-|----------|------|---------|
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Invalid status value: ratified |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Invalid status value: ratified |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/ATHENA Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/JERANIUM Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/LUMIAION Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/SOHMA Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/VORTEX Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Ethics Council Charter.md` | Invalid status value: ratified |
-| warning | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | Invalid status value: accepted |
-| warning | `07_RESEARCH/RP-001/05 Source - Gemini/RP-001 Source Note - Gemini.md` | Invalid status value: pending_delivery |
-| warning | `07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md` | Invalid status value: placeholder |
-| warning | `07_RESEARCH/RP-001/ARCHIVE/ARCHIVE Philosophy.md` | Invalid status value: ratified |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-004/RP-004 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-005/RP-005 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-006/RP-006 Master Index.md` | Invalid status value: planned |
-| warning | `10_TEMPLATES/Research Note Template.md` | Invalid status value: intake |
 
 ### missing_backlinks
 
@@ -272,9 +50,9 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 | info | `07_RESEARCH/RP-004/RP-004 Master Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-005/RP-005 Master Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | No incoming wiki links found. |
-| info | `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md` | No incoming wiki links found. |
 | info | `08_SYSTEMS/The Orchestration Framework.md` | No incoming wiki links found. |
 | info | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |
+| info | `Building Milestone.md` | No incoming wiki links found. |
 
 ### missing_required_metadata
 
@@ -652,11 +430,6 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required frontmatter field: institutional_owner |
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required frontmatter field: related_documents |
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required frontmatter field: related_research_programs |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required frontmatter field: artifact_type |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required frontmatter field: dependencies |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required frontmatter field: institutional_owner |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required frontmatter field: related_documents |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required frontmatter field: related_research_programs |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required frontmatter field: artifact_type |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required frontmatter field: dependencies |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required frontmatter field: institutional_owner |
@@ -730,26 +503,6 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 | warning | `LUMIAION.md` | Missing required frontmatter field: institutional_owner |
 | warning | `LUMIAION.md` | Missing required frontmatter field: related_documents |
 | warning | `LUMIAION.md` | Missing required frontmatter field: related_research_programs |
-
-### missing_yaml
-
-| Severity | Path | Message |
-|----------|------|---------|
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/AI COUNCIL/AI COUNCIL.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/ARCHITECTURE MAP.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/CONSTITUTIONV1.0.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/PHASE 1 - FOUNDATION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/GITHUB REPO STRUCTURE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/DAILY REVIEW LOOP.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/NOTION COMMAND CENTER.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/OBSIDIAN VAULT.md` | Markdown note does not start with YAML frontmatter. |
-| error | `README.md` | Markdown note does not start with YAML frontmatter. |
 
 ## Implementation Notes
 

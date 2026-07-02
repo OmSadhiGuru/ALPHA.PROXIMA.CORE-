@@ -1,6 +1,6 @@
 ---
 title: "10 - Template Standard"
-aliases: ["Template Lifecycle Standard", "Reusable Template Standard"]
+aliases: ["Template Standard", "Template Lifecycle Standard", "Reusable Template Standard"]
 tags: [systems, engineering, standards, templates, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
@@ -142,4 +142,3 @@ Future versions may define template inheritance, reusable section libraries, val
 - [[03 - Folder Naming Convention]]
 - [[04 - File Naming Convention]]
 - [[07 - Automation Standard]]
-

@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, obsidian, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.1"
+version: "0.1.2"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -41,7 +41,7 @@ It checks for missing YAML, invalid frontmatter, missing required metadata, brok
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.1 |
+| **Version** | 0.1.2 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -182,5 +182,6 @@ The validator reports likely issues. A human or approved governance process deci
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.1.2 | 2026-07-02 | [[CODEX]] | Excluded generated reports from scans, resolved aliases, expanded valid statuses, and allowed office README files |
 | 0.1.1 | 2026-07-02 | [[CODEX]] | Added overwrite protection and approved Future Office template placement |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial Vault Validator tool documented and implemented |

@@ -1,6 +1,6 @@
 ---
 title: "LUMIAION Architecture Spec v0.1"
-aliases: ["LUMIAION Architecture", "LIC Architecture", "LUMIAION Spec"]
+aliases: ["LUMIAION Architecture", "LUMIAION Architecture Spec", "LUMIAION Architecture Specification", "LIC Architecture", "LUMIAION Spec"]
 tags: [systems, architecture, lumiaion, intelligence, specification, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02

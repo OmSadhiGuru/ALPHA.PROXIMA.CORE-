@@ -15,6 +15,8 @@ from typing import Iterable
 
 DEFAULT_REPORT = Path("08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report.md")
 HIDDEN_DIRS = {".git", ".obsidian", ".smart-env", ".claude", ".claudian"}
+SKIPPED_DIRS = {Path("08_SYSTEMS/Engineering Toolkit/Reports")}
+ALLOWED_DUPLICATE_FILENAMES = {"README.md"}
 REQUIRED_FIELDS = {
     "title",
     "aliases",
@@ -30,7 +32,20 @@ REQUIRED_FIELDS = {
     "related_documents",
     "related_research_programs",
 }
-STATUS_VALUES = {"draft", "active", "under_review", "deprecated", "superseded", "archived"}
+STATUS_VALUES = {
+    "accepted",
+    "active",
+    "archived",
+    "deprecated",
+    "draft",
+    "intake",
+    "pending_delivery",
+    "placeholder",
+    "planned",
+    "ratified",
+    "superseded",
+    "under_review",
+}
 LIST_FIELDS = {"aliases", "tags", "authors", "dependencies", "related_documents", "related_research_programs"}
 WIKI_LINK_RE = re.compile(r"(?<!!)\[\[([^\]\n]+)\]\]")
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
@@ -64,7 +79,10 @@ def iter_files(root: Path, include_hidden: bool) -> Iterable[Path]:
     for path in root.rglob("*"):
         if not path.is_file():
             continue
-        if not include_hidden and any(part in HIDDEN_DIRS or part.startswith(".") for part in path.relative_to(root).parts):
+        relative_path = path.relative_to(root)
+        if any(relative_path.is_relative_to(skipped) for skipped in SKIPPED_DIRS):
+            continue
+        if not include_hidden and any(part in HIDDEN_DIRS or part.startswith(".") for part in relative_path.parts):
             continue
         yield path
 
@@ -182,6 +200,11 @@ def note_names(note: Note) -> set[str]:
     title = note.frontmatter.get("title")
     if isinstance(title, str) and title:
         names.add(title)
+    aliases = note.frontmatter.get("aliases")
+    if isinstance(aliases, list):
+        for alias in aliases:
+            if isinstance(alias, str) and alias:
+                names.add(alias)
     return names
 
 
@@ -203,6 +226,14 @@ def target_exists(root: Path, note: Note, target: str, known_targets: set[str]) 
         note.path.parent / f"{target}.md",
         note.path.parent / f"{target}.canvas",
     ]
+    for ancestor in note.path.parents:
+        if ancestor == root.parent:
+            break
+        candidates.extend([ancestor / target, ancestor / f"{target}.md", ancestor / f"{target}.canvas"])
+    target_name = Path(target).name
+    for candidate in root.rglob("*"):
+        if candidate.name == target_name or candidate.stem == target_name:
+            candidates.append(candidate)
     return any(candidate.exists() for candidate in candidates)
 
 
@@ -265,6 +296,8 @@ def validate_duplicate_filenames(root: Path, include_hidden: bool) -> list[Issue
 
     issues: list[Issue] = []
     for filename, paths in sorted(by_name.items()):
+        if filename in ALLOWED_DUPLICATE_FILENAMES:
+            continue
         if len(paths) > 1:
             for path in paths:
                 issues.append(Issue("warning", "duplicate_filename", path, f"Duplicate filename appears in {len(paths)} locations: {filename}"))

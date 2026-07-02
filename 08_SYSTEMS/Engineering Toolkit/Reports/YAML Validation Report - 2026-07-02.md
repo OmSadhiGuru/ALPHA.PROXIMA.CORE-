@@ -25,12 +25,12 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T12:40:17-04:00`
-- Markdown notes scanned: `133`
+- Generated: `2026-07-02T13:26:52-04:00`
+- Markdown notes scanned: `150`
 - Critical: `0`
-- Errors: `15`
-- Warnings: `471`
-- Info: `128`
+- Errors: `0`
+- Warnings: `447`
+- Info: `129`
 
 ## Validation Results
 
@@ -40,30 +40,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 |----------|------|---------|
 | warning | `10_TEMPLATES/Research Note Template.md` | created should be YYYY-MM-DD: YYYY-MM-DD |
 | warning | `10_TEMPLATES/Research Note Template.md` | updated should be YYYY-MM-DD: YYYY-MM-DD |
-
-### invalid_status
-
-| Severity | Path | Message |
-|----------|------|---------|
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Invalid status value: ratified |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Invalid status value: ratified |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/ATHENA Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/JERANIUM Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/LUMIAION Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/SOHMA Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Departments/VORTEX Charter.md` | Invalid status value: ratified |
-| warning | `03_AI_COUNCIL/Ethics Council Charter.md` | Invalid status value: ratified |
-| warning | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | Invalid status value: accepted |
-| warning | `07_RESEARCH/RP-001/05 Source - Gemini/RP-001 Source Note - Gemini.md` | Invalid status value: pending_delivery |
-| warning | `07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md` | Invalid status value: placeholder |
-| warning | `07_RESEARCH/RP-001/ARCHIVE/ARCHIVE Philosophy.md` | Invalid status value: ratified |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-004/RP-004 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-005/RP-005 Master Index.md` | Invalid status value: planned |
-| warning | `07_RESEARCH/RP-006/RP-006 Master Index.md` | Invalid status value: planned |
-| warning | `10_TEMPLATES/Research Note Template.md` | Invalid status value: intake |
 
 ### missing_required_metadata
 
@@ -441,11 +417,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required field: institutional_owner |
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required field: related_documents |
 | warning | `08_SYSTEMS/Foundational Architecture.md` | Missing required field: related_research_programs |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required field: artifact_type |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required field: dependencies |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required field: institutional_owner |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required field: related_documents |
-| warning | `08_SYSTEMS/Future Expansion Protocol.md` | Missing required field: related_research_programs |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required field: artifact_type |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required field: dependencies |
 | warning | `08_SYSTEMS/Institutional Relationship Map.md` | Missing required field: institutional_owner |
@@ -520,26 +491,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `LUMIAION.md` | Missing required field: related_documents |
 | warning | `LUMIAION.md` | Missing required field: related_research_programs |
 
-### missing_yaml
-
-| Severity | Path | Message |
-|----------|------|---------|
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/AI COUNCIL/AI COUNCIL.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/ARCHITECTURE MAP.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/CONSTITUTIONV1.0.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/PHASE 1 - FOUNDATION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/GITHUB REPO STRUCTURE.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/DAILY REVIEW LOOP.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/NOTION COMMAND CENTER.md` | Markdown note does not start with YAML frontmatter. |
-| error | `ALPHA PROXIMA/OBSIDIAN VAULT.md` | Markdown note does not start with YAML frontmatter. |
-| error | `README.md` | Markdown note does not start with YAML frontmatter. |
-
 ### title_mismatch
 
 | Severity | Path | Message |
@@ -600,6 +551,7 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | Frontmatter title `RP-006 Master Index` does not match H1 `RP-006 — Atlas of Human Wisdom`. |
 | info | `08_SYSTEMS/The Orchestration Framework.md` | Frontmatter title `The Orchestration Framework` does not match H1 `THE ORCHESTRATION FRAMEWORK`. |
 | info | `10_TEMPLATES/ADR Template.md` | Frontmatter title `ADR Template` does not match H1 `ADR Template — Architecture Decision Record`. |
+| info | `README.md` | Frontmatter title `ALPHA.PROXIMA.CORE- README` does not match H1 `ALPHA.PROXIMA.CORE-`. |
 
 ### unknown_field
 

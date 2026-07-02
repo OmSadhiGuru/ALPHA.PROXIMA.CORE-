@@ -5,7 +5,7 @@ tags: [systems, engineering, standards, yaml, metadata, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: engineering-standard
 standard_id: "ES-02"
@@ -83,11 +83,18 @@ Applies to every Markdown note in the vault and to generated Markdown artifacts 
 | Status | Meaning |
 |--------|---------|
 | draft | Being written |
+| accepted | Approved decision record or accepted technical outcome |
 | active | Current and usable |
-| under_review | Awaiting review |
-| deprecated | Still present but discouraged |
-| superseded | Replaced by a newer artifact |
 | archived | Preserved, not maintained |
+| deprecated | Still present but discouraged |
+| draft | Being written |
+| intake | Captured but not yet reviewed |
+| pending_delivery | Awaiting source delivery or external input |
+| placeholder | Reserved scaffold with incomplete content |
+| planned | Intended but not active |
+| ratified | Formally approved by the relevant authority |
+| superseded | Replaced by a newer artifact |
+| under_review | Awaiting review |
 
 ---
 
@@ -145,6 +152,7 @@ Future versions may add machine-readable validation schemas. If validation becom
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-07-02 | [[CODEX]] | Expanded controlled status values to cover existing institutional document states |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial YAML frontmatter standard |
 
 ---
@@ -156,4 +164,3 @@ Future versions may add machine-readable validation schemas. If validation becom
 - [[04 - File Naming Convention]]
 - [[07 - Automation Standard]]
 - [[10 - Template Standard]]
-
