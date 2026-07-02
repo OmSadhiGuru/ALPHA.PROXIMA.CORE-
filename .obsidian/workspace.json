@@ -11,14 +11,10 @@
             "id": "61b304b58f24939e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/graph.json",
-                "bFile": ".obsidian/graph.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: graph.json  (Working Tree)"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
             }
           },
           {
@@ -63,7 +59,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-proxima",
+                "query": "tag:#governance",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,8 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -238,8 +233,10 @@
   },
   "active": "61b304b58f24939e",
   "lastOpenFiles": [
-    "03_AI_COUNCIL/Departments/SOHMA Charter.md",
+    "08_SYSTEMS/Protocols/Knowledge Ownership Protocol.md",
     "07_RESEARCH/RP-001/RP-001 Comparative Framework.md",
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "03_AI_COUNCIL/Departments/SOHMA Charter.md",
     "03_AI_COUNCIL/Ethics Council Charter.md",
     "03_AI_COUNCIL/Departments/LUMIAION Charter.md",
     "04_DECISIONS/ADR-0001 - The Founding Decision.md",
@@ -260,12 +257,10 @@
     "08_SYSTEMS/LUMIAION Architecture Spec v0.1.md",
     "01_VISION/Alpha Proxima — 10 Year Vision.md",
     "08_SYSTEMS/Protocols/Knowledge Routing Protocol.md",
-    "08_SYSTEMS/Protocols/Knowledge Ownership Protocol.md",
     "08_SYSTEMS/Protocols/Decision Routing Protocol.md",
     "08_SYSTEMS/Protocols/Communication Protocol.md",
     "08_SYSTEMS/Protocols",
     "08_SYSTEMS/Future Expansion Protocol.md",
-    "08_SYSTEMS/Foundational Architecture.md",
     "03_AI_COUNCIL/Departments",
     "99_ARCHIVE",
     "10_TEMPLATES",

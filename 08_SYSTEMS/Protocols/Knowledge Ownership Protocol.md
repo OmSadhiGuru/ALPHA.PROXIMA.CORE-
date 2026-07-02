@@ -1,12 +1,24 @@
 ---
-title: "Knowledge Ownership Protocol"
-aliases: ["Knowledge Ownership", "IP Protocol", "Institutional Knowledge Ownership"]
-tags: [protocol, knowledge, ownership, systems, alpha-proxima, governance]
+title: Knowledge Ownership Protocol
+aliases:
+  - Knowledge Ownership
+  - IP Protocol
+  - Institutional Knowledge Ownership
+tags:
+  - protocol
+  - knowledge
+  - ownership
+  - systems
+  - alpha-proxima
+  - governance
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
-authors: ["Founder", "Alpha Proxima Foundation"]
+version: 1.0.0
+authors:
+  - Founder
+  - Alpha Proxima Foundation
+  - Frederick Belizaire Gunville
 ---
 
 # Knowledge Ownership Protocol

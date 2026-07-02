@@ -1,13 +1,24 @@
 ---
-title: "RP-001 Comparative Framework"
-aliases: ["RP-001 Comparisons", "Consciousness Comparative Framework"]
-tags: [research, rp-001, consciousness, comparative, framework, alpha-proxima]
+title: RP-001 Comparative Framework
+aliases:
+  - RP-001 Comparisons
+  - Consciousness Comparative Framework
+tags:
+  - research
+  - rp-001
+  - consciousness
+  - comparative
+  - framework
+  - alpha-proxima
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
-authors: ["LUMIAION", "JERANIUM"]
-research_program: "RP-001 Atlas of Human Consciousness"
+version: 1.0.0
+authors:
+  - LUMIAION
+  - JERANIUM
+  - Frederick Belizaire Gunville
+research_program: RP-001 Atlas of Human Consciousness
 canon_status: under_review
 evidence_class: M
 ---
