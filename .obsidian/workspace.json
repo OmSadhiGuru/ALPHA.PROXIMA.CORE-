@@ -26,6 +26,16 @@
               "icon": "file-text",
               "title": "Release Notes"
             }
+          },
+          {
+            "id": "46b6756d0bd1b2e5",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nouvel onglet"
+            }
           }
         ]
       }
@@ -59,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-proxima",
+                "query": "tag:#obsidian",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -80,8 +90,7 @@
               "title": "Signets"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -233,8 +242,21 @@
   },
   "active": "61b304b58f24939e",
   "lastOpenFiles": [
-    "08_SYSTEMS/Automation/vault_note.py",
+    "00_CONSTITUTION/Book I - The Constitution.md",
     "08_SYSTEMS/Automation/Vault Note Generator.md",
+    "08_SYSTEMS/Engineering Standards/10 - Template Standard.md",
+    "08_SYSTEMS/Engineering Standards/09 - Git Standard.md",
+    "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
+    "08_SYSTEMS/Engineering Standards/07 - Automation Standard.md",
+    "08_SYSTEMS/Engineering Standards/06 - CLI Standard.md",
+    "08_SYSTEMS/Engineering Standards/05 - Python Development Standard.md",
+    "08_SYSTEMS/Engineering Standards/04 - File Naming Convention.md",
+    "08_SYSTEMS/Engineering Standards/03 - Folder Naming Convention.md",
+    "08_SYSTEMS/Engineering Standards/02 - YAML Frontmatter Standard.md",
+    "08_SYSTEMS/Engineering Standards/01 - Markdown Style Guide.md",
+    "08_SYSTEMS/Engineering Standards/ALPHA PROXIMA ENGINEERING HANDBOOK.md",
+    "08_SYSTEMS/Engineering Standards",
+    "08_SYSTEMS/Automation/vault_note.py",
     "08_SYSTEMS/Automation",
     "10_TEMPLATES/Implementation Note Template.md",
     "08_SYSTEMS/The Orchestration Framework.md",
@@ -256,19 +278,6 @@
     "07_RESEARCH/RP-001/21 Version History/RP-001 Version History.md",
     "07_RESEARCH/RP-001/21 Version History",
     "07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md",
-    "07_RESEARCH/RP-001/20 Related ADRs",
-    "07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md",
-    "07_RESEARCH/RP-001/19 Related Laws",
-    "07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md",
-    "07_RESEARCH/RP-001/17 NotebookLM Package/RP-001 NotebookLM Source Pack.md",
-    "07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md",
-    "07_RESEARCH/RP-001/15 Future Experiments/RP-001 Future Research Opportunities.md",
-    "07_RESEARCH/RP-001/14 Open Questions/RP-001 Open Questions.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Recurrent Processing Theory.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Predictive Processing.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Panpsychism.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Attention Schema Theory.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Orchestrated Objective Reduction.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
