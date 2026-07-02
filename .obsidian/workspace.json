@@ -233,6 +233,9 @@
   },
   "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "08_SYSTEMS/LUMIAION Architecture Spec v0.1.md",
+    "04_DECISIONS/ADR-0001 - The Founding Decision.md",
+    "01_VISION/Alpha Proxima — 10 Year Vision.md",
     "08_SYSTEMS/Protocols/Knowledge Routing Protocol.md",
     "08_SYSTEMS/Protocols/Knowledge Ownership Protocol.md",
     "08_SYSTEMS/Protocols/Decision Routing Protocol.md",
@@ -259,8 +262,6 @@
     "README.md",
     "Alpha Proxima Core.md",
     "99_ARCHIVE",
-    "10_TEMPLATES/Vault Structure Convention.md",
-    "10_TEMPLATES/ADR Template.md",
     "10_TEMPLATES",
     "09_PEOPLE",
     "08_SYSTEMS",
@@ -268,7 +269,6 @@
     "06_PROJECTS",
     "05_PROPOSALS",
     "04_DECISIONS",
-    "03_AI_COUNCIL/Institutional Registry.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
