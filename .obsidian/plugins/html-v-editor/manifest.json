@@ -1,0 +1,9 @@
+{
+  "id": "html-v-editor",
+  "name": "HTML V Editor",
+  "version": "1.0.5",
+  "minAppVersion": "1.12.0",
+  "description": "Edit and preview HTML/HTM files.",
+  "author": "mandolin",
+  "isDesktopOnly": true
+}

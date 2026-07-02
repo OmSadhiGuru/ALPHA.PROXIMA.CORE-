@@ -1,0 +1,11 @@
+{
+	"id": "syncscroll",
+	"name": "SyncScroll",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Sync scrolling between two different files in side-by-side panes. Triple-click any line to jump the other file to the same line with horizontal alignment - perfect for comparing documents or reading translations.",
+	"author": "Omnbird",
+	"authorUrl": "https://github.com/omnbird",
+	"fundingUrl": "https://buymeacoffee.com/amitluu8",
+	"isDesktopOnly": true
+}

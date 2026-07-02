@@ -1,0 +1,9 @@
+{
+	"id": "scalosaurus",
+	"name": "Scalosaurus",
+	"version": "0.1.1",
+	"minAppVersion": "1.12.4",
+	"description": "Resize embedded images with drag handles and write the size back into the wikilink, with snap-to-column-width.",
+	"author": "Maximilian Rarbach",
+	"isDesktopOnly": false
+}

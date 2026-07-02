@@ -1,0 +1,10 @@
+{
+  "id": "deepseek-cli",
+  "name": "DeepSeek CLI Chat",
+  "version": "1.0.1",
+  "minAppVersion": "0.15.0",
+  "description": "Chat with DeepSeek models using Anthropic and OpenAI-compatible APIs.",
+  "author": "HXXXL",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

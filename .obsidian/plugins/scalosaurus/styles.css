@@ -1,0 +1,129 @@
+/* ========================================================================
+   Scalosaurus — image resize handles + snap guide + |100% sentinel
+   ======================================================================== */
+
+/* ------------------------------------------------------------------------
+   Sentinel rendering: ![[img.png|100%]] (or |fit) puts the non-numeric
+   alias into the embed's alt attribute in both Live Preview and Reading
+   Mode. These rules make such embeds track the width of their containing
+   block responsively. Exact [alt=...] match only — an ends-with match
+   would false-positive on captions like "scaled to 100%".
+   ------------------------------------------------------------------------ */
+.internal-embed.image-embed[alt="100%"],
+.internal-embed.image-embed[alt="fit"] {
+	display: inline-block;
+	width: 100%;
+}
+
+.internal-embed.image-embed[alt="100%"] img,
+.internal-embed.image-embed[alt="fit"] img {
+	width: 100%;
+	height: auto;
+}
+
+/* ------------------------------------------------------------------------
+   Overlay layer: one fixed, viewport-covering, click-transparent root per
+   window. Handles and the guide line are absolutely positioned children.
+   ------------------------------------------------------------------------ */
+.scalosaurus-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: var(--layer-popover, 1000);
+	pointer-events: none;
+}
+
+/* Focus ring around the hovered/selected image */
+.scalosaurus-frame {
+	position: absolute;
+	border: 1px solid var(--interactive-accent);
+	border-radius: 2px;
+	pointer-events: none;
+}
+
+/* Corner handles: 8px visual dot centered in a 28px touch/hit target */
+.scalosaurus-handle {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	margin: -14px 0 0 -14px; /* center on the corner coordinate */
+	pointer-events: auto;
+	touch-action: none;
+	background: transparent;
+}
+
+.scalosaurus-handle::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin: -4px 0 0 -4px;
+	border-radius: 50%;
+	background: var(--interactive-accent);
+	border: 1px solid var(--background-primary);
+	box-shadow: 0 0 0 1px var(--background-modifier-border);
+}
+
+.scalosaurus-handle[data-corner="nw"],
+.scalosaurus-handle[data-corner="se"] {
+	cursor: nwse-resize;
+}
+
+.scalosaurus-handle[data-corner="ne"],
+.scalosaurus-handle[data-corner="sw"] {
+	cursor: nesw-resize;
+}
+
+/* Vertical snap guide at the column edge */
+.scalosaurus-guide {
+	position: absolute;
+	width: 2px;
+	background: var(--interactive-accent);
+	opacity: 0.9;
+	pointer-events: none;
+	display: none;
+}
+
+.scalosaurus-guide.is-active {
+	display: block;
+}
+
+/* Width readout bubble shown while dragging */
+.scalosaurus-readout {
+	position: absolute;
+	transform: translate(-50%, 0);
+	padding: 2px 6px;
+	font-size: var(--font-ui-smaller);
+	font-variant-numeric: tabular-nums;
+	color: var(--text-on-accent);
+	background: var(--interactive-accent);
+	border-radius: var(--radius-s);
+	pointer-events: none;
+	white-space: nowrap;
+	display: none;
+}
+
+.scalosaurus-readout.is-active {
+	display: block;
+}
+
+/* ------------------------------------------------------------------------
+   Global drag state
+   ------------------------------------------------------------------------ */
+body.scalosaurus-dragging {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+body.scalosaurus-dragging .scalosaurus-handle {
+	cursor: inherit;
+}
+
+/* ------------------------------------------------------------------------
+   Native resize coexistence (Obsidian >= 1.12 corner drag).
+   Our handles call stopPropagation on pointerdown, which prevents the
+   native drag from starting on them. The selector of the native handle
+   element is not yet pinned (see docs/findings.md, M0 spike) — once known,
+   a rule scoped under body.scalosaurus-suppress-native will hide it here.
+   ------------------------------------------------------------------------ */

@@ -18,26 +18,56 @@
             }
           },
           {
-            "id": "b2cdd8124860affc",
+            "id": "0424885674ab2e97",
             "type": "leaf",
             "state": {
-              "type": "smart-release-notes-view",
-              "state": {},
-              "icon": "file-text",
-              "title": "Release Notes"
+              "type": "markdown",
+              "state": {
+                "file": "00_CONSTITUTION/Book I - The Constitution.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Book I - The Constitution"
             }
           },
           {
-            "id": "46b6756d0bd1b2e5",
+            "id": "c68c6edf04928e15",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "copilot/copilot-custom-prompts/Clip Web Page.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "Nouvel onglet"
+              "title": "Clip Web Page"
             }
           }
-        ]
+        ],
+        "currentTab": 1,
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -89,8 +119,29 @@
               "icon": "lucide-bookmark",
               "title": "Signets"
             }
+          },
+          {
+            "id": "8968d461bc22d6d9",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
+          },
+          {
+            "id": "ea8bab8603bf48f8",
+            "type": "leaf",
+            "state": {
+              "type": "chapters",
+              "state": {},
+              "icon": "book",
+              "title": "Book chapters"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -110,6 +161,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "00_CONSTITUTION/Book I - The Constitution.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +171,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rétroliens"
+              "title": "Rétrolien pour Book I - The Constitution"
             }
           },
           {
@@ -128,11 +180,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "00_CONSTITUTION/Book I - The Constitution.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Liens sortants"
+              "title": "Liens sortants de Book I - The Constitution"
             }
           },
           {
@@ -170,12 +223,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "00_CONSTITUTION/Book I - The Constitution.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Plan"
+              "title": "Plan de Book I - The Constitution"
             }
           },
           {
@@ -183,7 +237,9 @@
             "type": "leaf",
             "state": {
               "type": "footnotes",
-              "state": {},
+              "state": {
+                "file": "00_CONSTITUTION/Book I - The Constitution.md"
+              },
               "icon": "lucide-file-signature",
               "title": "Notes de bas de page"
             }
@@ -206,6 +262,36 @@
               "state": {},
               "icon": "git-pull-request",
               "title": "Source Control"
+            }
+          },
+          {
+            "id": "4b6fcff5dc980bc2",
+            "type": "leaf",
+            "state": {
+              "type": "deepseek-cli-chat",
+              "state": {},
+              "icon": "bot",
+              "title": "DeepSeek CLI"
+            }
+          },
+          {
+            "id": "d42a1f0056392abf",
+            "type": "leaf",
+            "state": {
+              "type": "aibrowser-chat-view",
+              "state": {},
+              "icon": "messages-square",
+              "title": "OmniChat"
+            }
+          },
+          {
+            "id": "e495dd012b1c0ce1",
+            "type": "leaf",
+            "state": {
+              "type": "goal",
+              "state": {},
+              "icon": "book",
+              "title": "Book goal"
             }
           }
         ],
@@ -237,11 +323,46 @@
       "realclaudian:Open Claudian": false,
       "smart-connections:Smart Connections: Open connections view": false,
       "smart-connections:Toggle Footer Connections": false,
-      "smart-connections:Smart Connections: Open random connection": false
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-lookup:Smart Lookup: Open lookup view": false,
+      "templater-obsidian:Templater": false,
+      "remotely-save:Remotely Save": false,
+      "obsidian-kanban:Create new board": false,
+      "copilot:Open Copilot Chat": false,
+      "obsidian-importer:Open Importer": false,
+      "homepage:Open homepage": false,
+      "pomodoro-timer:Toggle timer panel": false,
+      "deepseek-cli:Open DeepSeek CLI Chat": false,
+      "html-v-editor:Open HTML V task panel": false,
+      "aibrowser-chat:Open OmniChat": false,
+      "obsidian-book-search-plugin:Create new book note": false,
+      "llm-docs:Create new LLM doc": false,
+      "docx-importer:Import DOCX": false,
+      "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "61b304b58f24939e",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "09_PEOPLE/CODEX.md",
+    "copilot/copilot-custom-prompts/Clip Web Page.md",
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "Tags",
+    "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
+    "copilot/copilot-custom-prompts/Remove URLs.md",
+    "copilot/copilot-custom-prompts/Generate glossary.md",
+    "copilot/copilot-custom-prompts/Generate table of contents.md",
+    "copilot/copilot-custom-prompts/Make longer.md",
+    "copilot/copilot-custom-prompts/Make shorter.md",
+    "copilot/copilot-custom-prompts/Emojify.md",
+    "copilot/copilot-custom-prompts/Explain like I am 5.md",
+    "copilot/copilot-custom-prompts/Simplify.md",
+    "copilot/copilot-custom-prompts/Summarize.md",
+    "copilot/copilot-custom-prompts/Translate to Chinese.md",
+    "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
+    "copilot/copilot-custom-prompts",
+    "copilot",
     "11_OPERATIONS/Version History/Operations Version History.md",
     "11_OPERATIONS/Automation Queue/Automation Queue Index.md",
     "11_OPERATIONS/Operational Health/Operational Health Index.md",
@@ -251,17 +372,6 @@
     "11_OPERATIONS/Quarterly Reviews/Quarterly Reviews Index.md",
     "11_OPERATIONS/Monthly Operations/Monthly Operations Index.md",
     "11_OPERATIONS/Weekly Operations/Weekly Operations Index.md",
-    "11_OPERATIONS/Daily Operations/Daily Operations Index.md",
-    "11_OPERATIONS/Executive Office/Executive Office Index.md",
-    "11_OPERATIONS/Institutional Observatory/Institutional Observatory Index.md",
-    "11_OPERATIONS/Decision Pipelines/Decision Pipelines Index.md",
-    "11_OPERATIONS/Operational Procedures/Operational Procedures Index.md",
-    "11_OPERATIONS/AI Council/AI Council Operations Registry.md",
-    "11_OPERATIONS/Review Cycles/Review Cycles Registry.md",
-    "11_OPERATIONS/Artifact Registry/Artifact Registry.md",
-    "11_OPERATIONS/Workflow Registry/Workflow Registry.md",
-    "11_OPERATIONS/Office Registry/Office Registry.md",
-    "11_OPERATIONS/README.md",
     "11_OPERATIONS/Workflow Registry",
     "11_OPERATIONS/Weekly Operations",
     "11_OPERATIONS/Version History",
@@ -269,15 +379,6 @@
     "11_OPERATIONS/Quarterly Reviews",
     "11_OPERATIONS/Operational Procedures",
     "11_OPERATIONS/Operational Health",
-    "11_OPERATIONS/Office Registry",
-    "11_OPERATIONS/Monthly Operations",
-    "11_OPERATIONS/Metrics",
-    "06 Source - SanaLab.md",
-    "03_AI_COUNCIL/Research Council.md",
-    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/LEGACY ROADMAP.md",
-    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/IMPROVEMENT LOG.md",
-    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/CONTRACTION FINDER.md",
-    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/AUTOMATION PLAN.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
