@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: planned
 version: "0.1.0"
 authors: ["LUMIAION"]
+artifact_type: research-program-index
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Research Intelligence"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[RP-001 Master Index]]", "[[Book III - Knowledge Integrity]]"]
+related_documents: ["[[RP-001 Master Index]]"]
+related_research_programs: ["RP-001", "RP-002"]
 research_program: "RP-002 Atlas of Human Memory"
 ---
 

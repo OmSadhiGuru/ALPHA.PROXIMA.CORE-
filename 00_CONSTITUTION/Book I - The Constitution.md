@@ -7,6 +7,13 @@ updated: 2026-07-01
 status: ratified
 version: "1.0.0"
 authors: ["Alpha Council"]
+artifact_type: constitution
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Governance"
+reasoning_engine: "Alpha Council"
+dependencies: []
+related_documents: ["[[Book II - Governance Framework]]", "[[Book III - Knowledge Integrity]]"]
+related_research_programs: []
 ---
 
 # Book I — The Constitution of Alpha Proxima Core

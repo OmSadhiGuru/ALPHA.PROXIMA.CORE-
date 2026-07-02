@@ -25,11 +25,11 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T14:43:26-04:00`
-- Markdown notes scanned: `171`
+- Generated: `2026-07-02T14:53:43-04:00`
+- Markdown notes scanned: `172`
 - Critical: `0`
 - Errors: `1`
-- Warnings: `445`
+- Warnings: `410`
 - Info: `14`
 
 ## Folder Classification
@@ -53,7 +53,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 |----------|------|---------|
 | info | `06_GOVERNANCE/Standards Council/Standards Council Evaluation.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/05 Source - Gemini/RP-001 Source Note - Gemini.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-001/06 Source - SanaLab/RP-001 Source Note - SanaLab.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/07 Future Sources/RP-001 Future Sources.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md` | No incoming wiki links found. |
@@ -65,26 +64,12 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | No incoming wiki links found. |
 | info | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |
 | info | `Building Milestone.md` | No incoming wiki links found. |
+| info | `Vault.md` | No incoming wiki links found. |
 
 ### missing_required_metadata
 
 | Severity | Path | Message |
 |----------|------|---------|
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required frontmatter field: artifact_type |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required frontmatter field: dependencies |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required frontmatter field: institutional_owner |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required frontmatter field: related_documents |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required frontmatter field: related_research_programs |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required frontmatter field: artifact_type |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required frontmatter field: dependencies |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required frontmatter field: institutional_owner |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required frontmatter field: related_documents |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required frontmatter field: related_research_programs |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required frontmatter field: artifact_type |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required frontmatter field: dependencies |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required frontmatter field: institutional_owner |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required frontmatter field: related_documents |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required frontmatter field: related_research_programs |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required frontmatter field: artifact_type |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required frontmatter field: dependencies |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required frontmatter field: institutional_owner |
@@ -200,11 +185,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required frontmatter field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required frontmatter field: related_documents |
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required frontmatter field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required frontmatter field: artifact_type |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required frontmatter field: dependencies |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required frontmatter field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required frontmatter field: related_documents |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required frontmatter field: related_research_programs |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required frontmatter field: artifact_type |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required frontmatter field: dependencies |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required frontmatter field: institutional_owner |
@@ -215,11 +195,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required frontmatter field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required frontmatter field: related_documents |
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required frontmatter field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required frontmatter field: artifact_type |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required frontmatter field: dependencies |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required frontmatter field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required frontmatter field: related_documents |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required frontmatter field: related_research_programs |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required frontmatter field: artifact_type |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required frontmatter field: authors |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required frontmatter field: dependencies |
@@ -405,16 +380,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required frontmatter field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required frontmatter field: related_documents |
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required frontmatter field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required frontmatter field: artifact_type |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required frontmatter field: dependencies |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required frontmatter field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required frontmatter field: related_documents |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required frontmatter field: related_research_programs |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required frontmatter field: artifact_type |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required frontmatter field: dependencies |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required frontmatter field: institutional_owner |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required frontmatter field: related_documents |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required frontmatter field: related_research_programs |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required frontmatter field: artifact_type |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required frontmatter field: dependencies |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required frontmatter field: institutional_owner |
@@ -520,7 +485,7 @@ Tool-managed and hidden folders are excluded from default institutional validati
 
 | Severity | Path | Message |
 |----------|------|---------|
-| error | `06 Source - SanaLab.md` | Markdown note does not start with YAML frontmatter. |
+| error | `Vault.md` | Markdown note does not start with YAML frontmatter. |
 
 ## Implementation Notes
 

@@ -25,11 +25,11 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T14:43:26-04:00`
-- Markdown notes scanned: `171`
+- Generated: `2026-07-02T14:53:43-04:00`
+- Markdown notes scanned: `172`
 - Critical: `0`
 - Errors: `1`
-- Warnings: `445`
+- Warnings: `410`
 - Info: `129`
 
 ## Validation Results
@@ -38,21 +38,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 
 | Severity | Path | Message |
 |----------|------|---------|
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required field: artifact_type |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required field: dependencies |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required field: institutional_owner |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required field: related_documents |
-| warning | `00_CONSTITUTION/Book I - The Constitution.md` | Missing required field: related_research_programs |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required field: artifact_type |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required field: dependencies |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required field: institutional_owner |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required field: related_documents |
-| warning | `00_CONSTITUTION/Book II - Governance Framework.md` | Missing required field: related_research_programs |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required field: artifact_type |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required field: dependencies |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required field: institutional_owner |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required field: related_documents |
-| warning | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | Missing required field: related_research_programs |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required field: artifact_type |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required field: dependencies |
 | warning | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Missing required field: institutional_owner |
@@ -168,11 +153,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required field: related_documents |
 | warning | `07_RESEARCH/RP-001/08 Comparative Framework/RP-001 Comparative Framework.md` | Missing required field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required field: artifact_type |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required field: dependencies |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required field: related_documents |
-| warning | `07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md` | Missing required field: related_research_programs |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required field: artifact_type |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required field: dependencies |
 | warning | `07_RESEARCH/RP-001/10 Theory Matrix/RP-001 Theory Matrix.md` | Missing required field: institutional_owner |
@@ -183,11 +163,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required field: related_documents |
 | warning | `07_RESEARCH/RP-001/11 Canonical Glossary/RP-001 Canonical Glossary.md` | Missing required field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required field: artifact_type |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required field: dependencies |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required field: related_documents |
-| warning | `07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md` | Missing required field: related_research_programs |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required field: artifact_type |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required field: authors |
 | warning | `07_RESEARCH/RP-001/13 Research Graph/Concepts/4E Cognition.md` | Missing required field: dependencies |
@@ -373,16 +348,6 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required field: institutional_owner |
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required field: related_documents |
 | warning | `07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md` | Missing required field: related_research_programs |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required field: artifact_type |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required field: dependencies |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required field: institutional_owner |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required field: related_documents |
-| warning | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Missing required field: related_research_programs |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required field: artifact_type |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required field: dependencies |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required field: institutional_owner |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required field: related_documents |
-| warning | `07_RESEARCH/RP-002/RP-002 Master Index.md` | Missing required field: related_research_programs |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required field: artifact_type |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required field: dependencies |
 | warning | `07_RESEARCH/RP-003/RP-003 Master Index.md` | Missing required field: institutional_owner |
@@ -488,7 +453,7 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 
 | Severity | Path | Message |
 |----------|------|---------|
-| error | `06 Source - SanaLab.md` | Markdown note does not start with YAML frontmatter. |
+| error | `Vault.md` | Markdown note does not start with YAML frontmatter. |
 
 ### title_mismatch
 

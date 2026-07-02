@@ -302,8 +302,12 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/Reports/Metadata Migration Report v1.1.md",
+    "99_ARCHIVE/Engineering Cleanup/ES-002 Metadata Migration Phase 1/06 Source - SanaLab.md",
+    "99_ARCHIVE/Engineering Cleanup/ES-002 Metadata Migration Phase 1",
+    "99_ARCHIVE/Engineering Cleanup",
     "Vault.md",
     "08_SYSTEMS/Engineering Toolkit/Reports/Engineering Health Report v1.1.md",
     "08_SYSTEMS/Engineering Toolkit/Reports/ES-001 - Orphan Document Classification.md",
@@ -331,15 +335,11 @@
     "copilot",
     "11_OPERATIONS/Version History/Operations Version History.md",
     "11_OPERATIONS/Automation Queue/Automation Queue Index.md",
-    "11_OPERATIONS/Operational Health/Operational Health Index.md",
-    "11_OPERATIONS/Metrics/Metrics Registry.md",
     "11_OPERATIONS/Workflow Registry",
     "11_OPERATIONS/Weekly Operations",
     "11_OPERATIONS/Version History",
     "11_OPERATIONS/Review Cycles",
     "11_OPERATIONS/Quarterly Reviews",
-    "11_OPERATIONS/Operational Procedures",
-    "11_OPERATIONS/Operational Health",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

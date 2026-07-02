@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: active
 version: "1.0.0"
 authors: ["LUMIAION", "JERANIUM"]
+artifact_type: evidence-registry
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Research Intelligence"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book III - Knowledge Integrity]]", "[[RP-001 Canonical Synthesis]]", "[[RP-001 Master Index]]"]
+related_documents: ["[[RP-001 Master Index]]", "[[RP-001 Canonical Synthesis]]"]
+related_research_programs: ["RP-001"]
 research_program: "RP-001 Atlas of Human Consciousness"
 ---
 
