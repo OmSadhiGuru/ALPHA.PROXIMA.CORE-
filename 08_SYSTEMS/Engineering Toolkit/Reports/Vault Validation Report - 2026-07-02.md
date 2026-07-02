@@ -25,12 +25,12 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T13:26:52-04:00`
-- Markdown notes scanned: `150`
+- Generated: `2026-07-02T13:41:37-04:00`
+- Markdown notes scanned: `171`
 - Critical: `0`
-- Errors: `0`
+- Errors: `1`
 - Warnings: `445`
-- Info: `15`
+- Info: `14`
 
 ## Validation Results
 
@@ -50,7 +50,6 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 | info | `07_RESEARCH/RP-004/RP-004 Master Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-005/RP-005 Master Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | No incoming wiki links found. |
-| info | `08_SYSTEMS/The Orchestration Framework.md` | No incoming wiki links found. |
 | info | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |
 | info | `Building Milestone.md` | No incoming wiki links found. |
 
@@ -503,6 +502,12 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 | warning | `LUMIAION.md` | Missing required frontmatter field: institutional_owner |
 | warning | `LUMIAION.md` | Missing required frontmatter field: related_documents |
 | warning | `LUMIAION.md` | Missing required frontmatter field: related_research_programs |
+
+### missing_yaml
+
+| Severity | Path | Message |
+|----------|------|---------|
+| error | `06 Source - SanaLab.md` | Markdown note does not start with YAML frontmatter. |
 
 ## Implementation Notes
 

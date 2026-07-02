@@ -25,10 +25,10 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T13:26:52-04:00`
-- Markdown notes scanned: `150`
+- Generated: `2026-07-02T13:41:37-04:00`
+- Markdown notes scanned: `171`
 - Critical: `0`
-- Errors: `0`
+- Errors: `1`
 - Warnings: `447`
 - Info: `129`
 
@@ -490,6 +490,12 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | warning | `LUMIAION.md` | Missing required field: institutional_owner |
 | warning | `LUMIAION.md` | Missing required field: related_documents |
 | warning | `LUMIAION.md` | Missing required field: related_research_programs |
+
+### missing_yaml
+
+| Severity | Path | Message |
+|----------|------|---------|
+| error | `06 Source - SanaLab.md` | Markdown note does not start with YAML frontmatter. |
 
 ### title_mismatch
 
