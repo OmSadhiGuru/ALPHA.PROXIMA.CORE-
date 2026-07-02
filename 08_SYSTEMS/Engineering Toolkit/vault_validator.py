@@ -34,7 +34,7 @@ STATUS_VALUES = {"draft", "active", "under_review", "deprecated", "superseded", 
 LIST_FIELDS = {"aliases", "tags", "authors", "dependencies", "related_documents", "related_research_programs"}
 WIKI_LINK_RE = re.compile(r"(?<!!)\[\[([^\]\n]+)\]\]")
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
-PLACEHOLDER_TARGETS = {"Name", "Name or Role", "Note Title", "Target", "ADR-XXXX - Title"}
+PLACEHOLDER_TARGETS = {"Author", "Founder", "Name", "Name or Role", "Note Title", "Target", "ADR-XXXX - Title"}
 
 
 @dataclass(frozen=True)
@@ -282,8 +282,8 @@ def validate_folder_placement(notes: list[Note]) -> list[Issue]:
             issues.append(Issue("warning", "incorrect_folder_placement", path, "Concept Notes should live under 05_PROPOSALS/."))
         if re.match(r"RP-\d{3}", name) and not path.startswith("07_RESEARCH/"):
             issues.append(Issue("warning", "incorrect_folder_placement", path, "Research program files should live under 07_RESEARCH/."))
-        if name.endswith(" Template.md") and not path.startswith("10_TEMPLATES/"):
-            issues.append(Issue("warning", "incorrect_folder_placement", path, "Templates should live under 10_TEMPLATES/."))
+        if name.endswith(" Template.md") and not (path.startswith("10_TEMPLATES/") or path.startswith("09_FUTURE/Templates/")):
+            issues.append(Issue("warning", "incorrect_folder_placement", path, "Templates should live under 10_TEMPLATES/ or an approved office-local Templates/ folder."))
         if name.endswith(" Protocol.md") and not path.startswith("08_SYSTEMS/Protocols/"):
             issues.append(Issue("warning", "incorrect_folder_placement", path, "Protocols should live under 08_SYSTEMS/Protocols/."))
     return issues
@@ -390,6 +390,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--format", choices=["markdown"], default="markdown", help="Report format.")
     parser.add_argument("--include-hidden", action="store_true", help="Include hidden folders.")
     parser.add_argument("--fail-on", choices=["warning", "error"], help="Exit with code 1 when issues exist at or above this level.")
+    parser.add_argument("--force", action="store_true", help="Overwrite the output report if it already exists.")
     return parser.parse_args(argv)
 
 
@@ -413,6 +414,10 @@ def main(argv: list[str]) -> int:
     output = Path(args.output).expanduser()
     if not output.is_absolute():
         output = root / output
+    if output.exists() and not args.force:
+        print(f"error: refusing to overwrite existing report: {output}", file=sys.stderr)
+        print("hint: choose a different --output path or pass --force after reviewing the existing report.", file=sys.stderr)
+        return 4
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(report, encoding="utf-8")
     summary = summarize_issues(issues)

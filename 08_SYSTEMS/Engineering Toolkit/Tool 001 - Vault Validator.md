@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, obsidian, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.0"
+version: "0.1.1"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -41,7 +41,7 @@ It checks for missing YAML, invalid frontmatter, missing required metadata, brok
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.0 |
+| **Version** | 0.1.1 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -94,6 +94,7 @@ Options:
 | `--format markdown` | Report format. Markdown is currently supported. |
 | `--include-hidden` | Include hidden folders. Hidden folders are skipped by default. |
 | `--fail-on LEVEL` | Return exit code `1` when issues exist at or above `warning` or `error`. |
+| `--force` | Overwrite an existing report after explicit confirmation by command flag. |
 
 Exit codes:
 
@@ -102,6 +103,7 @@ Exit codes:
 | 0 | Report generated successfully and fail threshold was not met |
 | 1 | Report generated and fail threshold was met |
 | 2 | Invalid arguments or unreadable vault |
+| 4 | Refused to overwrite an existing report |
 
 ---
 
@@ -117,6 +119,12 @@ Write a report to a temporary file:
 
 ```bash
 python3 "08_SYSTEMS/Engineering Toolkit/vault_validator.py" --output /private/tmp/vault-validation.md
+```
+
+Overwrite an existing report only after review:
+
+```bash
+python3 "08_SYSTEMS/Engineering Toolkit/vault_validator.py" --force
 ```
 
 Use in an automation check:
@@ -174,5 +182,5 @@ The validator reports likely issues. A human or approved governance process deci
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.1.1 | 2026-07-02 | [[CODEX]] | Added overwrite protection and approved Future Office template placement |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial Vault Validator tool documented and implemented |
-
