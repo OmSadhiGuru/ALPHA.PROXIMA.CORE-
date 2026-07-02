@@ -5,10 +5,10 @@ tags: [research, rp-001, consciousness, master-index, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "2.1.0"
 authors: ["Frederick Belizaire Gunville", "LUMIAION"]
 research_program: "RP-001 Atlas of Human Consciousness"
-canon_status: intake
+canon_status: under_review
 ---
 
 # RP-001 — Atlas of Human Consciousness
@@ -18,7 +18,7 @@ canon_status: intake
 
 ## Purpose
 
-This is the authoritative index for Research Program 001: Atlas of Human Consciousness. It tracks every document, research note, source, decision, and open question within the program. All RP-001 documents are linked here. All navigation into the program begins here.
+This is the authoritative navigation index for Research Program 001: Atlas of Human Consciousness. All RP-001 documents are linked here. All navigation into the program begins here.
 
 ---
 
@@ -28,122 +28,128 @@ This is the authoritative index for Research Program 001: Atlas of Human Conscio
 |-------|-------|
 | **Program ID** | RP-001 |
 | **Full Name** | Atlas of Human Consciousness |
-| **Status** | Active — Intake Phase |
+| **Status** | Active — Phase 1 Institutionalization Complete |
 | **Initiated** | 2026-07-02 |
+| **Phase 1 Completed** | 2026-07-02 |
 | **Governing Protocol** | [[Research Governance Protocol]] |
 | **Constitutional Basis** | [[Book III - Knowledge Integrity]] |
 | **Ethics Oversight** | [[Ethics Council Charter\|Ethics Council]] |
 | **Research Lead** | [[JERANIUM Charter\|JERANIUM]] |
 | **Integration Lead** | [[LUMIAION Charter\|LUMIAION]] |
-| **External Contributors** | Perplexity, Gemini, SanaLab |
-| **Canon Date** | Pending |
+| **External Contributors** | Perplexity (DOC-001), Gemini (DOC-002 — pending), SanaLab (DOC-003, DOC-004) |
+| **Canon Date** | Pending Research Council review |
 
 ---
 
-## Program Mission
+## Program Architecture
 
-The Atlas of Human Consciousness is Alpha Proxima's first formal research program. Its purpose is to build a structured, epistemically rigorous knowledge base on the nature, dimensions, and mechanisms of human consciousness — integrating scientific, philosophical, and phenomenological perspectives.
+RP-001 is organized into 22 numbered subfolders plus an ARCHIVE and a Research Graph Concepts library:
 
-This program does not assert a single theory of consciousness as correct. It maps the territory: what is known, what is contested, what remains open, and what the Founder has observed directly through practice.
-
-The Atlas is intended to:
-1. Provide the Foundation with a defensible, well-sourced knowledge base on consciousness
-2. Model the Alpha Proxima research methodology for all future programs
-3. Serve as the epistemic foundation for SOHMA's domain work
-4. Eventually contribute to the Foundation's public intellectual output
-
----
-
-## Research Scope
-
-### In Scope
-- The science of consciousness: neural correlates, attention, awareness, altered states
-- Major theoretical frameworks: Global Workspace Theory, Integrated Information Theory, Higher-Order Theories, Predictive Processing, others
-- Philosophy of mind: the hard problem, qualia, phenomenology
-- Contemplative traditions: meditation science, yogic frameworks, shamanic reports — treated as Class P (phenomenological) unless corroborated by empirical evidence
-- Altered states: psychedelics, flow states, near-death experiences, sleep and dreaming
-- The Founder's direct phenomenological experience — formally classified as Class P
-
-### Out of Scope (for RP-001)
-- Clinical interventions for consciousness disorders (belongs to ATHENA / medical domain)
-- AI consciousness (a separate research question; may become RP-002)
-- Financial or strategic applications of consciousness research (VORTEX domain)
-
----
-
-## Document Registry
-
-### Program Infrastructure
-
-| Document | Location | Status |
-|----------|----------|--------|
-| RP-001 Master Index (this document) | `07_RESEARCH/RP-001/RP-001 Master Index.md` | Active |
-| RP-001 Source Registry | [[RP-001 Source Registry]] | Active |
-| RP-001 Canonical Glossary | [[RP-001 Canonical Glossary]] | Active — building |
-| RP-001 Consciousness Theory Matrix | [[RP-001 Consciousness Theory Matrix]] | Active — building |
-| RP-001 Comparative Framework | [[RP-001 Comparative Framework]] | Active — building |
-| RP-001 Research Graph | [[RP-001 Research Graph]] | Active — building |
-| RP-001 Open Questions | [[RP-001 Open Questions]] | Active |
-| RP-001 Future Research Opportunities | [[RP-001 Future Research Opportunities]] | Active |
-| RP-001 NotebookLM Source Pack | [[RP-001 NotebookLM Source Pack]] | Active |
-
-### Research Notes (by topic)
-
-*Research notes will be registered here as they are produced and integrated.*
-
-| ID | Title | Evidence Class | Source Quality | Canon Status |
-|----|-------|---------------|----------------|--------------|
-| RP-001-001 | *(pending — first research note)* | — | — | intake |
+| Folder | Contents |
+|--------|----------|
+| `00 Executive Summary/` | Program entry point and status summary |
+| `01 Research Question/` | The primary and decomposed research questions |
+| `02 Objectives/` | Program objectives and phase structure |
+| `03 Source Registry/` | All sources registered and quality-assessed |
+| `04 Source - Perplexity/` | Perplexity (DOC-001) working folder |
+| `05 Source - Gemini/` | Gemini (DOC-002) working folder — pending delivery |
+| `06 Source - SanaLab/` | SanaLab (DOC-003, DOC-004) working folder |
+| `07 Future Sources/` | Sources under evaluation for future phases |
+| `08 Comparative Framework/` | Architectural comparison of theories across sources |
+| `09 Canonical Synthesis/` | **THE CANONICAL DOCUMENT** — institutional synthesis with evidence classification |
+| `10 Theory Matrix/` | Structured comparison table of all 7 theories |
+| `11 Canonical Glossary/` | Authoritative definitions of key terms |
+| `12 Evidence Registry/` | Every claim classified and source-traced |
+| `13 Research Graph/` | Network of linked concept notes |
+| `13 Research Graph/Concepts/` | 15 individual concept notes |
+| `14 Open Questions/` | Registered open questions with classification |
+| `15 Future Experiments/` | Research opportunities and future directions |
+| `16 Visual Knowledge/` | Diagrams and visual artifacts |
+| `17 NotebookLM Package/` | Curated source pack for NotebookLM |
+| `18 Related Constitution/` | Links to governing constitutional documents |
+| `19 Related Laws/` | Governing provisions and operational laws |
+| `20 Related ADRs/` | Related Architectural Decision Records |
+| `21 Version History/` | Program-level version log |
+| `ARCHIVE/` | Immutable original research artifacts |
 
 ---
 
-## Theory Landscape Summary
+## Navigation: Key Documents
 
-The Atlas documents consciousness through the following theoretical lenses. Full treatment is in [[RP-001 Consciousness Theory Matrix]].
+### Start Here
+- [[00 Executive Summary/RP-001 Executive Summary]] — read first; Phase 1 status, key findings, what's next
 
-| Framework | Abbreviation | Primary Claim | Evidence Class |
-|-----------|-------------|---------------|---------------|
-| Global Workspace Theory | GWT | Consciousness arises from information broadcast across a global neural workspace | M |
-| Integrated Information Theory | IIT | Consciousness is identical to integrated information (Φ) | M |
-| Higher-Order Theories | HOT | Consciousness requires a higher-order mental state representing a first-order state | M |
-| Predictive Processing | PP | Consciousness is the brain's model of its own predictive processes | M |
-| Orchestrated Objective Reduction | Orch-OR | Consciousness involves quantum processes in microtubules | S |
-| Panpsychism / Panprotopsychism | — | Consciousness or proto-conscious properties are fundamental | S |
-| Vedantic / Advaita framework | — | Consciousness is the ground of being; individual awareness is a modification of universal consciousness | P/S |
-| Buddhist phenomenology | — | Consciousness is a stream of momentary arising and passing; no enduring self | P |
+### The Canonical Documents
+- [[09 Canonical Synthesis/RP-001 Canonical Synthesis]] — institutional synthesis; 7 sections; full evidence classification
+- [[12 Evidence Registry/RP-001 Evidence Registry]] — every claim classified and source-traced
+- [[10 Theory Matrix/RP-001 Theory Matrix]] — 11 frameworks × 9 dimensions
+- [[08 Comparative Framework/RP-001 Comparative Framework]] — source comparison
 
-*Evidence classes assigned per [[Book III - Knowledge Integrity]], Art. II. All frameworks in this table are Class M (competing models) at the scientific level, with the exception of speculative (S) and phenomenological (P) frameworks noted above.*
+### Source Archive
+- [[ARCHIVE/ARCHIVE Philosophy]] — immutability rules
+- [[ARCHIVE/DOC-001 Architecture of Human Consciousness]] — Perplexity (reviewed 2026-07-02 — fully integrated)
+- [[ARCHIVE/DOC-003 Comparative Framework - SanaLab]] — SanaLab 21-page comparative framework
+- [[ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab]] — SanaLab 3-page architectural deep dive
+
+### Research Knowledge Graph (15 Concept Notes)
+- [[13 Research Graph/Concepts/Consciousness]]
+- [[13 Research Graph/Concepts/Global Neuronal Workspace Theory]]
+- [[13 Research Graph/Concepts/Integrated Information Theory]]
+- [[13 Research Graph/Concepts/Predictive Processing]]
+- [[13 Research Graph/Concepts/Recurrent Processing Theory]]
+- [[13 Research Graph/Concepts/Higher-Order Thought Theory]]
+- [[13 Research Graph/Concepts/Attention Schema Theory]]
+- [[13 Research Graph/Concepts/Active Inference]]
+- [[13 Research Graph/Concepts/Neural Correlates of Consciousness]]
+- [[13 Research Graph/Concepts/Default Mode Network]]
+- [[13 Research Graph/Concepts/Meta Awareness]]
+- [[13 Research Graph/Concepts/Orchestrated Objective Reduction]]
+- [[13 Research Graph/Concepts/4E Cognition]]
+- [[13 Research Graph/Concepts/Illusionism]]
+- [[13 Research Graph/Concepts/Panpsychism]]
+
+### Supporting Documents
+- [[03 Source Registry/RP-001 Source Registry]]
+- [[11 Canonical Glossary/RP-001 Canonical Glossary]]
+- [[14 Open Questions/RP-001 Open Questions]]
+- [[15 Future Experiments/RP-001 Future Research Opportunities]]
+- [[17 NotebookLM Package/RP-001 NotebookLM Source Pack]]
+- [[21 Version History/RP-001 Version History]]
 
 ---
 
-## Research Lifecycle Status
+## Phase 1 Status Summary
 
-| Stage | Status | Notes |
-|-------|--------|-------|
-| Stage 1 — Intake | Active | External contributors (Perplexity, Gemini, SanaLab) delivering research |
-| Stage 2 — Evaluation | Pending | Awaiting first research note delivery |
-| Stage 3 — Integration | Pending | JERANIUM will integrate using [[Research Note Template]] |
-| Stage 4 — Ethics Review | Pending | Ethics Council review required before canonisation |
-| Stage 5 — Canonisation | Pending | Research Council authority |
+| Component | Status |
+|-----------|--------|
+| Research question | ✓ Defined |
+| Program objectives | ✓ Defined |
+| External sources commissioned | ✓ 3 of 4 delivered (DOC-002 pending) |
+| ARCHIVE established | ✓ DOC-001, DOC-003, DOC-004 registered |
+| Source notes | ✓ All three delivered sources documented |
+| Comparative Framework | ✓ Complete |
+| Theory Matrix | ✓ Complete |
+| Canonical Synthesis | ✓ Draft complete — under review |
+| Evidence Registry | ✓ All Phase 1 claims registered |
+| Research Knowledge Graph | ✓ 15 concept notes created |
+| Canonical Glossary | ✓ Active — building |
+| Open Questions | ✓ Active |
+| NotebookLM Package | ✓ Active |
+| RP-002 through RP-006 placeholders | ✓ Created |
+| Standards Council evaluation | ✓ Complete — deferral recommended |
+| DOC-001 (Perplexity) review | ✓ Reviewed 2026-07-02 — fully integrated |
+| DOC-002 (Gemini) delivery | ⏳ Pending |
+| Research Council / canon review | ⏳ Pending |
 
 ---
 
 ## Governing Documents
 
-- [[Book III - Knowledge Integrity]] — Constitutional basis for all knowledge standards
-- [[Research Governance Protocol]] — Full lifecycle protocol; RP-001 is the first program governed by it
-- [[Ethics Council Charter]] — Ethics review authority over all canonisation
-- [[JERANIUM Charter]] — JERANIUM is research lead; responsible for intake, evaluation, and integration
-- [[CN-0001 - Constitutional Alignment Gap Report]] — Documents that Research Council (canonisation authority) is currently an open gap
-
----
-
-## Open Questions
-
-- [ ] What is the first research note to be produced? Which topic should Perplexity / Gemini receive as a first brief?
-- [ ] How should the Founder's phenomenological reports be formally structured and entered into the program? A dedicated note format for Class P entries may be needed.
-- [ ] Should RP-001 attempt to cover all major consciousness frameworks, or focus on the frameworks most relevant to the Founder's practice (meditation, altered states, yogic frameworks)?
-- [ ] When the Research Council is constituted, who should serve as the program's oversight contact?
+- [[Book III - Knowledge Integrity]]
+- [[Research Governance Protocol]]
+- [[Ethics Council Charter]]
+- [[JERANIUM Charter]]
+- [[18 Related Constitution/RP-001 Constitutional Links]]
 
 ---
 
@@ -151,4 +157,6 @@ The Atlas documents consciousness through the following theoretical lenses. Full
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-07-02 | Frederick Belizaire Gunville / LUMIAION | Program initiated; institutional infrastructure created; no research notes yet |
+| 1.0.0 | 2026-07-02 | Frederick Belizaire Gunville / LUMIAION | Program initiated; initial infrastructure; intake phase |
+| 2.0.0 | 2026-07-02 | LUMIAION / JERANIUM | Phase 1 institutionalization complete; 22-subfolder architecture; ARCHIVE; Canonical Synthesis; 11 concept notes; Evidence Registry; RP-002–006 placeholders; Standards Council evaluation |
+| 2.1.0 | 2026-07-02 | LUMIAION | Corrected stale counts and statuses after DOC-001 integration: concept notes 11→15; theory matrix 7→11 frameworks; DOC-001 ARCHIVE link updated; DOC-001 Phase 1 status marked complete |
