@@ -8,64 +8,100 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:00_CONSTITUTION OR file:(\"Founding Principles\")",
-      "color": { "a": 1, "rgb": 16109321 }
+      "query": "path:09_OFFICES/LUMIAION OR (file:LUMIAION AND -path:03_AI_COUNCIL)",
+      "color": { "a": 1, "rgb": 8141549 }
     },
     {
-      "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
-      "color": { "a": 1, "rgb": 9130230 }
+      "query": "path:\"09_OFFICES/Executive Office\" OR file:\"Executive Office Charter\"",
+      "color": { "a": 1, "rgb": 14251782 }
     },
     {
-      "query": "path:09_OFFICES",
-      "color": { "a": 1, "rgb": 6512369 }
+      "query": "path:\"09_OFFICES/Research Intelligence Office\" OR file:\"Research Intelligence Office Charter\" OR file:\"Research Office Matrix\"",
+      "color": { "a": 1, "rgb": 366185 }
+    },
+    {
+      "query": "path:\"09_OFFICES/Engineering Office\" OR file:\"Engineering Office Charter\"",
+      "color": { "a": 1, "rgb": 15357964 }
+    },
+    {
+      "query": "path:\"09_OFFICES/Institutional Observatory\" OR file:\"Institutional Observatory Charter\"",
+      "color": { "a": 1, "rgb": 561586 }
+    },
+    {
+      "query": "file:\"Ethics Council Charter\" OR path:\"Ethics Council\"",
+      "color": { "a": 1, "rgb": 12456508 }
+    },
+    {
+      "query": "file:\"Community Council\" OR path:\"Community Council\"",
+      "color": { "a": 1, "rgb": 14362487 }
+    },
+    {
+      "query": "file:\"SOHMA Charter\" OR path:SOHMA",
+      "color": { "a": 1, "rgb": 9647082 }
+    },
+    {
+      "query": "file:\"ATHENA Charter\" OR path:ATHENA",
+      "color": { "a": 1, "rgb": 1920728 }
+    },
+    {
+      "query": "file:\"VORTEX Charter\" OR path:VORTEX",
+      "color": { "a": 1, "rgb": 6660877 }
+    },
+    {
+      "query": "file:\"JERANIUM Charter\" OR path:JERANIUM",
+      "color": { "a": 1, "rgb": 1013358 }
+    },
+    {
+      "query": "path:00_CONSTITUTION OR file:\"Founding Principles\"",
+      "color": { "a": 1, "rgb": 16096779 }
     },
     {
       "query": "path:07_RESEARCH",
-      "color": { "a": 1, "rgb": 1095553 }
+      "color": { "a": 1, "rgb": 1483594 }
     },
     {
       "query": "path:06_GOVERNANCE",
-      "color": { "a": 1, "rgb": 3719160 }
+      "color": { "a": 1, "rgb": 223649 }
     },
     {
       "query": "path:08_SYSTEMS",
-      "color": { "a": 1, "rgb": 16348950 }
-    },
-    {
-      "query": "path:04_DECISIONS",
-      "color": { "a": 1, "rgb": 15884286 }
+      "color": { "a": 1, "rgb": 12730636 }
     },
     {
       "query": "path:03_AI_COUNCIL",
-      "color": { "a": 1, "rgb": 1358036 }
+      "color": { "a": 1, "rgb": 889992 }
+    },
+    {
+      "query": "path:04_DECISIONS",
+      "color": { "a": 1, "rgb": 14753096 }
     },
     {
       "query": "path:01_VISION OR path:02_STRATEGY",
-      "color": { "a": 1, "rgb": 14246127 }
-    },
-    {
-      "query": "path:10_TEMPLATES",
-      "color": { "a": 1, "rgb": 9868950 }
+      "color": { "a": 1, "rgb": 12592851 }
     },
     {
       "query": "path:05_PROPOSALS",
-      "color": { "a": 1, "rgb": 16744272 }
+      "color": { "a": 1, "rgb": 14362487 }
+    },
+    {
+      "query": "path:10_TEMPLATES",
+      "color": { "a": 1, "rgb": 6583435 }
     },
     {
       "query": "path:99_ARCHIVE",
-      "color": { "a": 1, "rgb": 7893836 }
+      "color": { "a": 1, "rgb": 5722958 }
     }
   ],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": -1.5,
-  "nodeSizeMultiplier": 1.8,
-  "lineSizeMultiplier": 1.2,
+  "textFadeMultiplier": -2,
+  "nodeSizeMultiplier": 1.6,
+  "lineSizeMultiplier": 1.0,
   "collapse-forces": true,
-  "centerStrength": 0.15,
-  "repelStrength": 14,
-  "linkStrength": 0.45,
-  "linkDistance": 320,
+  "centerStrength": 0.12,
+  "repelStrength": 16,
+  "linkStrength": 0.35,
+  "linkDistance": 280,
   "scale": 0.08762081790777727,
   "close": false
 }
