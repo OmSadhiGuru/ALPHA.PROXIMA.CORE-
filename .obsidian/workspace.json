@@ -242,6 +242,9 @@
   },
   "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/Reports/YAML Validation Report - 2026-07-02.md",
+    "08_SYSTEMS/Engineering Toolkit/yaml_validator.py",
+    "08_SYSTEMS/Engineering Toolkit/Tool 002 - YAML Validator.md",
     "08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report - 2026-07-02.md",
     "08_SYSTEMS/Engineering Toolkit/Reports",
     "09_FUTURE/Templates/Upgrade Proposal Template.md",
@@ -273,11 +276,8 @@
     "09_FUTURE/Implementation Proposals",
     "09_FUTURE/Future Institutes",
     "09_FUTURE/Future Cognitive Functions",
-    "09_FUTURE/Founder Ideas",
     "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
-    "00_CONSTITUTION/Book I - The Constitution.md",
-    "08_SYSTEMS/Automation/Vault Note Generator.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

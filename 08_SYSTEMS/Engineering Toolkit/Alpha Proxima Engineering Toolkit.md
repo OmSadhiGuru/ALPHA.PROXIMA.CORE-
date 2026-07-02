@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, automation, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.0"
+version: "0.2.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -39,7 +39,7 @@ The toolkit automates repetitive engineering checks. It does not automate instit
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.0 |
+| **Version** | 0.2.0 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -76,14 +76,15 @@ Current tools:
 | Tool | Status | Document | CLI |
 |------|--------|----------|-----|
 | 001 | active | [[Tool 001 - Vault Validator]] | `08_SYSTEMS/Engineering Toolkit/vault_validator.py` |
+| 002 | active | [[Tool 002 - YAML Validator]] | `08_SYSTEMS/Engineering Toolkit/yaml_validator.py` |
 
 ---
 
 ## Future Improvements
 
-- [ ] Add Tool 002 - Template Generator.
+- [x] Add Tool 002 - YAML Validator.
 - [ ] Add Tool 003 - Knowledge Index Builder.
-- [ ] Add Tool 004 - YAML Validator.
+- [ ] Add Tool 004 - Template Generator.
 - [ ] Add Tool 005 - Link Integrity Scanner.
 - [ ] Add Tool 006 - Research Artifact Creator.
 - [ ] Add Tool 007 - Engineering Report Generator.
@@ -125,5 +126,5 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.2.0 | 2026-07-02 | [[CODEX]] | Added Tool 002 - YAML Validator |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial toolkit index created with Tool 001 |
-
