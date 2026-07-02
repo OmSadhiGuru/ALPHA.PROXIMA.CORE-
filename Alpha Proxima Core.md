@@ -3,9 +3,9 @@ title: "Alpha Proxima Core"
 aliases: ["ALPHA.PROXIMA.CORE-", "Alpha Proxima", "The Project", "APC"]
 tags: [index, home, moc, alpha-proxima, lumiaion, governance]
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.3.0"
 authors: ["Alpha Council"]
 note_type: MOC
 ---
@@ -44,8 +44,8 @@ ALPHA.PROXIMA.CORE-/
 ├── 04_DECISIONS/             ← All ADRs (Architecture Decision Records)
 ├── 05_PROPOSALS/             ← Concept Notes awaiting deliberation
 ├── 06_PROJECTS/              ← Active project workspaces (to build)
-├── 07_RESEARCH/              ← Explorations, experiments, literature (to build)
-├── 08_SYSTEMS/               ← Technical architecture and infrastructure (to build)
+├── 07_RESEARCH/              ← Research programs (RP-001, RP-002 active; RP-003–005 planned)
+├── 08_SYSTEMS/               ← Technical architecture and infrastructure
 ├── 09_PEOPLE/                ← Participant profiles and roles (to build)
 ├── 10_TEMPLATES/             ← Reusable note formats
 └── 99_ARCHIVE/               ← Superseded or retired notes (to build)
@@ -62,11 +62,15 @@ ALPHA.PROXIMA.CORE-/
 
 ---
 
-### Foundational Documents
+### Constitutional Documents
 
 | Document | Note | Status |
 |----------|------|--------|
-| The Constitution | [[Book I - The Constitution]] | Ratified |
+| Book I — The Constitution | [[Book I - The Constitution]] | Ratified |
+| Book II — Governance Framework | [[Book II - Governance Framework]] | Ratified |
+| Book III — Knowledge Integrity | [[Book III - Knowledge Integrity]] | Ratified |
+| Book IV — Cognitive Architecture | [[Book IV - Cognitive Architecture]] | Ratified (Epoch III) |
+| Founding Principles | [[Founding Principles of Alpha Proxima]] | Ratified (Epoch III) |
 | Institutional Registry | [[Institutional Registry]] | Active |
 | Vault Structure Convention | [[Vault Structure Convention]] | Active |
 
@@ -81,21 +85,88 @@ ALPHA.PROXIMA.CORE-/
 
 ---
 
+### Research Programs
+
+| Program | Title | Status | Master Index |
+|---------|-------|--------|-------------|
+| RP-001 | Atlas of Human Consciousness | Active — Phase 1 Complete | [[07_RESEARCH/RP-001/RP-001 Master Index\|RP-001 Master Index]] |
+| RP-002 | Atlas of Human Memory | Active — Phase 1 Complete | [[07_RESEARCH/RP-002/RP-002 Master Index\|RP-002 Master Index]] |
+| RP-003 | Atlas of Human Learning | Planned | [[07_RESEARCH/RP-003/RP-003 Master Index\|RP-003 Master Index]] |
+| RP-004 | Atlas of Human Decision Making | Planned | [[07_RESEARCH/RP-004/RP-004 Master Index\|RP-004 Master Index]] |
+| RP-005 | Atlas of Human Intelligence | Planned | [[07_RESEARCH/RP-005/RP-005 Master Index\|RP-005 Master Index]] |
+
+---
+
+### Institutional Offices (Epoch III)
+
+| Office | Charter | Cognitive Function | Status |
+|--------|---------|-------------------|--------|
+| LUMIAION (Constitutional Intelligence Core) | [[09_OFFICES/LUMIAION/LUMIAION Charter\|LUMIAION Charter v2.0]] | Institutional Architecture | Ratified |
+| Executive Office | [[Executive Office Charter]] | Strategic Intelligence | Ratified |
+| Research Intelligence Office | [[Research Intelligence Office Charter]] | Research Intelligence | Ratified |
+| Engineering Office (Codex) | [[Engineering Office Charter]] | Engineering Intelligence | Ratified |
+| Institutional Observatory | [[Institutional Observatory Charter]] | Environmental Observation | Ratified |
+| Ethics Council | [[Ethics Council Charter]] | Constitutional Oversight | Ratified |
+
+### Governance
+
+| Document | Purpose |
+|----------|---------|
+| [[Alpha Proxima Operating Model v1.0]] | Official operational description of the Foundation |
+| [[Canonical Terminology Register]] | 18 canonical terms; institutional vocabulary standard |
+| [[06_GOVERNANCE/Constitutional Impact Report/CIR-001 Epoch III Constitutional Refactoring\|CIR-001]] | Epoch III impact report; RP-003 gate released |
+| [[06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review\|CIR-002]] | Institutional Completeness Review; **Alpha Proxima v1.0 declared constitutionally complete** |
+| [[Alpha Proxima Research Methodology v1.0]] | Constitutional standard for all research programs |
+| [[Research Debt Register]] | Standing registry of documentation debts |
+
+### Systems and Architecture
+
+| Document | Purpose |
+|---------|---------|
+| [[The Orchestration Framework]] | How LUMIAION coordinates all AI systems, APIs, and memory |
+| [[Foundational Architecture]] | Core technical architecture |
+| [[LUMIAION Architecture Spec v0.1]] | LUMIAION system specification |
+| [[08_SYSTEMS/Protocols/Research Governance Protocol\|Research Governance Protocol]] | How research enters and moves through the Foundation |
+
+---
+
 ### Active Frontiers
 
 *The work currently alive in the system. Update this section as projects open and close.*
 
-- [ ] Governance layer — **Complete (v1.0)**. Constitution, Registry, Templates, core notes in place.
+- [x] Governance layer — **Complete (v1.0)**. Constitution, Registry, Templates, core notes in place.
+- [x] RP-001 Atlas of Human Consciousness — Phase 1 institutionalization complete
+- [x] RP-002 Atlas of Human Memory — Phase 1 institutionalization complete
+- [x] The Orchestration Framework — Canonical system architecture chapter complete
+- [x] Research Program Methodology — Ratified as constitutional standard v1.0 (Epoch II)
+- [x] Epoch III — Constitutional Refactoring & Institutional Coherence complete
+  - [x] Book IV — Cognitive Architecture ratified
+  - [x] Founding Principles ratified
+  - [x] Operating Model v1.0 ratified
+  - [x] Executive Office Charter ratified
+  - [x] Institutional Observatory Charter + Observatory Law 001 ratified
+  - [x] Canonical Terminology Register ratified (18 terms)
+  - [x] CIR-001 Constitutional Impact Report completed
+- [x] **Alpha Proxima v1.0 — CONSTITUTIONALLY COMPLETE** (declared by CIR-002)
+  - [x] LUMIAION Charter v2.0 (permanent constitutional definition)
+  - [x] Research Intelligence Office Charter
+  - [x] Engineering Office Charter
+  - [x] CIR-002 Institutional Completeness Review
+- [ ] **RP-003 Atlas of Human Learning — AUTHORIZED** (RP-003 gate released by CIR-001)
+- [ ] Engineering Debt Register — create before first EP commission
+- [ ] First Engineering Program: Vector Database (semantic memory infrastructure)
+- [ ] Strategic Roadmap v1.0 — Executive Office deliverable
 - [ ] Vision documents — Not yet started
-- [ ] LUMIAION architecture specification — Not yet started
-- [ ] First ADR — Not yet created
 - [ ] Founding Council members — Unnamed (see [[Institutional Registry]])
 
 ---
 
 ### How to Navigate This Vault
 
-- **New here?** Start with [[Book I - The Constitution]] to understand the governing framework, then [[Institutional Registry]] to understand who is who.
+- **New here?** Start with [[Book I - The Constitution]] to understand the governing framework, then [[Alpha Proxima Operating Model v1.0]] to understand how the Foundation operates, then [[Institutional Registry]] to understand who is who.
+- **Understanding the architecture?** Read [[Book IV - Cognitive Architecture]] for the cognitive function hierarchy, then [[Canonical Terminology Register]] for precise vocabulary.
+- **For research?** Navigate to `07_RESEARCH/` — start with [[07_RESEARCH/RP-001/RP-001 Master Index|RP-001]] or [[07_RESEARCH/RP-002/RP-002 Master Index|RP-002]] as reference implementations.
+- **Starting a new research program?** Read [[Alpha Proxima Research Methodology v1.0]] before creating a single file.
 - **Making a decision?** Open [[Concept Note Template]], draft a proposal, submit to [[Alpha Council]]. If ratified, produce an [[ADR Template|ADR]].
 - **Adding knowledge?** Identify the right folder using [[Vault Structure Convention]]. Link back to related notes. Fill in all required sections.
 - **Checking what exists?** Use Obsidian's graph view — the link density shows where knowledge is concentrated and where gaps remain.
@@ -111,6 +182,10 @@ ALPHA.PROXIMA.CORE-/
 - [[Vault Structure Convention]]
 - [[ADR Template]]
 - [[Concept Note Template]]
+- [[07_RESEARCH/RP-001/RP-001 Master Index|RP-001 — Atlas of Human Consciousness]]
+- [[07_RESEARCH/RP-002/RP-002 Master Index|RP-002 — Atlas of Human Memory]]
+- [[08_SYSTEMS/The Orchestration Framework|The Orchestration Framework]]
+- [[10_TEMPLATES/Research Program Template/Research Program Methodology|Research Program Methodology]]
 
 ---
 
@@ -128,3 +203,6 @@ ALPHA.PROXIMA.CORE-/
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial MOC established as vault index |
+| 1.1.0 | 2026-07-02 | LUMIAION | Epoch II update: Research Programs table added (RP-001, RP-002 active; RP-003–005 planned); Systems and Architecture section; Active Frontiers updated; navigation guidance expanded; Research Program Methodology Template linked |
+| 1.2.0 | 2026-07-02 | LUMIAION | Epoch III update: Constitutional Documents section expanded (Book IV, Founding Principles); Institutional Offices table added; Governance section added; Active Frontiers updated (Epoch III complete; RP-003 NOW AUTHORIZED); navigation guidance updated |
+| 1.3.0 | 2026-07-02 | LUMIAION | Office Completion Initiative: all six offices now chartered; LUMIAION Charter v2.0 added; Research Intelligence Office Charter + Engineering Office Charter added; CIR-002 added; Alpha Proxima v1.0 constitutionally complete |
