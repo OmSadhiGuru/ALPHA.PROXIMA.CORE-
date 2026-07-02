@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, yaml, frontmatter, alpha-proxi
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.1"
+version: "1.0.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -40,7 +40,7 @@ Template files are template-aware: approved placeholders such as `YYYY-MM-DD`, `
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.1 |
+| **Version** | 1.0.0 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -163,6 +163,25 @@ Consistent frontmatter is the foundation for search, indexing, dashboards, valid
 | Deprecated field | Legacy field name should be replaced |
 | Title mismatch | Frontmatter title does not match the H1 |
 
+### Rule Separation
+
+| Rule Group | Location |
+|------------|----------|
+| Required fields | Shared with [[Tool 001 - Vault Validator]] |
+| Status values | Shared with [[Tool 001 - Vault Validator]] |
+| List fields | Shared with [[Tool 001 - Vault Validator]] |
+| Deprecated fields | YAML Validator local rule set |
+| Optional fields | YAML Validator local rule set |
+| Template placeholders | YAML Validator local rule set |
+| Title matching | YAML Validator local rule set |
+
+### Extension Points
+
+- Add artifact-specific optional fields.
+- Add per-artifact schemas.
+- Add stricter date and version handling after templates are fully schema-aware.
+- Add autofix suggestions without applying changes automatically.
+
 ### Operational Boundary
 
 The validator reports metadata quality issues. Humans or approved automation decide what to change.
@@ -172,7 +191,7 @@ The validator reports metadata quality issues. Humans or approved automation dec
 ## Open Questions
 
 - [ ] Should legacy notes created before Engineering Handbook v1.0 use a baseline until migrated?
-- [ ] Should template placeholder frontmatter be validated under a separate template schema?
+- [x] Should template placeholder frontmatter be validated under a separate template schema?
 
 ---
 
@@ -180,5 +199,6 @@ The validator reports metadata quality issues. Humans or approved automation dec
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-07-02 | [[CODEX]] | ES-003 documentation update with rule separation and extension points |
 | 0.1.1 | 2026-07-02 | [[CODEX]] | Added template-aware placeholder validation without weakening operational document validation |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial YAML Validator tool documented and implemented |

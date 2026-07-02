@@ -5,18 +5,18 @@ tags: [systems, engineering, toolkit, automation, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.2.0"
+version: "1.0.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]"]
-related_documents: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[Tool 001 - Vault Validator]]"]
+related_documents: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[Tool 001 - Vault Validator]]", "[[Tool 008 - Engineering CLI]]"]
 related_research_programs: []
 ---
 
-# Alpha Proxima Engineering Toolkit
+# Alpha Proxima Engineering Toolkit v1.0
 
 ## Purpose
 
@@ -39,7 +39,7 @@ The toolkit automates repetitive engineering checks. It does not automate instit
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.2.0 |
+| **Version** | 1.0.0 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -69,26 +69,53 @@ The toolkit automates repetitive engineering checks. It does not automate instit
 
 ## Implementation Notes
 
-Tools are implemented one at a time. Each tool receives a canonical documentation note and a local CLI implementation.
+The toolkit is organized as reusable local-first capabilities. Each tool receives a canonical documentation note, a Python implementation, report outputs where appropriate, and integration through [[Tool 008 - Engineering CLI]].
 
-Current tools:
+## Architecture
+
+| Layer | Responsibility |
+|-------|----------------|
+| Shared scanner foundation | Markdown discovery, frontmatter parsing, wiki-link parsing, folder classification |
+| Tool modules | Single-purpose engineering capabilities |
+| Reports | Draft Markdown outputs stored under `08_SYSTEMS/Engineering Toolkit/Reports/` |
+| CLI facade | Unified command entry point through `ap.py` |
+| Documentation | Canonical tool notes and version history |
+
+## Tool Inventory
 
 | Tool | Status | Document | CLI |
 |------|--------|----------|-----|
 | 001 | active | [[Tool 001 - Vault Validator]] | `08_SYSTEMS/Engineering Toolkit/vault_validator.py` |
 | 002 | active | [[Tool 002 - YAML Validator]] | `08_SYSTEMS/Engineering Toolkit/yaml_validator.py` |
+| 003 | active | [[Tool 003 - Metadata Migration Utility]] | `08_SYSTEMS/Engineering Toolkit/metadata_migrator.py` |
+| 004 | active | [[Tool 004 - Vault Statistics Generator]] | `08_SYSTEMS/Engineering Toolkit/vault_statistics.py` |
+| 005 | active | [[Tool 005 - Dependency Analyzer]] | `08_SYSTEMS/Engineering Toolkit/dependency_analyzer.py` |
+| 006 | active | [[Tool 006 - Office Integrity Checker]] | `08_SYSTEMS/Engineering Toolkit/office_integrity_checker.py` |
+| 007 | active | [[Tool 007 - Research Integrity Checker]] | `08_SYSTEMS/Engineering Toolkit/research_integrity_checker.py` |
+| 008 | active | [[Tool 008 - Engineering CLI]] | `08_SYSTEMS/Engineering Toolkit/ap.py` |
+
+## CLI Commands
+
+| Command | Purpose |
+|---------|---------|
+| `ap validate` | Run vault validation |
+| `ap yaml` | Run YAML/frontmatter validation |
+| `ap migrate` | Plan or apply selected metadata migrations |
+| `ap stats` | Generate Engineering Dashboard Report |
+| `ap report` | Alias for dashboard report |
+| `ap dependency-map` | Generate Vault Dependency Report |
+| `ap office-check` | Generate Office Integrity Report |
+| `ap research-check` | Generate Research Integrity Report |
 
 ---
 
 ## Future Improvements
 
-- [x] Add Tool 002 - YAML Validator.
-- [ ] Add Tool 003 - Knowledge Index Builder.
-- [ ] Add Tool 004 - Template Generator.
-- [ ] Add Tool 005 - Link Integrity Scanner.
-- [ ] Add Tool 006 - Research Artifact Creator.
-- [ ] Add Tool 007 - Engineering Report Generator.
-- [ ] Add Tool 008 - Vault Statistics.
+- [ ] Add installable `ap` shell wrapper.
+- [ ] Add JSON outputs for every report-producing tool.
+- [ ] Add schema files for office, research, and artifact validation.
+- [ ] Add baseline tracking for legacy debt.
+- [ ] Add dashboard history and trend comparison.
 
 ---
 
@@ -108,6 +135,22 @@ The Engineering Handbook defines standards. The Engineering Toolkit turns those 
 - Keep every write operation explicit.
 - Reuse parser and scanner logic as the toolkit grows.
 
+## Future Expansion Points
+
+- Add new tools as separate modules with `main(argv)`.
+- Register new CLI commands in `ap.py`.
+- Store durable reports under the Engineering Toolkit Reports folder.
+- Prefer dry-run behavior for any tool that can modify files.
+- Keep institutional decisions outside automation.
+
+## Recommendations for Engineering Sprint ES-004
+
+1. Add artifact-specific YAML schema files.
+2. Add JSON output to all reporting tools.
+3. Build a metadata migration planner profile system.
+4. Add a baseline file for accepted legacy debt.
+5. Convert the CLI into an installable local command.
+
 ---
 
 ## Operational Boundary
@@ -126,5 +169,6 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-07-02 | [[CODEX]] | ES-003 Engineering Toolkit v1.0 with tools 001-008 and unified CLI |
 | 0.2.0 | 2026-07-02 | [[CODEX]] | Added Tool 002 - YAML Validator |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial toolkit index created with Tool 001 |

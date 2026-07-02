@@ -25,8 +25,8 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T14:53:43-04:00`
-- Markdown notes scanned: `172`
+- Generated: `2026-07-02T15:03:52-04:00`
+- Markdown notes scanned: `178`
 - Critical: `0`
 - Errors: `1`
 - Warnings: `410`

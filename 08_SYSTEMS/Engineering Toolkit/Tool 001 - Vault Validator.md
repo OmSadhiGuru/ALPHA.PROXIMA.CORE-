@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, obsidian, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.3"
+version: "1.0.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -41,7 +41,7 @@ It checks for missing YAML, invalid frontmatter, missing required metadata, brok
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.3 |
+| **Version** | 1.0.0 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -168,6 +168,27 @@ The vault is expected to grow from hundreds to tens of thousands of notes. Manua
 | Incorrect folder placement | Known artifact naming pattern appears in the wrong canonical folder |
 | Folder classification | Top-level folders are classified as institutional, hidden, tool-managed, legacy, temporary, or unclassified |
 
+### Validation Rules
+
+| Rule Area | Rule |
+|-----------|------|
+| Scan scope | Hidden and tool-managed folders are skipped by default |
+| Generated reports | Engineering Toolkit Reports are skipped to avoid recursive report debt |
+| Required metadata | Required fields come from the shared YAML standard field set |
+| Status values | Status must match the approved status set |
+| List fields | `aliases`, `tags`, `authors`, `dependencies`, `related_documents`, and `related_research_programs` must be lists |
+| Wiki links | Wiki links resolve by filename, relative path, title, or alias |
+| Placeholder links | Template and placeholder targets are ignored |
+| Duplicate names | Duplicate filenames are warnings except approved repeated names such as `README.md` |
+| Folder placement | ADRs, concept notes, research program files, templates, and protocols have canonical placement rules |
+
+### Extension Points
+
+- Add new required metadata fields in the shared rule constants.
+- Add folder categories for future tool-managed systems.
+- Add folder placement rules as institutional conventions mature.
+- Add JSON output without changing validation semantics.
+
 ### Operational Boundary
 
 The validator reports likely issues. A human or approved governance process decides what to change.
@@ -185,6 +206,7 @@ The validator reports likely issues. A human or approved governance process deci
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-07-02 | [[CODEX]] | ES-003 documentation update with explicit validation rules and extension points |
 | 0.1.3 | 2026-07-02 | [[CODEX]] | Added top-level folder classification and default exclusion of tool-managed folders |
 | 0.1.2 | 2026-07-02 | [[CODEX]] | Excluded generated reports from scans, resolved aliases, expanded valid statuses, and allowed office README files |
 | 0.1.1 | 2026-07-02 | [[CODEX]] | Added overwrite protection and approved Future Office template placement |

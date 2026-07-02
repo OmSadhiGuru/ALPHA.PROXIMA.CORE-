@@ -25,12 +25,12 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T14:53:43-04:00`
-- Markdown notes scanned: `172`
+- Generated: `2026-07-02T15:03:51-04:00`
+- Markdown notes scanned: `178`
 - Critical: `0`
 - Errors: `1`
 - Warnings: `410`
-- Info: `129`
+- Info: `130`
 
 ## Validation Results
 
@@ -513,6 +513,7 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 | info | `07_RESEARCH/RP-004/RP-004 Master Index.md` | Frontmatter title `RP-004 Master Index` does not match H1 `RP-004 — Atlas of Human Decision Making`. |
 | info | `07_RESEARCH/RP-005/RP-005 Master Index.md` | Frontmatter title `RP-005 Master Index` does not match H1 `RP-005 — Atlas of Human Intelligence`. |
 | info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | Frontmatter title `RP-006 Master Index` does not match H1 `RP-006 — Atlas of Human Wisdom`. |
+| info | `08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md` | Frontmatter title `Alpha Proxima Engineering Toolkit` does not match H1 `Alpha Proxima Engineering Toolkit v1.0`. |
 | info | `08_SYSTEMS/The Orchestration Framework.md` | Frontmatter title `The Orchestration Framework` does not match H1 `THE ORCHESTRATION FRAMEWORK`. |
 | info | `10_TEMPLATES/ADR Template.md` | Frontmatter title `ADR Template` does not match H1 `ADR Template — Architecture Decision Record`. |
 | info | `README.md` | Frontmatter title `ALPHA.PROXIMA.CORE- README` does not match H1 `ALPHA.PROXIMA.CORE-`. |
