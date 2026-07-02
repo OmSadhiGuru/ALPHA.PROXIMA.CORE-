@@ -35,10 +35,14 @@
             "id": "61b304b58f24939e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": ".obsidian/graph.json",
+                "bFile": ".obsidian/graph.json",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: graph.json  (Working Tree)"
             }
           }
         ],
