@@ -151,7 +151,7 @@ Each comparison entry:
 
 ## Open Questions
 
-- [ ] Should each comparison entry have a formal "Alpha Proxima position" field — or should the Foundation maintain deliberate agnosticism on all contested questions?
+- [x] Should each comparison entry have a formal "Alpha Proxima position" field — or should the Foundation maintain deliberate agnosticism on all contested questions? ✅ 2026-07-01
 - [ ] How should the comparison framework handle empirical findings that strongly favour one framework over another, without constituting definitive resolution?
 - [ ] Is the methodological comparison (Comparison 4) appropriately framed, given that it is both a content question and a meta-question about this entire research program?
 
