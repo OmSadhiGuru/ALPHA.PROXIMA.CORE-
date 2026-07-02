@@ -1,0 +1,274 @@
+{
+  "main": {
+    "id": "a71ed0ea1e6d07b7",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe92f7fb5b8926b5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "61b304b58f24939e",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
+            }
+          },
+          {
+            "id": "b2cdd8124860affc",
+            "type": "leaf",
+            "state": {
+              "type": "smart-release-notes-view",
+              "state": {},
+              "icon": "file-text",
+              "title": "Release Notes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "42562d74c7bd8d52",
+    "type": "split",
+    "children": [
+      {
+        "id": "ee0d83ae79cd59cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b83dd75ae021c8cf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorateur de fichiers"
+            }
+          },
+          {
+            "id": "25f2ca6587598c19",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#alpha-council",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Rechercher"
+            }
+          },
+          {
+            "id": "2083f3e91999df53",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Signets"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a38b8525a2651583",
+    "type": "split",
+    "children": [
+      {
+        "id": "f850888a32fe204d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c1f85e84935e1f04",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Rétroliens"
+            }
+          },
+          {
+            "id": "c5819cd970632d6b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Liens sortants"
+            }
+          },
+          {
+            "id": "127ea38f01cef789",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Mots-clés"
+            }
+          },
+          {
+            "id": "563fb91754259ab0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Toutes les propriétés"
+            }
+          },
+          {
+            "id": "d80da3a8ae2e8c39",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Plan"
+            }
+          },
+          {
+            "id": "3ff17f2da3fb2375",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {},
+              "icon": "lucide-file-signature",
+              "title": "Notes de bas de page"
+            }
+          },
+          {
+            "id": "b5e72cecb21ecb53",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
+          },
+          {
+            "id": "455eb1218a3aac43",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 7
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "graph:Ouvrir la vue graphique": false,
+      "canvas:Créer une nouvelle toile": false,
+      "daily-notes:Ouvrir la note quotidienne": false,
+      "templates:Insérer le modèle": false,
+      "command-palette:Ouvrir la palette de commandes": false,
+      "bases:Créer une nouvelle base": false,
+      "zk-prefixer:Créer une nouvelle note unique": false,
+      "audio-recorder:Démarrer / arrêter l'enregistrement": false,
+      "workspaces:Gérer les espaces de travail": false,
+      "markdown-importer:Ouvrir l'importateur Markdown": false,
+      "random-note:Ouvre une note au hasard": false,
+      "agent-client:Open agent client": false,
+      "obsidian-git:Open Git source control": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "omnisearch:Omnisearch": false,
+      "realclaudian:Open Claudian": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Toggle Footer Connections": false,
+      "smart-connections:Smart Connections: Open random connection": false
+    }
+  },
+  "active": "61b304b58f24939e",
+  "lastOpenFiles": [
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/PHASE 2 - KNOWLEDGE.md",
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "LUMIAION.md",
+    "03_AI_COUNCIL/Alpha Council.md",
+    "10_TEMPLATES/Concept Note Template.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
+    "README.md",
+    "Alpha Proxima Core.md",
+    "99_ARCHIVE",
+    "10_TEMPLATES/Vault Structure Convention.md",
+    "10_TEMPLATES/ADR Template.md",
+    "10_TEMPLATES",
+    "09_PEOPLE",
+    "08_SYSTEMS",
+    "07_RESEARCH",
+    "06_PROJECTS",
+    "05_PROPOSALS",
+    "04_DECISIONS",
+    "03_AI_COUNCIL/Institutional Registry.md",
+    "03_AI_COUNCIL",
+    "02_STRATEGY",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/AI COUNCIL/AI COUNCIL.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/CONSTITUTIONV1.0.md",
+    "ALPHA PROXIMA/OBSIDIAN VAULT.md",
+    "ALPHA PROXIMA/NOTION COMMAND CENTER.md",
+    "OBSIDIAN VAULT.md",
+    "NOTION COMMAND CENTER.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 5/PHASE 5 - EVOLUTION.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/PHASE 4 - EXECUTION.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 4/GITHUB REPO STRUCTURE.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 3/PHASE 3 - INTELLIGENCE.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/PHASE 1 - FOUNDATION.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/ARCHITECTURE MAP.md",
+    "ALPHA PROXIMA/ALPHA PROXIMA VAULT/Sans titre.md",
+    "first prototype of an AI-native wisdom operating system./ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md"
+  ]
+}
