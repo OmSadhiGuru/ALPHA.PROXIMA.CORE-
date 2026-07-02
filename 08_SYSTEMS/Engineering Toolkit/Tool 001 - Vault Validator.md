@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, obsidian, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.2"
+version: "0.1.3"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -22,7 +22,7 @@ related_research_programs: []
 
 The Vault Validator scans the Obsidian Vault for engineering quality issues and generates a Markdown validation report.
 
-It checks for missing YAML, invalid frontmatter, missing required metadata, broken wiki links, missing backlinks, duplicate filenames, and likely incorrect folder placement.
+It checks for missing YAML, invalid frontmatter, missing required metadata, broken wiki links, missing backlinks, duplicate filenames, likely incorrect folder placement, and top-level folder classification.
 
 ---
 
@@ -41,7 +41,7 @@ It checks for missing YAML, invalid frontmatter, missing required metadata, brok
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.2 |
+| **Version** | 0.1.3 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -77,6 +77,8 @@ The CLI lives at `08_SYSTEMS/Engineering Toolkit/vault_validator.py`.
 
 The validator is intentionally report-only. It does not edit notes, move files, approve metadata, or resolve governance questions.
 
+Default scans distinguish institutional folders from hidden, tool-managed, legacy, and temporary folders. Hidden and tool-managed folders are excluded unless `--include-hidden` is explicitly provided.
+
 ---
 
 ## CLI Interface
@@ -92,7 +94,7 @@ Options:
 | `--vault PATH` | Vault root. Defaults to the current working directory. |
 | `--output PATH` | Report output path. Defaults to `08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report.md`. |
 | `--format markdown` | Report format. Markdown is currently supported. |
-| `--include-hidden` | Include hidden folders. Hidden folders are skipped by default. |
+| `--include-hidden` | Include hidden and tool-managed folders. Hidden and tool-managed folders are skipped by default. |
 | `--fail-on LEVEL` | Return exit code `1` when issues exist at or above `warning` or `error`. |
 | `--force` | Overwrite an existing report after explicit confirmation by command flag. |
 
@@ -164,6 +166,7 @@ The vault is expected to grow from hundreds to tens of thousands of notes. Manua
 | Missing backlinks | Markdown note has no incoming wiki links |
 | Duplicate filenames | Same file name appears in more than one location |
 | Incorrect folder placement | Known artifact naming pattern appears in the wrong canonical folder |
+| Folder classification | Top-level folders are classified as institutional, hidden, tool-managed, legacy, temporary, or unclassified |
 
 ### Operational Boundary
 
@@ -182,6 +185,7 @@ The validator reports likely issues. A human or approved governance process deci
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.1.3 | 2026-07-02 | [[CODEX]] | Added top-level folder classification and default exclusion of tool-managed folders |
 | 0.1.2 | 2026-07-02 | [[CODEX]] | Excluded generated reports from scans, resolved aliases, expanded valid statuses, and allowed office README files |
 | 0.1.1 | 2026-07-02 | [[CODEX]] | Added overwrite protection and approved Future Office template placement |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial Vault Validator tool documented and implemented |

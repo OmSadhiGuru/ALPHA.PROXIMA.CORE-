@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, validation, yaml, frontmatter, alpha-proxi
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "0.1.0"
+version: "0.1.1"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -24,6 +24,8 @@ The YAML Validator scans Markdown notes for frontmatter compliance with [[02 - Y
 
 It is narrower than [[Tool 001 - Vault Validator]]. It focuses only on metadata quality.
 
+Template files are template-aware: approved placeholders such as `YYYY-MM-DD`, `<TITLE>`, `<AUTHOR>`, and `{{value}}` are accepted in template contexts without weakening validation for operational documents.
+
 ---
 
 ## Dependencies
@@ -38,7 +40,7 @@ It is narrower than [[Tool 001 - Vault Validator]]. It focuses only on metadata 
 
 | Field | Value |
 |-------|-------|
-| **Version** | 0.1.0 |
+| **Version** | 0.1.1 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -70,6 +72,8 @@ It is narrower than [[Tool 001 - Vault Validator]]. It focuses only on metadata 
 The CLI lives at `08_SYSTEMS/Engineering Toolkit/yaml_validator.py`.
 
 The validator is report-only. It does not edit frontmatter, approve metadata, or determine canonical status.
+
+Template awareness applies only to notes stored in approved template locations, files named `* Template.md`, or notes identified as templates through frontmatter. Operational documents remain subject to normal date, status, version, and title checks.
 
 ---
 
@@ -176,5 +180,5 @@ The validator reports metadata quality issues. Humans or approved automation dec
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.1.1 | 2026-07-02 | [[CODEX]] | Added template-aware placeholder validation without weakening operational document validation |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial YAML Validator tool documented and implemented |
-

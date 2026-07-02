@@ -25,12 +25,25 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T13:41:37-04:00`
+- Generated: `2026-07-02T14:43:26-04:00`
 - Markdown notes scanned: `171`
 - Critical: `0`
 - Errors: `1`
 - Warnings: `445`
 - Info: `14`
+
+## Folder Classification
+
+| Category | Top-Level Folder Count |
+|----------|------------------------|
+| institutional | `15` |
+| legacy | `1` |
+| tool-managed | `2` |
+| hidden | `7` |
+| temporary | `0` |
+| unclassified | `0` |
+
+Tool-managed and hidden folders are excluded from default institutional validation scans.
 
 ## Validation Results
 

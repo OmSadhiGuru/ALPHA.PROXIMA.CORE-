@@ -47,6 +47,9 @@ OPTIONAL_FIELDS = {
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 H1_RE = re.compile(r"^#\s+(.+?)\s*$", re.MULTILINE)
+ANGLE_PLACEHOLDER_RE = re.compile(r"^<[^<>]+>$")
+BRACE_PLACEHOLDER_RE = re.compile(r"^\{\{[^{}]+\}\}$")
+UPPER_PLACEHOLDER_RE = re.compile(r"^[A-Z][A-Z0-9_-]*(?:-[A-Z0-9_-]+)*$")
 
 
 @dataclass(frozen=True)
@@ -80,11 +83,26 @@ def first_h1(body: str) -> str | None:
     return match.group(1).strip() if match else None
 
 
+def is_template_placeholder(value: object) -> bool:
+    if isinstance(value, str):
+        stripped = value.strip()
+        return (
+            stripped == "YYYY-MM-DD"
+            or bool(ANGLE_PLACEHOLDER_RE.fullmatch(stripped))
+            or bool(BRACE_PLACEHOLDER_RE.fullmatch(stripped))
+            or bool(UPPER_PLACEHOLDER_RE.fullmatch(stripped))
+        )
+    if isinstance(value, list):
+        return all(is_template_placeholder(item) for item in value)
+    return False
+
+
 def validate_note(note) -> list[YamlIssue]:
     issues: list[YamlIssue] = []
     if not note.has_frontmatter:
         return [issue("error", "missing_yaml", note.relative_path, "Markdown note does not start with YAML frontmatter.")]
 
+    is_template = vault_validator.is_template_note(note)
     for error in note.frontmatter_errors:
         issues.append(issue("error", "invalid_frontmatter", note.relative_path, error))
 
@@ -100,19 +118,19 @@ def validate_note(note) -> list[YamlIssue]:
             issues.append(issue("info", "unknown_field", note.relative_path, f"Field is not defined in the current standard: {field}"))
 
     status = note.frontmatter.get("status")
-    if isinstance(status, str) and status not in vault_validator.STATUS_VALUES:
+    if isinstance(status, str) and status not in vault_validator.STATUS_VALUES and not (is_template and is_template_placeholder(status)):
         issues.append(issue("warning", "invalid_status", note.relative_path, f"Invalid status value: {status}"))
 
     version = note.frontmatter.get("version")
     if isinstance(version, str):
-        if not SEMVER_RE.fullmatch(version):
+        if not SEMVER_RE.fullmatch(version) and not (is_template and is_template_placeholder(version)):
             issues.append(issue("warning", "invalid_version", note.relative_path, f"Version should use semantic versioning: {version}"))
     elif version is not None:
         issues.append(issue("warning", "invalid_version", note.relative_path, "Version should be a quoted semantic version string."))
 
     for field in sorted(DATE_FIELDS & fields):
         value = note.frontmatter[field]
-        if isinstance(value, str) and not DATE_RE.fullmatch(value):
+        if isinstance(value, str) and not DATE_RE.fullmatch(value) and not (is_template and is_template_placeholder(value)):
             issues.append(issue("warning", "invalid_date", note.relative_path, f"{field} should be YYYY-MM-DD: {value}"))
 
     for field in sorted(vault_validator.LIST_FIELDS & fields):
@@ -121,7 +139,7 @@ def validate_note(note) -> list[YamlIssue]:
 
     title = note.frontmatter.get("title")
     h1 = first_h1(note.body)
-    if isinstance(title, str) and h1 and "{{" not in title and title != h1:
+    if isinstance(title, str) and h1 and "{{" not in title and not (is_template and is_template_placeholder(title)) and title != h1:
         issues.append(issue("info", "title_mismatch", note.relative_path, f"Frontmatter title `{title}` does not match H1 `{h1}`."))
 
     return issues

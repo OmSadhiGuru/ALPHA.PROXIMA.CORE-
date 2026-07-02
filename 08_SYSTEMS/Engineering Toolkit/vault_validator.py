@@ -14,7 +14,11 @@ from typing import Iterable
 
 
 DEFAULT_REPORT = Path("08_SYSTEMS/Engineering Toolkit/Reports/Vault Validation Report.md")
-HIDDEN_DIRS = {".git", ".obsidian", ".smart-env", ".claude", ".claudian"}
+HIDDEN_DIRS = {".git", ".obsidian", ".smart-env", ".claude", ".claudian", ".makemd", ".space"}
+TOOL_MANAGED_DIRS = {"copilot", "Tags"}
+LEGACY_DIRS = {"ALPHA PROXIMA"}
+TEMPORARY_DIRS = {"tmp", "temp", "_tmp", "_temp"}
+INSTITUTIONAL_DIR_RE = re.compile(r"^\d{2}_[A-Z0-9_]+$")
 SKIPPED_DIRS = {Path("08_SYSTEMS/Engineering Toolkit/Reports")}
 ALLOWED_DUPLICATE_FILENAMES = {"README.md"}
 REQUIRED_FIELDS = {
@@ -75,6 +79,36 @@ def relative(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
 
 
+def folder_category(relative_path: Path) -> str:
+    if not relative_path.parts:
+        return "root"
+    top_level = relative_path.parts[0]
+    if top_level.startswith(".") or top_level in HIDDEN_DIRS:
+        return "hidden"
+    if top_level in TOOL_MANAGED_DIRS:
+        return "tool-managed"
+    if top_level in LEGACY_DIRS:
+        return "legacy"
+    if top_level.lower() in TEMPORARY_DIRS:
+        return "temporary"
+    if INSTITUTIONAL_DIR_RE.fullmatch(top_level):
+        return "institutional"
+    return "unclassified"
+
+
+def is_template_note(note: Note) -> bool:
+    path = note.relative_path
+    artifact_type = note.frontmatter.get("artifact_type")
+    template_type = note.frontmatter.get("template_type")
+    return (
+        path.startswith("10_TEMPLATES/")
+        or "/Templates/" in path
+        or note.path.name.endswith(" Template.md")
+        or artifact_type == "template"
+        or isinstance(template_type, str)
+    )
+
+
 def iter_files(root: Path, include_hidden: bool) -> Iterable[Path]:
     for path in root.rglob("*"):
         if not path.is_file():
@@ -82,7 +116,9 @@ def iter_files(root: Path, include_hidden: bool) -> Iterable[Path]:
         relative_path = path.relative_to(root)
         if any(relative_path.is_relative_to(skipped) for skipped in SKIPPED_DIRS):
             continue
-        if not include_hidden and any(part in HIDDEN_DIRS or part.startswith(".") for part in relative_path.parts):
+        if not include_hidden and any(
+            part in HIDDEN_DIRS or part in TOOL_MANAGED_DIRS or part.startswith(".") for part in relative_path.parts
+        ):
             continue
         yield path
 
@@ -329,9 +365,17 @@ def summarize_issues(issues: list[Issue]) -> dict[str, int]:
     return summary
 
 
+def summarize_folder_categories(root: Path) -> Counter[str]:
+    categories: Counter[str] = Counter()
+    for path in sorted(item for item in root.iterdir() if item.is_dir()):
+        categories[folder_category(path.relative_to(root))] += 1
+    return categories
+
+
 def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -> str:
     now = dt.datetime.now().astimezone().isoformat(timespec="seconds")
     summary = summarize_issues(issues)
+    folder_summary = summarize_folder_categories(root)
     by_check: dict[str, list[Issue]] = defaultdict(list)
     for issue in sorted(issues, key=lambda item: (item.check, item.path, item.message)):
         by_check[issue.check].append(issue)
@@ -371,9 +415,24 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -
         f"- Warnings: `{summary['warning']}`",
         f"- Info: `{summary['info']}`",
         "",
+        "## Folder Classification",
+        "",
+        "| Category | Top-Level Folder Count |",
+        "|----------|------------------------|",
+    ]
+
+    for category in ["institutional", "legacy", "tool-managed", "hidden", "temporary", "unclassified"]:
+        lines.append(f"| {category} | `{folder_summary.get(category, 0)}` |")
+
+    lines.extend(
+        [
+            "",
+            "Tool-managed and hidden folders are excluded from default institutional validation scans.",
+            "",
         "## Validation Results",
         "",
-    ]
+        ]
+    )
 
     if not issues:
         lines.extend(["No issues detected.", ""])
