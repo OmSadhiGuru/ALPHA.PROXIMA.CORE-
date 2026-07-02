@@ -4,8 +4,8 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import sys
+import types
 from pathlib import Path
 
 
@@ -19,17 +19,16 @@ COMMANDS = {
     "office-check": ("office_integrity_checker.py", "Generate the Office Integrity Report"),
     "research-check": ("research_integrity_checker.py", "Generate the Research Integrity Report"),
     "dependency-map": ("dependency_analyzer.py", "Generate the Vault Dependency Report"),
+    "research-management": ("research_management.py", "Generate the Research Management Toolkit dashboard and index"),
 }
 
 
 def load_tool(filename: str):
     path = TOOLKIT_DIR / filename
-    spec = importlib.util.spec_from_file_location(path.stem, path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"Unable to load tool: {path}")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
+    module = types.ModuleType(path.stem)
+    module.__file__ = str(path)
+    sys.modules[path.stem] = module
+    exec(compile(path.read_text(encoding="utf-8"), str(path), "exec"), module.__dict__)
     return module
 
 

@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, cli, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -40,6 +40,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 | `dependency-map` | [[Tool 005 - Dependency Analyzer]] |
 | `office-check` | [[Tool 006 - Office Integrity Checker]] |
 | `research-check` | [[Tool 007 - Research Integrity Checker]] |
+| `research-management` | [[Research Management Toolkit v1.0]] |
 
 ## Usage Examples
 
@@ -47,6 +48,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" validate --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" stats --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" dependency-map --force
+python3 "08_SYSTEMS/Engineering Toolkit/ap.py" research-management --force
 ```
 
 ## Extension Points
@@ -66,4 +68,5 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" dependency-map --force
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-07-02 | [[CODEX]] | Added research-management command for ES-004 |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial unified Engineering CLI |

@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, automation, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -39,7 +39,7 @@ The toolkit automates repetitive engineering checks. It does not automate instit
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.0.0 |
+| **Version** | 1.0.1 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -106,6 +106,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap dependency-map` | Generate Vault Dependency Report |
 | `ap office-check` | Generate Office Integrity Report |
 | `ap research-check` | Generate Research Integrity Report |
+| `ap research-management` | Generate Research Management Toolkit dashboard, index, and lifecycle diagram |
 
 ---
 
@@ -150,6 +151,7 @@ The Engineering Handbook defines standards. The Engineering Toolkit turns those 
 3. Build a metadata migration planner profile system.
 4. Add a baseline file for accepted legacy debt.
 5. Convert the CLI into an installable local command.
+6. Add a full Research Program Creator using [[Research Management Toolkit v1.0]] templates.
 
 ---
 
@@ -169,6 +171,7 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-07-02 | [[CODEX]] | Added ES-004 research-management CLI capability |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | ES-003 Engineering Toolkit v1.0 with tools 001-008 and unified CLI |
 | 0.2.0 | 2026-07-02 | [[CODEX]] | Added Tool 002 - YAML Validator |
 | 0.1.0 | 2026-07-02 | [[CODEX]] | Initial toolkit index created with Tool 001 |

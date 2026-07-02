@@ -75,7 +75,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#obsidian",
+                "query": "tag:#alpha-proxima",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +117,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -302,8 +302,26 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "61b304b58f24939e",
   "lastOpenFiles": [
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md",
+    "08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md",
+    "08_SYSTEMS/Research Management Toolkit/Research Index.md",
+    "08_SYSTEMS/Research Management Toolkit/Research Dashboard.md",
+    "08_SYSTEMS/Research Management Toolkit/Research Management Toolkit v1.0.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Research Timeline Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Future Research Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Open Questions Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Evidence Registry Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Canonical Synthesis Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Research Artifact Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Research Commission Template.md",
+    "08_SYSTEMS/Research Management Toolkit/Templates/Research Program Template.md",
+    "08_SYSTEMS/Engineering Toolkit/research_management.py",
+    "08_SYSTEMS/Research Management Toolkit/Templates",
+    "08_SYSTEMS/Research Management Toolkit/Reports",
+    "08_SYSTEMS/Research Management Toolkit",
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 007 - Research Integrity Checker.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 006 - Office Integrity Checker.md",
@@ -322,24 +340,6 @@
     "08_SYSTEMS/Engineering Toolkit/metadata_migrator.py",
     "08_SYSTEMS/Engineering Toolkit/Reports/Metadata Migration Report v1.1.md",
     "99_ARCHIVE/Engineering Cleanup/ES-002 Metadata Migration Phase 1/06 Source - SanaLab.md",
-    "99_ARCHIVE/Engineering Cleanup/ES-002 Metadata Migration Phase 1",
-    "99_ARCHIVE/Engineering Cleanup",
-    "Vault.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Engineering Health Report v1.1.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/ES-001 - Orphan Document Classification.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Metadata Migration Plan v1.0.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/ES-001 - SanaLab Root File Assessment.md",
-    "copilot/copilot-custom-prompts/Clip Web Page.md",
-    "00_CONSTITUTION/Book I - The Constitution.md",
-    "09_PEOPLE/CODEX.md",
-    "Tags",
-    "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
-    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
-    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
-    "copilot/copilot-custom-prompts/Remove URLs.md",
-    "copilot/copilot-custom-prompts/Generate glossary.md",
-    "copilot/copilot-custom-prompts/Generate table of contents.md",
-    "copilot/copilot-custom-prompts",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

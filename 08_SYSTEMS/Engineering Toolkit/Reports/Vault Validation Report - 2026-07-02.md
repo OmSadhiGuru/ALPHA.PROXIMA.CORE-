@@ -25,12 +25,12 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-02T15:03:52-04:00`
-- Markdown notes scanned: `178`
+- Generated: `2026-07-02T19:30:39-04:00`
+- Markdown notes scanned: `191`
 - Critical: `0`
 - Errors: `1`
-- Warnings: `410`
-- Info: `14`
+- Warnings: `412`
+- Info: `11`
 
 ## Folder Classification
 
@@ -47,6 +47,13 @@ Tool-managed and hidden folders are excluded from default institutional validati
 
 ## Validation Results
 
+### duplicate_filename
+
+| Severity | Path | Message |
+|----------|------|---------|
+| warning | `08_SYSTEMS/Research Management Toolkit/Templates/Research Commission Template.md` | Duplicate filename appears in 2 locations: Research Commission Template.md |
+| warning | `09_FUTURE/Templates/Research Commission Template.md` | Duplicate filename appears in 2 locations: Research Commission Template.md |
+
 ### missing_backlinks
 
 | Severity | Path | Message |
@@ -57,11 +64,8 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | info | `07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-002/RP-002 Master Index.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-003/RP-003 Master Index.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-004/RP-004 Master Index.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-005/RP-005 Master Index.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-006/RP-006 Master Index.md` | No incoming wiki links found. |
+| info | `08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md` | No incoming wiki links found. |
+| info | `09_FUTURE/Templates/Research Commission Template.md` | No incoming wiki links found. |
 | info | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |
 | info | `Building Milestone.md` | No incoming wiki links found. |
 | info | `Vault.md` | No incoming wiki links found. |
