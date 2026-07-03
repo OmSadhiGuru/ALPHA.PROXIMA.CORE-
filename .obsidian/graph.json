@@ -1,37 +1,86 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": true,
   "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:\"ALPHA PROXIMA\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 7607720
-      }
-    },
-    {
-      "query": "path:",
+      "query": "file:Lumiaion",
       "color": {
         "a": 1,
         "rgb": 14725458
       }
+    },
+    {
+      "query": "file:VORTEX",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "file:ATHENA",
+      "color": {
+        "a": 1,
+        "rgb": 255
+      }
+    },
+    {
+      "query": "line:(codex)",
+      "color": {
+        "a": 1,
+        "rgb": 16711680
+      }
+    },
+    {
+      "query": "line:(LUMIAION)",
+      "color": {
+        "a": 1,
+        "rgb": 16776960
+      }
+    },
+    {
+      "query": "line:(CLAUDE)",
+      "color": {
+        "a": 1,
+        "rgb": 16221184
+      }
+    },
+    {
+      "query": "file:research",
+      "color": {
+        "a": 1,
+        "rgb": 5395168
+      }
+    },
+    {
+      "query": "line:(perplexity)",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
+    },
+    {
+      "query": "line:(ALPHA PROXIMA)",
+      "color": {
+        "a": 1,
+        "rgb": 14701233
+      }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 2.24162326388889,
   "lineSizeMultiplier": 2.39411024305556,
-  "collapse-forces": true,
-  "centerStrength": 0.780946180555556,
-  "repelStrength": 14.3506944444444,
-  "linkStrength": 1,
-  "linkDistance": 180,
-  "scale": 0.2874317961537825,
-  "close": false
+  "collapse-forces": false,
+  "centerStrength": 1,
+  "repelStrength": 17.2537968675842,
+  "linkStrength": 0,
+  "linkDistance": 30,
+  "scale": 0.3566471838590961,
+  "close": true
 }
