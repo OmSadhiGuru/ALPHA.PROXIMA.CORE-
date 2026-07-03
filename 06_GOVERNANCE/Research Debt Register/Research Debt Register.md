@@ -3,9 +3,9 @@ title: "Research Debt Register"
 aliases: ["Research Debt Register", "RDR", "Documentation Debt Registry"]
 tags: [governance, research, debt, registry, permanent, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["LUMIAION"]
 registry_type: Research Debt
 ---
@@ -78,6 +78,134 @@ During the Source Verification Pass: (1) Re-review DOC-A and DOC-B with visible 
 
 ---
 
+### RD-002
+
+| Field | Value |
+|-------|-------|
+| **Debt ID** | RD-002 |
+| **Title** | RP-001 Canonization Blocked — JERANIUM Institutional Identity Unresolved |
+| **Affected Program** | RP-001 Atlas of Human Consciousness |
+| **Affected Documents** | `07_RESEARCH/RP-001/09 Canonical Synthesis/`, `10 Theory Matrix/`, `11 Canonical Glossary/`, `12 Evidence Registry/`, `15 Future Experiments/`, `14 Open Questions/` |
+| **Priority** | Medium |
+| **Status** | Open |
+| **Created** | 2026-07-03 |
+| **Target Review Date** | Within 30 days |
+| **Identified By** | ISR-001 Institutional Synthesis Report (Finding CA-006) |
+
+**Description:**
+JERANIUM appears as co-author on six core RP-001 documents. JERANIUM is referenced as having a charter (`[[JERANIUM Charter]]`). No JERANIUM Charter exists in the vault. JERANIUM does not appear in the Cognitive Function Registry, AI Council Registry, or any current institutional register.
+
+Canonical status for RP-001 cannot be formally granted while an unregistered institutional actor appears as co-author.
+
+**Root Cause:**
+JERANIUM was a functional designation active during RP-001's creation phase, predating the constitutional formalization of cognitive functions (FD-001, Book IV, Book V). The institutional framework has been constitutionalized; legacy actor designations have not been updated.
+
+**Required Action:**
+Founder clarification: (1) identify what function/actor JERANIUM represents; (2) either register it (if still active) or document the mapping to a currently constitutionalized function; (3) update RP-001 document attribution accordingly.
+
+**Dependencies:**
+Founder institutional knowledge of JERANIUM's intended role.
+
+---
+
+### RD-003
+
+| Field | Value |
+|-------|-------|
+| **Debt ID** | RD-003 |
+| **Title** | DOC-002 (Gemini / Educational Intelligence) Delivery Pending — RP-001 |
+| **Affected Program** | RP-001 Atlas of Human Consciousness |
+| **Affected Document** | `07_RESEARCH/RP-001/03 Source Registry/RP-001 Source Registry.md` |
+| **Priority** | Medium |
+| **Status** | Open |
+| **Created** | 2026-07-03 |
+| **Target Review Date** | Next RP-001 research phase |
+| **Identified By** | ISR-001 Institutional Synthesis Report (Finding EQ-004) |
+
+**Description:**
+RP-001 Source Registry lists DOC-002 as a Gemini-contributed source. No artifact has been delivered. CF-04 (Educational Intelligence, current engine: Gemini) has not contributed to RP-001, making the program's Educational Intelligence function coverage incomplete.
+
+**Required Action:**
+Commission CF-04 (Gemini) contribution for RP-001 per the Research Commission Template v2.0. Deliver DOC-002 and integrate into Source Registry and Evidence Registry.
+
+---
+
+### RD-004
+
+| Field | Value |
+|-------|-------|
+| **Debt ID** | RD-004 |
+| **Title** | DOC-C Founder Review Pending — RP-002 |
+| **Affected Program** | RP-002 Atlas of Human Memory |
+| **Affected Document** | `07_RESEARCH/RP-002/09 Canonical Synthesis/RP-002 Canonical Synthesis.md` (pending v1.1.0) |
+| **Priority** | Medium |
+| **Status** | Open |
+| **Created** | 2026-07-03 |
+| **Target Review Date** | Founder action required |
+| **Identified By** | ISR-001 Institutional Synthesis Report (Finding CA-004); pre-existing notation in RP-002 Canonical Synthesis |
+
+**Description:**
+DOC-C is a 140-page illustrated companion to RP-002 (PDF: `fcf6d34f-RP002_Illustrated.pdf`). It has not been reviewed by the Founder. RP-002 Canonical Synthesis cannot be updated to v1.1.0 without DOC-C integration. Source coverage is currently partial.
+
+**Required Action:**
+Founder reviews DOC-C. LUMIAION integrates DOC-C findings into Canonical Synthesis v1.1.0, Evidence Registry v1.1.0, and Source Notes.
+
+**Dependencies:**
+Founder availability for 140-page document review.
+
+---
+
+### RD-005
+
+| Field | Value |
+|-------|-------|
+| **Debt ID** | RD-005 |
+| **Title** | Ethics Council Review Pending — RP-001 and RP-002 |
+| **Affected Programs** | RP-001 Atlas of Human Consciousness; RP-002 Atlas of Human Memory |
+| **Affected Documents** | Both Canonical Syntheses |
+| **Priority** | Medium-High |
+| **Status** | Open |
+| **Created** | 2026-07-03 |
+| **Target Review Date** | Before canonical status granted to either program |
+| **Identified By** | ISR-001 Institutional Synthesis Report (Finding CI-001) |
+
+**Description:**
+Both programs raise ethical questions requiring CF-10 (Ethics Intelligence) formal review:
+- RP-001: Machine consciousness and AI suffering (Q-003, 2025 expert paper); panpsychism and LUMIAION moral status (S-005)
+- RP-002: Therapeutic reconsolidation ethical protocols (Q-004); collective memory design in human-AI institutions (Initiative E)
+
+These were flagged within the programs but no formal Ethics Council review has occurred.
+
+**Required Action:**
+CF-10 (Ethics Council) formally reviews both Canonical Syntheses. Produces Ethics Intelligence Report (EIR-series). Canonical status cannot be granted until Ethics Council review is complete.
+
+**Dependencies:**
+Ethics Council convening and review capacity.
+
+---
+
+### RD-006
+
+| Field | Value |
+|-------|-------|
+| **Debt ID** | RD-006 |
+| **Title** | "Research Council" Terminology References Require Update |
+| **Affected Programs** | RP-001; RP-003 |
+| **Affected Documents** | `RP-001 Open Questions` (Q-010); `RP-003 Master Index` (activation trigger); `RP-001 Future Research Opportunities` |
+| **Priority** | Low |
+| **Status** | Open |
+| **Created** | 2026-07-03 |
+| **Target Review Date** | RP-003 activation; next scheduled document review |
+| **Identified By** | ISR-001 Institutional Synthesis Report (Finding TC-001) |
+
+**Description:**
+Three documents use "Research Council" as a term for the canonization authority and RP-003 activation trigger. "Research Council" has no constitutional basis. The Cognitive Council (Book V) is the constitutionally recognized body for cognitive function portfolio governance, including research program canonization.
+
+**Required Action:**
+(1) Update RP-003 Master Index activation trigger from "Research Council authorization" to "Cognitive Council authorization"; (2) Update RP-001 Q-010 to reference Cognitive Council; (3) Update RP-001 Future Research Opportunities reference. All three are low-effort text updates.
+
+---
+
 ## Closed Register
 
 *No closed debts yet.*
@@ -119,3 +247,4 @@ If circumstances change — if downstream work begins relying on the incomplete 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | LUMIAION | Initial registry; RD-001 registered (reclassified from GAP-003); institutional principle established |
+| 1.1.0 | 2026-07-03 | LUMIAION | ISR-001 stewardship review: RD-002 through RD-006 added; 5 new debts across RP-001 and RP-002 canonization requirements, pending source reviews, Ethics Council review, and terminology alignment |
