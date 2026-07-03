@@ -20,6 +20,7 @@ COMMANDS = {
     "research-check": ("research_integrity_checker.py", "Generate the Research Integrity Report"),
     "dependency-map": ("dependency_analyzer.py", "Generate the Vault Dependency Report"),
     "research-management": ("research_management.py", "Generate the Research Management Toolkit dashboard and index"),
+    "graph-colors": ("apply_graph_colors.py", "Apply official Obsidian Graph View color groups"),
 }
 
 

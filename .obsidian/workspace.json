@@ -1,38 +1,14 @@
 {
   "main": {
-    "id": "a71ed0ea1e6d07b7",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "fe92f7fb5b8926b5",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "0424885674ab2e97",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00_CONSTITUTION/Book I - The Constitution.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Book I - The Constitution"
-            }
-          },
-          {
-            "id": "61b304b58f24939e",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -41,9 +17,7 @@
               "title": "Vue graphique"
             }
           }
-        ],
-        "currentTab": 1,
-        "stacked": true
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,16 +71,6 @@
             }
           },
           {
-            "id": "8968d461bc22d6d9",
-            "type": "leaf",
-            "state": {
-              "type": "mk-path-view",
-              "state": {},
-              "icon": "layout-grid",
-              "title": "Navigator"
-            }
-          },
-          {
             "id": "ea8bab8603bf48f8",
             "type": "leaf",
             "state": {
@@ -115,9 +79,19 @@
               "icon": "book",
               "title": "Book chapters"
             }
+          },
+          {
+            "id": "23f6c8dcdebfc674",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -254,6 +228,16 @@
               "icon": "book",
               "title": "Book goal"
             }
+          },
+          {
+            "id": "bce29ee4f2c56be6",
+            "type": "leaf",
+            "state": {
+              "type": "aibrowser-chat-view",
+              "state": {},
+              "icon": "messages-square",
+              "title": "OmniChat"
+            }
           }
         ],
         "currentTab": 7
@@ -302,13 +286,19 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "61b304b58f24939e",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "08_SYSTEMS/Institutional Knowledge Graph/Relationship Taxonomy.md",
+    "08_SYSTEMS/Institutional Knowledge Graph/Node Taxonomy.md",
+    "08_SYSTEMS/Institutional Knowledge Graph/Knowledge Graph Architecture v1.0.md",
+    "08_SYSTEMS/Institutional Knowledge Graph/Engineering Program EP-001 - Institutional Knowledge Graph.md",
+    "08_SYSTEMS/Institutional Knowledge Graph",
+    "08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md",
+    "Vault.md",
+    "00_CONSTITUTION/Book I - The Constitution.md",
     "10_TEMPLATES/Concept Note Template.md",
     "04_DECISIONS/ADR-0001 - The Founding Decision.md",
-    "00_CONSTITUTION/Book I - The Constitution.md",
     "08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md",
-    "08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md",
     "08_SYSTEMS/Research Management Toolkit/Research Index.md",
     "08_SYSTEMS/Research Management Toolkit/Research Dashboard.md",
     "08_SYSTEMS/Research Management Toolkit/Research Management Toolkit v1.0.md",
@@ -329,17 +319,11 @@
     "08_SYSTEMS/Engineering Toolkit/Tool 006 - Office Integrity Checker.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 005 - Dependency Analyzer.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 004 - Vault Statistics Generator.md",
-    "08_SYSTEMS/Engineering Toolkit/Tool 003 - Metadata Migration Utility.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Engineering Dashboard Report.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Vault Dependency Report.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Office Integrity Report.md",
-    "08_SYSTEMS/Engineering Toolkit/Reports/Research Integrity Report.md",
     "08_SYSTEMS/Engineering Toolkit/ap.py",
     "08_SYSTEMS/Engineering Toolkit/research_integrity_checker.py",
     "08_SYSTEMS/Engineering Toolkit/office_integrity_checker.py",
     "08_SYSTEMS/Engineering Toolkit/dependency_analyzer.py",
     "08_SYSTEMS/Engineering Toolkit/vault_statistics.py",
-    "08_SYSTEMS/Engineering Toolkit/metadata_migrator.py",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

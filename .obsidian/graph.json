@@ -1,73 +1,143 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": true,
   "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "file:Lumiaion",
+      "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
       "color": {
         "a": 1,
-        "rgb": 14725458
+        "rgb": 8141549
       }
     },
     {
-      "query": "file:VORTEX",
+      "query": "path:\"09_OFFICES/Executive Office\"",
       "color": {
         "a": 1,
-        "rgb": 11657298
+        "rgb": 14251782
       }
     },
     {
-      "query": "file:ATHENA",
+      "query": "path:\"09_OFFICES/Research Intelligence Office\"",
       "color": {
         "a": 1,
-        "rgb": 255
+        "rgb": 366185
       }
     },
     {
-      "query": "line:(codex)",
+      "query": "path:\"09_OFFICES/Engineering Office\"",
       "color": {
         "a": 1,
-        "rgb": 16711680
+        "rgb": 15357964
       }
     },
     {
-      "query": "line:(LUMIAION)",
+      "query": "path:\"09_OFFICES/Institutional Observatory\"",
       "color": {
         "a": 1,
-        "rgb": 16776960
+        "rgb": 561586
       }
     },
     {
-      "query": "line:(CLAUDE)",
+      "query": "file:\"Ethics Council Charter\"",
       "color": {
         "a": 1,
-        "rgb": 16221184
+        "rgb": 12456508
       }
     },
     {
-      "query": "file:research",
+      "query": "file:\"SOHMA Charter\"",
       "color": {
         "a": 1,
-        "rgb": 5395168
+        "rgb": 9647082
       }
     },
     {
-      "query": "line:(perplexity)",
+      "query": "file:\"ATHENA Charter\"",
       "color": {
         "a": 1,
-        "rgb": 11621088
+        "rgb": 1920728
       }
     },
     {
-      "query": "line:(ALPHA PROXIMA)",
+      "query": "file:\"VORTEX Charter\"",
       "color": {
         "a": 1,
-        "rgb": 14701233
+        "rgb": 6660877
+      }
+    },
+    {
+      "query": "file:\"JERANIUM Charter\"",
+      "color": {
+        "a": 1,
+        "rgb": 1013358
+      }
+    },
+    {
+      "query": "path:00_CONSTITUTION",
+      "color": {
+        "a": 1,
+        "rgb": 16096779
+      }
+    },
+    {
+      "query": "path:07_RESEARCH",
+      "color": {
+        "a": 1,
+        "rgb": 1483594
+      }
+    },
+    {
+      "query": "path:06_GOVERNANCE",
+      "color": {
+        "a": 1,
+        "rgb": 223649
+      }
+    },
+    {
+      "query": "path:08_SYSTEMS",
+      "color": {
+        "a": 1,
+        "rgb": 12730636
+      }
+    },
+    {
+      "query": "path:03_AI_COUNCIL",
+      "color": {
+        "a": 1,
+        "rgb": 889992
+      }
+    },
+    {
+      "query": "path:04_DECISIONS",
+      "color": {
+        "a": 1,
+        "rgb": 14753096
+      }
+    },
+    {
+      "query": "path:01_VISION OR path:02_STRATEGY",
+      "color": {
+        "a": 1,
+        "rgb": 12592851
+      }
+    },
+    {
+      "query": "path:10_TEMPLATES",
+      "color": {
+        "a": 1,
+        "rgb": 6583435
+      }
+    },
+    {
+      "query": "path:99_ARCHIVE",
+      "color": {
+        "a": 1,
+        "rgb": 5722958
       }
     }
   ],
@@ -76,11 +146,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 2.24162326388889,
   "lineSizeMultiplier": 2.39411024305556,
-  "collapse-forces": false,
-  "centerStrength": 1,
-  "repelStrength": 17.2537968675842,
-  "linkStrength": 0,
-  "linkDistance": 30,
-  "scale": 0.3566471838590961,
+  "collapse-forces": true,
+  "centerStrength": 0.780946180555556,
+  "repelStrength": 14.3506944444444,
+  "linkStrength": 1,
+  "linkDistance": 180,
+  "scale": 0.3962236449886646,
   "close": true
 }
