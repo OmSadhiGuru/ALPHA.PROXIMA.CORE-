@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, cli, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-03
 status: active
-version: "1.0.2"
+version: "1.0.3"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -43,6 +43,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 | `research-management` | [[Research Management Toolkit v1.0]] |
 | `graph-colors` | [[Tool 009 - Graph Color System]] |
 | `node-registry` | [[Tool 010 - Node Registry Generator]] |
+| `relationship-extract` | [[Tool 011 - Relationship Extractor]] |
 
 ## Usage Examples
 
@@ -53,6 +54,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" dependency-map --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" research-management --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" graph-colors --vault . --dry-run
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" node-registry --vault . --force
+python3 "08_SYSTEMS/Engineering Toolkit/ap.py" relationship-extract --vault . --force
 ```
 
 ## Extension Points
@@ -72,6 +74,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" node-registry --vault . --force
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-07-03 | [[CODEX]] | Added relationship-extract command for ES-006 |
 | 1.0.2 | 2026-07-03 | [[CODEX]] | Added graph-colors and node-registry commands |
 | 1.0.1 | 2026-07-02 | [[CODEX]] | Added research-management command for ES-004 |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial unified Engineering CLI |

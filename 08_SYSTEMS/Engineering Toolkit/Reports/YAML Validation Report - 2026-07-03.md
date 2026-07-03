@@ -25,8 +25,8 @@ Report frontmatter quality issues detected by [[Tool 002 - YAML Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-03T00:55:00-04:00`
-- Markdown notes scanned: `202`
+- Generated: `2026-07-03T01:36:22-04:00`
+- Markdown notes scanned: `204`
 - Critical: `0`
 - Errors: `1`
 - Warnings: `410`

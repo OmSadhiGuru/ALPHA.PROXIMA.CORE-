@@ -25,12 +25,12 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-03T00:55:01-04:00`
-- Markdown notes scanned: `202`
+- Generated: `2026-07-03T01:36:24-04:00`
+- Markdown notes scanned: `204`
 - Critical: `0`
 - Errors: `1`
 - Warnings: `412`
-- Info: `11`
+- Info: `12`
 
 ## Folder Classification
 
@@ -64,6 +64,7 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | info | `07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md` | No incoming wiki links found. |
+| info | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Relationship Registry Report.md` | No incoming wiki links found. |
 | info | `08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md` | No incoming wiki links found. |
 | info | `09_FUTURE/Templates/Research Commission Template.md` | No incoming wiki links found. |
 | info | `ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |

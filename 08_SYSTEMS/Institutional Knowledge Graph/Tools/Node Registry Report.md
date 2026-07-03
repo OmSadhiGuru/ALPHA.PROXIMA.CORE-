@@ -25,8 +25,8 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 ## Summary
 
 - Vault: `/Users/Fred/Documents/Obsidian Vault`
-- Generated: `2026-07-03T00:54:24-04:00`
-- Total nodes discovered: `202`
+- Generated: `2026-07-03T01:36:03-04:00`
+- Total nodes discovered: `204`
 - Unknown node types: `63`
 - Missing YAML: `1`
 - High-value cleanup candidates: `104`
@@ -38,7 +38,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `unknown` | `63` |
 | `standard` | `31` |
 | `future_research` | `17` |
-| `engineering_tool` | `14` |
+| `engineering_tool` | `16` |
 | `standing_order` | `13` |
 | `policy` | `9` |
 | `research_artifact` | `9` |
