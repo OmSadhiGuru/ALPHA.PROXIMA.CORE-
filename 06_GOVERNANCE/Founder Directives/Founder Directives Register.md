@@ -5,7 +5,7 @@ tags: [governance, founder-directives, register, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-03
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["LUMIAION"]
 document_class: Register
 governed_by: "Directive Governance Framework"
@@ -30,6 +30,7 @@ See [[Directive Governance Framework]] for the full definition, lifecycle, and g
 | Code | Title | Executing Office | Issued | Status |
 |------|-------|-----------------|--------|--------|
 | FD-005 | Epoch IV — Cognitive Council Constitution | LUMIAION | 2026-07-03 | Active |
+| FD-006 | ISR-002 — Institutional Intelligence Translation Framework | LUMIAION | 2026-07-03 | Active |
 
 ---
 
@@ -57,7 +58,7 @@ See [[Directive Governance Framework]] for the full definition, lifecycle, and g
 - Status transitions are recorded here and in the directive document itself.
 - Completed directives are archived at: `06_GOVERNANCE/Founder Directives/Archive/`
 - LUMIAION is responsible for maintaining register currency.
-- The next available FD code is **FD-006**.
+- The next available FD code is **FD-007**.
 
 ---
 
@@ -68,3 +69,4 @@ See [[Directive Governance Framework]] for the full definition, lifecycle, and g
 | 1.0.0 | 2026-07-02 | LUMIAION | Register created; FD-001 and FD-002 recorded as completed; FD-003 recorded as active |
 | 1.1.0 | 2026-07-02 | LUMIAION | FD-003 completed; FD-004 (Epoch IV Institutional Research Framework) registered as active |
 | 1.2.0 | 2026-07-03 | LUMIAION | FD-004 completed; FD-005 (Epoch IV Cognitive Council Constitution) registered as active |
+| 1.3.0 | 2026-07-03 | LUMIAION | FD-006 (ISR-002 Institutional Intelligence Translation Framework) registered as active |
