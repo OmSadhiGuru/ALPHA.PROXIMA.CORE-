@@ -21,11 +21,12 @@ COMMANDS = {
     "dependency-map": ("dependency_analyzer.py", "Generate the Vault Dependency Report"),
     "research-management": ("research_management.py", "Generate the Research Management Toolkit dashboard and index"),
     "graph-colors": ("apply_graph_colors.py", "Apply official Obsidian Graph View color groups"),
+    "node-registry": ("../Institutional Knowledge Graph/Tools/node_registry.py", "Generate the Institutional Knowledge Graph node registry"),
 }
 
 
 def load_tool(filename: str):
-    path = TOOLKIT_DIR / filename
+    path = (TOOLKIT_DIR / filename).resolve()
     module = types.ModuleType(path.stem)
     module.__file__ = str(path)
     sys.modules[path.stem] = module

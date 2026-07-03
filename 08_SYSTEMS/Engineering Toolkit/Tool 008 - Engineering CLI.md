@@ -3,9 +3,9 @@ title: "Tool 008 - Engineering CLI"
 aliases: ["Alpha Proxima CLI", "Engineering CLI", "ap CLI", "Engineering Toolkit Tool 008"]
 tags: [systems, engineering, toolkit, cli, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 status: active
-version: "1.0.1"
+version: "1.0.2"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -41,6 +41,8 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 | `office-check` | [[Tool 006 - Office Integrity Checker]] |
 | `research-check` | [[Tool 007 - Research Integrity Checker]] |
 | `research-management` | [[Research Management Toolkit v1.0]] |
+| `graph-colors` | [[Tool 009 - Graph Color System]] |
+| `node-registry` | [[Tool 010 - Node Registry Generator]] |
 
 ## Usage Examples
 
@@ -49,6 +51,8 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" validate --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" stats --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" dependency-map --force
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" research-management --force
+python3 "08_SYSTEMS/Engineering Toolkit/ap.py" graph-colors --vault . --dry-run
+python3 "08_SYSTEMS/Engineering Toolkit/ap.py" node-registry --vault . --force
 ```
 
 ## Extension Points
@@ -68,5 +72,6 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" research-management --force
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-07-03 | [[CODEX]] | Added graph-colors and node-registry commands |
 | 1.0.1 | 2026-07-02 | [[CODEX]] | Added research-management command for ES-004 |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial unified Engineering CLI |

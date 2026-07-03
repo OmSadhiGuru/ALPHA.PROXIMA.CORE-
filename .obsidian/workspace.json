@@ -91,7 +91,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -286,8 +286,13 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "25f2ca6587598c19",
   "lastOpenFiles": [
+    "08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 010 - Node Registry Generator.md",
+    "08_SYSTEMS/Institutional Knowledge Graph/Tools/Node Registry Report.md",
+    "08_SYSTEMS/Institutional Knowledge Graph/Tools/node_registry.json",
+    "08_SYSTEMS/Institutional Knowledge Graph/Tools/node_registry.py",
+    "08_SYSTEMS/Institutional Knowledge Graph/Tools",
     "08_SYSTEMS/Institutional Knowledge Graph/Relationship Taxonomy.md",
     "08_SYSTEMS/Institutional Knowledge Graph/Node Taxonomy.md",
     "08_SYSTEMS/Institutional Knowledge Graph/Knowledge Graph Architecture v1.0.md",
@@ -317,13 +322,8 @@
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 007 - Research Integrity Checker.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 006 - Office Integrity Checker.md",
-    "08_SYSTEMS/Engineering Toolkit/Tool 005 - Dependency Analyzer.md",
-    "08_SYSTEMS/Engineering Toolkit/Tool 004 - Vault Statistics Generator.md",
     "08_SYSTEMS/Engineering Toolkit/ap.py",
     "08_SYSTEMS/Engineering Toolkit/research_integrity_checker.py",
-    "08_SYSTEMS/Engineering Toolkit/office_integrity_checker.py",
-    "08_SYSTEMS/Engineering Toolkit/dependency_analyzer.py",
-    "08_SYSTEMS/Engineering Toolkit/vault_statistics.py",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

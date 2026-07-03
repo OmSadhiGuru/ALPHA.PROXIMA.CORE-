@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, automation, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
 status: active
-version: "1.0.2"
+version: "1.0.3"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -39,7 +39,7 @@ The toolkit automates repetitive engineering checks. It does not automate instit
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.0.2 |
+| **Version** | 1.0.3 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -94,6 +94,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 007 | active | [[Tool 007 - Research Integrity Checker]] | `08_SYSTEMS/Engineering Toolkit/research_integrity_checker.py` |
 | 008 | active | [[Tool 008 - Engineering CLI]] | `08_SYSTEMS/Engineering Toolkit/ap.py` |
 | 009 | active | [[Tool 009 - Graph Color System]] | `08_SYSTEMS/Engineering Toolkit/apply_graph_colors.py` |
+| 010 | active | [[Tool 010 - Node Registry Generator]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/node_registry.py` |
 
 ## CLI Commands
 
@@ -109,6 +110,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap research-check` | Generate Research Integrity Report |
 | `ap research-management` | Generate Research Management Toolkit dashboard, index, and lifecycle diagram |
 | `ap graph-colors` | Apply official Obsidian Graph View color groups |
+| `ap node-registry` | Generate Institutional Knowledge Graph node registry |
 
 ---
 
@@ -174,6 +176,7 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-07-03 | [[CODEX]] | Added Tool 010 - Node Registry Generator |
 | 1.0.2 | 2026-07-03 | [[CODEX]] | Added Tool 009 - Graph Color System |
 | 1.0.1 | 2026-07-02 | [[CODEX]] | Added ES-004 research-management CLI capability |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | ES-003 Engineering Toolkit v1.0 with tools 001-008 and unified CLI |
