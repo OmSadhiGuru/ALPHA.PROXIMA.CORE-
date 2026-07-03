@@ -8,10 +8,17 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "",
+      "query": "path:\"ALPHA PROXIMA\"  ",
       "color": {
         "a": 1,
-        "rgb": 14701138
+        "rgb": 7607720
+      }
+    },
+    {
+      "query": "path:",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
       }
     }
   ],
@@ -25,6 +32,6 @@
   "repelStrength": 14.3506944444444,
   "linkStrength": 1,
   "linkDistance": 180,
-  "scale": 0.15966233749535846,
+  "scale": 0.2874317961537825,
   "close": false
 }
