@@ -286,8 +286,9 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Sans titre.md",
     "08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 011 - Relationship Extractor.md",
     "08_SYSTEMS/Institutional Knowledge Graph/Tools/Relationship Registry Report.md",
     "08_SYSTEMS/Institutional Knowledge Graph/Tools/relationship_registry.json",
@@ -323,7 +324,6 @@
     "08_SYSTEMS/Research Management Toolkit/Templates",
     "08_SYSTEMS/Research Management Toolkit/Reports",
     "08_SYSTEMS/Research Management Toolkit",
-    "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
