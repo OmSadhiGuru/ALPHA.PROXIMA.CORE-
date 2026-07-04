@@ -88,7 +88,7 @@
       "query": "path:07_RESEARCH",
       "color": {
         "a": 1,
-        "rgb": 1483594
+        "rgb": 14463774
       }
     },
     {
@@ -139,18 +139,25 @@
         "a": 1,
         "rgb": 5722958
       }
+    },
+    {
+      "query": "tag:#alpha-proxima  ",
+      "color": {
+        "a": 1,
+        "rgb": 7996091
+      }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": 0.2,
-  "nodeSizeMultiplier": 2.02320746527778,
-  "lineSizeMultiplier": 1.36009114583333,
+  "textFadeMultiplier": -1,
+  "nodeSizeMultiplier": 2.35604166666667,
+  "lineSizeMultiplier": 1.95387586805556,
   "collapse-forces": false,
-  "centerStrength": 0.689930555555556,
-  "repelStrength": 16.734375,
+  "centerStrength": 0.2703125,
+  "repelStrength": 18.5607638888889,
   "linkStrength": 1,
-  "linkDistance": 257,
-  "scale": 0.07953652667666819,
-  "close": true
+  "linkDistance": 500,
+  "scale": 0.06587741776686296,
+  "close": false
 }
