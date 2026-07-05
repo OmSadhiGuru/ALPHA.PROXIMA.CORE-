@@ -1,11 +1,11 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": true,
   "showAttachments": true,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
@@ -148,16 +148,16 @@
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": true,
-  "textFadeMultiplier": -1,
-  "nodeSizeMultiplier": 2.35604166666667,
+  "textFadeMultiplier": -0.2,
+  "nodeSizeMultiplier": 2.19355902777778,
   "lineSizeMultiplier": 1.95387586805556,
   "collapse-forces": false,
-  "centerStrength": 0.2703125,
-  "repelStrength": 18.5607638888889,
-  "linkStrength": 1,
-  "linkDistance": 500,
-  "scale": 0.037723422382113875,
-  "close": true
+  "centerStrength": 0.431597222222222,
+  "repelStrength": 14.2118055555556,
+  "linkStrength": 0,
+  "linkDistance": 302,
+  "scale": 0.04635794149323053,
+  "close": false
 }
