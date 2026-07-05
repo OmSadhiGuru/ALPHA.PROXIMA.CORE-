@@ -59,7 +59,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-proxima",
+                "query": "PR-#8",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -182,8 +182,8 @@
               "type": "outline",
               "state": {
                 "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "showSearch": true,
+                "searchQuery": "PR-#8"
               },
               "icon": "lucide-list",
               "title": "Plan"
@@ -298,6 +298,7 @@
   },
   "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "OSG_LAUNCH/07_OPERATIONS/archive",
     "OSG_LAUNCH/07_OPERATIONS/decisions",
     "OSG_LAUNCH/07_OPERATIONS/runbooks",
@@ -308,7 +309,6 @@
     "OSG_LAUNCH/06_AUTOMATION/logs",
     "OSG_LAUNCH/06_AUTOMATION/operations",
     "OSG_LAUNCH/06_AUTOMATION/client-onboarding",
-    "OSG_LAUNCH/06_AUTOMATION/content-workflow",
     "OSG_LAUNCH/09_TEMPLATES/Automation Spec Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Content Item Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Client Template.md",
