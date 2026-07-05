@@ -6,7 +6,8 @@
 **Course:** Awaken the Inner Guru
 **Document class:** Reference Implementation Blueprint (institutional benchmark)
 **Governing standard:** OSG Learning Standard (OLS) v1.1 — immutable
-**Status:** Reference Blueprint — pending Gate-1 approval
+**Status:** Living institutional reference (v1.1.0) — pending Gate-1 approval
+**Purpose:** Defines the **minimum quality standard** for every OSG course. Not the only way to build a course — the floor, not the ceiling. Future courses may innovate beyond it but may never violate the OLS, and are reviewed against it before publication (§16).
 **Owner:** Chief Learning Architect, OSG Academy
 **Relationship to prior artifacts:** Incorporates the *Awaken the Inner Guru — Production Blueprint v1.1* (workbook/journal/community/instructor/production detail and the §11 Bilingual FR/EN Production Model) **by reference**, and extends it to reference grade with the Transformation Map, Learning Validation, Knowledge Library Integration, Personalization Layer, AI Integration, and Future Evolution layers.
 **Languages:** French (source) → English (transcreated). See Production Blueprint §11.
@@ -33,6 +34,7 @@
 13. AI Integration (YUNA · LUMIAION · Axiom Nexus · Living Genome · Knowledge Library)
 14. Future Evolution
 15. Success Metric & Compliance
+16. Reference Implementation Governance (living reference)
 
 ---
 
@@ -516,8 +518,120 @@ How this single reference blueprint scales — because it is architecture, not c
 
 ---
 
+## 16. Reference Implementation Governance (living reference)
+
+*This section makes the Reference Implementation Blueprint a **living institutional reference**, not a static document. It records why the design is as it is, what it does not yet do, how it will improve, what production teaches us, and how it relates to future versions of the OLS.*
+
+### 16.1 — Standing & Authority of This Document
+
+This document is the **canonical reference implementation** of the OSG Learning Standard. Its authority is deliberately bounded:
+
+- **It defines the minimum quality standard**, not the only permitted design. It is a floor, not a ceiling.
+- **Future courses may innovate beyond it** — new formats, structures, pedagogies, subjects — **but may never violate the OSG Learning Standard (OLS).** The OLS is the law; this document is the worked example of meeting it well.
+- **Every future course is reviewed against this Reference Implementation before publication** (the Reference Review, §16.2), in addition to OLS Gate-1/Gate-2.
+- Where a future course's innovation and this reference disagree, and the innovation still fully honors the OLS, **the OLS prevails and the innovation is permitted** — and, if broadly useful, is folded back into a future version of this reference (§16.6).
+
+### 16.2 — The Reference Review (pre-publication)
+
+Before any OSG course is published, it passes a **Reference Review** answering three questions:
+
+1. **Does it meet the OLS?** (Non-negotiable — OLS Gate-1/Gate-2.)
+2. **Does it meet or exceed the minimum quality bar this reference sets?** (Transformation-Path traversal, learning validation, Knowledge Library integration, personalization options, community integration, production readiness.)
+3. **If it deviates from the reference pattern, is the deviation an innovation that still honors the OLS — or a shortfall?** Innovations are documented and considered for §16.6; shortfalls are corrected before publication.
+
+The Reference Review is owned by the Chief Learning Architect and recorded per course.
+
+### 16.3 — Rationale for Major Design Decisions
+
+*Why the reference is built the way it is — so future architects understand the intent, not just the shape.*
+
+| Decision | Rationale |
+|----------|-----------|
+| **8 content weeks (not 6)** | The transformation arc requires a distinct **Application** stage (Week 7) and **Autonomy** stage (Week 8). Compressing them collapses "learned it" into "can do it under pressure" — the exact failure mode the course exists to prevent. |
+| **Arc ends in Autonomy + a 90-Day Integration** | Durable behavioral change and true independence consolidate *after* instruction ends. `[E]` Ending at "graduation" would optimize for completion, not transformation — violating OSG Design Principle "Transformation before completion." |
+| **Behavioral/self-authored validation, not exams** | The capacity being built (discernment, self-trust) is internal and cannot be measured by a test. Observable evidence (logs, maps, documented real decisions) is the honest proxy. |
+| **Canonical Knowledge Library IDs assigned now** | Stable IDs let future courses reuse concepts and let the library become a cross-course graph. Assigning them at reference time (not retrofitting) is what makes 50–100 courses coherent. |
+| **"Future Alpha Proxima" node class** | Keeps the bridge between OSG's applied teaching and the research institute **explicit and labeled**, so the two are connected without ever being conflated (protecting the evidence/framework line). |
+| **Personalization via format-independent objectives** | Making objectives invariant across modality is what allows AI personalization *later without redesign*. The architecture pays for a capability it doesn't yet use. |
+| **French as source language** | The OSG voice — especially contemplative `[F]` register — must be composed, not converted. Transcreation into English yields a better English course than translation. (Production Blueprint §11.) |
+| **AI integration specified but not required** | The course must ship and transform with zero AI. AI is designed as an *additive* layer bound by OLS §13 — never a dependency, never a decider. |
+| **Reference incorporates the Production Blueprint by reference** | Avoids a second source of truth for workbook/journal/production/bilingual detail. One canonical place per concern. |
+
+### 16.4 — Known Limitations
+
+*Stated honestly, in the OSG spirit of disclosing uncertainty.*
+
+1. **Unvalidated by a live cohort.** This is a design; its effectiveness is a hypothesis until a cohort runs. Several `[E]`-labeled learning claims are supported by general research, not by outcome data from *this* course.
+2. **Instructor-dependence at launch.** The reference assumes a bilingual, contemplatively-fluent instructor. Until instructor certification (§14) exists, quality depends heavily on one person.
+3. **Self-reported evidence.** Learning validation relies on self-attestation (logs, self-assessment). This is appropriate for internal-capacity work but is not externally verifiable; it can be gamed by a learner (mostly to their own loss).
+4. **Personalization is specified, not built.** At launch only 2–3 formats per activity are realistic; full per-learner adaptation awaits the AI layer.
+5. **Knowledge Library is IDs-on-paper.** The nodes are assigned but the actual cross-course graph/tooling does not yet exist.
+6. **90-Day Integration depends on sustained engagement** — historically the hardest retention window. The design mitigates but does not solve post-course drop-off.
+7. **Sensitive material (Module/Week 4).** Shadow/resistance work sits near clinical territory; the therapy boundary is stated, but real-time risk detection depends on human moderation until AI boundary-tooling matures.
+8. **Cultural transferability untested.** The contemplative framing is designed in a French/Western register; ES/AR expansion (Production Blueprint §11.10) may surface adaptation needs not yet visible.
+
+### 16.5 — Future Improvements
+
+*Sequenced, and revised as production teaches us.*
+
+- **After Cohort 1:** replace general `[E]` claims with course-specific outcome data where possible; capture real Lessons Learned (§16.7); tune week pacing and drop-off nudges.
+- **Templates:** extract a **fillable Course Blueprint + Lesson Blueprint template pair** from this reference (OLS roadmap v1.1) so new courses instantiate, not reinvent.
+- **Instructor certification** to OLS + this reference (enables multi-instructor scale).
+- **Knowledge Library tooling** — make the KL nodes a real graph; wire cross-course reuse.
+- **Personalization build-out** — implement AI-driven modality adaptation on the format-independent objectives.
+- **Assessment depth** — richer mastery rubrics; optional peer or coach validation to supplement self-report.
+- **Boundary tooling** — AI distress-detection with human escalation for Week 4.
+- **Localization** — prove ES, then AR (RTL) against this reference.
+
+### 16.6 — Handling Innovation Beyond the Reference
+
+When a future course does something this reference does not:
+
+1. If it **violates the OLS** → not permitted; corrected before publication.
+2. If it **honors the OLS but diverges from this reference** → permitted; recorded in the course's Reference Review as an *innovation*.
+3. Innovations that prove broadly valuable across multiple courses are **promoted into a future version of this reference** (a MINOR or MAJOR bump, §16.8) so the whole Academy benefits. This is the mechanism by which the reference *learns* from the courses it governs.
+
+### 16.7 — Lessons Learned During Production
+
+*A living log. Seeded with design-phase lessons; extended after each production milestone and cohort. Empty rows are intentional — they will be filled, not guessed.*
+
+| Date | Phase | Lesson | Action taken / reference change |
+|------|-------|--------|-------------------------------|
+| 2026-07-04 | Design | Distinguishing a separate **Application** week (7) from **Integration** (6) clarified the arc; earlier drafts blurred them | Added Week 7 as its own transformation stage |
+| 2026-07-04 | Design | The course risked implying it "gives answers"; explicit philosophy guardrail was needed at the top of the blueprint | Added the governing philosophy constraint to the header and §1 |
+| 2026-07-04 | Design | Knowledge nodes needed a way to connect to Alpha Proxima **without conflating** applied and research work | Introduced the labeled "Future Alpha Proxima" node class |
+| *(pending)* | Scripting | — | — |
+| *(pending)* | Cohort 1 | — | — |
+
+### 16.8 — Compatibility Notes with Future OLS Versions
+
+This reference implements **OLS v1.1**. Forward-compatibility intent:
+
+| OLS change type | Effect on this reference |
+|-----------------|--------------------------|
+| **OLS PATCH** (clarifications, typos) | No change required; reference remains valid. |
+| **OLS MINOR** (new optional elements, added templates) | Reference reviewed; adopts new elements at next MINOR bump; existing courses remain compliant. |
+| **OLS MAJOR** (change to Core/Design Principles or the Lesson Blueprint) | Reference **must** be re-reviewed and re-aligned; a new MAJOR version of this reference is issued; existing courses are re-certified against the new OLS on a defined transition schedule. |
+
+**Standing commitments regardless of OLS version:**
+- This reference will always implement the *current ratified* OLS; it never lags a MAJOR change without an explicit, dated transition plan recorded here.
+- The **Transformation Path** and the **evidence/framework distinction** are expected to persist across OLS versions; if a future OLS altered them, that would be a MAJOR event requiring a full reference rebuild.
+- Version alignment is recorded in the Change Log (§16.9): every reference version names the OLS version it implements.
+
+### 16.9 — Change Log
+
+*Fine-grained record of what changed and why. Distinct from the Version History table below (which is a coarse per-release summary).*
+
+| Date | Ref. Version | OLS Version | Change | Reason |
+|------|--------------|-------------|--------|--------|
+| 2026-07-04 | 1.0.0 | 1.1 | Initial Reference Implementation Blueprint created | Establish the Academy's benchmark course |
+| 2026-07-04 | 1.1.0 | 1.1 | Added §16 Reference Implementation Governance (standing, review process, rationale, known limitations, future improvements, innovation handling, lessons-learned log, OLS compatibility, this change log) | Convert the reference from a static blueprint into a living institutional reference |
+
+---
+
 ## Version History
 
-| Version | Date | Author | Summary |
-|---------|------|--------|---------|
-| 1.0.0 | 2026-07-04 | Chief Learning Architect + LUMIAION | Reference Implementation Blueprint for *Awaken the Inner Guru*: executive overview, transformation map, Week 0→8 roadmap + 90-day integration, weekly blueprint, 18-lesson inventory (with Knowledge Library concepts + future AI opportunities), learning validation, Knowledge Library integration (canonical KL IDs + classification + Alpha Proxima bridges), personalization layer, community layer, workbook/journal/production architecture (by reference to Production Blueprint), AI integration (YUNA/LUMIAION/Axiom Nexus/Living Genome/Knowledge Library), future-evolution scaling, success metric. OLS v1.1 unchanged. |
+| Version | Date | Author | OLS | Summary |
+|---------|------|--------|-----|---------|
+| 1.0.0 | 2026-07-04 | Chief Learning Architect + LUMIAION | v1.1 | Reference Implementation Blueprint for *Awaken the Inner Guru*: executive overview, transformation map, Week 0→8 roadmap + 90-day integration, weekly blueprint, 18-lesson inventory (with Knowledge Library concepts + future AI opportunities), learning validation, Knowledge Library integration (canonical KL IDs + classification + Alpha Proxima bridges), personalization layer, community layer, workbook/journal/production architecture (by reference), AI integration, future-evolution scaling, success metric. OLS v1.1 unchanged. |
+| 1.1.0 | 2026-07-04 | Chief Learning Architect + LUMIAION | v1.1 | Added §16 Reference Implementation Governance — making this a living institutional reference: standing & authority (minimum standard, innovate-beyond-but-never-violate-OLS), pre-publication Reference Review, rationale for major design decisions, known limitations, future improvements, innovation-handling, lessons-learned log, OLS forward-compatibility notes, and a fine-grained change log. |
