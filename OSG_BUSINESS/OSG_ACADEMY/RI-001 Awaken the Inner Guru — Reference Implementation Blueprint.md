@@ -1,5 +1,30 @@
+---
+document_id: OSG-ACAD-RI-001
+reference_id: RI-001
+title: "RI-001 — Awaken the Inner Guru — Reference Implementation Blueprint"
+aliases: ["RI-001", "Awaken the Inner Guru Reference Blueprint", "OSG Reference Implementation"]
+course: "Awaken the Inner Guru"
+document_class: Reference Implementation Blueprint
+status: living-reference
+version: "1.1.0"
+governing_standard: "OSG Learning Standard (OLS) v1.1"
+ols_version: "1.1"
+owner: "Chief Learning Architect, OSG Academy"
+authors: ["Chief Learning Architect", "LUMIAION"]
+created: 2026-07-04
+updated: 2026-07-04
+canonical_path: "OSG_BUSINESS/OSG_ACADEMY/RI-001 Awaken the Inner Guru — Reference Implementation Blueprint.md"
+tags: [osg-academy, reference-implementation, ri-001, course-blueprint, ols, living-reference]
+supersedes: []
+incorporates_by_reference: ["Awaken the Inner Guru — Production Blueprint v1.1", "OSG Learning Standard (OLS) v1.0"]
+review_role: "Benchmark for pre-publication Reference Review of all future OSG courses"
+engineering_review: "Codex — locate via document_id OSG-ACAD-RI-001 or reference_id RI-001"
+---
+
 # Awaken the Inner Guru
 ## Reference Implementation Blueprint — OSG Academy Flagship
+
+**Document ID:** `OSG-ACAD-RI-001` · **Reference ID:** `RI-001`
 
 *This is the **reference implementation** of an OSG course — the institutional benchmark that every future OSG course is measured against. It applies the **OSG Learning Standard (OLS) v1.1** faithfully and does not modify it. It contains architecture only: no lesson scripts, no marketing, no worksheets, no meditations, no content.*
 
