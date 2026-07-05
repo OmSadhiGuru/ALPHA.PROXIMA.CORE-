@@ -6,8 +6,9 @@
 **Course:** Awaken the Inner Guru
 **Document class:** Course Production Blueprint (OLS Gate-1 artifact)
 **Governing standard:** OSG Learning Standard (OLS) v1.0
-**Status:** Blueprint — pending Gate-1 approval
+**Status:** Blueprint — pending Gate-1 approval (v1.1.0 — adds Bilingual FR/EN Production Model, §11)
 **Owner:** Chief Learning Architect, OSG Academy
+**Production languages:** French (source) → English (transcreated, not literal). Bilingual from the foundation.
 
 **Labeling convention (per OLS §2.4):** `[E]` = Evidence-based · `[R]` = Reflective practice · `[F]` = Contemplative/Personal framework. Every substantive claim in production must carry the correct tag.
 
@@ -24,6 +25,7 @@
 8. Instructor Preparation
 9. Production Checklist
 10. Quality Control (OLS Compliance Review)
+11. Bilingual Production Model (FR/EN)
 
 ---
 
@@ -505,6 +507,229 @@ What the instructor must prepare before production.
 
 ---
 
+## 11. Bilingual Production Model (FR/EN)
+
+*This layer makes* Awaken the Inner Guru *bilingual from the foundation — not translated as an afterthought. It sits **on top of** the OLS and the instructional architecture above; it changes none of them. Every module, lesson, asset, and QC gate already defined is produced in both languages under the rules below.*
+
+**Governing principle:** **Author in French, adapt into English.** The OSG voice is created first in French (the founder's native voice), then **transcreated** — re-expressed naturally — into English. English is never a word-for-word translation of French; it is the same meaning and the same voice, re-authored to sound native to an English ear.
+
+---
+
+### 11.1 — Recommended Source Language
+
+**Source language: French (`fr`).**
+
+Rationale:
+- The authentic OSG voice — its warmth, cadence, and contemplative register — originates in French. Authoring in French first preserves nuance that a translation would flatten.
+- Contemplative and metaphysical `[F]` material is especially voice-sensitive; it must be *composed*, not *converted*, in its origin language.
+- English then becomes a deliberate **transcreation**, free to depart from French sentence structure to sound natural — which produces a better English course than translation ever could.
+
+**Consequence for the pipeline:** the OLS Production Pipeline (script → workbook → assets → record) runs **in French first to completion of a lesson's script**, then the English transcreation branch begins. Both languages then proceed in parallel through assets and recording.
+
+---
+
+### 11.2 — FR/EN Asset Strategy
+
+Each asset type has a defined bilingual production method. "Native" = produced/performed separately in each language; "Transcreated" = FR master re-authored into EN; "Subtitled" = one spoken language + the other as subtitles.
+
+| Asset | FR | EN | Method | Notes |
+|-------|----|----|--------|-------|
+| **Core teaching video** | Recorded in FR | Recorded in EN | **Native (dual-record)** where instructor is bilingual; otherwise FR spoken + EN subtitle | Dual-record preferred for the flagship — presence matters |
+| **Practice/meditation audio** | Recorded in FR | Recorded in EN | **Native** — always | Tone and pacing are language-specific; never subtitle a meditation |
+| **Workbook** | FR edition | EN edition | **Transcreated** | Full parallel editions (§11.4) |
+| **Journal** | FR edition | EN edition | **Transcreated** | Prompts adapted, not literal |
+| **Slides/graphics** | FR text | EN text | **Transcreated text, shared design** | One design system; text layers swapped per language |
+| **Subtitles/captions** | FR captions on FR video; FR subs on EN video | EN subs on FR video; EN captions on EN video | See §11.5 | Every video carries both languages |
+| **Worksheets/templates** | FR | EN | **Transcreated** | Termbase-consistent |
+| **Community prompts** | FR | EN | **Transcreated** | Posted in both language spaces (§11.6) |
+| **Emails/onboarding** | FR | EN | **Transcreated** | Language chosen at enrollment |
+
+**Decision for the flagship launch:** dual-record core teaching + native meditations in both languages; everything textual transcreated. If bilingual on-camera delivery is not feasible at launch, fall back to **FR video + EN subtitles** for teaching (meditations still native EN), and upgrade to native EN video in a later production pass — the metadata (§11.8) tracks which lessons are subtitled vs. native.
+
+---
+
+### 11.3 — Translation (Transcreation) Workflow
+
+The workflow is **transcreation**, not translation. Sequence per lesson:
+
+```
+0. TERMBASE FIRST  → bilingual glossary of OSG terms built & approved BEFORE any lesson
+      ↓
+1. FR MASTER       → lesson written in French to the 12-part Lesson Blueprint
+      ↓
+2. FR VOICE REVIEW → OSG voice + evidence/framework labels verified in French
+      ↓
+3. EN TRANSCREATION→ re-authored into natural English (not literal); same meaning, same voice
+      ↓
+4. EN VOICE REVIEW → reads as native English; OSG voice intact; labels identical to FR
+      ↓
+5. BILINGUAL BACK-CHECK → bilingual reviewer confirms meaning parity FR↔EN, term consistency,
+                          and that every [E]/[R]/[F] label matches across languages
+      ↓
+6. SIGN-OFF        → both language versions approved together; locked to same lesson version
+```
+
+**Roles:**
+- **FR author** (holds the OSG voice) — writes the master.
+- **EN transcreator** (native English, fluent French, steeped in OSG voice) — re-authors, does not translate.
+- **Bilingual QC reviewer** — verifies parity and termbase compliance (§11.9).
+- **Chief Learning Architect** — final sign-off; both languages locked to the same lesson version.
+
+**Rule:** the termbase (§0) is built **before** lesson scripting begins. Every `[E]`/`[R]`/`[F]` claim must carry the identical label in both languages — the evidence/framework distinction is never lost or shifted in transcreation.
+
+---
+
+### 11.4 — Bilingual Workbook Structure
+
+**Model: separate full editions per language** (a complete FR workbook and a complete EN workbook), built from one shared design system — **not** a side-by-side dual-column book (which halves usable space and dilutes immersion).
+
+Each edition contains the full structure from §5 (front matter, per-module sections, recurring instruments, progress tracking, checklists), transcreated.
+
+**Shared across editions:**
+- One **design system** (layout, iconography, spacing) — only the text layer changes.
+- One **bilingual glossary** appendix in *both* editions (FR term ↔ EN term ↔ definition) so a bilingual learner can cross-reference key OSG vocabulary.
+- Identical **page architecture** — Module 3's discernment worksheet is on the equivalent page in both editions, so cohorts in either language can be referenced together ("turn to your discernment worksheet").
+
+**File output:** `AIG_Workbook_FR_v1.pdf` and `AIG_Workbook_EN_v1.pdf` (naming §11.7), each print + fillable.
+
+---
+
+### 11.5 — Bilingual Subtitles Strategy
+
+**Every video ships with both languages available.**
+
+| Video spoken in | Captions (same-language) | Subtitles (other language) |
+|-----------------|--------------------------|----------------------------|
+| French | FR captions (verbatim, accessibility) | EN subtitles (transcreated, concise) |
+| English | EN captions (verbatim) | FR subtitles (transcreated) |
+
+**Specs:**
+- **Format:** soft subtitles (`.srt` + `.vtt`), selectable by the learner — never burned-in, so language is a viewer choice and future languages can be added without re-rendering.
+- **Same-language captions = verbatim** (accessibility standard, for the deaf/hard-of-hearing and for clarity).
+- **Cross-language subtitles = transcreated + condensed** for reading speed (target ≤ ~42 chars/line, ≤ 2 lines, reading rate ≤ ~17 cps) — meaning-faithful, not literal.
+- **Labels preserved:** where a claim is spoken as `[E]`/`[F]`, the subtitle preserves the distinction (e.g., "des études montrent…" / "research shows…" stays clearly evidence-framed).
+- **Meditations are NOT subtitled for practice** — they are delivered natively in each language; captions exist only for accessibility.
+- **Style guide:** one bilingual subtitle style guide (font, position, line-breaking, term spellings from the termbase) applied to every video.
+
+---
+
+### 11.6 — Bilingual Community Strategy
+
+**Model: one community, language-specific spaces, shared celebration.**
+
+| Space | Language handling |
+|-------|-------------------|
+| Start Here / Rules | Bilingual (both languages posted) |
+| **FR discussion / practice / support** | French-only spaces |
+| **EN discussion / practice / support** | English-only spaces |
+| Wins & Celebrations | **Shared / bilingual** — the whole community celebrates together |
+| Live sessions | **Separate FR and EN sessions** (or one bilingual session with dedicated language segments if numbers are small at launch) |
+
+Rules:
+- **Weekly prompts (§7) posted in both languages**, each in its language space, transcreated.
+- **Buddy pairing within language** (learners practice-partner in their own language).
+- **Cross-language celebration** keeps the community feeling like one movement, not two silos.
+- Moderation coverage in **both** languages; the same OSG community rules (confidentiality, support-don't-fix, refer crises out) apply identically.
+- **Language chosen at enrollment** routes the learner to their primary spaces; bilingual learners may opt into both.
+
+At launch with small numbers: run a single community with clearly tagged `[FR]` / `[EN]` prompts and one bilingual live session, splitting into separate spaces/sessions as each language cohort grows.
+
+---
+
+### 11.7 — Naming Conventions for Multilingual Files
+
+**Pattern:**
+```
+AIG_<Module>_<Lesson>_<AssetType>_<LANG>[_v<Version>].<ext>
+```
+- `AIG` = course code (Awaken the Inner Guru)
+- `<Module>` = `M0`–`M7`; `<Lesson>` = `L01`… (omit for module-level assets)
+- `<AssetType>` = `teaching` · `practice` · `meditation` · `workbook` · `journal` · `slides` · `worksheet` · `captions` · `subs`
+- `<LANG>` = **ISO 639-1**: `FR`, `EN` (future: `ES`, `AR`)
+- Subtitles encode both spoken+target: `..._captions_FR.srt` (same-language), `..._subs_EN.srt` (target on an FR video)
+
+**Examples:**
+- `AIG_M03_L02_teaching_FR_v1.mp4`
+- `AIG_M03_L02_teaching_EN_v1.mp4`
+- `AIG_M03_L02_meditation_FR_v1.mp3`
+- `AIG_M03_L02_subs_EN_v1.vtt` (English subtitles for the French video)
+- `AIG_Workbook_FR_v1.pdf` · `AIG_Workbook_EN_v1.pdf`
+
+**Folder structure:**
+```
+/AIG/
+  /_termbase/            ← bilingual glossary (source of truth)
+  /FR/  /M0/ … /M7/      ← all French assets
+  /EN/  /M0/ … /M7/      ← all English assets
+  /_shared/              ← design system, graphics templates (language-neutral)
+```
+
+Rule: **language is always the suffix, never a folder-only distinction** — a file must self-identify its language from its name alone.
+
+---
+
+### 11.8 — Metadata Fields for Language Tracking
+
+Every asset carries these fields (in the asset registry / CMS front-matter):
+
+| Field | Values / example | Purpose |
+|-------|------------------|---------|
+| `asset_id` | `AIG_M03_L02_teaching` | Language-neutral identity of the asset |
+| `language` | `fr` / `en` | This file's language (ISO 639-1) |
+| `source_language` | `fr` | The master this was created from |
+| `is_source` | `true` / `false` | Is this the authored master? |
+| `production_method` | `native` / `transcreated` / `subtitled` | How this language version was produced |
+| `translation_status` | `not_started` / `in_progress` / `transcreated` / `voice_reviewed` / `qc_passed` / `locked` | Workflow state (§11.3) |
+| `voice_approved` | `true` / `false` | OSG voice review passed |
+| `labels_verified` | `true` / `false` | `[E]/[R]/[F]` parity confirmed vs. source |
+| `lesson_version` | `1.0.0` | Both languages lock to the same lesson version |
+| `termbase_version` | `1.0.0` | Termbase used |
+| `reviewer` | name/role | Accountability |
+| `last_updated` | date | — |
+
+Rule: an asset cannot be marked `locked`/publishable unless `voice_approved = true` **and** `labels_verified = true`, and its `lesson_version` matches its source.
+
+---
+
+### 11.9 — Quality-Control Checklist for Translation Accuracy
+
+Applied per asset at the bilingual back-check (§11.3 step 5), **in addition** to the OLS Compliance QC (§10):
+
+- [ ] **Meaning parity** — the EN conveys the same meaning as the FR master (nothing added, dropped, or distorted)
+- [ ] **OSG voice preserved** — the EN reads as native English *and* sounds like OSG (warm, precise, humble); no translation stiffness
+- [ ] **Not literal** — sentence structure adapted to English; no word-for-word artifacts or French syntax bleed
+- [ ] **Evidence/framework labels identical** — every `[E]`/`[R]`/`[F]` claim carries the same label in both languages; no claim upgraded/downgraded in transcreation
+- [ ] **Termbase compliance** — all OSG key terms match the approved bilingual glossary exactly
+- [ ] **Cultural adaptation** — idioms, examples, and references adapted to be natural for the target audience (not just linguistically correct)
+- [ ] **Contemplative register intact** — meditations/`[F]` content carry the right tone in the target language (verified by a native practitioner, not just a translator)
+- [ ] **Subtitle readability** — cross-language subtitles meet timing/reading-rate/line-length specs (§11.5)
+- [ ] **No boundary loss** — therapy/refer-out and safety language (esp. Module 4) is fully preserved in both languages
+- [ ] **Numbers/citations intact** — any `[E]` sources and figures carried across unchanged
+- [ ] **Bilingual reviewer sign-off** — a fluent-in-both reviewer (not the transcreator) has confirmed the above
+
+Fail on any item → asset returns to the workflow; it does not lock.
+
+---
+
+### 11.10 — Future Expansion: Spanish & Arabic
+
+The FR-master → transcreation model is **language-scalable.** Additional languages branch from the **French source** (or English, whichever the transcreator is stronger from), reusing the same workflow, metadata, naming, and QC.
+
+**Spanish (`es`) — recommended first expansion:**
+- Linguistically and culturally close to French; large global audience; straightforward transcreation.
+- Extend the termbase with an `es` column; reuse the entire §11 apparatus.
+- Native `es` meditations; `es` subtitles on FR/EN videos; full `es` workbook/journal editions.
+
+**Arabic (`ar`) — higher-effort, high-reach expansion:**
+- **Right-to-left (RTL):** workbook/journal layouts must **mirror** (design system needs an RTL variant); subtitle direction and alignment change; slide text layers need RTL support. Plan RTL into the design system *now* even if `ar` ships later, so it isn't a rebuild.
+- **Register:** decide Modern Standard Arabic (broad reach, formal) vs. a major dialect (warmer, more intimate — better for contemplative `[F]` content). Recommendation: MSA for text/workbook, with warmer spoken delivery in meditations.
+- Contemplative/metaphysical `[F]` material needs a translator-practitioner sensitive to Arabic spiritual vocabulary and its connotations.
+- Native `ar` meditations are essential (tone + RTL captioning).
+
+**Sequencing recommendation:** ship **FR + EN** at launch → add **ES** once the FR/EN model is proven on one cohort → add **AR** with dedicated RTL design and a practitioner-translator. Build the **termbase as multi-column from day one** (`fr | en | es | ar`) and the **design system RTL-aware from day one**, so later languages are additions, not rebuilds.
+
+---
+
 ## Blueprint Status
 
 This is a complete Gate-1 instructional architecture for *Awaken the Inner Guru*. Upon Chief Learning Architect approval, it becomes the master reference for writers, designers, videographers, AI assistants, and instructors. **Next production step (not part of this blueprint):** lesson scripting to the 12-part Lesson Blueprint, followed by the Production Checklist build, then Gate-2 review, then recording.
@@ -516,3 +741,4 @@ This is a complete Gate-1 instructional architecture for *Awaken the Inner Guru*
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-04 | Chief Learning Architect + LUMIAION | Full OLS-compliant production blueprint: overview, roadmap, 8-module blueprint, 16-lesson inventory, workbook, journal, community, instructor prep, production checklist, and OLS compliance QC |
+| 1.1.0 | 2026-07-04 | Chief Learning Architect + LUMIAION | Added §11 Bilingual FR/EN Production Model: French as source + English transcreation; asset strategy; transcreation workflow; separate bilingual workbook editions; dual-language subtitle strategy; language-spaced community; multilingual file naming + language metadata schema; translation-accuracy QC; ES/AR expansion roadmap (RTL + multi-column termbase from day one). OLS unchanged. |
