@@ -1,5 +1,5 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": true,
   "showAttachments": true,
@@ -88,7 +88,7 @@
       "query": "path:07_RESEARCH",
       "color": {
         "a": 1,
-        "rgb": 14463774
+        "rgb": 1483594
       }
     },
     {
@@ -141,23 +141,23 @@
       }
     },
     {
-      "query": "tag:#alpha-proxima  ",
+      "query": "line:(#)",
       "color": {
         "a": 1,
-        "rgb": 7996091
+        "rgb": 65535
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": true,
-  "textFadeMultiplier": -1,
-  "nodeSizeMultiplier": 2.35604166666667,
-  "lineSizeMultiplier": 1.95387586805556,
+  "textFadeMultiplier": 0.2,
+  "nodeSizeMultiplier": 2.02320746527778,
+  "lineSizeMultiplier": 1.36009114583333,
   "collapse-forces": false,
-  "centerStrength": 0.2703125,
-  "repelStrength": 18.5607638888889,
+  "centerStrength": 0.689930555555556,
+  "repelStrength": 16.734375,
   "linkStrength": 1,
-  "linkDistance": 500,
-  "scale": 0.023111820098924263,
+  "linkDistance": 257,
+  "scale": 0.10842052231687178,
   "close": true
 }
