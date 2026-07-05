@@ -3,9 +3,9 @@ title: "ALPHA PROXIMA ENGINEERING HANDBOOK"
 aliases: ["Engineering Handbook", "Alpha Proxima Engineering Standards Library"]
 tags: [systems, engineering, standards, handbook, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-05
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: handbook
 institutional_owner: "Alpha Proxima Foundation"
@@ -46,6 +46,7 @@ This handbook governs Markdown, metadata, folder structure, file naming, Python 
 | 08 | [[08 - Logging Standard]] | Event, audit, and debug logs |
 | 09 | [[09 - Git Standard]] | Branches, commits, reviews, releases |
 | 10 | [[10 - Template Standard]] | Template creation and evolution |
+| 11 | [[11 - One Question Document Standard]] | Single-purpose documents and AI-friendly modularity |
 
 ---
 
@@ -77,6 +78,7 @@ A contributor creating a new reusable document should read:
 1. [[01 - Markdown Style Guide]]
 2. [[02 - YAML Frontmatter Standard]]
 3. [[10 - Template Standard]]
+4. [[11 - One Question Document Standard]]
 
 ---
 
@@ -112,6 +114,7 @@ Any standard that changes institutional authority or governance process must be 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-07-05 | [[CODEX]] | Added one-question document standard |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial engineering standards handbook created |
 
 ---
@@ -128,4 +131,4 @@ Any standard that changes institutional authority or governance process must be 
 - [[08 - Logging Standard]]
 - [[09 - Git Standard]]
 - [[10 - Template Standard]]
-
+- [[11 - One Question Document Standard]]

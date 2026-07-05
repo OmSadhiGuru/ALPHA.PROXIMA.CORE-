@@ -296,8 +296,10 @@
       "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "OSG_LAUNCH/00_REPOSITORY/OSG Academy Engineering Review.md",
+    "08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "OSG_LAUNCH/07_OPERATIONS/archive",
     "OSG_LAUNCH/07_OPERATIONS/decisions",
@@ -332,8 +334,6 @@
     "OSG_LAUNCH/01_NOTION_WORKSPACE/README.md",
     "OSG_LAUNCH/00_REPOSITORY/GitHub Best Practices.md",
     "OSG_LAUNCH/00_REPOSITORY/Repository Structure.md",
-    "OSG_LAUNCH/00_REPOSITORY/README.md",
-    "OSG_LAUNCH/README.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
