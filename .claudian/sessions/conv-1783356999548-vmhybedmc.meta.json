@@ -1,0 +1,23 @@
+{
+  "id": "conv-1783356999548-vmhybedmc",
+  "providerId": "claude",
+  "title": "can you tell me if you are connected",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1783356999553,
+  "updatedAt": 1783359011409,
+  "lastResponseAt": 1783359011409,
+  "sessionId": "f0862ba3-921e-4153-aaa7-c0867885a950",
+  "providerState": {
+    "providerSessionId": "f0862ba3-921e-4153-aaa7-c0867885a950"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 10,
+    "cacheCreationInputTokens": 733,
+    "cacheReadInputTokens": 20935,
+    "contextWindow": 200000,
+    "contextTokens": 21678,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "webAppUrl": "https://chatgpt.com/",
+  "webAppUrl": "https://claude.ai/",
   "openOnStartup": true,
   "maxContextLength": 50000,
   "contextItems": [],
@@ -20,22 +20,22 @@
   "promptTemplates": [
     {
       "id": "t1",
-      "label": "Summarize",
-      "text": "Please summarize the following note concisely:\n\n"
+      "label": "claude",
+      "text": "Read MULTI_BRAIN_PROTOCOL.md. You are the architecture brain for LUMIAION. Audit the current folder structure and propose the next clean block to build.\n\n"
     },
     {
       "id": "t2",
-      "label": "Fix grammar",
-      "text": "Please fix the grammar and spelling in the following text:\n\n"
+      "label": "codex",
+      "text": "Read AGENTS.md and MULTI_BRAIN_PROTOCOL.md. Audit this repo for structure, broken files, missing README logic, and unsafe Git issues. Do not modify files yet. Report first.\n\n"
     },
     {
       "id": "t3",
-      "label": "Expand idea",
-      "text": "Please expand on the following idea with more depth and detail:\n\n"
+      "label": "gemini",
+      "text": "Read GEMINI.md and MULTI_BRAIN_PROTOCOL.md. Give a second-opinion architecture review of this repo. Identify contradictions, missing foundations, and what should be built next."
     }
   ],
-  "autoContextOnOpen": false,
-  "stripFrontmatter": false,
+  "autoContextOnOpen": true,
+  "stripFrontmatter": true,
   "saveNoteFolder": "AI Notes",
   "useDateSubfolder": false,
   "formatAIResponse": true,

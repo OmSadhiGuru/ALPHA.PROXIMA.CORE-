@@ -2,7 +2,7 @@
   "claude": {
     "id": "claude-code-acp",
     "displayName": "Claude Code",
-    "apiKeySecretId": "",
+    "apiKeySecretId": "lumiaion",
     "command": "claude-agent-acp",
     "args": [],
     "env": []
@@ -36,7 +36,7 @@
     "wikiLinks": true,
     "tables": true
   },
-  "debugMode": false,
+  "debugMode": true,
   "nodePath": "",
   "exportSettings": {
     "defaultFolder": "Agent Client",
@@ -53,7 +53,7 @@
   "sendMessageShortcut": "enter",
   "chatViewLocation": "right-tab",
   "displaySettings": {
-    "autoCollapseDiffs": false,
+    "autoCollapseDiffs": true,
     "diffCollapseThreshold": 10,
     "maxNoteLength": 10000,
     "maxSelectionLength": 10000,
@@ -71,8 +71,11 @@
     "height": 500
   },
   "floatingWindowPosition": {
-    "x": 624,
+    "x": 623,
     "y": 300
   },
-  "floatingButtonPosition": null
+  "floatingButtonPosition": {
+    "x": 1851,
+    "y": 593
+  }
 }

@@ -36,5 +36,9 @@
   "llm-docs",
   "docx-importer",
   "syncscroll",
-  "enhanced-image"
+  "enhanced-image",
+  "perplexity-converter",
+  "smart-context",
+  "smart-chatgpt",
+  "smart-templates"
 ]

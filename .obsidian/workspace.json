@@ -220,16 +220,6 @@
             }
           },
           {
-            "id": "4b6fcff5dc980bc2",
-            "type": "leaf",
-            "state": {
-              "type": "deepseek-cli-chat",
-              "state": {},
-              "icon": "bot",
-              "title": "DeepSeek CLI"
-            }
-          },
-          {
             "id": "e495dd012b1c0ce1",
             "type": "leaf",
             "state": {
@@ -248,13 +238,35 @@
               "icon": "messages-square",
               "title": "OmniChat"
             }
+          },
+          {
+            "id": "c5e382faf2af04e7",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          },
+          {
+            "id": "7b40e4fb9a9cad52",
+            "type": "leaf",
+            "state": {
+              "type": "agent-client-chat-view",
+              "state": {
+                "initialAgentId": "claude-code-acp"
+              },
+              "icon": "bot-message-square",
+              "title": "New session"
+            }
           }
         ],
         "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 394.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -293,24 +305,34 @@
       "obsidian-book-search-plugin:Create new book note": false,
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
-      "docx-importer:Export note as DOCX": false
+      "docx-importer:Export note as DOCX": false,
+      "smart-context:Smart Context: Open Builder": false,
+      "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
+      "smart-context:Smart Context: List Named Contexts": false,
+      "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "copilot/copilot-conversations/i_want_to_where_is_awaken_the_inner_guru@20260706_145316.md",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M7_Discernment_in_Action",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M6_Values_and_Inner_Authority",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M5_Inner_Guidance_Practices",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M4_Shadow_and_Resistance",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M3_Intuition_and_Discernment",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M2_Inner_Witness",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M1_Noise_and_Signal",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M0_Orientation",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/FR/M8_Living_from_the_Inner_Guru",
+    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
+    "OSG_LAUNCH/10_ACADEMY/AIG/README.md",
+    "OSG_LAUNCH/10_ACADEMY/README.md",
+    "copilot/copilot-conversations/Summarize_the_recent_updates_from_note.@20260705_235607.md",
+    "Sans titre 1.md",
     "OSG_LAUNCH/00_REPOSITORY/OSG Academy Engineering Review.md",
     "08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
-    "OSG_LAUNCH/07_OPERATIONS/archive",
-    "OSG_LAUNCH/07_OPERATIONS/decisions",
-    "OSG_LAUNCH/07_OPERATIONS/runbooks",
-    "OSG_LAUNCH/07_OPERATIONS/metrics",
-    "OSG_LAUNCH/07_OPERATIONS/launch-checklists",
-    "OSG_LAUNCH/07_OPERATIONS/weekly",
-    "OSG_LAUNCH/07_OPERATIONS/daily",
-    "OSG_LAUNCH/06_AUTOMATION/logs",
-    "OSG_LAUNCH/06_AUTOMATION/operations",
-    "OSG_LAUNCH/06_AUTOMATION/client-onboarding",
     "OSG_LAUNCH/09_TEMPLATES/Automation Spec Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Content Item Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Client Template.md",
@@ -328,12 +350,6 @@
     "OSG_LAUNCH/04_CLIENTS/Client Folder Hierarchy.md",
     "OSG_LAUNCH/04_CLIENTS/README.md",
     "OSG_LAUNCH/03_MEDIA/README.md",
-    "OSG_LAUNCH/02_COURSES/Course Folder Hierarchy.md",
-    "OSG_LAUNCH/02_COURSES/README.md",
-    "OSG_LAUNCH/01_NOTION_WORKSPACE/Notion Workspace Architecture.md",
-    "OSG_LAUNCH/01_NOTION_WORKSPACE/README.md",
-    "OSG_LAUNCH/00_REPOSITORY/GitHub Best Practices.md",
-    "OSG_LAUNCH/00_REPOSITORY/Repository Structure.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

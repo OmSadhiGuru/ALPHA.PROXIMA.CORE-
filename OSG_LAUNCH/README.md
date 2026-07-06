@@ -36,6 +36,7 @@ It is intentionally isolated from Alpha Proxima institutional infrastructure. OS
 | [[OSG_LAUNCH/07_OPERATIONS/README]] | Launch operating cadence and procedures |
 | [[OSG_LAUNCH/08_ROADMAP/README]] | 30-day implementation roadmap |
 | [[OSG_LAUNCH/09_TEMPLATES/README]] | Reusable launch templates |
+| [[OSG_LAUNCH/10_ACADEMY/README]] | Active OSG Academy course production |
 
 ## Operating Boundary
 

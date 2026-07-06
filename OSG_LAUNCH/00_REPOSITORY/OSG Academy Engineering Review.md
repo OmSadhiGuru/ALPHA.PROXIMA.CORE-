@@ -1,404 +1,507 @@
 ---
 title: "OSG Academy Engineering Review"
 status: draft
-version: "1.0.0"
+version: "2.0.0"
 created: 2026-07-05
 updated: 2026-07-05
 artifact_type: engineering-review
 institutional_owner: "OSG"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
-core_question: "Can the OSG Academy blueprint become the foundation of a production ecosystem?"
-dependencies: ["[[OSG Launch Technical Foundation]]", "[[OSG Repository Structure]]", "[[OSG Notion Workspace Architecture]]", "[[OSG Naming Conventions]]", "[[11 - One Question Document Standard]]"]
-related_documents: ["[[OSG_LAUNCH/README]]", "[[Repository Structure]]", "[[Notion Workspace Architecture]]", "[[Naming Conventions]]", "[[Automation Opportunities]]", "[[30 Day Implementation Roadmap]]"]
+core_question: "Can RI-001 support a 30-day MVP launch of Awaken the Inner Guru?"
+dependencies: ["[[11 - One Question Document Standard]]", "[[OSG Launch Technical Foundation]]", "[[OSG Repository Structure]]", "[[OSG Notion Workspace Architecture]]", "[[OSG Naming Conventions]]"]
+related_documents: ["[[OSG_LAUNCH/README]]", "[[Repository Structure]]", "[[Notion Workspace Architecture]]", "[[Naming Conventions]]", "[[Automation Opportunities]]", "[[30 Day Implementation Roadmap]]", "[[OSG_LAUNCH/09_TEMPLATES/README]]"]
 related_research_programs: []
-tags: [osg, academy, engineering-review, architecture, scalability]
+tags: [osg, academy, engineering-review, architecture, scalability, ri-001]
 ---
 
 # OSG Academy Engineering Review
 
 ## Purpose
 
-Audit whether the current OSG Academy technical foundation can support a production ecosystem.
+Re-audit OSG Academy production readiness using the actual committed Reference Implementation Blueprint for `RI-001 — Awaken the Inner Guru` as the primary audit target.
 
-## Source Limitation
+## Source Materials Reviewed
 
-The Claude Reference Blueprint was not found in the local vault. Searches for `Reference Blueprint`, `Awaken the Inner Guru`, `Workbook Blueprint`, `Journal Blueprint`, `OSG Academy`, `Living Genome`, and `YUNA` returned no matching local Markdown source.
+| Source | Location Reviewed | Status |
+|--------|-------------------|--------|
+| RI-001 Reference Implementation Blueprint | Git commit `4fe8d20`, path `OSG_BUSINESS/OSG_ACADEMY/RI-001 Awaken the Inner Guru — Reference Implementation Blueprint.md` | Committed in history; not present in current working tree |
+| OSG Learning Standard | Git commit `4fe8d20`, path `OSG_BUSINESS/OSG_ACADEMY/OSG Learning Standard (OLS) v1.0.md` | Committed in history; not present in current working tree |
+| Bilingual FR/EN Production Model | Git commit `4fe8d20`, path `OSG_BUSINESS/OSG_ACADEMY/Awaken the Inner Guru — Production Blueprint.md`, §11 | Committed in history; not present in current working tree |
+| One Question Document Standard | `08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md` | Present in current tree |
+| Repository README | `OSG_LAUNCH/README.md` and `OSG_LAUNCH/00_REPOSITORY/README.md` | Present in current tree |
+| Templates README | `OSG_LAUNCH/09_TEMPLATES/README.md` | Present in current tree |
 
-This review therefore audits the current OSG launch foundation and identifies what must exist before the Reference Blueprint can be accepted as a production foundation.
+## Executive Assessment
+
+RI-001 is a strong production architecture for a course MVP. It is substantially more mature than the launch foundation alone. It defines the transformation arc, weekly structure, lesson inventory, learning validation, Knowledge Library IDs, personalization layer, community layer, workbook and journal structure, production gates, AI compatibility, and governance.
+
+The course can plausibly reach MVP launch readiness within 30 days if production is scoped tightly: one flagship course, FR-first with EN transcreation, limited automation, manual operations, and no app/API dependency.
+
+The main issue is not course architecture. The main issue is production handoff: the canonical OSG Academy source files are committed in Git history but are not present in the current working tree. Production should not proceed until the active repository location for OSG Academy is restored or intentionally migrated.
+
+## Production-Readiness Score
+
+**82 / 100 for launching the Awaken the Inner Guru course MVP within 30 days.**
+
+### Score Breakdown
+
+| Dimension | Score | Assessment |
+|-----------|-------|------------|
+| RI-001 course architecture | 91 | Strong reference implementation; enough detail to guide production |
+| OLS compliance | 88 | OLS alignment is explicit; Gate-1/Gate-2 process exists |
+| Bilingual model | 84 | Strong FR/EN transcreation model; termbase and QC execution still needed |
+| One-question modularity | 77 | Standard exists; RI-001 is still broad and should spawn smaller production artifacts |
+| Course MVP readiness | 82 | Ready to enter production after Gate-1 and source restoration |
+| Repository readiness | 62 | Current working tree lacks the committed OSG_BUSINESS source stack |
+| Template readiness | 68 | Launch templates exist; academy-specific lesson/workbook/journal templates still missing |
+| Future app/API readiness | 58 | Conceptual compatibility exists; schemas and API contracts do not |
+| AI readiness | 70 | Boundaries are good; retrieval implementation and learner data policy are missing |
+| Knowledge graph readiness | 74 | KL IDs exist; graph schema and registry still needed |
 
 ## Architecture Review
 
-The current OSG foundation is suitable for launch operations. It is not yet sufficient for OSG Academy at scale.
+### What Works
 
-Current strengths:
+- RI-001 correctly treats the course as architecture, not content.
+- It implements a clear Week 0 to Week 8 progression plus 90-day integration.
+- It defines 18 lessons with objectives, practice evidence, journal/community elements, Knowledge Library nodes, and future AI opportunities.
+- It includes behavioral learning validation rather than relying on quizzes or passive completion.
+- It incorporates workbook, journal, production, and bilingual details by reference rather than duplicating them.
+- It defines living-reference governance, Reference Review, limitations, future improvements, and OLS compatibility.
+- It preserves OSG's core constraint: the course builds learner sovereignty and does not provide answers.
 
-- OSG is isolated from Alpha Proxima infrastructure.
-- Launch folders exist for repository, Notion, courses, media, clients, content, automation, operations, roadmap, and templates.
-- Naming conventions exist for courses, lessons, clients, content, media, automations, and decisions.
-- Basic Notion workspace architecture exists.
-- GitHub practices exist at launch level.
+### What Needs Engineering Work
 
-Current gaps:
+- The active file location is unresolved: `OSG_BUSINESS/OSG_ACADEMY/` exists in Git history but not in the current tree.
+- OLS version references are inconsistent across sources: RI-001 says OLS v1.1, the available OLS file is v1.0, and the Production Blueprint references OLS v1.0 while RI-001 references OLS v1.1.
+- RI-001 uses Knowledge Library IDs (`KL-000` through `KL-026`), but no active Knowledge Library registry exists in the current OSG workspace.
+- Lesson IDs exist informally (`L0.1`, `L8.2`) but not as formal durable IDs suitable for database/API use.
+- Workbook, journal, media, translation, community, and progress IDs are specified conceptually or by examples, not as a complete ID standard.
+- AI integration is architected as future-compatible, but no retrieval boundary, memory policy, or event schema exists.
 
-- No academy domain model exists.
-- No Reference Blueprint file exists locally.
-- No course, lesson, workbook, journal, media, translation, community, or progress ID standard exists.
-- No database schema exists beyond high-level Notion database descriptions.
-- No API contract exists.
-- No AI retrieval model exists.
-- No knowledge graph schema specific to OSG Academy exists.
-- No multilingual content model exists.
-- No learner progress model exists.
-- No AI tutor interaction model exists.
+## Review of Required Artifacts
 
-## Missing Components
+### RI-001 Blueprint
 
-### Core Academy Systems
+Assessment: production-usable after source restoration and Gate-1 approval.
 
-| System | Status | Required Before Scale |
-|--------|--------|-----------------------|
-| Course Catalog | Missing | Canonical course registry with stable IDs |
-| Lesson Registry | Missing | Stable lesson IDs and sequence model |
-| Workbook Registry | Missing | Workbook IDs, page IDs, exercise IDs |
-| Journal Registry | Missing | Journal IDs, prompt IDs, reflection types |
-| Media Registry | Partial | Media IDs, rights, language, transcript links |
-| Translation Registry | Missing | Translation IDs, source locale, target locale, review status |
-| Learner Registry | Missing | Learner profile, enrollment, consent, preferences |
-| Progress Tracking | Missing | Lesson, module, workbook, journal, quiz, and milestone events |
-| Knowledge Library | Missing | Concepts, practices, references, glossary, citations |
-| Living Genome | Missing | Domain model and graph relation rules |
-| AI Tutor Layer | Missing | Tutor memory boundaries, retrieval scope, escalation rules |
-| YUNA | Missing | Product role, permissions, data access, memory contract |
-| LUMIAION Interface | Missing | Boundary between Alpha Proxima reasoning and OSG product systems |
-| Community System | Missing | Community IDs, roles, moderation, posts, cohorts |
-| Assessment System | Missing | Quiz, reflection, rubric, and competency model |
+Strengths:
 
-### Required Templates
+- Clear course mission and transformation promise.
+- Explicit ideal learner and not-for criteria.
+- Strong transformation map ending in autonomy, not mere completion.
+- Weekly blueprint includes purpose, transformation, objectives, assets, evidence, and success criteria.
+- Lesson inventory is sufficient for script planning.
+- Knowledge Library integration is unusually strong for a first course.
+- Known limitations are explicit, which improves governance.
 
-- Course Blueprint Template
-- Module Blueprint Template
+Engineering concerns:
+
+- It is still a large reference document. It should remain the benchmark, but production should split into separate single-question artifacts: course registry entry, lesson registry, workbook spec, journal spec, media manifest, translation manifest, and production checklist.
+- It relies on the Production Blueprint by reference, but that file is not active in the current working tree.
+- Gate-1 status is pending. That blocks recording and scripting under the OLS pipeline.
+
+### OSG Learning Standard
+
+Assessment: strong enough for MVP governance.
+
+Strengths:
+
+- Defines the Transformation Path.
+- Defines Course Blueprint and Lesson Blueprint requirements.
+- Provides production gates.
+- Defines AI boundaries.
+- Defines progress indicators.
+- Defines compliance review.
+
+Engineering concerns:
+
+- The reviewed file is v1.0 while RI-001 references v1.1.
+- OLS should have a canonical active path and stable `document_id`.
+- OLS checklists should be extracted into executable templates/checklists for production QA.
+
+### Bilingual Model
+
+Assessment: strong for launch if operationalized immediately.
+
+Strengths:
+
+- French source and English transcreation are clearly defined.
+- Asset strategy distinguishes native, transcreated, and subtitled outputs.
+- Subtitles use soft `.srt` and `.vtt`.
+- Language metadata schema exists.
+- Translation QC is explicit and practical.
+- ES/AR expansion is considered without overcommitting to launch scope.
+
+Engineering concerns:
+
+- Termbase does not appear in the current tree.
+- Translation status tracking is not implemented as a registry or database.
+- Bilingual reviewer roles are defined but not assigned in an operational system.
+- Asset filenames are specified, but no media manifest exists.
+
+### One Question Document Standard
+
+Assessment: correct and important, but not yet enforced.
+
+The standard is now present and should govern OSG Academy immediately. RI-001 itself is a broad reference artifact and can remain broad because its core question is clear: "How is Awaken the Inner Guru structured as the reference implementation?" Production artifacts derived from it must be narrower.
+
+Required next step: add `core_question` to OSG Academy templates and validators.
+
+### Repository README
+
+Assessment: launch-suitable but not academy-complete.
+
+The current `OSG_LAUNCH` README correctly isolates OSG from Alpha Proxima and organizes launch operations. It does not yet represent the committed `OSG_BUSINESS/OSG_ACADEMY` governance stack. That mismatch should be resolved before production.
+
+### Templates README
+
+Assessment: adequate for launch operations; insufficient for RI-001 production.
+
+Current templates cover course, client, content, and automation basics. RI-001 requires academy-specific templates:
+
+- Reference Implementation Template
+- OLS Compliance Review Template
 - Lesson Blueprint Template
+- Lesson Script Template
 - Workbook Blueprint Template
-- Workbook Exercise Template
 - Journal Blueprint Template
-- Journal Prompt Template
-- Media Asset Template
-- Translation Package Template
-- AI Tutor Prompt Template
-- Knowledge Library Entry Template
-- Living Genome Node Template
-- Learner Progress Event Template
-- Community Space Template
-- API Endpoint Template
+- Knowledge Node Template
+- Bilingual Asset Template
+- Translation QC Template
+- Progress Event Template
+
+## Blockers That Prevent Course Production Now
+
+These block immediate recording/scripting under OLS discipline.
+
+| Blocker | Why It Blocks | Required Action |
+|---------|---------------|-----------------|
+| Canonical OSG Academy files are not in current working tree | Production team cannot reliably work from historical Git objects | Restore or migrate `OSG_BUSINESS/OSG_ACADEMY/` into the active repository structure |
+| Gate-1 approval is pending | OLS says nothing is scripted or recorded before blueprint approval | Record Gate-1 decision for RI-001 |
+| OLS version mismatch | RI-001 references OLS v1.1, available OLS source is v1.0 | Add or restore OLS v1.1, or update RI-001 compatibility notes |
+| Termbase missing from active workspace | Bilingual model requires termbase before lesson scripting | Create `AIG/_termbase` or database-backed termbase |
+| Evidence reference list missing | `[E]` claims need sources before production scripts lock | Build evidence/reference registry for KL nodes and lessons |
+| Lesson script templates missing | RI-001 has lesson architecture, not scripts | Create OLS 12-part lesson script template |
+| Translation QC checklist not operationalized | Bilingual launch requires repeatable QC | Create Translation QC template and tracking database |
+| Media/asset manifest missing | Production cannot manage FR/EN videos, subtitles, workbooks, audio reliably | Create media manifest with asset IDs and language metadata |
+
+## Blockers That Only Affect Future App/API Scale
+
+These do not block a 30-day course MVP if launch is manual or platform-based.
+
+| Future Blocker | Affected Scale |
+|----------------|----------------|
+| No production database schema | Web/mobile apps, learner accounts, progress dashboards |
+| No formal API contract | Future web app, mobile app, YUNA integrations |
+| No learner event schema | Progress tracking automation and AI personalization |
+| No authentication/authorization model | Learner app, community, paid access |
+| No AI retrieval implementation | YUNA, LUMIAION orchestration, tutor memory |
+| No OSG Knowledge Graph registry | Cross-course graph, Knowledge Library search, recommendation systems |
+| No community data model | Scaled community, cohorts, moderation tooling |
+| No analytics event taxonomy | Retention, completion, and learning outcome analysis |
+| No mobile app structure | Native app delivery |
+| No localization database | ES/AR expansion at scale |
+
+## Nice-to-Have Improvements
+
+These improve quality but should not block MVP launch.
+
+- Build an automated OLS validator.
+- Add a visual course map.
+- Add graph exports for KL nodes.
+- Add AI tutor prompt templates.
+- Add cohort retrospective template.
+- Add instructor certification checklist.
+- Add auto-generated subtitles workflow.
+- Add Notion dashboards for production status.
+- Add GitHub Actions for Markdown/frontmatter validation.
+- Add a lightweight static site preview for course docs.
 
 ## Scalability Review
 
 ### 100+ Courses
 
-Current launch folders can store course files, but they do not yet support 100+ courses safely. At that scale OSG needs a course registry, course IDs, lifecycle statuses, ownership, prerequisites, language variants, versions, and dependency maps.
+RI-001 gives a credible pattern for 100+ courses because it defines a reference course, OLS governance, Reference Review, stable KL nodes, and production gates.
 
-Required ID pattern:
+Remaining requirement: formal course, module, lesson, asset, translation, and progress ID standards.
+
+Recommended IDs:
 
 ```text
-COURSE-YYYY-###
-MODULE-COURSE-###
-LESSON-COURSE-###
+COURSE-AIG-001
+MOD-AIG-00
+LESSON-AIG-00-01
+WB-AIG-001
+WBEX-AIG-001-001
+JRN-AIG-001
+JP-AIG-001-001
+MEDIA-AIG-M03-L02-TEACHING-FR-V001
+TR-AIG-M03-L02-EN-V001
+COMM-AIG-FR-001
+PROG-AIG-LESSON-COMPLETE
 ```
 
 ### Thousands of Learners
 
-The current structure has no learner data model. Thousands of learners require a database-backed model, not Markdown or Notion as the source of truth.
+RI-001 defines progress evidence, but not learner-scale storage.
 
-Required objects:
+MVP can use manual/self-reported tracking. Scale requires:
 
-- learner
-- enrollment
-- progress event
-- completion
-- journal entry
-- workbook submission
-- preference
-- consent record
+- learner table
+- enrollment table
+- lesson progress events
+- practice logs
+- workbook completion records
+- journal prompt completion records
+- community participation events
+- consent and privacy controls
 
 ### Multilingual Content
 
-The current structure has no translation system. Translation cannot be handled as duplicated files without IDs and source mapping.
+The bilingual model is strong. It should be considered production-grade as architecture.
 
-Required objects:
+Execution requirements:
 
-- source artifact
-- locale
-- translation status
-- translator or reviewer
-- source version
-- translated version
-- localization notes
+- termbase
+- translation manifest
+- language metadata
+- reviewer sign-off
+- subtitle files
+- language-specific community routing
 
 ### AI Tutors
 
-AI tutors require strict retrieval boundaries. They should not retrieve private Alpha Proxima material or unrestricted learner data.
-
-Required controls:
-
-- tutor persona definition
-- allowed knowledge sources
-- blocked knowledge sources
-- learner memory permissions
-- escalation rules
-- answer citation rules
-- safety review logs
-
-## Engineering Risk Report
-
-| Risk | Severity | Explanation | Mitigation |
-|------|----------|-------------|------------|
-| Missing Reference Blueprint | Critical | The claimed source architecture is not locally auditable | Add blueprint as a canonical OSG artifact |
-| Missing stable IDs | Critical | APIs, graph, database, translations, and retrieval cannot scale without IDs | Define ID standard before course production |
-| Notion overreach | High | Notion is useful for operations but weak as production backend | Use Notion for workflow, database for learner/product state |
-| Mega-document risk | High | Large blueprints become unmaintainable and poor AI retrieval units | Enforce [[11 - One Question Document Standard]] |
-| Translation drift | High | Multilingual variants can diverge from source content | Add translation registry and source version locks |
-| AI memory leakage | High | YUNA or tutors could cross boundaries between OSG and Alpha Proxima | Define retrieval scopes and memory policy |
-| Progress tracking ambiguity | High | Completion and learning signals need precise event types | Create progress event schema |
-| Media duplication | Medium | Course, content, and app media can fork without registry | Add media asset registry |
-| Community data complexity | Medium | Community IDs, permissions, and moderation are absent | Add community model before community launch |
-| API rework | Medium | Without entities and IDs, APIs will be rewritten later | Define domain model before app development |
-
-## Repository Recommendations
-
-Recommended OSG Academy repository structure:
-
-```text
-osg-academy/
-  apps/
-    web/
-    mobile/
-    admin/
-  packages/
-    domain/
-    ui/
-    api-client/
-  content/
-    courses/
-    knowledge-library/
-    translations/
-  media/
-    registry/
-    source/
-    exports/
-  data/
-    schemas/
-    seeds/
-  services/
-    api/
-    ai-tutor/
-    retrieval/
-  automation/
-    stripe/
-    email/
-    calendly/
-    content-publishing/
-  docs/
-    architecture/
-    decisions/
-    standards/
-    runbooks/
-```
-
-Do not create this full structure immediately. Use it as the target architecture once the Reference Blueprint, ID standards, and database model exist.
+RI-001 is future-compatible but not implementation-ready. AI should not be part of the MVP launch dependency. It can be added after the first cohort if learner data, consent, retrieval boundaries, and OLS AI rules are implemented.
 
 ## Knowledge Graph Compatibility
 
-Current compatibility: partial.
+Compatibility: good at architecture level, incomplete at implementation level.
 
-Needed graph node types:
+Strengths:
+
+- KL nodes exist and are stable enough to seed a Knowledge Library.
+- Future Alpha Proxima bridge nodes are labeled.
+- Lessons map to KL nodes.
+- AI opportunities map to lessons.
+
+Missing:
+
+- active Knowledge Library registry
+- graph node schema
+- graph relationship schema for OSG Academy
+- source/evidence references per `[E]` claim
+- graph export from RI-001 tables
+
+Recommended first graph nodes:
 
 - Course
 - Module
 - Lesson
-- Workbook
-- Workbook Exercise
-- Journal
+- Knowledge Node
+- Practice
+- Workbook Section
 - Journal Prompt
 - Media Asset
 - Translation
-- Learner Concept
-- Practice
-- Assessment
-- Community
-- AI Tutor
-- Knowledge Library Entry
-- Living Genome Node
-
-Needed relationship types:
-
-- PART_OF
-- PRECEDES
-- REQUIRES
-- TEACHES
-- PRACTICES
-- REFLECTS_ON
-- TRANSLATES
-- HAS_MEDIA
-- ASSESSES
-- COMPLETED_BY
-- RECOMMENDED_BY
-- RETRIEVED_BY
-- RELATED_TO
-
-Minimum requirement: every graph node must have a stable ID, title, type, version, status, source document, and `core_question` when document-backed.
+- Progress Event
+- Community Space
 
 ## Database Compatibility
 
-Current compatibility: not production-ready.
+Compatibility: partial.
 
-Required tables or collections:
+RI-001 provides enough domain structure to design tables, but not enough to implement without translation into schema.
+
+Minimum MVP database can be avoided if course launches on an existing platform. Future app/API scale requires:
 
 - courses
 - modules
 - lessons
-- workbooks
-- workbook_exercises
-- journals
-- journal_prompts
+- lesson_assets
+- knowledge_nodes
 - media_assets
 - translations
 - learners
 - enrollments
 - progress_events
-- assessments
+- journal_entries
+- workbook_submissions
 - community_spaces
-- community_memberships
-- knowledge_entries
-- ai_tutor_sessions
-- retrieval_events
-
-Required cross-cutting fields:
-
-- id
-- slug
-- title
-- status
-- version
-- locale
-- source_id
-- created_at
-- updated_at
-- owner
-- visibility
-- access_level
+- community_events
 
 ## API Readiness
 
-Current readiness: low.
+Current API readiness: moderate conceptually, low technically.
 
-APIs cannot be designed cleanly until the entity model and ID standards exist.
+RI-001 defines entities but not endpoint contracts. This does not block MVP if no custom app is being launched.
 
 Future API groups:
 
-- Catalog API
-- Course API
-- Lesson API
-- Media API
+- Course Catalog API
+- Lesson Delivery API
+- Asset API
 - Translation API
-- Learner API
-- Progress API
+- Learner Progress API
 - Journal API
 - Workbook API
-- Community API
-- AI Tutor API
 - Knowledge Library API
-- Retrieval API
-
-Minimum endpoint pattern:
-
-```text
-GET /courses
-GET /courses/{course_id}
-GET /courses/{course_id}/modules
-GET /lessons/{lesson_id}
-POST /learners/{learner_id}/progress-events
-GET /knowledge/{knowledge_id}
-POST /ai-tutor/sessions
-```
+- AI Tutor API
+- Community API
 
 ## Future AI Readiness
 
-Current readiness: partial.
+AI readiness: good architecture, incomplete implementation.
 
-The current OSG foundation has clean folders and launch discipline, but AI retrieval requires smaller modular documents, stable IDs, source boundaries, and metadata.
+Positive:
 
-Required for AI readiness:
+- RI-001 defines AI as support, not dependency.
+- YUNA and LUMIAION roles are bounded.
+- AI opportunities are mapped per lesson.
+- OLS AI boundaries are explicit.
 
-- one document, one question
-- stable knowledge IDs
-- document type metadata
-- source version
-- language metadata
-- audience metadata
-- retrieval permissions
-- citation source links
-- learner data access policy
-- separation between OSG public knowledge and Alpha Proxima private institutional memory
+Missing:
 
-## One Document, One Question Rule
+- retrieval source registry
+- learner memory consent model
+- distress escalation workflow
+- tutor prompt templates
+- audit logs for AI interactions
+- separation policy between OSG learner data and Alpha Proxima institutional memory
 
-This review adopts [[11 - One Question Document Standard]] as mandatory for OSG Academy and Alpha Proxima artifacts.
+## Repository Recommendations
 
-Examples:
+### Immediate Repository Fix
 
-| Artifact | Core Question |
-|----------|---------------|
-| OLS | How are OSG courses designed? |
-| Reference Blueprint | How is Awaken the Inner Guru structured? |
-| Workbook Blueprint | How is the workbook organized? |
-| Journal Blueprint | How is reflection organized? |
+Decide one active canonical location:
 
-This rule is not cosmetic. It is required for modularity, search, versioning, graph extraction, API mapping, AI retrieval, and long-term maintainability.
+```text
+OSG_BUSINESS/OSG_ACADEMY/
+```
 
-## Overall Engineering Score
+or migrate into:
 
-**58 / 100**
+```text
+OSG_LAUNCH/10_ACADEMY/
+```
 
-### Score Breakdown
+Do not keep RI-001 only in Git history. The production team needs the source files in the active tree.
 
-| Area | Score | Reason |
-|------|-------|--------|
-| Launch foundation | 78 | Good operational base exists |
-| Academy architecture | 45 | Domain model is missing |
-| Scalability | 48 | No ID, translation, learner, or progress model yet |
-| Database readiness | 35 | No production schema |
-| API readiness | 35 | Entities and IDs are undefined |
-| Knowledge graph readiness | 52 | Alpha Proxima graph tooling exists, but OSG taxonomy is missing |
-| AI readiness | 50 | Retrieval boundaries and tutor model are missing |
-| Repository discipline | 70 | Basic GitHub practices exist |
-| Documentation modularity | 62 | Good launch docs, but academy blueprint source is absent |
+### Recommended Active Structure for MVP
 
-## Immediate Engineering Priorities
+```text
+OSG_LAUNCH/
+  10_ACADEMY/
+    README.md
+    OSG Learning Standard.md
+    RI-001 Awaken the Inner Guru Reference Implementation Blueprint.md
+    Awaken the Inner Guru Production Blueprint.md
+    AIG/
+      _termbase/
+      _manifests/
+      FR/
+      EN/
+      _shared/
+```
 
-1. Add the Claude Reference Blueprint as a canonical OSG artifact.
-2. Apply `core_question` to the Reference Blueprint and split it if it answers more than one question.
-3. Create the OSG Academy ID Standard.
-4. Create the OSG Academy Domain Model.
-5. Create database schema draft v0.1.
-6. Create Knowledge Graph taxonomy for OSG Academy.
-7. Create AI tutor retrieval boundary standard.
-8. Create templates for lesson, workbook, journal, media, translation, and progress events.
+### Recommended Production Manifests
+
+- `course_manifest.yaml`
+- `lesson_manifest.yaml`
+- `knowledge_nodes.yaml`
+- `media_manifest.yaml`
+- `translation_manifest.yaml`
+- `progress_events.yaml`
+- `community_spaces.yaml`
+
+## 30-Day MVP Readiness Plan
+
+### Week 1
+
+- Restore/migrate canonical OSG Academy files into active tree.
+- Resolve OLS v1.0/v1.1 version mismatch.
+- Approve Gate-1 for RI-001.
+- Create termbase.
+- Create lesson script template.
+- Create production manifests.
+
+### Week 2
+
+- Script Week 0 through Week 2.
+- Build workbook and journal skeletons.
+- Create evidence registry for `[E]` claims.
+- Build FR/EN translation workflow tracker.
+- Create community onboarding flow.
+
+### Week 3
+
+- Record MVP lessons or pilot module set.
+- Produce FR/EN workbook and journal MVP.
+- Produce subtitles/captions for first module.
+- Configure course platform, payments, booking, and email.
+- Run internal QC.
+
+### Week 4
+
+- Complete MVP QA.
+- Run OLS Gate-2 review for launch scope.
+- Open pilot cohort enrollment.
+- Track learner onboarding, practice logs, and community participation manually.
+- Capture production lessons learned.
+
+## Final Classification
+
+### Production Can Start After These Are Done
+
+- Source files restored to active tree.
+- Gate-1 approved.
+- OLS version mismatch resolved.
+- Termbase created.
+- Lesson script template created.
+- Evidence/reference registry started.
+- Media and translation manifests created.
+
+### MVP Can Launch Without These
+
+- Custom web app.
+- Mobile app.
+- API.
+- Database-backed learner platform.
+- AI tutor.
+- Automated Knowledge Graph.
+- Full ES/AR localization.
+- Advanced analytics.
+
+### MVP Should Not Launch Without These
+
+- Clear course source of truth.
+- FR/EN language workflow if bilingual launch is promised.
+- OLS compliance checklist.
+- Therapy/refer-out boundary language.
+- Payment, access, and onboarding flow.
+- Community rules and moderation owner.
+- Minimum progress tracking.
 
 ## Implementation Notes
 
-This report audits engineering readiness only. It does not judge course philosophy, pedagogy, brand positioning, or institutional meaning.
+This review does not rewrite RI-001, OLS, or the bilingual production model. It verifies technical implementability and production readiness.
+
+The key engineering conclusion: RI-001 is architecturally strong enough for MVP production. The remaining hard blockers are operationalization, source restoration, ID/manifest discipline, and production gates.
 
 ## Future Improvements
 
-- [ ] Rerun this audit after the Reference Blueprint is added.
-- [ ] Generate ID standards and database schema.
-- [ ] Add OSG Academy graph registry generator.
-- [ ] Add OSG Academy document validator.
+- [ ] Restore/migrate `OSG_BUSINESS/OSG_ACADEMY` into the active workspace.
+- [ ] Create OSG Academy ID Standard.
+- [ ] Create OSG Academy Production Manifest Standard.
+- [ ] Create OLS Validator.
+- [ ] Create Knowledge Library registry from RI-001 KL nodes.
+- [ ] Create course MVP dashboard.
 
 ## Version History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-07-05 | CODEX | Initial OSG Academy engineering review |
+| 2.0.0 | 2026-07-05 | CODEX | Revised review using committed RI-001, OLS, and bilingual model as primary audit sources |
+| 1.0.0 | 2026-07-05 | CODEX | Initial review based only on visible OSG launch foundation |
 
