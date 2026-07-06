@@ -11,10 +11,14 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": ".smart-env/event_logs/event_logs.ajson",
+                "bFile": ".smart-env/event_logs/event_logs.ajson",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: event_logs.ajson  (Working Tree)"
             }
           },
           {
@@ -59,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "PR-#8",
+                "query": "tag:#systems",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -314,6 +318,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md",
     "copilot/copilot-conversations/i_want_to_where_is_awaken_the_inner_guru@20260706_145316.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M7_Discernment_in_Action",
@@ -349,7 +354,6 @@
     "OSG_LAUNCH/05_CONTENT/README.md",
     "OSG_LAUNCH/04_CLIENTS/Client Folder Hierarchy.md",
     "OSG_LAUNCH/04_CLIENTS/README.md",
-    "OSG_LAUNCH/03_MEDIA/README.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
