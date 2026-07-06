@@ -266,7 +266,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 394.5
+    "width": 717.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -312,7 +312,7 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "copilot/copilot-conversations/i_want_to_where_is_awaken_the_inner_guru@20260706_145316.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
