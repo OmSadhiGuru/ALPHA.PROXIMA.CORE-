@@ -25,13 +25,14 @@
             "id": "a967aa766487766a",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Nouvel onglet"
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,7 +110,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -270,7 +272,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 717.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -316,7 +318,7 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
     "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md",
     "copilot/copilot-conversations/i_want_to_where_is_awaken_the_inner_guru@20260706_145316.md",
