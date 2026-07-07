@@ -3,16 +3,16 @@ title: "11_OPERATIONS"
 aliases: ["Operations Layer", "Institutional Operations Layer", "Operational Nervous System"]
 tags: [operations, institutional-operations, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-07
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: operations-index
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Book I - The Constitution]]", "[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[The Orchestration Framework]]"]
-related_documents: ["[[Office Registry]]", "[[Workflow Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]", "[[AI Council Operations Registry]]"]
+related_documents: ["[[Office Registry]]", "[[Workflow Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]", "[[AI Council Operations Registry]]", "[[LUMIAION - Operating Manual (LOOM)]]"]
 related_research_programs: []
 ---
 
@@ -102,6 +102,7 @@ Automation should assist. Humans decide. Research informs. Architecture governs.
 | Area | Purpose |
 |------|---------|
 | [[Office Registry]] | Canonical description of Foundation offices |
+| [[LUMIAION - Operating Manual (LOOM)]] | End-to-end idea-to-published-asset operating manual: offices, pipeline, gates, sprint system, dashboard |
 | [[Workflow Registry]] | Institutional workflows and information flows |
 | [[Artifact Registry]] | Artifact ownership, lifecycle, storage, and versioning |
 | [[Operational Procedures Index]] | Reusable procedures for recurring operations |
@@ -136,4 +137,5 @@ Automation should assist. Humans decide. Research informs. Architecture governs.
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Created Institutional Operations Layer |
+| 1.1.0 | 2026-07-07 | Founder / LUMIAION | Added [[LUMIAION - Operating Manual (LOOM)]] to Structure and related documents |
 

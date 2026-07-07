@@ -3,16 +3,16 @@ title: "Workflow Registry"
 aliases: ["Institutional Workflow Registry", "Operations Workflow Registry"]
 tags: [operations, workflows, registry, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-07
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Office Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]"]
-related_documents: ["[[11_OPERATIONS]]", "[[Decision Routing Protocol]]", "[[Knowledge Routing Protocol]]"]
+related_documents: ["[[11_OPERATIONS]]", "[[Decision Routing Protocol]]", "[[Knowledge Routing Protocol]]", "[[LUMIAION - Operating Manual (LOOM)]]"]
 related_research_programs: []
 ---
 
@@ -134,6 +134,20 @@ Each workflow is designed to become automatable in pieces while keeping human de
 | Artifacts Produced | Implementation note, tool documentation, CLI command, engineering report |
 | Automation Opportunities | Template generation, tests, validation reports, changelog updates |
 
+### Idea to Published Asset (LOOM)
+
+| Field | Description |
+|-------|-------------|
+| Trigger | LUMIAION opens a sprint at Gate 0 with a Founder-set objective and priority asset |
+| Participants | LUMIAION, Claude, Codex, Perplexity, Comet (continuous), Founder |
+| Input | Idea, Founder objective |
+| Output | Published asset (Gate 6), feedback packet (Gate 7) |
+| Decision Points | Eight approval gates, G0-G7; see [[LUMIAION - Operating Manual (LOOM)]] |
+| Artifacts Produced | Blueprint, draft, evidence packet, review verdicts, Handoff Log entries, published asset, visual companion |
+| Automation Opportunities | Asset ID generation, dashboard updates, Handoff Log validation, gate-state tracking |
+
+Full protocol, office responsibilities, sprint rules, and dashboard definition: [[LUMIAION - Operating Manual (LOOM)]].
+
 ### Future Proposal to Mature Outcome
 
 | Field | Description |
@@ -160,4 +174,5 @@ Each workflow is designed to become automatable in pieces while keeping human de
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial workflow registry |
+| 1.1.0 | 2026-07-07 | Founder / LUMIAION | Added "Idea to Published Asset (LOOM)" workflow, linking the full [[LUMIAION - Operating Manual (LOOM)]] |
 

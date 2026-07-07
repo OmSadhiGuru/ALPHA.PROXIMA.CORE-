@@ -313,8 +313,10 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "OSG_LAUNCH/README.md",
+    "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
     "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md",
     "copilot/copilot-conversations/i_want_to_where_is_awaken_the_inner_guru@20260706_145316.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
@@ -349,8 +351,6 @@
     "OSG_LAUNCH/06_AUTOMATION/README.md",
     "OSG_LAUNCH/05_CONTENT/Content Workflow.md",
     "OSG_LAUNCH/05_CONTENT/README.md",
-    "OSG_LAUNCH/04_CLIENTS/Client Folder Hierarchy.md",
-    "OSG_LAUNCH/04_CLIENTS/README.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
