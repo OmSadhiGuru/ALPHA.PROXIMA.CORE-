@@ -15,28 +15,28 @@
       }
     },
     {
-      "query": "path:\"09_OFFICES/Executive Office\"",
+      "query": "path:\"11_OPERATIONS/Executive Office\"",
       "color": {
         "a": 1,
         "rgb": 14251782
       }
     },
     {
-      "query": "path:\"09_OFFICES/Research Intelligence Office\"",
+      "query": "path:\"03_AI_COUNCIL/Research Council\"",
       "color": {
         "a": 1,
         "rgb": 366185
       }
     },
     {
-      "query": "path:\"09_OFFICES/Engineering Office\"",
+      "query": "path:\"08_SYSTEMS/Engineering Toolkit\" OR path:\"08_SYSTEMS/Engineering Standards\"",
       "color": {
         "a": 1,
         "rgb": 15357964
       }
     },
     {
-      "query": "path:\"09_OFFICES/Institutional Observatory\"",
+      "query": "path:\"11_OPERATIONS/Institutional Observatory\"",
       "color": {
         "a": 1,
         "rgb": 561586
@@ -141,6 +141,55 @@
       }
     },
     {
+      "query": "path:05_PROPOSALS",
+      "color": {
+        "a": 1,
+        "rgb": 5195493
+      }
+    },
+    {
+      "query": "path:06_PROJECTS",
+      "color": {
+        "a": 1,
+        "rgb": 959977
+      }
+    },
+    {
+      "query": "path:09_FUTURE",
+      "color": {
+        "a": 1,
+        "rgb": 15485081
+      }
+    },
+    {
+      "query": "path:09_PEOPLE",
+      "color": {
+        "a": 1,
+        "rgb": 9584654
+      }
+    },
+    {
+      "query": "path:11_OPERATIONS",
+      "color": {
+        "a": 1,
+        "rgb": 1976635
+      }
+    },
+    {
+      "query": "path:\"ALPHA PROXIMA\"",
+      "color": {
+        "a": 1,
+        "rgb": 10576391
+      }
+    },
+    {
+      "query": "path:OSG_LAUNCH",
+      "color": {
+        "a": 1,
+        "rgb": 1332013
+      }
+    },
+    {
       "query": "tag:#alpha-proxima  ",
       "color": {
         "a": 1,
@@ -158,6 +207,6 @@
   "repelStrength": 20,
   "linkStrength": 0.465494791666667,
   "linkDistance": 500,
-  "scale": 0.02645642963856899,
+  "scale": 0.027089639447969095,
   "close": false
 }
