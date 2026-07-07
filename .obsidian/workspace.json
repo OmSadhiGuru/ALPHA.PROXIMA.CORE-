@@ -11,28 +11,13 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".smart-env/event_logs/event_logs.ajson",
-                "bFile": ".smart-env/event_logs/event_logs.ajson",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: event_logs.ajson  (Working Tree)"
-            }
-          },
-          {
-            "id": "a967aa766487766a",
-            "type": "leaf",
-            "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Vue graphique"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +81,7 @@
             }
           },
           {
-            "id": "23f6c8dcdebfc674",
+            "id": "e7f9642764f8d60c",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -265,6 +250,16 @@
               },
               "icon": "bot-message-square",
               "title": "New session"
+            }
+          },
+          {
+            "id": "020fffceb542aa05",
+            "type": "leaf",
+            "state": {
+              "type": "deepseek-cli-chat",
+              "state": {},
+              "icon": "bot",
+              "title": "DeepSeek CLI"
             }
           }
         ],
