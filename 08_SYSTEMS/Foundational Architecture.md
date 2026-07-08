@@ -3,9 +3,9 @@ title: "Foundational Architecture"
 aliases: ["Foundational Architecture", "Knowledge Infrastructure", "Execution Infrastructure", "Technical Architecture"]
 tags: [systems, architecture, infrastructure, knowledge, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-07
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["Founder", "Alpha Proxima Foundation"]
 ---
 
@@ -242,6 +242,7 @@ The design principle that governs every architectural decision: **no single poin
 - [[Future Expansion Protocol]]
 - [[Vault Structure Convention]]
 - [[Book II - Governance Framework]]
+- [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]]
 
 ---
 
@@ -259,3 +260,4 @@ The design principle that governs every architectural decision: **no single poin
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | Founder | Initial architecture documented; Phase 1 current state; Phase 2 and 3 roadmap established |
+| 1.0.1 | 2026-07-07 | Founder / LUMIAION | Linked from [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]], which references this document as canonical for the System Registry and Phase 1-3 roadmap without duplicating it |

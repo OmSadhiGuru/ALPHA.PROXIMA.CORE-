@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#systems",
+                "query": "tag:#alpha-proxima",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,7 +81,7 @@
             }
           },
           {
-            "id": "240260ef49d61d64",
+            "id": "43526aa86f8d88f4",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -95,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -307,14 +306,17 @@
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
       "docx-importer:Export note as DOCX": false,
-      "smart-templates:Smart Templates: Open template context": false,
       "smart-context:Smart Context: Open Builder": false,
       "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
-      "smart-context:Smart Context: List Named Contexts": false
+      "smart-context:Smart Context: List Named Contexts": false,
+      "smart-templates:Smart Templates: Open template context": false
     }
   },
   "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
+    "04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md",
+    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "Awaken the Inner Guru Production Folder.md",
     "OSG_LAUNCH/README.md",
     "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
@@ -330,7 +332,6 @@
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M1_Noise_and_Signal",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M0_Orientation",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/FR/M8_Living_from_the_Inner_Guru",
-    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/README.md",
     "OSG_LAUNCH/10_ACADEMY/README.md",
     "copilot/copilot-conversations/Summarize_the_recent_updates_from_note.@20260705_235607.md",
@@ -349,8 +350,6 @@
     "OSG_LAUNCH/07_OPERATIONS/Launch Operations Model.md",
     "OSG_LAUNCH/07_OPERATIONS/README.md",
     "OSG_LAUNCH/06_AUTOMATION/Automation Opportunities.md",
-    "OSG_LAUNCH/06_AUTOMATION/README.md",
-    "OSG_LAUNCH/05_CONTENT/Content Workflow.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
