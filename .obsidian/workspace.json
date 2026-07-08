@@ -81,7 +81,7 @@
             }
           },
           {
-            "id": "e7f9642764f8d60c",
+            "id": "240260ef49d61d64",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -307,14 +307,15 @@
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
       "docx-importer:Export note as DOCX": false,
+      "smart-templates:Smart Templates: Open template context": false,
       "smart-context:Smart Context: Open Builder": false,
       "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
-      "smart-context:Smart Context: List Named Contexts": false,
-      "smart-templates:Smart Templates: Open template context": false
+      "smart-context:Smart Context: List Named Contexts": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "Awaken the Inner Guru Production Folder.md",
     "OSG_LAUNCH/README.md",
     "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
     "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md",
@@ -350,7 +351,6 @@
     "OSG_LAUNCH/06_AUTOMATION/Automation Opportunities.md",
     "OSG_LAUNCH/06_AUTOMATION/README.md",
     "OSG_LAUNCH/05_CONTENT/Content Workflow.md",
-    "OSG_LAUNCH/05_CONTENT/README.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
