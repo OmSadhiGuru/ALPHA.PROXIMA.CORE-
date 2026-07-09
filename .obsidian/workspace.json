@@ -4,59 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e0e92040c683d9c6",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "63e03d0b9c2b91d9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Awaken the Inner Guru Recording Start Guide"
-            }
-          },
-          {
-            "id": "1989499e1f1efd10",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Awaken the Inner Guru Recording Start Guide"
-            }
-          },
-          {
-            "id": "7272bc4ff6689782",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -65,8 +17,7 @@
               "title": "Vue graphique"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -133,10 +84,13 @@
             "id": "43526aa86f8d88f4",
             "type": "leaf",
             "state": {
-              "type": "mk-path-view",
-              "state": {},
-              "icon": "layout-grid",
-              "title": "Navigator"
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorateur de fichiers"
             }
           }
         ],
@@ -144,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -361,8 +316,12 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "7272bc4ff6689782",
+  "active": "c5e382faf2af04e7",
   "lastOpenFiles": [
+    "04_DECISIONS/ADR-0001 - The Founding Decision.md",
+    "08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md",
+    "07_RESEARCH/RP-001/RP-001 Master Index.md",
+    "03_AI_COUNCIL/Departments/VORTEX Charter.md",
     "09_PEOPLE/CODEX.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
@@ -395,10 +354,6 @@
     "OSG_LAUNCH/09_TEMPLATES/Client Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Course Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Naming Conventions.md",
-    "OSG_LAUNCH/09_TEMPLATES/README.md",
-    "OSG_LAUNCH/08_ROADMAP/30 Day Implementation Roadmap.md",
-    "OSG_LAUNCH/08_ROADMAP/README.md",
-    "OSG_LAUNCH/07_OPERATIONS/Launch Operations Model.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
