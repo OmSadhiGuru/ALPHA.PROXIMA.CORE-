@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "e0e92040c683d9c6",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "63e03d0b9c2b91d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -30,8 +30,43 @@
               "icon": "lucide-file",
               "title": "Awaken the Inner Guru Recording Start Guide"
             }
+          },
+          {
+            "id": "1989499e1f1efd10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Awaken the Inner Guru Recording Start Guide"
+            }
+          },
+          {
+            "id": "7272bc4ff6689782",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -63,7 +98,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "awaken your inner",
+                "query": "OSG_LAUNCH/10_ACADEMY/AIG/",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -326,12 +361,12 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "7272bc4ff6689782",
   "lastOpenFiles": [
+    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
     "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
     "04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md",
-    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "Awaken the Inner Guru Production Folder.md",
     "OSG_LAUNCH/README.md",
     "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
