@@ -1,0 +1,8 @@
+# Vault hygiene — machine-local / session state, not institutional source.
+# Added 2026-07-09 per Founder instruction.
+
+.claudian/sessions/
+.makemd/fileCache.mdc
+.makemd/superstate.mdc
+.smart-env/
+.obsidian/workspace.json
