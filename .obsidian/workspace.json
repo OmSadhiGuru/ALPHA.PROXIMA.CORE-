@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "markdown",
+              "state": {
+                "file": "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Awaken the Inner Guru Recording Start Guide"
             }
           }
         ]
@@ -49,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-proxima",
+                "query": "awaken your inner",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -312,8 +326,9 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
     "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
     "04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
@@ -349,7 +364,6 @@
     "OSG_LAUNCH/08_ROADMAP/README.md",
     "OSG_LAUNCH/07_OPERATIONS/Launch Operations Model.md",
     "OSG_LAUNCH/07_OPERATIONS/README.md",
-    "OSG_LAUNCH/06_AUTOMATION/Automation Opportunities.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
