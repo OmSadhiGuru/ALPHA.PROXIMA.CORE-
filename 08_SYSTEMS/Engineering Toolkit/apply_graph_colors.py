@@ -17,7 +17,7 @@ DEFAULT_GRAPH = Path(".obsidian/graph.json")
 OFFICIAL_COLOR_GROUPS = [
     # Rule 1: LUMIAION - Central orchestration intelligence
     {
-        "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
+        "query": "file:LUMIAION",
         "color": {"a": 1, "rgb": 0x7C3AED},
     },
     # Rule 2: Executive Office (FIXED: 09_OFFICES → 11_OPERATIONS)

@@ -8,7 +8,7 @@
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
+      "query": "file:LUMIAION",
       "color": {
         "a": 1,
         "rgb": 8141549
@@ -88,7 +88,7 @@
       "query": "path:07_RESEARCH",
       "color": {
         "a": 1,
-        "rgb": 14463774
+        "rgb": 1483594
       }
     },
     {
@@ -188,13 +188,6 @@
         "a": 1,
         "rgb": 1332013
       }
-    },
-    {
-      "query": "tag:#alpha-proxima  ",
-      "color": {
-        "a": 1,
-        "rgb": 7996091
-      }
     }
   ],
   "collapse-display": true,
@@ -207,6 +200,6 @@
   "repelStrength": 14.4305555555556,
   "linkStrength": 0,
   "linkDistance": 30,
-  "scale": 0.07595699769347779,
+  "scale": 0.06980428955374006,
   "close": true
 }

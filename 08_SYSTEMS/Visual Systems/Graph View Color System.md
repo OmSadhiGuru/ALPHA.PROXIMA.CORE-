@@ -40,7 +40,7 @@ Specific office and charter rules must appear before generic folder rules.
 
 | Priority | Query | Color Name | Hex Code | Institutional Meaning |
 |----------|-------|------------|----------|-----------------------|
-| 1 | `path:09_OFFICES/LUMIAION OR file:LUMIAION` | LUMIAION Violet | `#7C3AED` | Central orchestration intelligence and primary institutional consciousness — the brain. This is the anchor color; every other rule below exists to keep everything *around* the brain identifiable so the brain itself stays visually distinct rather than lost in a field of uncolored nodes. |
+| 1 | `file:LUMIAION` | LUMIAION Violet | `#7C3AED` | Central orchestration intelligence and primary institutional consciousness — the brain. This is the anchor color; every other rule below exists to keep everything *around* the brain identifiable so the brain itself stays visually distinct rather than lost in a field of uncolored nodes. |
 | 2 | `path:"11_OPERATIONS/Executive Office"` | Executive Amber | `#D97706` | Executive coordination and strategic direction |
 | 3 | `path:"03_AI_COUNCIL/Research Council"` | Research Emerald | `#059669` | Research intelligence and evidence intake |
 | 4 | `path:"08_SYSTEMS/Engineering Toolkit" OR path:"08_SYSTEMS/Engineering Standards"` | Engineering Orange | `#EA580C` | Implementation, tooling, infrastructure, and automation |

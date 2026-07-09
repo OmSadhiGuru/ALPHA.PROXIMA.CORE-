@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "OSG_LAUNCH/10_ACADEMY/AIG/",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -316,8 +316,9 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "c5e382faf2af04e7",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md",
     "04_DECISIONS/ADR-0001 - The Founding Decision.md",
     "08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md",
     "07_RESEARCH/RP-001/RP-001 Master Index.md",
@@ -353,7 +354,6 @@
     "OSG_LAUNCH/09_TEMPLATES/Content Item Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Client Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Course Template.md",
-    "OSG_LAUNCH/09_TEMPLATES/Naming Conventions.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
