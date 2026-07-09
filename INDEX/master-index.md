@@ -71,6 +71,22 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-dept-vortex-outputs | VORTEX Outputs | DEPARTMENTS/VORTEX/outputs.md | VORTEX | output-map | active |
 | apx-dept-vortex-prompts | VORTEX Prompts | DEPARTMENTS/VORTEX/prompts.md | VORTEX | prompt-library | active |
 | apx-dept-vortex-workflows | VORTEX Workflows | DEPARTMENTS/VORTEX/workflows.md | VORTEX | workflow | active |
+| apx-design-readme | Design Folder | DESIGN/README.md | LUMIAION | readme | active |
+| apx-design-accessibility-standard | Accessibility Standard | DESIGN/accessibility-standard.md | LUMIAION | design-standard | active |
+| apx-design-callout-standard | Callout Standard | DESIGN/callout-standard.md | LUMIAION | design-standard | active |
+| apx-design-color-system | Color System | DESIGN/color-system.md | LUMIAION | design-standard | active |
+| apx-design-companion-color-map | Companion Color Map | DESIGN/companion-color-map.md | LUMIAION | design-standard | active |
+| apx-design-document-layout-standard | Document Layout Standard | DESIGN/document-layout-standard.md | LUMIAION | design-standard | active |
+| apx-design-knowledge-design-system | Knowledge Design System | DESIGN/knowledge-design-system.md | LUMIAION | design-standard | active |
+| apx-design-obsidian-style-guide | Obsidian Style Guide | DESIGN/obsidian-style-guide.md | LUMIAION | design-standard | active |
+| apx-design-pdf-ebook-style-guide | PDF / eBook Style Guide | DESIGN/pdf-ebook-style-guide.md | LUMIAION | design-standard | active |
+| apx-design-research-note-standard | Research Note Standard | DESIGN/research-note-standard.md | LUMIAION | design-standard | active |
+| apx-design-toggle-structure-standard | Toggle Structure Standard | DESIGN/toggle-structure-standard.md | LUMIAION | design-standard | active |
+| apx-design-typography-hierarchy | Typography Hierarchy | DESIGN/typography-hierarchy.md | LUMIAION | design-standard | active |
+| apx-experience-alpha-proxima-neural-interface | Alpha Proxima Neural Interface | EXPERIENCE/alpha-proxima-neural-interface.md | LUMIAION | experience-standard | active |
+| apx-experience-axiom-nexus-symbolic-interface | Axiom Nexus Symbolic Interface | EXPERIENCE/axiom-nexus-symbolic-interface.md | LUMIAION | experience-standard | active |
+| apx-experience-companion-portal-system | Companion Portal System | EXPERIENCE/companion-portal-system.md | LUMIAION | experience-standard | active |
+| apx-experience-experience-modes | Experience Modes | EXPERIENCE/experience-modes.md | LUMIAION | experience-standard | active |
 | apx-governance-readme | Governance Folder | GOVERNANCE/README.md | LUMIAION | readme | active |
 | apx-governance-approval-policy | Approval Policy | GOVERNANCE/approval-policy.md | LUMIAION | policy | active |
 | apx-governance-archive-policy | Archive Policy | GOVERNANCE/archive-policy.md | LUMIAION | policy | active |
@@ -80,6 +96,7 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-governance-versioning | Versioning Policy | GOVERNANCE/versioning-policy.md | LUMIAION | policy | active |
 | apx-index-readme | Index Folder | INDEX/README.md | LUMIAION | readme | active |
 | apx-index-department | Department Index | INDEX/department-index.md | LUMIAION | index | active |
+| apx-index-master | Master Index | INDEX/master-index.md | LUMIAION | index | active |
 | apx-index-project | Project Index | INDEX/project-index.md | LUMIAION | index | active |
 | apx-index-prompt | Prompt Index | INDEX/prompt-index.md | LUMIAION | index | active |
 | apx-index-source | Source Index | INDEX/source-index.md | ATHENA | index | active |
@@ -87,6 +104,24 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-index-tag | Tag Index | INDEX/tag-index.md | LUMIAION | index | active |
 | apx-knowledge-readme | Knowledge Folder | KNOWLEDGE/README.md | LUMIAION | readme | active |
 | apx-logs-readme | Logs Folder | LOGS/README.md | LUMIAION | readme | active |
+| apx-operations-cpos-ai-assignments | Office Assignments | OPERATIONS/CPOS/AI_ASSIGNMENTS.md | LUMIAION | operations-assignments | active |
+| apx-operations-cpos-approval-gates | Approval Gates | OPERATIONS/CPOS/APPROVAL_GATES.md | LUMIAION | operations-gate | active |
+| apx-operations-cpos-backlog | Backlog | OPERATIONS/CPOS/BACKLOG.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-blockers | Blockers | OPERATIONS/CPOS/BLOCKERS.md | LUMIAION | operations-registry | active |
+| apx-operations-cpos-blueprint-queue | Blueprint Queue | OPERATIONS/CPOS/BLUEPRINT_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-current-sprint | Current Sprint | OPERATIONS/CPOS/CURRENT_SPRINT.md | LUMIAION | operations-sprint | active |
+| apx-operations-cpos-dashboard | Executive Dashboard | OPERATIONS/CPOS/DASHBOARD.md | LUMIAION | operations-dashboard | active |
+| apx-operations-cpos-feedback-queue | Feedback Queue | OPERATIONS/CPOS/FEEDBACK_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-handoff-log | Handoff Log | OPERATIONS/CPOS/HANDOFF_LOG.md | LUMIAION | operations-log | active |
+| apx-operations-cpos-improvement-queue | Improvement Queue | OPERATIONS/CPOS/IMPROVEMENT_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-knowledge-queue | Knowledge Queue | OPERATIONS/CPOS/KNOWLEDGE_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-production-queue | Production Queue | OPERATIONS/CPOS/PRODUCTION_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-publishing-queue | Publishing Queue | OPERATIONS/CPOS/PUBLISHING_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-readme | CPOS | OPERATIONS/CPOS/README.md | LUMIAION | readme | active |
+| apx-operations-cpos-research-queue | Research Queue | OPERATIONS/CPOS/RESEARCH_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-review-queue | Review Queue | OPERATIONS/CPOS/REVIEW_QUEUE.md | LUMIAION | operations-queue | active |
+| apx-operations-cpos-roadmap | Roadmap | OPERATIONS/CPOS/ROADMAP.md | LUMIAION | operations-roadmap | active |
+| apx-operations-readme | Operations Folder | OPERATIONS/README.md | LUMIAION | readme | active |
 | apx-projects-readme | Projects Folder | PROJECTS/README.md | LUMIAION | readme | active |
 | apx-prompts-readme | Prompts Folder | PROMPTS/README.md | LUMIAION | readme | active |
 | apx-root-readme | ALPHAPROXIMA Repository | README.md | LUMIAION | readme | active |
@@ -95,6 +130,11 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-templates-readme | Templates Folder | TEMPLATES/README.md | LUMIAION | readme | active |
 | apx-template-agent-profile | Agent Profile Template | TEMPLATES/agent-profile.template.md | LUMIAION | template | active |
 | apx-template-architecture-decision-record | Architecture Decision Record Template | TEMPLATES/architecture-decision-record.template.md | LUMIAION | template | active |
+| apx-template-designed-companion-page | Designed Companion Page Template | TEMPLATES/designed-companion-page.template.md | LUMIAION | template | active |
+| apx-template-designed-course-module | Designed Course Module Template | TEMPLATES/designed-course-module.template.md | LUMIAION | template | active |
+| apx-template-designed-founder-brief | Designed Founder Brief Template | TEMPLATES/designed-founder-brief.template.md | LUMIAION | template | active |
+| apx-template-designed-knowledge-object | Designed Knowledge Object Template | TEMPLATES/designed-knowledge-object.template.md | LUMIAION | template | active |
+| apx-template-designed-study-note | Designed Study Note Template | TEMPLATES/designed-study-note.template.md | LUMIAION | template | active |
 | apx-template-knowledge-object | Knowledge Object Template | TEMPLATES/knowledge-object.template.md | LUMIAION | template | active |
 | apx-template-osg-knowledge-object | OSG Knowledge Object Template | TEMPLATES/osg-knowledge-object.template.md | LUMIAION | template | active |
 | apx-template-project-spec | Project Spec Template | TEMPLATES/project-spec.template.md | LUMIAION | template | active |
