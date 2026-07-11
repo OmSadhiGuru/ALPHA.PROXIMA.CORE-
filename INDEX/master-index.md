@@ -102,6 +102,13 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-index-source | Source Index | INDEX/source-index.md | ATHENA | index | active |
 | apx-index-status | Status Index | INDEX/status-index.md | LUMIAION | index | active |
 | apx-index-tag | Tag Index | INDEX/tag-index.md | LUMIAION | index | active |
+| apx-ingestion-readme | Ingestion Folder | INGESTION/README.md | LUMIAION | readme | active |
+| apx-ingestion-drive-ingestion-workflow | Drive Ingestion Workflow | INGESTION/drive-ingestion-workflow.md | LUMIAION | ingestion-workflow | active |
+| apx-ingestion-evidence-classification-standard | Evidence Classification Standard | INGESTION/evidence-classification-standard.md | LUMIAION | ingestion-standard | active |
+| apx-ingestion-extraction-standard | Extraction Standard | INGESTION/extraction-standard.md | LUMIAION | ingestion-standard | active |
+| apx-ingestion-founder-synthesis-standard | Founder Synthesis Standard | INGESTION/founder-synthesis-standard.md | LUMIAION | ingestion-standard | active |
+| apx-ingestion-approval-gates | Ingestion Approval Gates | INGESTION/ingestion-approval-gates.md | LUMIAION | ingestion-standard | active |
+| apx-ingestion-source-record-standard | Source Record Standard | INGESTION/source-record-standard.md | LUMIAION | ingestion-standard | active |
 | apx-knowledge-readme | Knowledge Folder | KNOWLEDGE/README.md | LUMIAION | readme | active |
 | apx-logs-readme | Logs Folder | LOGS/README.md | LUMIAION | readme | active |
 | apx-operations-cpos-ai-assignments | Office Assignments | OPERATIONS/CPOS/AI_ASSIGNMENTS.md | LUMIAION | operations-assignments | active |
@@ -135,9 +142,12 @@ Generated from Markdown frontmatter by `SCRIPTS/build-index.py`.
 | apx-template-designed-founder-brief | Designed Founder Brief Template | TEMPLATES/designed-founder-brief.template.md | LUMIAION | template | active |
 | apx-template-designed-knowledge-object | Designed Knowledge Object Template | TEMPLATES/designed-knowledge-object.template.md | LUMIAION | template | active |
 | apx-template-designed-study-note | Designed Study Note Template | TEMPLATES/designed-study-note.template.md | LUMIAION | template | active |
+| apx-template-extraction-note | Extraction Note Template | TEMPLATES/extraction-note.template.md | LUMIAION | template | active |
+| apx-template-founder-synthesis | Founder Synthesis Template | TEMPLATES/founder-synthesis.template.md | LUMIAION | template | active |
 | apx-template-knowledge-object | Knowledge Object Template | TEMPLATES/knowledge-object.template.md | LUMIAION | template | active |
 | apx-template-osg-knowledge-object | OSG Knowledge Object Template | TEMPLATES/osg-knowledge-object.template.md | LUMIAION | template | active |
 | apx-template-project-spec | Project Spec Template | TEMPLATES/project-spec.template.md | LUMIAION | template | active |
 | apx-template-prompt | Prompt Template | TEMPLATES/prompt.template.md | LUMIAION | template | active |
 | apx-template-research-note | Research Note Template | TEMPLATES/research-note.template.md | ATHENA | template | active |
+| apx-template-source-record | Source Record Template | TEMPLATES/source-record.template.md | LUMIAION | template | active |
 | apx-template-workflow | Workflow Template | TEMPLATES/workflow.template.md | LUMIAION | template | active |
