@@ -318,6 +318,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
     "08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md",
     "04_DECISIONS/ADR-0001 - The Founding Decision.md",
@@ -353,7 +354,6 @@
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "OSG_LAUNCH/09_TEMPLATES/Automation Spec Template.md",
     "OSG_LAUNCH/09_TEMPLATES/Content Item Template.md",
-    "OSG_LAUNCH/09_TEMPLATES/Client Template.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
