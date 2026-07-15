@@ -47,3 +47,5 @@
 "event_logs:sources:import_progress": {"key":"sources:import_progress","ct":19,"first_at":1782949238141,"last_at":1784091147139,"class_name":"EventLog","event_sources":{"process_source_import_queue":19}},
 "event_logs:sources:import_completed": {"key":"sources:import_completed","ct":7,"first_at":1782949242047,"last_at":1784091148674,"class_name":"EventLog","event_sources":{"process_source_import_queue":7}},
 "event_logs:blocks:cleaned": {"key":"blocks:cleaned","ct":7,"first_at":1782949242047,"last_at":1784091148704,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":77,"first_at":1782949318326,"last_at":1784131507057,"class_name":"EventLog","event_sources":{"active-leaf-change":77}},
+"event_logs:sources:opened": {"key":"sources:opened","ct":78,"first_at":1782949318326,"last_at":1784131571070,"class_name":"EventLog","event_sources":{"active-leaf-change":78}},

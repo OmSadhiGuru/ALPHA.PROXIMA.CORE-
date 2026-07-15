@@ -313,8 +313,10 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "09_PEOPLE/CODEX.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
     "08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md",
@@ -322,7 +324,6 @@
     "08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md",
     "07_RESEARCH/RP-001/RP-001 Master Index.md",
     "03_AI_COUNCIL/Departments/VORTEX Charter.md",
-    "09_PEOPLE/CODEX.md",
     "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
     "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
@@ -350,7 +351,6 @@
     "08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "OSG_LAUNCH/09_TEMPLATES/Automation Spec Template.md",
-    "OSG_LAUNCH/09_TEMPLATES/Content Item Template.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
