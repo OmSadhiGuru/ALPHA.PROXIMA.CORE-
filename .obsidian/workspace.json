@@ -81,16 +81,13 @@
             }
           },
           {
-            "id": "43526aa86f8d88f4",
+            "id": "e67c577d85eabc3a",
             "type": "leaf",
             "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Explorateur de fichiers"
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
             }
           }
         ],
@@ -316,7 +313,7 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
