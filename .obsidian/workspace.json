@@ -11,24 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "BUILDING MILESTONE"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
             }
           }
         ]
@@ -329,6 +315,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
     "00_CONSTITUTION/Book I - The Constitution.md",
     "09_PEOPLE/CODEX.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
@@ -364,7 +351,6 @@
     "OSG_LAUNCH/00_REPOSITORY/OSG Academy Engineering Review.md",
     "08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
-    "OSG_LAUNCH/09_TEMPLATES/Automation Spec Template.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
