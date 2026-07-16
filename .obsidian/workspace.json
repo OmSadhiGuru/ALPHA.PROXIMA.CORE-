@@ -81,7 +81,7 @@
             }
           },
           {
-            "id": "e67c577d85eabc3a",
+            "id": "d23f9895392188b5",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -307,13 +307,13 @@
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
       "docx-importer:Export note as DOCX": false,
+      "smart-templates:Smart Templates: Open template context": false,
       "smart-context:Smart Context: Open Builder": false,
       "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
-      "smart-context:Smart Context: List Named Contexts": false,
-      "smart-templates:Smart Templates: Open template context": false
+      "smart-context:Smart Context: List Named Contexts": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
     "00_CONSTITUTION/Book I - The Constitution.md",
     "09_PEOPLE/CODEX.md",
