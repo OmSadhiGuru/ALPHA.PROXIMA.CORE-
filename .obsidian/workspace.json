@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "markdown",
+              "state": {
+                "file": "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "BUILDING MILESTONE"
             }
           }
         ]
@@ -313,7 +327,7 @@
       "smart-context:Smart Context: List Named Contexts": false
     }
   },
-  "active": "455eb1218a3aac43",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "00_CONSTITUTION/Book I - The Constitution.md",
     "09_PEOPLE/CODEX.md",
