@@ -16,8 +16,19 @@
               "icon": "lucide-git-fork",
               "title": "Vue graphique"
             }
+          },
+          {
+            "id": "0c4a04053e92b260",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nouvel onglet"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,7 +92,7 @@
             }
           },
           {
-            "id": "6550a255a79d0f83",
+            "id": "609af1175e02cbe3",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -306,15 +317,12 @@
       "obsidian-book-search-plugin:Create new book note": false,
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
-      "docx-importer:Export note as DOCX": false,
-      "smart-templates:Smart Templates: Open template context": false,
-      "smart-context:Smart Context: Open Builder": false,
-      "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
-      "smart-context:Smart Context: List Named Contexts": false
+      "docx-importer:Export note as DOCX": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
     "00_CONSTITUTION/Book I - The Constitution.md",
     "09_PEOPLE/CODEX.md",
@@ -350,7 +358,6 @@
     "Sans titre 1.md",
     "OSG_LAUNCH/00_REPOSITORY/OSG Academy Engineering Review.md",
     "08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md",
-    "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }
