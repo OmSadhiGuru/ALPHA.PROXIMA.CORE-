@@ -4,20 +4,20 @@
   "title": "can you tell me if you are connected",
   "titleGenerationStatus": "failed",
   "createdAt": 1783356999553,
-  "updatedAt": 1783574613349,
-  "lastResponseAt": 1783574613349,
+  "updatedAt": 1784349711169,
+  "lastResponseAt": 1784349711169,
   "sessionId": "f0862ba3-921e-4153-aaa7-c0867885a950",
   "providerState": {
     "providerSessionId": "f0862ba3-921e-4153-aaa7-c0867885a950"
   },
   "usage": {
-    "model": "haiku",
-    "inputTokens": 8,
-    "cacheCreationInputTokens": 214,
-    "cacheReadInputTokens": 70476,
-    "contextWindow": 200000,
-    "contextTokens": 70698,
-    "percentage": 35,
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 532,
+    "cacheReadInputTokens": 171264,
+    "contextWindow": 1000000,
+    "contextTokens": 171798,
+    "percentage": 17,
     "contextWindowIsAuthoritative": true
   }
 }
