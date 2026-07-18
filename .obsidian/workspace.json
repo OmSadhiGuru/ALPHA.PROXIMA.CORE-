@@ -35,27 +35,14 @@
             "id": "b7eb63322c83fc3b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "CN-0001 - Constitutional Alignment Gap Report"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vue graphique"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -133,8 +120,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -351,9 +337,10 @@
       "smart-templates:Smart Templates: Open template context": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "b7eb63322c83fc3b",
   "lastOpenFiles": [
     "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
+    "09_PEOPLE/CODEX.md",
     "05_PROPOSALS/Phase III Preparation/ALPHA PROXIMA VAULT HEALTH REGISTER.md",
     "05_PROPOSALS/Phase III Preparation/ALPHA PROXIMA META-LAYER DECISION MEMO.md",
     "05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md",
@@ -366,7 +353,6 @@
     "07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
     "00_CONSTITUTION/Book I - The Constitution.md",
-    "09_PEOPLE/CODEX.md",
     "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
     "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
     "08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md",
