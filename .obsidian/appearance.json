@@ -3,5 +3,9 @@
   "accentColor": "#f2cf21",
   "cssTheme": "AnuPpuccin",
   "theme": "obsidian",
-  "showRibbon": true
+  "showRibbon": true,
+  "baseFontSize": 18,
+  "enabledCssSnippets": [
+    "osg-knowledge-design"
+  ]
 }
