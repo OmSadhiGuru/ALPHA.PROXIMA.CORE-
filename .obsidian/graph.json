@@ -1,42 +1,42 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
-  "showTags": true,
+  "showTags": false,
   "showAttachments": true,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:09_OFFICES/LUMIAION OR file:LUMIAION",
+      "query": "file:LUMIAION",
       "color": {
         "a": 1,
         "rgb": 8141549
       }
     },
     {
-      "query": "path:\"09_OFFICES/Executive Office\"",
+      "query": "path:\"11_OPERATIONS/Executive Office\"",
       "color": {
         "a": 1,
         "rgb": 14251782
       }
     },
     {
-      "query": "path:\"09_OFFICES/Research Intelligence Office\"",
+      "query": "path:\"03_AI_COUNCIL/Research Council\"",
       "color": {
         "a": 1,
         "rgb": 366185
       }
     },
     {
-      "query": "path:\"09_OFFICES/Engineering Office\"",
+      "query": "path:\"08_SYSTEMS/Engineering Toolkit\" OR path:\"08_SYSTEMS/Engineering Standards\"",
       "color": {
         "a": 1,
         "rgb": 15357964
       }
     },
     {
-      "query": "path:\"09_OFFICES/Institutional Observatory\"",
+      "query": "path:\"11_OPERATIONS/Institutional Observatory\"",
       "color": {
         "a": 1,
         "rgb": 561586
@@ -88,7 +88,7 @@
       "query": "path:07_RESEARCH",
       "color": {
         "a": 1,
-        "rgb": 14463774
+        "rgb": 1483594
       }
     },
     {
@@ -141,10 +141,52 @@
       }
     },
     {
-      "query": "tag:#alpha-proxima  ",
+      "query": "path:05_PROPOSALS",
       "color": {
         "a": 1,
-        "rgb": 7996091
+        "rgb": 5195493
+      }
+    },
+    {
+      "query": "path:06_PROJECTS",
+      "color": {
+        "a": 1,
+        "rgb": 959977
+      }
+    },
+    {
+      "query": "path:09_FUTURE",
+      "color": {
+        "a": 1,
+        "rgb": 15485081
+      }
+    },
+    {
+      "query": "path:09_PEOPLE",
+      "color": {
+        "a": 1,
+        "rgb": 9584654
+      }
+    },
+    {
+      "query": "path:11_OPERATIONS",
+      "color": {
+        "a": 1,
+        "rgb": 1976635
+      }
+    },
+    {
+      "query": "path:\"ALPHA PROXIMA\"",
+      "color": {
+        "a": 1,
+        "rgb": 10576391
+      }
+    },
+    {
+      "query": "path:OSG_LAUNCH",
+      "color": {
+        "a": 1,
+        "rgb": 1332013
       }
     }
   ],
@@ -154,10 +196,10 @@
   "nodeSizeMultiplier": 2.19355902777778,
   "lineSizeMultiplier": 1.95387586805556,
   "collapse-forces": false,
-  "centerStrength": 0,
-  "repelStrength": 19.0651824034335,
-  "linkStrength": 0.759254291845494,
-  "linkDistance": 427,
-  "scale": 0.019025448391217146,
+  "centerStrength": 0.0776041666666667,
+  "repelStrength": 20,
+  "linkStrength": 0.782899305555556,
+  "linkDistance": 500,
+  "scale": 0.03306598216480804,
   "close": true
 }
