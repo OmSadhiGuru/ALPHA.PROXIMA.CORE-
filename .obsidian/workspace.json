@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "markdown",
+              "state": {
+                "file": "Omi/Memories.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Memories"
             }
           }
         ]
@@ -81,7 +95,7 @@
             }
           },
           {
-            "id": "efa8dfe975e81204",
+            "id": "d497c39de54a7cc5",
             "type": "leaf",
             "state": {
               "type": "mk-path-view",
@@ -306,14 +320,15 @@
       "llm-docs:Create new LLM doc": false,
       "docx-importer:Import DOCX": false,
       "docx-importer:Export note as DOCX": false,
+      "smart-templates:Smart Templates: Open template context": false,
       "smart-context:Smart Context: Open Builder": false,
       "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
-      "smart-context:Smart Context: List Named Contexts": false,
-      "smart-templates:Smart Templates: Open template context": false
+      "smart-context:Smart Context: List Named Contexts": false
     }
   },
   "active": "455eb1218a3aac43",
   "lastOpenFiles": [
+    "Omi/Memories.md",
     "OSG_LAUNCH/README.md",
     "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
     "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
@@ -342,7 +357,6 @@
     "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
     "04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md",
     "Awaken the Inner Guru Production Folder.md",
-    "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M7_Discernment_in_Action",
     "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M6_Values_and_Inner_Authority",

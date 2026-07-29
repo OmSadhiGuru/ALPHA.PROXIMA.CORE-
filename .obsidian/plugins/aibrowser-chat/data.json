@@ -2,7 +2,13 @@
   "webAppUrl": "https://claude.ai/",
   "openOnStartup": true,
   "maxContextLength": 50000,
-  "contextItems": [],
+  "contextItems": [
+    {
+      "path": "Omi/Memories.md",
+      "type": "file",
+      "displayName": "Memories"
+    }
+  ],
   "enableChatGPT": true,
   "enableClaude": true,
   "enableDeepSeek": true,
