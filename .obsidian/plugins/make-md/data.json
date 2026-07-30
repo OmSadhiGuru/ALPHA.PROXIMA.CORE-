@@ -38,7 +38,8 @@
   "vaultSelector": true,
   "deleteFileOption": "trash",
   "expandedSpaces": [
-    "/"
+    "/",
+    "//Omi"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",
