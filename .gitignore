@@ -6,3 +6,7 @@
 .makemd/superstate.mdc
 .smart-env/
 .obsidian/workspace.json
+
+# Python validator cache.
+__pycache__/
+*.py[cod]

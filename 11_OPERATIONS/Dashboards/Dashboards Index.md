@@ -3,16 +3,16 @@ title: "Dashboards Index"
 aliases: ["Operations Dashboards"]
 tags: [operations, dashboards, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-07
+updated: 2026-08-23
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CODEX"]
 artifact_type: operations-index
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Metrics Registry]]", "[[Operational Health Index]]"]
-related_documents: ["[[11_OPERATIONS]]", "[[Metrics Registry]]", "[[Operational Health Index]]", "[[LUMIAION - Operating Manual (LOOM)]]"]
+related_documents: ["[[11_OPERATIONS]]", "[[Metrics Registry]]", "[[Operational Health Index]]", "[[LUMIAION - Operating Manual (LOOM)]]", "[[Founder Reboot Control Center]]"]
 related_research_programs: []
 ---
 
@@ -72,6 +72,7 @@ Initial dashboards should be Markdown-first and local-first. A local web dashboa
 | Research Debt | Open research programs, missing registries, synthesis status | planned |
 | Operations Queue | Review queue, automation queue, decision pipeline status | planned |
 | Sprint / Production Dashboard | Current sprint, AI assignments, blockers, waiting-for-Founder, ready-for-review, completed, next-in-queue — defined in [[LUMIAION - Operating Manual (LOOM)]] | designed, maintained by Comet |
+| [[Founder Reboot Control Center]] | RBT-001 objective, recovery phases, Founder decisions, blockers, definition of done | active |
 
 ## Version History
 
@@ -79,4 +80,4 @@ Initial dashboards should be Markdown-first and local-first. A local web dashboa
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial dashboards index |
 | 1.1.0 | 2026-07-07 | Founder / LUMIAION | Added Sprint / Production Dashboard, defined in [[LUMIAION - Operating Manual (LOOM)]] |
-
+| 1.2.0 | 2026-08-23 | Founder / LUMIAION / CODEX | Added the Founder Reboot Control Center for RBT-001 |
