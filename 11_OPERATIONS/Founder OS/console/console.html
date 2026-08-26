@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Founder Console</title>
+<style>
+  :root{
+    --bg:#06070A; --bg-2:#0B0D13; --panel:#0E1118; --line:#1B1F2B;
+    --ink:#E9ECF4; --ink-2:#98A1B6; --ink-3:#5D6679;
+    --core:#7EE0D3; --founder:#E7C27D; --warn:#E08A7E; --ok:#7EE0A8;
+    --r:14px; --pad:clamp(16px,4vw,28px);
+    --font:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--font);
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding:var(--pad) var(--pad) calc(var(--pad) * 2);
+    background-image:
+      radial-gradient(80vw 60vh at 50% -10%, rgba(126,224,211,.07), transparent 65%),
+      radial-gradient(60vw 40vh at 90% 110%, rgba(231,194,125,.05), transparent 70%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1120px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+         padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .core-dot{width:10px;height:10px;border-radius:50%;background:var(--core);
+    box-shadow:0 0 0 0 rgba(126,224,211,.5); animation:pulse 3.6s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(126,224,211,.45)}70%{box-shadow:0 0 0 14px rgba(126,224,211,0)}100%{box-shadow:0 0 0 0 rgba(126,224,211,0)}}
+  @media (prefers-reduced-motion:reduce){.core-dot{animation:none}}
+  .brand h1{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;
+            font-weight:600;margin:0;color:var(--ink-2)}
+  .stamp{font-size:.78rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  /* ---------- today ---------- */
+  .today{padding:clamp(24px,5vw,44px) 0 8px}
+  .label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
+         margin:0 0 10px;font-weight:600}
+  .mission{font-size:clamp(1.5rem,4.2vw,2.35rem);line-height:1.25;font-weight:500;
+           margin:0;letter-spacing:-.015em;max-width:24ch}
+  .mission.empty{color:var(--ink-3);font-weight:400;font-size:1.15rem}
+  .mission-meta{margin-top:12px;font-size:.8rem;color:var(--ink-3)}
+  .stale{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;
+         background:rgba(224,138,126,.12);color:var(--warn);font-size:.7rem;
+         letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- priorities ---------- */
+  .prios{display:grid;gap:10px;margin:30px 0 0;padding:0;list-style:none}
+  .prio{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+        background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+        padding:16px 18px}
+  .rank{font-size:.8rem;font-weight:700;color:var(--core);font-variant-numeric:tabular-nums;
+        opacity:.8;padding-top:2px}
+  .prio h3{margin:0;font-size:1rem;font-weight:500;line-height:1.4}
+  .prio p{margin:5px 0 0;font-size:.84rem;color:var(--ink-2);line-height:1.5}
+  .owner{font-size:.72rem;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;
+         margin-top:8px;display:block}
+
+  /* ---------- next action ---------- */
+  .next{margin-top:22px;border-radius:var(--r);padding:18px 20px;
+        border:1px solid rgba(126,224,211,.28);
+        background:linear-gradient(180deg,rgba(126,224,211,.09),rgba(126,224,211,.03))}
+  .next .label{color:var(--core);opacity:.85}
+  .next h3{margin:0;font-size:1.08rem;font-weight:500;line-height:1.4}
+  .next p{margin:6px 0 0;font-size:.84rem;color:var(--ink-2)}
+
+  /* ---------- panels ---------- */
+  .grid{display:grid;gap:14px;margin-top:34px;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .panel{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);
+         padding:18px 20px}
+  .panel > .label{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .count{margin-left:auto;font-size:.72rem;color:var(--ink-3);
+         font-variant-numeric:tabular-nums;letter-spacing:0}
+  .count.alert{color:var(--founder)}
+  .empty{color:var(--ink-3);font-size:.85rem;margin:0}
+
+  .row{padding:11px 0;border-top:1px solid var(--line)}
+  .row:first-of-type{border-top:0;padding-top:0}
+  .row-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .row-title{font-size:.92rem;font-weight:450;flex:1;min-width:160px}
+  .row-sub{font-size:.79rem;color:var(--ink-2);margin:5px 0 0;line-height:1.5}
+
+  .pill{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+        padding:3px 9px;border-radius:999px;white-space:nowrap;
+        background:rgba(152,161,182,.12);color:var(--ink-2)}
+  .pill.working,.pill.active{background:rgba(126,224,211,.13);color:var(--core)}
+  .pill.review,.pill.waiting{background:rgba(231,194,125,.13);color:var(--founder)}
+  .pill.blocked,.pill.failing{background:rgba(224,138,126,.14);color:var(--warn)}
+  .pill.complete,.pill.ok,.pill.connected{background:rgba(126,224,168,.12);color:var(--ok)}
+  .pill.idle,.pill.not_connected,.pill.unknown,.pill.proposed,.pill.planned{
+        background:rgba(93,102,121,.16);color:var(--ink-3)}
+  .pill.founder{background:rgba(231,194,125,.16);color:var(--founder)}
+
+  details{margin-top:9px}
+  details > summary{cursor:pointer;font-size:.76rem;color:var(--ink-3);
+    letter-spacing:.06em;text-transform:uppercase;list-style:none;user-select:none;
+    display:inline-flex;align-items:center;gap:6px}
+  details > summary::-webkit-details-marker{display:none}
+  details > summary::before{content:'›';display:inline-block;transition:transform .18s ease}
+  details[open] > summary::before{transform:rotate(90deg)}
+  details > summary:hover{color:var(--ink-2)}
+  .detail{margin-top:10px;padding-left:14px;border-left:1px solid var(--line);
+          font-size:.82rem;color:var(--ink-2);line-height:1.6}
+  .detail dt{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+             color:var(--ink-3);margin-top:10px;font-weight:600}
+  .detail dt:first-child{margin-top:0}
+  .detail dd{margin:3px 0 0}
+  .detail ul{margin:4px 0 0;padding-left:18px}
+
+  /* Grid items default to min-width:auto, which lets a long role name push the
+     status pill outside the panel. minmax(0,1fr) plus min-width:0 lets it truncate. */
+  .agents{display:grid;gap:9px;grid-template-columns:minmax(0,1fr)}
+  .agent{display:flex;align-items:center;gap:10px;font-size:.88rem;min-width:0}
+  .agent .nm{font-weight:500;flex:0 0 auto;max-width:46%;
+             overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .agent .rl{color:var(--ink-3);font-size:.76rem;flex:1 1 auto;min-width:0;
+             overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .agent .pill{flex:0 0 auto}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:.75rem;color:var(--ink-3);line-height:1.7}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;
+       background:rgba(152,161,182,.1);padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script id="view-data" type="application/json">{
+  "generated_at": "2026-08-26T09:21:36+00:00",
+  "today": "2026-08-26",
+  "schema_version": "1.0.0",
+  "founder": {
+    "name": "Frederick Belizaire Gunville",
+    "role": "Executive authority (Book I)"
+  },
+  "mission": {
+    "date": "2026-08-26",
+    "mission": "Establish one Founder cockpit: state, console, and a proven vertical slice",
+    "set_by": "lumiaion",
+    "set_at": "2026-08-26T09:20:54+00:00",
+    "sprint_id": "RBT-001"
+  },
+  "mission_is_stale": false,
+  "priorities": [
+    {
+      "id": "PRI-001",
+      "rank": 1,
+      "title": "Ratify the Founder OS state contract",
+      "why": "Everything downstream — console, routing, memory — reads this one document.",
+      "project": "PRJ-001",
+      "owner": "Founder",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "PRI-002",
+      "rank": 2,
+      "title": "Resolve the four open draft PRs (#7, #8, #9, #10)",
+      "why": "CN-001 cannot proceed while canonical work is split across unmergeable branches.",
+      "project": "PRJ-003",
+      "owner": "Founder",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "PRI-003",
+      "rank": 3,
+      "title": "Prove one end-to-end routing lane through LUMIAION",
+      "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
+      "project": "PRJ-002",
+      "owner": "LUMIAION",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    }
+  ],
+  "next_action": {
+    "id": "NXT-001",
+    "title": "Review the Founder OS architecture note and approve or amend FD-001",
+    "owner": "Founder",
+    "context": "11_OPERATIONS/Founder OS/Founder OS Architecture v1.md",
+    "priority_id": "PRI-001",
+    "set_at": "2026-08-26T09:20:54+00:00"
+  },
+  "decisions": [
+    {
+      "id": "FD-001",
+      "title": "Ratify Vault-native JSON as the Founder OS state store",
+      "context": "Founder OS needs persistence. The repository is an Obsidian Vault with a Python toolkit and no application runtime, database, or web stack. This session implemented state as one git-versioned JSON document inside the Vault, written only by the toolkit CLI, with Markdown and HTML as generated read-only mirrors.",
+      "recommendation": "Ratify Vault-native JSON for V1 and revisit only when concurrent multi-writer access is genuinely required.",
+      "options": [
+        "Ratify Vault-native JSON (no new runtime, no secrets, git history is the audit log)",
+        "Introduce a hosted database and web application now",
+        "Defer and keep operating from Markdown dashboards"
+      ],
+      "consequence_of_delay": "The Console persists work but its foundation stays unratified, so later layers risk being built on a contract the Founder never accepted.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-002",
+      "title": "Keep the Founder Console local-only",
+      "context": "Console V1 runs as a file you open directly or a loopback server on 127.0.0.1. It has no authentication because it is not reachable off-host. Any hosted deployment would expose Founder state and require an authentication system that does not exist in this repository.",
+      "recommendation": "Keep local-only for V1. Treat hosting as a separate decision that must ship with authentication.",
+      "options": [
+        "Local-only (file:// and loopback)",
+        "Host privately with authentication built first",
+        "Host now without authentication"
+      ],
+      "consequence_of_delay": "Low. Local-only is the safe default and blocks nothing today.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-003",
+      "title": "Authorize OMI credentials for the capture pipeline",
+      "context": "Section 11 describes an OMI recording -> transcript -> classification -> routing pipeline. No OMI credential, adapter, or API client exists in this repository, and provisioning one crosses the new-secrets autonomy boundary.",
+      "recommendation": "Defer until the routing proof passes. Build the OMI adapter against the ContextItem contract only after one lane is proven.",
+      "options": [
+        "Defer until the routing proof passes",
+        "Authorize credentials now and build the adapter",
+        "Drop OMI from the Founder OS roadmap"
+      ],
+      "consequence_of_delay": "Low for now. Voice-captured decisions keep landing outside Founder OS until it is built.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-004",
+      "title": "Accept repository-coherence-first recovery order",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-001), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Accept coherence-first",
+        "Expand agents first"
+      ],
+      "consequence_of_delay": "RBT-001 cannot close and no new agent can be authorized.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-005",
+      "title": "Treat ARTEMIS and POSTMANIUM as proposed until the routing proof passes",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-002), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Keep proposed until proven",
+        "Charter now"
+      ],
+      "consequence_of_delay": "Agents risk becoming active purely because they were mentioned in conversation.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-006",
+      "title": "Treat Secretary-General as proposed until chartered",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-003). Authority and privacy boundaries are undefined.",
+      "recommendation": "Accept",
+      "options": [
+        "Keep proposed until chartered",
+        "Charter now"
+      ],
+      "consequence_of_delay": "An unchartered role with unclear privacy boundaries stays informally active.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-007",
+      "title": "Salvage PR #7 and #8 selectively rather than merge wholesale",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-004), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Selective document-level salvage",
+        "Merge wholesale",
+        "Close both branches"
+      ],
+      "consequence_of_delay": "PR #7 (19 ahead / 84 behind) drifts further from main every week.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TSK-003",
+      "title": "Founder review of the Founder OS state contract",
+      "project": "PRJ-001",
+      "owner": "Founder",
+      "state": "review",
+      "requested_by": "LUMIAION",
+      "why": "The contract binds every later presentation layer; it needs ratification.",
+      "gate": "G5",
+      "output_ref": null,
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-004",
+      "title": "Build the CN-001 relocation map from current main",
+      "project": "PRJ-003",
+      "owner": "CODEX",
+      "state": "blocked",
+      "requested_by": "LUMIAION",
+      "why": "Reboot Audit step 3: coherence must precede any expansion.",
+      "gate": "G2",
+      "output_ref": null,
+      "blocker_ids": [
+        "BLK-001"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-005",
+      "title": "Salvage PR #7 and #8 document by document",
+      "project": "PRJ-003",
+      "owner": "LUMIAION",
+      "state": "waiting",
+      "requested_by": "Founder",
+      "why": "Reboot Audit forbids merging either wholesale; each document needs a class.",
+      "gate": "G2",
+      "output_ref": null,
+      "blocker_ids": [
+        "BLK-001"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-006",
+      "title": "Run the photo-to-social-post routing proof end to end",
+      "project": "PRJ-002",
+      "owner": "LUMIAION",
+      "state": "assigned",
+      "requested_by": "Founder",
+      "why": "First operational proof that Founder -> LUMIAION -> specialist -> Founder works.",
+      "gate": "G0",
+      "output_ref": null,
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    }
+  ],
+  "agents": [
+    {
+      "id": "AGT-001",
+      "name": "LUMIAION",
+      "role": "Orchestration / Institutional Intelligence",
+      "office": "LUMIAION",
+      "engine": "Anthropic Claude",
+      "status": "active",
+      "authority": "Class III/IV within delegated scope; AI seat, no vote",
+      "last_run_id": null,
+      "notes": "Runs the queue. Never produces content itself."
+    },
+    {
+      "id": "AGT-002",
+      "name": "CLAUDE",
+      "role": "Institutional Architecture / Chief Knowledge Architect",
+      "office": "Institutional Architecture",
+      "engine": "Anthropic Claude",
+      "status": "working",
+      "authority": "Architecture recommendation and specification; no governance authority",
+      "last_run_id": null,
+      "notes": "Authored the Founder OS architecture and state contract this session."
+    },
+    {
+      "id": "AGT-003",
+      "name": "CODEX",
+      "role": "Engineering Office",
+      "office": "Engineering Office",
+      "engine": "OpenAI / Codex",
+      "status": "working",
+      "authority": "Implementation only; no governance authority",
+      "last_run_id": null,
+      "notes": "Owns the Engineering Toolkit and Founder OS implementation."
+    },
+    {
+      "id": "AGT-004",
+      "name": "PERPLEXITY",
+      "role": "Research Intelligence Office",
+      "office": "Research Intelligence",
+      "engine": "Perplexity Pro",
+      "status": "idle",
+      "authority": "Research production and evidence gathering; not canonization",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-005",
+      "name": "COMET",
+      "role": "Institutional Observatory",
+      "office": "Institutional Observatory",
+      "engine": "Comet",
+      "status": "idle",
+      "authority": "Observation and reporting; not decision authority",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-006",
+      "name": "JERANIUM",
+      "role": "Knowledge routing / manual semantic layer",
+      "office": "Knowledge",
+      "engine": "Anthropic Claude",
+      "status": "idle",
+      "authority": "Retrieval and packaging; canonization requires LUMIAION",
+      "last_run_id": null,
+      "notes": "Stands in for the unbuilt semantic memory layer."
+    },
+    {
+      "id": "AGT-007",
+      "name": "ATHENA",
+      "role": "Health, performance, longevity department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-008",
+      "name": "SOHMA",
+      "role": "Consciousness, symbols, meaning department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-009",
+      "name": "VORTEX",
+      "role": "Finance, markets, business strategy department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-010",
+      "name": "ARTEMIS",
+      "role": "Proposed — not chartered",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until ratified",
+      "last_run_id": null,
+      "notes": "Reboot Audit found no canonical file on main. Proposed only."
+    },
+    {
+      "id": "AGT-011",
+      "name": "POSTMANIUM",
+      "role": "Proposed — not chartered",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until ratified",
+      "last_run_id": null,
+      "notes": "Proposed only; ratify after the routing proof."
+    },
+    {
+      "id": "AGT-012",
+      "name": "SECRETARY-GENERAL",
+      "role": "Proposed — charter, authority and privacy boundaries undefined",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until chartered",
+      "last_run_id": null,
+      "notes": "Mentioned but never chartered. Privacy boundaries must be explicit first."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "BLK-001",
+      "title": "Four draft PRs unresolved (#7, #8, #9, #10)",
+      "impact": "CN-001 coherence work cannot start; canonical content is split across branches.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [
+        "TSK-004",
+        "TSK-005"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-002",
+      "title": "Semantic memory layer (Layer 3) does not exist",
+      "impact": "LUMIAION cannot search the full Vault in-session; context loading stays manual.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-003",
+      "title": "No OMI adapter or credential in the repository",
+      "impact": "The OMI capture pipeline cannot be implemented or tested.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    }
+  ],
+  "integrations": [
+    {
+      "id": "INT-001",
+      "name": "Obsidian Vault",
+      "kind": "knowledge",
+      "status": "connected",
+      "notes": "The Vault is the Founder OS memory layer. Console state lives inside it.",
+      "planned_capability": null
+    },
+    {
+      "id": "INT-002",
+      "name": "GitHub",
+      "kind": "repository",
+      "status": "connected",
+      "notes": "State is git-versioned and pushed to OmSadhiGuru/ALPHA.PROXIMA.CORE-. History is the audit log.",
+      "planned_capability": null
+    },
+    {
+      "id": "INT-003",
+      "name": "OMI",
+      "kind": "capture",
+      "status": "not_connected",
+      "notes": "No adapter or credential exists in this repository. An operating agent's own session tooling is not a Founder OS integration.",
+      "planned_capability": "Recording -> transcript -> LUMIAION classification -> routed work items."
+    },
+    {
+      "id": "INT-004",
+      "name": "ChatGPT / Codex",
+      "kind": "agent",
+      "status": "not_connected",
+      "notes": "Codex participates through commits and pull requests, not through a Founder OS API.",
+      "planned_capability": "Direct task assignment and run status reporting."
+    },
+    {
+      "id": "INT-005",
+      "name": "Google Calendar",
+      "kind": "scheduling",
+      "status": "not_connected",
+      "notes": "No adapter or credential in this repository.",
+      "planned_capability": "Calendar commitments become Founder OS tasks and blockers."
+    },
+    {
+      "id": "INT-006",
+      "name": "Semantic memory (vector index)",
+      "kind": "memory",
+      "status": "blocked",
+      "notes": "Engine Registry lists the Chief Memory Architect role as unfilled. Blocks Layer 3 of the LUMIAION memory architecture.",
+      "planned_capability": "Full-Vault semantic retrieval at session start."
+    },
+    {
+      "id": "INT-007",
+      "name": "Health / performance systems",
+      "kind": "signal",
+      "status": "planned",
+      "notes": "ATHENA charter exists; no data source connected.",
+      "planned_capability": "Readiness signals inform the Mission of the Day."
+    },
+    {
+      "id": "INT-008",
+      "name": "Financial systems",
+      "kind": "signal",
+      "status": "planned",
+      "notes": "VORTEX charter exists; no data source connected.",
+      "planned_capability": "Runway and obligations surface as blockers."
+    },
+    {
+      "id": "INT-009",
+      "name": "Voice capture",
+      "kind": "capture",
+      "status": "planned",
+      "notes": "No implementation. Depends on the same ContextItem contract as OMI.",
+      "planned_capability": "Spoken intent becomes a classified work item."
+    }
+  ],
+  "system_health": [
+    {
+      "id": "SYS-001",
+      "area": "Repository",
+      "status": "ok",
+      "detail": "main at 4134c34; reboot control center merged via PR #11.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "git log"
+    },
+    {
+      "id": "SYS-002",
+      "area": "Vault validation",
+      "status": "degraded",
+      "detail": "5 errors and 479 warnings outstanding across 297 notes (pre-existing baseline).",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "ap.py validate"
+    },
+    {
+      "id": "SYS-003",
+      "area": "Open pull requests",
+      "status": "degraded",
+      "detail": "Four draft PRs open: #7, #8, #9, #10. None mergeable without salvage decisions.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "GitHub API, 2026-08-26"
+    },
+    {
+      "id": "SYS-004",
+      "area": "Founder OS state",
+      "status": "ok",
+      "detail": "State document validates; 39 engine tests pass.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "ap.py founder check"
+    },
+    {
+      "id": "SYS-005",
+      "area": "Memory / context",
+      "status": "degraded",
+      "detail": "Layer 3 semantic memory unbuilt; context loading remains manual and selective.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "LUMIAION Architecture Spec v0.1 §3"
+    },
+    {
+      "id": "SYS-006",
+      "area": "Task queue",
+      "status": "ok",
+      "detail": "Six work units tracked with owner, provenance, and state.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "founder-state.json"
+    }
+  ],
+  "projects": [
+    {
+      "id": "PRJ-001",
+      "name": "Founder OS",
+      "status": "active",
+      "objective": "One control plane the Founder directs from",
+      "owner": "LUMIAION"
+    },
+    {
+      "id": "PRJ-002",
+      "name": "RBT-001 Reboot Sprint",
+      "status": "active",
+      "objective": "Restore repository coherence and one trustworthy execution path",
+      "owner": "LUMIAION"
+    },
+    {
+      "id": "PRJ-003",
+      "name": "CN-001 Repository Coherence",
+      "status": "waiting",
+      "objective": "One canonical Vault taxonomy that validates cleanly",
+      "owner": "CODEX"
+    }
+  ],
+  "counts": {
+    "priorities": 3,
+    "decisions": 7,
+    "tasks": 4,
+    "blockers": 3,
+    "founder_blockers": 3
+  }
+}</script>
+<script>
+(function(){
+  "use strict";
+  var raw = document.getElementById('view-data').textContent;
+  var V; try { V = JSON.parse(raw); } catch (e) { V = null; }
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = String(text);
+    return n;
+  }
+  function pill(value){
+    var v = String(value == null ? 'unknown' : value);
+    return el('span', 'pill ' + v.toLowerCase().replace(/[^a-z_]/g,''),
+              v.replace(/_/g,' ').toUpperCase());
+  }
+  function label(text, count, alert){
+    var l = el('p','label',text);
+    if (count !== undefined && count !== null){
+      var c = el('span','count' + (alert ? ' alert':''), count);
+      l.appendChild(c);
+    }
+    return l;
+  }
+  function disclose(summaryText, pairs){
+    var d = el('details');
+    d.appendChild(el('summary', null, summaryText));
+    var dl = el('dl','detail');
+    pairs.forEach(function(p){
+      if (p[1] === null || p[1] === undefined || p[1] === '') return;
+      dl.appendChild(el('dt', null, p[0]));
+      var dd = el('dd');
+      if (Array.isArray(p[1])){
+        var ul = el('ul');
+        p[1].forEach(function(item){ ul.appendChild(el('li', null, item)); });
+        dd.appendChild(ul);
+      } else { dd.textContent = String(p[1]); }
+      dl.appendChild(dd);
+    });
+    if (!dl.children.length) return null;
+    d.appendChild(dl);
+    return d;
+  }
+  function panel(title, count, alert){
+    var p = el('section','panel');
+    p.appendChild(label(title, count, alert));
+    return p;
+  }
+  function emptyNote(p, text){ p.appendChild(el('p','empty',text)); return p; }
+
+  var app = document.getElementById('app');
+  if (!V){
+    app.appendChild(el('p','empty','No state rendered. Run: ap.py founder render'));
+    return;
+  }
+
+  /* ---- header ---- */
+  var head = el('header');
+  var brand = el('div','brand');
+  brand.appendChild(el('span','core-dot'));
+  brand.appendChild(el('h1', null, 'Alpha Proxima · Founder Console'));
+  head.appendChild(brand);
+  head.appendChild(el('span','stamp', V.today + '  ·  rendered ' + (V.generated_at||'').replace('T',' ').replace('+00:00',' UTC')));
+  app.appendChild(head);
+
+  /* ---- today ---- */
+  var today = el('section','today');
+  today.appendChild(label('Mission of the Day'));
+  if (V.mission){
+    var h = el('h2','mission', V.mission.mission);
+    if (V.mission_is_stale){
+      var s = el('span','stale','stale · ' + V.mission.date);
+      h.appendChild(s);
+    }
+    today.appendChild(h);
+    var meta = 'set by ' + V.mission.set_by;
+    if (V.mission.sprint_id) meta += '  ·  sprint ' + V.mission.sprint_id;
+    today.appendChild(el('p','mission-meta', meta));
+  } else {
+    today.appendChild(el('h2','mission empty','No mission set. Run: ap.py founder mission "…"'));
+  }
+
+  var ol = el('ul','prios');
+  if (V.priorities.length){
+    V.priorities.forEach(function(p){
+      var li = el('li','prio');
+      li.appendChild(el('span','rank', String(p.rank).padStart(2,'0')));
+      var body = el('div');
+      body.appendChild(el('h3', null, p.title));
+      if (p.why) body.appendChild(el('p', null, p.why));
+      body.appendChild(el('span','owner', p.owner + (p.project ? ' · ' + p.project : '')));
+      li.appendChild(body);
+      ol.appendChild(li);
+    });
+  } else {
+    ol.appendChild(el('li','empty','No open priorities.'));
+  }
+  today.appendChild(ol);
+
+  var next = el('section','next');
+  next.appendChild(label('Next Action'));
+  if (V.next_action){
+    next.appendChild(el('h3', null, V.next_action.title));
+    var sub = V.next_action.owner;
+    if (V.next_action.context) sub += ' · ' + V.next_action.context;
+    next.appendChild(el('p', null, sub));
+  } else {
+    next.appendChild(el('p','empty','No next action set.'));
+  }
+  today.appendChild(next);
+  app.appendChild(today);
+
+  /* ---- panels ---- */
+  var grid = el('div','grid');
+
+  // Decisions
+  var pD = panel('Needs You · Decisions', V.decisions.length, V.decisions.length > 0);
+  if (!V.decisions.length) emptyNote(pD,'Nothing awaiting your decision.');
+  V.decisions.forEach(function(d){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', d.title));
+    hd.appendChild(pill('founder'));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub','Recommend: ' + d.recommendation));
+    var det = disclose('context', [
+      ['Context', d.context],
+      ['Options', d.options],
+      ['Consequence of delay', d.consequence_of_delay],
+      ['Raised by', d.requested_by + (d.created_at ? ' · ' + d.created_at.slice(0,10) : '')],
+      ['Decide with', 'ap.py founder decision-resolve ' + d.id + ' approved']
+    ]);
+    if (det) r.appendChild(det);
+    pD.appendChild(r);
+  });
+  grid.appendChild(pD);
+
+  // Execution
+  var pT = panel('Execution', V.tasks.length);
+  if (!V.tasks.length) emptyNote(pT,'No active work units.');
+  V.tasks.forEach(function(t){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', t.title));
+    hd.appendChild(pill(t.state));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub', t.owner + (t.project ? ' · ' + t.project : '') + (t.gate ? ' · ' + t.gate : '')));
+    var det = disclose('provenance', [
+      ['Why', t.why],
+      ['Requested by', t.requested_by],
+      ['Output', t.output_ref],
+      ['Blocked by', (t.blocker_ids && t.blocker_ids.length) ? t.blocker_ids : null]
+    ]);
+    if (det) r.appendChild(det);
+    pT.appendChild(r);
+  });
+  grid.appendChild(pT);
+
+  // Agents
+  var pA = panel('Agents · Systems', V.agents.length);
+  var box = el('div','agents');
+  if (!V.agents.length) emptyNote(pA,'No agents registered.');
+  V.agents.forEach(function(a){
+    var row = el('div','agent');
+    row.appendChild(el('span','nm', a.name));
+    row.appendChild(el('span','rl', a.role));
+    row.appendChild(pill(a.status));
+    box.appendChild(row);
+  });
+  pA.appendChild(box);
+  grid.appendChild(pA);
+
+  // Blockers
+  var pB = panel('Blockers', V.blockers.length, V.counts.founder_blockers > 0);
+  if (!V.blockers.length) emptyNote(pB,'Nothing materially blocked.');
+  V.blockers.forEach(function(b){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', b.title));
+    hd.appendChild(pill(b.needs_founder ? 'founder' : 'blocked'));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub', b.impact));
+    var det = disclose('detail', [
+      ['Owner', b.owner],
+      ['Blocking', (b.blocking_ids && b.blocking_ids.length) ? b.blocking_ids : null],
+      ['Raised', b.created_at ? b.created_at.slice(0,10) : null]
+    ]);
+    if (det) r.appendChild(det);
+    pB.appendChild(r);
+  });
+  grid.appendChild(pB);
+
+  // Health
+  var pH = panel('System Health', V.system_health.length);
+  if (!V.system_health.length) emptyNote(pH,'No health signals recorded.');
+  V.system_health.forEach(function(h){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', h.area));
+    hd.appendChild(pill(h.status));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub', h.detail));
+    pH.appendChild(r);
+  });
+  grid.appendChild(pH);
+
+  // Integrations
+  var pI = panel('Integrations', V.integrations.length);
+  if (!V.integrations.length) emptyNote(pI,'No integrations registered.');
+  V.integrations.forEach(function(i){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', i.name));
+    hd.appendChild(pill(i.status));
+    r.appendChild(hd);
+    if (i.notes) r.appendChild(el('p','row-sub', i.notes));
+    pI.appendChild(r);
+  });
+  grid.appendChild(pI);
+
+  app.appendChild(grid);
+
+  var f = el('footer');
+  f.appendChild(document.createTextNode(
+    'Read-only view. State lives in state/founder-state.json and is changed with ap.py founder <command>. ' +
+    'Private by default — this page reads no network. Schema ' + V.schema_version + '.'));
+  app.appendChild(f);
+})();
+</script>
+</body>
+</html>
