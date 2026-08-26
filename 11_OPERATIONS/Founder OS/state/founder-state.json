@@ -1,0 +1,651 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-08-26T09:20:54+00:00",
+  "founder": {
+    "name": "Frederick Belizaire Gunville",
+    "role": "Executive authority (Book I)"
+  },
+  "daily_mission": {
+    "date": "2026-08-26",
+    "mission": "Establish one Founder cockpit: state, console, and a proven vertical slice",
+    "set_by": "lumiaion",
+    "set_at": "2026-08-26T09:20:54+00:00",
+    "sprint_id": "RBT-001"
+  },
+  "next_action": {
+    "id": "NXT-001",
+    "title": "Review the Founder OS architecture note and approve or amend FD-001",
+    "owner": "Founder",
+    "context": "11_OPERATIONS/Founder OS/Founder OS Architecture v1.md",
+    "priority_id": "PRI-001",
+    "set_at": "2026-08-26T09:20:54+00:00"
+  },
+  "priorities": [
+    {
+      "id": "PRI-001",
+      "rank": 1,
+      "title": "Ratify the Founder OS state contract",
+      "why": "Everything downstream — console, routing, memory — reads this one document.",
+      "project": "PRJ-001",
+      "owner": "Founder",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "PRI-002",
+      "rank": 2,
+      "title": "Resolve the four open draft PRs (#7, #8, #9, #10)",
+      "why": "CN-001 cannot proceed while canonical work is split across unmergeable branches.",
+      "project": "PRJ-003",
+      "owner": "Founder",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "PRI-003",
+      "rank": 3,
+      "title": "Prove one end-to-end routing lane through LUMIAION",
+      "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
+      "project": "PRJ-002",
+      "owner": "LUMIAION",
+      "status": "open",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "FD-001",
+      "title": "Ratify Vault-native JSON as the Founder OS state store",
+      "context": "Founder OS needs persistence. The repository is an Obsidian Vault with a Python toolkit and no application runtime, database, or web stack. This session implemented state as one git-versioned JSON document inside the Vault, written only by the toolkit CLI, with Markdown and HTML as generated read-only mirrors.",
+      "recommendation": "Ratify Vault-native JSON for V1 and revisit only when concurrent multi-writer access is genuinely required.",
+      "options": [
+        "Ratify Vault-native JSON (no new runtime, no secrets, git history is the audit log)",
+        "Introduce a hosted database and web application now",
+        "Defer and keep operating from Markdown dashboards"
+      ],
+      "consequence_of_delay": "The Console persists work but its foundation stays unratified, so later layers risk being built on a contract the Founder never accepted.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-002",
+      "title": "Keep the Founder Console local-only",
+      "context": "Console V1 runs as a file you open directly or a loopback server on 127.0.0.1. It has no authentication because it is not reachable off-host. Any hosted deployment would expose Founder state and require an authentication system that does not exist in this repository.",
+      "recommendation": "Keep local-only for V1. Treat hosting as a separate decision that must ship with authentication.",
+      "options": [
+        "Local-only (file:// and loopback)",
+        "Host privately with authentication built first",
+        "Host now without authentication"
+      ],
+      "consequence_of_delay": "Low. Local-only is the safe default and blocks nothing today.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-003",
+      "title": "Authorize OMI credentials for the capture pipeline",
+      "context": "Section 11 describes an OMI recording -> transcript -> classification -> routing pipeline. No OMI credential, adapter, or API client exists in this repository, and provisioning one crosses the new-secrets autonomy boundary.",
+      "recommendation": "Defer until the routing proof passes. Build the OMI adapter against the ContextItem contract only after one lane is proven.",
+      "options": [
+        "Defer until the routing proof passes",
+        "Authorize credentials now and build the adapter",
+        "Drop OMI from the Founder OS roadmap"
+      ],
+      "consequence_of_delay": "Low for now. Voice-captured decisions keep landing outside Founder OS until it is built.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-004",
+      "title": "Accept repository-coherence-first recovery order",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-001), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Accept coherence-first",
+        "Expand agents first"
+      ],
+      "consequence_of_delay": "RBT-001 cannot close and no new agent can be authorized.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-005",
+      "title": "Treat ARTEMIS and POSTMANIUM as proposed until the routing proof passes",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-002), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Keep proposed until proven",
+        "Charter now"
+      ],
+      "consequence_of_delay": "Agents risk becoming active purely because they were mentioned in conversation.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-006",
+      "title": "Treat Secretary-General as proposed until chartered",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-003). Authority and privacy boundaries are undefined.",
+      "recommendation": "Accept",
+      "options": [
+        "Keep proposed until chartered",
+        "Charter now"
+      ],
+      "consequence_of_delay": "An unchartered role with unclear privacy boundaries stays informally active.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    },
+    {
+      "id": "FD-007",
+      "title": "Salvage PR #7 and #8 selectively rather than merge wholesale",
+      "context": "Carried from the Founder Reboot Control Center (FD-RBT-004), still pending.",
+      "recommendation": "Accept",
+      "options": [
+        "Selective document-level salvage",
+        "Merge wholesale",
+        "Close both branches"
+      ],
+      "consequence_of_delay": "PR #7 (19 ahead / 84 behind) drifts further from main every week.",
+      "status": "open",
+      "requested_by": "LUMIAION",
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "decided_at": null,
+      "decision_note": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TSK-001",
+      "title": "Audit repository reality before building Founder OS",
+      "project": "PRJ-001",
+      "owner": "CLAUDE",
+      "state": "complete",
+      "requested_by": "Founder",
+      "why": "Section 3 of the mission: disk state is authoritative over assumption.",
+      "gate": "G1",
+      "output_ref": "[[Founder OS Architecture v1]] §2",
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-002",
+      "title": "Implement the Founder OS state engine and Console V1",
+      "project": "PRJ-001",
+      "owner": "CODEX",
+      "state": "complete",
+      "requested_by": "Founder",
+      "why": "The Founder needs one persisted cockpit rather than scattered documents.",
+      "gate": "G3",
+      "output_ref": "08_SYSTEMS/Engineering Toolkit/founder_os.py",
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-003",
+      "title": "Founder review of the Founder OS state contract",
+      "project": "PRJ-001",
+      "owner": "Founder",
+      "state": "review",
+      "requested_by": "LUMIAION",
+      "why": "The contract binds every later presentation layer; it needs ratification.",
+      "gate": "G5",
+      "output_ref": null,
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-004",
+      "title": "Build the CN-001 relocation map from current main",
+      "project": "PRJ-003",
+      "owner": "CODEX",
+      "state": "blocked",
+      "requested_by": "LUMIAION",
+      "why": "Reboot Audit step 3: coherence must precede any expansion.",
+      "gate": "G2",
+      "output_ref": null,
+      "blocker_ids": [
+        "BLK-001"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-005",
+      "title": "Salvage PR #7 and #8 document by document",
+      "project": "PRJ-003",
+      "owner": "LUMIAION",
+      "state": "waiting",
+      "requested_by": "Founder",
+      "why": "Reboot Audit forbids merging either wholesale; each document needs a class.",
+      "gate": "G2",
+      "output_ref": null,
+      "blocker_ids": [
+        "BLK-001"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-006",
+      "title": "Run the photo-to-social-post routing proof end to end",
+      "project": "PRJ-002",
+      "owner": "LUMIAION",
+      "state": "assigned",
+      "requested_by": "Founder",
+      "why": "First operational proof that Founder -> LUMIAION -> specialist -> Founder works.",
+      "gate": "G0",
+      "output_ref": null,
+      "blocker_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "updated_at": "2026-08-26T09:20:54+00:00"
+    }
+  ],
+  "agents": [
+    {
+      "id": "AGT-001",
+      "name": "LUMIAION",
+      "role": "Orchestration / Institutional Intelligence",
+      "office": "LUMIAION",
+      "engine": "Anthropic Claude",
+      "status": "active",
+      "authority": "Class III/IV within delegated scope; AI seat, no vote",
+      "last_run_id": null,
+      "notes": "Runs the queue. Never produces content itself."
+    },
+    {
+      "id": "AGT-002",
+      "name": "CLAUDE",
+      "role": "Institutional Architecture / Chief Knowledge Architect",
+      "office": "Institutional Architecture",
+      "engine": "Anthropic Claude",
+      "status": "working",
+      "authority": "Architecture recommendation and specification; no governance authority",
+      "last_run_id": null,
+      "notes": "Authored the Founder OS architecture and state contract this session."
+    },
+    {
+      "id": "AGT-003",
+      "name": "CODEX",
+      "role": "Engineering Office",
+      "office": "Engineering Office",
+      "engine": "OpenAI / Codex",
+      "status": "working",
+      "authority": "Implementation only; no governance authority",
+      "last_run_id": null,
+      "notes": "Owns the Engineering Toolkit and Founder OS implementation."
+    },
+    {
+      "id": "AGT-004",
+      "name": "PERPLEXITY",
+      "role": "Research Intelligence Office",
+      "office": "Research Intelligence",
+      "engine": "Perplexity Pro",
+      "status": "idle",
+      "authority": "Research production and evidence gathering; not canonization",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-005",
+      "name": "COMET",
+      "role": "Institutional Observatory",
+      "office": "Institutional Observatory",
+      "engine": "Comet",
+      "status": "idle",
+      "authority": "Observation and reporting; not decision authority",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-006",
+      "name": "JERANIUM",
+      "role": "Knowledge routing / manual semantic layer",
+      "office": "Knowledge",
+      "engine": "Anthropic Claude",
+      "status": "idle",
+      "authority": "Retrieval and packaging; canonization requires LUMIAION",
+      "last_run_id": null,
+      "notes": "Stands in for the unbuilt semantic memory layer."
+    },
+    {
+      "id": "AGT-007",
+      "name": "ATHENA",
+      "role": "Health, performance, longevity department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-008",
+      "name": "SOHMA",
+      "role": "Consciousness, symbols, meaning department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-009",
+      "name": "VORTEX",
+      "role": "Finance, markets, business strategy department",
+      "office": "Department",
+      "engine": "Unassigned",
+      "status": "idle",
+      "authority": "Domain analysis within charter",
+      "last_run_id": null,
+      "notes": ""
+    },
+    {
+      "id": "AGT-010",
+      "name": "ARTEMIS",
+      "role": "Proposed — not chartered",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until ratified",
+      "last_run_id": null,
+      "notes": "Reboot Audit found no canonical file on main. Proposed only."
+    },
+    {
+      "id": "AGT-011",
+      "name": "POSTMANIUM",
+      "role": "Proposed — not chartered",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until ratified",
+      "last_run_id": null,
+      "notes": "Proposed only; ratify after the routing proof."
+    },
+    {
+      "id": "AGT-012",
+      "name": "SECRETARY-GENERAL",
+      "role": "Proposed — charter, authority and privacy boundaries undefined",
+      "office": "—",
+      "engine": "—",
+      "status": "proposed",
+      "authority": "None until chartered",
+      "last_run_id": null,
+      "notes": "Mentioned but never chartered. Privacy boundaries must be explicit first."
+    }
+  ],
+  "agent_runs": [],
+  "blockers": [
+    {
+      "id": "BLK-001",
+      "title": "Four draft PRs unresolved (#7, #8, #9, #10)",
+      "impact": "CN-001 coherence work cannot start; canonical content is split across branches.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [
+        "TSK-004",
+        "TSK-005"
+      ],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-002",
+      "title": "Semantic memory layer (Layer 3) does not exist",
+      "impact": "LUMIAION cannot search the full Vault in-session; context loading stays manual.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-003",
+      "title": "No OMI adapter or credential in the repository",
+      "impact": "The OMI capture pipeline cannot be implemented or tested.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [],
+      "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    }
+  ],
+  "context_items": [
+    {
+      "id": "CTX-001",
+      "source": "vault",
+      "ref": "11_OPERATIONS/Reboot/Repository Reboot Audit - 2026-08-23.md",
+      "summary": "Verified restart baseline; coherence before expansion; no agent expansion until the routing proof passes.",
+      "captured_at": "2026-08-26T09:20:54+00:00",
+      "related_ids": [
+        "PRI-002",
+        "PRI-003"
+      ]
+    },
+    {
+      "id": "CTX-002",
+      "source": "vault",
+      "ref": "11_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md",
+      "summary": "Nine-stage pipeline and gates G0-G7; one active sprint, one objective, one priority asset.",
+      "captured_at": "2026-08-26T09:20:54+00:00",
+      "related_ids": [
+        "PRJ-002"
+      ]
+    },
+    {
+      "id": "CTX-003",
+      "source": "vault",
+      "ref": "08_SYSTEMS/LUMIAION Architecture Spec v0.1.md",
+      "summary": "Three memory layers; Layer 3 unbuilt; Vault is LUMIAION's memory between sessions.",
+      "captured_at": "2026-08-26T09:20:54+00:00",
+      "related_ids": [
+        "SYS-005",
+        "INT-006"
+      ]
+    },
+    {
+      "id": "CTX-004",
+      "source": "github",
+      "ref": "OmSadhiGuru/ALPHA.PROXIMA.CORE- pulls?state=open",
+      "summary": "PRs #7, #8, #9, #10 open as drafts on 2026-08-26; PR #11 merged.",
+      "captured_at": "2026-08-26T09:20:54+00:00",
+      "related_ids": [
+        "BLK-001",
+        "SYS-003"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "RES-001",
+      "task_id": "TSK-002",
+      "kind": "implementation",
+      "ref": "08_SYSTEMS/Engineering Toolkit/founder_os.py",
+      "summary": "Founder OS state engine: validated model, CLI, renderer, loopback server.",
+      "produced_at": "2026-08-26T09:20:54+00:00",
+      "produced_by": "CODEX"
+    },
+    {
+      "id": "RES-002",
+      "task_id": "TSK-001",
+      "kind": "document",
+      "ref": "11_OPERATIONS/Founder OS/Founder OS Architecture v1.md",
+      "summary": "Repository audit, architecture delta, state contract, and orchestration contract.",
+      "produced_at": "2026-08-26T09:20:54+00:00",
+      "produced_by": "CLAUDE"
+    }
+  ],
+  "projects": [
+    {
+      "id": "PRJ-001",
+      "name": "Founder OS",
+      "status": "active",
+      "objective": "One control plane the Founder directs from",
+      "owner": "LUMIAION"
+    },
+    {
+      "id": "PRJ-002",
+      "name": "RBT-001 Reboot Sprint",
+      "status": "active",
+      "objective": "Restore repository coherence and one trustworthy execution path",
+      "owner": "LUMIAION"
+    },
+    {
+      "id": "PRJ-003",
+      "name": "CN-001 Repository Coherence",
+      "status": "waiting",
+      "objective": "One canonical Vault taxonomy that validates cleanly",
+      "owner": "CODEX"
+    }
+  ],
+  "integrations": [
+    {
+      "id": "INT-001",
+      "name": "Obsidian Vault",
+      "kind": "knowledge",
+      "status": "connected",
+      "notes": "The Vault is the Founder OS memory layer. Console state lives inside it.",
+      "planned_capability": null
+    },
+    {
+      "id": "INT-002",
+      "name": "GitHub",
+      "kind": "repository",
+      "status": "connected",
+      "notes": "State is git-versioned and pushed to OmSadhiGuru/ALPHA.PROXIMA.CORE-. History is the audit log.",
+      "planned_capability": null
+    },
+    {
+      "id": "INT-003",
+      "name": "OMI",
+      "kind": "capture",
+      "status": "not_connected",
+      "notes": "No adapter or credential exists in this repository. An operating agent's own session tooling is not a Founder OS integration.",
+      "planned_capability": "Recording -> transcript -> LUMIAION classification -> routed work items."
+    },
+    {
+      "id": "INT-004",
+      "name": "ChatGPT / Codex",
+      "kind": "agent",
+      "status": "not_connected",
+      "notes": "Codex participates through commits and pull requests, not through a Founder OS API.",
+      "planned_capability": "Direct task assignment and run status reporting."
+    },
+    {
+      "id": "INT-005",
+      "name": "Google Calendar",
+      "kind": "scheduling",
+      "status": "not_connected",
+      "notes": "No adapter or credential in this repository.",
+      "planned_capability": "Calendar commitments become Founder OS tasks and blockers."
+    },
+    {
+      "id": "INT-006",
+      "name": "Semantic memory (vector index)",
+      "kind": "memory",
+      "status": "blocked",
+      "notes": "Engine Registry lists the Chief Memory Architect role as unfilled. Blocks Layer 3 of the LUMIAION memory architecture.",
+      "planned_capability": "Full-Vault semantic retrieval at session start."
+    },
+    {
+      "id": "INT-007",
+      "name": "Health / performance systems",
+      "kind": "signal",
+      "status": "planned",
+      "notes": "ATHENA charter exists; no data source connected.",
+      "planned_capability": "Readiness signals inform the Mission of the Day."
+    },
+    {
+      "id": "INT-008",
+      "name": "Financial systems",
+      "kind": "signal",
+      "status": "planned",
+      "notes": "VORTEX charter exists; no data source connected.",
+      "planned_capability": "Runway and obligations surface as blockers."
+    },
+    {
+      "id": "INT-009",
+      "name": "Voice capture",
+      "kind": "capture",
+      "status": "planned",
+      "notes": "No implementation. Depends on the same ContextItem contract as OMI.",
+      "planned_capability": "Spoken intent becomes a classified work item."
+    }
+  ],
+  "system_health": [
+    {
+      "id": "SYS-001",
+      "area": "Repository",
+      "status": "ok",
+      "detail": "main at 4134c34; reboot control center merged via PR #11.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "git log"
+    },
+    {
+      "id": "SYS-002",
+      "area": "Vault validation",
+      "status": "degraded",
+      "detail": "5 errors and 479 warnings outstanding across 297 notes (pre-existing baseline).",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "ap.py validate"
+    },
+    {
+      "id": "SYS-003",
+      "area": "Open pull requests",
+      "status": "degraded",
+      "detail": "Four draft PRs open: #7, #8, #9, #10. None mergeable without salvage decisions.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "GitHub API, 2026-08-26"
+    },
+    {
+      "id": "SYS-004",
+      "area": "Founder OS state",
+      "status": "ok",
+      "detail": "State document validates; 39 engine tests pass.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "ap.py founder check"
+    },
+    {
+      "id": "SYS-005",
+      "area": "Memory / context",
+      "status": "degraded",
+      "detail": "Layer 3 semantic memory unbuilt; context loading remains manual and selective.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "LUMIAION Architecture Spec v0.1 §3"
+    },
+    {
+      "id": "SYS-006",
+      "area": "Task queue",
+      "status": "ok",
+      "detail": "Six work units tracked with owner, provenance, and state.",
+      "checked_at": "2026-08-26T09:20:54+00:00",
+      "source": "founder-state.json"
+    }
+  ]
+}
