@@ -3,7 +3,7 @@ title: "Alpha Proxima Engineering Toolkit"
 aliases: ["Engineering Toolkit", "Implementation Toolkit"]
 tags: [systems, engineering, toolkit, automation, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-03
+updated: 2026-08-26
 status: active
 version: "1.0.4"
 authors: ["CODEX"]
@@ -96,6 +96,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 009 | active | [[Tool 009 - Graph Color System]] | `08_SYSTEMS/Engineering Toolkit/apply_graph_colors.py` |
 | 010 | active | [[Tool 010 - Node Registry Generator]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/node_registry.py` |
 | 011 | active | [[Tool 011 - Relationship Extractor]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/relationship_extractor.py` |
+| 012 | active | [[Tool 012 - Founder OS State Engine]] | `08_SYSTEMS/Engineering Toolkit/founder_os.py` |
 
 ## CLI Commands
 
@@ -178,6 +179,7 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.5 | 2026-08-26 | [[CODEX]] | Added Tool 012 - Founder OS State Engine |
 | 1.0.4 | 2026-07-03 | [[CODEX]] | Added Tool 011 - Relationship Extractor |
 | 1.0.3 | 2026-07-03 | [[CODEX]] | Added Tool 010 - Node Registry Generator |
 | 1.0.2 | 2026-07-03 | [[CODEX]] | Added Tool 009 - Graph Color System |
