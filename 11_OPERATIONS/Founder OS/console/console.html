@@ -133,8 +133,8 @@
 <body>
 <div class="wrap" id="app"></div>
 <script id="view-data" type="application/json">{
-  "generated_at": "2026-08-26T09:21:36+00:00",
-  "today": "2026-08-26",
+  "generated_at": "2026-08-31T04:40:45+00:00",
+  "today": "2026-08-31",
   "schema_version": "1.0.0",
   "founder": {
     "name": "Frederick Belizaire Gunville",
@@ -147,22 +147,11 @@
     "set_at": "2026-08-26T09:20:54+00:00",
     "sprint_id": "RBT-001"
   },
-  "mission_is_stale": false,
+  "mission_is_stale": true,
   "priorities": [
     {
-      "id": "PRI-001",
-      "rank": 1,
-      "title": "Ratify the Founder OS state contract",
-      "why": "Everything downstream — console, routing, memory — reads this one document.",
-      "project": "PRJ-001",
-      "owner": "Founder",
-      "status": "open",
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
-    },
-    {
       "id": "PRI-002",
-      "rank": 2,
+      "rank": 1,
       "title": "Resolve the four open draft PRs (#7, #8, #9, #10)",
       "why": "CN-001 cannot proceed while canonical work is split across unmergeable branches.",
       "project": "PRJ-003",
@@ -173,7 +162,7 @@
     },
     {
       "id": "PRI-003",
-      "rank": 3,
+      "rank": 2,
       "title": "Prove one end-to-end routing lane through LUMIAION",
       "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
       "project": "PRJ-002",
@@ -185,30 +174,13 @@
   ],
   "next_action": {
     "id": "NXT-001",
-    "title": "Review the Founder OS architecture note and approve or amend FD-001",
+    "title": "Decide the disposition of PR #10 (CN-001) — resume, rebase, or close",
     "owner": "Founder",
-    "context": "11_OPERATIONS/Founder OS/Founder OS Architecture v1.md",
-    "priority_id": "PRI-001",
-    "set_at": "2026-08-26T09:20:54+00:00"
+    "context": "Best existing coherence workstream per the Reboot Audit; one commit ahead, no conflicting main changes",
+    "priority_id": "PRI-002",
+    "set_at": "2026-08-31T04:39:39+00:00"
   },
   "decisions": [
-    {
-      "id": "FD-001",
-      "title": "Ratify Vault-native JSON as the Founder OS state store",
-      "context": "Founder OS needs persistence. The repository is an Obsidian Vault with a Python toolkit and no application runtime, database, or web stack. This session implemented state as one git-versioned JSON document inside the Vault, written only by the toolkit CLI, with Markdown and HTML as generated read-only mirrors.",
-      "recommendation": "Ratify Vault-native JSON for V1 and revisit only when concurrent multi-writer access is genuinely required.",
-      "options": [
-        "Ratify Vault-native JSON (no new runtime, no secrets, git history is the audit log)",
-        "Introduce a hosted database and web application now",
-        "Defer and keep operating from Markdown dashboards"
-      ],
-      "consequence_of_delay": "The Console persists work but its foundation stays unratified, so later layers risk being built on a contract the Founder never accepted.",
-      "status": "open",
-      "requested_by": "LUMIAION",
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "decided_at": null,
-      "decision_note": null
-    },
     {
       "id": "FD-002",
       "title": "Keep the Founder Console local-only",
@@ -310,20 +282,6 @@
     }
   ],
   "tasks": [
-    {
-      "id": "TSK-003",
-      "title": "Founder review of the Founder OS state contract",
-      "project": "PRJ-001",
-      "owner": "Founder",
-      "state": "review",
-      "requested_by": "LUMIAION",
-      "why": "The contract binds every later presentation layer; it needs ratification.",
-      "gate": "G5",
-      "output_ref": null,
-      "blocker_ids": [],
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
-    },
     {
       "id": "TSK-004",
       "title": "Build the CN-001 relocation map from current main",
@@ -691,9 +649,9 @@
     }
   ],
   "counts": {
-    "priorities": 3,
-    "decisions": 7,
-    "tasks": 4,
+    "priorities": 2,
+    "decisions": 6,
+    "tasks": 3,
     "blockers": 3,
     "founder_blockers": 3
   }

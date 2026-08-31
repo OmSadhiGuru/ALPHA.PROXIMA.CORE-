@@ -3,7 +3,7 @@ title: "Founder Console"
 aliases: ["Founder Console", "Founder OS Console", "Console V1"]
 tags: [operations, founder-os, console, dashboard, lumiaion, alpha-proxima]
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-31
 status: active
 version: "1.0.0"
 authors: ["LUMIAION", "CODEX"]
@@ -21,11 +21,11 @@ related_research_programs: []
 > [!warning] Generated file
 > This note is rendered from `state/founder-state.json` by `ap.py founder render`. Edits here are overwritten. Change state with `ap.py founder <command>`.
 
-_Rendered 2026-08-26T09:21:36+00:00 · schema 1.0.0_
+_Rendered 2026-08-31T04:40:45+00:00 · schema 1.0.0_
 
 ## Today
 
-**2026-08-26** — Establish one Founder cockpit: state, console, and a proven vertical slice
+**2026-08-26** — Establish one Founder cockpit: state, console, and a proven vertical slice ⚠️ **stale — set today's mission**
 
 _Set by lumiaion · sprint RBT-001_
 
@@ -33,19 +33,17 @@ _Set by lumiaion · sprint RBT-001_
 
 | # | Priority | Why | Owner |
 |---|---|---|---|
-| 1 | Ratify the Founder OS state contract | Everything downstream — console, routing, memory — reads this one document. | Founder |
-| 2 | Resolve the four open draft PRs (#7, #8, #9, #10) | CN-001 cannot proceed while canonical work is split across unmergeable branches. | Founder |
-| 3 | Prove one end-to-end routing lane through LUMIAION | No new agent is authorized until one routing proof completes (Reboot Audit). | LUMIAION |
+| 1 | Resolve the four open draft PRs (#7, #8, #9, #10) | CN-001 cannot proceed while canonical work is split across unmergeable branches. | Founder |
+| 2 | Prove one end-to-end routing lane through LUMIAION | No new agent is authorized until one routing proof completes (Reboot Audit). | LUMIAION |
 
 ### Next Action
 
-**Review the Founder OS architecture note and approve or amend FD-001** — Founder
+**Decide the disposition of PR #10 (CN-001) — resume, rebase, or close** — Founder
 
 ## Decisions Requiring Founder
 
 | ID | Decision | Recommendation | Consequence of delay |
 |---|---|---|---|
-| FD-001 | Ratify Vault-native JSON as the Founder OS state store | Ratify Vault-native JSON for V1 and revisit only when concurrent multi-writer access is genuinely required. | The Console persists work but its foundation stays unratified, so later layers risk being built on a contract the Founder never accepted. |
 | FD-002 | Keep the Founder Console local-only | Keep local-only for V1. Treat hosting as a separate decision that must ship with authentication. | Low. Local-only is the safe default and blocks nothing today. |
 | FD-003 | Authorize OMI credentials for the capture pipeline | Defer until the routing proof passes. Build the OMI adapter against the ContextItem contract only after one lane is proven. | Low for now. Voice-captured decisions keep landing outside Founder OS until it is built. |
 | FD-004 | Accept repository-coherence-first recovery order | Accept | RBT-001 cannot close and no new agent can be authorized. |
@@ -57,7 +55,6 @@ _Set by lumiaion · sprint RBT-001_
 
 | ID | Task | State | Owner | Why |
 |---|---|---|---|---|
-| TSK-003 | Founder review of the Founder OS state contract | REVIEW | Founder | The contract binds every later presentation layer; it needs ratification. |
 | TSK-004 | Build the CN-001 relocation map from current main | BLOCKED | CODEX | Reboot Audit step 3: coherence must precede any expansion. |
 | TSK-005 | Salvage PR #7 and #8 document by document | WAITING | LUMIAION | Reboot Audit forbids merging either wholesale; each document needs a class. |
 | TSK-006 | Run the photo-to-social-post routing proof end to end | ASSIGNED | LUMIAION | First operational proof that Founder -> LUMIAION -> specialist -> Founder works. |

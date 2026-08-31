@@ -3,9 +3,9 @@ title: "Founder OS README"
 aliases: ["Founder OS README", "Founder Console Handbook", "Founder OS Continuation"]
 tags: [operations, founder-os, console, handbook, continuation, alpha-proxima]
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-31
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["CODEX", "CLAUDE"]
 artifact_type: readme
 institutional_owner: "Alpha Proxima Foundation"
@@ -77,7 +77,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── founder_os.py        state engine, CLI, renderer, loopback server
-└── test_founder_os.py   39 tests
+└── test_founder_os.py   42 tests
 ```
 
 ### Daily use
@@ -143,23 +143,24 @@ Every mutating command validates, saves, and re-renders both views. There is no 
 
 The next session can resume from here without re-deriving anything.
 
-**Verified state as of 2026-08-26**
+**Verified state as of 2026-08-31**
 
-- Console V1 is built, tested, and rendering. State holds 55 records seeded from repository evidence.
+- Console V1 is built, tested, and rendering. Founder OS V1 merged to `main` in PR #12.
 - The vertical slice — Mission → state → Console → editable → persisted → tested — is closed end to end.
+- **`FD-001` is ratified.** Vault-native git-versioned JSON is the Founder OS state store. Revisit only when concurrent multi-writer access is genuinely required.
+- `ap.py founder task-state` shipped broken in the first cut (argparse dest collision) and is fixed; the CLI surface did not change.
 - Vault validation is unchanged from its pre-session baseline: 5 errors, 479 warnings. Those belong to CN-001.
 
 **Waiting on the Founder**
 
-- `FD-001` Ratify Vault-native JSON as the state store.
 - `FD-002` Keep the Console local-only.
 - `FD-003` Authorize OMI credentials.
 - Four decisions carried from [[Founder Reboot Control Center]] (coherence-first order; ARTEMIS/POSTMANIUM proposed; Secretary-General proposed; selective PR salvage).
 
 **Next three actions**
 
-1. Founder reviews [[Founder OS Architecture v1]] and resolves `FD-001`.
-2. Resolve the four open draft PRs (#7, #8, #9, #10) so CN-001 can start.
+1. Decide the disposition of PR #10 (CN-001) — resume, rebase, or close.
+2. Resolve the remaining draft PRs (#7, #8, #9) so CN-001 can start.
 3. Run the photo-to-social-post routing proof through Founder OS, recording each handoff as an `agent_run`.
 
 **Not built, deliberately**
@@ -172,4 +173,5 @@ VR/spatial presentation, OMI ingestion, calendar or health adapters, automatic s
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-08-31 | CODEX / CLAUDE | FD-001 ratified; task-state fix recorded; continuation refreshed |
 | 1.0.0 | 2026-08-26 | CODEX / CLAUDE | Founder OS V1 handbook and continuation record |
