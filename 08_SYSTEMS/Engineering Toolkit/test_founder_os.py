@@ -201,6 +201,26 @@ class TestTasksAgentsBlockers(unittest.TestCase):
         with self.assertRaises(fos.StateError):
             fos.set_agent_status(state, "AGT-001", "vibing")
 
+    def test_health_signal_can_be_updated(self):
+        state = fos.empty_state()
+        state["system_health"].append({
+            "id": "SYS-001", "area": "Repository", "status": "ok",
+            "detail": "main at aaaaaaa", "checked_at": fos.now_iso(), "source": "git log",
+        })
+        record = fos.set_health(state, "SYS-001", "degraded", detail="main at bbbbbbb")
+        self.assertEqual(record["status"], "degraded")
+        self.assertEqual(record["detail"], "main at bbbbbbb")
+        self.assertEqual(record["source"], "git log")  # untouched when not passed
+        self.assertEqual(fos.validate_state(state), [])
+
+    def test_invalid_health_status_rejected(self):
+        state = fos.empty_state()
+        state["system_health"].append({
+            "id": "SYS-001", "area": "A", "status": "ok", "detail": "d",
+        })
+        with self.assertRaises(fos.StateError):
+            fos.set_health(state, "SYS-001", "on fire")
+
     def test_blocker_lifecycle_and_founder_count(self):
         state = fos.empty_state()
         task = fos.add_task(state, "t", owner="CODEX", why="w", requested_by="founder")
@@ -329,6 +349,16 @@ class TestCli(unittest.TestCase):
                                        "--owner", "o", "--needs-founder"), 0)
             self.assertEqual(self._run(tmp, "blocker-resolve", "BLK-001", "--note", "n"), 0)
             self.assertEqual(self._run(tmp, "priority-status", "PRI-001", "done"), 0)
+            state = fos.load_state(state_path)
+            state["system_health"].append({
+                "id": "SYS-001", "area": "Repository", "status": "ok", "detail": "d",
+            })
+            fos.save_state(state, state_path)
+            self.assertEqual(self._run(tmp, "health-set", "SYS-001", "degraded",
+                                       "--detail", "one PR open"), 0)
+            self.assertEqual(
+                json.loads(state_path.read_text())["system_health"][0]["detail"],
+                "one PR open")
 
             stored = json.loads(state_path.read_text())
             self.assertEqual(stored["tasks"][0]["state"], "complete")

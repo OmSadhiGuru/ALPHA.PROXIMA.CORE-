@@ -420,6 +420,26 @@ def set_agent_status(state: dict, agent_id: str, status: str, notes: str | None 
     return record
 
 
+def set_health(state: dict, health_id: str, status: str,
+               detail: str | None = None, source: str | None = None) -> dict:
+    """Update a system-health signal.
+
+    Health records are shown in the Console but were previously unreachable
+    from the CLI, so they could only go stale. A signal nobody can correct is
+    worse than no signal.
+    """
+    if status not in HEALTH_STATES:
+        raise StateError(f"Unknown health status {status!r}; allowed: {', '.join(HEALTH_STATES)}.")
+    record = find(state, "system_health", health_id)
+    record["status"] = status
+    if detail is not None:
+        record["detail"] = detail
+    if source is not None:
+        record["source"] = source
+    record["checked_at"] = now_iso()
+    return record
+
+
 def add_blocker(state: dict, title: str, impact: str, owner: str,
                 needs_founder: bool = False, blocking_ids: list[str] | None = None) -> dict:
     record = {
@@ -756,6 +776,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("status", choices=AGENT_STATES)
     p.add_argument("--notes")
 
+    p = sub.add_parser("health-set", help="Update a system-health signal.")
+    p.add_argument("id")
+    p.add_argument("status", choices=HEALTH_STATES)
+    p.add_argument("--detail")
+    p.add_argument("--source")
+
     p = sub.add_parser("blocker-add", help="Record a blocker.")
     p.add_argument("title")
     p.add_argument("--impact", required=True)
@@ -826,6 +852,8 @@ def main(argv: list[str] | None = None) -> int:
             print(set_task_state(state, args.id, args.new_state, args.output)["id"])
         elif args.command == "agent-status":
             print(set_agent_status(state, args.id, args.status, args.notes)["id"])
+        elif args.command == "health-set":
+            print(set_health(state, args.id, args.status, args.detail, args.source)["id"])
         elif args.command == "blocker-add":
             print(add_blocker(state, args.title, args.impact, args.owner,
                               args.needs_founder, args.blocking_ids)["id"])

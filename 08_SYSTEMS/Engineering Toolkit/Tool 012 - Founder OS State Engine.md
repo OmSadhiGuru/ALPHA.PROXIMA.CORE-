@@ -3,9 +3,9 @@ title: "Tool 012 - Founder OS State Engine"
 aliases: ["Founder OS State Engine", "founder_os", "Engineering Toolkit Tool 012", "ap founder"]
 tags: [systems, engineering, toolkit, founder-os, console, state, alpha-proxima]
 created: 2026-08-26
-updated: 2026-08-31
+updated: 2026-09-01
 status: active
-version: "1.0.1"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -49,6 +49,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder <command> [options]
 | `decision-add` / `decision-resolve` | Queue and resolve Founder decisions. |
 | `task-add` / `task-state` | Create work units and move them between states. |
 | `agent-status <id> <status>` | Set an agent's operational status. |
+| `health-set <id> <status>` | Update a system-health signal (`--detail`, `--source`). |
 | `blocker-add` / `blocker-resolve` | Record and clear blockers. |
 
 Paths are overridable with `--state`, `--template`, `--console`, and `--mirror`; the defaults resolve inside the Vault.
@@ -74,7 +75,7 @@ Paths are overridable with `--state`, `--template`, `--console`, and `--mirror`;
 python3 "08_SYSTEMS/Engineering Toolkit/test_founder_os.py"
 ```
 
-42 tests covering the state lifecycle, every enforced invariant, the decision and task state machines, rendering (including `</script>` escaping in embedded state), the CLI vertical slice, and the validity of the state document committed to the Vault.
+44 tests covering the state lifecycle, every enforced invariant, the decision and task state machines, rendering (including `</script>` escaping in embedded state), the CLI vertical slice, and the validity of the state document committed to the Vault.
 
 Every mutating subcommand is exercised through `main()` rather than by calling its function directly, and one structural test asserts that no subcommand reuses a global option's argparse dest. Both exist because `task-state` shipped broken in v1.0.0: its `state` positional shared a dest with the global `--state`, so the task state overwrote the state-file path. Tests that call the mutators directly cannot catch that class of defect.
 
@@ -82,5 +83,6 @@ Every mutating subcommand is exercised through `main()` rather than by calling i
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-01 | [[CODEX]] | Added `health-set`: system-health signals were displayed but unreachable from the CLI, so they could only go stale |
 | 1.0.1 | 2026-08-31 | [[CODEX]] | Fixed `task-state` argparse dest collision with the global `--state`; added CLI-level and structural regression tests |
 | 1.0.0 | 2026-08-26 | CODEX | Initial Founder OS state engine, Console renderer, and loopback server |
