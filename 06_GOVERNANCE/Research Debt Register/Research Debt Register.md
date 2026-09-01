@@ -87,24 +87,31 @@ During the Source Verification Pass: (1) Re-review DOC-A and DOC-B with visible 
 | **Affected Program** | RP-001 Atlas of Human Consciousness |
 | **Affected Documents** | `07_RESEARCH/RP-001/09 Canonical Synthesis/`, `10 Theory Matrix/`, `11 Canonical Glossary/`, `12 Evidence Registry/`, `15 Future Experiments/`, `14 Open Questions/` |
 | **Priority** | Medium |
-| **Status** | Open |
+| **Status** | Resolved (pending registry amendment + Founder ratification) — Epoch V |
 | **Created** | 2026-07-03 |
 | **Target Review Date** | Within 30 days |
 | **Identified By** | ISR-001 Institutional Synthesis Report (Finding CA-006) |
+| **Correction** | CAR-001 Finding CAR-F03: the original claim "no JERANIUM Charter exists" was **incorrect** — `03_AI_COUNCIL/Departments/JERANIUM Charter.md` exists. The real defect was a **contradiction** (two conflicting JERANIUM definitions), not absence. |
 
-**Description:**
-JERANIUM appears as co-author on six core RP-001 documents. JERANIUM is referenced as having a charter (`[[JERANIUM Charter]]`). No JERANIUM Charter exists in the vault. JERANIUM does not appear in the Cognitive Function Registry, AI Council Registry, or any current institutional register.
-
-Canonical status for RP-001 cannot be formally granted while an unregistered institutional actor appears as co-author.
+**Description (corrected):**
+JERANIUM appears as co-author on six core RP-001 documents. It was in fact **doubly defined**: the Departments charter cast it as *Knowledge & Institutional Intelligence* (research, pattern detection, knowledge-graph health), while the LUMIAION Constitution cast it as *data orchestration, analytics, system optimization*. It was not in the Cognitive Function Registry.
 
 **Root Cause:**
-JERANIUM was a functional designation active during RP-001's creation phase, predating the constitutional formalization of cognitive functions (FD-001, Book IV, Book V). The institutional framework has been constitutionalized; legacy actor designations have not been updated.
+JERANIUM was a legacy functional designation predating the constitutional formalization of cognitive functions; two later documents defined it inconsistently and neither mapped it to a canonical Cognitive Function.
 
-**Required Action:**
-Founder clarification: (1) identify what function/actor JERANIUM represents; (2) either register it (if still active) or document the mapping to a currently constitutionalized function; (3) update RP-001 document attribution accordingly.
+**Resolution (Epoch V — Governance Model Crosswalk):**
+1. JERANIUM's research/knowledge-synthesis functions are absorbed by **CF-02 (Research Intelligence)** and **CF-01 (Institutional Architecture)**.
+2. Its distinctive data/analytics function is registered as **CF-15 — Data & Systems Intelligence** (engine to be appointed).
+3. The Departments `JERANIUM Charter` is marked **superseded**; RP-001's JERANIUM co-authorship is re-attributed to CF-02/CF-01 as historical contribution.
+
+**Remaining to close fully:**
+- [ ] Amend the Cognitive Function Registry to add CF-15 and update the JERANIUM entry.
+- [ ] Apply the "superseded" banner to the Departments JERANIUM charter.
+- [ ] Re-attribute RP-001 co-authorship.
+- [ ] Founder ratification of the Governance Model Crosswalk.
 
 **Dependencies:**
-Founder institutional knowledge of JERANIUM's intended role.
+Founder ratification of the Epoch V Governance Model Crosswalk.
 
 ---
 
