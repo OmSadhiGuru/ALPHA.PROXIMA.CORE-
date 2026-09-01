@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-08-26T09:20:54+00:00",
+  "updated_at": "2026-08-31T04:39:39+00:00",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
@@ -14,11 +14,11 @@
   },
   "next_action": {
     "id": "NXT-001",
-    "title": "Review the Founder OS architecture note and approve or amend FD-001",
+    "title": "Decide the disposition of PR #10 (CN-001) — resume, rebase, or close",
     "owner": "Founder",
-    "context": "11_OPERATIONS/Founder OS/Founder OS Architecture v1.md",
-    "priority_id": "PRI-001",
-    "set_at": "2026-08-26T09:20:54+00:00"
+    "context": "Best existing coherence workstream per the Reboot Audit; one commit ahead, no conflicting main changes",
+    "priority_id": "PRI-002",
+    "set_at": "2026-08-31T04:39:39+00:00"
   },
   "priorities": [
     {
@@ -28,13 +28,13 @@
       "why": "Everything downstream — console, routing, memory — reads this one document.",
       "project": "PRJ-001",
       "owner": "Founder",
-      "status": "open",
+      "status": "done",
       "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
+      "updated_at": "2026-08-31T04:38:17+00:00"
     },
     {
       "id": "PRI-002",
-      "rank": 2,
+      "rank": 1,
       "title": "Resolve the four open draft PRs (#7, #8, #9, #10)",
       "why": "CN-001 cannot proceed while canonical work is split across unmergeable branches.",
       "project": "PRJ-003",
@@ -45,7 +45,7 @@
     },
     {
       "id": "PRI-003",
-      "rank": 3,
+      "rank": 2,
       "title": "Prove one end-to-end routing lane through LUMIAION",
       "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
       "project": "PRJ-002",
@@ -67,11 +67,11 @@
         "Defer and keep operating from Markdown dashboards"
       ],
       "consequence_of_delay": "The Console persists work but its foundation stays unratified, so later layers risk being built on a contract the Founder never accepted.",
-      "status": "open",
+      "status": "approved",
       "requested_by": "LUMIAION",
       "created_at": "2026-08-26T09:20:54+00:00",
-      "decided_at": null,
-      "decision_note": null
+      "decided_at": "2026-08-31T04:37:58+00:00",
+      "decision_note": "Ratified by the Founder 2026-08-31. Vault-native git-versioned JSON is the Founder OS state store for V1. Revisit only when concurrent multi-writer access is genuinely required. Implementation merged in PR #12 (cd1f637)."
     },
     {
       "id": "FD-002",
@@ -207,14 +207,14 @@
       "title": "Founder review of the Founder OS state contract",
       "project": "PRJ-001",
       "owner": "Founder",
-      "state": "review",
+      "state": "complete",
       "requested_by": "LUMIAION",
       "why": "The contract binds every later presentation layer; it needs ratification.",
       "gate": "G5",
-      "output_ref": null,
+      "output_ref": "FD-001 approved; PR #12 merged as cd1f637",
       "blocker_ids": [],
       "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
+      "updated_at": "2026-08-31T04:38:42+00:00"
     },
     {
       "id": "TSK-004",

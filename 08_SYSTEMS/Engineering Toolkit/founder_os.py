@@ -746,7 +746,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("task-state", help="Move a work unit between states.")
     p.add_argument("id")
-    p.add_argument("state", choices=TASK_STATES)
+    # dest must not be "state": that is the global --state option's dest, and a
+    # subparser positional of the same name overwrites the state-file path.
+    p.add_argument("new_state", metavar="state", choices=TASK_STATES)
     p.add_argument("--output")
 
     p = sub.add_parser("agent-status", help="Set an agent's operational status.")
@@ -821,7 +823,7 @@ def main(argv: list[str] | None = None) -> int:
             print(add_task(state, args.title, args.owner, args.why, args.by,
                            args.project, args.gate)["id"])
         elif args.command == "task-state":
-            print(set_task_state(state, args.id, args.state, args.output)["id"])
+            print(set_task_state(state, args.id, args.new_state, args.output)["id"])
         elif args.command == "agent-status":
             print(set_agent_status(state, args.id, args.status, args.notes)["id"])
         elif args.command == "blocker-add":

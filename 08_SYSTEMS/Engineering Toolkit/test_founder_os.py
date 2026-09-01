@@ -6,6 +6,7 @@ Run: python3 "08_SYSTEMS/Engineering Toolkit/test_founder_os.py"
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import tempfile
@@ -301,6 +302,66 @@ class TestCli(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             self.assertEqual(self._run(tmp, "init"), 0)
             self.assertEqual(self._run(tmp, "init"), 1)
+
+    def test_every_mutating_subcommand_works_through_the_cli(self):
+        """Regression: `task-state` once failed because its `state` positional
+        shared an argparse dest with the global --state option, so the task
+        state overwrote the state-file path. Drive every subcommand through
+        main() so a dest collision cannot hide behind a direct function call."""
+        with tempfile.TemporaryDirectory() as tmp:
+            state_path = Path(tmp) / "founder-state.json"
+            self.assertEqual(self._run(tmp, "init"), 0)
+            self.assertEqual(self._run(tmp, "mission", "M"), 0)
+            self.assertEqual(self._run(tmp, "priority-add", "P", "--why", "w",
+                                       "--owner", "CODEX"), 0)
+            self.assertEqual(self._run(tmp, "next-action", "N", "--owner", "CODEX"), 0)
+            self.assertEqual(self._run(tmp, "task-add", "T", "--owner", "CODEX",
+                                       "--why", "w", "--by", "founder"), 0)
+            self.assertEqual(self._run(tmp, "task-state", "TSK-001", "working"), 0)
+            self.assertEqual(self._run(tmp, "task-state", "TSK-001", "complete",
+                                       "--output", "[[Out]]"), 0)
+            self.assertEqual(self._run(tmp, "decision-add", "D", "--context", "c",
+                                       "--recommendation", "r", "--option", "a",
+                                       "--consequence", "x"), 0)
+            self.assertEqual(self._run(tmp, "decision-resolve", "FD-001", "approved",
+                                       "--note", "ok"), 0)
+            self.assertEqual(self._run(tmp, "blocker-add", "B", "--impact", "i",
+                                       "--owner", "o", "--needs-founder"), 0)
+            self.assertEqual(self._run(tmp, "blocker-resolve", "BLK-001", "--note", "n"), 0)
+            self.assertEqual(self._run(tmp, "priority-status", "PRI-001", "done"), 0)
+
+            stored = json.loads(state_path.read_text())
+            self.assertEqual(stored["tasks"][0]["state"], "complete")
+            self.assertEqual(stored["tasks"][0]["output_ref"], "[[Out]]")
+            self.assertEqual(stored["decisions"][0]["status"], "approved")
+            self.assertEqual(stored["blockers"][0]["status"], "resolved")
+            self.assertEqual(stored["priorities"][0]["status"], "done")
+
+    def test_agent_status_works_through_the_cli(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state_path = Path(tmp) / "founder-state.json"
+            self._run(tmp, "init")
+            state = fos.load_state(state_path)
+            state["agents"].append({"id": "AGT-001", "name": "LUMIAION",
+                                    "role": "Orchestration", "status": "idle",
+                                    "authority": "Class III/IV"})
+            fos.save_state(state, state_path)
+            self.assertEqual(self._run(tmp, "agent-status", "AGT-001", "working"), 0)
+            self.assertEqual(json.loads(state_path.read_text())["agents"][0]["status"],
+                             "working")
+
+    def test_no_subcommand_dest_shadows_a_global_option(self):
+        """A subparser positional that reuses a global option's dest silently
+        overwrites it. Assert the namespaces stay disjoint for every subcommand."""
+        parser = fos.build_parser()
+        global_dests = {a.dest for a in parser._actions if a.option_strings} - {"help"}
+        subparsers = [a for a in parser._actions
+                      if isinstance(a, argparse._SubParsersAction)][0]
+        for name, sub in subparsers.choices.items():
+            sub_dests = {a.dest for a in sub._actions if a.dest != "help"}
+            collisions = sub_dests & global_dests
+            self.assertFalse(collisions,
+                             f"subcommand {name!r} reuses global dest(s): {collisions}")
 
     def test_bad_command_returns_nonzero_without_traceback(self):
         with tempfile.TemporaryDirectory() as tmp:
