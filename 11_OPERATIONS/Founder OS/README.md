@@ -104,6 +104,17 @@ $AP blocker-add "No OMI credential" --impact "Capture pipeline cannot ship" \
     --owner Founder --needs-founder
 ```
 
+The first executable worker lane is repository health. It is deliberately
+report-only: LUMIAION routes the Founder's intention to JERANIUM, the existing
+Vault Validator runs, and Founder OS records the task, run, result, persisted
+state, and refreshed Console without altering institutional notes.
+
+```bash
+$AP repository-health "Assess current repository health" \
+    --why "Founder needs current evidence before choosing a repair" \
+    --report "/tmp/alpha-proxima-vault-validation.md"
+```
+
 Founder decisions:
 
 ```bash
