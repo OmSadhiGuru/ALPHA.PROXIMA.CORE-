@@ -1,0 +1,29 @@
+{
+  "conversations": [
+    {
+      "id": "mr9hriibo5j25",
+      "title": "CONNECTED",
+      "messages": [
+        {
+          "role": "user",
+          "content": "CONNECTED",
+          "timestamp": 1783358765939
+        },
+        {
+          "role": "assistant",
+          "content": "**Error:** Request failed, status 401",
+          "model": "deepseek-v4-pro",
+          "timestamp": 1783358766349
+        }
+      ],
+      "createdAt": 1783358765939,
+      "updatedAt": 1783358766349
+    }
+  ],
+  "activeConversationId": "mr9hriibo5j25",
+  "providerType": "anthropic",
+  "baseUrl": "https://api.deepseek.com/anthropic",
+  "apiKey": "sk-14a5e1375ab64630a519aa18ea5a8dcd",
+  "model": "deepseek-v4-pro",
+  "models": "deepseek-v4-pro, deepseek-chat, deepseek-reasoner"
+}

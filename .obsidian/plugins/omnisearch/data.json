@@ -1,6 +1,6 @@
 {
   "useCache": true,
-  "hideExcluded": false,
+  "hideExcluded": true,
   "recencyBoost": "0",
   "downrankedFoldersFilters": [],
   "ignoreDiacritics": true,
@@ -33,7 +33,7 @@
   "weightH3": 4,
   "weightUnmarkedTags": 2,
   "weightCustomProperties": [],
-  "httpApiEnabled": false,
+  "httpApiEnabled": true,
   "httpApiPort": "51361",
   "httpApiNotice": true,
   "welcomeMessage": "1.21.0",

@@ -3,9 +3,9 @@ title: "Alpha Proxima Core"
 aliases: ["ALPHA.PROXIMA.CORE-", "Alpha Proxima", "The Project", "APC"]
 tags: [index, home, moc, alpha-proxima, lumiaion, governance]
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-07
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["Alpha Council"]
 note_type: MOC
 ---
@@ -69,6 +69,7 @@ ALPHA.PROXIMA.CORE-/
 | The Constitution | [[Book I - The Constitution]] | Ratified |
 | Institutional Registry | [[Institutional Registry]] | Active |
 | Vault Structure Convention | [[Vault Structure Convention]] | Active |
+| Enterprise Knowledge Architecture | [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]] | Active — master reference, orchestrates all of the above without duplicating them |
 
 ---
 
@@ -111,6 +112,7 @@ ALPHA.PROXIMA.CORE-/
 - [[Vault Structure Convention]]
 - [[ADR Template]]
 - [[Concept Note Template]]
+- [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]]
 
 ---
 
@@ -120,6 +122,7 @@ ALPHA.PROXIMA.CORE-/
 - [ ] Who are the founding human members of the [[Alpha Council]]? This is the most critical unresolved question in the entire system.
 - [ ] Should this MOC be the vault home page (set in Obsidian settings → Files → Default view)?
 - [ ] What is the relationship between Alpha Proxima Core and any external-facing presence (website, publications)?
+- [ ] This MOC's "Active Frontiers" and Vault Structure diagram date to 2026-07-01 and are now stale (e.g. "LUMIAION architecture specification — Not yet started" and "First ADR — Not yet created" are both no longer true; `08_SYSTEMS`, `09_FUTURE`, `11_OPERATIONS` etc. are built out). A full MOC refresh is out of scope for this edit — flagged here rather than silently left inconsistent.
 
 ---
 
@@ -128,3 +131,4 @@ ALPHA.PROXIMA.CORE-/
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial MOC established as vault index |
+| 1.0.1 | 2026-07-07 | Founder / LUMIAION | Linked [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]]; flagged Active Frontiers section as stale (not refreshed in this edit) |

@@ -5,7 +5,7 @@ tags: [convention, vault, structure, obsidian, standards, template]
 created: 2026-07-01
 updated: 2026-07-01
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["Alpha Council"]
 ---
 
@@ -68,6 +68,9 @@ ALPHA.PROXIMA.CORE-/
 │
 ├── 10_TEMPLATES/          ← Reusable note formats
 │                            Never modify a template without an ADR
+│
+├── 11_OPERATIONS/         ← Operational nervous system of the Foundation
+│                            Office registries, workflows, review cycles, metrics
 │
 └── 99_ARCHIVE/            ← Superseded, retired, or closed notes
                              Never delete; archive instead
@@ -182,6 +185,7 @@ Templates start at `1.0.0`. Living documents (like this one) increment as update
 - [[Institutional Registry]]
 - [[ADR Template]]
 - [[Concept Note Template]]
+- [[11_OPERATIONS]]
 
 ---
 
@@ -198,4 +202,5 @@ Templates start at `1.0.0`. Living documents (like this one) increment as update
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-07-02 | [[CODEX]] | Added `11_OPERATIONS/` as the permanent Institutional Operations Layer |
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial convention established |

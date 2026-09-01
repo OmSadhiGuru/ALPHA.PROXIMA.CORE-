@@ -3,9 +3,9 @@ title: "Institutional Relationship Map"
 aliases: ["Relationship Map", "Org Map", "Institutional Diagram"]
 tags: [systems, architecture, relationships, governance, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-07
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["Founder", "Alpha Proxima Foundation"]
 ---
 
@@ -204,6 +204,8 @@ This distinction prevents LUMIAION from becoming a de facto governor of the depa
 - [[LUMIAION Charter]]
 - [[Communication Protocol]]
 - [[Institutional Registry]]
+- [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]]
+- [[ADR-0002 - Reconciling the Four Institutional Taxonomies]]
 
 ---
 
@@ -212,6 +214,7 @@ This distinction prevents LUMIAION from becoming a de facto governor of the depa
 - [ ] Should the Community Council be added to this map when constituted?
 - [ ] How should external partners or affiliates be represented in the relationship map?
 - [ ] Should there be a formal relationship between the Ethics Council and each department charter (i.e., Ethics Council reviews each charter annually)?
+- [ ] Should this map's relationship register be extended to show all four axes named in [[ADR-0002 - Reconciling the Four Institutional Taxonomies]] (Authority, Engine, Domain, Function) explicitly, rather than the Council/Department relationships alone?
 
 ---
 
@@ -220,3 +223,4 @@ This distinction prevents LUMIAION from becoming a de facto governor of the depa
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-02 | Founder | Initial relationship map established |
+| 1.0.1 | 2026-07-07 | Founder / LUMIAION | Linked [[ALPHAPROXIMA Enterprise Knowledge Architecture v1.0]] and [[ADR-0002 - Reconciling the Four Institutional Taxonomies]], which formalizes this map's Council/Department relationships as one of four orthogonal axes |

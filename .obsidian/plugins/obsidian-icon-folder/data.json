@@ -6,6 +6,7 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiAlbum",
       "LiBadge"
     ],
     "recentlyUsedIconsSize": 5,
@@ -33,5 +34,6 @@
   "03_AI_COUNCIL/Departments/SOHMA Charter.md": {
     "iconName": "LiBadge",
     "iconColor": "#640080"
-  }
+  },
+  "09_PEOPLE/CODEX.md": "LiAlbum"
 }

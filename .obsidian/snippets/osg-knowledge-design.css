@@ -1,0 +1,626 @@
+/**
+ * OSG Knowledge Design System - Obsidian Reading Layer CSS
+ *
+ * Implements visually structured document styling aligned with:
+ * - Alpha Proxima Foundation companion colors
+ * - Graph View Color System v1.1.0
+ * - Knowledge Design System standards
+ *
+ * Enable in Obsidian: Settings → Appearance → CSS Snippets → Toggle osg-knowledge-design
+ *
+ * Version: 1.0.0
+ * Last Updated: 2026-07-09
+ */
+
+/* ====================================================================
+   ROOT VARIABLES: Companion Color Palette
+   ==================================================================== */
+
+:root {
+  /* Core LUMIAION - Constitutional Intelligence */
+  --color-lumiaion-primary: #7C3AED;    /* Violet */
+  --color-lumiaion-accent: #F59E0B;     /* Gold */
+  --color-lumiaion-light: #f3e8ff;      /* Light violet bg */
+
+  /* SOHMA - Consciousness, Meaning, Interiority */
+  --color-sohma-primary: #9333EA;       /* Purple */
+  --color-sohma-light: #f3e8ff;         /* Light purple bg */
+  --color-sohma-border: #d8b4fe;        /* Purple border */
+
+  /* ATHENA - Health, Biology, Training, Longevity */
+  --color-athena-primary: #1D4ED8;      /* Blue */
+  --color-athena-accent: #BE123C;       /* Crimson (Ethics) */
+  --color-athena-light: #dbeafe;        /* Light blue bg */
+  --color-athena-border: #93c5fd;       /* Blue border */
+
+  /* VORTEX - Finance, Economics, Trading, Strategy */
+  --color-vortex-primary: #65A30D;      /* Olive/Green */
+  --color-vortex-light: #f2f7dc;        /* Light olive bg */
+  --color-vortex-border: #bfdbfe;       /* Olive border */
+
+  /* JERANIUM - Knowledge Architecture, Research, Data, Pattern Detection */
+  --color-jeranium-primary: #0F766E;    /* Teal */
+  --color-jeranium-light: #ccfbf1;      /* Light teal bg */
+  --color-jeranium-border: #99f6e4;     /* Teal border */
+
+  /* GAIA - (Planned companion - Emerald Green) */
+  --color-gaia-primary: #10b981;        /* Emerald */
+  --color-gaia-light: #d1fae5;          /* Light emerald bg */
+  --color-gaia-border: #6ee7b7;         /* Emerald border */
+
+  /* ORION - (Planned companion - Sky Blue + Gold) */
+  --color-orion-primary: #0284c7;       /* Sky Blue */
+  --color-orion-accent: #f59e0b;        /* Gold */
+  --color-orion-light: #e0f2fe;         /* Light sky bg */
+  --color-orion-border: #38bdf8;        /* Sky border */
+
+  /* Neutral Accents */
+  --color-neutral-light: #f8fafc;       /* Very light gray */
+  --color-neutral-border: #cbd5e1;      /* Gray border */
+}
+
+/* ====================================================================
+   DOCUMENT ROOT: Base Reading Layer
+   ==================================================================== */
+
+.markdown-source-view,
+.markdown-preview-view {
+  --h1-size: 32px;
+  --h2-size: 24px;
+  --h3-size: 20px;
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   HEADING STYLES (H1, H2, H3)
+   ==================================================================== */
+
+/* H1 - Document Title (Primary heading) */
+.markdown-preview-view h1,
+.cm-header-1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+  border-bottom: 3px solid var(--color-lumiaion-primary);
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* H2 - Major Section (Secondary heading) */
+.markdown-preview-view h2,
+.cm-header-2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #334155;
+  border-left: 4px solid var(--color-lumiaion-primary);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.875rem;
+}
+
+/* H3 - Subsection (Tertiary heading) */
+.markdown-preview-view h3,
+.cm-header-3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #475569;
+  border-left: 2px solid var(--color-lumiaion-accent);
+  padding-left: 0.75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ====================================================================
+   COMPANION-SPECIFIC HEADING COLORS
+   Using file path matching for intelligent document coloring
+   ==================================================================== */
+
+/* SOHMA Documents */
+.file-path-contains-sohma h1,
+.file-path-contains-SOHMA h1 {
+  border-bottom-color: var(--color-sohma-primary);
+}
+
+.file-path-contains-sohma h2,
+.file-path-contains-SOHMA h2 {
+  border-left-color: var(--color-sohma-primary);
+  color: #581c87;
+}
+
+.file-path-contains-sohma h3,
+.file-path-contains-SOHMA h3 {
+  border-left-color: var(--color-sohma-primary);
+  color: #6b21a8;
+}
+
+/* ATHENA Documents */
+.file-path-contains-athena h1,
+.file-path-contains-ATHENA h1 {
+  border-bottom-color: var(--color-athena-primary);
+}
+
+.file-path-contains-athena h2,
+.file-path-contains-ATHENA h2 {
+  border-left-color: var(--color-athena-primary);
+  color: #1e40af;
+}
+
+.file-path-contains-athena h3,
+.file-path-contains-ATHENA h3 {
+  border-left-color: var(--color-athena-primary);
+  color: #1e40af;
+}
+
+/* VORTEX Documents */
+.file-path-contains-vortex h1,
+.file-path-contains-VORTEX h1 {
+  border-bottom-color: var(--color-vortex-primary);
+}
+
+.file-path-contains-vortex h2,
+.file-path-contains-VORTEX h2 {
+  border-left-color: var(--color-vortex-primary);
+  color: #3f6212;
+}
+
+.file-path-contains-vortex h3,
+.file-path-contains-VORTEX h3 {
+  border-left-color: var(--color-vortex-primary);
+  color: #3f6212;
+}
+
+/* JERANIUM Documents */
+.file-path-contains-jeranium h1,
+.file-path-contains-JERANIUM h1 {
+  border-bottom-color: var(--color-jeranium-primary);
+}
+
+.file-path-contains-jeranium h2,
+.file-path-contains-JERANIUM h2 {
+  border-left-color: var(--color-jeranium-primary);
+  color: #0d3b66;
+}
+
+.file-path-contains-jeranium h3,
+.file-path-contains-JERANIUM h3 {
+  border-left-color: var(--color-jeranium-primary);
+  color: #0d3b66;
+}
+
+/* GAIA Documents (future) */
+.file-path-contains-gaia h1,
+.file-path-contains-GAIA h1 {
+  border-bottom-color: var(--color-gaia-primary);
+}
+
+.file-path-contains-gaia h2,
+.file-path-contains-GAIA h2 {
+  border-left-color: var(--color-gaia-primary);
+  color: #065f46;
+}
+
+.file-path-contains-gaia h3,
+.file-path-contains-GAIA h3 {
+  border-left-color: var(--color-gaia-primary);
+  color: #065f46;
+}
+
+/* ORION Documents (future) */
+.file-path-contains-orion h1,
+.file-path-contains-ORION h1 {
+  border-bottom-color: var(--color-orion-primary);
+}
+
+.file-path-contains-orion h2,
+.file-path-contains-ORION h2 {
+  border-left-color: var(--color-orion-primary);
+  color: #075985;
+}
+
+.file-path-contains-orion h3,
+.file-path-contains-ORION h3 {
+  border-left-color: var(--color-orion-primary);
+  color: #075985;
+}
+
+/* ====================================================================
+   CALLOUT STYLING (Obsidian Native Callouts)
+   ==================================================================== */
+
+/* Base callout styling */
+.callout {
+  border-radius: 0.375rem;
+  border-left: 4px solid;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: var(--color-neutral-light);
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.callout-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Companion-specific callouts */
+.callout[data-callout-type="lumiaion"],
+.callout[data-callout-type="sohma"],
+.callout[data-callout="sohma"] {
+  border-left-color: var(--color-sohma-primary);
+  background: var(--color-sohma-light);
+}
+
+.callout[data-callout-type="athena"],
+.callout[data-callout="athena"] {
+  border-left-color: var(--color-athena-primary);
+  background: var(--color-athena-light);
+}
+
+.callout[data-callout-type="vortex"],
+.callout[data-callout="vortex"] {
+  border-left-color: var(--color-vortex-primary);
+  background: var(--color-vortex-light);
+}
+
+.callout[data-callout-type="jeranium"],
+.callout[data-callout="jeranium"] {
+  border-left-color: var(--color-jeranium-primary);
+  background: var(--color-jeranium-light);
+}
+
+.callout[data-callout-type="gaia"],
+.callout[data-callout="gaia"] {
+  border-left-color: var(--color-gaia-primary);
+  background: var(--color-gaia-light);
+}
+
+.callout[data-callout-type="orion"],
+.callout[data-callout="orion"] {
+  border-left-color: var(--color-orion-primary);
+  background: var(--color-orion-light);
+}
+
+/* Standard Obsidian callout types mapped to companions */
+.callout[data-callout-type="warning"],
+.callout[data-callout="warning"] {
+  border-left-color: #f97316;
+}
+
+.callout[data-callout-type="abstract"],
+.callout[data-callout="abstract"] {
+  border-left-color: var(--color-athena-primary);
+  background: var(--color-athena-light);
+}
+
+.callout[data-callout-type="info"],
+.callout[data-callout="info"] {
+  border-left-color: #06b6d4;
+}
+
+.callout[data-callout-type="quote"],
+.callout[data-callout="quote"] {
+  border-left-color: #94a3b8;
+  background: #f8fafc;
+  font-style: italic;
+}
+
+/* ====================================================================
+   TOGGLE / DETAILS BLOCKS
+   ==================================================================== */
+
+.details,
+.callout.is-collapsible {
+  background: var(--color-neutral-light);
+  border: 1px solid var(--color-neutral-border);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin: 1rem 0;
+}
+
+.details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #475569;
+  user-select: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s ease;
+}
+
+.details summary:hover {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.details-content {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--color-neutral-border);
+  padding-top: 0.75rem;
+}
+
+/* ====================================================================
+   FRONTMATTER / METADATA STYLING
+   ==================================================================== */
+
+/* Hide frontmatter by default in preview */
+.markdown-preview-view .frontmatter {
+  display: none;
+}
+
+/* Metadata in editor mode */
+.cm-fenced-code {
+  background: #f1f5f9;
+  border-left: 3px solid var(--color-lumiaion-primary);
+  padding-left: 0.75rem;
+}
+
+/* YAML frontmatter in source mode */
+.yaml-delimiter {
+  color: #94a3b8;
+}
+
+.yaml-key {
+  color: var(--color-lumiaion-primary);
+  font-weight: 600;
+}
+
+.yaml-value {
+  color: #475569;
+}
+
+/* ====================================================================
+   INLINE FORMATTING
+   ==================================================================== */
+
+/* Bold text */
+strong {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Code inline */
+code {
+  background: #f1f5f9;
+  color: #0f766e;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* Links */
+a {
+  color: var(--color-lumiaion-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid #cbd5e1;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* ====================================================================
+   COMPANION-SPECIFIC TEXT HIGHLIGHTING
+   Using tag-based selection for inline colored text
+   ==================================================================== */
+
+/* Tags for inline companion references */
+.tag[href$="companion/sohma"],
+.tag[href*="#companion/sohma"] {
+  background: var(--color-sohma-light);
+  color: #581c87;
+  border-left: 2px solid var(--color-sohma-primary);
+}
+
+.tag[href$="companion/athena"],
+.tag[href*="#companion/athena"] {
+  background: var(--color-athena-light);
+  color: #1e40af;
+  border-left: 2px solid var(--color-athena-primary);
+}
+
+.tag[href$="companion/vortex"],
+.tag[href*="#companion/vortex"] {
+  background: var(--color-vortex-light);
+  color: #3f6212;
+  border-left: 2px solid var(--color-vortex-primary);
+}
+
+.tag[href$="companion/jeranium"],
+.tag[href*="#companion/jeranium"] {
+  background: var(--color-jeranium-light);
+  color: #0d3b66;
+  border-left: 2px solid var(--color-jeranium-primary);
+}
+
+.tag[href$="companion/gaia"],
+.tag[href*="#companion/gaia"] {
+  background: var(--color-gaia-light);
+  color: #065f46;
+  border-left: 2px solid var(--color-gaia-primary);
+}
+
+.tag[href$="companion/orion"],
+.tag[href*="#companion/orion"] {
+  background: var(--color-orion-light);
+  color: #075985;
+  border-left: 2px solid var(--color-orion-primary);
+}
+
+/* ====================================================================
+   CODE BLOCKS
+   ==================================================================== */
+
+.markdown-preview-view pre,
+.cm-s-obsidian .HyperMD-codeblock {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-left: 3px solid var(--color-lumiaion-primary);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.markdown-preview-view code {
+  color: #e2e8f0;
+  background: transparent;
+  padding: 0;
+}
+
+/* ====================================================================
+   TABLES
+   ==================================================================== */
+
+.markdown-preview-view table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.25rem 0;
+}
+
+.markdown-preview-view th {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-lumiaion-primary);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.markdown-preview-view td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  color: #475569;
+}
+
+.markdown-preview-view tr:hover {
+  background: #f8fafc;
+}
+
+/* ====================================================================
+   LISTS
+   ==================================================================== */
+
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.markdown-preview-view li {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+/* Nested list styling */
+.markdown-preview-view ul ul,
+.markdown-preview-view ol ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ====================================================================
+   HORIZONTAL RULES
+   ==================================================================== */
+
+.markdown-preview-view hr {
+  border: none;
+  border-top: 2px solid var(--color-lumiaion-primary);
+  margin: 2rem 0;
+}
+
+/* ====================================================================
+   RESPONSIVE & ACCESSIBILITY
+   ==================================================================== */
+
+/* Dark mode support */
+body.theme-dark {
+  --color-neutral-light: #1e293b;
+  --color-neutral-border: #475569;
+}
+
+body.theme-dark .markdown-preview-view h1,
+body.theme-dark .cm-header-1 {
+  color: #f1f5f9;
+}
+
+body.theme-dark .markdown-preview-view h2,
+body.theme-dark .cm-header-2 {
+  color: #e2e8f0;
+}
+
+body.theme-dark .markdown-preview-view h3,
+body.theme-dark .cm-header-3 {
+  color: #cbd5e1;
+}
+
+body.theme-dark .callout {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+body.theme-dark blockquote {
+  color: #94a3b8;
+}
+
+body.theme-dark .details summary {
+  color: #cbd5e1;
+}
+
+/* Print styles */
+@media print {
+  .markdown-preview-view h1 {
+    page-break-after: avoid;
+  }
+
+  .markdown-preview-view h2,
+  .markdown-preview-view h3 {
+    page-break-after: avoid;
+  }
+
+  .callout {
+    page-break-inside: avoid;
+  }
+}
+
+/* Mobile/tablet adjustments */
+@media (max-width: 640px) {
+  .markdown-preview-view h1 {
+    font-size: 1.75rem;
+  }
+
+  .markdown-preview-view h2 {
+    font-size: 1.375rem;
+  }
+
+  .markdown-preview-view h3 {
+    font-size: 1.125rem;
+  }
+
+  .markdown-source-view,
+  .markdown-preview-view {
+    font-size: 0.95rem;
+  }
+}
+
+/* ====================================================================
+   END OSG KNOWLEDGE DESIGN SYSTEM CSS
+   ==================================================================== */

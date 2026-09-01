@@ -55,7 +55,8 @@
         "render_markdown": true,
         "show_full_path": false
       }
-    }
+    },
+    "footer_connections": true
   },
   "context_items": {
     "template_preset": "xml_structured",
@@ -81,5 +82,10 @@
   },
   "embedding_models": {
     "default_model_key": "transformers#1782949238128"
+  },
+  "smart_templates": {
+    "template_folder": "",
+    "template_name": "",
+    "template_headings": ""
   }
 }

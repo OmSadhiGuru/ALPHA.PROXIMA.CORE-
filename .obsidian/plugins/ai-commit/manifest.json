@@ -1,0 +1,10 @@
+{
+	"id": "ai-commit",
+	"name": "AI Commit",
+	"version": "1.0.4",
+	"minAppVersion": "1.0.0",
+	"description": "Generate meaningful commit messages via DeepSeek AI for the Git plugin.",
+	"author": "arumata",
+	"authorUrl": "https://github.com/arumata",
+	"isDesktopOnly": true
+}

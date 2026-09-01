@@ -1,30 +1,20 @@
 {
   "main": {
-    "id": "a71ed0ea1e6d07b7",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "fe92f7fb5b8926b5",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "61b304b58f24939e",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Vue graphique"
-            }
-          },
-          {
-            "id": "b2cdd8124860affc",
-            "type": "leaf",
-            "state": {
-              "type": "smart-release-notes-view",
-              "state": {},
-              "icon": "file-text",
-              "title": "Release Notes"
             }
           }
         ]
@@ -59,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#alpha-proxima",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,13 +69,33 @@
               "icon": "lucide-bookmark",
               "title": "Signets"
             }
+          },
+          {
+            "id": "ea8bab8603bf48f8",
+            "type": "leaf",
+            "state": {
+              "type": "chapters",
+              "state": {},
+              "icon": "book",
+              "title": "Book chapters"
+            }
+          },
+          {
+            "id": "d497c39de54a7cc5",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "a38b8525a2651583",
@@ -162,8 +172,8 @@
               "type": "outline",
               "state": {
                 "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "showSearch": true,
+                "searchQuery": "PR-#8"
               },
               "icon": "lucide-list",
               "title": "Plan"
@@ -198,6 +208,58 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "e495dd012b1c0ce1",
+            "type": "leaf",
+            "state": {
+              "type": "goal",
+              "state": {},
+              "icon": "book",
+              "title": "Book goal"
+            }
+          },
+          {
+            "id": "bce29ee4f2c56be6",
+            "type": "leaf",
+            "state": {
+              "type": "aibrowser-chat-view",
+              "state": {},
+              "icon": "messages-square",
+              "title": "OmniChat"
+            }
+          },
+          {
+            "id": "c5e382faf2af04e7",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          },
+          {
+            "id": "7b40e4fb9a9cad52",
+            "type": "leaf",
+            "state": {
+              "type": "agent-client-chat-view",
+              "state": {
+                "initialAgentId": "claude-code-acp"
+              },
+              "icon": "bot-message-square",
+              "title": "New session"
+            }
+          },
+          {
+            "id": "020fffceb542aa05",
+            "type": "leaf",
+            "state": {
+              "type": "deepseek-cli-chat",
+              "state": {},
+              "icon": "bot",
+              "title": "DeepSeek CLI"
+            }
           }
         ],
         "currentTab": 7
@@ -228,47 +290,66 @@
       "realclaudian:Open Claudian": false,
       "smart-connections:Smart Connections: Open connections view": false,
       "smart-connections:Toggle Footer Connections": false,
-      "smart-connections:Smart Connections: Open random connection": false
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-lookup:Smart Lookup: Open lookup view": false,
+      "templater-obsidian:Templater": false,
+      "remotely-save:Remotely Save": false,
+      "obsidian-kanban:Create new board": false,
+      "copilot:Open Copilot Chat": false,
+      "obsidian-importer:Open Importer": false,
+      "homepage:Open homepage": false,
+      "pomodoro-timer:Toggle timer panel": false,
+      "deepseek-cli:Open DeepSeek CLI Chat": false,
+      "html-v-editor:Open HTML V task panel": false,
+      "aibrowser-chat:Open OmniChat": false,
+      "obsidian-book-search-plugin:Create new book note": false,
+      "llm-docs:Create new LLM doc": false,
+      "docx-importer:Import DOCX": false,
+      "docx-importer:Export note as DOCX": false,
+      "smart-templates:Smart Templates: Open template context": false,
+      "smart-context:Smart Context: Open Builder": false,
+      "smart-context:Smart Context: Copy to Clipboard (select depth)": false,
+      "smart-context:Smart Context: List Named Contexts": false
     }
   },
-  "active": "61b304b58f24939e",
+  "active": "455eb1218a3aac43",
   "lastOpenFiles": [
-    "08_SYSTEMS/The Orchestration Framework.md",
-    "07_RESEARCH/RP-006/RP-006 Master Index.md",
-    "07_RESEARCH/RP-006",
-    "07_RESEARCH/RP-005/RP-005 Master Index.md",
-    "07_RESEARCH/RP-005",
-    "07_RESEARCH/RP-004/RP-004 Master Index.md",
-    "07_RESEARCH/RP-004",
-    "07_RESEARCH/RP-003/RP-003 Master Index.md",
-    "07_RESEARCH/RP-003",
-    "07_RESEARCH/RP-002/RP-002 Master Index.md",
-    "07_RESEARCH/RP-002",
-    "07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md",
-    "07_RESEARCH/RP-001/ARCHIVE/DOC-003 Comparative Framework - SanaLab.md",
-    "07_RESEARCH/RP-001/ARCHIVE/DOC-001 Architecture of Human Consciousness.md",
-    "07_RESEARCH/RP-001/ARCHIVE/ARCHIVE Philosophy.md",
-    "07_RESEARCH/RP-001/ARCHIVE",
-    "07_RESEARCH/RP-001/21 Version History/RP-001 Version History.md",
-    "07_RESEARCH/RP-001/21 Version History",
-    "07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md",
-    "07_RESEARCH/RP-001/20 Related ADRs",
-    "07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md",
-    "07_RESEARCH/RP-001/19 Related Laws",
+    "Omi/Memories.md",
+    "OSG_LAUNCH/README.md",
+    "08_SYSTEMS/Engineering Toolkit/Alpha Proxima Engineering Toolkit.md",
+    "05_PROPOSALS/CN-0001 - Constitutional Alignment Gap Report.md",
+    "09_PEOPLE/CODEX.md",
+    "05_PROPOSALS/Phase III Preparation/ALPHA PROXIMA VAULT HEALTH REGISTER.md",
+    "05_PROPOSALS/Phase III Preparation/ALPHA PROXIMA META-LAYER DECISION MEMO.md",
+    "05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md",
+    "Tags/#3",
+    "Tags/#1",
+    "05_PROPOSALS/Phase III Preparation/08_SYSTEMS DRAFT TRIAGE REGISTER.md",
+    "05_PROPOSALS/Phase III Preparation/CN-0001 COUNCIL CLOSURE IMPLEMENTATION PLAN.md",
+    "05_PROPOSALS/Phase III Preparation/PHASE III INSTITUTIONAL READINESS MAP.md",
+    "05_PROPOSALS/Phase III Preparation",
     "07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md",
-    "07_RESEARCH/RP-001/18 Related Constitution",
-    "07_RESEARCH/RP-001/17 NotebookLM Package/RP-001 NotebookLM Source Pack.md",
-    "07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md",
-    "07_RESEARCH/RP-001/15 Future Experiments/RP-001 Future Research Opportunities.md",
-    "07_RESEARCH/RP-001/14 Open Questions/RP-001 Open Questions.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Recurrent Processing Theory.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Predictive Processing.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Panpsychism.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Attention Schema Theory.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Orchestrated Objective Reduction.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Neural Correlates of Consciousness.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Meta Awareness.md",
-    "07_RESEARCH/RP-001/13 Research Graph/Concepts/Integrated Information Theory.md",
+    "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md",
+    "00_CONSTITUTION/Book I - The Constitution.md",
+    "08_SYSTEMS/Engineering Toolkit/Tool 008 - Engineering CLI.md",
+    "08_SYSTEMS/Engineering Standards/08 - Logging Standard.md",
+    "08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md",
+    "04_DECISIONS/ADR-0001 - The Founding Decision.md",
+    "08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md",
+    "07_RESEARCH/RP-001/RP-001 Master Index.md",
+    "03_AI_COUNCIL/Departments/VORTEX Charter.md",
+    "OSG_LAUNCH/10_ACADEMY/AIG/Awaken the Inner Guru Recording Start Guide.md",
+    "08_SYSTEMS/Engineering Toolkit/Tool 001 - Vault Validator.md",
+    "08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md",
+    "04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md",
+    "Awaken the Inner Guru Production Folder.md",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M8_Living_from_the_Inner_Guru",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M7_Discernment_in_Action",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M6_Values_and_Inner_Authority",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M5_Inner_Guidance_Practices",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M4_Shadow_and_Resistance",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M3_Intuition_and_Discernment",
+    "OSG_LAUNCH/10_ACADEMY/AIG/02_RECORDING/EN/M2_Inner_Witness",
     "ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/ALPHA PROXIMA VAULT/ALPHA_PROXIMA_VAULT.canvas"
   ]
 }

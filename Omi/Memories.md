@@ -1,0 +1,410 @@
+# Omi Memory Export
+
+Generated: Jul 29, 2026 at 10:59 PM
+Destination: Obsidian
+Total memories: 400
+
+## Durable memories
+- Focused on Terminal/Claude AI: Frederick is using a terminal, likely interacting with Claude AI, to analyze and implement code within an 'Athena' project. The screen shows file structures, audit logs, and progress on implementing a 'delete_record' function, indicating deep engagement in development.
+- Frederick researched character-data safety, then implemented it to improve business management and ease anxiety.
+- Frederick memorizes content by heart because he lacks a strong internal visual image.
+- Focused on Terminal/Code Editor: The user is working in a terminal, interacting with 'Claude Code in Athena project' and dealing with file paths and commands related to a codebase. This appears to be development work.
+- Focused on Claude: Frederick is interacting with Claude, an AI, providing a prompt related to ATHENA health intelligence audit and implementation. This aligns with his interest in AI agents and building autonomous systems.
+- Frederick prioritizes defining AI teammates' roles: mission, authority, KPIs, and communication.
+- Frederick's mission is to make Alpha Proxima an autonomous operating organization.
+- Focused on Topstep Dashboard: Reviewing an account activation and rebilling agreement for TopstepX, a prop trading firm.
+- Focused on Topstep: Frederick is configuring his public trader profile on Topstep, which involves setting up personal information, verification, and social connections.
+- Distracted on Topstep Training Camp (YouTube video): The user is on the Topstep Training Camp website, but the main window shows a YouTube video titled 'Topstep Training Camp | Lesson 1.1 Orientation'. While Topstep is related to trading, directly watching a YouTube video, especially one explicitly about 'Orientation' rather than active trading or analysis, is a distraction from the Omi goal.
+- Focused on omi.me: Viewing the Omi product page, likely researching before using it.
+- The user maintains a social network reflected in calendar birthday reminders for family and close friends, including contacts nicknamed 'Papasito El Gringo,' 'Mamasita Belsa,' and 'Bigg Daddy Dere Devil.'
+- The user maintains multiple streams of income simultaneously — food service, caregiving, outdoor contracting, and online business — consistent with an entrepreneurial side-hustle mindset.
+- The user has an interest in Reiki and spiritual practices, with a calendar event related to Usui Genkai Reiki.
+- The user trains at Anytime Fitness Buckingham and logs gym sessions targeting specific muscle groups (shoulders, back, biceps).
+- The user is involved in Oliveda direct sales and has attended Oliveda team onboarding and sales calls.
+- The user is enrolled in or closely following the 'Mon Masterplan' coaching program led by Samuël Lapalme and Bruno Desormo.
+- The user regularly attends online webinars and masterclasses focused on affiliate marketing, AI-powered income systems, and trading.
+- The user's birthday is April 5; they scheduled a day off to celebrate ('Ma fête day off').
+- The user is located in the Gatineau/Outaouais region of Quebec, Canada, operates in the Eastern time zone, and communicates primarily in French.
+- The user provides caregiver services ('Proche aidant' / 'Préposé Proche Aidant') and in-home assistance to individuals named Rolande and Jacques.
+- The user performs seasonal manual labor including installing temporary car shelters ('abris tempo') and snow removal ('déneigement'), and tracks their hours and pay rate (approximately $25–$30/hr) directly in calendar notes.
+- The user works or has worked shifts at SushiShop, indicating part-time employment in the food service sector.
+- The user attends a weekly 'Appelle Synergie OLIVE TREE PEOPLE' call every Monday at 9:00 PM ET, indicating active involvement in a network marketing or direct sales team.
+- The user participates in a weekly 'Business Growth & Financial Review' call every Monday evening at 7:20 PM ET without exception.
+- The user holds a recurring 'Deep content planning' session every Tuesday at 1:30 PM ET, suggesting a consistent content creation or digital marketing workflow.
+- Distracted on YouTube: Watching a video titled 'Omi Launch Video' on YouTube.
+- Owns or actively uses a VR headset (purchased a 16 ft VR Link Cable from Amazon) and uses Razer gaming peripherals; has a Golf+ VR account under username OMSADHIGURU
+- Drawn to personal development, mindfulness, and spirituality content from Mindvalley, Amy Robeson, Transformation Academy, Chakra Wisdom, and 4biddenknowledge TV
+- Holds an account on the casino-streaming platform Hype.Bet under username xXBACONxSODAXx and regularly engages with bonus-hunt livestreams
+- Follows several financial and investment newsletters covering AI stocks, market corrections, crypto, and macro trading signals (Finimize, Breakout, FinSoar, Belanger Trading, Moby)
+- Bilingual French-English speaker with an active social network on Facebook and LinkedIn concentrated in the Gatineau-Ottawa region
+- Pursuing multiple online income streams including AI-powered digital products, TikTok faceless pages, print-on-demand via Gelato, and algorithmic stock/crypto trading systems such as Market Trend Pro and Elite Signals
+- Primary banking is with EQ Bank; also uses KOHO and monitors credit via Borrowell; regularly transacts via Interac e-Transfer
+- Uses an extensive AI and productivity stack including Claude Pro, Perplexity Pro, ChatGPT, Microsoft 365 Personal, Canva, Autodesk, Adobe Acrobat, CrewAI, and Relevance AI
+- Actively job-seeking in the Gatineau/Ottawa area with alerts configured on Indeed, Randstad, beBee, and Glassdoor, with interest in HR, education, coaching, and public-sector roles
+- User's full name is Frederick Bélizaire Gunville, residing in Gatineau, Quebec, Canada (Outaouais region)
+- Calendar event — Faststart oliveda sales | Starts: 2025-11-10T09:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-11-10T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-11-10T21:00:00-05:00
+- Calendar event — Abris tempo 6 jf kev 8h | Starts: 2025-11-11T08:00:00-05:00
+- Calendar event — Abris tempo 6 jf kev 7.75h | Starts: 2025-11-12T08:15:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-11-12T13:30:00-05:00
+- Calendar event — Abris tempo 6 tempo jf kev 7h | Starts: 2025-11-13T08:30:00-05:00
+- Calendar event — Abris tempo 5 yair jf 8h | Starts: 2025-11-14T08:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-11-17T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-11-17T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-11-19T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-11-24T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-11-24T21:00:00-05:00
+- Calendar event — Dominique construction de toit | Starts: 2025-11-25T08:30:00-05:00
+- Calendar event — Dominique construction de toiture ! | Starts: 2025-11-26T08:30:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-11-26T13:30:00-05:00
+- Calendar event — Mastering the Art of Conversation with Vinh Giang (120 mins) | Starts: 2025-11-28T00:30:00-05:00 | Location: https://us06web.zoom.us/w/85894437130?tk=kN3D3fQCrGy2Ofnxbf4lnezIv-znIXal011FwJ6_H5o.DQkAAAAT_7UZChZpZ2h0blhFZFNRYXFTZkotRkpzVWV3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=Kb5sTHdMaaMHVlTJX4WXb6pWefaOmw.1&uuid=WN_5tAygLVCTMizSVUJLV4HDQ
+- Calendar event — Zomm call crypto | Starts: 2025-11-29T20:00:00-05:00
+- Calendar event — Terrentretien | Starts: 2025-11-30T15:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-12-01T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-12-01T21:00:00-05:00
+- Calendar event — Mon Master Plan Conférence - Présenté par Samuël Lapalme & Bruno Desormo | Starts: 2025-12-02T16:30:00-05:00 | Location: 75 Bd Gréber, 75 Boulevard Gréber, Gatineau, QC J8T 3P9, Canada
+- Calendar event — Deep content planning | Starts: 2025-12-03T13:30:00-05:00
+- Calendar event — Frederick Belizaire Gunville | Starts: 2025-12-03T18:00:00-05:00 | Location: https://meet.google.com/qwb-kaew-hfj
+- Calendar event — Opportunity Call | Starts: 2025-12-04T21:00:00-05:00
+- Calendar event — Terreentretien | Starts: 2025-12-06T13:30:00-05:00
+- Calendar event — Terrentretien | Starts: 2025-12-08T10:30:00-05:00
+- Calendar event — Blaze 101 Webinar | Starts: 2025-12-08T12:00:00-05:00 | Location: https://event.demio.com/join/uV2qvmsQGEBsmhvr
+- Calendar event — Business Growth & Financial Review | Starts: 2025-12-08T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-12-08T21:00:00-05:00
+- Calendar event — TerrEntretien | Starts: 2025-12-10T11:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-12-10T13:30:00-05:00
+- Calendar event — TerreEntretien | Starts: 2025-12-11T07:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-12-15T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-12-15T21:00:00-05:00
+- Calendar event — Live Coaching w/ Billy Carson | Starts: 2025-12-16T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-12-17T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-12-22T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-12-22T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-12-24T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2025-12-29T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2025-12-29T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2025-12-31T13:30:00-05:00
+- Calendar event — Déneigement terrentretien | Starts: 2025-12-31T15:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-01-05T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-01-05T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-01-07T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-01-12T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-01-12T21:00:00-05:00
+- Calendar event — Unlock Your Learning Potential: Willis College Pathway to Success | Starts: 2026-01-13T18:30:00-05:00 | Location: https://us06web.zoom.us/w/87244388767?tk=nbp57Wo-TeT7wV6XEXeIHbkDRXIcRskeq7mnCQYzSwQ.DQkAAAAUUCu5nxZVUVF1SEV6NFF6V2p2a2ttUVBEZEZBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=aJDsVlGVoOdVqCvF9lGsVmf8zBcMtH.1
+- Calendar event — Deep content planning | Starts: 2026-01-14T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-01-19T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-01-19T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-01-21T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-01-26T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-01-26T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-01-28T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-02-02T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-02-02T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-02-04T13:30:00-05:00
+- Calendar event — SushiShop#1 shifts | Starts: 2026-02-05T12:00:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-06T10:00:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-07T12:00:00-05:00
+- Calendar event — Sushi Shop | Starts: 2026-02-08T16:00:00-05:00
+- Calendar event — Anniversaire : Denise Jean Baptiste | Starts: 2026-02-09
+- Calendar event — Business Growth & Financial Review | Starts: 2026-02-09T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-02-09T21:00:00-05:00
+- Calendar event — Willis College Information Session | Starts: 2026-02-10T11:00:00-05:00 | With: nick.koushan@email.williscollege.com
+- Calendar event — Deep content planning | Starts: 2026-02-11T13:30:00-05:00
+- Calendar event — Sushishop | Starts: 2026-02-12T12:00:00-05:00
+- Calendar event — Anniversaire : Mamasita Belsa | Starts: 2026-02-13
+- Calendar event — SushiShop | Starts: 2026-02-13T12:00:00-05:00
+- Calendar event — Anniversaire : Bigg Daddy Dere Devil | Starts: 2026-02-14
+- Calendar event — SushiShop | Starts: 2026-02-14T12:00:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-15T16:45:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-02-16T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-02-16T21:00:00-05:00
+- Calendar event — Anniversaire : Papasito El Gringo | Starts: 2026-02-18
+- Calendar event — SushiShop | Starts: 2026-02-18T09:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-02-18T13:30:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-19T09:00:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-20T08:00:00-05:00
+- Calendar event — SushiShop | Starts: 2026-02-21T16:00:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-02-23T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-02-23T21:00:00-05:00
+- Calendar event — Deep content planning | Starts: 2026-02-25T13:30:00-05:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-03-02T19:20:00-05:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-03-02T21:00:00-05:00
+- Calendar event — TRADING IN THE BLINDSPOT EVENT | Starts: 2026-03-03T13:00:00-05:00
+- Calendar event — Frederique Bellizaire - Plan de match | Starts: 2026-03-04T10:00:00-05:00 | With: lapalme.gfm@gmail.com
+- Calendar event — Deep content planning | Starts: 2026-03-04T13:30:00-05:00
+- Calendar event — AI ChatGPT Training | Starts: 2026-03-04T18:50:00-05:00 | Location: https://us06web.zoom.us/w/86444735807?tk=pAJ0qj-HYwqa7kuLu4gZeNY1sbEp2m970QimDWzaPZA.DQkAAAAUIIH9PxZSelJ1QThLOFR4LWY3eGNYZy1NQ1RnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_5jEAChXbRFeW7KnWFAAw2Q
+- Calendar event — Voyage jusqu'à Anytime Fitness Buckingham | Starts: 2026-03-05T10:10:38-05:00 | Location: Route 148/des Laurentides
+- Calendar event — Business Growth & Financial Review | Starts: 2026-03-09T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-03-09T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-03-11T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-03-16T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-03-16T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-03-18T13:30:00-04:00
+- Calendar event — [STARTING NOW] The “AI Affiliate” Workshop is live! | Starts: 2026-03-23T14:00:00-04:00 | Location: https://us02web.zoom.us/w/87850440991?tk=P1CwLbah4pStrku1zDS8BpznYHeIr9ePlfCYBNOjIOw.DQkAAAAUdEtZHxZFaThfVEJhQVNJeWJzTWVwTTZrVC1BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_apyx-2IxRduyJp4TX7wTYw
+- Calendar event — The “AI Affiliate Protocol” System: Empowering Everyday People to Earn $1000-5000 in Commissions - Your Ultimate Opportunity to Succeed in 2026! | Starts: 2026-03-23T14:00:00-04:00 | Location: https://us02web.zoom.us/w/87850440991?tk=P1CwLbah4pStrku1zDS8BpznYHeIr9ePlfCYBNOjIOw.DQkAAAAUdEtZHxZFaThfVEJhQVNJeWJzTWVwTTZrVC1BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_apyx-2IxRduyJp4TX7wTYw
+- Calendar event — Business Growth & Financial Review | Starts: 2026-03-23T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-03-23T21:00:00-04:00
+- Calendar event — [STARTING NOW] Going LIVE for the “AI Affiliate” Encore… | Starts: 2026-03-24T14:00:00-04:00 | Location: https://us02web.zoom.us/w/87080156053?tk=n-1NH2T5jxI3c89MCDDtACAkknQcObWzjRPAVEZOrGI.DQkAAAAURmG7lRY4b2lvZGhmQlMzeWlQZHU4a1BZYzV3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_FcSceSAXThi3QNV1MF3SEQ
+- Calendar event — Deep content planning | Starts: 2026-03-25T13:30:00-04:00
+- Calendar event — [STARTING NOW] The $180 Million Workshop is live! | Starts: 2026-03-26T14:00:00-04:00 | Location: https://us02web.zoom.us/w/84296415297?tk=ZObDO83YwkbTkfm8nnhiRXbMrkO4llaNElr7JX1sdaU.DQkAAAAToHU4QRZJWXdBQ1g0QVRnR1BuMVZKRm4zVDRBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_OsP8Hg13T9yBAa0XRPS6-g
+- Calendar event — ENCORE: Discover the Brand New 3 Step AI Powered “HERO+” System for generating $250K in online income | Starts: 2026-03-27T14:00:00-04:00
+- Calendar event — [STARTING NOW] Going LIVE for the 3-Step A.I. Powered “HERO+” Encore… | Starts: 2026-03-27T14:00:00-04:00 | Location: https://us02web.zoom.us/w/84669226899?tk=v317C-qMSHJzA2wQxtRL5P2o4EiEK_jfXqdlKlGXykI.DQkAAAATtq3fkxZ3emNNZG9WWlItU3JMZUdNRWY1cktnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_eWcLBBsXRlCr-b_aI_Uaog
+- Calendar event — [STARTING NOW] HERO+ Q&A Masterclass is live! | Starts: 2026-03-29T15:00:00-04:00 | Location: https://us02web.zoom.us/w/83322384880?tk=fXx7MH4076vExg8Jg20wQiuuNX7Me4rKCgMJooyuZoE.DQkAAAATZmax8BZoSzg2Z1RVb1FWV0c2cDRtYU55M3VnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_xct0MFrVQly6fktn-PrFTg
+- Calendar event — Business Growth & Financial Review | Starts: 2026-03-30T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-03-30T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-04-01T13:30:00-04:00
+- Calendar event — Aide a domicile Rolande & Jacques | Starts: 2026-04-02T10:30:00-04:00
+- Calendar event — [STARTING NOW] HERO+ Final Call | Starts: 2026-04-02T14:00:00-04:00 | Location: https://us02web.zoom.us/w/86096293722?tk=oEqQd3R4s30Eljrg3GimVfFU_jsB7CdU9F_sC5fCrSk.DQkAAAAUC70vWhY4WUtyWG45alQ0V1JGeVM4Y003emx3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_zwC05e29T-6bb45zu75xog
+- Calendar event — Gym Shoulder, Dos, Bicep | Starts: 2026-04-02T18:00:00-04:00
+- Calendar event — Aide a domicile Rolande & Jacques | Starts: 2026-04-02T21:00:00-04:00
+- Calendar event — Sushi Shop | Starts: 2026-04-03T12:00:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-03T23:00:00-04:00
+- Calendar event — SushiShop | Starts: 2026-04-04T12:00:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-04T22:00:00-04:00
+- Calendar event — Joyeux anniversaire ! | Starts: 2026-04-05
+- Calendar event — Ma fête day off | Starts: 2026-04-05
+- Calendar event — Préposé Proche Aidant | Starts: 2026-04-05T19:00:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-04-06T19:20:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-06T20:00:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-04-06T21:00:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-07T20:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-04-08T13:30:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-08T19:00:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-09T21:00:00-04:00
+- Calendar event — Sushi shop | Starts: 2026-04-10T12:00:00-04:00
+- Calendar event — Proche aidant | Starts: 2026-04-10T21:30:00-04:00
+- Calendar event — Aide affiliate system | Starts: 2026-04-12T14:11:06-04:00 | Location: undefined
+- Calendar event — Business Growth & Financial Review | Starts: 2026-04-13T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-04-13T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-04-15T13:30:00-04:00
+- Calendar event —  Zoom Hebdomadaire - Mon Masterplan - Frederick Belizaire Gunville | Starts: 2026-04-16T12:00:00-04:00 | Location: https://us02web.zoom.us/j/84999037332?pwd=bcLN84mN5jI6tOHKklisL83MB5ZEtg.1 | With: monmasterplan@gmail.com
+- Calendar event — Webinar -&nbsp; START TRADING THE SMART WAY | Starts: 2026-04-16T18:00:00-04:00
+- Calendar event — Trading Free Masterclass | Starts: 2026-04-16T18:00:00-04:00 | Location: https://us02web.zoom.us/w/85898113945?tk=MjozrG6yV41DlP8tTfDmYHPlRaWDhrAkIRcSutR0TSg.DQkAAAAT_-0zmRZ3QnlrajJHalFLNjNJUnNtUnZUWnZBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&uuid=WN_0ne-PcCDT3qGYAD5TInK4Q
+- Calendar event — Business Growth & Financial Review | Starts: 2026-04-20T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-04-20T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-04-22T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-04-27T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-04-27T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-04-29T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-05-04T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-05-04T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-05-06T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-05-11T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-05-11T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-05-13T13:30:00-04:00
+- Calendar event — Consultation tattoo for my back | Starts: 2026-05-15T16:00:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-05-18T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-05-18T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-05-20T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-05-25T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-05-25T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-05-27T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-06-01T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-06-01T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-06-03T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-06-08T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-06-08T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-06-10T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-06-15T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-06-15T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-06-17T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-06-22T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-06-22T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-06-24T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-06-29T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-06-29T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-07-01T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-07-06T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-07-06T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-07-08T13:30:00-04:00
+- Calendar event — Get Paid $100 To $1,000+ Per Day With A Simple 'Faceless Instagram Page | Starts: 2026-07-12T19:00:00-04:00 | Location: https://joinevent.link/e/A4vZihL-
+- Calendar event — Business Growth & Financial Review | Starts: 2026-07-13T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-07-13T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-07-15T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-07-20T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-07-20T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-07-22T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-07-27T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-07-27T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-07-29T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-08-03T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-08-03T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-08-05T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-08-10T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-08-10T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-08-12T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-08-17T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-08-17T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-08-19T13:30:00-04:00
+- Calendar event — Business Growth & Financial Review | Starts: 2026-08-24T19:20:00-04:00
+- Calendar event — Appelle Synergie OLIVE TREE PEOPLE | Starts: 2026-08-24T21:00:00-04:00
+- Calendar event — Deep content planning | Starts: 2026-08-26T13:30:00-04:00
+- Email from Binance Community M. — "Reminder for NFT Tuesdays": Get excited! Your event, NFT Tuesdays is happening soon. How to join This event will be hosted online. Log in and check the event page for instructions to join. View the event Tuesday, April 20, 2021
+- Email from eDreams — "Booking 7561404447: we've found you the best deals on cars in Ottawa": We compare 1500 car hire companies to offer you the best price. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from eDreams — "Booking 7561390994: we've found you the best deals on cars in Ottawa": We compare 1500 car hire companies to offer you the best price. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from MYRIAM BERUBE — "Accepté : Invitation: worktime au bureau - Toutes les semaines entre 8:30am et 4pm le lundi, mardi, mercredi (EDT) (mberube15cdxc@wfgmail.ca)": This e-mail and any attachments are intended only for the individual or company to whom it is addressed and may contain information which is privileged, confidential and prohibited from disclosure or
+- Email from Indeed — "PHYSIOOUTAOUAIS recrute pour Agent(e) de bureau temps partiel + 14 nouvelles offres d'emploi pour Temps partiel à Gatineau, QC ": Postuler à des emplois chez PHYSIOOUTAOUAIS, The Jean Coutu Group (PJC) Inc. et Vigi Santé L'Outaouais ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from EcoLine Windows — "Help with Greener Homes Loan of up to $40,000 on new windows. 0 Interest Rate. Free quote.": Your $40000 Loan on Windows EcoLine Windows to me Help with Greener Homes Loan of up to $40000 on new windows. 0 Interest Rate. Free quote. Your $40000 Loan on Windows Help with Greener Homes Loan of
+- Email from Dan Preston — "Onyx-Traders": Dear Frederick, Hope my email finds you well. This is Dan Preston your representative at Onyx-Traders. I tried reaching you over the phone but you weren't available. Please let me know when would
+- Email from Jobs beBee — "Jobs like "Sales Associate" in "Oliver"": beBee.com Job Alert "Sales Associate" in "Oliver" If the results are not very accurate, you can improve your alert here. Seasonal Sales Associate Hudson's Bay - Penticton Talent
+- Email from AliExpress — "Free shipping + extra 50% off": Discover your fave deals ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from AliExpress — "Hi, Frederick, we saved it": View your cart again ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Credit Report Alert. — "Frederick, there is a NEW inquiry on your report!": Review your credit report for accuracy and signs of fraud View Email as a Web Page CHECK YOUR NEW CREDIT REPORT Borrowell logo Frederick, there is a NEW inquiry on your credit report. REVIEW MY NEW
+- Email from Google Agenda — "Aucun événement planifié aujourd'hui.": Google Agenda Frederick Bélizaire Gunville, vous n'avez aucun événement prévu aujourd'hui mar. 6 août 2024 Cet e-mail vous a été envoyé sur le compte frederick.belizairegunville@gmail.com, car
+- Email from moi — "(no subject)":
+- Email from AliExpress — "Frederick.Bélizaire Gunville,Final call for winter comforts": Up to 70% off... act fast! ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Gemini Advanced — "Welcome to the Gemini Era": Welcome to the Gemini Era Gemini Advanced to me Gemini Advanced gives you priority access to Google's next-gen AI. Welcome to the Gemini Era Gemini Advanced gives you priority access to
+- Email from KOHO — "You’ve lost access to Cover": The deadline for paying your subscription fee passed Hello, Unfortunately, we've had to go ahead and cancel your Cover subscription as a result of not paying your fee on time. If you'd like to
+- Email from Ember — "You have a new friend! 🤝": You have a new friend! 🤝 Hey there! @Doug Graves#2554 just signed up with your link! Earning Bitcoin with your friend gives both of you a HUGE boost! Top players earn $100+ per month and have over 5
+- Email from Olive Tree People — "Opportunity Call: Learn Why Waterless Beauty Is Revolutionary": Start Your Waterless Business + Earn a Special Enrollment Gift ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏
+- Email from Olive Tree People — "Ending Soon: Don‘t Miss out on your FREE Gift": FREE shipping + 25 % off + FREE F76 Mask for US & CA. ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌
+- Email from Elite Signals — "70% OFF?! Alright... Use it or lose it.": Hi , We've saved the best offer for last – 70% OFF! 🎉 This is your final opportunity to grab EliteAlgo and Premium Signals Discord at 70% OFF the price, but you have to act NOW. 💥 Use code:
+- Email from Victoria from Hype.. — "🎉 Hype.Bet Turns 1 // Hype.Bet fête ses 1 an!": ​French version to follow ​ Hey xXBACONxSODAXx, Hype.Bet is officially 1 year old this March – and we're throwing the biggest party yet for you, our players, streamers, and the whole community that
+- Email from Customer service — "Re: SERVICE PROCESSING 34 68572024 03-27-2026": please repsond Hola estimado cliente, 感谢您选择 seniorrising.com。Su solicitud ha sido recibida correctamente y se encuentra actualmente en proceso de validación por nuestro equipo. Estamos analizando los
+- Email from Jackpot Services — "Re:Request for Service 36767577 04-02-2026": Please Respond Bonjour frederick.belizairegunville, Nous vous remercions pour votre demande. Les informations concernant Jordan Lee ont bien été enregistrées dans notre système. Thank you for your
+- Email from Security Jackpot — "transaction completed – mysonggram.com – 9507": opt out Bonjour frederick.belizairegunville, Nous vous remercions d'avoir soumis vos documents d'identité sur mysonggram.com. Hemos recibido correctamente su solicitud de verificación de cuenta
+- Email from Security JackpotSuc. — "{SRV026} Order approved–04-20-2026– 3684": Unsbscribe Hello frederick.belizairegunville, Votre demande d'activation de service a bien été enregistrée mhrintl.com Saludos / Best regards / Mit freundlichen Grüßen / Distinti saluti / 此致敬礼, No
+- Email from Coach Brian — "Six Figures in a single month? (Limited Replay)": If you haven't seen the case study in the workshop replay yet, you need to watch it now before it's taken down. Robby pulls back the curtain on a single telehealth offer that generated $103000
+- Email from Support at Relevanc. — "Important Notice: Inactive Knowledge Tables Being Cleared on 4 May": Hi frederick, ​ We're reaching out with an important notice regarding your Relevance AI account. ​ In four days, on 4 May 2026 (AEST), we will be clearing inactive knowledge tables. Recently, we
+- Email from Luke — "ready to start building your own J.A.R.V.I.S.?": Hey Freddy, ​ This is Luke (the guy from the cool Jarvis IG video haha). ​ I just wanted to send you a quick email with some updates. ​ First off, thanks so much for joining the email list. I don't
+- Email from Instant Millionaire. — "frederick.belizairegunvilleMEMBERS SUPPORT TRANSACTION 16389661662has been received – 05-27-2026 – 0389": Your Deposit 5389661662has been successfully received Bonjour frederick.belizairegunville, We have successfully updated your password for Thomas Lefebvre. Votre mot de passe a été modifié avec succès
+- Email from Hype.Bet — "$1,000 on the table — and trivia TONIGHT": ​ ​ Hey xXBACONxSODAXx, ​ $1000 is on the table. Who's taking it? ​ 🏆 JUNE WAGER COMPETITION — LIVE NOW Wager the most on any game in the June Games category before June 27 and you're in the
+- Email from workingalive.com — "Your deposit 5379580720 success:": Your transaction 5379580720has been successfully received Hi frederick.belizairegunville, workingalive.com Dear frederick.belizairegunville, You have received a Reverse Mortgage: $630.71 Sent by VEEM
+- Email from Travis Woo — "Access to MTP is open…": Aloha Frederick, I'm opening the doors for MTP today. And I know there are 2 types of people reading this email… Either you've been trading for a long time, sitting in front of the charts all
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots $5000 Bonus hunt.. with 2500$ wheel..Come & join the party JOIN NOW
+- Email from Hype.Bet — "Bisou started live transmission. Join the show!": Hey xXBACONxSODAXx Bisou has just kicked off a live transmission, and you're invited to join the action 👀 ! Bisou FRIYAY NIGHT HUNT 🧃 COME WIT US 🧃 JOIN NOW If you have any questions feel free to
+- Email from Travis Woo — "A community of winners": Aloha Frederick, If you think that people who win inside the system have something special… That every trade they place comes out to be a winner… Then let me tell you, they are just like you. One of
+- Email from Hype.Bet — "Bisou started live transmission. Join the show!": Hey xXBACONxSODAXx Bisou has just kicked off a live transmission, and you're invited to join the action 👀 ! Bisou SUNDAY HUNT MAXXX 🧃 COME WIT US 🧃 JOIN NOW If you have any questions feel free to
+- Email from Travis Woo — "trade less, win more, enjoy life": Aloha Frederick, I woke up this morning, made my lunch, took some time to read and I got out the house... Ran dolphin tours till noon, came home, cooked, and went for a bike ride along the coast. The
+- Email from Hype.Bet — "$25,000 CAD - our biggest competition yet": Hey xXBACONxSODAXx, ​ This is the biggest one yet. ​ $25000 CAD. One month. 20 winners. ​ The July Wager Competition just went live - powered by our title sponsor Nolimit City, with BGaming, Hacksaw,
+- Email from risingsuncompany.com — "Your Withdrawal Request Has Been Received": SRV049 members ZHTGIUQHOMTNBEISIO update:no deposit Hello frederick.belizairegunville, We received your request to withdraw
+- Email from Luke — "Still want the JARVIS setup guide? (one click)": Finally here :) ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Filip Tapa — "registered. now one small thing…": hey Frederick Belizaire, you're officially registered for the faceless page training at Sunday, July 12th @ 7:00 PM EDT. here's your personal access link. save this email, this link is yours:
+- Email from Zoom — "Get Paid $100 To $1,000+ Per Day With A Simple 'Faceless Instagram Page Confirmation": Hi Frederick Belizaire Gunville, Thank you for registering for Get Paid $100 To $1000+ Per Day With A Simple 'Faceless Instagram Page. You can find information about this webinar below. Please
+- Email from ROLANDE BEAUMIER — "Interac e-Transfer: You've received $300.00 from ROLANDE BEAUMIER and it has been automatically deposited.": Frederick Belizaire Gunville, your funds sent from ROLANDE BEAUMIER have been automatically deposited. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ INTERAC e-Transfer View in browser | FR ? Hi Frederick
+- Email from Adrian Dimac — "Giving up on making cash online?": [My only promise to you] ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from EQ Bank — "Your interest rate has changed to 1.00%* / Votre taux d’intérêt est passé à 1,00 %*": You are now earning 1.00% interest* on everyday banking / Vous recevez maintenant 1,00 % d'intérêt* sur les services bancaires courants. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Microsoft Store — "Thank you for signing up": Shop with confidence at Microsoft Store ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏
+- Email from Microsoft — "Your purchase of Microsoft 365 Personal has been processed": Thanks for subscribing. Your purchase of Microsoft 365 Personal has been processed Thanks for subscribing to Microsoft 365 Personal. We're happy you're here. We've charged CAD 13.23 to
+- Email from Luke — "did you see this?": free jarvis course is out! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from OpenAI — "New sign-in to your OpenAI account": New sign-in details for your OpenAI account. Hello, We noticed a new sign-in to your OpenAI account. App: ChatGPT Windows App Time: July 16, 2026 at 7:38 PM (EDT) Approximate location: Gatineau, CA
+- Email from Travis Woo — "Talk to an MTP member": Aloha Frederick, I woke up at 6am today, brought Nalani for a walk down the beach… Then did two 40 minute dives working on advanced scuba training. Brought the dog out on the work boat after. Good
+- Email from Hype.Bet — "Katoue4 started live transmission. Join the show!": Hey xXBACONxSODAXx Katoue4 has just kicked off a live transmission, and you're invited to join the action 👀 ! Katoue4 MAX WIN LET'S GET IT !!!! JOIN NOW If you have any questions feel free to
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots $4000 Bonus Hunt JOIN NOW If you have any questions feel free to
+- Email from Hype.Bet — "Bisou started live transmission. Join the show!": Hey xXBACONxSODAXx Bisou has just kicked off a live transmission, and you're invited to join the action 👀 ! Bisou FRIYAY NIGHT HUNT 20H 🍭🍭🍭 COME WITH US 🍭🍭🍭 JOIN NOW If you have any questions feel
+- Email from ChatGPT — "Saisissez votre clé de récupération pour déverrouiller votre compte": Le délai d'attente de 48 heures est terminé. Saisissez à nouveau une clé de récupération pour déverrouiller votre compte. Bonjour, Le délai d'attente de 48 heures s'est écoulé. Pour accéder
+- Email from Alibaba Remind — "Donghai Pellocci Crystal Products Co., Ltd. just added new products you might like": New arrivals ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Finelo — "Bienvenue à bord!": Ta première leçon t'attend. On te prépare ça en moins de 60 secondes Bienvenue à bord ! Commençons 👋Liste de bienvenue Voici quelques conseils pour commencer Vous avez une question ? Vous avez reçu
+- Email from uRgENt •°*•°”˜.•°”. — "Veillez Confirmer VoTre Adresse Email! mmf mmf ": (1) (1) Confirmé, vous êtes Sélectionné!
+- Email from Hype.Bet — "Bisou started live transmission. Join the show!": Hey xXBACONxSODAXx Bisou has just kicked off a live transmission, and you're invited to join the action 👀 ! Bisou SUNDAE JUICER 🍭 WAGER X30 🍭 2500$ WHEEL 🍭 COME WITH US 🍭 JOIN NOW If you have any
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 3000$ Bonus Hunt JOIN NOW If you have any questions feel free to
+- Email from EBell — "Offre de TCR sur votre dossier en suspend": Sans préjudice Sauf erreurs et ommissions Agence de Recouvrement TCR Ltée Permis 400068 le 20 juillet 2026 FREDERICK BELIZAIRE-GUNVILLE 2528 SAINT-LOUIS ST APT GATINEAU, PQ J8V 1A2 Numéro de référence:
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 4000$ Bonus Hunt...with 1000$ Promo Wheel...Come & Join. WEEE JOIN
+- Email from Facebook — "À propos de Freddy et d’autres personnes : 5 messages et 6 autres nouvelles notifications.": Frederick, consultez vos messages et autres notifications non lus à propos de Freddy Peace et Nick Groulx. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from LinkedIn — "Christopher, Nathalie, and Creating Brighter Futures shared new posts": Wildlife photography often rewards patience more than persistence. While… ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Revenu Québec — "Avis de dépôt d'une communication": Bonjour, Vous avez reçu une communication dans votre espace sécurisé Mon dossier pour les citoyens. Pour consulter cette communication, rendez-vous sur notre site Internet et cliquez sur le bouton Mon
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 4000$ Bonus Hunt...Come and Join the fun...WEEEEEEEE JOIN NOW If you
+- Email from cherry picking and.. — "cherry picking and tree planting CANADA, AUSTRALIA, NZ : Cueilleur(euse) d'algues...": Grégøire Martin a publié une mise à jour : « Cueilleur(euse) d'algues... » cherry picking and tree planting... : Cueilleur(euse) d'algues à Cacouna -... 21 juillet à 21 h 41 Afficher Ce message
+- Email from LinkedIn — "1 professional viewed your profile": You're getting noticed ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Sam sur Facebook — "Sam Laurin 😊 vient de mettre à jour son statut": 📄 Sam Laurin a publié une mise à jour. 21 juillet à 14 h 49 Voir le statut 📄 Sam Laurin a publié une mise à jour. 21 juillet à 14 h 49 Voir le statut Ce courriel a-t-il été :Utile | Inutile Ce message
+- Email from LinkedIn — "Creating Brighter Futures recently posted": Something exciting is happening behind the scenes… ✨ With new tools, improved… ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from ””Derrnier Rappel”” — "💰 FREDERICK BELIZAIREGUNVILLE: Nous avons essaye de vous joindre ":
+- Email from ROLANDE BEAUMIER — "Interac e-Transfer: You've received $100.00 from ROLANDE BEAUMIER and it has been automatically deposited.": Frederick Belizaire Gunville, your funds sent from ROLANDE BEAUMIER have been automatically deposited. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ INTERAC e-Transfer View in browser | FR ? Hi Frederick
+- Email from LinkedIn — "Leadership Development request from Marie Vecera and other clients are available. Show Requests.": Leadership Development request from Marie Vecera and other clients are available. Show Requests. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Kalyx sur Facebook — "💬 Fournier Kalyx a laissé un commentaire : « Yes I already do... »": ⛽ 10 Hours on an Oil Rig… Could You... ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Ren sur Facebook — "Ren : Thank you so much for...": Découvrez les nouveautés. Ren a publié une mise à jour 23 juillet à 05 h 18 Afficher la publication Ce message a été envoyé à frederick.belizairegunville@gmail.com. Si vous ne souhaitez plus recevoir
+- Email from Travis Woo — "quick heads up before tomorrow": Aloha Frederick, I'm opening access to MTP tomorrow. This is the tool that allows me to live how I want. It does the work on the markets for me while I'm out there spending my time in a way
+- Email from Luke — "Ready to launch your first AI agent?": (Time sensitive invite inside!) ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from LinkedIn — "Walmart Canada Store Manager recently posted": When you have committed associates, you are already winning. I am incredibly… ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Claude Team — "Fable 5 has moved to usage credits": Claim your one-time usage credit before August 2. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Luke — "What an AI agent can actually do for you": Quick story ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Travis Woo — "onboarding for MTP": Hey aloha Frederick, Good morning from me and Nalani 🤙🏽 I'm onboarding a few more people into Market Trend Pro (MTP) starting today. The same system that opened doors for me a few years back….
+- Email from Glassdoor — "Glassdoor is now part of Indeed": Better together: Glassdoor is part of Indeed ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 3500 bonus hunt come and enjoy the fun JOIN NOW If you have any
+- Email from LinkedIn — "Resume Review request from Gurinder Kaur and other clients are available. Show Requests.": Resume Review request from Gurinder Kaur and other clients are available. Show Requests. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Luke — "~6 hours left": If not now, then when? ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Kendra sur Facebook — "💬 Kendra McFarland a laissé un commentaire : « What a waste of time and money. Our BC gov is making...": This is now the 3rd time in the past... ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Claude Team — "Introducing Claude Opus 5": Included in your plan: our most advanced Opus model. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Perplexity — "You've upgraded to Perplexity Pro": Advanced AI models, Deep Research, and Computer — all yours Welcome to Perplexity Pro You now have access to advanced AI models, Perplexity Computer, deep research tools, and powerful features to bring
+- Email from Travis Woo — "a few stories for you": What MTP members are experiencing Aloha Frederick, Before we wrap up onboarding, I wanted to share how a few people are actually doing with the system… Like Bryan...spent years glued to charts, trying
+- Email from Vanessa sur Facebook — "Vanessa Brassard 😊 vient de mettre à jour son statut": Qui qui est venu cogner chez moi ?? 🤷‍♀️ 📄 Vanessa Brassard a publié une mise à jour. 25 juillet à 16 h 37 Voir le statut Djoulie Livernoche a réagi à ça. Ce courriel a-t-il été :Utile | Inutile Ce
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 6000$ Bonus Hunt....Come and Join the Party.. WEEEEEEEE JOIN NOW If you
+- Email from Oliver Fire Departm. — "Oliver Fire Department : *Note* We’d like to...": Découvrez les nouveautés. Oliver Fire Department a publié une mise à jour 25 juillet à 18 h 32 Afficher la publication Ce message a été envoyé à frederick.belizairegunville@gmail.com. Si vous ne
+- Email from Hype.Bet — "Bisou started live transmission. Join the show!": Hey xXBACONxSODAXx Bisou has just kicked off a live transmission, and you're invited to join the action 👀 ! Bisou SOOO FRESH HUNT 22H 🧊 COME WITH US 🧊 JOIN NOW If you have any questions feel free
+- Email from Travis Woo — "Answering any question you have…": Aloha Frederick, I'm still onboarding new people till Monday night, 11:59 PM. I know some of you have questions before you jump in... About capital, about setup, about whether this actually fits
+- Email from Adrian Dimac — "This “90/90 system” made me and my team 184,206.94 USD": And now I want to share with you ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from LinkedIn — "Leadership Development request from PRATIKKUMAR VALA and other clients are available. Show Requests.": Leadership Development request from PRATIKKUMAR VALA and other clients are available. Show Requests. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from ””DernieR RaPpeL”” — """FREDERICK BELIZAIREGUNVILLE""Yukon Gold a une surprise pour vous MA- ":
+- Email from GOLF+ — "Verify Email - Golf+": Hello OMSADHIGURU! You're one step closer to earning 500 G+ credits! Verify email Twitter Facebook Instagram Copyright © 2022 Golf Scope, Inc. All rights reserved.
+- Email from Chantal sur Facebook — "💬 Desaulniers Diane Chantal a laissé un commentaire sur sa photo": ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from LinkedIn — "👤 Frederick, add Marie-Jeanne Melançon": Céramiste ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 6000$ Bonus Hunt...with $1000 Promo Wheel .. Come & Join.. WEEE
+- Email from Jobs in Antarctica . — "Jobs in Antarctica : Gday team I’m Ben, I’m a...": Ben Salt a publié une mise à jour : « Gday team I'm Ben, I'm a... » Jobs in Antarctica : Gday team I'm Ben, I'm a chef with dual... 27 juillet à 21 h 54 Afficher Ce message a été envoyé
+- Email from LinkedIn — "Carl Goyette - President & CEO reacted to this post: Fier d’avoir participé au…": Fier d'avoir participé au… ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Facebook — "À propos de Kalyx et d’autres personnes : 1 invitation d’ajout, 6 messages, 9 autres nouvelles notif...": Frederick, consultez vos messages et autres notifications non lus à propos de Fournier Kalyx et Desaulniers Diane Chantal. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from tutigroup.org — "xgonostelm, divorced, looking for a single man 40+": I'm not sure if looking for someone with similar interests is a good idea. Let's start with a pic and a chat and we'll see maybe we are opposites that attract.Ariyou REPLY See my pics See
+- Email from JALF.com — "Journal de JALF - Édition du 28 juillet 2026": JALF Salut Djangos69, C'est pas l'action qui manque sur JALF ! Rince-toi l'oeil avec les vidéos les plus aimées Voir toutes les vidéos Rince-toi l'oeil avec les vidéos les plus aimées
+- Email from urGEnT •°*•°”˜.•°”. — "Veillez Confirmer votre Adresse Email! ovm ovm ": (1) Notification d'un Bonus Potentiel licensing21.com licensing21.com
+- Email from ✨100 Free Spins🚀 — "⚡We Miss You: Here's a Bonus to Get You Back in the Game!⭐.8416#.": Your Lucky Days welcome package is ready: C$1500 + 100 Free Spins. Welcome Casino Bonus Lucky Entry Activated Welcome to Lucky Days Casino! New Player Package C$1500 + 100 Free Spins All new players
+- Email from Amy Robeson — "The Doors Are Officially Closed 💫": The end of one era ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌
+- Email from Mindvalley Highligh. — "🧠 How a 27-minute hypnosis shattered my self-doubt": It just turned my self-doubts into oddly unshakable confidence ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿
+- Email from Webull — "Qualify for up to $250 in Cashback": Dear Valued Client, Start your trading journey with Webull Canada and qualify for valuable trading rewards. During the promotion period, new clients may receive up to $250 in Cashback rewards when they
+- Email from 💦PussyDream — "Hello, frederick.belizairegunville@gmail.com Message from BrigetteNytro564": LOCAL OBSERVER ✉️ Volume XIV // Classified Ads Section The following listing was posted anonymously by a verified resident in your immediate radius: ⚠️ AD #9082 – SEEKING UNEXPECTED COMPANY "
+- Email from 🟣Messenger — "Reply to an important message": messenger New activity You have 1 new message request Someone connected to your area and mutual contacts wants to reach you. A Anna Suggested from nearby people 2 mutual connections now Hi, I think I
+- Email from Votre Cadeaux! . — "belizairegunville Vous avez reçu un billet d'or 2026 - 529 ": Félicitations! Votre Chèque écrit Ouvert Immédiatement!
+- Email from Temu — "Vos achats ont été retournés sous forme de crédits": Vous avez reçu un crédit de retour sur 28 juill. 2026 ! Achetez-le maintenant ! ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏
+- Email from Banque EQ — "Offre exclusive de la Banque EQ : Ne passez pas à côté de 150 $ en points* PC Optimum🅪!": Célébrez l'arrivée de PC Financeᴹᴰ à la Banque EQ avec cette offre exclusive. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Gelato Team — "Back to school. Back to business. 😎": Will you stock the locker for the new school year? ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Starbucks — "🍊 One dreamy flavour, three ways to sip | Une saveur à déguster de trois façons 🍊": Your new summer fave has just arrived | Découvrez votre nouvelle saveur estivale préférée ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from 4biddenknowledge TV — " 👑 The 4BiddenKnowledge Family Has Been Summoned": A Personal Note from Billy Carson Dear 4Biddenknowledge Leaders, One of the things I'm most proud of isn't only what we've built—it's who we've become as a community. The
+- Email from Adobe Acrobat — "A smarter way to work with PDFs": Tell Acrobat what you need. AI Assistant handles the rest. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Randstad Canada — "🌟Frederick, votre profil intéresse du monde": Consultez les dernières offres d'emploi en ressources humaines disponibles au Québec. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Sellvia — "We’re removing your free Amazon Seller Kit and store tomorrow": 24 hours left ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from Canva — "Frederick, you asked for better docs": Your wish is our command. See all the new features. ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿
+- Email from Rachel Krider | Pro. — "RE: The emotional reason your future feels blocked": Hi Frederick , If you have ever worked incredibly hard, visualized your outcomes, and still felt that sinking certainty inside that things just would not work out, this is for you. Shane and I were
+- Email from FinSoar — "Is the Economy Just Chipping Away?": July 28, 2026 | Read online Is the Economy Just Chipping Away? Welcome to FinSoar! Today, I'm watching the Fed, the market correction coming for AI stocks, and CocaCola's incredible run: The
+- Email from Moby — "Panic is the opportunity": Bad day? Read this... ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from DoorDash — "N’oublie pas : tu as 40 % de rabais sur 2 commandes.": Profite au maximum de ton abonnement à la DashPass avec cette offre exclusive. ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏
+- Email from Razer — "Take Your Keyboard Anywhere You Go": Ultra-slim protection that doubles as a stand To view this email as a web page, click here. RAZER PROTECT. PLAY. ADAPT. RAZER TRAVEL CASE FOLIO FOR PORTABLE KEYBOARDS This ultra-slim PU leather case
+- Email from Vous êtes sélectio. — "Vérifiez votre invitation ! ":
+- Email from SkyCap Financial — "Frederick, quick question about your next move": Flexible ways to keep your plans on track this month. Hope your week is going well. It feels like everyday expenses are creeping up for everyone right now. If you are planning something big soon or
+- Email from Adrian Dimac — "🔴 (1) Invitation For You.": Adrian Dimac Has Sent You A Personal Invitation. Topic - “How Normal People Are Using AI To Create "Faceless" TikTok Pages That Make 300+ A Day From Selling Digital Products” ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Amy Robeson — "The One Spiritual Awakening Video to Watch": What no one tells you about awakening. ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌
+- Email from viarailcan-jobnotif. — "Nouvelles offres d'emploi publiées par careers.viarail.ca": Vous recevez ce courriel parce que vous avez rejoint la communauté de talents VIA Rail Canada le 2026-01-13. Vous recevrez ces messages tous les 7 jour(s). Votre alerte d'emplois correspond aux
+- Email from Zoom — "You're invited: Zoomtopia 2026 registration is here": See some of the biggest ideas in collaboration, AI, and productivity. ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿
+- Email from bassbios.com — "frederick.belizairegunville 725 submit 07-28-2026 431": Hi,frederick.belizairegunville Turn upOhMWDjQjD0N the Night Fever and spin for glory Hi,frederick.belizairegunville Your VPSRV054725 has been rebuilt. The VPSRV054725 details are as follows :
+- Email from ””URGEN T”” — "' ' " 💰 NousAvons Essaye DeVouss joindre 💥 ":
+- Email from Matt Leitz — "⏱️ Your shortcut to more time and impact": It's a pretty awesome resource. What if you could save hours of work every week while delivering more value to your audience? With PLR.me, you can. It's like the "iStockPhoto" of
+- Email from Chakra Wisdom — "Your chakra card reading for July 28, 2026 is ready": Hi Frederick, Your Energy Oracle Reading For Today Is Ready.. Just select a card and reveal the hidden secrets of your Chakras. Tap into divination & life guidance: Select Just One (1) Card...
+- Email from JALF.com — "Djangos69, voici ton Aphrodite": JALF Salut Djangos69, De nouveaux membres correspondants à tes critères de recherche se sont inscrits hier, et d'autres ont ajouté de nouvelles photos pouvant t'intéresser. 48 nouveaux membres
+- Email from CrewAI — "Introducing: Crew Studio ": The first automated agent builder is here ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Matt Leitz — "The business that never sleeps": This is the massive opportunity behind AI clones. Let me ask you a simple question. How many conversations can you have in a day? Twenty? Fifty? Maybe a hundred if you're really pushing it? No
+- Email from Voyages à Rabais — "☀️ Échappez au quotidien sous le soleil du Mexique!": Découvrez nos meilleurs forfaits à la Riviera Maya. Voyages à Rabais Sud | Circuits | Blogue | Forum Voyages à Rabais 🇲🇽 Cap sur le Mexique! 🌮 La Riviera Maya vous attend avec ses complexes tout inclus
+- Email from Breakout — "We listed the Nasdaq. It immediately dumped. You're welcome.": Your weekly 'After Hours' update Breakout GM. Funny thing happened after we added the Nasdaq 100 last week: it fell apart almost immediately. The Mag 7 had their worst day since April 2025 on
+- Email from Adrian Dimac — "The NEW way to sell digital products online": - ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Autodesk — "When your workload changes, your tools should too": Project based work? Flexible tools make it easier ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from beBee Alerts — "Top 20 conseiller-formation jobs hand-picked for you": beBee There are 20 new openings matching your profile today. Here's the strongest fit. Your alert · conseiller-formation Hi Frederick, Your next job starts here. There are 20 new openings matching
+- Email from Alertes d'emploi de. — "10 nouvelles offres d'emploi pour "emploie gatineau" - 28 juill.": Emploie gatineau Gatineau, QC T Gérant(e) de succursale Travailler au dep | Reseau Sylvain Turgeon Gatineau, QC, Canada via Indeed 28 juill. À plein temps S Employé(e) Polyvalent(e) Sushitaxi
+- Email from GOLF+ — "Reminder: Verify Email - Golf+": Hello OMSADHIGURU! Remember to verify your email to get 500 G+ credits! Verify email Twitter Facebook Instagram Copyright © 2022 Golf Scope, Inc. All rights reserved.
+- Email from Finimize Daily — "♨️ Europe's heat exhaustion": Plus, Mercedes-Benz is riding low | Your Daily Brief is ready | 3:13 read time View in browser You're on the free version of Finimize. Upgrade to paid 👀 WHAT'S GOING ON All metrics are as of
+- Email from Transformation Acad. — "Free quiz: discover your coaching archetype": Built for coaches, helpers, and guides ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Adrian Dimac — "Joining me in 1 hour?": Plus my only promise to you ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from CT Team — "Test your luck 🎲": Win up to 40000 HSH, 500 kH/s miner, and x30 Boost ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌ ‌‌‌‌‌‌‌‌‌‌
+- Email from Jo Bouchard — "Pourquoi certains traders font moins... et gagnent plus": Savoir ne rien faire est une compétence Salut Frederick, La plupart des traders tradent beaucoup. 20 trades par semaine. 30 trades. 50 trades. Ils ont l'impression d'être productifs... Mais
+- Email from EQ Bank — "Interac e-Transfer: Your $250.00 transfer to Frederick Bélizaire Gunville has been successfully deposited.": Frederick Belizaire Gunville, your transfer to Frederick Bélizaire Gunville was successfully deposited. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ INTERAC e-Transfer View in browser | FR ? Hi Frederick
+- Email from Adrian Dimac — "🚨I’m LIVE [TikTok Pages + AI Workshop]": Don't miss this chance to hop on live with me and get your own journey started... ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Adrian Dimac — "🚨 Last Call to Join me LIVE": [Doors closing] ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from AU 2026: The Design. — "Last chance to save $250 on AU 2026": Early Bird rate ends August 3 ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+- Email from frederick.belizaire. — "We've blocked your account! 🚫 Your photos and videos will be deleted on 16-06-2026 ⚠️ Renew your subscription for free now!": Payment Method Declined Dear Customer, Your cloud storage is full, and your photos, videos, contacts, and documents are no longer being backed up. We attempted to renew your monthly subscription using
+- Email from Hype.Bet — "Nordicslots started live transmission. Join the show!": Hey xXBACONxSODAXx Nordicslots has just kicked off a live transmission, and you're invited to join the action 👀 ! Nordicslots 5000 Bonus hunt..Come and join the huge party..Max win??? JOIN NOW If
+- Email from Indeed — "Personal Banking Associate at BMO Financial Group. 18 more life coaching jobs in Gatineau, QC": $36000–$54500 a year. Application Deadline: 08/05/2026 Address: 3775A Strandherd Drive Job Family Group: Retail Banking Sales & Service Delivers exceptional service to BMO customers and prospects.
+- Email from Indeed — "Relief Educator (Educateur) / Youth Worker -$42 per hour chez Shift Human Services Consulting : 29 autres offres à Salaberry-de-Valleyfield, QC": 42 $ de l'heure. *Description de travail* Aimez-vous travailler avec les adolescents? Si tel est le cas, cette opportunite est pour vous. Nous agissons un éducateur confirmé pour travailler les
+- Email from Belanger Trading — "Dot-Com 2.0: This Is How Nvidia Dies": Monday's headline on Nvidia read like the biggest order in the history of the AI trade. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+- Email from Olive Tree People S. — "OPEN Masterclass: Stephani's Favorites": How to bundle your BOGO like a Master Esthetician ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌
+- Email from Amazon.ca — "Ordered: "INIU 16ft VR Link Cable..."": Ordered: "INIU 16ft VR Link Cable..."͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏
+- Instead of shell commands, ask Claude Code to perform a specific task within your project context.
+- Approve command only if you trust the project, as it can execute untrusted git hooks.
+
+## How to use this
+This export was generated by Omi and can be refreshed at any time.
