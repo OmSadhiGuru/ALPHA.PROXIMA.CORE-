@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-08-31T04:39:39+00:00",
+  "updated_at": "2026-09-01T18:15:06+00:00",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
@@ -14,11 +14,11 @@
   },
   "next_action": {
     "id": "NXT-001",
-    "title": "Decide the disposition of PR #10 (CN-001) — resume, rebase, or close",
+    "title": "Decide document-level salvage for PR #7, or close it",
     "owner": "Founder",
-    "context": "Best existing coherence workstream per the Reboot Audit; one commit ahead, no conflicting main changes",
-    "priority_id": "PRI-002",
-    "set_at": "2026-08-31T04:39:39+00:00"
+    "context": "19 commits ahead / 84 behind at last audit; Reboot Audit forbids merging wholesale",
+    "priority_id": "PRI-004",
+    "set_at": "2026-09-01T18:13:54+00:00"
   },
   "priorities": [
     {
@@ -39,13 +39,13 @@
       "why": "CN-001 cannot proceed while canonical work is split across unmergeable branches.",
       "project": "PRJ-003",
       "owner": "Founder",
-      "status": "open",
+      "status": "done",
       "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
+      "updated_at": "2026-09-01T18:13:54+00:00"
     },
     {
       "id": "PRI-003",
-      "rank": 2,
+      "rank": 1,
       "title": "Prove one end-to-end routing lane through LUMIAION",
       "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
       "project": "PRJ-002",
@@ -53,6 +53,17 @@
       "status": "open",
       "created_at": "2026-08-26T09:20:54+00:00",
       "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "PRI-004",
+      "rank": 2,
+      "title": "Resolve the last open draft PR (#7, Epoch III constitutional work)",
+      "why": "The only unmerged branch left; CN-001 coherence work cannot be called complete while it diverges.",
+      "project": "PRJ-003",
+      "owner": "Founder",
+      "status": "open",
+      "created_at": "2026-09-01T18:13:54+00:00",
+      "updated_at": "2026-09-01T18:13:54+00:00"
     }
   ],
   "decisions": [
@@ -84,11 +95,11 @@
         "Host now without authentication"
       ],
       "consequence_of_delay": "Low. Local-only is the safe default and blocks nothing today.",
-      "status": "open",
+      "status": "approved",
       "requested_by": "LUMIAION",
       "created_at": "2026-08-26T09:20:54+00:00",
-      "decided_at": null,
-      "decision_note": null
+      "decided_at": "2026-09-01T18:13:41+00:00",
+      "decision_note": "Ratified by the Founder 2026-09-01. Console V1 stays local-only: file:// and a 127.0.0.1 loopback server, no authentication because the socket is not reachable off-host. Verified loopback-only (refused on the host interface IP). Any hosted deployment is a separate decision that must ship an authentication system first."
     },
     {
       "id": "FD-003",
@@ -221,7 +232,7 @@
       "title": "Build the CN-001 relocation map from current main",
       "project": "PRJ-003",
       "owner": "CODEX",
-      "state": "blocked",
+      "state": "assigned",
       "requested_by": "LUMIAION",
       "why": "Reboot Audit step 3: coherence must precede any expansion.",
       "gate": "G2",
@@ -230,7 +241,7 @@
         "BLK-001"
       ],
       "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
+      "updated_at": "2026-09-01T18:13:54+00:00"
     },
     {
       "id": "TSK-005",
@@ -404,14 +415,15 @@
       "title": "Four draft PRs unresolved (#7, #8, #9, #10)",
       "impact": "CN-001 coherence work cannot start; canonical content is split across branches.",
       "owner": "Founder",
-      "status": "open",
+      "status": "resolved",
       "needs_founder": true,
       "blocking_ids": [
         "TSK-004",
         "TSK-005"
       ],
       "created_at": "2026-08-26T09:20:54+00:00",
-      "resolved_at": null
+      "resolved_at": "2026-09-01T18:13:41+00:00",
+      "resolution_note": "Superseded 2026-09-01: PRs #8, #9 and #10 were merged by the Founder (main at ad5295b). Only #7 remains open; tracked as its own blocker."
     },
     {
       "id": "BLK-002",
@@ -433,6 +445,28 @@
       "needs_founder": true,
       "blocking_ids": [],
       "created_at": "2026-08-26T09:20:54+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-004",
+      "title": "PR #7 (Epoch III constitutional work) still open and diverged",
+      "impact": "The last unmerged constitutional branch; needs document-level salvage decisions before its content can land.",
+      "owner": "Founder",
+      "status": "open",
+      "needs_founder": true,
+      "blocking_ids": [],
+      "created_at": "2026-09-01T18:13:41+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "BLK-005",
+      "title": "12 merged notes lack YAML frontmatter",
+      "impact": "Vault validation regressed from 5 to 17 errors; the Vault convention is unenforced for content merged from PRs #8, #9 and #10.",
+      "owner": "CODEX",
+      "status": "open",
+      "needs_founder": false,
+      "blocking_ids": [],
+      "created_at": "2026-09-01T18:15:06+00:00",
       "resolved_at": null
     }
   ],
@@ -603,32 +637,32 @@
       "id": "SYS-001",
       "area": "Repository",
       "status": "ok",
-      "detail": "main at 4134c34; reboot control center merged via PR #11.",
-      "checked_at": "2026-08-26T09:20:54+00:00",
-      "source": "git log"
+      "detail": "main at ad5295b; PRs #8, #9, #10, #12, #13 merged since the reboot.",
+      "checked_at": "2026-09-01T18:13:41+00:00",
+      "source": "git log, 2026-09-01"
     },
     {
       "id": "SYS-002",
       "area": "Vault validation",
       "status": "degraded",
-      "detail": "5 errors and 479 warnings outstanding across 297 notes (pre-existing baseline).",
-      "checked_at": "2026-08-26T09:20:54+00:00",
-      "source": "ap.py validate"
+      "detail": "17 errors / 504 warnings (was 5 / 479). All 12 new errors are missing YAML frontmatter in files merged with PRs #8, #9 and #10 — OSG_BUSINESS/*, docs/setup/, governance/CN-001 Execution Tracker. Belongs to CN-001.",
+      "checked_at": "2026-09-01T18:15:06+00:00",
+      "source": "ap.py validate, 2026-09-01"
     },
     {
       "id": "SYS-003",
       "area": "Open pull requests",
       "status": "degraded",
-      "detail": "Four draft PRs open: #7, #8, #9, #10. None mergeable without salvage decisions.",
-      "checked_at": "2026-08-26T09:20:54+00:00",
-      "source": "GitHub API, 2026-08-26"
+      "detail": "One draft PR open: #7. PRs #8, #9 and #10 merged 2026-09-01.",
+      "checked_at": "2026-09-01T18:13:41+00:00",
+      "source": "GitHub API, 2026-09-01"
     },
     {
       "id": "SYS-004",
       "area": "Founder OS state",
       "status": "ok",
-      "detail": "State document validates; 39 engine tests pass.",
-      "checked_at": "2026-08-26T09:20:54+00:00",
+      "detail": "State document validates; 44 engine tests pass.",
+      "checked_at": "2026-09-01T18:13:41+00:00",
       "source": "ap.py founder check"
     },
     {

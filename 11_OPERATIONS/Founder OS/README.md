@@ -3,9 +3,9 @@ title: "Founder OS README"
 aliases: ["Founder OS README", "Founder Console Handbook", "Founder OS Continuation"]
 tags: [operations, founder-os, console, handbook, continuation, alpha-proxima]
 created: 2026-08-26
-updated: 2026-08-31
+updated: 2026-09-01
 status: active
-version: "1.0.1"
+version: "1.1.0"
 authors: ["CODEX", "CLAUDE"]
 artifact_type: readme
 institutional_owner: "Alpha Proxima Foundation"
@@ -77,7 +77,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── founder_os.py        state engine, CLI, renderer, loopback server
-└── test_founder_os.py   42 tests
+└── test_founder_os.py   44 tests
 ```
 
 ### Daily use
@@ -102,6 +102,7 @@ $AP task-state TSK-001 complete --output "[[CN-001 Relocation Map]]"
 $AP agent-status AGT-003 working
 $AP blocker-add "No OMI credential" --impact "Capture pipeline cannot ship" \
     --owner Founder --needs-founder
+$AP health-set SYS-003 degraded --detail "One draft PR open: #7"
 ```
 
 The first executable worker lane is repository health. It is deliberately
@@ -154,24 +155,25 @@ Every mutating command validates, saves, and re-renders both views. There is no 
 
 The next session can resume from here without re-deriving anything.
 
-**Verified state as of 2026-08-31**
+**Verified state as of 2026-09-01**
 
-- Console V1 is built, tested, and rendering. Founder OS V1 merged to `main` in PR #12.
+- Console V1 is built, tested, and rendering. Founder OS V1 merged in PR #12; the `task-state` fix in PR #13. `main` at ad5295b.
+- PRs #8, #9 and #10 were merged by the Founder on 2026-09-01. Only #7 remains open. PR #10 landed the CN-001 *tracker* only — the relocation map is still to build.
 - The vertical slice — Mission → state → Console → editable → persisted → tested — is closed end to end.
 - **`FD-001` is ratified.** Vault-native git-versioned JSON is the Founder OS state store. Revisit only when concurrent multi-writer access is genuinely required.
+- **`FD-002` is ratified.** Console V1 stays local-only. Any hosted deployment is a separate decision that must ship authentication first.
 - `ap.py founder task-state` shipped broken in the first cut (argparse dest collision) and is fixed; the CLI surface did not change.
 - Vault validation is unchanged from its pre-session baseline: 5 errors, 479 warnings. Those belong to CN-001.
 
 **Waiting on the Founder**
 
-- `FD-002` Keep the Console local-only.
 - `FD-003` Authorize OMI credentials.
 - Four decisions carried from [[Founder Reboot Control Center]] (coherence-first order; ARTEMIS/POSTMANIUM proposed; Secretary-General proposed; selective PR salvage).
 
 **Next three actions**
 
-1. Decide the disposition of PR #10 (CN-001) — resume, rebase, or close.
-2. Resolve the remaining draft PRs (#7, #8, #9) so CN-001 can start.
+1. Decide document-level salvage for PR #7, or close it — the last unmerged branch.
+2. Build the CN-001 relocation map from current `main` (the tracker landed with PR #10; the map did not).
 3. Run the photo-to-social-post routing proof through Founder OS, recording each handoff as an `agent_run`.
 
 **Not built, deliberately**
@@ -184,5 +186,6 @@ VR/spatial presentation, OMI ingestion, calendar or health adapters, automatic s
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-01 | CODEX / CLAUDE | FD-002 ratified; state corrected after the #8/#9/#10 merges; `health-set` documented |
 | 1.0.1 | 2026-08-31 | CODEX / CLAUDE | FD-001 ratified; task-state fix recorded; continuation refreshed |
 | 1.0.0 | 2026-08-26 | CODEX / CLAUDE | Founder OS V1 handbook and continuation record |
