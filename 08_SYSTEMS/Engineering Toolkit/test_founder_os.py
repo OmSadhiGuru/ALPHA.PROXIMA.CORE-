@@ -398,6 +398,37 @@ class TestCli(unittest.TestCase):
             self._run(tmp, "init")
             self.assertEqual(self._run(tmp, "priority-status", "PRI-999", "done"), 1)
 
+    def test_repository_health_lane_closes_the_executable_loop(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state_path = root / "founder-state.json"
+            self.assertEqual(self._run(tmp, "init"), 0)
+            state = fos.load_state(state_path)
+            state["agents"].append({
+                "id": "AGT-001", "name": "JERANIUM", "role": "Knowledge routing",
+                "status": "idle", "authority": "Report-only validation",
+            })
+            fos.save_state(state, state_path)
+            note = root / "Healthy.md"
+            note.write_text("---\ntitle: Healthy\n---\n# Healthy\n", encoding="utf-8")
+            report = root / "repository-health.md"
+
+            self.assertEqual(self._run(
+                tmp, "repository-health", "Assess repository health",
+                "--why", "Founder needs current evidence",
+                "--vault", str(root), "--report", str(report),
+            ), 0)
+
+            stored = fos.load_state(state_path)
+            self.assertEqual(stored["tasks"][0]["requested_by"], "Founder via LUMIAION")
+            self.assertEqual(stored["tasks"][0]["owner"], "JERANIUM")
+            self.assertEqual(stored["tasks"][0]["state"], "review")
+            self.assertEqual(stored["agent_runs"][0]["status"], "complete")
+            self.assertEqual(stored["results"][0]["kind"], "repository-health-report")
+            self.assertEqual(stored["agents"][0]["last_run_id"], "RUN-001")
+            self.assertTrue(report.exists())
+            self.assertIn("Assess repository health", (root / "console.html").read_text())
+
 
 class TestShippedState(unittest.TestCase):
     """The state committed to the Vault must always be loadable and renderable."""

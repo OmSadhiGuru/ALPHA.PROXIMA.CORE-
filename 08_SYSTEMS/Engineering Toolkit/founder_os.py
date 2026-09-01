@@ -24,6 +24,7 @@ import argparse
 import json
 import re
 import sys
+import tempfile
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -466,6 +467,84 @@ def resolve_blocker(state: dict, blocker_id: str, note: str | None = None) -> di
     return record
 
 
+def run_repository_health_lane(state: dict, intention: str, why: str,
+                               vault_root: Path, report_path: Path) -> dict:
+    """Route one Founder intention through LUMIAION to JERANIUM.
+
+    This is intentionally the only executable V1 worker lane.  It invokes the
+    existing report-only Vault Validator, records the routed task and agent run,
+    persists a result reference, and leaves the task at Founder review.
+    """
+    intention = intention.strip()
+    why = why.strip()
+    if not intention or not why:
+        raise StateError("Repository-health intention and why are required.")
+    if not vault_root.is_dir():
+        raise StateError(f"Vault root is not a directory: {vault_root}")
+
+    jeranium = next(
+        (agent for agent in state["agents"] if agent.get("name") == "JERANIUM"),
+        None,
+    )
+    if jeranium is None or jeranium.get("status") in {"proposed", "blocked", "retired"}:
+        raise StateError("JERANIUM must be registered and available for this lane.")
+
+    # Import locally so Founder OS remains usable even if an optional worker is
+    # moved later. Both modules are standard-library-only and share this folder.
+    import vault_validator
+
+    task = add_task(
+        state, intention, owner="JERANIUM", why=why,
+        requested_by="Founder via LUMIAION", gate="G1",
+    )
+    task["routing_decision"] = "LUMIAION -> JERANIUM -> Vault Validator"
+    set_task_state(state, task["id"], "working")
+
+    run = {
+        "id": next_id(state, "agent_runs"),
+        "agent_id": jeranium["id"],
+        "task_id": task["id"],
+        "status": "working",
+        "started_at": now_iso(),
+        "route": "LUMIAION -> JERANIUM",
+        "worker": "vault_validator.validate",
+    }
+    state["agent_runs"].append(run)
+    jeranium["status"] = "working"
+    jeranium["last_run_id"] = run["id"]
+
+    notes, issues = vault_validator.validate(vault_root, include_hidden=False)
+    summary = vault_validator.summarize_issues(issues)
+    report = vault_validator.render_markdown_report(vault_root, notes, issues)
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        "w", encoding="utf-8", dir=report_path.parent, delete=False,
+        prefix=f".{report_path.name}.", suffix=".tmp",
+    ) as handle:
+        handle.write(report)
+        temporary_report = Path(handle.name)
+    temporary_report.replace(report_path)
+
+    issue_text = ", ".join(
+        f"{summary[level]} {level}" for level in ("critical", "error", "warning", "info")
+    )
+    result = {
+        "id": next_id(state, "results"),
+        "task_id": task["id"],
+        "kind": "repository-health-report",
+        "ref": str(report_path),
+        "summary": f"Scanned {len(notes)} Markdown notes: {issue_text}.",
+        "produced_at": now_iso(),
+        "produced_by": "JERANIUM",
+    }
+    state["results"].append(result)
+    set_task_state(state, task["id"], "review", output_ref=result["ref"])
+    run.update({"status": "complete", "ended_at": now_iso(), "result_id": result["id"]})
+    jeranium["status"] = "idle"
+    validate_state(state)
+    return {"task": task, "run": run, "result": result}
+
+
 # --------------------------------------------------------------------------
 # renderers
 # --------------------------------------------------------------------------
@@ -793,6 +872,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("id")
     p.add_argument("--note")
 
+    p = sub.add_parser(
+        "repository-health",
+        help="Run the Founder -> LUMIAION -> JERANIUM repository-health lane.",
+    )
+    p.add_argument("intention")
+    p.add_argument("--why", required=True)
+    p.add_argument("--vault", default=str(VAULT_ROOT))
+    p.add_argument("--report", required=True)
+
     return parser
 
 
@@ -859,6 +947,16 @@ def main(argv: list[str] | None = None) -> int:
                               args.needs_founder, args.blocking_ids)["id"])
         elif args.command == "blocker-resolve":
             print(resolve_blocker(state, args.id, args.note)["id"])
+        elif args.command == "repository-health":
+            lane = run_repository_health_lane(
+                state, args.intention, args.why,
+                Path(args.vault).expanduser().resolve(),
+                Path(args.report).expanduser().resolve(),
+            )
+            print(
+                f"{lane['task']['id']} -> {lane['run']['id']} -> "
+                f"{lane['result']['id']} ({lane['result']['ref']})"
+            )
         else:
             raise StateError(f"Unhandled command {args.command!r}")
 
