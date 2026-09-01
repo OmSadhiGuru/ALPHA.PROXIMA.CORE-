@@ -3,9 +3,9 @@ title: "Founder OS Architecture v1"
 aliases: ["Founder OS", "Founder OS Architecture", "Founder Console V1 Architecture"]
 tags: [operations, founder-os, architecture, console, lumiaion, orchestration, alpha-proxima]
 created: 2026-08-26
-updated: 2026-08-31
+updated: 2026-09-01
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CLAUDE", "CODEX", "LUMIAION"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -197,7 +197,7 @@ The page is one self-contained HTML file with the state inlined at render time. 
 | Authentication | **Not implemented, and not required at loopback scope.** |
 | Personal data | Only the Founder's name and role, already present in the vault. |
 
-The absence of authentication is a deliberate consequence of the loopback boundary, not an oversight. **Any hosted deployment must ship an authentication system first** — this repository has none, and exposing Founder state publicly is an explicit autonomy boundary. Recorded as `FD-002`.
+The absence of authentication is a deliberate consequence of the loopback boundary, not an oversight. **Any hosted deployment must ship an authentication system first** — this repository has none, and exposing Founder state publicly is an explicit autonomy boundary. Recorded as `FD-002`, **ratified 2026-09-01**.
 
 ### 10. Extension points for future inputs
 
@@ -221,7 +221,7 @@ The same applies to Google Calendar, ChatGPT/Codex, health, and financial system
 
 | Check | Command | Result |
 |---|---|---|
-| Engine tests | `python3 "08_SYSTEMS/Engineering Toolkit/test_founder_os.py"` | 42 passed, 0 skipped |
+| Engine tests | `python3 "08_SYSTEMS/Engineering Toolkit/test_founder_os.py"` | 44 passed, 0 skipped |
 | State validity | `ap.py founder check` | OK — 55 records, 0 notes |
 | Vault validation | `ap.py validate` | 5 errors / 479 warnings — unchanged from the pre-session baseline |
 | Browser render | headless Chromium, 345 px and 1280 px | renders; no horizontal overflow |
@@ -233,7 +233,7 @@ The vault validator's pre-existing 5 errors and 479 warnings were **not** introd
 ## Open Questions
 
 - ~~Does the Founder accept Vault-native JSON as the state store?~~ **Resolved 2026-08-31: ratified (`FD-001` approved).** Revisit only when concurrent multi-writer access is genuinely required.
-- Should the Console remain local-only, or is private hosting worth building authentication for? (`FD-002`)
+- ~~Should the Console remain local-only?~~ **Resolved 2026-09-01: local-only ratified (`FD-002` approved).** Hosting is a separate decision that must ship authentication first.
 - When should OMI credentials be authorized? (`FD-003`)
 - Should the hand-maintained Markdown dashboards in `11_OPERATIONS/` be generated from state, and does that belong to CN-001?
 - Does the Founder want Founder OS state committed automatically at session end, or only on explicit instruction?
@@ -244,5 +244,6 @@ The vault validator's pre-existing 5 errors and 479 warnings were **not** introd
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-09-01 | CLAUDE / CODEX | FD-002 ratified (Console stays local-only); state corrected after the #8/#9/#10 merges |
 | 1.1.0 | 2026-08-31 | CLAUDE / CODEX / LUMIAION | FD-001 ratified: Vault-native JSON is the state store. Recorded the `task-state` defect and its regression tests |
 | 1.0.0 | 2026-08-26 | CLAUDE / CODEX / LUMIAION | First Founder OS architecture: repository audit, state contract, orchestration contract, presentation boundary, Console V1 |
