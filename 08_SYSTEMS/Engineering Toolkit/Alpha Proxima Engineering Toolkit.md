@@ -97,6 +97,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 010 | active | [[Tool 010 - Node Registry Generator]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/node_registry.py` |
 | 011 | active | [[Tool 011 - Relationship Extractor]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/relationship_extractor.py` |
 | 012 | active | [[Tool 012 - Founder OS State Engine]] | `08_SYSTEMS/Engineering Toolkit/founder_os.py` |
+| 013 | active | [[Tool 013 - Alpha Proxima App]] | `08_SYSTEMS/Engineering Toolkit/alpha_app.py` |
 
 ## CLI Commands
 
@@ -114,6 +115,8 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap graph-colors` | Apply official Obsidian Graph View color groups |
 | `ap node-registry` | Generate Institutional Knowledge Graph node registry |
 | `ap relationship-extract` | Generate Institutional Knowledge Graph relationship registry |
+| `ap founder` | Founder OS state engine and Founder Console V1 |
+| `ap app` | Alpha Proxima App — the operate and know halves, and coherence reporting |
 
 ---
 

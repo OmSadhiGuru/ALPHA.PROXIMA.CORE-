@@ -12,7 +12,7 @@ institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Founder OS Architecture v1]]"]
-related_documents: ["[[Founder Console]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Founder Reboot Control Center]]"]
+related_documents: ["[[Founder Console]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Founder Reboot Control Center]]", "[[Alpha Proxima App README]]", "[[Alpha Proxima App Architecture v1]]"]
 related_research_programs: []
 ---
 
@@ -53,6 +53,15 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder serve
 The server binds `127.0.0.1` only and has no authentication. Do not expose it — see [[Founder OS Architecture v1]] §9.
 
 In Obsidian, read [[Founder Console]]. It is generated and regenerated on every state change; edits there are overwritten.
+
+The Console is the *operating* half only. For one surface that also carries what the Foundation **knows** — its domains, documents, connections, and coherence — open the [[Alpha Proxima App README|Alpha Proxima App]]:
+
+```bash
+open "11_OPERATIONS/Alpha Proxima App/app/app.html"
+python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app serve   # 127.0.0.1:8788
+```
+
+The app reads this state; it never writes it. Founder OS remains the only writer.
 
 ---
 
