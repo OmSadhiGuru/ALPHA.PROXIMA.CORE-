@@ -5,14 +5,14 @@ tags: [operations, institutional-operations, alpha-proxima]
 created: 2026-07-02
 updated: 2026-09-02
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["CODEX"]
 artifact_type: operations-index
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Book I - The Constitution]]", "[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[The Orchestration Framework]]"]
-related_documents: ["[[Office Registry]]", "[[Workflow Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]", "[[AI Council Operations Registry]]", "[[LUMIAION - Operating Manual (LOOM)]]", "[[Founder Reboot Control Center]]", "[[Repository Reboot Audit - 2026-08-23]]"]
+related_documents: ["[[Office Registry]]", "[[Workflow Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]", "[[AI Council Operations Registry]]", "[[LUMIAION - Operating Manual (LOOM)]]", "[[Founder Intent Routing Procedure]]", "[[Founder Reboot Control Center]]", "[[Repository Reboot Audit - 2026-08-23]]"]
 related_research_programs: []
 ---
 
@@ -46,7 +46,7 @@ This office covers operating procedures, review cycles, workflow registries, art
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.2.0 |
+| **Version** | 1.3.0 |
 | **Status** | active |
 | **Last Updated** | 2026-09-02 |
 
@@ -106,6 +106,7 @@ Automation should assist. Humans decide. Research informs. Architecture governs.
 | [[Workflow Registry]] | Institutional workflows and information flows |
 | [[Artifact Registry]] | Artifact ownership, lifecycle, storage, and versioning |
 | [[Operational Procedures Index]] | Reusable procedures for recurring operations |
+| [[Founder Intent Routing Procedure]] | One-inbox intake, routing, handoff, synthesis, approval, and writeback procedure |
 | [[Review Cycles Registry]] | Daily, weekly, monthly, quarterly, annual review rhythms |
 | [[Decision Pipelines Index]] | How proposals mature into decisions |
 | [[AI Council Operations Registry]] | Reasoning offices and preferred engines |
@@ -138,6 +139,7 @@ Automation should assist. Humans decide. Research informs. Architecture governs.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.3.0 | 2026-09-02 | Founder / LUMIAION / CODEX | Added FIR-001 unified Founder-intent routing procedure |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Created Institutional Operations Layer |
 | 1.1.0 | 2026-07-07 | Founder / LUMIAION | Added [[LUMIAION - Operating Manual (LOOM)]] to Structure and related documents |
 | 1.2.0 | 2026-08-23 | Founder / LUMIAION / CODEX | Added RBT-001 reboot audit and Founder control center |

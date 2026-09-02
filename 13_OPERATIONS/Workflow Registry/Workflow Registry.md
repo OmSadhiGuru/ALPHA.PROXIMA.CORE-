@@ -3,16 +3,16 @@ title: "Workflow Registry"
 aliases: ["Institutional Workflow Registry", "Operations Workflow Registry"]
 tags: [operations, workflows, registry, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-07
+updated: 2026-09-02
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CODEX"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[Office Registry]]", "[[Artifact Registry]]", "[[Review Cycles Registry]]"]
-related_documents: ["[[13_OPERATIONS]]", "[[Decision Routing Protocol]]", "[[Knowledge Routing Protocol]]", "[[LUMIAION - Operating Manual (LOOM)]]"]
+related_documents: ["[[13_OPERATIONS]]", "[[Decision Routing Protocol]]", "[[Knowledge Routing Protocol]]", "[[LUMIAION - Operating Manual (LOOM)]]", "[[Founder Intent Routing Procedure]]"]
 related_research_programs: []
 ---
 
@@ -85,6 +85,20 @@ Each workflow is designed to become automatable in pieces while keeping human de
 ---
 
 ## Core Content
+
+### Founder Intent to Unified Result (FIR-001)
+
+| Field | Description |
+|-------|-------------|
+| Trigger | Founder states an intent in any Alpha Proxima project, department, tool, or session |
+| Participants | Founder, LUMIAION, JERANIUM, one primary domain owner, engineering when required |
+| Input | Natural-language intent and available context |
+| Output | One synthesized result, one status, one next action, and durable writeback when required |
+| Decision Points | Which domain owns execution? What context is sufficient? Is an approval gate required? |
+| Artifacts Produced | FIR handoff packet, specialist deliverable, approval record, operational writeback |
+| Automation Opportunities | Intent classification, context retrieval, owner suggestion, state tracking, writeback routing |
+
+Full procedure and packet contract: [[Founder Intent Routing Procedure]].
 
 ### Founder Question to Institutional Memory
 
@@ -173,6 +187,7 @@ Full protocol, office responsibilities, sprint rules, and dashboard definition: 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-09-02 | Founder / LUMIAION / CODEX | Added FIR-001 one-inbox routing workflow |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial workflow registry |
 | 1.1.0 | 2026-07-07 | Founder / LUMIAION | Added "Idea to Published Asset (LOOM)" workflow, linking the full [[LUMIAION - Operating Manual (LOOM)]] |
 
