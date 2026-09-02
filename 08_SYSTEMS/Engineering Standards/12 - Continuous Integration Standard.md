@@ -78,6 +78,12 @@ This is not pedantry. A dependency is a maintenance obligation that outlives who
 
 The workflow itself uses only `actions/checkout` and `actions/setup-python`, both first-party.
 
+### Keeping the runner honest
+
+Actions are pinned to a **major version**, and the major must be one whose runtime GitHub still supports. `checkout@v5` and `setup-python@v6` are the Node 24 majors; the previous pair targeted Node 20, which GitHub removed in September 2026.
+
+A deprecation warning in a green run is still a finding. This one was caught by reading the first run's log rather than trusting the green tick — a check that passes today while warning about its own runtime is a check with an expiry date on it. Read the log of a workflow's first run, and of any run after a runner image changes.
+
 ### Permissions and secrets
 
 - `permissions: contents: read`. The workflow validates; it never writes to the repository, publishes an artifact, or touches a credential.
