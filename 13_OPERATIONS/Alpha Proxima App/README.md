@@ -102,7 +102,7 @@ AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app'
 $AP show                      # both halves, in the terminal
 $AP render                    # regenerate app.html and vault-index.json
 $AP check                     # coherence defects against a ceiling of 0
-$AP check --max-defects 130   # live coherence ceiling; ratchet downward only
+$AP check --max-defects 129   # live coherence ceiling; ratchet downward only
 $AP serve [--port 8788]       # loopback server
 $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
@@ -153,11 +153,11 @@ The next session can resume from here without re-deriving anything.
 | Institutional documents | 363 |
 | Connected | 345 (94.3%) |
 | Orphans | 21 |
-| Missing frontmatter | 18 |
+| Missing frontmatter | 17 |
 | Broken links | 87 |
 | Empty documents | 4 |
-| Coherence defects | 130 |
-| Folders outside the canonical hierarchy | 6, holding 56 documents |
+| Coherence defects | 129 |
+| Folders outside the canonical hierarchy | 5, holding 55 documents |
 
 **All of this belongs to CN-001, not to the app.** The app's job is to keep it visible; [[CN-001 Execution Tracker]] owns the repair.
 
@@ -169,7 +169,7 @@ The next session can resume from here without re-deriving anything.
 
 **Next three actions**
 
-1. Take the domain map to CN-001 and decide placement for the seven loose folders.
+1. Take the domain map to CN-001 and decide placement for the five loose folders.
 2. Lower `--max-defects` in the same commit as each repaired batch.
 3. Regenerate or formally retire the 2026-07-03 graph registries, which the app's index now supersedes operationally.
 

@@ -77,9 +77,9 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
 
-Baseline recorded 2026-09-02: **130 defects** across 366 documents — 21 orphans, 18 missing frontmatter, 87 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
+Baseline recorded 2026-09-02: **129 defects** across 366 documents — 21 orphans, 17 missing frontmatter, 87 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
 
-The ceiling reached this figure by 243 (pre-expansion) → 422 (one-time reset for PR #7's corpus reconciliation) → 417 (template placeholders removed) → 130 (the indexer stopped reporting valid path-qualified links as broken). Most of the 422 was the instrument, not the vault. See [[12 - Continuous Integration Standard]], *Check the instrument before raising the tolerance*.
+The ceiling reached this figure by 243 (pre-expansion) → 422 (one-time reset for PR #7's corpus reconciliation) → 417 (template placeholders removed) → 130 (the indexer stopped reporting valid path-qualified links as broken) → 129 (CN-001 moved into the canonical proposal namespace). Most of the 422 was the instrument, not the vault. See [[12 - Continuous Integration Standard]], *Check the instrument before raising the tolerance*.
 
 ## Relationship to Tools 010 and 011
 
