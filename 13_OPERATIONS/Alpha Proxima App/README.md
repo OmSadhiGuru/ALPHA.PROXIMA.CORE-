@@ -58,7 +58,7 @@ Loopback only, no authentication. Do not expose it — `FD-002` is ratified.
 | Half | Question | What it shows |
 |---|---|---|
 | **Operate** | What is happening now? | Mission of the Day, Top 3, Next Action, decisions awaiting you, blockers, execution, Council, systems, integrations |
-| **Know** | What does the Foundation know? | 20 populated domains, search across all metadata, per-document connections both ways, coherence reporting |
+| **Know** | What does the Foundation know? | 21 populated domains, search across all metadata, per-document connections both ways, coherence reporting |
 
 Switch with the pill at the top, arrow keys, or the URL: `app.html#operate`, `app.html#know`.
 
@@ -108,11 +108,11 @@ $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
 ```
 
-Paths are overridable with `--root`, `--state`, `--template`, `--app`, and `--index`.
+Paths are overridable with `--root`, `--state`, `--template`, `--app`, and `--index`. They are **global options and precede the subcommand** — `app --app out.html render`, not `app render --app out.html`, which argparse rejects. This matches `ap.py founder`.
 
 ### Regenerating
 
-The app does **not** re-render itself when Founder OS state changes, because indexing 362 notes on every `task-state` call costs time no reader benefits from. Run `render` when you want the file refreshed, or use `serve` for a view that is always current:
+The app does **not** re-render itself when Founder OS state changes, because indexing 363 notes on every `task-state` call costs time no reader benefits from. Run `render` when you want the file refreshed, or use `serve` for a view that is always current:
 
 ```bash
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder task-state TSK-004 working
@@ -131,7 +131,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app render
 
 - Edit `app.html` or `vault-index.json` — both are generated. Edit `app.template.html`.
 - Expose the server beyond `127.0.0.1` — there is no authentication (`FD-002`).
-- **Raise `--max-defects`.** The ceiling ratchets down only. Raising it is how an institution quietly ratifies its own decay.
+- **Raise `--max-defects` to excuse new defects inside the indexed corpus.** The ceiling ratchets down. The only permitted reset is a Founder-ratified corpus expansion with both baselines recorded, as occurred when PR #7 added previously unindexed constitutional and research material.
 
 ---
 
@@ -150,8 +150,8 @@ The next session can resume from here without re-deriving anything.
 
 | Signal | Value |
 |---|---|
-| Institutional documents | 362 |
-| Connected | 311 (85.9%) |
+| Institutional documents | 363 |
+| Connected | 312 (86.0%) |
 | Orphans | 51 |
 | Missing frontmatter | 18 |
 | Broken links | 349 |
@@ -175,7 +175,7 @@ The next session can resume from here without re-deriving anything.
 
 **Not built, deliberately**
 
-A visual graph (a 362-node hairball is decorative, not navigable — the per-document connection list answers the real question better), editing from the interface (a second writer is a Founder decision, not an enhancement), automatic re-render on state change, and any hosted deployment.
+A visual graph (a 363-node hairball is decorative, not navigable — the per-document connection list answers the real question better), editing from the interface (a second writer is a Founder decision, not an enhancement), automatic re-render on state change, and any hosted deployment.
 
 ---
 

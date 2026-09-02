@@ -12,7 +12,7 @@ institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "Claude"
 dependencies: ["Python 3 standard library", "[[Tool 008 - Engineering CLI]]", "[[Tool 012 - Founder OS State Engine]]", "[[Tool 001 - Vault Validator]]"]
-related_documents: ["[[Alpha Proxima Engineering Toolkit]]", "[[Alpha Proxima App Architecture v1]]", "[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Tool 010 - Node Registry Generator]]", "[[Tool 011 - Relationship Extractor]]"]
+related_documents: ["[[Alpha Proxima Engineering Toolkit]]", "[[Alpha Proxima App Architecture v1]]", "[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Tool 010 - Node Registry Generator]]", "[[Tool 011 - Relationship Extractor]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
 
@@ -74,7 +74,9 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 `check` fails when defects exceed `--max-defects` (default 0). The ceiling exists so the gate can pass today and tighten over time; **it must only ever be lowered.** It is passed explicitly rather than stored, so every change to it is visible in a command or workflow rather than buried in configuration.
 
-Baseline recorded 2026-09-01: **243 defects** across 272 documents — 25 orphans, 16 missing frontmatter, 198 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
+The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
+
+Baseline recorded 2026-09-01: **243 defects** across 272 documents — 25 orphans, 16 missing frontmatter, 198 broken links, 4 empty. PR #7's Founder-ratified reconciliation expanded the indexed corpus to 362 documents and established a one-time reset at **422 defects** — 51 orphans, 18 missing frontmatter, 349 broken links, 4 empty. All belong to CN-001, which owns the taxonomy; the ceiling ratchets downward from 422.
 
 ## Relationship to Tools 010 and 011
 
