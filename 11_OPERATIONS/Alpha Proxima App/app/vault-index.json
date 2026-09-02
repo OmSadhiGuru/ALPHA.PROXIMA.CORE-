@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T00:00:31+00:00",
-  "note_count": 272,
+  "generated_at": "2026-09-02T00:16:54+00:00",
+  "note_count": 273,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -42,7 +42,7 @@
       "id": "08_SYSTEMS",
       "name": "Systems",
       "question": "How the Foundation works",
-      "count": 63
+      "count": 64
     },
     {
       "id": "09_PEOPLE",
@@ -244,7 +244,7 @@
         "08-systems-protocols-knowledge-ownership-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 34
+      "backlinks": 35
     },
     {
       "id": "01-vision-alpha-proxima-10-year-vision-md",
@@ -2939,7 +2939,7 @@
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md"
       ],
       "unresolved": [],
-      "backlinks": 8
+      "backlinks": 9
     },
     {
       "id": "08-systems-engineering-standards-04-file-naming-convention-md",
@@ -3013,7 +3013,7 @@
         "08-systems-automation-vault-note-generator-md"
       ],
       "unresolved": [],
-      "backlinks": 7
+      "backlinks": 8
     },
     {
       "id": "08-systems-engineering-standards-06-cli-standard-md",
@@ -3049,7 +3049,7 @@
         "08-systems-automation-vault-note-generator-md"
       ],
       "unresolved": [],
-      "backlinks": 9
+      "backlinks": 10
     },
     {
       "id": "08-systems-engineering-standards-07-automation-standard-md",
@@ -3087,7 +3087,7 @@
         "08-systems-protocols-decision-routing-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 13
+      "backlinks": 14
     },
     {
       "id": "08-systems-engineering-standards-08-logging-standard-md",
@@ -3162,7 +3162,7 @@
         "10-templates-vault-structure-convention-md"
       ],
       "unresolved": [],
-      "backlinks": 7
+      "backlinks": 8
     },
     {
       "id": "08-systems-engineering-standards-10-template-standard-md",
@@ -3242,6 +3242,50 @@
       "backlinks": 4
     },
     {
+      "id": "08-systems-engineering-standards-12-continuous-integration-standard-md",
+      "path": "08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md",
+      "title": "12 - Continuous Integration Standard",
+      "domain": "08_SYSTEMS",
+      "type": "engineering-standard",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "Claude",
+      "authors": [
+        "CLAUDE"
+      ],
+      "tags": [
+        "systems",
+        "engineering",
+        "standards",
+        "ci",
+        "automation",
+        "coherence",
+        "integrity",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 1417,
+      "links": [
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "governance-cn-001-execution-tracker-md",
+        "11-operations-founder-os-founder-console-md",
+        "08-systems-engineering-standards-06-cli-standard-md",
+        "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
+        "11-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
+        "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
+        "08-systems-engineering-standards-09-git-standard-md",
+        "08-systems-engineering-standards-05-python-development-standard-md",
+        "08-systems-engineering-standards-07-automation-standard-md",
+        "08-systems-engineering-standards-03-folder-naming-convention-md"
+      ],
+      "unresolved": [],
+      "backlinks": 4
+    },
+    {
       "id": "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
       "path": "08_SYSTEMS/Engineering Standards/ALPHA PROXIMA ENGINEERING HANDBOOK.md",
       "title": "ALPHA PROXIMA ENGINEERING HANDBOOK",
@@ -3264,7 +3308,7 @@
       ],
       "updated": "2026-07-05",
       "has_frontmatter": true,
-      "words": 632,
+      "words": 653,
       "links": [
         "08-systems-engineering-standards-01-markdown-style-guide-md",
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
@@ -3277,13 +3321,14 @@
         "08-systems-engineering-standards-09-git-standard-md",
         "08-systems-engineering-standards-10-template-standard-md",
         "08-systems-engineering-standards-11-one-question-document-standard-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "09-people-codex-md",
         "10-templates-vault-structure-convention-md",
         "00-constitution-book-i-the-constitution-md",
         "10-templates-implementation-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 19
+      "backlinks": 20
     },
     {
       "id": "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
@@ -3739,7 +3784,7 @@
         "11-operations-founder-os-readme-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
@@ -3767,10 +3812,11 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 759,
+      "words": 778,
       "links": [
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "11-operations-founder-os-founder-console-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
         "08-systems-institutional-knowledge-graph-tools-tool-011-relationship-extractor-md",
         "11-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
@@ -3780,7 +3826,7 @@
         "08-systems-engineering-toolkit-tool-008-engineering-cli-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "08-systems-foundational-architecture-md",
@@ -6103,7 +6149,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 2384,
+      "words": 2428,
       "links": [
         "11-operations-founder-os-founder-os-architecture-v1-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
@@ -6112,6 +6158,7 @@
         "08-systems-engineering-standards-03-folder-naming-convention-md",
         "governance-cn-001-execution-tracker-md",
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "11-operations-alpha-proxima-app-readme-md",
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
         "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -6120,7 +6167,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 4
+      "backlinks": 5
     },
     {
       "id": "11-operations-alpha-proxima-app-readme-md",
@@ -6147,10 +6194,11 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1146,
+      "words": 1199,
       "links": [
         "11-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "11-operations-founder-os-founder-console-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
         "11-operations-founder-os-readme-md",
         "11-operations-founder-os-founder-os-architecture-v1-md",
@@ -6474,7 +6522,7 @@
         "11-operations-workflow-registry-workflow-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 7
     },
     {
       "id": "11-operations-founder-os-founder-os-architecture-v1-md",
@@ -8123,7 +8171,7 @@
       "words": 866,
       "links": [],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "lumiaion-md",
@@ -9372,9 +9420,9 @@
     }
   ],
   "coherence": {
-    "note_count": 272,
-    "connected": 247,
-    "connectedness": 0.9081,
+    "note_count": 273,
+    "connected": 248,
+    "connectedness": 0.9084,
     "orphans": [
       {
         "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
@@ -10408,12 +10456,12 @@
         21
       ],
       [
-        "implementation-note",
+        "engineering-standard",
         15
       ],
       [
-        "engineering-standard",
-        14
+        "implementation-note",
+        15
       ],
       [
         "future-index",
@@ -10679,7 +10727,7 @@
     "status": [
       [
         "active",
-        164
+        165
       ],
       [
         "unknown",
@@ -10737,7 +10785,7 @@
     "function": [
       [
         "Implementation",
-        119
+        120
       ],
       [
         "Research Intelligence",

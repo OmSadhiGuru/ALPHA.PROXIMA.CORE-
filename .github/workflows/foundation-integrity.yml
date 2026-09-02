@@ -1,0 +1,219 @@
+# Foundation Integrity — the Alpha Proxima Foundation's first continuous check.
+#
+# It answers two questions on every change:
+#
+#   1. Does the toolkit still work?            (verify — runs per Python version)
+#   2. Is the Foundation's knowledge coherent?  (coherence — runs once)
+#
+# The second is the unusual one, and the reason this workflow has no `paths`
+# filter: in this repository the *content* is the thing under test. A commit
+# that adds one disconnected note is as much a regression as a broken function,
+# so notes and code are gated alike.
+#
+# Nothing here installs a dependency. The toolkit is Python standard library
+# only, and this workflow preserves that property deliberately — a package is a
+# maintenance obligation that outlives whoever added it.
+#
+# The reasoning, and the rules for changing this file, live in
+# 08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md
+
+name: Foundation Integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Read-only. This workflow validates; it never writes to the repository,
+# publishes an artifact, or touches a credential. The Foundation has no
+# secrets, and this file must not become the reason it needs one.
+permissions:
+  contents: read
+
+# A superseded run tells you nothing. Cancel it, except on main, where every
+# commit's result is part of the record.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  # The number of coherence defects the Foundation currently tolerates.
+  #
+  # It ratchets DOWN, never up. Lowering it belongs in the same commit as the
+  # repairs that earned it. Raising it is how an institution quietly ratifies
+  # its own decay — if this number needs to go up, the change being made is
+  # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
+  #
+  # 2026-09-02: 243 — 25 orphans, 16 missing frontmatter, 198 broken links,
+  #                   4 empty documents, across 273 documents.
+  #
+  # This comment is a dated record of how the ceiling was composed when it was
+  # set. The live figure is the run summary of this workflow, never a document.
+  COHERENCE_CEILING: "243"
+  AP: 08_SYSTEMS/Engineering Toolkit/ap.py
+
+jobs:
+  verify:
+    name: Toolkit (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # A range rather than one pinned version, so the toolkit keeps working
+        # when the runner's default Python moves underneath it.
+        python: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Confirm the zero-dependency property still holds
+        run: |
+          if [ -f requirements.txt ] || [ -f pyproject.toml ] || [ -f setup.py ] || [ -f package.json ]; then
+            echo "::error::A dependency manifest appeared. The toolkit is standard-library only by design;"
+            echo "::error::adding one is an architectural decision, not a build fix. See the Engineering Handbook."
+            exit 1
+          fi
+          echo "No dependency manifest. Standard library only, as designed."
+
+      - name: Founder OS state engine
+        run: python3 "08_SYSTEMS/Engineering Toolkit/test_founder_os.py"
+
+      - name: Alpha Proxima App
+        run: python3 "08_SYSTEMS/Engineering Toolkit/test_alpha_app.py"
+
+      - name: Founder state validates
+        run: python3 "$AP" founder check
+
+      - name: Both interfaces render from real data
+        # Renders to a scratch path rather than the working tree: this proves
+        # the renderers work end to end without asserting that the committed
+        # HTML is byte-identical. It never could be — every render embeds the
+        # current date, and the Console legitimately changes what it shows when
+        # the Mission of the Day goes stale.
+        run: |
+          mkdir -p "$RUNNER_TEMP/render"
+          # Path options are global and precede the subcommand, matching
+          # `ap.py founder`. `app render --app …` is an argparse error.
+          python3 "$AP" app \
+            --app   "$RUNNER_TEMP/render/app.html" \
+            --index "$RUNNER_TEMP/render/vault-index.json" \
+            render
+          test -s "$RUNNER_TEMP/render/app.html"
+          test -s "$RUNNER_TEMP/render/vault-index.json"
+          if grep -q '__ALPHA_APP_VIEW__' "$RUNNER_TEMP/render/app.html"; then
+            echo "::error::The read model was not inlined — the template placeholder survived rendering."
+            exit 1
+          fi
+          python3 -c "import json,sys; json.load(open(sys.argv[1]))" \
+            "$RUNNER_TEMP/render/vault-index.json"
+          echo "Both renderers produced valid output."
+
+  coherence:
+    name: Knowledge coherence
+    runs-on: ubuntu-latest
+    # Content, not code: one run is the whole answer.
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Vault validation (report only)
+        # Reported, never gated. The vault carries pre-existing errors that
+        # belong to CN-001; failing on them would make this workflow permanently
+        # red and therefore ignored. Written to a scratch path so no generated
+        # report is ever committed by CI.
+        run: |
+          # pipefail so a crash in the validator still fails the step. Without
+          # --fail-on it exits 0 whatever the vault contains, so a non-zero exit
+          # here means the tool broke, not that the Foundation did.
+          set -o pipefail
+          python3 "$AP" validate --output "$RUNNER_TEMP/vault-validation.md" \
+            | tee "$RUNNER_TEMP/validate.txt"
+
+      - name: Coherence ratchet
+        id: ratchet
+        run: |
+          set +e
+          python3 "$AP" app check --max-defects "$COHERENCE_CEILING" \
+            | tee "$RUNNER_TEMP/coherence.txt"
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            echo "::error::Coherence defects exceed the ceiling of $COHERENCE_CEILING."
+            echo "::error::Connect the new document, give it frontmatter, or fix the link it points at."
+            echo "::error::Do not raise COHERENCE_CEILING to make this pass."
+          fi
+          exit "$status"
+
+      - name: Report to the run summary
+        if: always()
+        # The Foundation's condition, readable without opening a log. Scoped to
+        # coherence on purpose: CI reports on the Foundation's integrity, not on
+        # the Founder's day — missions and priorities belong in the app, which
+        # is where the Founder actually reads them.
+        #
+        # These are the only metrics this repository keeps, and each one names a
+        # repair rather than a trend.
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os, subprocess, sys
+
+          ap = os.environ["AP"]
+          ceiling = int(os.environ["COHERENCE_CEILING"])
+          out = subprocess.run([sys.executable, ap, "app", "index"],
+                               capture_output=True, text=True)
+          if out.returncode != 0:
+              print("## Foundation Integrity\n\nThe vault index could not be built.\n")
+              print("```\n" + (out.stderr or "no output").strip()[-2000:] + "\n```")
+              raise SystemExit(0)
+
+          know = json.loads(out.stdout)
+          c = know["coherence"]
+          total = sum(c["counts"].values())
+          verdict = "within" if total <= ceiling else "ABOVE"
+
+          print("## Foundation Integrity\n")
+          print(f"**{c['connected']} of {c['note_count']} documents connect "
+                f"({c['connectedness'] * 100:.1f}%).**\n")
+          print("| Coherence defect | Count |")
+          print("|---|---:|")
+          for key, label in (("orphans", "Connected to nothing"),
+                             ("missing_frontmatter", "No metadata"),
+                             ("broken_links", "Links to a document that does not exist"),
+                             ("empty_notes", "Empty")):
+              print(f"| {label} | {c['counts'][key]} |")
+          print(f"| **Total** | **{total}** |\n")
+          print(f"Ceiling `{ceiling}` — **{verdict}**. "
+                "Lower it as CN-001 closes the gap; never raise it.\n")
+
+          loose = [d for d in know["domains"] if d["question"].startswith("Not yet placed")]
+          if loose:
+              held = sum(d["count"] for d in loose)
+              print(f"<details><summary>{len(loose)} folders outside the canonical "
+                    f"hierarchy, holding {held} documents</summary>\n")
+              print("| Folder | Documents |")
+              print("|---|---:|")
+              for d in sorted(loose, key=lambda x: -x["count"]):
+                  print(f"| `{d['id']}` | {d['count']} |")
+              print("\nPlacement is CN-001's decision.\n</details>")
+          PY
+
+          {
+            echo
+            echo "<details><summary>Vault validation (reported, not gated)</summary>"
+            echo
+            echo '```'
+            grep -E "^Issues:" "$RUNNER_TEMP/validate.txt" 2>/dev/null || echo "validation did not run"
+            echo '```'
+            echo
+            echo "Pre-existing issues belong to CN-001 and do not gate this workflow."
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"

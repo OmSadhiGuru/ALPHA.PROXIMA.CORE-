@@ -47,6 +47,7 @@ This handbook governs Markdown, metadata, folder structure, file naming, Python 
 | 09 | [[09 - Git Standard]] | Branches, commits, reviews, releases |
 | 10 | [[10 - Template Standard]] | Template creation and evolution |
 | 11 | [[11 - One Question Document Standard]] | Single-purpose documents and AI-friendly modularity |
+| 12 | [[12 - Continuous Integration Standard]] | What the Foundation checks automatically, and what it refuses to check |
 
 ---
 
