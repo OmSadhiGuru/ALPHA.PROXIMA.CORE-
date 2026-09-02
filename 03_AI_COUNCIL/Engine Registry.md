@@ -11,6 +11,8 @@ authors: ["Founder", "Alpha Proxima Foundation"]
 
 # Engine Registry
 
+> **⚠️ SUPERSEDED (Epoch V).** This document reflects a legacy governance model (Chief Architects / Departments), superseded by the Cognitive Function model per the Founder-ratified [[Governance Model Crosswalk]]. Retained as institutional history; not authoritative for current operation. See the crosswalk for the legacy→CF mapping.
+
 ## Purpose
 
 This Registry records the current mapping between permanent institutional roles and the AI engines currently fulfilling them. It is a snapshot of the present, not a statement about the future.

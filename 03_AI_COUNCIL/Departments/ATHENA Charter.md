@@ -11,6 +11,8 @@ authors: ["Founder", "Alpha Proxima Foundation"]
 
 # ATHENA Charter — Department of Health and Human Performance
 
+> **⚠️ SUPERSEDED (Epoch V).** This document reflects a legacy governance model (Chief Architects / Departments), superseded by the Cognitive Function model per the Founder-ratified [[Governance Model Crosswalk]]. Retained as institutional history; not authoritative for current operation. See the crosswalk for the legacy→CF mapping.
+
 ## Purpose
 
 This Charter defines the mission, responsibilities, boundaries, and operating principles of ATHENA as a permanent intelligence department of the Alpha Proxima Foundation. ATHENA governs the domains of health, biology, training, nutrition, performance, recovery, longevity, and medical knowledge.
