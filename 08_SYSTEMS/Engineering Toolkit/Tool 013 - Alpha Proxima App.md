@@ -65,6 +65,7 @@ Loopback only. No authentication, per ratified `FD-002`.
 - **Never copies note bodies.** The index carries metadata and relationships only; a test asserts no note text reaches an entry.
 - **Never calls the network.** A test asserts the template contains no URL, `fetch`, `XMLHttpRequest`, `WebSocket`, `<link>`, or `@import`.
 - **Frontmatter links count as relationships**, alongside body wiki-links.
+- **Links resolve the way Obsidian resolves them** — a bare `[[Note]]` by title or filename, a qualified `[[folder/Note]]` against any path ending at that suffix. A link that works in Obsidian is never reported as a defect; a trailing slash stays unresolved, because a folder is not a document.
 - **Links inside code do not** — fenced blocks and inline backticks alike — so a standard that quotes a link cannot inflate connectedness or report a phantom broken reference.
 - **Backlinks are derived, never stored** — the same fact is never written down twice.
 - **Unresolved links are reported, not discarded**; a link to a nonexistent document is a coherence defect.
@@ -76,7 +77,9 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
 
-Baseline recorded 2026-09-01: **243 defects** across 272 documents — 25 orphans, 16 missing frontmatter, 198 broken links, 4 empty. PR #7's Founder-ratified reconciliation expanded the indexed corpus and established a one-time reset at **422 defects**. Link hygiene on 2026-09-02 lowered the live ceiling to **417 defects** — 51 orphans, 18 missing frontmatter, 344 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
+Baseline recorded 2026-09-02: **130 defects** across 366 documents — 21 orphans, 18 missing frontmatter, 87 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
+
+The ceiling reached this figure by 243 (pre-expansion) → 422 (one-time reset for PR #7's corpus reconciliation) → 417 (template placeholders removed) → 130 (the indexer stopped reporting valid path-qualified links as broken). Most of the 422 was the instrument, not the vault. See [[12 - Continuous Integration Standard]], *Check the instrument before raising the tolerance*.
 
 ## Relationship to Tools 010 and 011
 
@@ -88,7 +91,7 @@ This tool builds a **lean operational subset** — regenerated on every render, 
 
 | Check | Result |
 |---|---|
-| `test_alpha_app.py` | 34 passed |
+| `test_alpha_app.py` | 40 passed |
 | `test_founder_os.py` | 45 passed, unchanged |
 | Headless Chromium, 330–1280 px | renders; 0 JS errors; no horizontal overflow; 19 interactive assertions passed |
 

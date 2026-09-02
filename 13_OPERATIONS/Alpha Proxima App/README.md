@@ -91,7 +91,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── alpha_app.py        index, read model, renderer, loopback server
-└── test_alpha_app.py   35 tests
+└── test_alpha_app.py   40 tests
 ```
 
 ### Commands
@@ -102,7 +102,7 @@ AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app'
 $AP show                      # both halves, in the terminal
 $AP render                    # regenerate app.html and vault-index.json
 $AP check                     # coherence defects against a ceiling of 0
-$AP check --max-defects 417   # live coherence ceiling; ratchet downward
+$AP check --max-defects 130   # live coherence ceiling; ratchet downward only
 $AP serve [--port 8788]       # loopback server
 $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
@@ -131,7 +131,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app render
 
 - Edit `app.html` or `vault-index.json` — both are generated. Edit `app.template.html`.
 - Expose the server beyond `127.0.0.1` — there is no authentication (`FD-002`).
-- **Raise `--max-defects` to excuse new defects inside the indexed corpus.** The ceiling ratchets down. The only permitted reset is a Founder-ratified corpus expansion with both baselines recorded, as occurred when PR #7 added previously unindexed constitutional and research material.
+- **Raise `--max-defects` to excuse new defects inside the indexed corpus.** The ceiling ratchets down. The only permitted reset is a Founder-ratified corpus expansion with both baselines recorded — and before invoking it, check the instrument: the one reset so far turned out to be a resolver bug, not decay, and was reversed. See [[12 - Continuous Integration Standard]].
 
 ---
 
@@ -151,12 +151,12 @@ The next session can resume from here without re-deriving anything.
 | Signal | Value |
 |---|---|
 | Institutional documents | 363 |
-| Connected | 312 (86.0%) |
-| Orphans | 51 |
+| Connected | 345 (94.3%) |
+| Orphans | 21 |
 | Missing frontmatter | 18 |
-| Broken links | 344 |
+| Broken links | 87 |
 | Empty documents | 4 |
-| Coherence defects | 417 |
+| Coherence defects | 130 |
 | Folders outside the canonical hierarchy | 6, holding 56 documents |
 
 **All of this belongs to CN-001, not to the app.** The app's job is to keep it visible; [[CN-001 Execution Tracker]] owns the repair.
@@ -165,7 +165,7 @@ The next session can resume from here without re-deriving anything.
 
 - No folder-number collision remains. Future proposals now have the canonical `14_FUTURE` home ratified by the Founder.
 - Should coherence defects become Founder OS `blockers`, so repair enters the operating half rather than living only in a report?
-- Does the Foundation commit to a connectedness target, or is 90.8% an acceptable floor?
+- Does the Foundation commit to a connectedness target, or is 94.3% an acceptable floor?
 
 **Next three actions**
 

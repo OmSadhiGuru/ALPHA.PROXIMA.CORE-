@@ -137,6 +137,61 @@ class TestRelationships(unittest.TestCase):
         by_title = {e["title"]: e for e in index["entries"]}
         self.assertIn(by_title["Book I"]["id"], by_title["Book II"]["links"])
 
+    def test_path_qualified_links_resolve(self):
+        """`[[folder/Note]]` is valid Obsidian. Reporting it broken measures the
+        tool, not the vault — and an overstated defect count gets the ceiling
+        raised to accommodate it."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "05_PROPOSALS/Cites.md", title="Cites",
+                       body="See [[00_CONSTITUTION/Book I]] for the rule.")
+            index = app.build_vault_index(root)
+        by_title = {e["title"]: e for e in index["entries"]}
+        self.assertEqual(by_title["Cites"]["links"], [by_title["Book I"]["id"]])
+        self.assertEqual(by_title["Cites"]["unresolved"], [])
+
+    def test_path_suffix_links_resolve(self):
+        """Obsidian matches the shortest unique path, not only the full one."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "07_RESEARCH/RP-001/02 Objectives/Aim.md", title="Aim")
+            write_note(root, "07_RESEARCH/RP-001/Index.md", title="Index",
+                       body="Start at [[02 Objectives/Aim]].")
+            index = app.build_vault_index(root)
+        by_title = {e["title"]: e for e in index["entries"]}
+        self.assertEqual(by_title["Index"]["links"], [by_title["Aim"]["id"]])
+        self.assertEqual(by_title["Index"]["unresolved"], [])
+
+    def test_a_md_suffix_on_the_target_still_resolves(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "05_PROPOSALS/WithExt.md", title="WithExt",
+                       body="See [[00_CONSTITUTION/Book I.md]].")
+            index = app.build_vault_index(root)
+        entry = next(e for e in index["entries"] if e["title"] == "WithExt")
+        self.assertEqual(len(entry["links"]), 1)
+        self.assertEqual(entry["unresolved"], [])
+
+    def test_a_link_to_a_folder_stays_unresolved(self):
+        """A folder is not a document; Obsidian does not resolve it either."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "05_PROPOSALS/Folder.md", title="Folder",
+                       body="See [[00_CONSTITUTION/]].")
+            index = app.build_vault_index(root)
+        entry = next(e for e in index["entries"] if e["title"] == "Folder")
+        self.assertEqual(entry["links"], [])
+        self.assertEqual(entry["unresolved"], ["00_CONSTITUTION/"])
+
+    def test_a_qualified_link_to_a_missing_document_is_still_a_defect(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "05_PROPOSALS/Gone.md", title="Gone",
+                       body="See [[00_CONSTITUTION/Book IX]].")
+            index = app.build_vault_index(root)
+        entry = next(e for e in index["entries"] if e["title"] == "Gone")
+        self.assertEqual(entry["unresolved"], ["00_CONSTITUTION/Book IX"])
+
     def test_unresolved_links_are_reported_not_dropped(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = vault(tmp)

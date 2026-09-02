@@ -45,16 +45,31 @@ env:
   # its own decay — if this number needs to go up, the change being made is
   # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
   #
-  # 2026-09-02: 417 — 51 orphans, 18 missing frontmatter, 344 broken links,
-  #                   4 empty documents, across 362 documents.
-  # One-time Founder-ratified scope reset: PR #7 reconciled 89 previously
-  # unindexed constitutional/research documents. The folder rename itself
-  # introduced no broken references to the retired paths. Ratchet down from
-  # this expanded-corpus baseline; do not treat the ceiling as an acceptable target.
+  # 2026-09-02: 130 — 21 orphans, 18 missing frontmatter, 87 broken links, 4 empty,
+  #                   across 366 documents.
+  #
+  # How this number got here, because the path matters more than the value:
+  #
+  #   243  pre-expansion baseline
+  #   422  one-time reset after PR #7 reconciled ~89 previously unindexed
+  #        constitutional and research documents
+  #   417  link hygiene (PR #21) removed template placeholders such as
+  #        `[[Name or Role]]` that were never real links
+  #   130  the indexer stopped reporting valid `[[folder/Note]]` links as
+  #        broken — a form Obsidian resolves natively and this vault uses
+  #        heavily. 260 of those "broken links" did not exist, and 30
+  #        documents were called orphans only because their real inbound
+  #        links went unrecognised.
+  #
+  # So the 422 reset was never the Foundation's condition. Most of it was the
+  # instrument. The lesson is recorded in ES-12: when a gated metric worsens
+  # sharply, check the instrument before raising the tolerance — a ceiling
+  # raised to accommodate a measurement bug ratifies decay that was never
+  # there, and does it with a justification that reads entirely reasonable.
   #
   # This comment is a dated record of how the ceiling was composed when it was
   # set. The live figure is the run summary of this workflow, never a document.
-  COHERENCE_CEILING: "417"
+  COHERENCE_CEILING: "130"
   AP: 08_SYSTEMS/Engineering Toolkit/ap.py
 
 jobs:

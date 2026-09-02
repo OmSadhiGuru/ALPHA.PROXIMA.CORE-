@@ -218,7 +218,7 @@ Performed 2026-09-01 on `main` at `99c081e`.
 
 | Check | Method | Result |
 |---|---|---|
-| App engine tests | `test_alpha_app.py` | 34 passed |
+| App engine tests | `test_alpha_app.py` | 40 passed |
 | Founder OS regression | `test_founder_os.py` | 45 passed, unchanged |
 | Renders from `file://` | headless Chromium | 272 entries, 19 domains, 0 JS errors |
 | Interactive paths | scripted probe: half switch, search, entry select, link traversal, domain filter, coherence panel | 19 assertions passed at 485 px, 768 px, 1280 px |
