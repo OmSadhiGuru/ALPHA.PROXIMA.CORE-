@@ -76,7 +76,7 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
 
-Baseline recorded 2026-09-01: **243 defects** across 272 documents — 25 orphans, 16 missing frontmatter, 198 broken links, 4 empty. PR #7's Founder-ratified reconciliation expanded the indexed corpus to 362 documents and established a one-time reset at **422 defects** — 51 orphans, 18 missing frontmatter, 349 broken links, 4 empty. All belong to CN-001, which owns the taxonomy; the ceiling ratchets downward from 422.
+Baseline recorded 2026-09-01: **243 defects** across 272 documents — 25 orphans, 16 missing frontmatter, 198 broken links, 4 empty. PR #7's Founder-ratified reconciliation expanded the indexed corpus and established a one-time reset at **422 defects**. Link hygiene on 2026-09-02 lowered the live ceiling to **417 defects** — 51 orphans, 18 missing frontmatter, 344 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
 
 ## Relationship to Tools 010 and 011
 

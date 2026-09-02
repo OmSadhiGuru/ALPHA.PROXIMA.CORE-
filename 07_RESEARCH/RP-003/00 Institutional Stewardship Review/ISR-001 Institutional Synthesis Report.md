@@ -364,7 +364,7 @@ This review finds the following institutional practices worthy of commendation:
 - [[RP-002 Master Index]]
 - [[RP-003 Master Index]]
 - [[Research Debt Register]]
-- [[ISR-001 Canonical Synthesis — Cross-Program]]
+- [[ISR-001 Canonical Synthesis]]
 - [[ISR-001 Knowledge Graph Update Recommendations]]
 - [[Book III - Knowledge Integrity]]
 - [[Book V - Cognitive Council]]

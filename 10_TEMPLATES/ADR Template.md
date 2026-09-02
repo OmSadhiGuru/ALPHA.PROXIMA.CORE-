@@ -54,7 +54,7 @@ See also: [[Institutional Registry]] for the authority levels governing each dec
 | **Date** | YYYY-MM-DD |
 | **Status** | `Proposed` / `Accepted` / `Rejected` / `Deprecated` / `Superseded by ADR-XXXX` |
 | **Decision Class** | Class I / II / III / IV (see [[Book I - The Constitution]], Article IV) |
-| **Proposed By** | [[Name or Role]] |
+| **Proposed By** | [Name or Role] |
 | **Ratified By** | [[Alpha Council]] / [Working Group Name] / [Delegate Name] |
 | **Ratification Date** | YYYY-MM-DD |
 | **Supersedes** | ADR-XXXX or N/A |
@@ -136,14 +136,14 @@ See also: [[Institutional Registry]] for the authority levels governing each dec
 
 *What needs to happen for this decision to take effect? List concrete next steps, owners, and timelines if known. Cross-link to relevant notes or working documents.*
 
-- [ ] [Action item 1] — Owner: [[Name]] — Due: YYYY-MM-DD
-- [ ] [Action item 2] — Owner: [[Name]] — Due: YYYY-MM-DD
+- [ ] [Action item 1] — Owner: [Name] — Due: YYYY-MM-DD
+- [ ] [Action item 2] — Owner: [Name] — Due: YYYY-MM-DD
 
 ---
 
 ## Dissent
 
-*Record any formal dissent from Council members or participants. Dissent is not failure — it is institutional memory. Format: "[[Name]] dissented on [date] on the grounds that [reason]."*
+*Record any formal dissent from Council members or participants. Dissent is not failure — it is institutional memory. Format: "[Name] dissented on [date] on the grounds that [reason]."*
 
 *If no dissent: write "No formal dissent recorded."*
 
@@ -154,7 +154,7 @@ See also: [[Institutional Registry]] for the authority levels governing each dec
 *When should this decision be revisited? What event or condition would trigger a review?*
 
 **Scheduled Review Date:** YYYY-MM-DD or [Event-triggered, e.g. "After first quarterly review of LUMIAION scope"]  
-**Review Owner:** [[Name or Role]]
+**Review Owner:** [Name or Role]
 
 ---
 
@@ -181,8 +181,8 @@ See also: [[Institutional Registry]] for the authority levels governing each dec
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0 | YYYY-MM-DD | [[Name]] | Initial draft |
-| 1.1 | YYYY-MM-DD | [[Name]] | [What changed and why] |
+| 1.0 | YYYY-MM-DD | [Name] | Initial draft |
+| 1.1 | YYYY-MM-DD | [Name] | [What changed and why] |
 
 ---
 

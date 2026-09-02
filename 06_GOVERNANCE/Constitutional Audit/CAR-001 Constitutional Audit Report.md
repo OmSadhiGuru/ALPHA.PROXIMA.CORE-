@@ -214,7 +214,7 @@ Documents the audit finds **absent** that the constitutional completeness checkl
 
 ## DELIVERABLE 4 — CROSS-REFERENCE REPORT
 
-The vault uses Obsidian `[[wikilinks]]`. Audit of link integrity surfaces systemic issues (representative, not exhaustive — a full link-graph pass is a P2 remediation task):
+The vault uses Obsidian internal links. Audit of link integrity surfaces systemic issues (representative, not exhaustive — a full link-graph pass is a P2 remediation task):
 
 | Issue | Examples | Severity |
 |-------|----------|----------|

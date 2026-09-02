@@ -102,7 +102,7 @@ AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app'
 $AP show                      # both halves, in the terminal
 $AP render                    # regenerate app.html and vault-index.json
 $AP check                     # coherence defects against a ceiling of 0
-$AP check --max-defects 422   # reconciled PR #7 corpus baseline; ratchet downward
+$AP check --max-defects 417   # live coherence ceiling; ratchet downward
 $AP serve [--port 8788]       # loopback server
 $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
@@ -154,9 +154,9 @@ The next session can resume from here without re-deriving anything.
 | Connected | 312 (86.0%) |
 | Orphans | 51 |
 | Missing frontmatter | 18 |
-| Broken links | 349 |
+| Broken links | 344 |
 | Empty documents | 4 |
-| Coherence defects | 422 |
+| Coherence defects | 417 |
 | Folders outside the canonical hierarchy | 6, holding 56 documents |
 
 **All of this belongs to CN-001, not to the app.** The app's job is to keep it visible; [[CN-001 Execution Tracker]] owns the repair.
