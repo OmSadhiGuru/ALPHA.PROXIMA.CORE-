@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T01:54:22+00:00",
-  "note_count": 361,
+  "generated_at": "2026-09-02T01:58:18+00:00",
+  "note_count": 362,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -61,6 +61,12 @@
       "name": "Templates",
       "question": "How new knowledge is shaped",
       "count": 8
+    },
+    {
+      "id": "11_PROJECTS",
+      "name": "Projects",
+      "question": "What is being built",
+      "count": 1
     },
     {
       "id": "12_PEOPLE",
@@ -8294,7 +8300,37 @@
         "10-templates-concept-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 21
+      "backlinks": 22
+    },
+    {
+      "id": "11-projects-readme-md",
+      "path": "11_PROJECTS/README.md",
+      "title": "11_PROJECTS",
+      "domain": "11_PROJECTS",
+      "type": "projects-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "projects",
+        "index",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 45,
+      "links": [
+        "10-templates-vault-structure-convention-md",
+        "alpha-proxima-core-md",
+        "13-operations-readme-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
     },
     {
       "id": "12-people-codex-md",
@@ -9175,7 +9211,7 @@
         "13-operations-version-history-operations-version-history-md"
       ],
       "unresolved": [],
-      "backlinks": 20
+      "backlinks": 21
     },
     {
       "id": "13-operations-reboot-repository-reboot-audit-2026-08-23-md",
@@ -11064,7 +11100,7 @@
         "06-governance-epoch-v-interim-authority-instrument-md"
       ],
       "unresolved": [],
-      "backlinks": 16
+      "backlinks": 17
     },
     {
       "id": "awaken-the-inner-guru-production-folder-md",
@@ -12507,9 +12543,9 @@
     }
   ],
   "coherence": {
-    "note_count": 361,
-    "connected": 310,
-    "connectedness": 0.8587,
+    "note_count": 362,
+    "connected": 311,
+    "connectedness": 0.8591,
     "orphans": [
       {
         "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
@@ -14309,6 +14345,10 @@
         1
       ],
       [
+        "projects-index",
+        1
+      ],
+      [
         "reasoning-engine-profile",
         1
       ],
@@ -14392,7 +14432,7 @@
     "status": [
       [
         "active",
-        197
+        198
       ],
       [
         "ratified",
@@ -14458,7 +14498,7 @@
     "function": [
       [
         "Implementation",
-        119
+        120
       ],
       [
         "Research Intelligence",
