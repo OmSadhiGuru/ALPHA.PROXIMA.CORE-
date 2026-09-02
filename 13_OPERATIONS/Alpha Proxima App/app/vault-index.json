@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T04:43:28+00:00",
+  "generated_at": "2026-09-02T04:50:43+00:00",
   "note_count": 363,
   "domains": [
     {
@@ -81,16 +81,16 @@
       "count": 28
     },
     {
+      "id": "14_FUTURE",
+      "name": "Future",
+      "question": "What is not yet due",
+      "count": 21
+    },
+    {
       "id": "99_ARCHIVE",
       "name": "Archive",
       "question": "What has been retired",
       "count": 30
-    },
-    {
-      "id": "09_FUTURE",
-      "name": "09 Future",
-      "question": "Not yet placed in the canonical hierarchy",
-      "count": 21
     },
     {
       "id": "OSG_BUSINESS",
@@ -1361,7 +1361,7 @@
       ],
       "updated": "2026-07-18",
       "has_frontmatter": true,
-      "words": 1089,
+      "words": 1085,
       "links": [
         "05-proposals-phase-iii-preparation-phase-iii-institutional-readiness-map-md",
         "05-proposals-phase-iii-preparation-08-systems-draft-triage-register-md",
@@ -6797,9 +6797,9 @@
         "report",
         "alpha-proxima"
       ],
-      "updated": "2026-07-03",
+      "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 2154,
+      "words": 2965,
       "links": [
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
         "08-systems-institutional-knowledge-graph-node-taxonomy-md",
@@ -6832,9 +6832,9 @@
         "report",
         "alpha-proxima"
       ],
-      "updated": "2026-07-03",
+      "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 4533,
+      "words": 4748,
       "links": [
         "08-systems-institutional-knowledge-graph-tools-tool-011-relationship-extractor-md",
         "12-people-codex-md",
@@ -8316,7 +8316,7 @@
       "domain": "10_TEMPLATES",
       "type": "unclassified",
       "status": "active",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "owner": "",
       "function": "",
       "engine": "",
@@ -8334,7 +8334,7 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 1298,
+      "words": 1343,
       "links": [
         "alpha-proxima-core-md",
         "lumiaion-md",
@@ -8502,7 +8502,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 2419,
+      "words": 2400,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
@@ -8529,7 +8529,7 @@
       "domain": "13_OPERATIONS",
       "type": "readme",
       "status": "active",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "Claude",
@@ -8547,7 +8547,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1208,
+      "words": 1229,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
@@ -8587,7 +8587,7 @@
         "12-people-codex-md",
         "13-operations-metrics-metrics-registry-md",
         "13-operations-operational-health-operational-health-index-md",
-        "09-future-readme-md",
+        "14-future-readme-md",
         "13-operations-readme-md"
       ],
       "unresolved": [],
@@ -9020,7 +9020,7 @@
         "13-operations-dashboards-dashboards-index-md",
         "13-operations-review-cycles-review-cycles-registry-md",
         "13-operations-automation-queue-automation-queue-index-md",
-        "09-future-review-queue-review-queue-index-md",
+        "14-future-review-queue-review-queue-index-md",
         "13-operations-readme-md"
       ],
       "unresolved": [],
@@ -9101,7 +9101,7 @@
         "13-operations-operational-health-operational-health-index-md",
         "00-constitution-book-i-the-constitution-md",
         "04-decisions-adr-0001-the-founding-decision-md",
-        "09-future-readme-md"
+        "14-future-readme-md"
       ],
       "unresolved": [],
       "backlinks": 16
@@ -9481,6 +9481,686 @@
       ],
       "unresolved": [],
       "backlinks": 14
+    },
+    {
+      "id": "14-future-ai-recommendations-ai-recommendations-index-md",
+      "path": "14_FUTURE/AI Recommendations/AI Recommendations Index.md",
+      "title": "AI Recommendations Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "ai-recommendations",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 138,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "03-ai-council-ai-council-registry-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-architectural-proposals-architectural-proposals-index-md",
+      "path": "14_FUTURE/Architectural Proposals/Architectural Proposals Index.md",
+      "title": "Architectural Proposals Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "architecture",
+        "proposals",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 138,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "14-future-templates-architecture-proposal-template-md",
+        "08-systems-protocols-future-expansion-protocol-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-archive-future-archive-index-md",
+      "path": "14_FUTURE/Archive/Future Archive Index.md",
+      "title": "Future Archive Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "archive",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 140,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-decision-log-decision-log-index-md",
+      "path": "14_FUTURE/Decision Log/Decision Log Index.md",
+      "title": "Decision Log Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "decision-log",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 142,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "10-templates-adr-template-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-feature-requests-feature-requests-index-md",
+      "path": "14_FUTURE/Feature Requests/Feature Requests Index.md",
+      "title": "Feature Requests Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "feature-requests",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 140,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-founder-ideas-founder-ideas-index-md",
+      "path": "14_FUTURE/Founder Ideas/Founder Ideas Index.md",
+      "title": "Founder Ideas Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "founder-ideas",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 132,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "14-future-templates-founder-idea-template-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-future-cognitive-functions-future-cognitive-functions-index-md",
+      "path": "14_FUTURE/Future Cognitive Functions/Future Cognitive Functions Index.md",
+      "title": "Future Cognitive Functions Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "cognitive-functions",
+        "proposals",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 141,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "03-ai-council-ai-council-registry-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-future-institutes-future-institutes-index-md",
+      "path": "14_FUTURE/Future Institutes/Future Institutes Index.md",
+      "title": "Future Institutes Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "institutes",
+        "proposals",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 141,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "03-ai-council-institutional-registry-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-implementation-proposals-implementation-proposals-index-md",
+      "path": "14_FUTURE/Implementation Proposals/Implementation Proposals Index.md",
+      "title": "Implementation Proposals Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "implementation",
+        "proposals",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 139,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "14-future-templates-future-proposal-template-md",
+        "14-future-templates-upgrade-proposal-template-md",
+        "10-templates-implementation-note-template-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-readme-md",
+      "path": "14_FUTURE/README.md",
+      "title": "14_FUTURE",
+      "domain": "14_FUTURE",
+      "type": "institutional-office",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "governance",
+        "evolution",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 567,
+      "links": [
+        "00-constitution-book-i-the-constitution-md",
+        "08-systems-protocols-future-expansion-protocol-md",
+        "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
+        "10-templates-vault-structure-convention-md",
+        "12-people-codex-md",
+        "10-templates-adr-template-md",
+        "10-templates-concept-note-template-md",
+        "14-future-roadmap-roadmap-index-md",
+        "14-future-architectural-proposals-architectural-proposals-index-md",
+        "14-future-research-commissions-research-commissions-index-md",
+        "14-future-future-institutes-future-institutes-index-md",
+        "14-future-future-cognitive-functions-future-cognitive-functions-index-md",
+        "14-future-technology-watch-technology-watch-index-md",
+        "14-future-implementation-proposals-implementation-proposals-index-md",
+        "14-future-feature-requests-feature-requests-index-md",
+        "14-future-founder-ideas-founder-ideas-index-md",
+        "14-future-ai-recommendations-ai-recommendations-index-md",
+        "14-future-review-queue-review-queue-index-md",
+        "14-future-decision-log-decision-log-index-md",
+        "14-future-templates-future-templates-index-md",
+        "14-future-archive-future-archive-index-md"
+      ],
+      "unresolved": [],
+      "backlinks": 22
+    },
+    {
+      "id": "14-future-research-commissions-research-commissions-index-md",
+      "path": "14_FUTURE/Research Commissions/Research Commissions Index.md",
+      "title": "Research Commissions Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "research",
+        "commissions",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 136,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "08-systems-research-management-toolkit-templates-research-commission-template-md",
+        "08-systems-protocols-research-governance-protocol-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-review-queue-review-queue-index-md",
+      "path": "14_FUTURE/Review Queue/Review Queue Index.md",
+      "title": "Review Queue Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "review-queue",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 145,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-roadmap-roadmap-index-md",
+      "path": "14_FUTURE/Roadmap/Roadmap Index.md",
+      "title": "Roadmap Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "roadmap",
+        "evolution",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 138,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "14-future-technology-watch-technology-watch-index-md",
+      "path": "14_FUTURE/Technology Watch/Technology Watch Index.md",
+      "title": "Technology Watch Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "technology-watch",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 137,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "14-future-templates-technology-watch-template-md",
+        "08-systems-protocols-future-expansion-protocol-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-architecture-proposal-template-md",
+      "path": "14_FUTURE/Templates/Architecture Proposal Template.md",
+      "title": "Architecture Proposal Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "architecture",
+        "proposal",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 340,
+      "links": [
+        "10-templates-adr-template-md",
+        "14-future-readme-md",
+        "14-future-architectural-proposals-architectural-proposals-index-md"
+      ],
+      "unresolved": [
+        "Author"
+      ],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-founder-idea-template-md",
+      "path": "14_FUTURE/Templates/Founder Idea Template.md",
+      "title": "Founder Idea Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "founder-idea",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 309,
+      "links": [
+        "14-future-readme-md",
+        "14-future-founder-ideas-founder-ideas-index-md"
+      ],
+      "unresolved": [
+        "Founder"
+      ],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-future-proposal-template-md",
+      "path": "14_FUTURE/Templates/Future Proposal Template.md",
+      "title": "Future Proposal Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "proposal",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 342,
+      "links": [
+        "14-future-readme-md",
+        "14-future-templates-future-templates-index-md"
+      ],
+      "unresolved": [
+        "Author"
+      ],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-future-templates-index-md",
+      "path": "14_FUTURE/Templates/Future Templates Index.md",
+      "title": "Future Templates Index",
+      "domain": "14_FUTURE",
+      "type": "future-index",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "templates",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 146,
+      "links": [
+        "14-future-readme-md",
+        "12-people-codex-md",
+        "14-future-templates-future-proposal-template-md",
+        "08-systems-research-management-toolkit-templates-research-commission-template-md",
+        "14-future-templates-technology-watch-template-md",
+        "14-future-templates-founder-idea-template-md",
+        "14-future-templates-architecture-proposal-template-md",
+        "14-future-templates-upgrade-proposal-template-md"
+      ],
+      "unresolved": [
+        "Template Standard"
+      ],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-research-commission-template-md",
+      "path": "14_FUTURE/Templates/Research Commission Template.md",
+      "title": "Research Commission Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "research",
+        "commission",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 336,
+      "links": [
+        "08-systems-protocols-research-governance-protocol-md",
+        "14-future-readme-md",
+        "14-future-research-commissions-research-commissions-index-md"
+      ],
+      "unresolved": [
+        "Author"
+      ],
+      "backlinks": 0
+    },
+    {
+      "id": "14-future-templates-technology-watch-template-md",
+      "path": "14_FUTURE/Templates/Technology Watch Template.md",
+      "title": "Technology Watch Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "technology-watch",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 331,
+      "links": [
+        "14-future-readme-md",
+        "14-future-technology-watch-technology-watch-index-md"
+      ],
+      "unresolved": [
+        "Author"
+      ],
+      "backlinks": 2
+    },
+    {
+      "id": "14-future-templates-upgrade-proposal-template-md",
+      "path": "14_FUTURE/Templates/Upgrade Proposal Template.md",
+      "title": "Upgrade Proposal Template",
+      "domain": "14_FUTURE",
+      "type": "template",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "future",
+        "template",
+        "upgrade",
+        "proposal",
+        "alpha-proxima"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 334,
+      "links": [
+        "14-future-readme-md",
+        "14-future-implementation-proposals-implementation-proposals-index-md"
+      ],
+      "unresolved": [
+        "Author"
+      ],
+      "backlinks": 2
     },
     {
       "id": "99-archive-engineering-cleanup-es-002-metadata-migration-phase-1-06-source-sanalab-md",
@@ -10389,686 +11069,6 @@
       "links": [],
       "unresolved": [],
       "backlinks": 0
-    },
-    {
-      "id": "09-future-ai-recommendations-ai-recommendations-index-md",
-      "path": "09_FUTURE/AI Recommendations/AI Recommendations Index.md",
-      "title": "AI Recommendations Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "ai-recommendations",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 138,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "03-ai-council-ai-council-registry-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-architectural-proposals-architectural-proposals-index-md",
-      "path": "09_FUTURE/Architectural Proposals/Architectural Proposals Index.md",
-      "title": "Architectural Proposals Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "architecture",
-        "proposals",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 138,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "09-future-templates-architecture-proposal-template-md",
-        "08-systems-protocols-future-expansion-protocol-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-archive-future-archive-index-md",
-      "path": "09_FUTURE/Archive/Future Archive Index.md",
-      "title": "Future Archive Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "archive",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 140,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-decision-log-decision-log-index-md",
-      "path": "09_FUTURE/Decision Log/Decision Log Index.md",
-      "title": "Decision Log Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "decision-log",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 142,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "10-templates-adr-template-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-feature-requests-feature-requests-index-md",
-      "path": "09_FUTURE/Feature Requests/Feature Requests Index.md",
-      "title": "Feature Requests Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "feature-requests",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 140,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-founder-ideas-founder-ideas-index-md",
-      "path": "09_FUTURE/Founder Ideas/Founder Ideas Index.md",
-      "title": "Founder Ideas Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "founder-ideas",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 132,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "09-future-templates-founder-idea-template-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-future-cognitive-functions-future-cognitive-functions-index-md",
-      "path": "09_FUTURE/Future Cognitive Functions/Future Cognitive Functions Index.md",
-      "title": "Future Cognitive Functions Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "cognitive-functions",
-        "proposals",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 141,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "03-ai-council-ai-council-registry-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-future-institutes-future-institutes-index-md",
-      "path": "09_FUTURE/Future Institutes/Future Institutes Index.md",
-      "title": "Future Institutes Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "institutes",
-        "proposals",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 141,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "03-ai-council-institutional-registry-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-implementation-proposals-implementation-proposals-index-md",
-      "path": "09_FUTURE/Implementation Proposals/Implementation Proposals Index.md",
-      "title": "Implementation Proposals Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "implementation",
-        "proposals",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 139,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "09-future-templates-future-proposal-template-md",
-        "09-future-templates-upgrade-proposal-template-md",
-        "10-templates-implementation-note-template-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-readme-md",
-      "path": "09_FUTURE/README.md",
-      "title": "09_FUTURE",
-      "domain": "09_FUTURE",
-      "type": "institutional-office",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "governance",
-        "evolution",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 570,
-      "links": [
-        "00-constitution-book-i-the-constitution-md",
-        "08-systems-protocols-future-expansion-protocol-md",
-        "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
-        "10-templates-vault-structure-convention-md",
-        "12-people-codex-md",
-        "10-templates-adr-template-md",
-        "10-templates-concept-note-template-md",
-        "09-future-roadmap-roadmap-index-md",
-        "09-future-architectural-proposals-architectural-proposals-index-md",
-        "09-future-research-commissions-research-commissions-index-md",
-        "09-future-future-institutes-future-institutes-index-md",
-        "09-future-future-cognitive-functions-future-cognitive-functions-index-md",
-        "09-future-technology-watch-technology-watch-index-md",
-        "09-future-implementation-proposals-implementation-proposals-index-md",
-        "09-future-feature-requests-feature-requests-index-md",
-        "09-future-founder-ideas-founder-ideas-index-md",
-        "09-future-ai-recommendations-ai-recommendations-index-md",
-        "09-future-review-queue-review-queue-index-md",
-        "09-future-decision-log-decision-log-index-md",
-        "09-future-templates-future-templates-index-md",
-        "09-future-archive-future-archive-index-md"
-      ],
-      "unresolved": [],
-      "backlinks": 22
-    },
-    {
-      "id": "09-future-research-commissions-research-commissions-index-md",
-      "path": "09_FUTURE/Research Commissions/Research Commissions Index.md",
-      "title": "Research Commissions Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "research",
-        "commissions",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 136,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "08-systems-research-management-toolkit-templates-research-commission-template-md",
-        "08-systems-protocols-research-governance-protocol-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-review-queue-review-queue-index-md",
-      "path": "09_FUTURE/Review Queue/Review Queue Index.md",
-      "title": "Review Queue Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "review-queue",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 145,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-roadmap-roadmap-index-md",
-      "path": "09_FUTURE/Roadmap/Roadmap Index.md",
-      "title": "Roadmap Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "roadmap",
-        "evolution",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 138,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md"
-      ],
-      "unresolved": [],
-      "backlinks": 1
-    },
-    {
-      "id": "09-future-technology-watch-technology-watch-index-md",
-      "path": "09_FUTURE/Technology Watch/Technology Watch Index.md",
-      "title": "Technology Watch Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "technology-watch",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 137,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "09-future-templates-technology-watch-template-md",
-        "08-systems-protocols-future-expansion-protocol-md"
-      ],
-      "unresolved": [],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-architecture-proposal-template-md",
-      "path": "09_FUTURE/Templates/Architecture Proposal Template.md",
-      "title": "Architecture Proposal Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "architecture",
-        "proposal",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 340,
-      "links": [
-        "10-templates-adr-template-md",
-        "09-future-readme-md",
-        "09-future-architectural-proposals-architectural-proposals-index-md"
-      ],
-      "unresolved": [
-        "Author"
-      ],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-founder-idea-template-md",
-      "path": "09_FUTURE/Templates/Founder Idea Template.md",
-      "title": "Founder Idea Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "founder-idea",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 309,
-      "links": [
-        "09-future-readme-md",
-        "09-future-founder-ideas-founder-ideas-index-md"
-      ],
-      "unresolved": [
-        "Founder"
-      ],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-future-proposal-template-md",
-      "path": "09_FUTURE/Templates/Future Proposal Template.md",
-      "title": "Future Proposal Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "proposal",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 342,
-      "links": [
-        "09-future-readme-md",
-        "09-future-templates-future-templates-index-md"
-      ],
-      "unresolved": [
-        "Author"
-      ],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-future-templates-index-md",
-      "path": "09_FUTURE/Templates/Future Templates Index.md",
-      "title": "Future Templates Index",
-      "domain": "09_FUTURE",
-      "type": "future-index",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "templates",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 146,
-      "links": [
-        "09-future-readme-md",
-        "12-people-codex-md",
-        "09-future-templates-future-proposal-template-md",
-        "08-systems-research-management-toolkit-templates-research-commission-template-md",
-        "09-future-templates-technology-watch-template-md",
-        "09-future-templates-founder-idea-template-md",
-        "09-future-templates-architecture-proposal-template-md",
-        "09-future-templates-upgrade-proposal-template-md"
-      ],
-      "unresolved": [
-        "Template Standard"
-      ],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-research-commission-template-md",
-      "path": "09_FUTURE/Templates/Research Commission Template.md",
-      "title": "Research Commission Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "research",
-        "commission",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 336,
-      "links": [
-        "08-systems-protocols-research-governance-protocol-md",
-        "09-future-readme-md",
-        "09-future-research-commissions-research-commissions-index-md"
-      ],
-      "unresolved": [
-        "Author"
-      ],
-      "backlinks": 0
-    },
-    {
-      "id": "09-future-templates-technology-watch-template-md",
-      "path": "09_FUTURE/Templates/Technology Watch Template.md",
-      "title": "Technology Watch Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "technology-watch",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 331,
-      "links": [
-        "09-future-readme-md",
-        "09-future-technology-watch-technology-watch-index-md"
-      ],
-      "unresolved": [
-        "Author"
-      ],
-      "backlinks": 2
-    },
-    {
-      "id": "09-future-templates-upgrade-proposal-template-md",
-      "path": "09_FUTURE/Templates/Upgrade Proposal Template.md",
-      "title": "Upgrade Proposal Template",
-      "domain": "09_FUTURE",
-      "type": "template",
-      "status": "active",
-      "version": "1.0.0",
-      "owner": "Alpha Proxima Foundation",
-      "function": "Implementation",
-      "engine": "CODEX",
-      "authors": [
-        "CODEX"
-      ],
-      "tags": [
-        "future",
-        "template",
-        "upgrade",
-        "proposal",
-        "alpha-proxima"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 334,
-      "links": [
-        "09-future-readme-md",
-        "09-future-implementation-proposals-implementation-proposals-index-md"
-      ],
-      "unresolved": [
-        "Author"
-      ],
-      "backlinks": 2
     },
     {
       "id": "alpha-proxima-core-md",
@@ -13831,62 +13831,6 @@
         ]
       },
       {
-        "id": "09-future-templates-architecture-proposal-template-md",
-        "path": "09_FUTURE/Templates/Architecture Proposal Template.md",
-        "title": "Architecture Proposal Template",
-        "targets": [
-          "Author"
-        ]
-      },
-      {
-        "id": "09-future-templates-founder-idea-template-md",
-        "path": "09_FUTURE/Templates/Founder Idea Template.md",
-        "title": "Founder Idea Template",
-        "targets": [
-          "Founder"
-        ]
-      },
-      {
-        "id": "09-future-templates-future-proposal-template-md",
-        "path": "09_FUTURE/Templates/Future Proposal Template.md",
-        "title": "Future Proposal Template",
-        "targets": [
-          "Author"
-        ]
-      },
-      {
-        "id": "09-future-templates-future-templates-index-md",
-        "path": "09_FUTURE/Templates/Future Templates Index.md",
-        "title": "Future Templates Index",
-        "targets": [
-          "Template Standard"
-        ]
-      },
-      {
-        "id": "09-future-templates-research-commission-template-md",
-        "path": "09_FUTURE/Templates/Research Commission Template.md",
-        "title": "Research Commission Template",
-        "targets": [
-          "Author"
-        ]
-      },
-      {
-        "id": "09-future-templates-technology-watch-template-md",
-        "path": "09_FUTURE/Templates/Technology Watch Template.md",
-        "title": "Technology Watch Template",
-        "targets": [
-          "Author"
-        ]
-      },
-      {
-        "id": "09-future-templates-upgrade-proposal-template-md",
-        "path": "09_FUTURE/Templates/Upgrade Proposal Template.md",
-        "title": "Upgrade Proposal Template",
-        "targets": [
-          "Author"
-        ]
-      },
-      {
         "id": "09-offices-lumiaion-lumiaion-charter-md",
         "path": "09_OFFICES/LUMIAION/LUMIAION Charter.md",
         "title": "LUMIAION Charter — Permanent Constitutional Definition",
@@ -13953,6 +13897,62 @@
           "07_RESEARCH/RP-001/RP-001 Master Index",
           "07_RESEARCH/RP-002/RP-002 Master Index",
           "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit"
+        ]
+      },
+      {
+        "id": "14-future-templates-architecture-proposal-template-md",
+        "path": "14_FUTURE/Templates/Architecture Proposal Template.md",
+        "title": "Architecture Proposal Template",
+        "targets": [
+          "Author"
+        ]
+      },
+      {
+        "id": "14-future-templates-founder-idea-template-md",
+        "path": "14_FUTURE/Templates/Founder Idea Template.md",
+        "title": "Founder Idea Template",
+        "targets": [
+          "Founder"
+        ]
+      },
+      {
+        "id": "14-future-templates-future-proposal-template-md",
+        "path": "14_FUTURE/Templates/Future Proposal Template.md",
+        "title": "Future Proposal Template",
+        "targets": [
+          "Author"
+        ]
+      },
+      {
+        "id": "14-future-templates-future-templates-index-md",
+        "path": "14_FUTURE/Templates/Future Templates Index.md",
+        "title": "Future Templates Index",
+        "targets": [
+          "Template Standard"
+        ]
+      },
+      {
+        "id": "14-future-templates-research-commission-template-md",
+        "path": "14_FUTURE/Templates/Research Commission Template.md",
+        "title": "Research Commission Template",
+        "targets": [
+          "Author"
+        ]
+      },
+      {
+        "id": "14-future-templates-technology-watch-template-md",
+        "path": "14_FUTURE/Templates/Technology Watch Template.md",
+        "title": "Technology Watch Template",
+        "targets": [
+          "Author"
+        ]
+      },
+      {
+        "id": "14-future-templates-upgrade-proposal-template-md",
+        "path": "14_FUTURE/Templates/Upgrade Proposal Template.md",
+        "title": "Upgrade Proposal Template",
+        "targets": [
+          "Author"
         ]
       },
       {
@@ -14416,11 +14416,11 @@
         1
       ],
       [
-        "archive-record",
+        "institutional-office",
         1
       ],
       [
-        "institutional-office",
+        "archive-record",
         1
       ],
       [

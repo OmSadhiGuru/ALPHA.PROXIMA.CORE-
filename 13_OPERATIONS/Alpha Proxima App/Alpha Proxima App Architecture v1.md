@@ -76,7 +76,7 @@ Indexing the vault produced a measurement nobody had:
 
 [[Book III - Knowledge Integrity]] and the Library Rule both require that knowledge connect. Until now that requirement had no number attached to it, so it could not be verified, tracked, or closed. It was an aspiration.
 
-The V1 scan exposed seven uncanonical folders and two number collisions. The Founder subsequently ratified `11_PROJECTS`, `12_PEOPLE`, and `13_OPERATIONS`, resolving the project, people, and operations collisions. `09_FUTURE` remains visible but uncanonical because `09_OFFICES` owns reservation `09`; resolving that remaining namespace requires a separate Founder decision. Legacy and adjacent workstreams remain visible rather than silently hidden.
+The V1 scan exposed seven uncanonical folders and two number collisions. The Founder subsequently ratified `11_PROJECTS`, `12_PEOPLE`, `13_OPERATIONS`, and `14_FUTURE`, resolving both collisions while preserving `09_OFFICES`. Legacy and adjacent workstreams remain visible rather than silently hidden.
 
 **The app does not repair any of this.** Repair is CN-001's, which owns the taxonomy ([[CN-001 Execution Tracker]]). The app's contribution is to make the gap continuously visible instead of periodically rediscovered.
 

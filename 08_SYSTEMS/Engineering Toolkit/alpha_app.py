@@ -46,7 +46,7 @@ DEFAULT_TEMPLATE = APP_DIR / "app" / "app.template.html"
 DEFAULT_APP = APP_DIR / "app" / "app.html"
 DEFAULT_INDEX = APP_DIR / "app" / "vault-index.json"
 
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.2.0"
 
 VIEW_PLACEHOLDER = "/*__ALPHA_APP_VIEW__*/null"
 
@@ -68,6 +68,7 @@ DOMAINS: tuple[tuple[str, str, str], ...] = (
     ("11_PROJECTS", "Projects", "What is being built"),
     ("12_PEOPLE", "People", "Who the Foundation involves"),
     ("13_OPERATIONS", "Operations", "What is happening now"),
+    ("14_FUTURE", "Future", "What is not yet due"),
     ("99_ARCHIVE", "Archive", "What has been retired"),
 )
 
