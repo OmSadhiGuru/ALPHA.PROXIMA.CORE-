@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T05:00:09+00:00",
+  "generated_at": "2026-09-02T05:06:32+00:00",
   "note_count": 366,
   "domains": [
     {
@@ -1485,7 +1485,7 @@
       ],
       "updated": "2026-07-04",
       "has_frontmatter": true,
-      "words": 6682,
+      "words": 6683,
       "links": [
         "00-constitution-book-i-the-constitution-md",
         "00-constitution-book-ii-governance-framework-md",
@@ -5203,7 +5203,7 @@
         "00-constitution-book-v-cognitive-council-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
@@ -5231,20 +5231,19 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 3920,
+      "words": 3918,
       "links": [
         "07-research-rp-001-rp-001-master-index-md",
         "07-research-rp-002-rp-002-master-index-md",
         "07-research-rp-003-rp-003-master-index-md",
         "06-governance-research-debt-register-research-debt-register-md",
+        "07-research-rp-003-00-institutional-stewardship-review-isr-001-canonical-synthesis-md",
         "07-research-rp-003-00-institutional-stewardship-review-isr-001-knowledge-graph-update-recommendations-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "00-constitution-book-v-cognitive-council-md",
         "03-ai-council-cognitive-function-registry-md"
       ],
-      "unresolved": [
-        "ISR-001 Canonical Synthesis — Cross-Program"
-      ],
+      "unresolved": [],
       "backlinks": 3
     },
     {
@@ -5272,13 +5271,13 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 1962,
+      "words": 1960,
       "links": [
         "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
+        "07-research-rp-003-00-institutional-stewardship-review-isr-001-canonical-synthesis-md",
         "06-governance-research-framework-research-integration-framework-md"
       ],
       "unresolved": [
-        "ISR-001 Canonical Synthesis — Cross-Program",
         "RP-001 Research Graph/RP-001 Research Graph",
         "RP-002 Research Graph/RP-002 Research Graph"
       ],
@@ -6517,7 +6516,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 868,
+      "words": 875,
       "links": [
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "13-operations-founder-os-founder-console-md",
@@ -8171,10 +8170,7 @@
         "03-ai-council-alpha-council-md",
         "10-templates-concept-note-template-md"
       ],
-      "unresolved": [
-        "Name or Role",
-        "Name"
-      ],
+      "unresolved": [],
       "backlinks": 17
     },
     {
@@ -8284,9 +8280,7 @@
         "06-governance-research-framework-translation-review-process-md",
         "06-governance-research-framework-translation-decision-matrix-md"
       ],
-      "unresolved": [
-        "Link to canonical glossary entry"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -13103,19 +13097,10 @@
         ]
       },
       {
-        "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
-        "path": "07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Institutional Synthesis Report.md",
-        "title": "ISR-001 — Institutional Synthesis Report: RP-001 and RP-002",
-        "targets": [
-          "ISR-001 Canonical Synthesis — Cross-Program"
-        ]
-      },
-      {
         "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-knowledge-graph-update-recommendations-md",
         "path": "07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Knowledge Graph Update Recommendations.md",
         "title": "ISR-001 Knowledge Graph Update Recommendations",
         "targets": [
-          "ISR-001 Canonical Synthesis — Cross-Program",
           "RP-001 Research Graph/RP-001 Research Graph",
           "RP-002 Research Graph/RP-002 Research Graph"
         ]
@@ -13205,15 +13190,6 @@
         ]
       },
       {
-        "id": "10-templates-adr-template-md",
-        "path": "10_TEMPLATES/ADR Template.md",
-        "title": "ADR Template",
-        "targets": [
-          "Name or Role",
-          "Name"
-        ]
-      },
-      {
         "id": "10-templates-concept-note-template-md",
         "path": "10_TEMPLATES/Concept Note Template.md",
         "title": "Concept Note Template",
@@ -13229,14 +13205,6 @@
         "title": "Implementation Note Template",
         "targets": [
           "{{AUTHOR}}"
-        ]
-      },
-      {
-        "id": "10-templates-institutional-translation-template-v1-0-md",
-        "path": "10_TEMPLATES/Institutional Translation Template v1.0.md",
-        "title": "Institutional Translation Template v1.0",
-        "targets": [
-          "Link to canonical glossary entry"
         ]
       },
       {
@@ -13362,7 +13330,7 @@
     "counts": {
       "orphans": 21,
       "missing_frontmatter": 18,
-      "broken_links": 92,
+      "broken_links": 87,
       "empty_notes": 4
     }
   },

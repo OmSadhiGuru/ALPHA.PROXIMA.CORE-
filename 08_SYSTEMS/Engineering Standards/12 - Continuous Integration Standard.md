@@ -65,7 +65,7 @@ Running the vault index three times would answer the same question three times. 
 
 **When a gated metric worsens sharply, the first hypothesis is that the measurement changed, not the Foundation.**
 
-This rule was earned. On 2026-09-02 the ceiling was raised from 243 to 422 to accommodate what looked like a large increase in broken links after a corpus expansion. It was not. The indexer resolved only bare `[[Note]]` links and treated every valid `[[folder/Note]]` — a form Obsidian resolves natively — as broken. **260 of the 349 reported broken links did not exist**, and 30 documents were reported as orphans purely because their real inbound links went unrecognised. Correcting the resolver put the true figure at 135, *below* the pre-expansion baseline.
+This rule was earned. On 2026-09-02 the ceiling was raised from 243 to 422 to accommodate what looked like a large increase in broken links after a corpus expansion. It was not. The indexer resolved only bare `[[Note]]` links and treated every valid `[[folder/Note]]` — a form Obsidian resolves natively — as broken. **260 of the 349 reported broken links did not exist**, and 30 documents were reported as orphans purely because their real inbound links went unrecognised. Correcting the resolver — alongside removing template placeholders that were never links — put the true figure at 130, *below* the pre-expansion baseline.
 
 A ceiling raised to accommodate a measurement bug ratifies decay that was never there, and does it with a documented justification that reads entirely reasonable. That is the dangerous case: not a careless raise, but a well-argued one resting on a bad number.
 

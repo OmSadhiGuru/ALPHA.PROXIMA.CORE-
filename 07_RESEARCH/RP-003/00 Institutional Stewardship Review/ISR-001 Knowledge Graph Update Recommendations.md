@@ -158,7 +158,7 @@ For RP-003 activation:
 ## Related Documents
 
 - [[ISR-001 Institutional Synthesis Report]]
-- [[ISR-001 Canonical Synthesis — Cross-Program]]
+- [[ISR-001 Canonical Synthesis]]
 - [[RP-001 Research Graph/RP-001 Research Graph]]
 - [[RP-002 Research Graph/RP-002 Research Graph]]
 - [[Research Integration Framework]]

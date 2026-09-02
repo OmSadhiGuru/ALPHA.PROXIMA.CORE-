@@ -197,7 +197,7 @@ If any item above is unchecked, document the outstanding item and proceed only i
 
 | Prerequisite Concept | Source Program | Definition Reference |
 |--------------------|---------------|---------------------|
-| [Concept] | [RP-NNN or General] | [[Link to canonical glossary entry]] |
+| [Concept] | [RP-NNN or General] | [Link to canonical glossary entry] |
 
 ### Misconceptions This Knowledge Corrects
 
