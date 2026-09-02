@@ -353,7 +353,7 @@ def validate_folder_placement(notes: list[Note]) -> list[Issue]:
             issues.append(Issue("warning", "incorrect_folder_placement", path, "Research program files should live under 07_RESEARCH/."))
         if name.endswith(" Template.md") and not (
             path.startswith("10_TEMPLATES/")
-            or path.startswith("09_FUTURE/Templates/")
+            or path.startswith("14_FUTURE/Templates/")
             or "/Templates/" in path
         ):
             issues.append(Issue("warning", "incorrect_folder_placement", path, "Templates should live under 10_TEMPLATES/ or an approved office-local Templates/ folder."))

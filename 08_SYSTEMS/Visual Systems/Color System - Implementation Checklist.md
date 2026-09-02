@@ -54,7 +54,7 @@ This checklist ensures all 26 color rules are documented, implemented, validated
 | 19 | 19 | `path:99_ARCHIVE` | Archive Stone | `#57534E` | 99_ARCHIVE (root level) | ✅ Implemented | Archived and deprecated content. |
 | 20 | 20 | `path:05_PROPOSALS` | Proposal Indigo | `#4F46E5` | 05_PROPOSALS (root level) | ✅ **NEW** | Proposals and concept notes awaiting Council deliberation. **Added in v1.1.0 audit.** |
 | 21 | 21 | `path:11_PROJECTS` | Project Sky | `#0EA5E9` | 11_PROJECTS (root level) | ✅ **NEW** | Active project workspaces. **Added in v1.1.0 audit.** |
-| 22 | 22 | `path:09_FUTURE` | Future Pink | `#EC4899` | 09_FUTURE (root level) | ✅ **NEW** | Future proposals and technology watch. **Added in v1.1.0 audit.** |
+| 22 | 22 | `path:14_FUTURE` | Future Pink | `#EC4899` | 14_FUTURE (root level) | ✅ **NEW** | Future proposals and technology watch. **Added in v1.1.0 audit.** |
 | 23 | 23 | `path:12_PEOPLE` | People Copper | `#92400E` | 12_PEOPLE (root level) | ✅ **NEW** | Participant profiles and roles. **Added in v1.1.0 audit.** |
 | 24 | 24 | `path:13_OPERATIONS` | Operations Charcoal | `#1E293B` | 13_OPERATIONS (root level, catch-all) | ✅ **NEW** | Operations nervous system catch-all. Applies to 13_OPERATIONS subfolders not matched by rules 2 or 5. **This rule was critical to fix the "invisible 13_OPERATIONS" problem.** **Added in v1.1.0 audit.** |
 | 25 | 25 | `path:"ALPHA PROXIMA"` | Alpha Proxima Bronze | `#A16207` | ALPHA PROXIMA (root-level meta-notes) | ✅ **NEW** | Root-level cross-cutting meta-notes (Notion Command Center, vault indexes) outside the numbered folder structure. **Added in v1.1.0 audit.** |
@@ -77,7 +77,7 @@ These 7 rules close gaps found during the 2026-07-07 audit. Every top-level fold
 |------|------|-------|---------|----------|
 | 20 | `path:05_PROPOSALS` | Proposal Indigo (`#4F46E5`) | Proposals awaiting Council deliberation | v1.1.0 Audit |
 | 21 | `path:11_PROJECTS` | Project Sky (`#0EA5E9`) | Active project workspaces | v1.1.0 Audit |
-| 22 | `path:09_FUTURE` | Future Pink (`#EC4899`) | Future proposals and technology watch | v1.1.0 Audit |
+| 22 | `path:14_FUTURE` | Future Pink (`#EC4899`) | Future proposals and technology watch | v1.1.0 Audit |
 | 23 | `path:12_PEOPLE` | People Copper (`#92400E`) | Participant profiles and roles | v1.1.0 Audit |
 | 24 | `path:13_OPERATIONS` | Operations Charcoal (`#1E293B`) | **Critical catch-all:** Fixes the "invisible 13_OPERATIONS" problem. All 13_OPERATIONS subfolders now render with color. | v1.1.0 Audit |
 | 25 | `path:"ALPHA PROXIMA"` | Alpha Proxima Bronze (`#A16207`) | Root-level meta-notes outside numbered structure | v1.1.0 Audit |

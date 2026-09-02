@@ -122,7 +122,7 @@ OFFICIAL_COLOR_GROUPS = [
     },
     # Rule 22: Future & Technology Watch (NEW - v1.1.0 audit)
     {
-        "query": "path:09_FUTURE",
+        "query": "path:14_FUTURE",
         "color": {"a": 1, "rgb": 0xEC4899},
     },
     # Rule 23: People & Roles (NEW - v1.1.0 audit)

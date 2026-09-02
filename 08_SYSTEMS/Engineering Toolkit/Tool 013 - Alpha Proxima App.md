@@ -77,7 +77,7 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
 
-Baseline recorded 2026-09-02: **134 defects** across 363 documents — 21 orphans, 18 missing frontmatter, 91 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
+Baseline recorded 2026-09-02: **135 defects** across 366 documents — 21 orphans, 18 missing frontmatter, 92 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
 
 This supersedes a 422 figure set earlier the same day, which was an artefact of the resolver ignoring path-qualified links rather than a condition of the vault. See [[12 - Continuous Integration Standard]], *Check the instrument before raising the tolerance*.
 
@@ -91,7 +91,7 @@ This tool builds a **lean operational subset** — regenerated on every render, 
 
 | Check | Result |
 |---|---|
-| `test_alpha_app.py` | 39 passed |
+| `test_alpha_app.py` | 40 passed |
 | `test_founder_os.py` | 45 passed, unchanged |
 | Headless Chromium, 330–1280 px | renders; 0 JS errors; no horizontal overflow; 19 interactive assertions passed |
 

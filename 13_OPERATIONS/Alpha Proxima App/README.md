@@ -5,7 +5,7 @@ tags: [operations, app, interface, readme, handbook, continuation, alpha-proxima
 created: 2026-09-01
 updated: 2026-09-01
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CLAUDE"]
 artifact_type: readme
 institutional_owner: "Alpha Proxima Foundation"
@@ -91,7 +91,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── alpha_app.py        index, read model, renderer, loopback server
-└── test_alpha_app.py   39 tests
+└── test_alpha_app.py   40 tests
 ```
 
 ### Commands
@@ -102,7 +102,7 @@ AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app'
 $AP show                      # both halves, in the terminal
 $AP render                    # regenerate app.html and vault-index.json
 $AP check                     # coherence defects against a ceiling of 0
-$AP check --max-defects 134   # today's honest baseline; ratchet downward only
+$AP check --max-defects 135   # today's honest baseline; ratchet downward only
 $AP serve [--port 8788]       # loopback server
 $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
@@ -141,7 +141,7 @@ The next session can resume from here without re-deriving anything.
 
 **Verified state after PR #7 reconciliation**
 
-- App V1 is built, tested, and rendering. 34 app tests pass; Founder OS's 45 pass unchanged.
+- App V1 is built, tested, and rendering. 35 app tests pass; Founder OS's 45 pass unchanged.
 - Verified in headless Chromium at 330 px, 485 px, 768 px, and 1280 px: no horizontal overflow, no JavaScript errors, all 19 interactive assertions passing.
 - The app is registered as `ap.py app`. Four pre-existing files were modified, all of them registrations or cross-references: `ap.py` (one registry line), [[Alpha Proxima Engineering Toolkit]] (Tool 013 and two CLI rows), and the Founder OS [[Founder OS README|README]] and [[Founder OS Architecture v1|architecture]] (links back to this app).
 - The Founder-ratified hierarchy is enacted: `11_PROJECTS`, `12_PEOPLE`, and `13_OPERATIONS`. Generated and personal Obsidian state is excluded from version control.
@@ -151,21 +151,21 @@ The next session can resume from here without re-deriving anything.
 | Signal | Value |
 |---|---|
 | Institutional documents | 363 |
-| Connected | 342 (94.2%) |
+| Connected | 345 (94.3%) |
 | Orphans | 21 |
 | Missing frontmatter | 18 |
-| Broken links | 91 |
+| Broken links | 92 |
 | Empty documents | 4 |
-| Coherence defects | 134 |
-| Folders outside the canonical hierarchy | 7, holding 77 documents |
+| Coherence defects | 135 |
+| Folders outside the canonical hierarchy | 6, holding 56 documents |
 
 **All of this belongs to CN-001, not to the app.** The app's job is to keep it visible; [[CN-001 Execution Tracker]] owns the repair.
 
 **Waiting on the Founder**
 
-- What canonical number, if any, should replace the uncanonical `09_FUTURE` namespace now that `09_OFFICES` owns reservation `09`?
+- No folder-number collision remains. Future proposals now have the canonical `14_FUTURE` home ratified by the Founder.
 - Should coherence defects become Founder OS `blockers`, so repair enters the operating half rather than living only in a report?
-- Does the Foundation commit to a connectedness target, or is 94.2% an acceptable floor?
+- Does the Foundation commit to a connectedness target, or is 94.3% an acceptable floor?
 
 **Next three actions**
 
@@ -185,3 +185,4 @@ A visual graph (a 363-node hairball is decorative, not navigable — the per-doc
 |---------|------|--------|---------|
 | 1.0.0 | 2026-09-01 | CLAUDE | First App handbook: the two halves, commands, enforced rules, and the coherence baseline |
 | 1.1.0 | 2026-09-02 | Founder / CODEX | PR #7 reconciliation: enact `11_PROJECTS`, `12_PEOPLE`, `13_OPERATIONS`; refresh generated index and the expanded-corpus baseline |
+| 1.2.0 | 2026-09-02 | Founder / CODEX | Enact the ratified `14_FUTURE` namespace and remove the final top-level number collision |

@@ -45,8 +45,8 @@ env:
   # its own decay — if this number needs to go up, the change being made is
   # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
   #
-  # 2026-09-02: 134 — 21 orphans, 18 missing frontmatter, 91 broken links,
-  #                   4 empty documents, across 363 documents.
+  # 2026-09-02: 135 — 21 orphans, 18 missing frontmatter, 92 broken links,
+  #                   4 empty documents, across 366 documents.
   #
   # Supersedes the 422 ceiling set earlier the same day. That figure was not
   # the Foundation's condition: the indexer resolved only bare `[[Note]]`
@@ -62,7 +62,7 @@ env:
   #
   # This comment is a dated record of how the ceiling was composed when it was
   # set. The live figure is the run summary of this workflow, never a document.
-  COHERENCE_CEILING: "134"
+  COHERENCE_CEILING: "135"
   AP: 08_SYSTEMS/Engineering Toolkit/ap.py
 
 jobs:

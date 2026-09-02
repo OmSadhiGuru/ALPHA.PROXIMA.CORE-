@@ -16,6 +16,8 @@ classification: Foundational
 
 # THE GENOME CONSTITUTION
 
+> **Framework charter — governed by Book I** under the [[Constitutional Hierarchy Statement]] (rank 4). Subordinate to Books I–V; where any provision conflicts with a Book, the Book prevails and this charter is amended to conform.
+
 ## Version 1.0 — The Living Genome Framework
 
 ### A Universal Architecture for Human Evolution, Knowledge, and Artificial Intelligence

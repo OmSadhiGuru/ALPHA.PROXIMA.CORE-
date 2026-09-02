@@ -61,7 +61,7 @@ Specific office and charter rules must appear before generic folder rules.
 | 19 | `path:99_ARCHIVE` | Archive Stone | `#57534E` | Preserved history, deprecated artifacts, and archived records |
 | 20 | `path:05_PROPOSALS` | Proposal Indigo | `#4F46E5` | Concept Notes awaiting or undergoing Council deliberation |
 | 21 | `path:11_PROJECTS` | Project Sky | `#0EA5E9` | Active project workspaces |
-| 22 | `path:09_FUTURE` | Future Pink | `#EC4899` | Future proposals, technology watch, and ideas preserved until mature |
+| 22 | `path:14_FUTURE` | Future Pink | `#EC4899` | Future proposals, technology watch, and ideas preserved until mature |
 | 23 | `path:12_PEOPLE` | People Copper | `#92400E` | Participant profiles and roles |
 | 24 | `path:13_OPERATIONS` | Operations Charcoal | `#1E293B` | The operational nervous system generally — catch-all for every 13_OPERATIONS subfolder not already caught by rules 2 or 5 (Office Registry, Workflow Registry, Dashboards, Review Cycles, and the rest) |
 | 25 | `path:"ALPHA PROXIMA"` | Alpha Proxima Bronze | `#A16207` | Root-level cross-cutting Alpha Proxima meta-notes (Notion Command Center, vault-level indexes) that sit outside the numbered folder structure |
@@ -118,4 +118,4 @@ The engineering utility [[Tool 009 - Graph Color System]] can write these groups
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-03 | [[CODEX]] | Initial Alpha Proxima Obsidian Graph View color system |
-| 1.1.0 | 2026-07-07 | Founder / LUMIAION | Full audit: fixed rules 2-5, which pointed at a `09_OFFICES` path that never existed (every `13_OPERATIONS` subfolder was rendering uncolored). Added rules 20-26 for `05_PROPOSALS`, `11_PROJECTS`, `09_FUTURE`, `12_PEOPLE`, a generic `13_OPERATIONS` catch-all, `ALPHA PROXIMA`, and `OSG_LAUNCH` — every real top-level folder in the vault now resolves to a color group. `Tags/` and `copilot/` were left uncolored deliberately: they are Obsidian plugin data, not institutional content. |
+| 1.1.0 | 2026-07-07 | Founder / LUMIAION | Full audit: fixed rules 2-5, which pointed at a `09_OFFICES` path that never existed (every `13_OPERATIONS` subfolder was rendering uncolored). Added rules 20-26 for `05_PROPOSALS`, `11_PROJECTS`, `14_FUTURE`, `12_PEOPLE`, a generic `13_OPERATIONS` catch-all, `ALPHA PROXIMA`, and `OSG_LAUNCH` — every real top-level folder in the vault now resolves to a color group. `Tags/` and `copilot/` were left uncolored deliberately: they are Obsidian plugin data, not institutional content. |

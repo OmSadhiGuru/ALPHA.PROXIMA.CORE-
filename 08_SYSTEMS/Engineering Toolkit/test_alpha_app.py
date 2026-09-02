@@ -92,6 +92,16 @@ class TestVaultIndex(unittest.TestCase):
         self.assertEqual([d["id"] for d in index["domains"]],
                          ["00_CONSTITUTION", "07_RESEARCH"])
 
+    def test_ratified_future_namespace_is_canonical(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            write_note(root, "14_FUTURE/Proposal.md", title="Future Proposal")
+            index = app.build_vault_index(root)
+        future = next(d for d in index["domains"] if d["id"] == "14_FUTURE")
+        self.assertEqual(future["name"], "Future")
+        self.assertNotIn("Not yet placed", future["question"])
+        self.assertNotIn("09_FUTURE", {d["id"] for d in index["domains"]})
+
     def test_uncanonical_folders_are_flagged_not_hidden(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = vault(tmp)
