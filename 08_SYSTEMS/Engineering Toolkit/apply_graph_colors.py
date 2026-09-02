@@ -20,9 +20,9 @@ OFFICIAL_COLOR_GROUPS = [
         "query": "file:LUMIAION",
         "color": {"a": 1, "rgb": 0x7C3AED},
     },
-    # Rule 2: Executive Office (FIXED: 09_OFFICES → 11_OPERATIONS)
+    # Rule 2: Executive Office (FIXED: 09_OFFICES → 13_OPERATIONS)
     {
-        "query": 'path:"11_OPERATIONS/Executive Office"',
+        "query": 'path:"13_OPERATIONS/Executive Office"',
         "color": {"a": 1, "rgb": 0xD97706},
     },
     # Rule 3: Research Council (FIXED: 09_OFFICES → 03_AI_COUNCIL)
@@ -35,9 +35,9 @@ OFFICIAL_COLOR_GROUPS = [
         "query": 'path:"08_SYSTEMS/Engineering Toolkit" OR path:"08_SYSTEMS/Engineering Standards"',
         "color": {"a": 1, "rgb": 0xEA580C},
     },
-    # Rule 5: Institutional Observatory (FIXED: 09_OFFICES → 11_OPERATIONS)
+    # Rule 5: Institutional Observatory (FIXED: 09_OFFICES → 13_OPERATIONS)
     {
-        "query": 'path:"11_OPERATIONS/Institutional Observatory"',
+        "query": 'path:"13_OPERATIONS/Institutional Observatory"',
         "color": {"a": 1, "rgb": 0x0891B2},
     },
     # Rule 6: Ethics Council Charter
@@ -117,7 +117,7 @@ OFFICIAL_COLOR_GROUPS = [
     },
     # Rule 21: Active Projects (NEW - v1.1.0 audit)
     {
-        "query": "path:06_PROJECTS",
+        "query": "path:11_PROJECTS",
         "color": {"a": 1, "rgb": 0x0EA5E9},
     },
     # Rule 22: Future & Technology Watch (NEW - v1.1.0 audit)
@@ -127,12 +127,12 @@ OFFICIAL_COLOR_GROUPS = [
     },
     # Rule 23: People & Roles (NEW - v1.1.0 audit)
     {
-        "query": "path:09_PEOPLE",
+        "query": "path:12_PEOPLE",
         "color": {"a": 1, "rgb": 0x92400E},
     },
-    # Rule 24: Operations (catch-all for 11_OPERATIONS) (NEW - v1.1.0 audit)
+    # Rule 24: Operations (catch-all for 13_OPERATIONS) (NEW - v1.1.0 audit)
     {
-        "query": "path:11_OPERATIONS",
+        "query": "path:13_OPERATIONS",
         "color": {"a": 1, "rgb": 0x1E293B},
     },
     # Rule 25: Alpha Proxima Meta (NEW - v1.1.0 audit)

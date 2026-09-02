@@ -140,22 +140,22 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `PART_OF` | `09_FUTURE/Templates/Research Commission Template.md` | `09_FUTURE/README.md` | `0.55` | `folder_inference` |
 | `PART_OF` | `09_FUTURE/Templates/Technology Watch Template.md` | `09_FUTURE/README.md` | `0.55` | `folder_inference` |
 | `PART_OF` | `09_FUTURE/Templates/Upgrade Proposal Template.md` | `09_FUTURE/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/AI Council/AI Council Operations Registry.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Annual Reviews/Annual Reviews Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Artifact Registry/Artifact Registry.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Automation Queue/Automation Queue Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Daily Operations/Daily Operations Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Dashboards/Dashboards Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Decision Pipelines/Decision Pipelines Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Executive Office/Executive Office Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Institutional Observatory/Institutional Observatory Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Metrics/Metrics Registry.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Monthly Operations/Monthly Operations Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Office Registry/Office Registry.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Operational Health/Operational Health Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Operational Procedures/Operational Procedures Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Quarterly Reviews/Quarterly Reviews Index.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
-| `PART_OF` | `11_OPERATIONS/Review Cycles/Review Cycles Registry.md` | `11_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/AI Council/AI Council Operations Registry.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Annual Reviews/Annual Reviews Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Artifact Registry/Artifact Registry.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Automation Queue/Automation Queue Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Daily Operations/Daily Operations Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Dashboards/Dashboards Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Decision Pipelines/Decision Pipelines Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Executive Office/Executive Office Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Institutional Observatory/Institutional Observatory Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Metrics/Metrics Registry.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Monthly Operations/Monthly Operations Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Office Registry/Office Registry.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Operational Health/Operational Health Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Operational Procedures/Operational Procedures Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Quarterly Reviews/Quarterly Reviews Index.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
+| `PART_OF` | `13_OPERATIONS/Review Cycles/Review Cycles Registry.md` | `13_OPERATIONS/README.md` | `0.55` | `folder_inference` |
 
 ## Unresolved by Type
 
@@ -313,15 +313,15 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `OWNED_BY` | `09_FUTURE/Templates/Research Commission Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `09_FUTURE/Templates/Technology Watch Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `09_FUTURE/Templates/Upgrade Proposal Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `09_PEOPLE/CODEX.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `09_PEOPLE/Frederick Belizaire Gunville.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `12_PEOPLE/CODEX.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `12_PEOPLE/Frederick Belizaire Gunville.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `10_TEMPLATES/Research Note Template.md` | `[Author]` | `yaml_field` | `authors` |
-| `OWNED_BY` | `11_OPERATIONS/AI Council/AI Council Operations Registry.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `11_OPERATIONS/Annual Reviews/Annual Reviews Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `11_OPERATIONS/Artifact Registry/Artifact Registry.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `11_OPERATIONS/Automation Queue/Automation Queue Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `11_OPERATIONS/Daily Operations/Daily Operations Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `11_OPERATIONS/Dashboards/Dashboards Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/AI Council/AI Council Operations Registry.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/Annual Reviews/Annual Reviews Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/Artifact Registry/Artifact Registry.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/Automation Queue/Automation Queue Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/Daily Operations/Daily Operations Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `OWNED_BY` | `13_OPERATIONS/Dashboards/Dashboards Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 
 ## High-Value Cleanup Recommendations
 

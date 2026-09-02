@@ -3,9 +3,9 @@ title: "RP-003 Master Index"
 aliases: ["RP-003", "Human Learning Research Program"]
 tags: [research, rp-003, learning, alpha-proxima, placeholder]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 status: planned
-version: "0.1.0"
+version: "0.2.0"
 authors: ["LUMIAION"]
 research_program: "RP-003 Atlas of Human Learning"
 ---
@@ -21,7 +21,7 @@ research_program: "RP-003 Atlas of Human Learning"
 | **Program ID** | RP-003 |
 | **Program Title** | Atlas of Human Learning |
 | **Status** | Planned — architecture reserved |
-| **Activation Trigger** | Research Council authorization |
+| **Activation Trigger** | Cognitive Council authorization |
 
 ---
 
@@ -51,3 +51,4 @@ Placeholder. Program not yet activated.
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 0.1.0 | 2026-07-02 | LUMIAION | Placeholder created; architecture reserved |
+| 0.2.0 | 2026-07-03 | LUMIAION | Activation trigger updated: Research Council → Cognitive Council (RD-006 resolution); ISR-001 stewardship review artifacts committed |

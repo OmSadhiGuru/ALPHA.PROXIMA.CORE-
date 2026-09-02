@@ -144,7 +144,7 @@ related_research_programs: []
 | CREATE (ratify-ready) | `03_AI_COUNCIL/Community Council Charter.md` | new |
 | AMEND or DECLINE | `05_PROPOSALS/CN-0001 …` (add resolution records) | **RED — do not touch until gate confirmed** |
 | CONDITIONAL | `00_CONSTITUTION/Book II …` (add Education Council) | **Class I — Founder only** |
-| CREATE | `09_PEOPLE/Frederick Belizaire Gunville.md` (Gap 6, low priority) | new |
+| CREATE | `12_PEOPLE/Frederick Belizaire Gunville.md` (Gap 6, low priority) | new |
 
 ## Codex Review Criteria
 

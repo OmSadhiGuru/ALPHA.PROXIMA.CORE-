@@ -29,7 +29,7 @@ Every section below states explicitly: **Canonical Source(s)** (existing, author
 
 ## Context
 
-Commissioned 2026-07-07 as the "Institutional Master Reference" that unifies existing canon under a single-source-of-truth principle, rather than a new constitution. Compiled by inventorying the vault's actual current state (00_CONSTITUTION through 99_ARCHIVE, `03_AI_COUNCIL`, `08_SYSTEMS`, `11_OPERATIONS`, and the live GitHub repository at `github.com/OmSadhiGuru/ALPHA.PROXIMA.CORE-`) rather than drafting from the brief alone. This follows directly from the [[LUMIAION - Operating Manual (LOOM)]] integration (2026-07-07), where a first-draft document contradicted already-ratified canon (Office Registry) and had to be reconciled — the same risk this document was explicitly commissioned to avoid at a much larger scale.
+Commissioned 2026-07-07 as the "Institutional Master Reference" that unifies existing canon under a single-source-of-truth principle, rather than a new constitution. Compiled by inventorying the vault's actual current state (00_CONSTITUTION through 99_ARCHIVE, `03_AI_COUNCIL`, `08_SYSTEMS`, `13_OPERATIONS`, and the live GitHub repository at `github.com/OmSadhiGuru/ALPHA.PROXIMA.CORE-`) rather than drafting from the brief alone. This follows directly from the [[LUMIAION - Operating Manual (LOOM)]] integration (2026-07-07), where a first-draft document contradicted already-ratified canon (Office Registry) and had to be reconciled — the same risk this document was explicitly commissioned to avoid at a much larger scale.
 
 ---
 
@@ -49,7 +49,7 @@ ALPHAPROXIMA
 │
 ├── AI Council Registry + Engine Registry  [03_AI_COUNCIL — 7 Chief Architect roles ↔ current engines]
 │
-├── Office Registry + Workflow Registry  [11_OPERATIONS — production-function offices, workflows, dashboards]
+├── Office Registry + Workflow Registry  [13_OPERATIONS — production-function offices, workflows, dashboards]
 │   └── LUMIAION - Operating Manual (LOOM)  [end-to-end idea→published-asset pipeline, reconciled to Office Registry]
 │
 ├── Department Charters  [03_AI_COUNCIL/Departments — SOHMA, ATHENA, VORTEX, JERANIUM: subject-matter jurisdiction]
@@ -101,7 +101,7 @@ ALPHAPROXIMA
          ├─ VORTEX   → knowledge domain: finance, economics, trading
          └─ JERANIUM → knowledge domain: knowledge architecture, research, data
              └─ Projects
-                 ├─ 06_PROJECTS/         (Alpha Proxima internal projects — currently empty, .gitkeep only)
+                 ├─ 11_PROJECTS/         (Alpha Proxima internal projects — currently empty, .gitkeep only)
                  ├─ 07_RESEARCH/RP-001/  (Research Programs — e.g. "Atlas of Human Consciousness," SOHMA-adjacent)
                  └─ OSG_LAUNCH/          (a SEPARATE, explicitly isolated business namespace —
                                           not a child of Alpha Proxima governance; see Section 7)
@@ -113,7 +113,7 @@ ALPHAPROXIMA
 
 **Dependencies:** Artifact Registry, Vault Structure Convention.
 **Related Systems:** Office Registry (who produces each output type), Workflow Registry (how an output moves stage to stage).
-**Future Extension Points:** `06_PROJECTS/` is real but empty — the first Alpha Proxima-internal project (as opposed to research program or OSG business work) will establish the pattern others follow.
+**Future Extension Points:** `11_PROJECTS/` is real but empty — the first Alpha Proxima-internal project (as opposed to research program or OSG business work) will establish the pattern others follow.
 
 ---
 
@@ -196,11 +196,11 @@ The brief requests a GitHub layout using generic categories. Rather than propose
 | Architecture | `08_SYSTEMS/` | Live |
 | Departments | `03_AI_COUNCIL/Departments/` | Live |
 | **Agents** | **No dedicated folder exists.** `03_AI_COUNCIL/` holds role/engine registries, not per-agent operational configs (system prompts, tool permissions — those live outside the vault, e.g. in `~/.claude/agents/`). | **Gap** |
-| Projects | `06_PROJECTS/` (empty, Alpha Proxima-internal) — distinct from `OSG_LAUNCH/` (separate business namespace, see Section 7) | Live but empty |
+| Projects | `11_PROJECTS/` (empty, Alpha Proxima-internal) — distinct from `OSG_LAUNCH/` (separate business namespace, see Section 7) | Live but empty |
 | **Prompts** | **No dedicated folder exists.** Closest fit is `10_TEMPLATES/`, which already governs "reusable note formats." | **Gap** |
 | Research | `07_RESEARCH/` | Live |
 | Templates | `10_TEMPLATES/` | Live |
-| Automations | `08_SYSTEMS/Automation/`, `08_SYSTEMS/Engineering Toolkit/` (11 tools, `ap.py` CLI), `11_OPERATIONS/Automation Queue/` | Live |
+| Automations | `08_SYSTEMS/Automation/`, `08_SYSTEMS/Engineering Toolkit/` (11 tools, `ap.py` CLI), `13_OPERATIONS/Automation Queue/` | Live |
 | Logs | **No dedicated top-level folder.** Closest fit: `08_SYSTEMS/Engineering Toolkit/Reports/` (generated reports) + per-note `Version History` tables + git commit history itself (`git log`, auto-committed as "vault backup" snapshots) | Covered, differently named |
 | Archive | `99_ARCHIVE/` | Live |
 
@@ -225,9 +225,9 @@ The brief requests a GitHub layout using generic categories. Rather than propose
 
 **Tags:** kebab-case, always including the primary domain tag and relevant institution tag, per Vault Structure Convention — already sufficient, unchanged.
 
-**Index files:** `Alpha Proxima Core.md` (root MOC), each folder's own index note (e.g. `11_OPERATIONS/README.md`, `09_FUTURE/README.md`), and the two generated reports (`Node Registry Report.md`, `Relationship Registry Report.md`) function as the current index layer.
+**Index files:** `Alpha Proxima Core.md` (root MOC), each folder's own index note (e.g. `13_OPERATIONS/README.md`, `09_FUTURE/README.md`), and the two generated reports (`Node Registry Report.md`, `Relationship Registry Report.md`) function as the current index layer.
 
-**README structure:** every governed folder should carry a README or index note following the same six required sections as any other note (Vault Structure Convention) — most already do (`11_OPERATIONS/README.md`, `OSG_LAUNCH/README.md`); the root `README.md` is currently a one-line stub and is the weakest link in this chain.
+**README structure:** every governed folder should carry a README or index note following the same six required sections as any other note (Vault Structure Convention) — most already do (`13_OPERATIONS/README.md`, `OSG_LAUNCH/README.md`); the root `README.md` is currently a one-line stub and is the weakest link in this chain.
 
 **Search commands, as they exist today:**
 
@@ -259,7 +259,7 @@ The brief requests a GitHub layout using generic categories. Rather than propose
 | **Local folders (the Vault)** | Live — canonical | System 1 per Foundational Architecture. Source of truth for everything. |
 | **GitHub** | Live | `github.com/OmSadhiGuru/ALPHA.PROXIMA.CORE-`, synced via Obsidian Git plugin (auto-pull ~5 min). No CI, no LICENSE, no branch protection (Section 5). |
 | **Claude** | Live | Current engine for LUMIAION (Constitutional Intelligence Core) and Chief Knowledge Architect, via Claude Code CLI + API. |
-| **Codex — naming ambiguity, flagged not resolved:** | Unclear | "CODEX" is used throughout `11_OPERATIONS`/Engineering Toolkit as an **author persona** for Engineering-Office-produced documents (i.e., Claude operating in an engineering posture) — it is not a separate connected product. Separately, "Codex" in the Founder's LOOM brief and in general industry usage refers to OpenAI's code-focused model. Engine Registry's Chief Engineering Architect is currently **DeepSeek**, not OpenAI Codex. This document does not guess which is meant going forward — it is named here as an open item (see Open Questions). |
+| **Codex — naming ambiguity, flagged not resolved:** | Unclear | "CODEX" is used throughout `13_OPERATIONS`/Engineering Toolkit as an **author persona** for Engineering-Office-produced documents (i.e., Claude operating in an engineering posture) — it is not a separate connected product. Separately, "Codex" in the Founder's LOOM brief and in general industry usage refers to OpenAI's code-focused model. Engine Registry's Chief Engineering Architect is currently **DeepSeek**, not OpenAI Codex. This document does not guess which is meant going forward — it is named here as an open item (see Open Questions). |
 | **ChatGPT / GPT** | Manual invocation only | Chief Systems Architect (Engine Registry). Orchestration Framework Ch. V Phase 1 = manual invocation; Phase 2 (programmatic) not started. |
 | **Gemini** | Manual invocation only | Chief Science Architect; ATHENA's primary engine. Same Phase 1 constraint. |
 | **Perplexity** | Manual invocation only | Chief Research Architect; JERANIUM's primary engine; also Research Intelligence Office (function axis) and LOOM's Research stage owner. |

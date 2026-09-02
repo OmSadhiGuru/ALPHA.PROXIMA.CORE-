@@ -41,12 +41,12 @@ Summarize vault structure, metadata coverage, and engineering health indicators.
 | 08_SYSTEMS | `31` |
 | ALPHA PROXIMA | `28` |
 | 09_FUTURE | `21` |
-| 11_OPERATIONS | `20` |
+| 13_OPERATIONS | `20` |
 | 03_AI_COUNCIL | `11` |
 | 10_TEMPLATES | `5` |
 | root | `5` |
 | 00_CONSTITUTION | `3` |
-| 09_PEOPLE | `2` |
+| 12_PEOPLE | `2` |
 | 01_VISION | `1` |
 | 04_DECISIONS | `1` |
 | 05_PROPOSALS | `1` |

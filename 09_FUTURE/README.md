@@ -142,7 +142,7 @@ Future proposals remain non-binding until they pass through the appropriate Foun
 
 ## Open Questions
 
-- [ ] Should `09_FUTURE` eventually replace or renumber `09_PEOPLE`, or should the vault maintain both top-level folders?
+- [ ] Should `09_FUTURE` eventually replace or renumber `12_PEOPLE`, or should the vault maintain both top-level folders?
 - [ ] Should future proposal IDs be sequential globally or scoped by proposal type?
 
 ---

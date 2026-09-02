@@ -20,7 +20,7 @@ related_research_programs: []
 
 ## Purpose
 
-Own the canonical Founder state document and generate every view of it. This module is the **only** writer of `11_OPERATIONS/Founder OS/state/founder-state.json`; the Console page and the Obsidian mirror are generated artifacts.
+Own the canonical Founder state document and generate every view of it. This module is the **only** writer of `13_OPERATIONS/Founder OS/state/founder-state.json`; the Console page and the Obsidian mirror are generated artifacts.
 
 ## Context
 

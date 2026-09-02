@@ -53,10 +53,10 @@ Applies to top-level vault folders and all major subfolders created for durable 
 | `03_AI_COUNCIL/` | AI Council and department records |
 | `04_DECISIONS/` | ADRs and durable decisions |
 | `05_PROPOSALS/` | Concept notes and proposals |
-| `06_PROJECTS/` | Active project workspaces |
+| `11_PROJECTS/` | Active project workspaces |
 | `07_RESEARCH/` | Research programs and evidence work |
 | `08_SYSTEMS/` | Technical systems, protocols, standards, automation |
-| `09_PEOPLE/` | People, roles, and entities |
+| `12_PEOPLE/` | People, roles, and entities |
 | `10_TEMPLATES/` | Reusable templates |
 | `99_ARCHIVE/` | Superseded or retired material |
 
@@ -81,7 +81,7 @@ Good:
 08_SYSTEMS/Engineering Standards/
 08_SYSTEMS/Automation/
 07_RESEARCH/RP-001/
-06_PROJECTS/Vault Automation/
+11_PROJECTS/Vault Automation/
 ```
 
 Avoid:

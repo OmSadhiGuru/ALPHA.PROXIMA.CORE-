@@ -128,13 +128,13 @@ def infer_node_type(note) -> tuple[str, float, list[str]]:
         if any(token in stem.lower() for token in ["theory", "processing", "inference", "panpsychism", "illusionism"]):
             return "theory", 0.65, ["folder:research_graph_concepts", "filename:theory_signal"]
         return "concept", 0.65, ["folder:research_graph_concepts"]
-    if path.startswith("09_PEOPLE/"):
-        return "person", 0.8, ["folder:09_PEOPLE"]
+    if path.startswith("12_PEOPLE/"):
+        return "person", 0.8, ["folder:12_PEOPLE"]
     if path.startswith("08_SYSTEMS/Engineering Toolkit/Tool "):
         return "engineering_tool", 0.85, ["folder:engineering_toolkit", "filename:tool"]
     if path.startswith("08_SYSTEMS/Engineering Standards/"):
         return "standard", 0.85, ["folder:engineering_standards"]
-    if path.startswith("11_OPERATIONS/Office Registry/"):
+    if path.startswith("13_OPERATIONS/Office Registry/"):
         return "office", 0.75, ["folder:office_registry"]
     if path.startswith("08_SYSTEMS/Protocols/"):
         return "policy", 0.75, ["folder:protocols"]

@@ -1,12 +1,20 @@
-# Vault hygiene — machine-local / session state, not institutional source.
-# Added 2026-07-09 per Founder instruction.
+# OS cruft
+.DS_Store
+**/.DS_Store
 
-.claudian/sessions/
-.makemd/fileCache.mdc
-.makemd/superstate.mdc
+# Smart Connections embedding cache (stale, machine-generated)
 .smart-env/
-.obsidian/workspace.json
 
-# Python validator cache.
+# Obsidian and AI-assistant machine-local state
+.obsidian/
+.claudian/
+.makemd/
+copilot/
+Tags/
+
+# Python validator cache
 __pycache__/
 *.py[cod]
+
+# Node
+node_modules/

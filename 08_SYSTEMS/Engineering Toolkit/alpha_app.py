@@ -41,18 +41,18 @@ from typing import Any
 
 TOOLKIT_DIR = Path(__file__).resolve().parent
 VAULT_ROOT = TOOLKIT_DIR.parent.parent
-APP_DIR = VAULT_ROOT / "11_OPERATIONS" / "Alpha Proxima App"
+APP_DIR = VAULT_ROOT / "13_OPERATIONS" / "Alpha Proxima App"
 DEFAULT_TEMPLATE = APP_DIR / "app" / "app.template.html"
 DEFAULT_APP = APP_DIR / "app" / "app.html"
 DEFAULT_INDEX = APP_DIR / "app" / "vault-index.json"
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.1.0"
 
 VIEW_PLACEHOLDER = "/*__ALPHA_APP_VIEW__*/null"
 
 # The canonical top-level hierarchy, in constitutional order, with the question
-# each domain answers. Order is meaning here: 00 governs 11, never the reverse.
-# Source: `08_SYSTEMS/Engineering Standards/03 - Folder Naming Convention.md`.
+# each domain answers. Order is meaning here: 00 governs 13, never the reverse.
+# Source: `10_TEMPLATES/Vault Structure Convention.md`.
 DOMAINS: tuple[tuple[str, str, str], ...] = (
     ("00_CONSTITUTION", "Constitution", "What may not be violated"),
     ("01_VISION", "Vision", "Where the Foundation is going"),
@@ -60,13 +60,14 @@ DOMAINS: tuple[tuple[str, str, str], ...] = (
     ("03_AI_COUNCIL", "AI Council", "Who reasons on its behalf"),
     ("04_DECISIONS", "Decisions", "What has been settled"),
     ("05_PROPOSALS", "Proposals", "What is being considered"),
-    ("06_PROJECTS", "Projects", "What is being built"),
+    ("06_GOVERNANCE", "Governance", "How institutional authority is constrained"),
     ("07_RESEARCH", "Research", "What is being investigated"),
     ("08_SYSTEMS", "Systems", "How the Foundation works"),
-    ("09_PEOPLE", "People", "Who the Foundation involves"),
-    ("09_FUTURE", "Future", "What is not yet due"),
+    ("09_OFFICES", "Offices", "Where institutional authority is housed"),
     ("10_TEMPLATES", "Templates", "How new knowledge is shaped"),
-    ("11_OPERATIONS", "Operations", "What is happening now"),
+    ("11_PROJECTS", "Projects", "What is being built"),
+    ("12_PEOPLE", "People", "Who the Foundation involves"),
+    ("13_OPERATIONS", "Operations", "What is happening now"),
     ("99_ARCHIVE", "Archive", "What has been retired"),
 )
 

@@ -235,7 +235,7 @@ When Foundation research is published externally:
 2. Ethics Council publication review completed (see [[Ethics Council Charter]])
 3. All claims in the publication correspond to canonical Vault content
 4. Any deviation between the publication and the Vault is documented and justified
-5. A publication record note is created in `06_PROJECTS/` or the relevant research folder linking to the external publication
+5. A publication record note is created in `11_PROJECTS/` or the relevant research folder linking to the external publication
 6. The publication's canonical status is tracked: if the external publication is later revised or retracted, the Vault is updated accordingly
 
 ---

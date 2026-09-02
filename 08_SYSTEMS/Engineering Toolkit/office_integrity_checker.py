@@ -32,7 +32,7 @@ def office_candidates(root: Path, notes: list) -> dict[str, list]:
     candidates: dict[str, list] = {}
     for note in notes:
         path = Path(note.relative_path)
-        if path.parts[:1] == ("11_OPERATIONS",) and len(path.parts) >= 2:
+        if path.parts[:1] == ("13_OPERATIONS",) and len(path.parts) >= 2:
             office = path.parts[1]
             if office not in {"README.md"}:
                 candidates.setdefault(office, []).append(note)

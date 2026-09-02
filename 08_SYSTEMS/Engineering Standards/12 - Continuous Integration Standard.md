@@ -57,7 +57,7 @@ Running the vault index three times would answer the same question three times. 
 ### The ratchet
 
 - Coherence defects are gated against `COHERENCE_CEILING`, declared in the workflow.
-- **The ceiling ratchets down. It must never be raised.** If a change requires raising it, the change is wrong.
+- **The ceiling ratchets down. It must never be raised to excuse defects introduced within the indexed corpus.** A Founder-ratified expansion of the corpus may reset the baseline once, provided the old and new corpus sizes and complete defect composition are recorded in the same change.
 - Lowering it belongs in the same commit as the repairs that earned it, so the number is never left behind.
 - The ceiling lives in the workflow rather than a config file so that every movement is a visible, reviewable edit.
 

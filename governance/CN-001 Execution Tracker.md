@@ -71,7 +71,7 @@ The Notion packet names the **canonical repository** as `/Users/Fred/Desktop/ALP
 - [ ] Validation report & clean final diff
 - [ ] Independent Codex verdict
 
-> **Note (existing evidence):** the Alpha Proxima constitutional audit **CAR-001** already documented several CN-001 inputs — duplicate folder-number collisions (`06_GOVERNANCE`/`06_PROJECTS`, `09_OFFICES`/`09_PEOPLE`), the legacy `ALPHA PROXIMA/` meta-tree recommended for archival, and the need for a namespace/terminology registry. Codex should verify these against repository evidence during Terminal 1.
+> **Note (existing evidence):** the Alpha Proxima constitutional audit **CAR-001** already documented several CN-001 inputs — duplicate folder-number collisions (`06_GOVERNANCE`/`11_PROJECTS`, `09_OFFICES`/`12_PEOPLE`), the legacy `ALPHA PROXIMA/` meta-tree recommended for archival, and the need for a namespace/terminology registry. Codex should verify these against repository evidence during Terminal 1.
 
 ---
 

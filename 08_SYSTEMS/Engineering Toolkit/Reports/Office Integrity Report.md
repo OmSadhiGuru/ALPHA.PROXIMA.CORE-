@@ -36,7 +36,7 @@ Verify whether office-related areas expose the operational components needed for
 | 03_AI_COUNCIL | yes | yes | yes | yes | missing | yes |
 | 06_GOVERNANCE | yes | missing | missing | missing | missing | missing |
 | 08_SYSTEMS | yes | yes | yes | yes | yes | yes |
-| 11_OPERATIONS | yes | yes | yes | yes | missing | yes |
+| 13_OPERATIONS | yes | yes | yes | yes | missing | yes |
 | AI Council | yes | yes | yes | yes | missing | yes |
 | Annual Reviews | missing | missing | yes | yes | missing | yes |
 | Artifact Registry | missing | yes | yes | yes | missing | yes |

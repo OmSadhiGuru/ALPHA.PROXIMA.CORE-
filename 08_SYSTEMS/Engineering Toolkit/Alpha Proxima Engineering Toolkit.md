@@ -174,7 +174,7 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 ## Open Questions
 
-- [ ] Should toolkit reports be stored in `08_SYSTEMS/Engineering Toolkit/Reports/` or a future `06_PROJECTS/Engineering Toolkit/` workspace?
+- [ ] Should toolkit reports be stored in `08_SYSTEMS/Engineering Toolkit/Reports/` or a future `11_PROJECTS/Engineering Toolkit/` workspace?
 
 ---
 

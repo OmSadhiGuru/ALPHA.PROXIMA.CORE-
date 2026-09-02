@@ -54,7 +54,7 @@ This report does not rewrite philosophy, governance, research methodology, or co
 - [[Alpha Proxima Engineering Toolkit]]
 - [[Engineering Program EP-001 - Institutional Knowledge Graph]]
 - [[Research Management Toolkit v1.0]]
-- [[11_OPERATIONS/README]]
+- [[13_OPERATIONS/README]]
 
 ## Related Research Programs
 
@@ -93,7 +93,7 @@ The current blocker is not architecture. The blocker is operational consistency.
 
 ### Strengths
 
-- The repository has a clear institutional spine: `00_CONSTITUTION`, `03_AI_COUNCIL`, `06_GOVERNANCE`, `07_RESEARCH`, `08_SYSTEMS`, `09_FUTURE`, `10_TEMPLATES`, `11_OPERATIONS`, and `99_ARCHIVE`.
+- The repository has a clear institutional spine: `00_CONSTITUTION`, `03_AI_COUNCIL`, `06_GOVERNANCE`, `07_RESEARCH`, `08_SYSTEMS`, `09_FUTURE`, `10_TEMPLATES`, `13_OPERATIONS`, and `99_ARCHIVE`.
 - The Engineering Handbook and Engineering Toolkit establish a reusable implementation layer.
 - The Future Office and Operations Layer are structurally strong and already act as institutional buffers against idea loss and workflow drift.
 - The Research Program structure is mature for RP-001 and can support repeatable research operations once RP-002 through RP-006 are filled out.
@@ -104,7 +104,7 @@ The current blocker is not architecture. The blocker is operational consistency.
 - The root contains active or ambiguous notes that should not remain at repository root: `Vault.md`, `Sans titre.md`, `Alpha Proxima Core.md`, `Building Milestone.md`, and `LUMIAION.md`.
 - The legacy `ALPHA PROXIMA/` subtree overlaps with newer canonical areas and should be classified as legacy, archived, or migrated.
 - Several top-level folders rely on `.gitkeep.md` rather than a README or index, which weakens navigation and machine interpretation.
-- `09_PEOPLE` and `09_FUTURE` share the `09_` prefix, creating ordering ambiguity.
+- `12_PEOPLE` and `09_FUTURE` share the `09_` prefix, creating ordering ambiguity.
 - Hidden and tool-managed folders are present in the working tree. They should be explicitly governed by `.gitignore` and repository hygiene policy.
 
 ### Implementability
@@ -162,7 +162,7 @@ Markdown is readable and generally compatible with Obsidian. The main quality ga
 | `06_GOVERNANCE` | README or Governance Index |
 | `07_RESEARCH` | README or Research Program Index |
 | `08_SYSTEMS` | README or Systems Index |
-| `09_PEOPLE` | README or People Index |
+| `12_PEOPLE` | README or People Index |
 | `10_TEMPLATES` | README or Template Index |
 | `99_ARCHIVE` | README or Archive Index |
 
@@ -238,7 +238,7 @@ Recommended additions:
   GitHub Workflows/
   Schemas/
 
-11_OPERATIONS/
+13_OPERATIONS/
   Contribution Workflow/
   Release Management/
   Repository Governance/
@@ -252,7 +252,7 @@ Recommended normalization:
 
 ```text
 09_FUTURE/
-09_PEOPLE/  -> review prefix collision with 09_FUTURE
+12_PEOPLE/  -> review prefix collision with 09_FUTURE
 ALPHA PROXIMA/ -> classify as legacy or migrate into canonical folders
 Root notes -> migrate, archive, or convert into canonical index notes
 ```

@@ -40,7 +40,7 @@ related_research_programs: []
 
 | # | Model | Fit assessment |
 |---|-------|----------------|
-| 1 | Canonical institutional command layer | ⚠️ Would **duplicate** the already-canonical AEKA master reference + `11_OPERATIONS` command surfaces. Risk of two command truths. |
+| 1 | Canonical institutional command layer | ⚠️ Would **duplicate** the already-canonical AEKA master reference + `13_OPERATIONS` command surfaces. Risk of two command truths. |
 | 2 | Future AxiomNexus control-plane docs | Premature — AxiomNexus is undefined (one AXN-### mention). Reserving the space is fine; populating is RED. |
 | 3 | Index-only navigation layer | ✅ Low-risk, high-value: a thin, human-facing "front door" that links *into* canonical folders without holding authority. |
 | 4 | Deprecated duplicate structure | ✅ Accurate for the **legacy build tree** specifically — it is a superseded duplicate. |

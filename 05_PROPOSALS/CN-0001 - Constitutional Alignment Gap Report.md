@@ -103,10 +103,10 @@ LUMIAION conducted a systematic read of all constitutional documents, charters, 
 
 ### Gap 6 — Founder Note
 **Referenced in:** [[ADR-0001 - The Founding Decision]]; [[Book II - Governance Framework]] Art. II  
-**Gap:** No formal Founder profile note in `09_PEOPLE/`  
+**Gap:** No formal Founder profile note in `12_PEOPLE/`
 **Risk:** The Founder is referenced throughout but has no canonical biographical/institutional note  
 **Priority:** Low — functional gap only, not a governance gap  
-**Recommended action:** Create `09_PEOPLE/Frederick Belizaire Gunville.md`  
+**Recommended action:** Create `12_PEOPLE/Frederick Belizaire Gunville.md`
 **Status:** Open — low priority
 
 ---
@@ -133,7 +133,7 @@ LUMIAION conducted a systematic read of all constitutional documents, charters, 
 |----------|-----|--------|---------|
 | 1 | Research Council | Create Charter | High — RP-001 is active |
 | 2 | Engineering Council | Create Charter | Medium |
-| 3 | Founder Note | Create `09_PEOPLE/` entry | Low |
+| 3 | Founder Note | Create `12_PEOPLE/` entry | Low |
 | 4 | Education Council | Defer with placeholder | Very low |
 | 5 | Community Council | Defer with placeholder | Very low |
 

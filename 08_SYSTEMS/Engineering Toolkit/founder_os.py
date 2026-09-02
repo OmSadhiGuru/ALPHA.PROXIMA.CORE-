@@ -30,7 +30,7 @@ from pathlib import Path
 
 TOOLKIT_DIR = Path(__file__).resolve().parent
 VAULT_ROOT = TOOLKIT_DIR.parent.parent
-FOUNDER_OS_DIR = VAULT_ROOT / "11_OPERATIONS" / "Founder OS"
+FOUNDER_OS_DIR = VAULT_ROOT / "13_OPERATIONS" / "Founder OS"
 DEFAULT_STATE = FOUNDER_OS_DIR / "state" / "founder-state.json"
 DEFAULT_TEMPLATE = FOUNDER_OS_DIR / "console" / "console.template.html"
 DEFAULT_CONSOLE = FOUNDER_OS_DIR / "console" / "console.html"
