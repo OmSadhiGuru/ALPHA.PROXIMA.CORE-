@@ -12,7 +12,7 @@ institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
 dependencies: ["[[Repository Reboot Audit - 2026-08-23]]", "[[Founder Reboot Control Center]]", "[[LUMIAION Architecture Spec v0.1]]", "[[LUMIAION - Operating Manual (LOOM)]]"]
-related_documents: ["[[Founder Console]]", "[[The Orchestration Framework]]", "[[Office Registry]]", "[[Engine Registry]]", "[[Alpha Proxima Engineering Toolkit]]"]
+related_documents: ["[[Founder Console]]", "[[The Orchestration Framework]]", "[[Office Registry]]", "[[Engine Registry]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Alpha Proxima App Architecture v1]]"]
 related_research_programs: []
 ---
 
@@ -171,6 +171,8 @@ The domain model contains no metaphor. Console V1 reads a derived read model (`b
 The chakra / energy-field mapping described in the mission brief (Crown → Vision, Third Eye → Intelligence, Throat → Routing, Heart → Relationships, Solar Plexus → Execution, Sacral → Creation, Root → Stability) is recorded here as a **presentation mapping only**. No entity, field, or endpoint references it. A future spatial layer may map `priorities`, `decisions`, and `agents` onto that model; nothing in Founder OS will know it did.
 
 `GET /api/view` on loopback is the interface contract a Meta Quest client would consume. It exists today.
+
+**The boundary has since been exercised.** [[Alpha Proxima App Architecture v1]] (2026-09-01) composes `build_view` with a vault index into a second, independent interface without changing one line of this state contract. That is the evidence the presentation boundary is real rather than asserted.
 
 ### 8. Console V1 — what it shows and what it refuses to show
 

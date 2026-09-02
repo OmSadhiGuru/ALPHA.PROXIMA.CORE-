@@ -22,6 +22,7 @@ COMMANDS = {
     "research-management": ("research_management.py", "Generate the Research Management Toolkit dashboard and index"),
     "graph-colors": ("apply_graph_colors.py", "Apply official Obsidian Graph View color groups"),
     "founder": ("founder_os.py", "Founder OS state engine and Founder Console V1"),
+    "app": ("alpha_app.py", "Alpha Proxima App — the Foundation's operate and know halves"),
     "node-registry": ("../Institutional Knowledge Graph/Tools/node_registry.py", "Generate the Institutional Knowledge Graph node registry"),
     "relationship-extract": ("../Institutional Knowledge Graph/Tools/relationship_extractor.py", "Generate the Institutional Knowledge Graph relationship registry"),
 }
