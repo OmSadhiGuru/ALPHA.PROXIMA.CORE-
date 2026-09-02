@@ -87,7 +87,7 @@ During the Source Verification Pass: (1) Re-review DOC-A and DOC-B with visible 
 | **Affected Program** | RP-001 Atlas of Human Consciousness |
 | **Affected Documents** | `07_RESEARCH/RP-001/09 Canonical Synthesis/`, `10 Theory Matrix/`, `11 Canonical Glossary/`, `12 Evidence Registry/`, `15 Future Experiments/`, `14 Open Questions/` |
 | **Priority** | Medium |
-| **Status** | Resolved (pending registry amendment + Founder ratification) — Epoch V |
+| **Status** | Resolved by Founder ratification; registry enactment pending — Epoch V |
 | **Created** | 2026-07-03 |
 | **Target Review Date** | Within 30 days |
 | **Identified By** | ISR-001 Institutional Synthesis Report (Finding CA-006) |
@@ -108,10 +108,10 @@ JERANIUM was a legacy functional designation predating the constitutional formal
 - [ ] Amend the Cognitive Function Registry to add CF-15 and update the JERANIUM entry.
 - [ ] Apply the "superseded" banner to the Departments JERANIUM charter.
 - [ ] Re-attribute RP-001 co-authorship.
-- [ ] Founder ratification of the Governance Model Crosswalk.
+- [x] Founder ratification of the Governance Model Crosswalk — completed 2026-09-01.
 
 **Dependencies:**
-Founder ratification of the Epoch V Governance Model Crosswalk.
+Founder ratification completed 2026-09-01. Cognitive Function Registry amendment remains required for enactment.
 
 ---
 

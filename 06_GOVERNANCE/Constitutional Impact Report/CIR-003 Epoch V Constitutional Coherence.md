@@ -31,17 +31,17 @@ CAR-001 found the Foundation **conceptually strong but structurally stratified**
 
 | Deliverable | Resolves | Status |
 |-------------|----------|--------|
-| **Constitutional Hierarchy Statement** | CAR-F06 / M-01 | Proposed — pending Founder ratification |
-| **Governance Model Crosswalk & Council Topology** | CAR-F01, CAR-F14 / M-02, M-04 | Proposed — pending Founder ratification |
-| **YUNA Charter (CF-16)** | CAR-F01 / M-03 | Proposed — pending ratification + registry amendment |
-| **JERANIUM reconciliation → CF-15** | CAR-F03 / RD-002 | Proposed (in the Crosswalk) |
-| **Interim Authority Instrument** | CAR-F04 / M-05 | DRAFT — pending Founder ratification |
+| **Constitutional Hierarchy Statement** | CAR-F06 / M-01 | Founder-ratified 2026-09-01; pending Alpha Council confirmation |
+| **Governance Model Crosswalk & Council Topology** | CAR-F01, CAR-F14 / M-02, M-04 | Founder-ratified 2026-09-01; enactment pending |
+| **YUNA Charter (CF-16)** | CAR-F01 / M-03 | Founder-ratified 2026-09-01; registry amendment pending |
+| **JERANIUM reconciliation → CF-15** | CAR-F03 / RD-002 | Founder-ratified in the Crosswalk; registry amendment pending |
+| **Interim Authority Instrument** | CAR-F04 / M-05 | Founder-ratified and in force 2026-09-01 |
 | **CIR-003 (this document)** | CAR-F05 | Active |
 
 ## 4. What remains for the Founder (cannot be done by CF-01)
 
-1. **Name the Alpha Council seats**, or ratify the **Interim Authority Instrument** — the keystone that makes every ratification real.
-2. **Ratify** the Hierarchy Statement, the Crosswalk, and the YUNA charter (or under interim authority).
+1. ~~**Name the Alpha Council seats**, or ratify the **Interim Authority Instrument**.~~ **Completed:** Interim Authority Instrument ratified 2026-09-01; naming the seats remains a future Founder action.
+2. ~~**Ratify** the Hierarchy Statement, the Crosswalk, and the YUNA charter.~~ **Completed:** Founder-ratified 2026-09-01 under interim authority.
 3. **Convene the Ethics Council** to clear RD-005 (blocks RP-001/RP-002 canonization).
 
 ## 5. Epoch V remaining tiers (roadmap → Constitution v2.0)
@@ -50,7 +50,7 @@ Per CAR-001 Deliverable 10: structure & navigation (folder numbering, MOC rebuil
 
 ## 6. Guardrail
 
-Nothing in Epoch V is asserted as ratified. All Tier-1 instruments are **proposals pending Founder ratification**; the unmanned-Council reality (CAR-F04) is handled honestly by the Interim Authority Instrument rather than by pretending approval exists.
+Tier-1 instruments were Founder-ratified on 2026-09-01 under the now-operative Interim Authority Instrument. Registry amendments, legacy supersession banners, Ethics Council convening, and later Alpha Council confirmation remain separate enactment steps.
 
 ---
 

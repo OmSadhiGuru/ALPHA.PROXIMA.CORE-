@@ -4,8 +4,8 @@ aliases: ["Governance Crosswalk", "Model Crosswalk", "Council Topology"]
 tags: [governance, crosswalk, cognitive-functions, councils, epoch-v, alpha-proxima]
 created: 2026-09-01
 updated: 2026-09-01
-status: proposed — pending Founder ratification
-version: "0.1.0"
+status: ratified
+version: "1.0.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Governance Reconciliation
 initiative: "Epoch V — Constitutional Coherence"
@@ -14,7 +14,7 @@ resolves: ["CAR-F01", "CAR-F14", "M-02", "M-04"]
 
 # Governance Model Crosswalk & Council Topology
 
-*Epoch V · Resolves CAR-F01 (three parallel, contradictory AI-governance models) and CAR-F14 (three overlapping council names), and delivers Missing-Documents M-02 and M-04. Establishes the **Cognitive Function model as canonical**, maps the two legacy models onto it, and fixes the scope of each council. Proposed by CF-01; **pending Founder ratification.***
+*Epoch V · Resolves CAR-F01 (three parallel, contradictory AI-governance models) and CAR-F14 (three overlapping council names), and delivers Missing-Documents M-02 and M-04. Establishes the **Cognitive Function model as canonical**, maps the two legacy models onto it, and fixes the scope of each council. Proposed by CF-01 and **ratified by the Founder on 2026-09-01**.*
 
 ---
 
@@ -90,7 +90,13 @@ This removes the AI Council / Cognitive Council authority overlap: **Cognitive C
 
 ## Status
 
-**Proposed — pending Founder ratification** (Alpha Council seats unfilled, CAR-F04). The crosswalk is a reconciliation *proposal*; supersession of the legacy models becomes binding on ratification.
+**Ratified by the Founder on 2026-09-01 under the Interim Authority Instrument.** The reconciliation and council topology are binding, pending enactment of the registry and legacy-document checklist and later Alpha Council confirmation.
+
+## Ratification
+
+| Role | Decision | Date | Record |
+|------|----------|------|--------|
+| Frederick Belizaire Gunville, Founder | Ratified | 2026-09-01 | Explicit Founder declaration in the Alpha Proxima Codex session |
 
 ---
 
@@ -98,4 +104,5 @@ This removes the AI Council / Cognitive Council authority overlap: **Cognitive C
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-01 | Frederick Belizaire Gunville | Founder ratification under the Interim Authority Instrument; enactment checklist remains pending. |
 | 0.1.0 | 2026-09-01 | LUMIAION (CF-01) | Canonical = Cognitive Function model; legacy Chief Architects + Departments superseded; full crosswalk; JERANIUM reconciled to new CF-15 + CF-02/01 (resolves RD-002); Council Topology with fixed escalation order. Pending Founder ratification. |

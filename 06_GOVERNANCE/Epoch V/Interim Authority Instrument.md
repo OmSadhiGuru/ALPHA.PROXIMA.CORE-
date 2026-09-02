@@ -4,8 +4,8 @@ aliases: ["Interim Authority", "IAI", "Founder Interim Authority"]
 tags: [governance, authority, alpha-council, epoch-v, founder, alpha-proxima]
 created: 2026-09-01
 updated: 2026-09-01
-status: DRAFT — PENDING FOUNDER RATIFICATION (no approval asserted)
-version: "0.1.0"
+status: ratified
+version: "1.0.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Governance Instrument
 initiative: "Epoch V — Constitutional Coherence"
@@ -14,7 +14,7 @@ resolves: ["CAR-F04", "M-05"]
 
 # Interim Authority Instrument
 
-> **DRAFT — PENDING FOUNDER RATIFICATION.** This instrument is a *proposal*. It is **not** ratified, and nothing in this document or the conversation that produced it constitutes Founder approval. It becomes effective only when the Founder explicitly ratifies it. Until then it has no force.
+> **RATIFIED BY THE FOUNDER — 2026-09-01.** This instrument is in force under the ratification record below and remains subject to its sunset provision.
 
 *Epoch V · Resolves CAR-F04 (the Alpha Council's three human seats are unnamed, so the entire authority chain is nominal) and Missing-Document M-05.*
 
@@ -36,16 +36,18 @@ Every "ratified" status in the Foundation formally derives from the **Alpha Coun
 
 - It does not name the Council seats (that remains an open Founder action).
 - It does not assert that any instrument is Council-approved.
-- It does not itself take effect — it awaits explicit Founder ratification.
+- It did not take effect while in draft; the 2026-09-01 Founder ratification below activated it.
 
-## Ratification block (to be completed by the Founder)
+## Ratification record
 
-```
-I, [Founder name], ratify the Interim Authority Instrument v0.1.0.
-Date: __________    Signature/record: __________
-```
+I, **Frederick Belizaire Gunville (Om Sadhi Guru), Founder**, ratify the Interim Authority Instrument v1.0.0.
 
-*Until this block is completed by the Founder, status remains DRAFT — PENDING FOUNDER RATIFICATION.*
+| Field | Record |
+|-------|--------|
+| Date | 2026-09-01 |
+| Decision | Ratified |
+| Authority | Founder and interim constituent authority |
+| Record | Explicit Founder declaration in the Alpha Proxima Codex session: “ratified !!!” |
 
 ---
 
@@ -53,4 +55,5 @@ Date: __________    Signature/record: __________
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-01 | Frederick Belizaire Gunville | Founder ratification; instrument enters into force. |
 | 0.1.0 | 2026-09-01 | LUMIAION (CF-01) | Draft proposal: Founder as interim constituent authority; reclassify prior ratifications; propose/ratify split; sunset on Council constitution. NOT ratified; awaiting explicit Founder ratification. |

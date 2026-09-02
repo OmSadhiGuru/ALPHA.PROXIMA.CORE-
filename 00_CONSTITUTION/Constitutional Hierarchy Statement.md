@@ -4,8 +4,8 @@ aliases: ["Constitutional Hierarchy", "Instrument Hierarchy", "CHS"]
 tags: [constitution, hierarchy, governance, epoch-v, alpha-proxima]
 created: 2026-09-01
 updated: 2026-09-01
-status: proposed — pending Founder ratification
-version: "0.1.0"
+status: ratified
+version: "1.0.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Constitutional Instrument
 initiative: "Epoch V — Constitutional Coherence"
@@ -14,7 +14,7 @@ resolves: ["CAR-F06", "M-01"]
 
 # Constitutional Hierarchy Statement
 
-*Epoch V · Resolves CAR-F06 (three/four "constitutions" without a stated hierarchy) and Missing-Document M-01. Establishes which instrument is supreme and how every other constitutional and framework document ranks beneath it. Proposed by CF-01; **pending Founder ratification** — no ratification is asserted here.*
+*Epoch V · Resolves CAR-F06 (three/four "constitutions" without a stated hierarchy) and Missing-Document M-01. Establishes which instrument is supreme and how every other constitutional and framework document ranks beneath it. Proposed by CF-01 and **ratified by the Founder on 2026-09-01**.*
 
 ---
 
@@ -58,7 +58,13 @@ The Foundation now holds multiple documents that call themselves, or function as
 
 ## Status
 
-**Proposed — pending Founder ratification.** Because the Alpha Council seats are unfilled (CAR-F04), this instrument cannot be Council-ratified today. It becomes binding upon Founder ratification (or ratification under the Interim Authority Instrument, once that is itself ratified).
+**Ratified by the Founder on 2026-09-01 under the Interim Authority Instrument.** This hierarchy is binding and operative, pending confirmation by the Alpha Council when constituted.
+
+## Ratification
+
+| Role | Decision | Date | Record |
+|------|----------|------|--------|
+| Frederick Belizaire Gunville, Founder | Ratified | 2026-09-01 | Explicit Founder declaration in the Alpha Proxima Codex session |
 
 ---
 
@@ -66,4 +72,5 @@ The Foundation now holds multiple documents that call themselves, or function as
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-01 | Frederick Belizaire Gunville | Founder ratification under the Interim Authority Instrument. |
 | 0.1.0 | 2026-09-01 | LUMIAION (CF-01) | Initial proposal; six-rank hierarchy; five precedence rules; Epoch V consequences. Pending Founder ratification. |

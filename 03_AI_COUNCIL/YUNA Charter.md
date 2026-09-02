@@ -4,8 +4,8 @@ aliases: ["YUNA", "Universal Human Architecture", "CF-16"]
 tags: [charter, yuna, cognitive-function, education, synthesis, epoch-v, alpha-proxima]
 created: 2026-09-01
 updated: 2026-09-01
-status: proposed — pending Founder ratification
-version: "0.1.0"
+status: ratified
+version: "1.0.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Cognitive Function Charter
 initiative: "Epoch V — Constitutional Coherence"
@@ -15,7 +15,7 @@ proposed_cf_code: "CF-16"
 
 # YUNA Charter — Universal Synthesis, Education & Wisdom Mapping
 
-*Epoch V · Resolves the gap flagged in CAR-F01 / M-03: YUNA is named in the LUMIAION Constitution and the Genome Constitution but has no charter and no Cognitive Function entry. This charter defines YUNA and proposes its registration as **CF-16**. Proposed by CF-01; **pending Founder ratification** and Cognitive Council registration.*
+*Epoch V · Resolves the gap flagged in CAR-F01 / M-03: YUNA is named in the LUMIAION Constitution and the Genome Constitution but had no charter and has no Cognitive Function entry. This charter defines YUNA and proposes its registration as **CF-16**. Proposed by CF-01 and **ratified by the Founder on 2026-09-01**; Cognitive Function Registry enactment remains pending.*
 
 ---
 
@@ -62,7 +62,13 @@ Engine appointed and reviewed by the **Cognitive Council** per the **Engine Succ
 
 ## Status
 
-**Proposed — pending Founder ratification and Cognitive Council registration as CF-16.** Requires the corresponding amendment to the Cognitive Function Registry (Epoch V enactment).
+**Charter ratified by the Founder on 2026-09-01 under the Interim Authority Instrument.** Registration as CF-16 and its engine appointment remain pending Cognitive Function Registry enactment.
+
+## Ratification
+
+| Role | Decision | Date | Record |
+|------|----------|------|--------|
+| Frederick Belizaire Gunville, Founder | Ratified | 2026-09-01 | Explicit Founder declaration in the Alpha Proxima Codex session |
 
 ---
 
@@ -70,4 +76,5 @@ Engine appointed and reviewed by the **Cognitive Council** per the **Engine Succ
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-01 | Frederick Belizaire Gunville | Founder ratification under the Interim Authority Instrument; CF-16 registry enactment remains pending. |
 | 0.1.0 | 2026-09-01 | LUMIAION (CF-01) | Initial YUNA charter; proposed as CF-16 (Synthesis & Education Intelligence); mission, responsibilities, boundaries, Living-Genome vision under AI boundaries. Pending Founder ratification + registry amendment. |
