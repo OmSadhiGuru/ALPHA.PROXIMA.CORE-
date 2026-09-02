@@ -225,7 +225,7 @@ The brief requests a GitHub layout using generic categories. Rather than propose
 
 **Tags:** kebab-case, always including the primary domain tag and relevant institution tag, per Vault Structure Convention — already sufficient, unchanged.
 
-**Index files:** `Alpha Proxima Core.md` (root MOC), each folder's own index note (e.g. `13_OPERATIONS/README.md`, `09_FUTURE/README.md`), and the two generated reports (`Node Registry Report.md`, `Relationship Registry Report.md`) function as the current index layer.
+**Index files:** `Alpha Proxima Core.md` (root MOC), each folder's own index note (e.g. `13_OPERATIONS/README.md`, `14_FUTURE/README.md`), and the two generated reports (`Node Registry Report.md`, `Relationship Registry Report.md`) function as the current index layer.
 
 **README structure:** every governed folder should carry a README or index note following the same six required sections as any other note (Vault Structure Convention) — most already do (`13_OPERATIONS/README.md`, `OSG_LAUNCH/README.md`); the root `README.md` is currently a one-line stub and is the weakest link in this chain.
 
