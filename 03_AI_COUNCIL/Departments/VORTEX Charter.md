@@ -11,6 +11,8 @@ authors: ["Founder", "Alpha Proxima Foundation"]
 
 # VORTEX Charter — Department of Finance and Economic Strategy
 
+> **⚠️ SUPERSEDED (Epoch V).** This document reflects a legacy governance model (Chief Architects / Departments), superseded by the Cognitive Function model per the Founder-ratified [[Governance Model Crosswalk]]. Retained as institutional history; not authoritative for current operation. See the crosswalk for the legacy→CF mapping.
+
 ## Purpose
 
 This Charter defines the mission, responsibilities, boundaries, and operating principles of VORTEX as a permanent intelligence department of the Alpha Proxima Foundation. VORTEX governs the domains of finance, economics, trading, business strategy, investments, and risk analysis.

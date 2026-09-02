@@ -80,11 +80,11 @@ This removes the AI Council / Cognitive Council authority overlap: **Cognitive C
 
 ## Part E — Enactment checklist (Epoch V)
 
-- [ ] Add "superseded — see Governance Model Crosswalk" banner to `AI Council Registry` and each `Departments/*` charter.
-- [ ] Amend the **Cognitive Function Registry** to add **CF-15 Data & Systems Intelligence** (JERANIUM) and update the JERANIUM entry.
-- [ ] Create/relocate the **Ethics Council** to `09_OFFICES/Ethics Council/` (CAR-F11).
-- [ ] Update **RD-002** to resolved-pending-registry-amendment.
-- [ ] Reflect the Council Topology in Book II (or a linked governance note).
+- [x] Add "superseded — see Governance Model Crosswalk" banner to `AI Council Registry` and each `Departments/*` charter. *(Enacted 2026-09-02, Epoch V Tier 2.)*
+- [x] Amend the **Cognitive Function Registry** to add **CF-15 Data & Systems Intelligence** (JERANIUM) and **CF-16** (YUNA), and update the JERANIUM entry. *(Enacted — CF Registry v1.1.0.)*
+- [x] Create/relocate the **Ethics Council** to `09_OFFICES/Ethics Council/` (CAR-F11). *(Enacted via `git mv`.)*
+- [x] Update **RD-002** to resolved (enacting). *(Register updated.)*
+- [ ] Reflect the Council Topology in Book II (or a linked governance note). *(Pending — Book II amendment.)*
 
 ---
 

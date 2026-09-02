@@ -11,6 +11,8 @@ authors: ["Founder", "Alpha Proxima Foundation"]
 
 # AI Council Registry
 
+> **⚠️ SUPERSEDED (Epoch V).** This document reflects a legacy governance model (Chief Architects / Departments), superseded by the Cognitive Function model per the Founder-ratified [[Governance Model Crosswalk]]. Retained as institutional history; not authoritative for current operation. See the crosswalk for the legacy→CF mapping.
+
 ## Purpose
 
 This Registry is the canonical record of every permanent institutional role on the Alpha Proxima AI Council. It separates the *role* — which is permanent — from the *engine* currently fulfilling it — which is replaceable.

@@ -11,6 +11,8 @@ authors: ["Founder", "Alpha Proxima Foundation"]
 
 # SOHMA Charter — Department of Consciousness and Meaning
 
+> **⚠️ SUPERSEDED (Epoch V).** This document reflects a legacy governance model (Chief Architects / Departments), superseded by the Cognitive Function model per the Founder-ratified [[Governance Model Crosswalk]]. Retained as institutional history; not authoritative for current operation. See the crosswalk for the legacy→CF mapping.
+
 ## Purpose
 
 This Charter defines the mission, responsibilities, boundaries, and operating principles of SOHMA as a permanent intelligence department of the Alpha Proxima Foundation. SOHMA governs the domains of consciousness, metaphysics, symbolism, astrology, dreams, meditation, Reiki, and the construction of meaning.

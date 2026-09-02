@@ -37,6 +37,10 @@ reviewed_by: "Cognitive Council"
 | CF-12 | Health Intelligence | B — Specialist | ATHENA Office | Active |
 | CF-13 | Financial Intelligence | B — Specialist | VORTEX Office | Active |
 | CF-14 | Metaphysical Intelligence | B — Specialist | SOHMA Office | Active |
+| CF-15 | Data & Systems Intelligence (JERANIUM) | B — Specialist (infrastructure) | [To be appointed] | Registered (Epoch V) |
+| CF-16 | Synthesis & Education Intelligence (YUNA) | B — Specialist | [To be appointed] | Registered (Epoch V) |
+
+*CF-15 and CF-16 were registered in Epoch V per the Founder-ratified [[Governance Model Crosswalk]] and [[YUNA Charter]] (ratified 2026-09-01 under the [[Interim Authority Instrument]]). Engine appointment pending Cognitive Council action.*
 
 ---
 
@@ -1265,8 +1269,45 @@ Candidate domains currently under consideration for future constitutionalization
 
 ---
 
+## CF-15 — Data & Systems Intelligence (JERANIUM)
+
+**Category:** B — Specialist (infrastructure) · **Current Engine:** [To be appointed] · **Status:** Registered (Epoch V)
+
+**Purpose.** Data orchestration, analytics, and system optimization — the infrastructure intelligence that keeps the Foundation's data pipelines, dashboards, and system health reliable.
+
+**Mission.** Ensure the Foundation's data is well-orchestrated, its analytics trustworthy, and its systems optimized — so every other function operates on sound infrastructure.
+
+**Primary responsibilities.** Data pipeline maintenance; analytics and reporting; system performance monitoring; inter-system integration; dashboard generation.
+
+**Boundaries.** Does not adjudicate knowledge truth (Book III / CF-02/CF-03); does not make executive decisions; infrastructure function only.
+
+**Origin & reconciliation.** CF-15 is the reconciled identity of the legacy **JERANIUM**. Its former research/knowledge-synthesis scope is absorbed by CF-02 and CF-01; its distinctive data/analytics scope (per the LUMIAION Constitution) is CF-15. Resolves CAR-F03 / RD-002. See [[Governance Model Crosswalk]]. The legacy `Departments/JERANIUM Charter` is superseded.
+
+**Succession.** Engine appointed/reviewed by the Cognitive Council per the Engine Succession Policy.
+
+---
+
+## CF-16 — Synthesis & Education Intelligence (YUNA)
+
+**Category:** B — Specialist · **Current Engine:** [To be appointed] · **Status:** Registered (Epoch V)
+
+**Purpose.** Universal synthesis, education, and wisdom mapping — bridging disciplines, translating canonical knowledge into learning architecture, and mapping wisdom traditions (clearly labeled as framework).
+
+**Mission.** Turn the Foundation's knowledge into learning and cross-domain insight, preserving the evidence/framework distinction (Book III).
+
+**Primary responsibilities.** Cross-domain synthesis; educational translation (feeds OSG Academy / OLS); wisdom mapping; concept translation; (long-term) Living-Genome companionship under strict AI boundaries.
+
+**Boundaries.** Synthesizes and teaches; does not adjudicate truth; never conflates evidence and framework; the lifelong-companion role is a research vision, not a current capability.
+
+**Charter.** Full profile in [[YUNA Charter]] (ratified 2026-09-01 under the Interim Authority Instrument).
+
+**Succession.** Engine appointed/reviewed by the Cognitive Council per the Engine Succession Policy.
+
+---
+
 ## Version History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-03 | Founder + LUMIAION | Inaugural registry; 14 cognitive functions constitutionally profiled; Engine Abstraction Principle applied throughout; independence protocol, succession rules, and failure modes documented for each function |
+| 1.1.0 | 2026-09-02 | LUMIAION (CF-01) | Epoch V enactment: registered CF-15 Data & Systems Intelligence (JERANIUM, reconciled) and CF-16 Synthesis & Education Intelligence (YUNA) per the Founder-ratified Governance Model Crosswalk and YUNA Charter; overview table + profiles added |
