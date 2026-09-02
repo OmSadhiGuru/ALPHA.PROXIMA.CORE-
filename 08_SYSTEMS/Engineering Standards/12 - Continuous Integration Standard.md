@@ -61,6 +61,20 @@ Running the vault index three times would answer the same question three times. 
 - Lowering it belongs in the same commit as the repairs that earned it, so the number is never left behind.
 - The ceiling lives in the workflow rather than a config file so that every movement is a visible, reviewable edit.
 
+### Check the instrument before raising the tolerance
+
+**When a gated metric worsens sharply, the first hypothesis is that the measurement changed, not the Foundation.**
+
+This rule was earned. On 2026-09-02 the ceiling was raised from 243 to 422 to accommodate what looked like a large increase in broken links after a corpus expansion. It was not. The indexer resolved only bare `[[Note]]` links and treated every valid `[[folder/Note]]` — a form Obsidian resolves natively — as broken. **260 of the 349 reported broken links did not exist**, and 30 documents were reported as orphans purely because their real inbound links went unrecognised. Correcting the resolver put the true figure at 134, *below* the pre-expansion baseline.
+
+A ceiling raised to accommodate a measurement bug ratifies decay that was never there, and does it with a documented justification that reads entirely reasonable. That is the dangerous case: not a careless raise, but a well-argued one resting on a bad number.
+
+So before any upward movement, and before accepting any sharp worsening:
+
+- Sample the defects the tool reports and confirm by hand that they are real.
+- Ask what the tool would have to believe for this number to be correct.
+- Prefer fixing the instrument. A corrected instrument ratchets the ceiling *down*, which no amendment can.
+
 A ceiling exists at all because a gate that can never pass is not a gate — it is noise, and teams learn to route around noise. The vault carries pre-existing defects owned by [[CN-001 Execution Tracker]]; failing on them from day one would have made this workflow permanently red and therefore ignored within a week.
 
 ### Report versus gate
@@ -127,6 +141,14 @@ Bad — raising the ceiling to make a change land:
 ```yaml
 COHERENCE_CEILING: "245"   # was 243; new note is an orphan
 ```
+
+Worse — raising it on a number nobody checked:
+
+```yaml
+COHERENCE_CEILING: "422"   # was 243; broken links "jumped" after an import
+```
+
+The second is more dangerous than the first: it is well argued, and wrong. 260 of those links resolved perfectly well in Obsidian.
 
 ---
 

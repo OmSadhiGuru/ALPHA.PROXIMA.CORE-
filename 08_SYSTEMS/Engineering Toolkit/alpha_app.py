@@ -211,17 +211,49 @@ def resolve_links(entries: list[dict[str, Any]]) -> None:
     become edges; targets that do not are kept separately as `unresolved`, which
     is exactly the signal CN-001 needs — a broken link is a coherence defect,
     not something to silently drop.
+
+    Resolution follows Obsidian, because the vault's authors write for Obsidian:
+
+      * a bare ``[[Note]]`` matches by title or filename;
+      * a qualified ``[[folder/Note]]`` matches any document whose path ends at
+        that suffix, which is how Obsidian disambiguates same-named notes.
+
+    Honouring the qualified form is not a nicety. Reporting a link that works in
+    Obsidian as broken makes the coherence metric measure the tool instead of
+    the vault, and a metric that overstates decay gets a ceiling raised to
+    accommodate it — the exact failure the ratchet exists to prevent.
+
+    A trailing slash stays unresolved: a folder is not a document.
     """
     by_name: dict[str, str] = {}
-    for entry in entries:
+    by_path: dict[str, str] = {}
+    # Sorted so a name shared by several documents resolves deterministically
+    # to the same one on every run, whatever order the filesystem returned.
+    for entry in sorted(entries, key=lambda e: e["path"]):
+        path_key = re.sub(r"\.md$", "", entry["path"], flags=re.I).lower()
+        by_path.setdefault(path_key, entry["id"])
         for name in (entry["title"], Path(entry["path"]).stem):
             by_name.setdefault(name.lower(), entry["id"])
+
+    by_suffix: dict[str, str] = {}
+    for path_key, entry_id in sorted(by_path.items()):
+        segments = path_key.split("/")
+        for index in range(1, len(segments)):
+            by_suffix.setdefault("/".join(segments[index:]), entry_id)
+
+    def lookup(raw: str) -> str | None:
+        target = re.sub(r"\.md$", "", raw.strip(), flags=re.I).lower()
+        if not target or target.endswith("/"):
+            return None
+        if "/" in target:
+            return by_path.get(target) or by_suffix.get(target)
+        return by_name.get(target)
 
     for entry in entries:
         resolved: list[str] = []
         unresolved: list[str] = []
         for raw in entry.pop("links"):
-            target = by_name.get(raw.lower())
+            target = lookup(raw)
             if target is None:
                 unresolved.append(raw)
             elif target != entry["id"] and target not in resolved:

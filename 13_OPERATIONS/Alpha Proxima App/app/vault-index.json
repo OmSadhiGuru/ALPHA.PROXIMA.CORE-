@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T04:43:28+00:00",
+  "generated_at": "2026-09-02T04:57:23+00:00",
   "note_count": 363,
   "domains": [
     {
@@ -165,7 +165,7 @@
         "00-constitution-book-iii-knowledge-integrity-md"
       ],
       "unresolved": [],
-      "backlinks": 45
+      "backlinks": 46
     },
     {
       "id": "00-constitution-book-ii-governance-framework-md",
@@ -256,7 +256,7 @@
         "08-systems-protocols-knowledge-ownership-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 52
+      "backlinks": 56
     },
     {
       "id": "00-constitution-book-iv-cognitive-architecture-md",
@@ -447,7 +447,7 @@
         "alpha-proxima-core-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "03-ai-council-ai-council-registry-md",
@@ -758,6 +758,7 @@
       "has_frontmatter": true,
       "words": 1469,
       "links": [
+        "09-offices-lumiaion-lumiaion-charter-md",
         "03-ai-council-departments-sohma-charter-md",
         "03-ai-council-departments-athena-charter-md",
         "03-ai-council-departments-vortex-charter-md",
@@ -775,7 +776,6 @@
         "03-ai-council-institutional-registry-md"
       ],
       "unresolved": [
-        "09_OFFICES/LUMIAION/LUMIAION Charter",
         "SOHMA Charter\\",
         "ATHENA Charter\\",
         "VORTEX Charter\\",
@@ -991,7 +991,7 @@
       "unresolved": [
         "Knowledge Integrity"
       ],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "03-ai-council-institutional-registry-md",
@@ -1139,11 +1139,11 @@
         "08-systems-protocols-future-expansion-protocol-md",
         "10-templates-vault-structure-convention-md",
         "lumiaion-md",
+        "01-vision-alpha-proxima-10-year-vision-md",
         "alpha-proxima-core-md"
       ],
       "unresolved": [
-        "LUMIAION Architecture Spec",
-        "01_VISION/Alpha Proxima — 10 Year Vision"
+        "LUMIAION Architecture Spec"
       ],
       "backlinks": 7
     },
@@ -1764,15 +1764,15 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1808,
-      "links": [],
-      "unresolved": [
-        "10_TEMPLATES/Vault Structure Convention",
-        "08_SYSTEMS/Protocols/Research Governance Protocol",
-        "00_CONSTITUTION/Book III - Knowledge Integrity",
-        "07_RESEARCH/RP-001/RP-001 Master Index",
-        "07_RESEARCH/RP-002/RP-002 Master Index"
+      "links": [
+        "10-templates-vault-structure-convention-md",
+        "08-systems-protocols-research-governance-protocol-md",
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-002-rp-002-master-index-md"
       ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "06-governance-founder-directives-founder-directives-register-md",
@@ -2036,7 +2036,7 @@
       "words": 1789,
       "links": [],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 7
     },
     {
       "id": "06-governance-research-framework-institutional-intelligence-translation-framework-v1-0-md",
@@ -2287,18 +2287,17 @@
       "has_frontmatter": true,
       "words": 6778,
       "links": [
+        "00-constitution-book-i-the-constitution-md",
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "08-systems-protocols-research-governance-protocol-md",
+        "06-governance-research-debt-register-research-debt-register-md",
+        "06-governance-foundation-gap-report-fgr-001-epoch-ii-stewardship-audit-md",
+        "10-templates-research-program-template-research-program-methodology-md",
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-002-rp-002-master-index-md",
         "alpha-proxima-core-md"
       ],
-      "unresolved": [
-        "00_CONSTITUTION/Book I - The Constitution",
-        "00_CONSTITUTION/Book III - Knowledge Integrity",
-        "08_SYSTEMS/Protocols/Research Governance Protocol",
-        "06_GOVERNANCE/Research Debt Register/Research Debt Register",
-        "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit",
-        "10_TEMPLATES/Research Program Template/Research Program Methodology",
-        "07_RESEARCH/RP-001/RP-001 Master Index",
-        "07_RESEARCH/RP-002/RP-002 Master Index"
-      ],
+      "unresolved": [],
       "backlinks": 9
     },
     {
@@ -2441,7 +2440,7 @@
         "04 Source - Perplexity",
         "05 Source - Gemini"
       ],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-001-01-research-question-rp-001-research-question-md",
@@ -2469,12 +2468,11 @@
       "words": 260,
       "links": [
         "07-research-rp-001-rp-001-master-index-md",
-        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md"
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-02-objectives-rp-001-objectives-md"
       ],
-      "unresolved": [
-        "02 Objectives/RP-001 Objectives"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-001-02-objectives-rp-001-objectives-md",
@@ -2501,16 +2499,15 @@
       "has_frontmatter": true,
       "words": 386,
       "links": [
-        "07-research-rp-001-rp-001-master-index-md"
+        "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-13-research-graph-rp-001-research-graph-md",
+        "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-001-01-research-question-rp-001-research-question-md"
       ],
-      "unresolved": [
-        "10 Theory Matrix/RP-001 Theory Matrix",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "13 Research Graph/RP-001 Research Graph",
-        "08 Comparative Framework/RP-001 Comparative Framework",
-        "01 Research Question/RP-001 Research Question"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-001-03-source-registry-rp-001-source-registry-md",
@@ -2545,7 +2542,7 @@
         "03-ai-council-departments-jeranium-charter-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 10
     },
     {
       "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
@@ -2572,13 +2569,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 520,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/DOC-001 Architecture of Human Consciousness",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "03 Source Registry/RP-001 Source Registry"
+      "links": [
+        "07-research-rp-001-archive-doc-001-architecture-of-human-consciousness-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-03-source-registry-rp-001-source-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-001-05-source-gemini-rp-001-source-note-gemini-md",
@@ -2605,12 +2602,12 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 243,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/ARCHIVE Philosophy",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "03 Source Registry/RP-001 Source Registry"
+      "links": [
+        "07-research-rp-001-archive-archive-philosophy-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-03-source-registry-rp-001-source-registry-md"
       ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -2638,14 +2635,14 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 426,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/DOC-003 Comparative Framework - SanaLab",
-        "ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "10 Theory Matrix/RP-001 Theory Matrix",
-        "08 Comparative Framework/RP-001 Comparative Framework"
+      "links": [
+        "07-research-rp-001-archive-doc-003-comparative-framework-sanalab-md",
+        "07-research-rp-001-archive-doc-004-gnwt-vs-iit-deep-dive-sanalab-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
+        "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md"
       ],
+      "unresolved": [],
       "backlinks": 1
     },
     {
@@ -2672,11 +2669,11 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 419,
-      "links": [],
-      "unresolved": [
-        "03 Source Registry/RP-001 Source Registry",
-        "ARCHIVE/ARCHIVE Philosophy"
+      "links": [
+        "07-research-rp-001-03-source-registry-rp-001-source-registry-md",
+        "07-research-rp-001-archive-archive-philosophy-md"
       ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -2714,7 +2711,7 @@
         "08-systems-protocols-research-governance-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 10
     },
     {
       "id": "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
@@ -2747,6 +2744,7 @@
         "07-research-rp-001-archive-doc-001-architecture-of-human-consciousness-md",
         "07-research-rp-001-archive-doc-003-comparative-framework-sanalab-md",
         "07-research-rp-001-archive-doc-004-gnwt-vs-iit-deep-dive-sanalab-md",
+        "07-research-rp-001-21-version-history-rp-001-version-history-md",
         "07-research-rp-001-rp-001-master-index-md",
         "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
         "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
@@ -2754,10 +2752,8 @@
         "03-ai-council-ethics-council-charter-md",
         "03-ai-council-departments-sohma-charter-md"
       ],
-      "unresolved": [
-        "21 Version History/RP-001 Version History"
-      ],
-      "backlinks": 7
+      "unresolved": [],
+      "backlinks": 17
     },
     {
       "id": "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
@@ -2794,7 +2790,7 @@
         "03-ai-council-departments-sohma-charter-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 9
     },
     {
       "id": "07-research-rp-001-11-canonical-glossary-rp-001-canonical-glossary-md",
@@ -2829,7 +2825,7 @@
         "10-templates-research-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
@@ -2860,13 +2856,11 @@
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
         "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-03-source-registry-rp-001-source-registry-md",
         "07-research-rp-001-rp-001-master-index-md"
       ],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "03 Source Registry/RP-001 Source Registry"
-      ],
-      "backlinks": 3
+      "unresolved": [],
+      "backlinks": 7
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-4e-cognition-md",
@@ -2898,7 +2892,7 @@
         "07-research-rp-001-13-research-graph-concepts-meta-awareness-md"
       ],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-active-inference-md",
@@ -2929,7 +2923,7 @@
         "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-attention-schema-theory-md",
@@ -2961,7 +2955,7 @@
         "07-research-rp-001-13-research-graph-concepts-predictive-processing-md"
       ],
       "unresolved": [],
-      "backlinks": 4
+      "backlinks": 5
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-consciousness-md",
@@ -2985,6 +2979,7 @@
       "has_frontmatter": true,
       "words": 390,
       "links": [
+        "07-research-rp-001-14-open-questions-rp-001-open-questions-md",
         "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md",
         "07-research-rp-001-13-research-graph-concepts-integrated-information-theory-md",
         "07-research-rp-001-13-research-graph-concepts-predictive-processing-md",
@@ -2995,10 +2990,8 @@
         "07-research-rp-001-13-research-graph-concepts-neural-correlates-of-consciousness-md",
         "07-research-rp-001-13-research-graph-concepts-meta-awareness-md"
       ],
-      "unresolved": [
-        "14 Open Questions/RP-001 Open Questions"
-      ],
-      "backlinks": 14
+      "unresolved": [],
+      "backlinks": 16
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-default-mode-network-md",
@@ -3030,7 +3023,7 @@
         "07-research-rp-001-13-research-graph-concepts-neural-correlates-of-consciousness-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 5
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md",
@@ -3062,7 +3055,7 @@
         "07-research-rp-001-13-research-graph-concepts-default-mode-network-md"
       ],
       "unresolved": [],
-      "backlinks": 9
+      "backlinks": 12
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-higher-order-thought-theory-md",
@@ -3094,7 +3087,7 @@
         "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-illusionism-md",
@@ -3125,7 +3118,7 @@
         "07-research-rp-001-13-research-graph-concepts-panpsychism-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-integrated-information-theory-md",
@@ -3156,7 +3149,7 @@
         "07-research-rp-001-13-research-graph-concepts-default-mode-network-md"
       ],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 8
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-meta-awareness-md",
@@ -3187,7 +3180,7 @@
         "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 6
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-neural-correlates-of-consciousness-md",
@@ -3220,7 +3213,7 @@
         "07-research-rp-001-13-research-graph-concepts-default-mode-network-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 6
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-orchestrated-objective-reduction-md",
@@ -3252,7 +3245,7 @@
         "07-research-rp-001-13-research-graph-concepts-panpsychism-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-panpsychism-md",
@@ -3284,7 +3277,7 @@
         "07-research-rp-001-13-research-graph-concepts-illusionism-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-predictive-processing-md",
@@ -3315,7 +3308,7 @@
         "07-research-rp-001-13-research-graph-concepts-meta-awareness-md"
       ],
       "unresolved": [],
-      "backlinks": 4
+      "backlinks": 6
     },
     {
       "id": "07-research-rp-001-13-research-graph-concepts-recurrent-processing-theory-md",
@@ -3345,7 +3338,7 @@
         "07-research-rp-001-13-research-graph-concepts-neural-correlates-of-consciousness-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-13-research-graph-rp-001-research-graph-md",
@@ -3382,7 +3375,7 @@
         "07-research-rp-001-rp-001-master-index-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-14-open-questions-rp-001-open-questions-md",
@@ -3418,7 +3411,7 @@
         "07-research-rp-001-15-future-experiments-rp-001-future-research-opportunities-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 7
     },
     {
       "id": "07-research-rp-001-15-future-experiments-rp-001-future-research-opportunities-md",
@@ -3454,7 +3447,7 @@
         "08-systems-protocols-research-governance-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-001-16-visual-knowledge-rp-001-visual-knowledge-index-md",
@@ -3480,11 +3473,11 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 226,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "13 Research Graph/RP-001 Research Graph"
+      "links": [
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-13-research-graph-rp-001-research-graph-md"
       ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -3522,7 +3515,7 @@
         "03-ai-council-departments-jeranium-charter-md"
       ],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-001-18-related-constitution-rp-001-constitutional-links-md",
@@ -3556,7 +3549,7 @@
       "unresolved": [
         "LUMIAION Architecture Specification"
       ],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-001-19-related-laws-rp-001-governing-provisions-md",
@@ -3584,12 +3577,11 @@
       "words": 431,
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
-        "08-systems-protocols-research-governance-protocol-md"
+        "07-research-rp-001-archive-archive-philosophy-md",
+        "08-systems-protocols-research-governance-protocol-md",
+        "07-research-rp-001-18-related-constitution-rp-001-constitutional-links-md"
       ],
-      "unresolved": [
-        "ARCHIVE/ARCHIVE Philosophy",
-        "18 Related Constitution/RP-001 Constitutional Links"
-      ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -3617,11 +3609,11 @@
       "has_frontmatter": true,
       "words": 293,
       "links": [
-        "08-systems-protocols-research-governance-protocol-md"
+        "08-systems-protocols-research-governance-protocol-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md"
       ],
       "unresolved": [
-        "ADR-0001",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis"
+        "ADR-0001"
       ],
       "backlinks": 0
     },
@@ -3649,12 +3641,11 @@
       "has_frontmatter": true,
       "words": 387,
       "links": [
-        "07-research-rp-001-rp-001-master-index-md"
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md"
       ],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-001-archive-archive-philosophy-md",
@@ -3687,7 +3678,7 @@
         "00-constitution-book-iii-knowledge-integrity-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 8
     },
     {
       "id": "07-research-rp-001-archive-doc-001-architecture-of-human-consciousness-md",
@@ -3714,17 +3705,17 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1487,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "12 Evidence Registry/RP-001 Evidence Registry",
-        "04 Source - Perplexity/RP-001 Source Note - Perplexity",
-        "13 Research Graph/Concepts/Orchestrated Objective Reduction",
-        "13 Research Graph/Concepts/Illusionism",
-        "13 Research Graph/Concepts/4E Cognition",
-        "13 Research Graph/Concepts/Panpsychism"
+      "links": [
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
+        "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
+        "07-research-rp-001-13-research-graph-concepts-orchestrated-objective-reduction-md",
+        "07-research-rp-001-13-research-graph-concepts-illusionism-md",
+        "07-research-rp-001-13-research-graph-concepts-4e-cognition-md",
+        "07-research-rp-001-13-research-graph-concepts-panpsychism-md"
       ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-archive-doc-003-comparative-framework-sanalab-md",
@@ -3753,15 +3744,15 @@
       "words": 716,
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
-        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md"
+        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
+        "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md"
       ],
       "unresolved": [
-        "12 Evidence Registry/RP-001 Evidence Registry",
-        "10 Theory Matrix/RP-001 Theory Matrix",
-        "08 Comparative Framework/RP-001 Comparative Framework",
         "13 Research Graph/Concepts"
       ],
-      "backlinks": 2
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-archive-doc-004-gnwt-vs-iit-deep-dive-sanalab-md",
@@ -3792,14 +3783,13 @@
       "words": 757,
       "links": [
         "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
-        "07-research-rp-001-00-executive-summary-rp-001-executive-summary-md"
+        "07-research-rp-001-00-executive-summary-rp-001-executive-summary-md",
+        "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
+        "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-integrated-information-theory-md"
       ],
-      "unresolved": [
-        "08 Comparative Framework/RP-001 Comparative Framework",
-        "13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-        "13 Research Graph/Concepts/Integrated Information Theory"
-      ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-001-rp-001-master-index-md",
@@ -3829,48 +3819,46 @@
       "links": [
         "08-systems-protocols-research-governance-protocol-md",
         "00-constitution-book-iii-knowledge-integrity-md",
+        "07-research-rp-001-00-executive-summary-rp-001-executive-summary-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
+        "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
+        "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
+        "07-research-rp-001-archive-archive-philosophy-md",
+        "07-research-rp-001-archive-doc-001-architecture-of-human-consciousness-md",
+        "07-research-rp-001-archive-doc-003-comparative-framework-sanalab-md",
+        "07-research-rp-001-archive-doc-004-gnwt-vs-iit-deep-dive-sanalab-md",
+        "07-research-rp-001-13-research-graph-concepts-consciousness-md",
+        "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-integrated-information-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-predictive-processing-md",
+        "07-research-rp-001-13-research-graph-concepts-recurrent-processing-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-higher-order-thought-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-attention-schema-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-active-inference-md",
+        "07-research-rp-001-13-research-graph-concepts-neural-correlates-of-consciousness-md",
+        "07-research-rp-001-13-research-graph-concepts-default-mode-network-md",
+        "07-research-rp-001-13-research-graph-concepts-meta-awareness-md",
+        "07-research-rp-001-13-research-graph-concepts-orchestrated-objective-reduction-md",
+        "07-research-rp-001-13-research-graph-concepts-4e-cognition-md",
+        "07-research-rp-001-13-research-graph-concepts-illusionism-md",
+        "07-research-rp-001-13-research-graph-concepts-panpsychism-md",
+        "07-research-rp-001-03-source-registry-rp-001-source-registry-md",
+        "07-research-rp-001-11-canonical-glossary-rp-001-canonical-glossary-md",
+        "07-research-rp-001-14-open-questions-rp-001-open-questions-md",
+        "07-research-rp-001-15-future-experiments-rp-001-future-research-opportunities-md",
+        "07-research-rp-001-17-notebooklm-package-rp-001-notebooklm-source-pack-md",
+        "07-research-rp-001-21-version-history-rp-001-version-history-md",
         "03-ai-council-ethics-council-charter-md",
         "03-ai-council-departments-jeranium-charter-md",
-        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
-        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md"
+        "07-research-rp-001-18-related-constitution-rp-001-constitutional-links-md"
       ],
       "unresolved": [
         "Ethics Council Charter\\",
         "JERANIUM Charter\\",
-        "LUMIAION Charter\\",
-        "00 Executive Summary/RP-001 Executive Summary",
-        "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "12 Evidence Registry/RP-001 Evidence Registry",
-        "10 Theory Matrix/RP-001 Theory Matrix",
-        "08 Comparative Framework/RP-001 Comparative Framework",
-        "ARCHIVE/ARCHIVE Philosophy",
-        "ARCHIVE/DOC-001 Architecture of Human Consciousness",
-        "ARCHIVE/DOC-003 Comparative Framework - SanaLab",
-        "ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab",
-        "13 Research Graph/Concepts/Consciousness",
-        "13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-        "13 Research Graph/Concepts/Integrated Information Theory",
-        "13 Research Graph/Concepts/Predictive Processing",
-        "13 Research Graph/Concepts/Recurrent Processing Theory",
-        "13 Research Graph/Concepts/Higher-Order Thought Theory",
-        "13 Research Graph/Concepts/Attention Schema Theory",
-        "13 Research Graph/Concepts/Active Inference",
-        "13 Research Graph/Concepts/Neural Correlates of Consciousness",
-        "13 Research Graph/Concepts/Default Mode Network",
-        "13 Research Graph/Concepts/Meta Awareness",
-        "13 Research Graph/Concepts/Orchestrated Objective Reduction",
-        "13 Research Graph/Concepts/4E Cognition",
-        "13 Research Graph/Concepts/Illusionism",
-        "13 Research Graph/Concepts/Panpsychism",
-        "03 Source Registry/RP-001 Source Registry",
-        "11 Canonical Glossary/RP-001 Canonical Glossary",
-        "14 Open Questions/RP-001 Open Questions",
-        "15 Future Experiments/RP-001 Future Research Opportunities",
-        "17 NotebookLM Package/RP-001 NotebookLM Source Pack",
-        "21 Version History/RP-001 Version History",
-        "18 Related Constitution/RP-001 Constitutional Links"
+        "LUMIAION Charter\\"
       ],
-      "backlinks": 19
+      "backlinks": 24
     },
     {
       "id": "07-research-rp-002-00-executive-summary-rp-002-executive-summary-md",
@@ -3897,13 +3885,12 @@
       "has_frontmatter": true,
       "words": 702,
       "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
         "07-research-rp-002-rp-002-master-index-md"
       ],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-01-research-question-rp-002-research-question-md",
@@ -3931,7 +3918,7 @@
       "words": 418,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-02-objectives-rp-002-objectives-md",
@@ -3959,7 +3946,7 @@
       "words": 424,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-002-03-source-registry-rp-002-source-registry-md",
@@ -3985,16 +3972,16 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 538,
-      "links": [],
-      "unresolved": [
-        "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-        "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-        "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-        "ARCHIVE/ARCHIVE Philosophy",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
+        "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
+        "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
+        "07-research-rp-001-archive-archive-philosophy-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 6
     },
     {
       "id": "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
@@ -4022,13 +4009,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 625,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/DOC-A Architecture Systemique Memoire Humaine",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-archive-doc-a-architecture-systemique-memoire-humaine-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
@@ -4056,13 +4043,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1176,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
@@ -4090,13 +4077,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 488,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/DOC-C RP-002 Illustrated",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-archive-doc-c-rp-002-illustrated-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -4153,13 +4140,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1409,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "10 Theory Matrix/RP-002 Theory Matrix",
-        "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory"
+      "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
+        "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
@@ -4187,20 +4174,21 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 2768,
-      "links": [],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry",
-        "13 Research Graph/Concepts/",
-        "03 Source Registry/RP-002 Source Registry",
-        "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-        "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-        "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-        "10 Theory Matrix/RP-002 Theory Matrix",
-        "11 Canonical Glossary/RP-002 Canonical Glossary",
-        "14 Open Questions/RP-002 Open Questions",
-        "08_SYSTEMS/The Orchestration Framework"
+      "links": [
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md",
+        "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
+        "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
+        "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
+        "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
+        "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md",
+        "07-research-rp-002-14-open-questions-rp-002-open-questions-md",
+        "08-systems-the-orchestration-framework-md"
       ],
-      "backlinks": 1
+      "unresolved": [
+        "13 Research Graph/Concepts/"
+      ],
+      "backlinks": 14
     },
     {
       "id": "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
@@ -4227,13 +4215,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1250,
-      "links": [],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "11 Canonical Glossary/RP-002 Canonical Glossary"
+      "links": [
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md",
@@ -4260,11 +4248,11 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1661,
-      "links": [],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
@@ -4290,13 +4278,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1621,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "10 Theory Matrix/RP-002 Theory Matrix",
-        "03 Source Registry/RP-002 Source Registry"
+      "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 20
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
@@ -4324,12 +4312,11 @@
       "links": [
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-working-memory-md",
-        "07-research-rp-002-13-research-graph-concepts-reconsolidation-md"
+        "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md",
@@ -4358,12 +4345,11 @@
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
         "07-research-rp-002-13-research-graph-concepts-trauma-memory-md",
-        "07-research-rp-002-13-research-graph-concepts-collective-memory-md"
+        "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 1
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-engram-md",
@@ -4392,12 +4378,11 @@
         "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
         "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
-        "07-research-rp-002-13-research-graph-concepts-memory-md"
+        "07-research-rp-002-13-research-graph-concepts-memory-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 5
+      "unresolved": [],
+      "backlinks": 7
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
@@ -4426,12 +4411,11 @@
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
-        "07-research-rp-002-13-research-graph-concepts-engram-md"
+        "07-research-rp-002-13-research-graph-concepts-engram-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 6
+      "unresolved": [],
+      "backlinks": 8
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
@@ -4462,12 +4446,11 @@
         "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
         "07-research-rp-002-13-research-graph-concepts-working-memory-md",
-        "07-research-rp-002-13-research-graph-concepts-engram-md"
+        "07-research-rp-002-13-research-graph-concepts-engram-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 4
+      "unresolved": [],
+      "backlinks": 6
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-memory-md",
@@ -4495,13 +4478,13 @@
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
         "07-research-rp-002-13-research-graph-concepts-working-memory-md",
         "07-research-rp-002-13-research-graph-concepts-engram-md",
-        "07-research-rp-002-13-research-graph-concepts-collective-memory-md"
+        "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
       "unresolved": [
-        "LTP",
-        "12 Evidence Registry/RP-002 Evidence Registry"
+        "LTP"
       ],
-      "backlinks": 9
+      "backlinks": 11
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
@@ -4530,12 +4513,11 @@
         "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-engram-md",
-        "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md"
+        "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
@@ -4564,12 +4546,11 @@
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
         "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
-        "07-research-rp-002-13-research-graph-concepts-engram-md"
+        "07-research-rp-002-13-research-graph-concepts-engram-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 7
+      "unresolved": [],
+      "backlinks": 9
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-trauma-memory-md",
@@ -4598,12 +4579,11 @@
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
         "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
-        "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md"
+        "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 1
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-002-13-research-graph-concepts-working-memory-md",
@@ -4631,12 +4611,11 @@
       "links": [
         "07-research-rp-002-13-research-graph-concepts-memory-md",
         "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
-        "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md"
+        "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
-      ],
-      "backlinks": 3
+      "unresolved": [],
+      "backlinks": 5
     },
     {
       "id": "07-research-rp-002-13-research-graph-rp-002-research-graph-md",
@@ -4663,24 +4642,24 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 693,
-      "links": [],
-      "unresolved": [
-        "Concepts/Memory",
-        "Concepts/Hippocampus",
-        "Concepts/LTP - Synaptic Plasticity",
-        "Concepts/Reconsolidation",
-        "Concepts/Working Memory",
-        "Concepts/Engram",
-        "Concepts/Pattern Separation and Completion",
-        "Concepts/Collective Memory",
-        "Concepts/Trauma Memory",
-        "Concepts/Contemplative Memory",
-        "07_RESEARCH/RP-001/13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-        "07_RESEARCH/RP-001/13 Research Graph/Concepts/Consciousness",
-        "07_RESEARCH/RP-001/13 Research Graph/Concepts/Default Mode Network",
-        "07_RESEARCH/RP-001/13 Research Graph/Concepts/Predictive Processing",
-        "08_SYSTEMS/The Orchestration Framework"
+      "links": [
+        "07-research-rp-002-13-research-graph-concepts-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
+        "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
+        "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
+        "07-research-rp-002-13-research-graph-concepts-working-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-engram-md",
+        "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
+        "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-trauma-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md",
+        "07-research-rp-001-13-research-graph-concepts-global-neuronal-workspace-theory-md",
+        "07-research-rp-001-13-research-graph-concepts-consciousness-md",
+        "07-research-rp-001-13-research-graph-concepts-default-mode-network-md",
+        "07-research-rp-001-13-research-graph-concepts-predictive-processing-md",
+        "08-systems-the-orchestration-framework-md"
       ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -4707,11 +4686,11 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 675,
-      "links": [],
-      "unresolved": [
-        "12 Evidence Registry/RP-002 Evidence Registry"
+      "links": [
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-002-15-future-experiments-rp-002-future-research-opportunities-md",
@@ -4737,13 +4716,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 787,
-      "links": [],
-      "unresolved": [
-        "14 Open Questions/RP-002 Open Questions",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "02 Objectives/RP-002 Objectives"
+      "links": [
+        "07-research-rp-002-14-open-questions-rp-002-open-questions-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-02-objectives-rp-002-objectives-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-16-visual-knowledge-rp-002-visual-knowledge-index-md",
@@ -4800,7 +4779,7 @@
       "words": 301,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-18-related-constitution-rp-002-constitutional-links-md",
@@ -4828,7 +4807,7 @@
       "words": 291,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-19-related-laws-rp-002-governing-provisions-md",
@@ -4854,11 +4833,11 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 240,
-      "links": [],
-      "unresolved": [
-        "ARCHIVE/ARCHIVE Philosophy"
+      "links": [
+        "07-research-rp-001-archive-archive-philosophy-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-20-related-adrs-rp-002-adr-links-md",
@@ -4886,7 +4865,7 @@
       "words": 188,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-21-version-history-rp-002-version-history-md",
@@ -4913,7 +4892,7 @@
       "words": 520,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "07-research-rp-002-archive-archive-philosophy-md",
@@ -4939,12 +4918,12 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 370,
-      "links": [],
-      "unresolved": [
-        "00_CONSTITUTION/Book III - Knowledge Integrity",
-        "08_SYSTEMS/Protocols/Research Governance Protocol",
-        "03_AI_COUNCIL/Ethics Council Charter"
+      "links": [
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "08-systems-protocols-research-governance-protocol-md",
+        "03-ai-council-ethics-council-charter-md"
       ],
+      "unresolved": [],
       "backlinks": 0
     },
     {
@@ -4971,13 +4950,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 468,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-        "03 Source Registry/RP-002 Source Registry"
+      "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md",
@@ -5003,13 +4982,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 477,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-        "03 Source Registry/RP-002 Source Registry"
+      "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-002-archive-doc-c-rp-002-illustrated-md",
@@ -5035,13 +5014,13 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 273,
-      "links": [],
-      "unresolved": [
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-        "03 Source Registry/RP-002 Source Registry"
+      "links": [
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md"
       ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-002-rp-002-master-index-md",
@@ -5068,6 +5047,40 @@
       "has_frontmatter": true,
       "words": 1074,
       "links": [
+        "07-research-rp-002-00-executive-summary-rp-002-executive-summary-md",
+        "07-research-rp-002-01-research-question-rp-002-research-question-md",
+        "07-research-rp-002-02-objectives-rp-002-objectives-md",
+        "07-research-rp-002-03-source-registry-rp-002-source-registry-md",
+        "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
+        "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
+        "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
+        "07-research-rp-001-archive-archive-philosophy-md",
+        "07-research-rp-002-archive-doc-a-architecture-systemique-memoire-humaine-md",
+        "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md",
+        "07-research-rp-002-archive-doc-c-rp-002-illustrated-md",
+        "07-research-rp-002-08-comparative-framework-rp-002-comparative-framework-md",
+        "07-research-rp-002-09-canonical-synthesis-rp-002-canonical-synthesis-md",
+        "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
+        "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md",
+        "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
+        "07-research-rp-002-13-research-graph-concepts-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
+        "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
+        "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
+        "07-research-rp-002-13-research-graph-concepts-working-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-engram-md",
+        "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
+        "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-trauma-memory-md",
+        "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md",
+        "07-research-rp-002-14-open-questions-rp-002-open-questions-md",
+        "07-research-rp-002-15-future-experiments-rp-002-future-research-opportunities-md",
+        "07-research-rp-002-17-notebooklm-package-rp-002-notebooklm-source-pack-md",
+        "07-research-rp-002-18-related-constitution-rp-002-constitutional-links-md",
+        "07-research-rp-002-19-related-laws-rp-002-governing-provisions-md",
+        "07-research-rp-002-20-related-adrs-rp-002-adr-links-md",
+        "07-research-rp-002-21-version-history-rp-002-version-history-md",
+        "08-systems-the-orchestration-framework-md",
         "07-research-rp-001-rp-001-master-index-md",
         "00-constitution-book-iii-knowledge-integrity-md"
       ],
@@ -5077,44 +5090,9 @@
         "00_CONSTITUTION/Book III - Knowledge Integrity\\",
         "03_AI_COUNCIL/Ethics Council Charter\\",
         "03_AI_COUNCIL/Departments/JERANIUM Charter\\",
-        "03_AI_COUNCIL/Departments/LUMIAION Charter\\",
-        "00 Executive Summary/RP-002 Executive Summary",
-        "01 Research Question/RP-002 Research Question",
-        "02 Objectives/RP-002 Objectives",
-        "03 Source Registry/RP-002 Source Registry",
-        "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-        "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-        "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-        "ARCHIVE/ARCHIVE Philosophy",
-        "ARCHIVE/DOC-A Architecture Systemique Memoire Humaine",
-        "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory",
-        "ARCHIVE/DOC-C RP-002 Illustrated",
-        "08 Comparative Framework/RP-002 Comparative Framework",
-        "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-        "10 Theory Matrix/RP-002 Theory Matrix",
-        "11 Canonical Glossary/RP-002 Canonical Glossary",
-        "12 Evidence Registry/RP-002 Evidence Registry",
-        "13 Research Graph/Concepts/Memory",
-        "13 Research Graph/Concepts/Hippocampus",
-        "13 Research Graph/Concepts/LTP - Synaptic Plasticity",
-        "13 Research Graph/Concepts/Reconsolidation",
-        "13 Research Graph/Concepts/Working Memory",
-        "13 Research Graph/Concepts/Engram",
-        "13 Research Graph/Concepts/Pattern Separation and Completion",
-        "13 Research Graph/Concepts/Collective Memory",
-        "13 Research Graph/Concepts/Trauma Memory",
-        "13 Research Graph/Concepts/Contemplative Memory",
-        "14 Open Questions/RP-002 Open Questions",
-        "15 Future Experiments/RP-002 Future Research Opportunities",
-        "17 NotebookLM Package/RP-002 NotebookLM Source Pack",
-        "18 Related Constitution/RP-002 Constitutional Links",
-        "19 Related Laws/RP-002 Governing Provisions",
-        "20 Related ADRs/RP-002 ADR Links",
-        "21 Version History/RP-002 Version History",
-        "08_SYSTEMS/The Orchestration Framework",
-        "07_RESEARCH/RP-001/RP-001 Master Index"
+        "03_AI_COUNCIL/Departments/LUMIAION Charter\\"
       ],
-      "backlinks": 2
+      "backlinks": 7
     },
     {
       "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-canonical-synthesis-md",
@@ -5261,7 +5239,7 @@
       "words": 180,
       "links": [],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 4
     },
     {
       "id": "07-research-rp-004-rp-004-master-index-md",
@@ -5289,7 +5267,7 @@
       "words": 173,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-005-rp-005-master-index-md",
@@ -5317,7 +5295,7 @@
       "words": 177,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "07-research-rp-006-rp-006-master-index-md",
@@ -5345,7 +5323,7 @@
       "words": 314,
       "links": [],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 2
     },
     {
       "id": "08-systems-alpha-proxima-operating-model-v1-0-md",
@@ -5923,7 +5901,7 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 1443,
+      "words": 1704,
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
         "governance-cn-001-execution-tracker-md",
@@ -5939,7 +5917,7 @@
         "08-systems-engineering-standards-03-folder-naming-convention-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
@@ -6468,7 +6446,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 814,
+      "words": 868,
       "links": [
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "13-operations-founder-os-founder-console-md",
@@ -7049,7 +7027,7 @@
         "VORTEX Charter\\",
         "JERANIUM Charter\\"
       ],
-      "backlinks": 12
+      "backlinks": 13
     },
     {
       "id": "08-systems-protocols-decision-routing-protocol-md",
@@ -7254,7 +7232,7 @@
         "08-systems-protocols-knowledge-ownership-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 30
+      "backlinks": 34
     },
     {
       "id": "08-systems-research-management-toolkit-reports-es-004-research-management-toolkit-delivery-report-md",
@@ -7317,22 +7295,21 @@
       "has_frontmatter": true,
       "words": 406,
       "links": [
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
+        "07-research-rp-002-rp-002-master-index-md",
+        "07-research-rp-003-rp-003-master-index-md",
+        "07-research-rp-004-rp-004-master-index-md",
+        "07-research-rp-005-rp-005-master-index-md",
+        "07-research-rp-006-rp-006-master-index-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
         "12-people-codex-md",
         "08-systems-protocols-research-governance-protocol-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "08-systems-research-management-toolkit-research-index-md",
         "08-systems-research-management-toolkit-research-lifecycle-diagram-md"
       ],
-      "unresolved": [
-        "07_RESEARCH/RP-001/RP-001 Master Index",
-        "07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry",
-        "07_RESEARCH/RP-002/RP-002 Master Index",
-        "07_RESEARCH/RP-003/RP-003 Master Index",
-        "07_RESEARCH/RP-004/RP-004 Master Index",
-        "07_RESEARCH/RP-005/RP-005 Master Index",
-        "07_RESEARCH/RP-006/RP-006 Master Index",
-        "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -7359,23 +7336,22 @@
       "has_frontmatter": true,
       "words": 210,
       "links": [
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
+        "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
+        "07-research-rp-001-13-research-graph-rp-001-research-graph-md",
+        "07-research-rp-002-rp-002-master-index-md",
+        "07-research-rp-003-rp-003-master-index-md",
+        "07-research-rp-004-rp-004-master-index-md",
+        "07-research-rp-005-rp-005-master-index-md",
+        "07-research-rp-006-rp-006-master-index-md",
         "12-people-codex-md",
         "08-systems-protocols-research-governance-protocol-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "08-systems-research-management-toolkit-research-dashboard-md",
         "08-systems-research-management-toolkit-research-lifecycle-diagram-md"
       ],
-      "unresolved": [
-        "07_RESEARCH/RP-001/RP-001 Master Index",
-        "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis",
-        "07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry",
-        "07_RESEARCH/RP-001/13 Research Graph/RP-001 Research Graph",
-        "07_RESEARCH/RP-002/RP-002 Master Index",
-        "07_RESEARCH/RP-003/RP-003 Master Index",
-        "07_RESEARCH/RP-004/RP-004 Master Index",
-        "07_RESEARCH/RP-005/RP-005 Master Index",
-        "07_RESEARCH/RP-006/RP-006 Master Index"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -7740,7 +7716,7 @@
         "07-research-rp-001-archive-archive-philosophy-md"
       ],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 9
     },
     {
       "id": "08-systems-visual-systems-color-system-implementation-checklist-md",
@@ -7958,6 +7934,7 @@
         "00-constitution-book-i-the-constitution-md",
         "00-constitution-book-ii-governance-framework-md",
         "00-constitution-book-iv-cognitive-architecture-md",
+        "08-systems-protocols-communication-protocol-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "03-ai-council-ai-council-registry-md",
         "09-offices-executive-office-executive-office-charter-md",
@@ -7967,10 +7944,8 @@
         "06-governance-canonical-terminology-canonical-terminology-register-md",
         "08-systems-alpha-proxima-operating-model-v1-0-md"
       ],
-      "unresolved": [
-        "08_SYSTEMS/Protocols/Communication Protocol"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "09-offices-research-intelligence-office-research-intelligence-office-charter-md",
@@ -8295,19 +8270,20 @@
       "updated": "2026-07-02",
       "has_frontmatter": true,
       "words": 1951,
-      "links": [],
+      "links": [
+        "08-systems-protocols-research-governance-protocol-md",
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "07-research-rp-001-rp-001-master-index-md",
+        "07-research-rp-002-rp-002-master-index-md",
+        "06-governance-foundation-gap-report-fgr-001-epoch-ii-stewardship-audit-md"
+      ],
       "unresolved": [
         "10_TEMPLATES/Research Program Template/RP-XXX Master Index Stub",
         "10_TEMPLATES/Research Program Template/RP-XXX Source Note Stub",
         "10_TEMPLATES/Research Program Template/RP-XXX Evidence Registry Stub",
-        "10_TEMPLATES/Research Program Template/RP-XXX Canonical Synthesis Stub",
-        "08_SYSTEMS/Protocols/Research Governance Protocol",
-        "00_CONSTITUTION/Book III - Knowledge Integrity",
-        "07_RESEARCH/RP-001/RP-001 Master Index",
-        "07_RESEARCH/RP-002/RP-002 Master Index",
-        "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit"
+        "10_TEMPLATES/Research Program Template/RP-XXX Canonical Synthesis Stub"
       ],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "10-templates-vault-structure-convention-md",
@@ -8346,7 +8322,7 @@
         "10-templates-concept-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 22
+      "backlinks": 23
     },
     {
       "id": "11-projects-readme-md",
@@ -8547,10 +8523,11 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1208,
+      "words": 1226,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
         "13-operations-founder-os-readme-md",
         "13-operations-founder-os-founder-os-architecture-v1-md",
@@ -11653,12 +11630,10 @@
         "osg-launch-01-notion-workspace-notion-workspace-architecture-md",
         "osg-launch-09-templates-naming-conventions-md",
         "osg-launch-06-automation-automation-opportunities-md",
-        "osg-launch-08-roadmap-30-day-implementation-roadmap-md"
+        "osg-launch-08-roadmap-30-day-implementation-roadmap-md",
+        "osg-launch-09-templates-readme-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README",
-        "OSG_LAUNCH/09_TEMPLATES/README"
-      ],
+      "unresolved": [],
       "backlinks": 3
     },
     {
@@ -11684,12 +11659,11 @@
       "links": [
         "osg-launch-00-repository-repository-structure-md",
         "osg-launch-00-repository-github-best-practices-md",
-        "osg-launch-00-repository-osg-academy-engineering-review-md"
+        "osg-launch-00-repository-osg-academy-engineering-review-md",
+        "osg-launch-readme-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-00-repository-repository-structure-md",
@@ -11712,12 +11686,11 @@
       "has_frontmatter": true,
       "words": 224,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-00-repository-github-best-practices-md",
         "osg-launch-09-templates-naming-conventions-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 5
     },
     {
@@ -11743,12 +11716,11 @@
       "has_frontmatter": true,
       "words": 340,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-06-automation-automation-opportunities-md",
         "osg-launch-08-roadmap-30-day-implementation-roadmap-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -11772,12 +11744,11 @@
       "has_frontmatter": true,
       "words": 91,
       "links": [
-        "osg-launch-01-notion-workspace-notion-workspace-architecture-md"
+        "osg-launch-01-notion-workspace-notion-workspace-architecture-md",
+        "osg-launch-readme-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-02-courses-course-folder-hierarchy-md",
@@ -11800,11 +11771,10 @@
       "has_frontmatter": true,
       "words": 103,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-09-templates-naming-conventions-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 2
     },
     {
@@ -11827,12 +11797,11 @@
       "has_frontmatter": true,
       "words": 102,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-02-courses-course-folder-hierarchy-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-03-media-readme-md",
@@ -11854,12 +11823,11 @@
       "has_frontmatter": true,
       "words": 106,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-09-templates-naming-conventions-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-04-clients-client-folder-hierarchy-md",
@@ -11882,11 +11850,10 @@
       "has_frontmatter": true,
       "words": 116,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-09-templates-naming-conventions-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 2
     },
     {
@@ -11909,12 +11876,11 @@
       "has_frontmatter": true,
       "words": 112,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-04-clients-client-folder-hierarchy-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-05-content-content-workflow-md",
@@ -11937,11 +11903,10 @@
       "has_frontmatter": true,
       "words": 154,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-06-automation-automation-opportunities-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 3
     },
     {
@@ -11964,12 +11929,11 @@
       "has_frontmatter": true,
       "words": 106,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-05-content-content-workflow-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-06-automation-automation-opportunities-md",
@@ -11994,12 +11958,11 @@
       "has_frontmatter": true,
       "words": 286,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-01-notion-workspace-notion-workspace-architecture-md",
         "osg-launch-05-content-content-workflow-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 6
     },
     {
@@ -12022,12 +11985,11 @@
       "has_frontmatter": true,
       "words": 100,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-06-automation-automation-opportunities-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-07-operations-launch-operations-model-md",
@@ -12050,11 +12012,10 @@
       "has_frontmatter": true,
       "words": 174,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-08-roadmap-30-day-implementation-roadmap-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 1
     },
     {
@@ -12077,12 +12038,11 @@
       "has_frontmatter": true,
       "words": 93,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-07-operations-launch-operations-model-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-08-roadmap-30-day-implementation-roadmap-md",
@@ -12105,13 +12065,12 @@
       "has_frontmatter": true,
       "words": 323,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-00-repository-repository-structure-md",
         "osg-launch-01-notion-workspace-notion-workspace-architecture-md",
         "osg-launch-06-automation-automation-opportunities-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -12134,12 +12093,11 @@
       "has_frontmatter": true,
       "words": 62,
       "links": [
-        "osg-launch-08-roadmap-30-day-implementation-roadmap-md"
+        "osg-launch-08-roadmap-30-day-implementation-roadmap-md",
+        "osg-launch-readme-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "osg-launch-09-templates-automation-spec-template-md",
@@ -12270,11 +12228,10 @@
       "has_frontmatter": true,
       "words": 178,
       "links": [
+        "osg-launch-readme-md",
         "osg-launch-00-repository-repository-structure-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
+      "unresolved": [],
       "backlinks": 11
     },
     {
@@ -12302,12 +12259,11 @@
         "osg-launch-09-templates-client-template-md",
         "osg-launch-09-templates-content-item-template-md",
         "osg-launch-09-templates-automation-spec-template-md",
-        "08-systems-engineering-standards-11-one-question-document-standard-md"
+        "08-systems-engineering-standards-11-one-question-document-standard-md",
+        "osg-launch-readme-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 0
+      "unresolved": [],
+      "backlinks": 2
     },
     {
       "id": "osg-launch-10-academy-aig-awaken-the-inner-guru-recording-start-guide-md",
@@ -12366,7 +12322,7 @@
         "osg-launch-00-repository-osg-academy-engineering-review-md"
       ],
       "unresolved": [],
-      "backlinks": 0
+      "backlinks": 1
     },
     {
       "id": "osg-launch-10-academy-readme-md",
@@ -12389,15 +12345,14 @@
       "has_frontmatter": true,
       "words": 117,
       "links": [
+        "osg-launch-10-academy-aig-readme-md",
+        "osg-launch-readme-md",
         "08-systems-engineering-standards-11-one-question-document-standard-md",
         "awaken-the-inner-guru-production-folder-md",
         "osg-launch-10-academy-aig-awaken-the-inner-guru-recording-start-guide-md"
       ],
-      "unresolved": [
-        "OSG_LAUNCH/10_ACADEMY/AIG/README",
-        "OSG_LAUNCH/README"
-      ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "osg-launch-readme-md",
@@ -12420,21 +12375,21 @@
       "updated": "2026-07-04",
       "has_frontmatter": true,
       "words": 304,
-      "links": [],
-      "unresolved": [
-        "OSG_LAUNCH/00_REPOSITORY/README",
-        "OSG_LAUNCH/01_NOTION_WORKSPACE/README",
-        "OSG_LAUNCH/02_COURSES/README",
-        "OSG_LAUNCH/03_MEDIA/README",
-        "OSG_LAUNCH/04_CLIENTS/README",
-        "OSG_LAUNCH/05_CONTENT/README",
-        "OSG_LAUNCH/06_AUTOMATION/README",
-        "OSG_LAUNCH/07_OPERATIONS/README",
-        "OSG_LAUNCH/08_ROADMAP/README",
-        "OSG_LAUNCH/09_TEMPLATES/README",
-        "OSG_LAUNCH/10_ACADEMY/README"
+      "links": [
+        "osg-launch-00-repository-readme-md",
+        "osg-launch-01-notion-workspace-readme-md",
+        "osg-launch-02-courses-readme-md",
+        "osg-launch-03-media-readme-md",
+        "osg-launch-04-clients-readme-md",
+        "osg-launch-05-content-readme-md",
+        "osg-launch-06-automation-readme-md",
+        "osg-launch-07-operations-readme-md",
+        "osg-launch-08-roadmap-readme-md",
+        "osg-launch-09-templates-readme-md",
+        "osg-launch-10-academy-readme-md"
       ],
-      "backlinks": 2
+      "unresolved": [],
+      "backlinks": 22
     },
     {
       "id": "project-genome-genome-constitution-v1-0-md",
@@ -12591,69 +12546,9 @@
   ],
   "coherence": {
     "note_count": 363,
-    "connected": 312,
-    "connectedness": 0.8595,
+    "connected": 342,
+    "connectedness": 0.9421,
     "orphans": [
-      {
-        "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
-        "path": "07_RESEARCH/RP-001/04 Source - Perplexity/RP-001 Source Note - Perplexity.md",
-        "title": "RP-001 Source Note — Perplexity",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-001-05-source-gemini-rp-001-source-note-gemini-md",
-        "path": "07_RESEARCH/RP-001/05 Source - Gemini/RP-001 Source Note - Gemini.md",
-        "title": "RP-001 Source Note — Gemini",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-001-07-future-sources-rp-001-future-sources-md",
-        "path": "07_RESEARCH/RP-001/07 Future Sources/RP-001 Future Sources.md",
-        "title": "RP-001 Future Sources",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-001-16-visual-knowledge-rp-001-visual-knowledge-index-md",
-        "path": "07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md",
-        "title": "RP-001 Visual Knowledge Index",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-01-research-question-rp-002-research-question-md",
-        "path": "07_RESEARCH/RP-002/01 Research Question/RP-002 Research Question.md",
-        "title": "RP-002 Research Question",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-02-objectives-rp-002-objectives-md",
-        "path": "07_RESEARCH/RP-002/02 Objectives/RP-002 Objectives.md",
-        "title": "RP-002 Objectives",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-03-source-registry-rp-002-source-registry-md",
-        "path": "07_RESEARCH/RP-002/03 Source Registry/RP-002 Source Registry.md",
-        "title": "RP-002 Source Registry",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
-        "path": "07_RESEARCH/RP-002/04 Source - CORE-002/RP-002 Source Note - CORE-002.md",
-        "title": "RP-002 Source Note — CORE-002 (Genspark)",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
-        "path": "07_RESEARCH/RP-002/05 Source - SanaLab/RP-002 Source Note - SanaLab.md",
-        "title": "RP-002 Source Note — SanaLab (DOC-B)",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
-        "path": "07_RESEARCH/RP-002/06 Source - Illustrated/RP-002 Source Note - Illustrated.md",
-        "title": "RP-002 Source Note — Illustrated (DOC-C)",
-        "domain": "07_RESEARCH"
-      },
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
         "path": "07_RESEARCH/RP-002/07 Future Sources/RP-002 Future Sources.md",
@@ -12661,130 +12556,10 @@
         "domain": "07_RESEARCH"
       },
       {
-        "id": "07-research-rp-002-08-comparative-framework-rp-002-comparative-framework-md",
-        "path": "07_RESEARCH/RP-002/08 Comparative Framework/RP-002 Comparative Framework.md",
-        "title": "RP-002 Comparative Framework",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
-        "path": "07_RESEARCH/RP-002/10 Theory Matrix/RP-002 Theory Matrix.md",
-        "title": "RP-002 Theory Matrix",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md",
-        "path": "07_RESEARCH/RP-002/11 Canonical Glossary/RP-002 Canonical Glossary.md",
-        "title": "RP-002 Canonical Glossary",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
-        "path": "07_RESEARCH/RP-002/12 Evidence Registry/RP-002 Evidence Registry.md",
-        "title": "RP-002 Evidence Registry",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-rp-002-research-graph-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/RP-002 Research Graph.md",
-        "title": "RP-002 Research Graph",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-14-open-questions-rp-002-open-questions-md",
-        "path": "07_RESEARCH/RP-002/14 Open Questions/RP-002 Open Questions.md",
-        "title": "RP-002 Open Questions",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-15-future-experiments-rp-002-future-research-opportunities-md",
-        "path": "07_RESEARCH/RP-002/15 Future Experiments/RP-002 Future Research Opportunities.md",
-        "title": "RP-002 Future Research Opportunities",
-        "domain": "07_RESEARCH"
-      },
-      {
         "id": "07-research-rp-002-16-visual-knowledge-rp-002-visual-knowledge-index-md",
         "path": "07_RESEARCH/RP-002/16 Visual Knowledge/RP-002 Visual Knowledge Index.md",
         "title": "RP-002 Visual Knowledge Index",
         "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-17-notebooklm-package-rp-002-notebooklm-source-pack-md",
-        "path": "07_RESEARCH/RP-002/17 NotebookLM Package/RP-002 NotebookLM Source Pack.md",
-        "title": "RP-002 NotebookLM Source Pack",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-18-related-constitution-rp-002-constitutional-links-md",
-        "path": "07_RESEARCH/RP-002/18 Related Constitution/RP-002 Constitutional Links.md",
-        "title": "RP-002 Constitutional Links",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-19-related-laws-rp-002-governing-provisions-md",
-        "path": "07_RESEARCH/RP-002/19 Related Laws/RP-002 Governing Provisions.md",
-        "title": "RP-002 Governing Provisions",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-20-related-adrs-rp-002-adr-links-md",
-        "path": "07_RESEARCH/RP-002/20 Related ADRs/RP-002 ADR Links.md",
-        "title": "RP-002 ADR Links",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-21-version-history-rp-002-version-history-md",
-        "path": "07_RESEARCH/RP-002/21 Version History/RP-002 Version History.md",
-        "title": "RP-002 Version History",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-archive-archive-philosophy-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/ARCHIVE Philosophy.md",
-        "title": "RP-002 ARCHIVE Philosophy",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-a-architecture-systemique-memoire-humaine-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-A Architecture Systemique Memoire Humaine.md",
-        "title": "DOC-A — Architecture Systémique de la Mémoire Humaine (CORE-002)",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory.md",
-        "title": "DOC-B — Interdisciplinary Comparative Framework: Memory (SanaLab)",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-c-rp-002-illustrated-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-C RP-002 Illustrated.md",
-        "title": "DOC-C — RP-002 Illustrated (Genspark)",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-004-rp-004-master-index-md",
-        "path": "07_RESEARCH/RP-004/RP-004 Master Index.md",
-        "title": "RP-004 Master Index",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-005-rp-005-master-index-md",
-        "path": "07_RESEARCH/RP-005/RP-005 Master Index.md",
-        "title": "RP-005 Master Index",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "07-research-rp-006-rp-006-master-index-md",
-        "path": "07_RESEARCH/RP-006/RP-006 Master Index.md",
-        "title": "RP-006 Master Index",
-        "domain": "07_RESEARCH"
-      },
-      {
-        "id": "10-templates-research-program-template-research-program-methodology-md",
-        "path": "10_TEMPLATES/Research Program Template/Research Program Methodology.md",
-        "title": "Research Program Methodology — Alpha Proxima Standard",
-        "domain": "10_TEMPLATES"
       },
       {
         "id": "99-archive-legacy-alpha-proxima-readme-md",
@@ -13075,7 +12850,6 @@
         "path": "03_AI_COUNCIL/Departments/LUMIAION Charter.md",
         "title": "LUMIAION Charter",
         "targets": [
-          "09_OFFICES/LUMIAION/LUMIAION Charter",
           "SOHMA Charter\\",
           "ATHENA Charter\\",
           "VORTEX Charter\\",
@@ -13126,8 +12900,7 @@
         "path": "04_DECISIONS/ADR-0001 - The Founding Decision.md",
         "title": "ADR-0001 - The Founding Decision",
         "targets": [
-          "LUMIAION Architecture Spec",
-          "01_VISION/Alpha Proxima — 10 Year Vision"
+          "LUMIAION Architecture Spec"
         ]
       },
       {
@@ -13136,33 +12909,6 @@
         "title": "Canonical Terminology Register",
         "targets": [
           "08_SYSTEMS/Protocols/"
-        ]
-      },
-      {
-        "id": "06-governance-foundation-gap-report-fgr-001-epoch-ii-stewardship-audit-md",
-        "path": "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md",
-        "title": "FGR-001 — Epoch II Stewardship Audit",
-        "targets": [
-          "10_TEMPLATES/Vault Structure Convention",
-          "08_SYSTEMS/Protocols/Research Governance Protocol",
-          "00_CONSTITUTION/Book III - Knowledge Integrity",
-          "07_RESEARCH/RP-001/RP-001 Master Index",
-          "07_RESEARCH/RP-002/RP-002 Master Index"
-        ]
-      },
-      {
-        "id": "06-governance-research-methodology-alpha-proxima-research-methodology-v1-0-md",
-        "path": "06_GOVERNANCE/Research Methodology/Alpha Proxima Research Methodology v1.0.md",
-        "title": "Alpha Proxima Research Methodology v1.0",
-        "targets": [
-          "00_CONSTITUTION/Book I - The Constitution",
-          "00_CONSTITUTION/Book III - Knowledge Integrity",
-          "08_SYSTEMS/Protocols/Research Governance Protocol",
-          "06_GOVERNANCE/Research Debt Register/Research Debt Register",
-          "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit",
-          "10_TEMPLATES/Research Program Template/Research Program Methodology",
-          "07_RESEARCH/RP-001/RP-001 Master Index",
-          "07_RESEARCH/RP-002/RP-002 Master Index"
         ]
       },
       {
@@ -13177,101 +12923,6 @@
         ]
       },
       {
-        "id": "07-research-rp-001-01-research-question-rp-001-research-question-md",
-        "path": "07_RESEARCH/RP-001/01 Research Question/RP-001 Research Question.md",
-        "title": "RP-001 Research Question",
-        "targets": [
-          "02 Objectives/RP-001 Objectives"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-02-objectives-rp-001-objectives-md",
-        "path": "07_RESEARCH/RP-001/02 Objectives/RP-001 Objectives.md",
-        "title": "RP-001 Objectives",
-        "targets": [
-          "10 Theory Matrix/RP-001 Theory Matrix",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "13 Research Graph/RP-001 Research Graph",
-          "08 Comparative Framework/RP-001 Comparative Framework",
-          "01 Research Question/RP-001 Research Question"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
-        "path": "07_RESEARCH/RP-001/04 Source - Perplexity/RP-001 Source Note - Perplexity.md",
-        "title": "RP-001 Source Note — Perplexity",
-        "targets": [
-          "ARCHIVE/DOC-001 Architecture of Human Consciousness",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "03 Source Registry/RP-001 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-05-source-gemini-rp-001-source-note-gemini-md",
-        "path": "07_RESEARCH/RP-001/05 Source - Gemini/RP-001 Source Note - Gemini.md",
-        "title": "RP-001 Source Note — Gemini",
-        "targets": [
-          "ARCHIVE/ARCHIVE Philosophy",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "03 Source Registry/RP-001 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-06-source-sanalab-rp-001-source-note-sanalab-md",
-        "path": "07_RESEARCH/RP-001/06 Source - SanaLab/RP-001 Source Note - SanaLab.md",
-        "title": "RP-001 Source Note — SanaLab",
-        "targets": [
-          "ARCHIVE/DOC-003 Comparative Framework - SanaLab",
-          "ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "10 Theory Matrix/RP-001 Theory Matrix",
-          "08 Comparative Framework/RP-001 Comparative Framework"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-07-future-sources-rp-001-future-sources-md",
-        "path": "07_RESEARCH/RP-001/07 Future Sources/RP-001 Future Sources.md",
-        "title": "RP-001 Future Sources",
-        "targets": [
-          "03 Source Registry/RP-001 Source Registry",
-          "ARCHIVE/ARCHIVE Philosophy"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
-        "path": "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis.md",
-        "title": "RP-001 Canonical Synthesis",
-        "targets": [
-          "21 Version History/RP-001 Version History"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
-        "path": "07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry.md",
-        "title": "RP-001 Evidence Registry",
-        "targets": [
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "03 Source Registry/RP-001 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-13-research-graph-concepts-consciousness-md",
-        "path": "07_RESEARCH/RP-001/13 Research Graph/Concepts/Consciousness.md",
-        "title": "Consciousness",
-        "targets": [
-          "14 Open Questions/RP-001 Open Questions"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-16-visual-knowledge-rp-001-visual-knowledge-index-md",
-        "path": "07_RESEARCH/RP-001/16 Visual Knowledge/RP-001 Visual Knowledge Index.md",
-        "title": "RP-001 Visual Knowledge Index",
-        "targets": [
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "13 Research Graph/RP-001 Research Graph"
-        ]
-      },
-      {
         "id": "07-research-rp-001-18-related-constitution-rp-001-constitutional-links-md",
         "path": "07_RESEARCH/RP-001/18 Related Constitution/RP-001 Constitutional Links.md",
         "title": "RP-001 Constitutional Links",
@@ -13280,43 +12931,11 @@
         ]
       },
       {
-        "id": "07-research-rp-001-19-related-laws-rp-001-governing-provisions-md",
-        "path": "07_RESEARCH/RP-001/19 Related Laws/RP-001 Governing Provisions.md",
-        "title": "RP-001 Governing Provisions",
-        "targets": [
-          "ARCHIVE/ARCHIVE Philosophy",
-          "18 Related Constitution/RP-001 Constitutional Links"
-        ]
-      },
-      {
         "id": "07-research-rp-001-20-related-adrs-rp-001-adr-links-md",
         "path": "07_RESEARCH/RP-001/20 Related ADRs/RP-001 ADR Links.md",
         "title": "RP-001 ADR Links",
         "targets": [
-          "ADR-0001",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-21-version-history-rp-001-version-history-md",
-        "path": "07_RESEARCH/RP-001/21 Version History/RP-001 Version History.md",
-        "title": "RP-001 Version History",
-        "targets": [
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-archive-doc-001-architecture-of-human-consciousness-md",
-        "path": "07_RESEARCH/RP-001/ARCHIVE/DOC-001 Architecture of Human Consciousness.md",
-        "title": "DOC-001 — Architecture of Human Consciousness: A Comprehensive Literature Review",
-        "targets": [
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "12 Evidence Registry/RP-001 Evidence Registry",
-          "04 Source - Perplexity/RP-001 Source Note - Perplexity",
-          "13 Research Graph/Concepts/Orchestrated Objective Reduction",
-          "13 Research Graph/Concepts/Illusionism",
-          "13 Research Graph/Concepts/4E Cognition",
-          "13 Research Graph/Concepts/Panpsychism"
+          "ADR-0001"
         ]
       },
       {
@@ -13324,20 +12943,7 @@
         "path": "07_RESEARCH/RP-001/ARCHIVE/DOC-003 Comparative Framework - SanaLab.md",
         "title": "DOC-003 — Comparative Framework: Major Theories of Consciousness (SanaLab)",
         "targets": [
-          "12 Evidence Registry/RP-001 Evidence Registry",
-          "10 Theory Matrix/RP-001 Theory Matrix",
-          "08 Comparative Framework/RP-001 Comparative Framework",
           "13 Research Graph/Concepts"
-        ]
-      },
-      {
-        "id": "07-research-rp-001-archive-doc-004-gnwt-vs-iit-deep-dive-sanalab-md",
-        "path": "07_RESEARCH/RP-001/ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab.md",
-        "title": "DOC-004 — Theoretical Deep Dive: GNWT vs. IIT (SanaLab)",
-        "targets": [
-          "08 Comparative Framework/RP-001 Comparative Framework",
-          "13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-          "13 Research Graph/Concepts/Integrated Information Theory"
         ]
       },
       {
@@ -13347,100 +12953,7 @@
         "targets": [
           "Ethics Council Charter\\",
           "JERANIUM Charter\\",
-          "LUMIAION Charter\\",
-          "00 Executive Summary/RP-001 Executive Summary",
-          "09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "12 Evidence Registry/RP-001 Evidence Registry",
-          "10 Theory Matrix/RP-001 Theory Matrix",
-          "08 Comparative Framework/RP-001 Comparative Framework",
-          "ARCHIVE/ARCHIVE Philosophy",
-          "ARCHIVE/DOC-001 Architecture of Human Consciousness",
-          "ARCHIVE/DOC-003 Comparative Framework - SanaLab",
-          "ARCHIVE/DOC-004 GNWT vs IIT Deep Dive - SanaLab",
-          "13 Research Graph/Concepts/Consciousness",
-          "13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-          "13 Research Graph/Concepts/Integrated Information Theory",
-          "13 Research Graph/Concepts/Predictive Processing",
-          "13 Research Graph/Concepts/Recurrent Processing Theory",
-          "13 Research Graph/Concepts/Higher-Order Thought Theory",
-          "13 Research Graph/Concepts/Attention Schema Theory",
-          "13 Research Graph/Concepts/Active Inference",
-          "13 Research Graph/Concepts/Neural Correlates of Consciousness",
-          "13 Research Graph/Concepts/Default Mode Network",
-          "13 Research Graph/Concepts/Meta Awareness",
-          "13 Research Graph/Concepts/Orchestrated Objective Reduction",
-          "13 Research Graph/Concepts/4E Cognition",
-          "13 Research Graph/Concepts/Illusionism",
-          "13 Research Graph/Concepts/Panpsychism",
-          "03 Source Registry/RP-001 Source Registry",
-          "11 Canonical Glossary/RP-001 Canonical Glossary",
-          "14 Open Questions/RP-001 Open Questions",
-          "15 Future Experiments/RP-001 Future Research Opportunities",
-          "17 NotebookLM Package/RP-001 NotebookLM Source Pack",
-          "21 Version History/RP-001 Version History",
-          "18 Related Constitution/RP-001 Constitutional Links"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-00-executive-summary-rp-002-executive-summary-md",
-        "path": "07_RESEARCH/RP-002/00 Executive Summary/RP-002 Executive Summary.md",
-        "title": "RP-002 Executive Summary — Atlas of Human Memory",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-03-source-registry-rp-002-source-registry-md",
-        "path": "07_RESEARCH/RP-002/03 Source Registry/RP-002 Source Registry.md",
-        "title": "RP-002 Source Registry",
-        "targets": [
-          "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-          "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-          "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-          "ARCHIVE/ARCHIVE Philosophy",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-04-source-core-002-rp-002-source-note-core-002-md",
-        "path": "07_RESEARCH/RP-002/04 Source - CORE-002/RP-002 Source Note - CORE-002.md",
-        "title": "RP-002 Source Note — CORE-002 (Genspark)",
-        "targets": [
-          "ARCHIVE/DOC-A Architecture Systemique Memoire Humaine",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-05-source-sanalab-rp-002-source-note-sanalab-md",
-        "path": "07_RESEARCH/RP-002/05 Source - SanaLab/RP-002 Source Note - SanaLab.md",
-        "title": "RP-002 Source Note — SanaLab (DOC-B)",
-        "targets": [
-          "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-06-source-illustrated-rp-002-source-note-illustrated-md",
-        "path": "07_RESEARCH/RP-002/06 Source - Illustrated/RP-002 Source Note - Illustrated.md",
-        "title": "RP-002 Source Note — Illustrated (DOC-C)",
-        "targets": [
-          "ARCHIVE/DOC-C RP-002 Illustrated",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-08-comparative-framework-rp-002-comparative-framework-md",
-        "path": "07_RESEARCH/RP-002/08 Comparative Framework/RP-002 Comparative Framework.md",
-        "title": "RP-002 Comparative Framework",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "10 Theory Matrix/RP-002 Theory Matrix",
-          "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory"
+          "LUMIAION Charter\\"
         ]
       },
       {
@@ -13448,84 +12961,7 @@
         "path": "07_RESEARCH/RP-002/09 Canonical Synthesis/RP-002 Canonical Synthesis.md",
         "title": "RP-002 Canonical Synthesis — Atlas of Human Memory",
         "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry",
-          "13 Research Graph/Concepts/",
-          "03 Source Registry/RP-002 Source Registry",
-          "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-          "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-          "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-          "10 Theory Matrix/RP-002 Theory Matrix",
-          "11 Canonical Glossary/RP-002 Canonical Glossary",
-          "14 Open Questions/RP-002 Open Questions",
-          "08_SYSTEMS/The Orchestration Framework"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-10-theory-matrix-rp-002-theory-matrix-md",
-        "path": "07_RESEARCH/RP-002/10 Theory Matrix/RP-002 Theory Matrix.md",
-        "title": "RP-002 Theory Matrix",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "11 Canonical Glossary/RP-002 Canonical Glossary"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-11-canonical-glossary-rp-002-canonical-glossary-md",
-        "path": "07_RESEARCH/RP-002/11 Canonical Glossary/RP-002 Canonical Glossary.md",
-        "title": "RP-002 Canonical Glossary",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-12-evidence-registry-rp-002-evidence-registry-md",
-        "path": "07_RESEARCH/RP-002/12 Evidence Registry/RP-002 Evidence Registry.md",
-        "title": "RP-002 Evidence Registry",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "10 Theory Matrix/RP-002 Theory Matrix",
-          "03 Source Registry/RP-002 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-collective-memory-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Collective Memory.md",
-        "title": "Concept — Collective Memory",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-contemplative-memory-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Contemplative Memory.md",
-        "title": "Concept — Contemplative Memory",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-engram-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Engram.md",
-        "title": "Concept — Engram",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-hippocampus-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Hippocampus.md",
-        "title": "Concept — Hippocampus",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-ltp-synaptic-plasticity-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/LTP - Synaptic Plasticity.md",
-        "title": "Concept — LTP and Synaptic Plasticity",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
+          "13 Research Graph/Concepts/"
         ]
       },
       {
@@ -13533,128 +12969,7 @@
         "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Memory.md",
         "title": "Concept — Memory",
         "targets": [
-          "LTP",
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-pattern-separation-and-completion-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Pattern Separation and Completion.md",
-        "title": "Concept — Pattern Separation and Completion",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-reconsolidation-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Reconsolidation.md",
-        "title": "Concept — Reconsolidation",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-trauma-memory-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Trauma Memory.md",
-        "title": "Concept — Trauma Memory",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-concepts-working-memory-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/Concepts/Working Memory.md",
-        "title": "Concept — Working Memory",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-13-research-graph-rp-002-research-graph-md",
-        "path": "07_RESEARCH/RP-002/13 Research Graph/RP-002 Research Graph.md",
-        "title": "RP-002 Research Graph",
-        "targets": [
-          "Concepts/Memory",
-          "Concepts/Hippocampus",
-          "Concepts/LTP - Synaptic Plasticity",
-          "Concepts/Reconsolidation",
-          "Concepts/Working Memory",
-          "Concepts/Engram",
-          "Concepts/Pattern Separation and Completion",
-          "Concepts/Collective Memory",
-          "Concepts/Trauma Memory",
-          "Concepts/Contemplative Memory",
-          "07_RESEARCH/RP-001/13 Research Graph/Concepts/Global Neuronal Workspace Theory",
-          "07_RESEARCH/RP-001/13 Research Graph/Concepts/Consciousness",
-          "07_RESEARCH/RP-001/13 Research Graph/Concepts/Default Mode Network",
-          "07_RESEARCH/RP-001/13 Research Graph/Concepts/Predictive Processing",
-          "08_SYSTEMS/The Orchestration Framework"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-14-open-questions-rp-002-open-questions-md",
-        "path": "07_RESEARCH/RP-002/14 Open Questions/RP-002 Open Questions.md",
-        "title": "RP-002 Open Questions",
-        "targets": [
-          "12 Evidence Registry/RP-002 Evidence Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-15-future-experiments-rp-002-future-research-opportunities-md",
-        "path": "07_RESEARCH/RP-002/15 Future Experiments/RP-002 Future Research Opportunities.md",
-        "title": "RP-002 Future Research Opportunities",
-        "targets": [
-          "14 Open Questions/RP-002 Open Questions",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "02 Objectives/RP-002 Objectives"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-19-related-laws-rp-002-governing-provisions-md",
-        "path": "07_RESEARCH/RP-002/19 Related Laws/RP-002 Governing Provisions.md",
-        "title": "RP-002 Governing Provisions",
-        "targets": [
-          "ARCHIVE/ARCHIVE Philosophy"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-archive-archive-philosophy-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/ARCHIVE Philosophy.md",
-        "title": "RP-002 ARCHIVE Philosophy",
-        "targets": [
-          "00_CONSTITUTION/Book III - Knowledge Integrity",
-          "08_SYSTEMS/Protocols/Research Governance Protocol",
-          "03_AI_COUNCIL/Ethics Council Charter"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-a-architecture-systemique-memoire-humaine-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-A Architecture Systemique Memoire Humaine.md",
-        "title": "DOC-A — Architecture Systémique de la Mémoire Humaine (CORE-002)",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-          "03 Source Registry/RP-002 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-b-interdisciplinary-comparative-framework-memory-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory.md",
-        "title": "DOC-B — Interdisciplinary Comparative Framework: Memory (SanaLab)",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-          "03 Source Registry/RP-002 Source Registry"
-        ]
-      },
-      {
-        "id": "07-research-rp-002-archive-doc-c-rp-002-illustrated-md",
-        "path": "07_RESEARCH/RP-002/ARCHIVE/DOC-C RP-002 Illustrated.md",
-        "title": "DOC-C — RP-002 Illustrated (Genspark)",
-        "targets": [
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-          "03 Source Registry/RP-002 Source Registry"
+          "LTP"
         ]
       },
       {
@@ -13667,42 +12982,7 @@
           "00_CONSTITUTION/Book III - Knowledge Integrity\\",
           "03_AI_COUNCIL/Ethics Council Charter\\",
           "03_AI_COUNCIL/Departments/JERANIUM Charter\\",
-          "03_AI_COUNCIL/Departments/LUMIAION Charter\\",
-          "00 Executive Summary/RP-002 Executive Summary",
-          "01 Research Question/RP-002 Research Question",
-          "02 Objectives/RP-002 Objectives",
-          "03 Source Registry/RP-002 Source Registry",
-          "04 Source - CORE-002/RP-002 Source Note - CORE-002",
-          "05 Source - SanaLab/RP-002 Source Note - SanaLab",
-          "06 Source - Illustrated/RP-002 Source Note - Illustrated",
-          "ARCHIVE/ARCHIVE Philosophy",
-          "ARCHIVE/DOC-A Architecture Systemique Memoire Humaine",
-          "ARCHIVE/DOC-B Interdisciplinary Comparative Framework Memory",
-          "ARCHIVE/DOC-C RP-002 Illustrated",
-          "08 Comparative Framework/RP-002 Comparative Framework",
-          "09 Canonical Synthesis/RP-002 Canonical Synthesis",
-          "10 Theory Matrix/RP-002 Theory Matrix",
-          "11 Canonical Glossary/RP-002 Canonical Glossary",
-          "12 Evidence Registry/RP-002 Evidence Registry",
-          "13 Research Graph/Concepts/Memory",
-          "13 Research Graph/Concepts/Hippocampus",
-          "13 Research Graph/Concepts/LTP - Synaptic Plasticity",
-          "13 Research Graph/Concepts/Reconsolidation",
-          "13 Research Graph/Concepts/Working Memory",
-          "13 Research Graph/Concepts/Engram",
-          "13 Research Graph/Concepts/Pattern Separation and Completion",
-          "13 Research Graph/Concepts/Collective Memory",
-          "13 Research Graph/Concepts/Trauma Memory",
-          "13 Research Graph/Concepts/Contemplative Memory",
-          "14 Open Questions/RP-002 Open Questions",
-          "15 Future Experiments/RP-002 Future Research Opportunities",
-          "17 NotebookLM Package/RP-002 NotebookLM Source Pack",
-          "18 Related Constitution/RP-002 Constitutional Links",
-          "19 Related Laws/RP-002 Governing Provisions",
-          "20 Related ADRs/RP-002 ADR Links",
-          "21 Version History/RP-002 Version History",
-          "08_SYSTEMS/The Orchestration Framework",
-          "07_RESEARCH/RP-001/RP-001 Master Index"
+          "03_AI_COUNCIL/Departments/LUMIAION Charter\\"
         ]
       },
       {
@@ -13800,37 +13080,6 @@
         ]
       },
       {
-        "id": "08-systems-research-management-toolkit-research-dashboard-md",
-        "path": "08_SYSTEMS/Research Management Toolkit/Research Dashboard.md",
-        "title": "Research Dashboard",
-        "targets": [
-          "07_RESEARCH/RP-001/RP-001 Master Index",
-          "07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry",
-          "07_RESEARCH/RP-002/RP-002 Master Index",
-          "07_RESEARCH/RP-003/RP-003 Master Index",
-          "07_RESEARCH/RP-004/RP-004 Master Index",
-          "07_RESEARCH/RP-005/RP-005 Master Index",
-          "07_RESEARCH/RP-006/RP-006 Master Index",
-          "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis"
-        ]
-      },
-      {
-        "id": "08-systems-research-management-toolkit-research-index-md",
-        "path": "08_SYSTEMS/Research Management Toolkit/Research Index.md",
-        "title": "Research Index",
-        "targets": [
-          "07_RESEARCH/RP-001/RP-001 Master Index",
-          "07_RESEARCH/RP-001/09 Canonical Synthesis/RP-001 Canonical Synthesis",
-          "07_RESEARCH/RP-001/12 Evidence Registry/RP-001 Evidence Registry",
-          "07_RESEARCH/RP-001/13 Research Graph/RP-001 Research Graph",
-          "07_RESEARCH/RP-002/RP-002 Master Index",
-          "07_RESEARCH/RP-003/RP-003 Master Index",
-          "07_RESEARCH/RP-004/RP-004 Master Index",
-          "07_RESEARCH/RP-005/RP-005 Master Index",
-          "07_RESEARCH/RP-006/RP-006 Master Index"
-        ]
-      },
-      {
         "id": "09-future-templates-architecture-proposal-template-md",
         "path": "09_FUTURE/Templates/Architecture Proposal Template.md",
         "title": "Architecture Proposal Template",
@@ -13887,14 +13136,6 @@
         ]
       },
       {
-        "id": "09-offices-lumiaion-lumiaion-charter-md",
-        "path": "09_OFFICES/LUMIAION/LUMIAION Charter.md",
-        "title": "LUMIAION Charter — Permanent Constitutional Definition",
-        "targets": [
-          "08_SYSTEMS/Protocols/Communication Protocol"
-        ]
-      },
-      {
         "id": "10-templates-adr-template-md",
         "path": "10_TEMPLATES/ADR Template.md",
         "title": "ADR Template",
@@ -13947,12 +13188,7 @@
           "10_TEMPLATES/Research Program Template/RP-XXX Master Index Stub",
           "10_TEMPLATES/Research Program Template/RP-XXX Source Note Stub",
           "10_TEMPLATES/Research Program Template/RP-XXX Evidence Registry Stub",
-          "10_TEMPLATES/Research Program Template/RP-XXX Canonical Synthesis Stub",
-          "08_SYSTEMS/Protocols/Research Governance Protocol",
-          "00_CONSTITUTION/Book III - Knowledge Integrity",
-          "07_RESEARCH/RP-001/RP-001 Master Index",
-          "07_RESEARCH/RP-002/RP-002 Master Index",
-          "06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit"
+          "10_TEMPLATES/Research Program Template/RP-XXX Canonical Synthesis Stub"
         ]
       },
       {
@@ -13969,194 +13205,6 @@
         "title": "LUMIAION Vault",
         "targets": [
           "ALPHA_PROXIMA_VAULT.canvas"
-        ]
-      },
-      {
-        "id": "osg-launch-00-repository-osg-academy-engineering-review-md",
-        "path": "OSG_LAUNCH/00_REPOSITORY/OSG Academy Engineering Review.md",
-        "title": "OSG Academy Engineering Review",
-        "targets": [
-          "OSG_LAUNCH/README",
-          "OSG_LAUNCH/09_TEMPLATES/README"
-        ]
-      },
-      {
-        "id": "osg-launch-00-repository-readme-md",
-        "path": "OSG_LAUNCH/00_REPOSITORY/README.md",
-        "title": "OSG Repository Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-00-repository-repository-structure-md",
-        "path": "OSG_LAUNCH/00_REPOSITORY/Repository Structure.md",
-        "title": "OSG Repository Structure",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-01-notion-workspace-notion-workspace-architecture-md",
-        "path": "OSG_LAUNCH/01_NOTION_WORKSPACE/Notion Workspace Architecture.md",
-        "title": "OSG Notion Workspace Architecture",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-01-notion-workspace-readme-md",
-        "path": "OSG_LAUNCH/01_NOTION_WORKSPACE/README.md",
-        "title": "OSG Notion Workspace Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-02-courses-course-folder-hierarchy-md",
-        "path": "OSG_LAUNCH/02_COURSES/Course Folder Hierarchy.md",
-        "title": "OSG Course Folder Hierarchy",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-02-courses-readme-md",
-        "path": "OSG_LAUNCH/02_COURSES/README.md",
-        "title": "OSG Courses Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-03-media-readme-md",
-        "path": "OSG_LAUNCH/03_MEDIA/README.md",
-        "title": "OSG Media Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-04-clients-client-folder-hierarchy-md",
-        "path": "OSG_LAUNCH/04_CLIENTS/Client Folder Hierarchy.md",
-        "title": "OSG Client Folder Hierarchy",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-04-clients-readme-md",
-        "path": "OSG_LAUNCH/04_CLIENTS/README.md",
-        "title": "OSG Clients Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-05-content-content-workflow-md",
-        "path": "OSG_LAUNCH/05_CONTENT/Content Workflow.md",
-        "title": "OSG Content Workflow",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-05-content-readme-md",
-        "path": "OSG_LAUNCH/05_CONTENT/README.md",
-        "title": "OSG Content Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-06-automation-automation-opportunities-md",
-        "path": "OSG_LAUNCH/06_AUTOMATION/Automation Opportunities.md",
-        "title": "OSG Automation Opportunities",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-06-automation-readme-md",
-        "path": "OSG_LAUNCH/06_AUTOMATION/README.md",
-        "title": "OSG Automation Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-07-operations-launch-operations-model-md",
-        "path": "OSG_LAUNCH/07_OPERATIONS/Launch Operations Model.md",
-        "title": "OSG Launch Operations Model",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-07-operations-readme-md",
-        "path": "OSG_LAUNCH/07_OPERATIONS/README.md",
-        "title": "OSG Operations Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-08-roadmap-30-day-implementation-roadmap-md",
-        "path": "OSG_LAUNCH/08_ROADMAP/30 Day Implementation Roadmap.md",
-        "title": "OSG 30 Day Implementation Roadmap",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-08-roadmap-readme-md",
-        "path": "OSG_LAUNCH/08_ROADMAP/README.md",
-        "title": "OSG Roadmap Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-09-templates-naming-conventions-md",
-        "path": "OSG_LAUNCH/09_TEMPLATES/Naming Conventions.md",
-        "title": "OSG Naming Conventions",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-09-templates-readme-md",
-        "path": "OSG_LAUNCH/09_TEMPLATES/README.md",
-        "title": "OSG Templates Area",
-        "targets": [
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-10-academy-readme-md",
-        "path": "OSG_LAUNCH/10_ACADEMY/README.md",
-        "title": "OSG Academy Area",
-        "targets": [
-          "OSG_LAUNCH/10_ACADEMY/AIG/README",
-          "OSG_LAUNCH/README"
-        ]
-      },
-      {
-        "id": "osg-launch-readme-md",
-        "path": "OSG_LAUNCH/README.md",
-        "title": "OSG Launch Technical Foundation",
-        "targets": [
-          "OSG_LAUNCH/00_REPOSITORY/README",
-          "OSG_LAUNCH/01_NOTION_WORKSPACE/README",
-          "OSG_LAUNCH/02_COURSES/README",
-          "OSG_LAUNCH/03_MEDIA/README",
-          "OSG_LAUNCH/04_CLIENTS/README",
-          "OSG_LAUNCH/05_CONTENT/README",
-          "OSG_LAUNCH/06_AUTOMATION/README",
-          "OSG_LAUNCH/07_OPERATIONS/README",
-          "OSG_LAUNCH/08_ROADMAP/README",
-          "OSG_LAUNCH/09_TEMPLATES/README",
-          "OSG_LAUNCH/10_ACADEMY/README"
         ]
       }
     ],
@@ -14187,9 +13235,9 @@
       }
     ],
     "counts": {
-      "orphans": 51,
+      "orphans": 21,
       "missing_frontmatter": 18,
-      "broken_links": 349,
+      "broken_links": 91,
       "empty_notes": 4
     }
   },

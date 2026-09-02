@@ -45,16 +45,24 @@ env:
   # its own decay — if this number needs to go up, the change being made is
   # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
   #
-  # 2026-09-02: 422 — 51 orphans, 18 missing frontmatter, 349 broken links,
-  #                   4 empty documents, across 362 documents.
-  # One-time Founder-ratified scope reset: PR #7 reconciled 89 previously
-  # unindexed constitutional/research documents. The folder rename itself
-  # introduced no broken references to the retired paths. Ratchet down from
-  # this expanded-corpus baseline; do not treat 422 as an acceptable target.
+  # 2026-09-02: 134 — 21 orphans, 18 missing frontmatter, 91 broken links,
+  #                   4 empty documents, across 363 documents.
+  #
+  # Supersedes the 422 ceiling set earlier the same day. That figure was not
+  # the Foundation's condition: the indexer resolved only bare `[[Note]]`
+  # links, so every valid `[[folder/Note]]` — which Obsidian resolves fine —
+  # was counted as broken. 260 of those 349 "broken links" did not exist, and
+  # 30 documents were reported as orphans purely because their real inbound
+  # links went unrecognised. Fixing the resolver ratcheted the ceiling down by
+  # 288, below even the pre-expansion 243.
+  #
+  # The lesson is recorded in ES-12: when a metric worsens sharply, check the
+  # instrument before raising the tolerance. A ceiling raised to accommodate a
+  # measurement bug ratifies decay that was never there.
   #
   # This comment is a dated record of how the ceiling was composed when it was
   # set. The live figure is the run summary of this workflow, never a document.
-  COHERENCE_CEILING: "422"
+  COHERENCE_CEILING: "134"
   AP: 08_SYSTEMS/Engineering Toolkit/ap.py
 
 jobs:
