@@ -3,10 +3,10 @@ title: "Vault Structure Convention"
 aliases: ["Vault Convention", "Folder Structure", "Note Standards", "VSC"]
 tags: [convention, vault, structure, obsidian, standards, template]
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-09-02
 status: active
-version: "1.0.0"
-authors: ["Alpha Council"]
+version: "1.1.0"
+authors: ["Alpha Council", "LUMIAION (CF-01)"]
 ---
 
 # Vault Structure Convention
@@ -54,26 +54,53 @@ ALPHA.PROXIMA.CORE-/
 │                            Named: CN-XXXX - Title.md
 │                            Moved to 99_ARCHIVE after outcome is recorded
 │
-├── 06_PROJECTS/           ← Active project workspaces
-│                            One subfolder per project: 06_PROJECTS/Project Name/
+├── 06_GOVERNANCE/         ← Policies, frameworks, registers, impact reports
+│                            Institutional governance instruments
 │
-├── 07_RESEARCH/           ← Explorations, experiments, literature notes
+├── 07_RESEARCH/           ← Research programs (RP-###) + explorations
 │                            Looser structure; tag heavily
 │
 ├── 08_SYSTEMS/            ← Technical architecture and infrastructure
 │                            System maps, API references, infrastructure decisions
 │
-├── 09_PEOPLE/             ← Participant profiles and roles
-│                            One note per person/entity
+├── 09_OFFICES/            ← Institutional office charters
+│                            One subfolder per office
 │
 ├── 10_TEMPLATES/          ← Reusable note formats
 │                            Never modify a template without an ADR
+│
+├── 11_PROJECTS/           ← Active project workspaces
+│                            One subfolder per project: 11_PROJECTS/Project Name/
+│
+├── 12_PEOPLE/             ← Participant profiles and roles
+│                            One note per person/entity
 │
 └── 99_ARCHIVE/            ← Superseded, retired, or closed notes
                              Never delete; archive instead
 ```
 
-Root-level notes (like this vault's index [[Alpha Proxima Core]], [[LUMIAION]], [[Alpha Council]]) are exceptions — they are cross-cutting enough that folder placement would be arbitrary.
+**Number reservation table (canonical — resolves CAR-F07 folder-number collisions):**
+
+| # | Folder | # | Folder |
+|---|--------|---|--------|
+| 00 | CONSTITUTION | 07 | RESEARCH |
+| 01 | VISION | 08 | SYSTEMS |
+| 02 | STRATEGY | 09 | OFFICES |
+| 03 | AI_COUNCIL | 10 | TEMPLATES |
+| 04 | DECISIONS | 11 | PROJECTS |
+| 05 | PROPOSALS | 12 | PEOPLE |
+| 06 | GOVERNANCE | 99 | ARCHIVE |
+
+*Each number maps to exactly one folder. The Epoch III–IV additions `06_GOVERNANCE` and `09_OFFICES` kept their numbers (they are populated); the original `06_PROJECTS` → `11_PROJECTS` and `09_PEOPLE` → `12_PEOPLE` were renumbered (Epoch V) to remove the collisions.*
+
+**Sanctioned structural exceptions (resolves CAR-F08):**
+
+- **Root-level cross-cutting notes** — `[[Alpha Proxima Core]]` (MOC), `[[LUMIAION]]`, `[[Alpha Council]]`, `README.md`.
+- **`docs/`** — engineering-facing documentation served outside the numbered knowledge structure (e.g. `docs/constitution/`, `docs/setup/`). A software convention, deliberately sanctioned.
+- **`PROJECT_GENOME/`** — top-level project directory for the Living Genome Framework.
+- **`OSG_BUSINESS/`** — the OSG (public brand) business/academy workstream.
+
+These exceptions are governed by, and subordinate to, the numbered structure and the [[Constitutional Hierarchy Statement]]; they are not ungoverned.
 
 ---
 
@@ -199,3 +226,4 @@ Templates start at `1.0.0`. Living documents (like this one) increment as update
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial convention established |
+| 1.1.0 | 2026-09-02 | LUMIAION (CF-01) | Epoch V Tier 2: number reservation table added (resolves CAR-F07 — `06_PROJECTS`→`11_PROJECTS`, `09_PEOPLE`→`12_PEOPLE`; GOVERNANCE/OFFICES keep their numbers); sanctioned `docs/`, `PROJECT_GENOME/`, `OSG_BUSINESS/` as governed structural exceptions (resolves CAR-F08) |

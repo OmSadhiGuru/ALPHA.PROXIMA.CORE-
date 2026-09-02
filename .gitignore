@@ -1,0 +1,9 @@
+# OS cruft
+.DS_Store
+**/.DS_Store
+
+# Smart Connections embedding cache (stale, machine-generated)
+.smart-env/
+
+# Node
+node_modules/
