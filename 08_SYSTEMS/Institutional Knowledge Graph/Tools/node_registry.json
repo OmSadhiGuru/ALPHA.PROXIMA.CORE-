@@ -1,8 +1,8 @@
 {
   "registry_version": "1.0.0",
-  "generated_at": "2026-09-02T00:50:09-04:00",
-  "vault": "/private/tmp/alpha-future14.JNpTD5",
-  "node_count": 364,
+  "generated_at": "2026-09-02T01:08:47-04:00",
+  "vault": "/private/tmp/alpha-next.Gdnbnx",
+  "node_count": 367,
   "principle": "The Node Registry is the first bridge between Markdown memory and LUMIAION's future institutional graph.",
   "nodes": [
     {
@@ -78,7 +78,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -169,7 +169,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -260,7 +260,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -336,7 +336,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -407,7 +407,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -467,7 +467,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -531,7 +531,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -596,7 +596,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -648,6 +648,7 @@
         "Execution Infrastructure",
         "Foundational Architecture",
         "Future Expansion Protocol",
+        "Governance Model Crosswalk",
         "Institutional Registry",
         "JERANIUM Charter",
         "Knowledge Infrastructure",
@@ -671,7 +672,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -732,7 +733,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -799,7 +800,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -865,7 +866,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -912,7 +913,11 @@
       "cognitive_function": null,
       "related_documents": [],
       "related_research_programs": [],
-      "wiki_links": [],
+      "wiki_links": [
+        "Governance Model Crosswalk",
+        "Interim Authority Instrument",
+        "YUNA Charter"
+      ],
       "tags": [
         "cognitive-council",
         "cognitive-functions",
@@ -926,7 +931,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -976,6 +981,7 @@
         "Book II - Governance Framework",
         "Communication Protocol",
         "Decision Routing Protocol",
+        "Governance Model Crosswalk",
         "JERANIUM Charter",
         "LUMIAION Charter",
         "SOHMA Charter",
@@ -996,7 +1002,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1046,6 +1052,7 @@
         "Book II - Governance Framework",
         "Communication Protocol",
         "Decision Routing Protocol",
+        "Governance Model Crosswalk",
         "Knowledge Routing Protocol",
         "LUMIAION Charter",
         "SOHMA Charter",
@@ -1065,7 +1072,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1139,7 +1146,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1189,6 +1196,7 @@
         "Book II - Governance Framework",
         "Communication Protocol",
         "Decision Routing Protocol",
+        "Governance Model Crosswalk",
         "JERANIUM Charter",
         "LUMIAION Charter",
         "VORTEX Charter"
@@ -1207,7 +1215,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1258,6 +1266,7 @@
         "Book II - Governance Framework",
         "Communication Protocol",
         "Decision Routing Protocol",
+        "Governance Model Crosswalk",
         "JERANIUM Charter",
         "LUMIAION Charter",
         "SOHMA Charter"
@@ -1277,7 +1286,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1326,6 +1335,7 @@
         "Concept Note Template",
         "Foundational Architecture",
         "Future Expansion Protocol",
+        "Governance Model Crosswalk",
         "Knowledge Infrastructure",
         "LUMIAION",
         "LUMIAION Charter"
@@ -1342,7 +1352,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1408,75 +1418,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
-      }
-    },
-    {
-      "node_id": "apkg:charter:ethics-council-charter-3a7a2713",
-      "node_type": "charter",
-      "node_type_confidence": 0.85,
-      "node_type_reasons": [
-        "filename:charter"
-      ],
-      "source_path": "03_AI_COUNCIL/Ethics Council Charter.md",
-      "title": "Ethics Council Charter",
-      "yaml": {
-        "title": "Ethics Council Charter",
-        "aliases": [
-          "Ethics Council",
-          "Ethical Review Body",
-          "Constitutional Ethics"
-        ],
-        "tags": [
-          "governance",
-          "ethics",
-          "charter",
-          "constitutional",
-          "alpha-proxima",
-          "council"
-        ],
-        "created": "2026-07-02",
-        "updated": "2026-07-02",
-        "status": "ratified",
-        "version": "1.0.0",
-        "authors": [
-          "Frederick Belizaire Gunville"
-        ]
-      },
-      "has_yaml": true,
-      "frontmatter_errors": [],
-      "artifact_type": null,
-      "institutional_owner": null,
-      "cognitive_function": null,
-      "related_documents": [],
-      "related_research_programs": [],
-      "wiki_links": [
-        "ADR Template",
-        "AI Council Registry",
-        "Book I - The Constitution",
-        "Book II - Governance Framework",
-        "Concept Note Template",
-        "Institutional Registry",
-        "Knowledge Integrity",
-        "Knowledge Ownership Protocol",
-        "LUMIAION Architecture Spec v0.1",
-        "LUMIAION Charter",
-        "Research Governance Protocol"
-      ],
-      "tags": [
-        "governance",
-        "ethics",
-        "charter",
-        "constitutional",
-        "alpha-proxima",
-        "council"
-      ],
-      "status": "ratified",
-      "version": "1.0.0",
-      "provenance": {
-        "source": "markdown_scan",
-        "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1539,7 +1481,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1611,7 +1553,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1676,7 +1618,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1763,7 +1705,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1841,7 +1783,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1912,7 +1854,81 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
+      }
+    },
+    {
+      "node_id": "apkg:founder_directive:cn-001-execution-tracker-69552dd1",
+      "node_type": "founder_directive",
+      "node_type_confidence": 0.55,
+      "node_type_reasons": [
+        "folder:proposals_or_founder_signal"
+      ],
+      "source_path": "05_PROPOSALS/CN-001 Execution Tracker.md",
+      "title": "CN-001 Execution Tracker",
+      "yaml": {
+        "title": "CN-001 Execution Tracker",
+        "aliases": [
+          "CN-001 — Execution Tracker & Attribution Ledger"
+        ],
+        "tags": [
+          "proposal",
+          "repository-coherence",
+          "namespace",
+          "execution-tracker",
+          "alpha-proxima"
+        ],
+        "created": "2026-08-05",
+        "updated": "2026-09-02",
+        "status": "active",
+        "version": "1.1.0",
+        "authors": [
+          "CLAUDE",
+          "CODEX"
+        ],
+        "artifact_type": "implementation-plan",
+        "institutional_owner": "Alpha Proxima Foundation",
+        "cognitive_function": "Implementation",
+        "reasoning_engine": "CODEX",
+        "dependencies": [
+          "[[Vault Structure Convention]]",
+          "[[Book III - Knowledge Integrity]]"
+        ],
+        "related_documents": [
+          "[[Alpha Proxima App README]]",
+          "[[Repository Reboot Audit - 2026-08-23]]"
+        ],
+        "related_research_programs": []
+      },
+      "has_yaml": true,
+      "frontmatter_errors": [],
+      "artifact_type": "implementation-plan",
+      "institutional_owner": "Alpha Proxima Foundation",
+      "cognitive_function": "Implementation",
+      "related_documents": [
+        "[[Alpha Proxima App README]]",
+        "[[Repository Reboot Audit - 2026-08-23]]"
+      ],
+      "related_research_programs": [],
+      "wiki_links": [
+        "Alpha Proxima App README",
+        "Book III - Knowledge Integrity",
+        "Repository Reboot Audit - 2026-08-23",
+        "Vault Structure Convention"
+      ],
+      "tags": [
+        "proposal",
+        "repository-coherence",
+        "namespace",
+        "execution-tracker",
+        "alpha-proxima"
+      ],
+      "status": "active",
+      "version": "1.1.0",
+      "provenance": {
+        "source": "markdown_scan",
+        "generated_by": "node_registry.py",
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -1988,7 +2004,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2064,7 +2080,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2142,7 +2158,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2216,7 +2232,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2300,7 +2316,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2388,7 +2404,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2460,7 +2476,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2523,8 +2539,7 @@
         "LUMIAION_CONSTITUTION",
         "Obsidian Vault",
         "Research Council",
-        "Research Debt Register",
-        "wikilinks"
+        "Research Debt Register"
       ],
       "tags": [
         "governance",
@@ -2540,7 +2555,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2610,7 +2625,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2680,7 +2695,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2740,7 +2755,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2807,7 +2822,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2871,7 +2886,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2933,7 +2948,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -2998,7 +3013,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3053,7 +3068,139 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
+      }
+    },
+    {
+      "node_id": "apkg:unknown:institutional-glossary-acronym-register-50410596",
+      "node_type": "unknown",
+      "node_type_confidence": 0.0,
+      "node_type_reasons": [
+        "no_confident_rule"
+      ],
+      "source_path": "06_GOVERNANCE/Institutional Glossary & Acronym Register.md",
+      "title": "Institutional Glossary & Acronym Register",
+      "yaml": {
+        "title": "Institutional Glossary & Acronym Register",
+        "aliases": [
+          "Glossary",
+          "Acronym Register",
+          "Institutional Glossary"
+        ],
+        "tags": [
+          "governance",
+          "glossary",
+          "acronyms",
+          "reference",
+          "epoch-v",
+          "alpha-proxima"
+        ],
+        "created": "2026-09-02",
+        "updated": "2026-09-02",
+        "status": "active",
+        "version": "1.0.0",
+        "authors": [
+          "LUMIAION (CF-01)"
+        ],
+        "document_class": "Reference Register",
+        "initiative": "Epoch V — Constitutional Coherence",
+        "resolves": [
+          "M-07"
+        ]
+      },
+      "has_yaml": true,
+      "frontmatter_errors": [],
+      "artifact_type": null,
+      "institutional_owner": null,
+      "cognitive_function": null,
+      "related_documents": [],
+      "related_research_programs": [],
+      "wiki_links": [
+        "Canonical Terminology Register",
+        "Cognitive Function Registry",
+        "Governance Model Crosswalk",
+        "Institutional Timeline",
+        "Research Debt Register"
+      ],
+      "tags": [
+        "governance",
+        "glossary",
+        "acronyms",
+        "reference",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "status": "active",
+      "version": "1.0.0",
+      "provenance": {
+        "source": "markdown_scan",
+        "generated_by": "node_registry.py",
+        "generated_at": "2026-09-02T01:08:47-04:00"
+      }
+    },
+    {
+      "node_id": "apkg:open_question:institutional-open-questions-register-b1a82d6f",
+      "node_type": "open_question",
+      "node_type_confidence": 0.75,
+      "node_type_reasons": [
+        "filename:open_questions"
+      ],
+      "source_path": "06_GOVERNANCE/Institutional Open Questions Register.md",
+      "title": "Institutional Open Questions Register",
+      "yaml": {
+        "title": "Institutional Open Questions Register",
+        "aliases": [
+          "Open Questions Register",
+          "IOQR",
+          "Governance Open Questions"
+        ],
+        "tags": [
+          "governance",
+          "open-questions",
+          "register",
+          "epoch-v",
+          "alpha-proxima"
+        ],
+        "created": "2026-09-02",
+        "updated": "2026-09-02",
+        "status": "active",
+        "version": "1.0.0",
+        "authors": [
+          "LUMIAION (CF-01)"
+        ],
+        "document_class": "Reference Register",
+        "initiative": "Epoch V — Constitutional Coherence",
+        "resolves": [
+          "M-13",
+          "CAR-F15"
+        ]
+      },
+      "has_yaml": true,
+      "frontmatter_errors": [],
+      "artifact_type": null,
+      "institutional_owner": null,
+      "cognitive_function": null,
+      "related_documents": [],
+      "related_research_programs": [],
+      "wiki_links": [
+        "Alpha Council",
+        "CAR-001 Constitutional Audit Report",
+        "Interim Authority Instrument",
+        "Research Debt Register"
+      ],
+      "tags": [
+        "governance",
+        "open-questions",
+        "register",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "status": "active",
+      "version": "1.0.0",
+      "provenance": {
+        "source": "markdown_scan",
+        "generated_by": "node_registry.py",
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3115,7 +3262,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3178,7 +3325,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3238,7 +3385,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3301,7 +3448,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3366,7 +3513,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3426,7 +3573,73 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
+      }
+    },
+    {
+      "node_id": "apkg:unknown:institutional-timeline-cc73c100",
+      "node_type": "unknown",
+      "node_type_confidence": 0.0,
+      "node_type_reasons": [
+        "no_confident_rule"
+      ],
+      "source_path": "06_GOVERNANCE/Institutional Timeline.md",
+      "title": "Institutional Timeline",
+      "yaml": {
+        "title": "Institutional Timeline",
+        "aliases": [
+          "Timeline",
+          "Epoch History",
+          "Institutional History"
+        ],
+        "tags": [
+          "governance",
+          "timeline",
+          "history",
+          "epochs",
+          "epoch-v",
+          "alpha-proxima"
+        ],
+        "created": "2026-09-02",
+        "updated": "2026-09-02",
+        "status": "active",
+        "version": "1.0.0",
+        "authors": [
+          "LUMIAION (CF-01)"
+        ],
+        "document_class": "Reference Register",
+        "initiative": "Epoch V — Constitutional Coherence",
+        "resolves": [
+          "M-08"
+        ]
+      },
+      "has_yaml": true,
+      "frontmatter_errors": [],
+      "artifact_type": null,
+      "institutional_owner": null,
+      "cognitive_function": null,
+      "related_documents": [],
+      "related_research_programs": [],
+      "wiki_links": [
+        "CAR-001 Constitutional Audit Report",
+        "CIR-003 Epoch V Constitutional Coherence",
+        "Founder Directives Register",
+        "Institutional Glossary & Acronym Register"
+      ],
+      "tags": [
+        "governance",
+        "timeline",
+        "history",
+        "epochs",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "status": "active",
+      "version": "1.0.0",
+      "provenance": {
+        "source": "markdown_scan",
+        "generated_by": "node_registry.py",
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3483,7 +3696,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3553,7 +3766,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3622,7 +3835,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3689,7 +3902,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3752,7 +3965,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3817,7 +4030,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3883,7 +4096,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -3963,7 +4176,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4019,7 +4232,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4081,7 +4294,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4136,7 +4349,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4211,7 +4424,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4268,7 +4481,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4328,7 +4541,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4389,7 +4602,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4450,7 +4663,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4511,7 +4724,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4577,7 +4790,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4633,7 +4846,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4699,7 +4912,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4804,7 +5017,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4870,7 +5083,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -4933,7 +5146,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5016,7 +5229,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5084,7 +5297,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5145,7 +5358,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5206,7 +5419,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5267,7 +5480,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5324,7 +5537,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5387,7 +5600,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5450,7 +5663,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5513,7 +5726,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5575,7 +5788,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5632,7 +5845,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5695,7 +5908,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5758,7 +5971,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5823,7 +6036,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5887,7 +6100,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -5946,7 +6159,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6010,7 +6223,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6072,7 +6285,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6134,7 +6347,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6190,7 +6403,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6254,7 +6467,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6312,7 +6525,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6370,7 +6583,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6427,7 +6640,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6481,7 +6694,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6540,7 +6753,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6618,7 +6831,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6696,7 +6909,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6776,7 +6989,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6894,7 +7107,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -6951,7 +7164,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7004,7 +7217,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7057,7 +7270,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7117,7 +7330,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7180,7 +7393,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7243,7 +7456,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7306,7 +7519,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7361,7 +7574,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7423,7 +7636,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7499,7 +7712,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7558,7 +7771,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7616,7 +7829,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7673,7 +7886,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7730,7 +7943,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7788,7 +8001,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7846,7 +8059,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7903,7 +8116,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -7964,7 +8177,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8019,7 +8232,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8077,7 +8290,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8134,7 +8347,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8192,7 +8405,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8248,7 +8461,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8321,7 +8534,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8376,7 +8589,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8434,7 +8647,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8489,7 +8702,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8542,7 +8755,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8595,7 +8808,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8650,7 +8863,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8703,7 +8916,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8754,7 +8967,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8813,7 +9026,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8875,7 +9088,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8936,7 +9149,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -8997,7 +9210,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9115,7 +9328,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9193,7 +9406,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9248,7 +9461,7 @@
         "Book III - Knowledge Integrity",
         "Book V - Cognitive Council",
         "Cognitive Function Registry",
-        "ISR-001 Canonical Synthesis — Cross-Program",
+        "ISR-001 Canonical Synthesis",
         "ISR-001 Knowledge Graph Update Recommendations",
         "JERANIUM Charter",
         "RP-001 Master Index",
@@ -9271,7 +9484,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9316,7 +9529,7 @@
       "related_documents": [],
       "related_research_programs": [],
       "wiki_links": [
-        "ISR-001 Canonical Synthesis — Cross-Program",
+        "ISR-001 Canonical Synthesis",
         "ISR-001 Institutional Synthesis Report",
         "RP-001 Research Graph/RP-001 Research Graph",
         "RP-002 Research Graph/RP-002 Research Graph",
@@ -9336,7 +9549,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9391,7 +9604,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9446,7 +9659,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9501,7 +9714,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9556,7 +9769,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9673,7 +9886,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9745,7 +9958,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9819,7 +10032,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9894,7 +10107,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -9972,7 +10185,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10050,7 +10263,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10126,7 +10339,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10202,7 +10415,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10277,7 +10490,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10356,7 +10569,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10433,7 +10646,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10511,7 +10724,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10597,7 +10810,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10678,7 +10891,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10761,8 +10974,10 @@
         "Book III - Knowledge Integrity",
         "CN-001 Execution Tracker",
         "Founder Console",
+        "Note",
         "Tool 012 - Founder OS State Engine",
-        "Tool 013 - Alpha Proxima App"
+        "Tool 013 - Alpha Proxima App",
+        "folder/Note"
       ],
       "tags": [
         "systems",
@@ -10779,7 +10994,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10865,7 +11080,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -10957,7 +11172,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11039,7 +11254,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11128,7 +11343,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11214,7 +11429,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11295,7 +11510,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11372,7 +11587,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11448,7 +11663,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11526,7 +11741,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11604,7 +11819,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11688,7 +11903,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11768,7 +11983,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11854,7 +12069,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -11933,11 +12148,13 @@
         "Alpha Proxima App README",
         "Alpha Proxima Engineering Toolkit",
         "Founder Console",
+        "Note",
         "Tool 001 - Vault Validator",
         "Tool 008 - Engineering CLI",
         "Tool 010 - Node Registry Generator",
         "Tool 011 - Relationship Extractor",
-        "Tool 012 - Founder OS State Engine"
+        "Tool 012 - Founder OS State Engine",
+        "folder/Note"
       ],
       "tags": [
         "systems",
@@ -11954,7 +12171,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12021,7 +12238,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12095,7 +12312,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12188,7 +12405,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12279,7 +12496,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12357,7 +12574,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12434,7 +12651,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12509,7 +12726,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12583,7 +12800,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12608,8 +12825,8 @@
           "report",
           "alpha-proxima"
         ],
-        "created": "2026-07-03",
-        "updated": "2026-07-03",
+        "created": "2026-09-02",
+        "updated": "2026-09-02",
         "status": "draft",
         "version": "1.0.0",
         "authors": [
@@ -12659,7 +12876,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12684,8 +12901,8 @@
           "report",
           "alpha-proxima"
         ],
-        "created": "2026-07-03",
-        "updated": "2026-07-03",
+        "created": "2026-09-02",
+        "updated": "2026-09-02",
         "status": "draft",
         "version": "1.0.0",
         "authors": [
@@ -12745,7 +12962,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12828,7 +13045,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12915,7 +13132,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -12980,7 +13197,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13056,7 +13273,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13123,7 +13340,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13189,7 +13406,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13283,7 +13500,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13355,7 +13572,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13421,7 +13638,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13488,7 +13705,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13570,7 +13787,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13650,7 +13867,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13731,7 +13948,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13805,7 +14022,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13893,7 +14110,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -13960,7 +14177,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14027,7 +14244,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14092,7 +14309,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14157,7 +14374,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14222,7 +14439,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14287,7 +14504,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14358,7 +14575,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14423,7 +14640,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14496,7 +14713,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14572,7 +14789,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14649,7 +14866,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14718,7 +14935,75 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
+      }
+    },
+    {
+      "node_id": "apkg:charter:ethics-council-charter-b96aaafa",
+      "node_type": "charter",
+      "node_type_confidence": 0.85,
+      "node_type_reasons": [
+        "filename:charter"
+      ],
+      "source_path": "09_OFFICES/Ethics Council/Ethics Council Charter.md",
+      "title": "Ethics Council Charter",
+      "yaml": {
+        "title": "Ethics Council Charter",
+        "aliases": [
+          "Ethics Council",
+          "Ethical Review Body",
+          "Constitutional Ethics"
+        ],
+        "tags": [
+          "governance",
+          "ethics",
+          "charter",
+          "constitutional",
+          "alpha-proxima",
+          "council"
+        ],
+        "created": "2026-07-02",
+        "updated": "2026-07-02",
+        "status": "ratified",
+        "version": "1.0.0",
+        "authors": [
+          "Frederick Belizaire Gunville"
+        ]
+      },
+      "has_yaml": true,
+      "frontmatter_errors": [],
+      "artifact_type": null,
+      "institutional_owner": null,
+      "cognitive_function": null,
+      "related_documents": [],
+      "related_research_programs": [],
+      "wiki_links": [
+        "ADR Template",
+        "AI Council Registry",
+        "Book I - The Constitution",
+        "Book II - Governance Framework",
+        "Concept Note Template",
+        "Institutional Registry",
+        "Knowledge Integrity",
+        "Knowledge Ownership Protocol",
+        "LUMIAION Architecture Spec v0.1",
+        "LUMIAION Charter",
+        "Research Governance Protocol"
+      ],
+      "tags": [
+        "governance",
+        "ethics",
+        "charter",
+        "constitutional",
+        "alpha-proxima",
+        "council"
+      ],
+      "status": "ratified",
+      "version": "1.0.0",
+      "provenance": {
+        "source": "markdown_scan",
+        "generated_by": "node_registry.py",
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14785,7 +15070,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14853,7 +15138,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -14930,7 +15215,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15001,7 +15286,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15069,7 +15354,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15131,7 +15416,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15193,7 +15478,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15263,7 +15548,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15310,7 +15595,6 @@
       "related_research_programs": [],
       "wiki_links": [
         "Institutional Intelligence Translation Framework v1.0",
-        "Link to canonical glossary entry",
         "Translation Decision Matrix",
         "Translation Review Process"
       ],
@@ -15326,7 +15610,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15390,7 +15674,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15452,7 +15736,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15522,7 +15806,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15589,7 +15873,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15657,7 +15941,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15730,7 +16014,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15797,7 +16081,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15876,7 +16160,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -15982,7 +16266,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16047,6 +16331,7 @@
       ],
       "related_research_programs": [],
       "wiki_links": [
+        "12 - Continuous Integration Standard",
         "Alpha Proxima App Architecture v1",
         "Alpha Proxima Engineering Toolkit",
         "CN-001 Execution Tracker",
@@ -16069,7 +16354,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16139,7 +16424,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16217,7 +16502,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16295,7 +16580,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16364,7 +16649,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16442,7 +16727,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16523,7 +16808,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16599,7 +16884,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16675,7 +16960,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16756,7 +17041,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16853,7 +17138,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -16938,7 +17223,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17012,7 +17297,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17089,7 +17374,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17158,7 +17443,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17247,7 +17532,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17323,7 +17608,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17393,7 +17678,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17462,7 +17747,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17570,7 +17855,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17651,7 +17936,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17739,7 +18024,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17807,7 +18092,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17876,7 +18161,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -17973,7 +18258,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18056,7 +18341,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18123,7 +18408,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18193,7 +18478,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18257,7 +18542,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18324,7 +18609,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18388,7 +18673,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18453,7 +18738,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18522,7 +18807,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18591,7 +18876,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18662,7 +18947,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18751,7 +19036,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18822,7 +19107,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18886,7 +19171,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -18952,7 +19237,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19020,7 +19305,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19094,7 +19379,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19163,7 +19448,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19232,7 +19517,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19305,7 +19590,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19378,7 +19663,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19447,7 +19732,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19518,7 +19803,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19591,7 +19876,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19651,7 +19936,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19711,7 +19996,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19776,7 +20061,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19835,7 +20120,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19894,7 +20179,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -19959,7 +20244,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20024,7 +20309,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20084,7 +20369,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20147,7 +20432,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20220,7 +20505,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20285,7 +20570,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20345,7 +20630,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20405,7 +20690,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20470,7 +20755,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20541,7 +20826,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20606,7 +20891,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20671,7 +20956,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20733,7 +21018,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20795,7 +21080,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20857,7 +21142,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20927,7 +21212,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -20987,7 +21272,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21042,7 +21327,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21104,7 +21389,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21166,7 +21451,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21236,7 +21521,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21293,7 +21578,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21356,7 +21641,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21398,7 +21683,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21506,7 +21791,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21533,7 +21818,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21595,7 +21880,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21658,7 +21943,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21685,7 +21970,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21712,7 +21997,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21739,7 +22024,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21766,7 +22051,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21793,7 +22078,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21820,7 +22105,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21847,7 +22132,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21874,7 +22159,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21901,7 +22186,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21928,7 +22213,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -21974,7 +22259,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22046,7 +22331,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22098,7 +22383,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22156,7 +22441,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22247,7 +22532,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22311,7 +22596,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22372,7 +22657,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22437,7 +22722,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22495,7 +22780,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22553,7 +22838,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22609,7 +22894,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22665,7 +22950,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22723,7 +23008,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22779,7 +23064,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22837,7 +23122,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22893,7 +23178,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -22958,7 +23243,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23014,7 +23299,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23072,7 +23357,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23128,7 +23413,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23192,7 +23477,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23248,7 +23533,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23306,7 +23591,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23364,7 +23649,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23422,7 +23707,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23480,7 +23765,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23538,7 +23823,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23601,7 +23886,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23670,7 +23955,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23737,7 +24022,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23802,7 +24087,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23865,7 +24150,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23892,7 +24177,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -23944,7 +24229,9 @@
       "cognitive_function": null,
       "related_documents": [],
       "related_research_programs": [],
-      "wiki_links": [],
+      "wiki_links": [
+        "Constitutional Hierarchy Statement"
+      ],
       "tags": [
         "genome",
         "constitution",
@@ -23961,7 +24248,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24020,7 +24307,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24081,7 +24368,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24108,7 +24395,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24135,7 +24422,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24162,7 +24449,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24182,14 +24469,16 @@
       "cognitive_function": null,
       "related_documents": [],
       "related_research_programs": [],
-      "wiki_links": [],
+      "wiki_links": [
+        "Constitutional Hierarchy Statement"
+      ],
       "tags": [],
       "status": null,
       "version": null,
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24216,7 +24505,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     },
     {
@@ -24243,34 +24532,7 @@
       "provenance": {
         "source": "markdown_scan",
         "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
-      }
-    },
-    {
-      "node_id": "apkg:unknown:cn-001-execution-tracker-attribution-ledger-8c5f436e",
-      "node_type": "unknown",
-      "node_type_confidence": 0.0,
-      "node_type_reasons": [
-        "no_confident_rule"
-      ],
-      "source_path": "governance/CN-001 Execution Tracker.md",
-      "title": "CN-001 — Execution Tracker & Attribution Ledger",
-      "yaml": {},
-      "has_yaml": false,
-      "frontmatter_errors": [],
-      "artifact_type": null,
-      "institutional_owner": null,
-      "cognitive_function": null,
-      "related_documents": [],
-      "related_research_programs": [],
-      "wiki_links": [],
-      "tags": [],
-      "status": null,
-      "version": null,
-      "provenance": {
-        "source": "markdown_scan",
-        "generated_by": "node_registry.py",
-        "generated_at": "2026-09-02T00:50:09-04:00"
+        "generated_at": "2026-09-02T01:08:47-04:00"
       }
     }
   ]

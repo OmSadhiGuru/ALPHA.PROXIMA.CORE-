@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T05:06:32+00:00",
+  "generated_at": "2026-09-02T05:09:14+00:00",
   "note_count": 366,
   "domains": [
     {
@@ -30,7 +30,7 @@
       "id": "05_PROPOSALS",
       "name": "Proposals",
       "question": "What is being considered",
-      "count": 7
+      "count": 8
     },
     {
       "id": "06_GOVERNANCE",
@@ -115,12 +115,6 @@
       "name": "Docs",
       "question": "Not yet placed in the canonical hierarchy",
       "count": 3
-    },
-    {
-      "id": "governance",
-      "name": "Governance",
-      "question": "Not yet placed in the canonical hierarchy",
-      "count": 1
     },
     {
       "id": "root",
@@ -256,7 +250,7 @@
         "08-systems-protocols-knowledge-ownership-protocol-md"
       ],
       "unresolved": [],
-      "backlinks": 56
+      "backlinks": 57
     },
     {
       "id": "00-constitution-book-iv-cognitive-architecture-md",
@@ -1201,6 +1195,40 @@
       ],
       "unresolved": [],
       "backlinks": 6
+    },
+    {
+      "id": "05-proposals-cn-001-execution-tracker-md",
+      "path": "05_PROPOSALS/CN-001 Execution Tracker.md",
+      "title": "CN-001 Execution Tracker",
+      "domain": "05_PROPOSALS",
+      "type": "implementation-plan",
+      "status": "active",
+      "version": "1.1.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CLAUDE",
+        "CODEX"
+      ],
+      "tags": [
+        "proposal",
+        "repository-coherence",
+        "namespace",
+        "execution-tracker",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 904,
+      "links": [
+        "10-templates-vault-structure-convention-md",
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "13-operations-alpha-proxima-app-readme-md",
+        "13-operations-reboot-repository-reboot-audit-2026-08-23-md"
+      ],
+      "unresolved": [],
+      "backlinks": 3
     },
     {
       "id": "05-proposals-phase-iii-preparation-02-strategy-architecture-blueprint-md",
@@ -5971,10 +5999,10 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 1704,
+      "words": 1714,
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
-        "governance-cn-001-execution-tracker-md",
+        "05-proposals-cn-001-execution-tracker-md",
         "13-operations-founder-os-founder-console-md",
         "08-systems-engineering-standards-06-cli-standard-md",
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
@@ -6516,7 +6544,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 875,
+      "words": 893,
       "links": [
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "13-operations-founder-os-founder-console-md",
@@ -6847,7 +6875,7 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 2965,
+      "words": 2949,
       "links": [
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
         "08-systems-institutional-knowledge-graph-node-taxonomy-md",
@@ -6882,7 +6910,7 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 4748,
+      "words": 4732,
       "links": [
         "08-systems-institutional-knowledge-graph-tools-tool-011-relationship-extractor-md",
         "12-people-codex-md",
@@ -8429,7 +8457,7 @@
         "10-templates-concept-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 23
+      "backlinks": 24
     },
     {
       "id": "11-projects-readme-md",
@@ -8591,7 +8619,7 @@
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
         "08-systems-institutional-knowledge-graph-tools-tool-011-relationship-extractor-md",
         "00-constitution-book-iii-knowledge-integrity-md",
-        "governance-cn-001-execution-tracker-md",
+        "05-proposals-cn-001-execution-tracker-md",
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
         "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "13-operations-alpha-proxima-app-readme-md",
@@ -8638,11 +8666,11 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
         "13-operations-founder-os-readme-md",
         "13-operations-founder-os-founder-os-architecture-v1-md",
-        "governance-cn-001-execution-tracker-md",
+        "05-proposals-cn-001-execution-tracker-md",
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "13-operations-annual-reviews-annual-reviews-index-md",
@@ -9378,7 +9406,7 @@
         "13-operations-workflow-registry-workflow-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "13-operations-review-cycles-review-cycles-registry-md",
@@ -11346,26 +11374,6 @@
       "backlinks": 0
     },
     {
-      "id": "governance-cn-001-execution-tracker-md",
-      "path": "governance/CN-001 Execution Tracker.md",
-      "title": "CN-001 Execution Tracker",
-      "domain": "governance",
-      "type": "unclassified",
-      "status": "unknown",
-      "version": "",
-      "owner": "",
-      "function": "",
-      "engine": "",
-      "authors": [],
-      "tags": [],
-      "updated": "",
-      "has_frontmatter": false,
-      "words": 866,
-      "links": [],
-      "unresolved": [],
-      "backlinks": 3
-    },
-    {
       "id": "lumiaion-md",
       "path": "LUMIAION.md",
       "title": "LUMIAION",
@@ -12889,12 +12897,6 @@
         "path": "docs/setup/Claude-Code-in-Obsidian.md",
         "title": "Claude-Code-in-Obsidian",
         "domain": "docs"
-      },
-      {
-        "id": "governance-cn-001-execution-tracker-md",
-        "path": "governance/CN-001 Execution Tracker.md",
-        "title": "CN-001 Execution Tracker",
-        "domain": "governance"
       }
     ],
     "broken_links": [
@@ -13329,7 +13331,7 @@
     ],
     "counts": {
       "orphans": 21,
-      "missing_frontmatter": 18,
+      "missing_frontmatter": 17,
       "broken_links": 87,
       "empty_notes": 4
     }
@@ -13338,7 +13340,7 @@
     "type": [
       [
         "unclassified",
-        186
+        185
       ],
       [
         "legacy-placeholder",
@@ -13383,6 +13385,10 @@
       [
         "readme",
         3
+      ],
+      [
+        "implementation-plan",
+        2
       ],
       [
         "research-program-index",
@@ -13430,10 +13436,6 @@
       ],
       [
         "issue-register",
-        1
-      ],
-      [
-        "implementation-plan",
         1
       ],
       [
@@ -13620,7 +13622,7 @@
     "status": [
       [
         "active",
-        202
+        203
       ],
       [
         "ratified",
@@ -13628,7 +13630,7 @@
       ],
       [
         "unknown",
-        43
+        42
       ],
       [
         "placeholder",
@@ -13686,7 +13688,7 @@
     "function": [
       [
         "Implementation",
-        121
+        122
       ],
       [
         "Research Intelligence",

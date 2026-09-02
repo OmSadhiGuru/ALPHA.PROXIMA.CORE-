@@ -24,18 +24,18 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-future14.JNpTD5`
-- Generated: `2026-09-02T00:50:09-04:00`
-- Total nodes discovered: `364`
-- Unknown node types: `173`
-- Missing YAML: `19`
-- High-value cleanup candidates: `245`
+- Vault: `/private/tmp/alpha-next.Gdnbnx`
+- Generated: `2026-09-02T01:08:47-04:00`
+- Total nodes discovered: `367`
+- Unknown node types: `174`
+- Missing YAML: `18`
+- High-value cleanup candidates: `247`
 
 ## Nodes by Type
 
 | Node Type | Count |
 |-----------|-------|
-| `unknown` | `173` |
+| `unknown` | `174` |
 | `standard` | `39` |
 | `future_research` | `19` |
 | `engineering_tool` | `18` |
@@ -43,14 +43,14 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `research_artifact` | `16` |
 | `charter` | `13` |
 | `standing_order` | `13` |
-| `founder_directive` | `11` |
+| `founder_directive` | `12` |
 | `policy` | `9` |
 | `theory` | `9` |
 | `office` | `8` |
 | `research_program` | `7` |
 | `canonical_synthesis` | `4` |
+| `open_question` | `4` |
 | `evidence_claim` | `3` |
-| `open_question` | `3` |
 | `person` | `2` |
 | `research_commission` | `1` |
 
@@ -81,12 +81,14 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | Governance Model Crosswalk & Council Topology | no_confident_rule |
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | Interim Authority Instrument | no_confident_rule |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | FGR-001 — Epoch II Stewardship Audit | no_confident_rule |
+| `06_GOVERNANCE/Institutional Glossary & Acronym Register.md` | Institutional Glossary & Acronym Register | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Citation Policy.md` | Citation Policy | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Metadata Policy.md` | Metadata Policy | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Naming Policy.md` | Naming Policy | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Privacy Policy.md` | Privacy Policy | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Source Attribution Policy.md` | Source Attribution Policy | no_confident_rule |
 | `06_GOVERNANCE/Institutional Policies/Versioning Policy.md` | Versioning Policy | no_confident_rule |
+| `06_GOVERNANCE/Institutional Timeline.md` | Institutional Timeline | no_confident_rule |
 | `06_GOVERNANCE/Research Debt Register/Research Debt Register.md` | Research Debt Register | no_confident_rule |
 | `06_GOVERNANCE/Research Framework/Institutional Intelligence Translation Framework v1.0.md` | Institutional Intelligence Translation Framework v1.0 | no_confident_rule |
 | `06_GOVERNANCE/Research Framework/Research Integration Framework.md` | Research Integration Framework | no_confident_rule |
@@ -156,8 +158,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md` | Building Milestone | no_confident_rule |
 | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/CONSTITUTIONV1.0.md` | CONSTITUTIONV1.0 | no_confident_rule |
 | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/PHASE 1 - FOUNDATION.md` | Phase 1 - Foundation | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/CONCEPT NOTE TEMPLATE.md` | CONCEPT NOTE TEMPLATE | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/phase 2/CORE FOLDER.md` | CORE FOLDER | no_confident_rule |
 
 ## Missing YAML
 
@@ -181,7 +181,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `docs/constitution/LUMIAION_CONSTITUTION.md` | LUMIAION |
 | `docs/constitution/README.md` | LUMIAION Constitution |
 | `docs/setup/Claude-Code-in-Obsidian.md` | Claude Code inside Obsidian — Setup Guide |
-| `governance/CN-001 Execution Tracker.md` | CN-001 — Execution Tracker & Attribution Ledger |
 
 ## High-Value Cleanup Candidates
 
@@ -204,7 +203,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `03_AI_COUNCIL/Departments/VORTEX Charter.md` | missing artifact_type |
 | `03_AI_COUNCIL/Engine Registry.md` | unknown node type, missing artifact_type |
 | `03_AI_COUNCIL/Engine Succession Policy.md` | unknown node type, missing artifact_type |
-| `03_AI_COUNCIL/Ethics Council Charter.md` | missing artifact_type |
 | `03_AI_COUNCIL/Institutional Registry.md` | unknown node type, missing artifact_type |
 | `03_AI_COUNCIL/YUNA Charter.md` | missing artifact_type |
 | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | unknown node type, missing artifact_type |
@@ -220,12 +218,15 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Founder Directives/Founder Directives Register.md` | missing artifact_type |
+| `06_GOVERNANCE/Institutional Glossary & Acronym Register.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Institutional Open Questions Register.md` | missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Citation Policy.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Metadata Policy.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Naming Policy.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Privacy Policy.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Source Attribution Policy.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Institutional Policies/Versioning Policy.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Institutional Timeline.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Research Debt Register/Research Debt Register.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Research Framework/Institutional Intelligence Translation Framework v1.0.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Research Framework/Research Integration Framework.md` | unknown node type, missing artifact_type |
@@ -285,8 +286,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `07_RESEARCH/RP-002/06 Source - Illustrated/RP-002 Source Note - Illustrated.md` | missing artifact_type |
 | `07_RESEARCH/RP-002/07 Future Sources/RP-002 Future Sources.md` | missing artifact_type |
 | `07_RESEARCH/RP-002/08 Comparative Framework/RP-002 Comparative Framework.md` | unknown node type, missing artifact_type |
-| `07_RESEARCH/RP-002/09 Canonical Synthesis/RP-002 Canonical Synthesis.md` | missing artifact_type |
-| `07_RESEARCH/RP-002/10 Theory Matrix/RP-002 Theory Matrix.md` | unknown node type, missing artifact_type |
 
 ## Recommendations for ES-006
 

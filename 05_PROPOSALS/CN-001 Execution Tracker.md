@@ -1,4 +1,24 @@
+---
+title: "CN-001 Execution Tracker"
+aliases: ["CN-001 — Execution Tracker & Attribution Ledger"]
+tags: [proposal, repository-coherence, namespace, execution-tracker, alpha-proxima]
+created: 2026-08-05
+updated: 2026-09-02
+status: active
+version: "1.1.0"
+authors: ["CLAUDE", "CODEX"]
+artifact_type: implementation-plan
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Implementation"
+reasoning_engine: "CODEX"
+dependencies: ["[[Vault Structure Convention]]", "[[Book III - Knowledge Integrity]]"]
+related_documents: ["[[Alpha Proxima App README]]", "[[Repository Reboot Audit - 2026-08-23]]"]
+related_research_programs: []
+---
+
 # CN-001 — Execution Tracker & Attribution Ledger
+
+> **Current repository status (2026-09-02):** The Founder-ratified folder collisions and PR #7 reconciliation are complete. CN-001 remains active for the measured coherence backlog. The original launch-state protocol below is retained as execution history, not as current repository status.
 
 *Dedicated tracking artifact for **CN-001 — Canonical Namespace & Repository Taxonomy Standard** (Phase 1.5 — Repository Coherence). This branch (`governance/cn-001-repository-coherence`) is the single, followable home for all CN-001 work, so every action can always be traced back to **Codex**, **Claude Code**, or the **Founder**.*
 

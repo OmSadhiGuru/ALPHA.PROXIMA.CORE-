@@ -24,20 +24,20 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-future14.JNpTD5`
-- Generated: `2026-09-02T00:50:09-04:00`
-- Total relationships discovered: `3148`
+- Vault: `/private/tmp/alpha-next.Gdnbnx`
+- Generated: `2026-09-02T01:08:48-04:00`
+- Total relationships discovered: `3184`
 - Low-confidence relationships: `179`
-- Broken or unresolved links: `293`
+- Broken or unresolved links: `298`
 
 ## Relationships by Type
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `REFERENCES` | `1990` |
-| `RELATED_TO` | `417` |
-| `PRODUCED_BY` | `305` |
-| `REQUIRES` | `244` |
+| `REFERENCES` | `2021` |
+| `RELATED_TO` | `419` |
+| `PRODUCED_BY` | `306` |
+| `REQUIRES` | `246` |
 | `PART_OF` | `175` |
 | `IMPLEMENTS` | `11` |
 | `EXTENDS` | `2` |
@@ -48,8 +48,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Source | Count |
 |--------|-------|
-| `wiki_link` | `1992` |
-| `yaml_field` | `968` |
+| `wiki_link` | `2023` |
+| `yaml_field` | `973` |
 | `folder_inference` | `175` |
 | `filename_inference` | `13` |
 
@@ -162,8 +162,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `OWNED_BY` | `180` |
-| `PRODUCED_BY` | `57` |
+| `OWNED_BY` | `181` |
+| `PRODUCED_BY` | `61` |
 | `REFERENCES` | `30` |
 | `DEPENDS_ON` | `16` |
 | `RELATED_TO` | `8` |
@@ -194,6 +194,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `PRODUCED_BY` | `03_AI_COUNCIL/YUNA Charter.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `SUPERSEDES` | `04_DECISIONS/ADR-0001 - The Founding Decision.md` | `null` | `yaml_field` | `supersedes` |
 | `SUPERSEDES` | `04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md` | `null` | `yaml_field` | `supersedes` |
+| `OWNED_BY` | `05_PROPOSALS/CN-001 Execution Tracker.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `PRODUCED_BY` | `05_PROPOSALS/CN-001 Execution Tracker.md` | `CLAUDE` | `yaml_field` | `authors` |
 | `OWNED_BY` | `05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md` | `Claude Code — Vault Architect` | `yaml_field` | `authors` |
 | `OWNED_BY` | `05_PROPOSALS/Phase III Preparation/08_SYSTEMS DRAFT TRIAGE REGISTER.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
@@ -208,11 +210,13 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `PRODUCED_BY` | `05_PROPOSALS/Phase III Preparation/PHASE III INSTITUTIONAL READINESS MAP.md` | `Claude Code — Vault Architect` | `yaml_field` | `authors` |
 | `REFERENCES` | `06_GOVERNANCE/Canonical Terminology/Canonical Terminology Register.md` | `08_SYSTEMS/Protocols/` | `wiki_link` | `` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Canonical Terminology/Canonical Terminology Register.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `REFERENCES` | `06_GOVERNANCE/Constitutional Audit/CAR-001 Constitutional Audit Report.md` | `wikilinks` | `wiki_link` | `` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Constitutional Audit/CAR-001 Constitutional Audit Report.md` | `Chief Institutional Architect` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `06_GOVERNANCE/Institutional Glossary & Acronym Register.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `06_GOVERNANCE/Institutional Open Questions Register.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `06_GOVERNANCE/Institutional Timeline.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `REFERENCES` | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | `04 Source - Perplexity` | `wiki_link` | `` |
 | `REFERENCES` | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | `05 Source - Gemini` | `wiki_link` | `` |
 | `REFERENCES` | `07_RESEARCH/RP-001/00 Executive Summary/RP-001 Executive Summary.md` | `13 Research Graph/Concepts` | `wiki_link` | `` |
@@ -223,8 +227,6 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `OWNED_BY` | `07_RESEARCH/RP-001/RP-001 Master Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `REFERENCES` | `07_RESEARCH/RP-002/09 Canonical Synthesis/RP-002 Canonical Synthesis.md` | `13 Research Graph/Concepts/` | `wiki_link` | `` |
 | `OWNED_BY` | `07_RESEARCH/RP-002/RP-002 Master Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `REFERENCES` | `07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Institutional Synthesis Report.md` | `ISR-001 Canonical Synthesis — Cross-Program` | `wiki_link` | `` |
-| `REFERENCES` | `07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Knowledge Graph Update Recommendations.md` | `ISR-001 Canonical Synthesis — Cross-Program` | `wiki_link` | `` |
 | `OWNED_BY` | `08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `08_SYSTEMS/Alpha Proxima Operating Model v1.0.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
 | `DEPENDS_ON` | `08_SYSTEMS/Automation/Vault Note Generator.md` | `Python 3 standard library` | `yaml_field` | `dependencies` |
@@ -239,6 +241,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `OWNED_BY` | `08_SYSTEMS/Engineering Standards/09 - Git Standard.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Standards/10 - Template Standard.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Standards/11 - One Question Document Standard.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `REFERENCES` | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | `Note` | `wiki_link` | `` |
+| `REFERENCES` | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | `folder/Note` | `wiki_link` | `` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | `CLAUDE` | `yaml_field` | `authors` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Standards/ALPHA PROXIMA ENGINEERING HANDBOOK.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
@@ -275,6 +279,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `OWNED_BY` | `08_SYSTEMS/Engineering Toolkit/Tool 009 - Graph Color System.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `DEPENDS_ON` | `08_SYSTEMS/Engineering Toolkit/Tool 012 - Founder OS State Engine.md` | `Python 3 standard library` | `yaml_field` | `dependencies` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Toolkit/Tool 012 - Founder OS State Engine.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `REFERENCES` | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | `Note` | `wiki_link` | `` |
+| `REFERENCES` | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | `folder/Note` | `wiki_link` | `` |
 | `DEPENDS_ON` | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | `Python 3 standard library` | `yaml_field` | `dependencies` |
 | `OWNED_BY` | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | `CLAUDE` | `yaml_field` | `authors` |
@@ -317,12 +323,6 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Management Toolkit v1.0.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Canonical Synthesis Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `PRODUCED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Canonical Synthesis Template.md` | `<AUTHOR>` | `yaml_field` | `authors` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Evidence Registry Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `PRODUCED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Evidence Registry Template.md` | `<AUTHOR>` | `yaml_field` | `authors` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Future Research Template.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `PRODUCED_BY` | `08_SYSTEMS/Research Management Toolkit/Templates/Future Research Template.md` | `<AUTHOR>` | `yaml_field` | `authors` |
 
 ## High-Value Cleanup Recommendations
 

@@ -45,7 +45,7 @@ env:
   # its own decay — if this number needs to go up, the change being made is
   # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
   #
-  # 2026-09-02: 130 — 21 orphans, 18 missing frontmatter, 87 broken links, 4 empty,
+  # 2026-09-02: 129 — 21 orphans, 17 missing frontmatter, 87 broken links, 4 empty,
   #                   across 366 documents.
   #
   # How this number got here, because the path matters more than the value:
@@ -69,7 +69,7 @@ env:
   #
   # This comment is a dated record of how the ceiling was composed when it was
   # set. The live figure is the run summary of this workflow, never a document.
-  COHERENCE_CEILING: "130"
+  COHERENCE_CEILING: "129"
   AP: 08_SYSTEMS/Engineering Toolkit/ap.py
 
 jobs:
