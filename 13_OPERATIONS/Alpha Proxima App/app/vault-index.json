@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T04:50:43+00:00",
-  "note_count": 363,
+  "generated_at": "2026-09-02T05:01:45+00:00",
+  "note_count": 366,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -18,7 +18,7 @@
       "id": "03_AI_COUNCIL",
       "name": "AI Council",
       "question": "Who reasons on its behalf",
-      "count": 16
+      "count": 15
     },
     {
       "id": "04_DECISIONS",
@@ -36,7 +36,7 @@
       "id": "06_GOVERNANCE",
       "name": "Governance",
       "question": "How institutional authority is constrained",
-      "count": 27
+      "count": 30
     },
     {
       "id": "07_RESEARCH",
@@ -54,7 +54,7 @@
       "id": "09_OFFICES",
       "name": "Offices",
       "question": "Where institutional authority is housed",
-      "count": 6
+      "count": 7
     },
     {
       "id": "10_TEMPLATES",
@@ -251,7 +251,7 @@
         "lumiaion-md",
         "03-ai-council-departments-jeranium-charter-md",
         "08-systems-protocols-research-governance-protocol-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "03-ai-council-departments-lumiaion-charter-md",
         "08-systems-protocols-knowledge-ownership-protocol-md"
       ],
@@ -295,7 +295,7 @@
         "09-offices-engineering-office-engineering-office-charter-md",
         "09-offices-institutional-observatory-institutional-observatory-charter-md",
         "09-offices-executive-office-executive-office-charter-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "03-ai-council-ai-council-registry-md",
         "06-governance-canonical-terminology-canonical-terminology-register-md",
         "08-systems-alpha-proxima-operating-model-v1-0-md"
@@ -372,7 +372,7 @@
       "words": 613,
       "links": [],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 4
     },
     {
       "id": "00-constitution-founding-principles-of-alpha-proxima-md",
@@ -473,8 +473,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1521,
+      "words": 1565,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-engine-registry-md",
         "00-constitution-book-ii-governance-framework-md",
         "00-constitution-book-i-the-constitution-md",
@@ -534,7 +535,7 @@
       "unresolved": [
         "ADR Template\\"
       ],
-      "backlinks": 10
+      "backlinks": 11
     },
     {
       "id": "03-ai-council-cognitive-council-charter-md",
@@ -635,10 +636,14 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 6334,
-      "links": [],
+      "words": 6744,
+      "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
+        "03-ai-council-yuna-charter-md",
+        "06-governance-epoch-v-interim-authority-instrument-md"
+      ],
       "unresolved": [],
-      "backlinks": 8
+      "backlinks": 9
     },
     {
       "id": "03-ai-council-departments-athena-charter-md",
@@ -667,8 +672,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1222,
+      "words": 1266,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-departments-lumiaion-charter-md",
         "03-ai-council-ai-council-registry-md",
         "03-ai-council-departments-vortex-charter-md",
@@ -712,8 +718,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1309,
+      "words": 1353,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-departments-lumiaion-charter-md",
         "03-ai-council-ai-council-registry-md",
         "03-ai-council-departments-athena-charter-md",
@@ -811,8 +818,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1274,
+      "words": 1318,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-departments-lumiaion-charter-md",
         "03-ai-council-ai-council-registry-md",
         "03-ai-council-departments-athena-charter-md",
@@ -856,8 +864,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1183,
+      "words": 1227,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-departments-lumiaion-charter-md",
         "03-ai-council-ai-council-registry-md",
         "03-ai-council-departments-athena-charter-md",
@@ -899,8 +908,9 @@
       ],
       "updated": "2026-07-02",
       "has_frontmatter": true,
-      "words": 1358,
+      "words": 1402,
       "links": [
+        "06-governance-epoch-v-governance-model-crosswalk-md",
         "03-ai-council-ai-council-registry-md",
         "00-constitution-book-ii-governance-framework-md",
         "lumiaion-md",
@@ -950,48 +960,6 @@
       ],
       "unresolved": [],
       "backlinks": 4
-    },
-    {
-      "id": "03-ai-council-ethics-council-charter-md",
-      "path": "03_AI_COUNCIL/Ethics Council Charter.md",
-      "title": "Ethics Council Charter",
-      "domain": "03_AI_COUNCIL",
-      "type": "unclassified",
-      "status": "ratified",
-      "version": "1.0.0",
-      "owner": "",
-      "function": "",
-      "engine": "",
-      "authors": [
-        "Frederick Belizaire Gunville"
-      ],
-      "tags": [
-        "governance",
-        "ethics",
-        "charter",
-        "constitutional",
-        "alpha-proxima",
-        "council"
-      ],
-      "updated": "2026-07-02",
-      "has_frontmatter": true,
-      "words": 2031,
-      "links": [
-        "00-constitution-book-i-the-constitution-md",
-        "00-constitution-book-ii-governance-framework-md",
-        "08-systems-protocols-knowledge-ownership-protocol-md",
-        "03-ai-council-ai-council-registry-md",
-        "08-systems-lumiaion-architecture-spec-v0-1-md",
-        "03-ai-council-institutional-registry-md",
-        "08-systems-protocols-research-governance-protocol-md",
-        "03-ai-council-departments-lumiaion-charter-md",
-        "10-templates-adr-template-md",
-        "10-templates-concept-note-template-md"
-      ],
-      "unresolved": [
-        "Knowledge Integrity"
-      ],
-      "backlinks": 14
     },
     {
       "id": "03-ai-council-institutional-registry-md",
@@ -1090,7 +1058,7 @@
       "words": 540,
       "links": [],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "04-decisions-adr-0001-the-founding-decision-md",
@@ -1220,7 +1188,7 @@
       "links": [
         "00-constitution-book-i-the-constitution-md",
         "00-constitution-book-ii-governance-framework-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "08-systems-protocols-research-governance-protocol-md",
         "08-systems-foundational-architecture-md",
         "08-systems-protocols-future-expansion-protocol-md",
@@ -1399,7 +1367,7 @@
       "links": [
         "05-proposals-cn-0001-constitutional-alignment-gap-report-md",
         "00-constitution-book-ii-governance-framework-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "08-systems-protocols-research-governance-protocol-md",
         "08-systems-foundational-architecture-md",
         "08-systems-protocols-future-expansion-protocol-md",
@@ -1489,7 +1457,7 @@
       "unresolved": [
         "08_SYSTEMS/Protocols/"
       ],
-      "backlinks": 9
+      "backlinks": 10
     },
     {
       "id": "06-governance-constitutional-audit-car-001-constitutional-audit-report-md",
@@ -1517,7 +1485,7 @@
       ],
       "updated": "2026-07-04",
       "has_frontmatter": true,
-      "words": 6682,
+      "words": 6683,
       "links": [
         "00-constitution-book-i-the-constitution-md",
         "00-constitution-book-ii-governance-framework-md",
@@ -1531,7 +1499,7 @@
         "docs-constitution-lumiaion-constitution-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "06-governance-constitutional-impact-report-cir-001-epoch-iii-constitutional-refactoring-md",
@@ -1560,7 +1528,7 @@
       "has_frontmatter": true,
       "words": 2956,
       "links": [
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "00-constitution-book-iv-cognitive-architecture-md",
         "00-constitution-founding-principles-of-alpha-proxima-md",
         "06-governance-canonical-terminology-canonical-terminology-register-md",
@@ -1606,7 +1574,7 @@
         "09-offices-research-intelligence-office-research-intelligence-office-charter-md",
         "09-offices-engineering-office-engineering-office-charter-md",
         "09-offices-institutional-observatory-institutional-observatory-charter-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "00-constitution-book-iv-cognitive-architecture-md",
         "06-governance-constitutional-impact-report-cir-001-epoch-iii-constitutional-refactoring-md",
         "08-systems-alpha-proxima-operating-model-v1-0-md",
@@ -1641,7 +1609,7 @@
       "words": 471,
       "links": [],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "06-governance-directive-governance-framework-directive-governance-framework-md",
@@ -1706,10 +1674,10 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 940,
+      "words": 962,
       "links": [],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 9
     },
     {
       "id": "06-governance-epoch-v-interim-authority-instrument-md",
@@ -1738,7 +1706,7 @@
       "words": 443,
       "links": [],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "06-governance-foundation-gap-report-fgr-001-epoch-ii-stewardship-audit-md",
@@ -1801,7 +1769,75 @@
         "06-governance-directive-governance-framework-directive-governance-framework-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
+    },
+    {
+      "id": "06-governance-institutional-glossary-acronym-register-md",
+      "path": "06_GOVERNANCE/Institutional Glossary & Acronym Register.md",
+      "title": "Institutional Glossary & Acronym Register",
+      "domain": "06_GOVERNANCE",
+      "type": "unclassified",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "LUMIAION (CF-01)"
+      ],
+      "tags": [
+        "governance",
+        "glossary",
+        "acronyms",
+        "reference",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 596,
+      "links": [
+        "06-governance-canonical-terminology-canonical-terminology-register-md",
+        "03-ai-council-cognitive-function-registry-md",
+        "06-governance-research-debt-register-research-debt-register-md",
+        "06-governance-institutional-timeline-md",
+        "06-governance-epoch-v-governance-model-crosswalk-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "06-governance-institutional-open-questions-register-md",
+      "path": "06_GOVERNANCE/Institutional Open Questions Register.md",
+      "title": "Institutional Open Questions Register",
+      "domain": "06_GOVERNANCE",
+      "type": "unclassified",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "LUMIAION (CF-01)"
+      ],
+      "tags": [
+        "governance",
+        "open-questions",
+        "register",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 452,
+      "links": [
+        "06-governance-research-debt-register-research-debt-register-md",
+        "06-governance-constitutional-audit-car-001-constitutional-audit-report-md",
+        "03-ai-council-alpha-council-md",
+        "06-governance-epoch-v-interim-authority-instrument-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
     },
     {
       "id": "06-governance-institutional-policies-citation-policy-md",
@@ -1933,7 +1969,7 @@
       "links": [
         "09-offices-engineering-office-engineering-office-charter-md",
         "00-constitution-book-i-the-constitution-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "06-governance-institutional-policies-source-attribution-policy-md",
         "09-offices-research-intelligence-office-research-intelligence-office-charter-md"
       ],
@@ -2010,6 +2046,40 @@
       "backlinks": 2
     },
     {
+      "id": "06-governance-institutional-timeline-md",
+      "path": "06_GOVERNANCE/Institutional Timeline.md",
+      "title": "Institutional Timeline",
+      "domain": "06_GOVERNANCE",
+      "type": "unclassified",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "LUMIAION (CF-01)"
+      ],
+      "tags": [
+        "governance",
+        "timeline",
+        "history",
+        "epochs",
+        "epoch-v",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-02",
+      "has_frontmatter": true,
+      "words": 391,
+      "links": [
+        "06-governance-constitutional-impact-report-cir-003-epoch-v-constitutional-coherence-md",
+        "06-governance-constitutional-audit-car-001-constitutional-audit-report-md",
+        "06-governance-founder-directives-founder-directives-register-md",
+        "06-governance-institutional-glossary-acronym-register-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
       "id": "06-governance-research-debt-register-research-debt-register-md",
       "path": "06_GOVERNANCE/Research Debt Register/Research Debt Register.md",
       "title": "Research Debt Register",
@@ -2036,7 +2106,7 @@
       "words": 1789,
       "links": [],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 8
     },
     {
       "id": "06-governance-research-framework-institutional-intelligence-translation-framework-v1-0-md",
@@ -2326,7 +2396,7 @@
       "has_frontmatter": true,
       "words": 752,
       "links": [
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "08-systems-protocols-research-governance-protocol-md"
       ],
@@ -2751,7 +2821,7 @@
         "07-research-rp-001-10-theory-matrix-rp-001-theory-matrix-md",
         "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
         "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "03-ai-council-departments-sohma-charter-md"
       ],
       "unresolved": [
@@ -3550,7 +3620,7 @@
       "words": 429,
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "08-systems-protocols-research-governance-protocol-md"
       ],
       "unresolved": [
@@ -3829,7 +3899,7 @@
       "links": [
         "08-systems-protocols-research-governance-protocol-md",
         "00-constitution-book-iii-knowledge-integrity-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "03-ai-council-departments-jeranium-charter-md",
         "07-research-rp-001-09-canonical-synthesis-rp-001-canonical-synthesis-md",
         "07-research-rp-001-12-evidence-registry-rp-001-evidence-registry-md"
@@ -5154,7 +5224,7 @@
         "00-constitution-book-v-cognitive-council-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 3
     },
     {
       "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
@@ -5182,20 +5252,19 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 3920,
+      "words": 3918,
       "links": [
         "07-research-rp-001-rp-001-master-index-md",
         "07-research-rp-002-rp-002-master-index-md",
         "07-research-rp-003-rp-003-master-index-md",
         "06-governance-research-debt-register-research-debt-register-md",
+        "07-research-rp-003-00-institutional-stewardship-review-isr-001-canonical-synthesis-md",
         "07-research-rp-003-00-institutional-stewardship-review-isr-001-knowledge-graph-update-recommendations-md",
         "00-constitution-book-iii-knowledge-integrity-md",
         "00-constitution-book-v-cognitive-council-md",
         "03-ai-council-cognitive-function-registry-md"
       ],
-      "unresolved": [
-        "ISR-001 Canonical Synthesis — Cross-Program"
-      ],
+      "unresolved": [],
       "backlinks": 3
     },
     {
@@ -5223,13 +5292,13 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 1962,
+      "words": 1960,
       "links": [
         "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
+        "07-research-rp-003-00-institutional-stewardship-review-isr-001-canonical-synthesis-md",
         "06-governance-research-framework-research-integration-framework-md"
       ],
       "unresolved": [
-        "ISR-001 Canonical Synthesis — Cross-Program",
         "RP-001 Research Graph/RP-001 Research Graph",
         "RP-002 Research Graph/RP-002 Research Graph"
       ],
@@ -6468,7 +6537,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 814,
+      "words": 816,
       "links": [
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "13-operations-founder-os-founder-console-md",
@@ -7245,7 +7314,7 @@
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
         "03-ai-council-research-council-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "07-research-rp-001-rp-001-master-index-md",
         "03-ai-council-departments-jeranium-charter-md",
         "07-research-rp-001-08-comparative-framework-rp-001-comparative-framework-md",
@@ -7852,6 +7921,48 @@
       "backlinks": 5
     },
     {
+      "id": "09-offices-ethics-council-ethics-council-charter-md",
+      "path": "09_OFFICES/Ethics Council/Ethics Council Charter.md",
+      "title": "Ethics Council Charter",
+      "domain": "09_OFFICES",
+      "type": "unclassified",
+      "status": "ratified",
+      "version": "1.0.0",
+      "owner": "",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "Frederick Belizaire Gunville"
+      ],
+      "tags": [
+        "governance",
+        "ethics",
+        "charter",
+        "constitutional",
+        "alpha-proxima",
+        "council"
+      ],
+      "updated": "2026-07-02",
+      "has_frontmatter": true,
+      "words": 2031,
+      "links": [
+        "00-constitution-book-i-the-constitution-md",
+        "00-constitution-book-ii-governance-framework-md",
+        "08-systems-protocols-knowledge-ownership-protocol-md",
+        "03-ai-council-ai-council-registry-md",
+        "08-systems-lumiaion-architecture-spec-v0-1-md",
+        "03-ai-council-institutional-registry-md",
+        "08-systems-protocols-research-governance-protocol-md",
+        "03-ai-council-departments-lumiaion-charter-md",
+        "10-templates-adr-template-md",
+        "10-templates-concept-note-template-md"
+      ],
+      "unresolved": [
+        "Knowledge Integrity"
+      ],
+      "backlinks": 14
+    },
+    {
       "id": "09-offices-executive-office-executive-office-charter-md",
       "path": "09_OFFICES/Executive Office/Executive Office Charter.md",
       "title": "Executive Office Charter",
@@ -8083,10 +8194,7 @@
         "03-ai-council-alpha-council-md",
         "10-templates-concept-note-template-md"
       ],
-      "unresolved": [
-        "Name or Role",
-        "Name"
-      ],
+      "unresolved": [],
       "backlinks": 17
     },
     {
@@ -8196,9 +8304,7 @@
         "06-governance-research-framework-translation-review-process-md",
         "06-governance-research-framework-translation-decision-matrix-md"
       ],
-      "unresolved": [
-        "Link to canonical glossary entry"
-      ],
+      "unresolved": [],
       "backlinks": 4
     },
     {
@@ -8261,7 +8367,7 @@
       "links": [
         "00-constitution-book-iii-knowledge-integrity-md",
         "08-systems-protocols-research-governance-protocol-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "04-decisions-adr-0001-the-founding-decision-md"
       ],
       "unresolved": [
@@ -8547,7 +8653,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1229,
+      "words": 1227,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
@@ -11111,7 +11217,7 @@
         "03-ai-council-institutional-registry-md",
         "03-ai-council-cognitive-council-charter-md",
         "03-ai-council-ai-council-registry-md",
-        "03-ai-council-ethics-council-charter-md",
+        "09-offices-ethics-council-ethics-council-charter-md",
         "03-ai-council-cognitive-function-registry-md",
         "03-ai-council-yuna-charter-md",
         "03-ai-council-cognitive-function-matrix-md",
@@ -11214,8 +11320,10 @@
       "tags": [],
       "updated": "",
       "has_frontmatter": false,
-      "words": 5082,
-      "links": [],
+      "words": 5118,
+      "links": [
+        "00-constitution-constitutional-hierarchy-statement-md"
+      ],
       "unresolved": [],
       "backlinks": 2
     },
@@ -12464,8 +12572,10 @@
       ],
       "updated": "2026-07-03",
       "has_frontmatter": true,
-      "words": 12243,
-      "links": [],
+      "words": 12279,
+      "links": [
+        "00-constitution-constitutional-hierarchy-statement-md"
+      ],
       "unresolved": [],
       "backlinks": 3
     },
@@ -12590,9 +12700,9 @@
     }
   ],
   "coherence": {
-    "note_count": 363,
-    "connected": 312,
-    "connectedness": 0.8595,
+    "note_count": 366,
+    "connected": 315,
+    "connectedness": 0.8607,
     "orphans": [
       {
         "id": "07-research-rp-001-04-source-perplexity-rp-001-source-note-perplexity-md",
@@ -13111,14 +13221,6 @@
         "title": "Engine Registry",
         "targets": [
           "Knowledge Infrastructure"
-        ]
-      },
-      {
-        "id": "03-ai-council-ethics-council-charter-md",
-        "path": "03_AI_COUNCIL/Ethics Council Charter.md",
-        "title": "Ethics Council Charter",
-        "targets": [
-          "Knowledge Integrity"
         ]
       },
       {
@@ -13706,19 +13808,10 @@
         ]
       },
       {
-        "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-institutional-synthesis-report-md",
-        "path": "07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Institutional Synthesis Report.md",
-        "title": "ISR-001 — Institutional Synthesis Report: RP-001 and RP-002",
-        "targets": [
-          "ISR-001 Canonical Synthesis — Cross-Program"
-        ]
-      },
-      {
         "id": "07-research-rp-003-00-institutional-stewardship-review-isr-001-knowledge-graph-update-recommendations-md",
         "path": "07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Knowledge Graph Update Recommendations.md",
         "title": "ISR-001 Knowledge Graph Update Recommendations",
         "targets": [
-          "ISR-001 Canonical Synthesis — Cross-Program",
           "RP-001 Research Graph/RP-001 Research Graph",
           "RP-002 Research Graph/RP-002 Research Graph"
         ]
@@ -13831,20 +13924,19 @@
         ]
       },
       {
+        "id": "09-offices-ethics-council-ethics-council-charter-md",
+        "path": "09_OFFICES/Ethics Council/Ethics Council Charter.md",
+        "title": "Ethics Council Charter",
+        "targets": [
+          "Knowledge Integrity"
+        ]
+      },
+      {
         "id": "09-offices-lumiaion-lumiaion-charter-md",
         "path": "09_OFFICES/LUMIAION/LUMIAION Charter.md",
         "title": "LUMIAION Charter — Permanent Constitutional Definition",
         "targets": [
           "08_SYSTEMS/Protocols/Communication Protocol"
-        ]
-      },
-      {
-        "id": "10-templates-adr-template-md",
-        "path": "10_TEMPLATES/ADR Template.md",
-        "title": "ADR Template",
-        "targets": [
-          "Name or Role",
-          "Name"
         ]
       },
       {
@@ -13863,14 +13955,6 @@
         "title": "Implementation Note Template",
         "targets": [
           "{{AUTHOR}}"
-        ]
-      },
-      {
-        "id": "10-templates-institutional-translation-template-v1-0-md",
-        "path": "10_TEMPLATES/Institutional Translation Template v1.0.md",
-        "title": "Institutional Translation Template v1.0",
-        "targets": [
-          "Link to canonical glossary entry"
         ]
       },
       {
@@ -14189,7 +14273,7 @@
     "counts": {
       "orphans": 51,
       "missing_frontmatter": 18,
-      "broken_links": 349,
+      "broken_links": 344,
       "empty_notes": 4
     }
   },
@@ -14197,7 +14281,7 @@
     "type": [
       [
         "unclassified",
-        183
+        186
       ],
       [
         "legacy-placeholder",
@@ -14479,7 +14563,7 @@
     "status": [
       [
         "active",
-        199
+        202
       ],
       [
         "ratified",

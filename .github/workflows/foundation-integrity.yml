@@ -45,16 +45,16 @@ env:
   # its own decay — if this number needs to go up, the change being made is
   # wrong. Every defect counted here belongs to CN-001, which owns the taxonomy.
   #
-  # 2026-09-02: 422 — 51 orphans, 18 missing frontmatter, 349 broken links,
+  # 2026-09-02: 417 — 51 orphans, 18 missing frontmatter, 344 broken links,
   #                   4 empty documents, across 362 documents.
   # One-time Founder-ratified scope reset: PR #7 reconciled 89 previously
   # unindexed constitutional/research documents. The folder rename itself
   # introduced no broken references to the retired paths. Ratchet down from
-  # this expanded-corpus baseline; do not treat 422 as an acceptable target.
+  # this expanded-corpus baseline; do not treat the ceiling as an acceptable target.
   #
   # This comment is a dated record of how the ceiling was composed when it was
   # set. The live figure is the run summary of this workflow, never a document.
-  COHERENCE_CEILING: "422"
+  COHERENCE_CEILING: "417"
   AP: 08_SYSTEMS/Engineering Toolkit/ap.py
 
 jobs:
