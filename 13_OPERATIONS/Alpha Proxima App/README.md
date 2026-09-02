@@ -112,7 +112,7 @@ Paths are overridable with `--root`, `--state`, `--template`, `--app`, and `--in
 
 ### Regenerating
 
-The app does **not** re-render itself when Founder OS state changes, because indexing 361 notes on every `task-state` call costs time no reader benefits from. Run `render` when you want the file refreshed, or use `serve` for a view that is always current:
+The app does **not** re-render itself when Founder OS state changes, because indexing 362 notes on every `task-state` call costs time no reader benefits from. Run `render` when you want the file refreshed, or use `serve` for a view that is always current:
 
 ```bash
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder task-state TSK-004 working
@@ -150,8 +150,8 @@ The next session can resume from here without re-deriving anything.
 
 | Signal | Value |
 |---|---|
-| Institutional documents | 361 |
-| Connected | 310 (85.9%) |
+| Institutional documents | 362 |
+| Connected | 311 (85.9%) |
 | Orphans | 51 |
 | Missing frontmatter | 18 |
 | Broken links | 349 |
@@ -175,7 +175,7 @@ The next session can resume from here without re-deriving anything.
 
 **Not built, deliberately**
 
-A visual graph (a 361-node hairball is decorative, not navigable — the per-document connection list answers the real question better), editing from the interface (a second writer is a Founder decision, not an enhancement), automatic re-render on state change, and any hosted deployment.
+A visual graph (a 362-node hairball is decorative, not navigable — the per-document connection list answers the real question better), editing from the interface (a second writer is a Founder decision, not an enhancement), automatic re-render on state change, and any hosted deployment.
 
 ---
 
