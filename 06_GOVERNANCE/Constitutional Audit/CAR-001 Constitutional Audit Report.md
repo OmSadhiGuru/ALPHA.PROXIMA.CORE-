@@ -104,7 +104,7 @@ The foundation now holds: `00_CONSTITUTION/` Books I–V (institutional), `docs/
 
 ### CAR-F07 — Folder numbering collisions — **High (structural)**
 
-The Vault Structure Convention assigns `06 = PROJECTS` and `09 = PEOPLE`. The live tree has **`06_GOVERNANCE` and `06_PROJECTS`** (both "06") and **`09_OFFICES` and `09_PEOPLE`** (both "09"). Two numeric slots carry two folders each. This breaks the ordering guarantee the convention exists to provide.
+The Vault Structure Convention assigns `06 = PROJECTS` and `09 = PEOPLE`. The live tree has **`06_GOVERNANCE` and `11_PROJECTS`** (both "06") and **`09_OFFICES` and `12_PEOPLE`** (both "09"). Two numeric slots carry two folders each. This breaks the ordering guarantee the convention exists to provide.
 
 **Resolution:** Renumber to a clean scheme. Recommended: keep GOVERNANCE at 06, move PROJECTS to an unused index (e.g. 11), keep OFFICES and PEOPLE distinct (e.g. 09_OFFICES, 12_PEOPLE) — or adopt a two-digit reservation table in the Convention. Update the Convention, the MOC, and all path-based links.
 
@@ -196,19 +196,19 @@ Documents the audit finds **absent** that the constitutional completeness checkl
 | `03_AI_COUNCIL/` | AI governance bodies & registries | Yes (dense) | Holds 3 conflicting models (CAR-F01); mislabeled vs Cognitive Council (CAR-F14); Ethics Council location (CAR-F11) |
 | `04_DECISIONS/` | ADRs | 1 ADR | Only ADR-0001; many "ratifications" lack ADRs (see CAR-F04) |
 | `05_PROPOSALS/` | Concept Notes | 1 (CN-0001) | Sparse; JERANIUM research-backlog question (open) |
-| `06_GOVERNANCE/` | Policies, frameworks, registers | Yes (rich) | Best-populated governance layer; numbering collision with 06_PROJECTS (CAR-F07) |
-| `06_PROJECTS/` | Project workspaces | **Empty** (gitkeep) | Numbering collision (CAR-F07) |
+| `06_GOVERNANCE/` | Policies, frameworks, registers | Yes (rich) | Best-populated governance layer; numbering collision with 11_PROJECTS (CAR-F07) |
+| `11_PROJECTS/` | Project workspaces | **Empty** (gitkeep) | Numbering collision (CAR-F07) |
 | `07_RESEARCH/` | Research programs | Yes (RP-001/002 deep; 003–006 placeholders) | Cross-program index missing (M-09); stale cache references (CAR-F13) |
 | `08_SYSTEMS/` | Technical architecture | Yes | LUMIAION spec at v0.1; ontology schema missing (M-15) |
 | `09_OFFICES/` | Institutional offices | Yes (5 offices) | Ethics Council should live here (CAR-F11) |
-| `09_PEOPLE/` | Participants | **Empty** (gitkeep) | Numbering collision (CAR-F07); Council seats unnamed (CAR-F04) |
+| `12_PEOPLE/` | Participants | **Empty** (gitkeep) | Numbering collision (CAR-F07); Council seats unnamed (CAR-F04) |
 | `10_TEMPLATES/` | Reusable formats | Yes | Healthy; add Translation & Research Commission templates to MOC index |
 | `99_ARCHIVE/` | Retired notes | **Empty** (gitkeep) | Legacy `ALPHA PROXIMA/` tree should migrate here (CAR-F10) |
 | `ALPHA PROXIMA/` | Legacy scaffolding | Yes | Not in numbered scheme; conflicts (CAR-F10) |
 | `docs/constitution/` | LUMIAION Constitution | Yes | Outside vault convention (CAR-F08) |
 | `PROJECT_GENOME/` | Genome Constitution | Yes | Outside vault convention (CAR-F08) |
 
-**Empty folders (gitkeep only):** `02_STRATEGY`, `06_PROJECTS`, `09_PEOPLE`, `99_ARCHIVE`. Each is a legitimate reserved slot but signals unfinished institutional build-out.
+**Empty folders (gitkeep only):** `02_STRATEGY`, `11_PROJECTS`, `12_PEOPLE`, `99_ARCHIVE`. Each is a legitimate reserved slot but signals unfinished institutional build-out.
 
 ---
 

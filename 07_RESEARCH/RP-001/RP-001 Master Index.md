@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: active
 version: "2.1.0"
 authors: ["Frederick Belizaire Gunville", "LUMIAION"]
+artifact_type: research-program-index
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Research Intelligence"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book III - Knowledge Integrity]]", "[[Research Governance Protocol]]"]
+related_documents: ["[[RP-001 Canonical Synthesis]]", "[[RP-001 Evidence Registry]]", "[[Research Governance Protocol]]"]
+related_research_programs: ["RP-001"]
 research_program: "RP-001 Atlas of Human Consciousness"
 canon_status: under_review
 ---

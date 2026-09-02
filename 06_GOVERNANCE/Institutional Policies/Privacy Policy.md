@@ -58,7 +58,7 @@ Constitutional documents, governance frameworks, research programs, engineering 
 Names, roles, contact information, and contributions of human participants in the Foundation.
 
 **Handling:**
-- Stored only in `09_PEOPLE/` (when this folder is created)
+- Stored only in `12_PEOPLE/` (when this folder is created)
 - Not published publicly without explicit participant consent
 - Minimum necessary information only: role, institutional contributions, contact method for institutional use
 - No biometric, financial, health, or personal history data without explicit informed consent and a documented legitimate purpose

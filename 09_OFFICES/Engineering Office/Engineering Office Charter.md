@@ -288,7 +288,7 @@ The Engineering Office is responsible for maintaining:
 
 | Artifact Class | Description | Location |
 |---------------|-------------|---------|
-| Engineering Program files | EP-NNN program documentation | `06_PROJECTS/EP-NNN/` or equivalent |
+| Engineering Program files | EP-NNN program documentation | `11_PROJECTS/EP-NNN/` or equivalent |
 | Foundational Architecture | Current and target technical architecture | [[Foundational Architecture]] |
 | Engineering Debt Register | All open and closed engineering debts | `06_GOVERNANCE/Engineering Debt Register/` *(to create)* |
 | GitHub Repository | All code, configuration, and version history | `omsadhiguru/alpha.proxima.core-` |

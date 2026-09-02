@@ -5,5 +5,16 @@
 # Smart Connections embedding cache (stale, machine-generated)
 .smart-env/
 
+# Obsidian and AI-assistant machine-local state
+.obsidian/
+.claudian/
+.makemd/
+copilot/
+Tags/
+
+# Python validator cache
+__pycache__/
+*.py[cod]
+
 # Node
 node_modules/

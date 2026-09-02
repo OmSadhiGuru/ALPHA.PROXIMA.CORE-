@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: ratified
 version: "1.0.0"
 authors: ["Founder", "Alpha Proxima Foundation"]
+artifact_type: governance-framework
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Governance"
+reasoning_engine: "Alpha Council"
+dependencies: ["[[Book I - The Constitution]]"]
+related_documents: ["[[Book I - The Constitution]]", "[[Book III - Knowledge Integrity]]"]
+related_research_programs: []
 ---
 
 # Book II — Governance Framework of the Alpha Proxima Foundation

@@ -51,11 +51,11 @@ Where `NN` is a two-digit number and `FOLDER_NAME` is SCREAMING_SNAKE_CASE.
 | `04_DECISIONS/` | All ADRs |
 | `05_PROPOSALS/` | Concept Notes awaiting deliberation |
 | `06_GOVERNANCE/` | Governance documents and policies |
-| `06_PROJECTS/` | Active project workspaces |
+| `11_PROJECTS/` | Active project workspaces |
 | `07_RESEARCH/` | Research programs |
 | `08_SYSTEMS/` | Technical architecture and infrastructure |
 | `09_OFFICES/` | Institutional office documents |
-| `09_PEOPLE/` | Participant profiles and roles |
+| `12_PEOPLE/` | Participant profiles and roles |
 | `10_TEMPLATES/` | Reusable note formats |
 | `99_ARCHIVE/` | Superseded or retired notes |
 

@@ -5,7 +5,7 @@ tags: [convention, vault, structure, obsidian, standards, template]
 created: 2026-07-01
 updated: 2026-09-02
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["Alpha Council", "LUMIAION (CF-01)"]
 ---
 
@@ -75,6 +75,9 @@ ALPHA.PROXIMA.CORE-/
 ├── 12_PEOPLE/             ← Participant profiles and roles
 │                            One note per person/entity
 │
+├── 13_OPERATIONS/         ← Operational nervous system of the Foundation
+│                            Founder OS, workflows, registries, reviews, and metrics
+│
 └── 99_ARCHIVE/            ← Superseded, retired, or closed notes
                              Never delete; archive instead
 ```
@@ -89,7 +92,8 @@ ALPHA.PROXIMA.CORE-/
 | 03 | AI_COUNCIL | 10 | TEMPLATES |
 | 04 | DECISIONS | 11 | PROJECTS |
 | 05 | PROPOSALS | 12 | PEOPLE |
-| 06 | GOVERNANCE | 99 | ARCHIVE |
+| 06 | GOVERNANCE | 13 | OPERATIONS |
+|    |            | 99 | ARCHIVE |
 
 *Each number maps to exactly one folder. The Epoch III–IV additions `06_GOVERNANCE` and `09_OFFICES` kept their numbers (they are populated); the original `06_PROJECTS` → `11_PROJECTS` and `09_PEOPLE` → `12_PEOPLE` were renumbered (Epoch V) to remove the collisions.*
 
@@ -215,7 +219,7 @@ Templates start at `1.0.0`. Living documents (like this one) increment as update
 ## Open Questions
 
 - [ ] Should there be a `00_INDEX/` folder for MOC and navigation notes, separate from root-level notes?
-- [ ] What is the maximum recommended depth for subfolders within a project folder (`06_PROJECTS/`)?
+- [ ] What is the maximum recommended depth for subfolders within a project folder (`11_PROJECTS/`)?
 - [ ] Should templates themselves be versioned in git with their own changelog, separate from the vault convention?
 - [ ] Do we need a separate convention document for how [[LUMIAION]] should name and structure its own operational logs?
 
@@ -227,3 +231,4 @@ Templates start at `1.0.0`. Living documents (like this one) increment as update
 |---------|------|--------|---------|
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial convention established |
 | 1.1.0 | 2026-09-02 | LUMIAION (CF-01) | Epoch V Tier 2: number reservation table added (resolves CAR-F07 — `06_PROJECTS`→`11_PROJECTS`, `09_PEOPLE`→`12_PEOPLE`; GOVERNANCE/OFFICES keep their numbers); sanctioned `docs/`, `PROJECT_GENOME/`, `OSG_BUSINESS/` as governed structural exceptions (resolves CAR-F08) |
+| 1.2.0 | 2026-09-02 | Founder / CODEX | Founder-ratified reconciliation: reserve `13_OPERATIONS`; preserve `11_PROJECTS` and `12_PEOPLE`; remove the post-Epoch-V `11` collision introduced by the Operations layer |

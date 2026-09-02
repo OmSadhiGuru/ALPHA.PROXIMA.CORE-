@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: under_review
 version: "1.1.0"
 authors: ["LUMIAION", "JERANIUM"]
+artifact_type: canonical-synthesis
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Research Intelligence"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book III - Knowledge Integrity]]", "[[RP-001 Evidence Registry]]", "[[RP-001 Master Index]]"]
+related_documents: ["[[RP-001 Master Index]]", "[[RP-001 Evidence Registry]]", "[[DOC-001 Architecture of Human Consciousness]]", "[[DOC-003 Comparative Framework - SanaLab]]", "[[DOC-004 GNWT vs IIT Deep Dive - SanaLab]]"]
+related_research_programs: ["RP-001"]
 research_program: "RP-001 Atlas of Human Consciousness"
 canon_status: under_review
 evidence_class: M

@@ -45,7 +45,7 @@ All knowledge movement within Alpha Proxima falls into one of four flows:
 | Research finding | JERANIUM | `07_RESEARCH/` |
 | Decision rationale | Founder / LUMIAION | `04_DECISIONS/` (as ADR) |
 | Proposal | Any participant | `05_PROPOSALS/` (as Concept Note) |
-| Project output | Project lead | `06_PROJECTS/[Project Name]/` |
+| Project output | Project lead | `11_PROJECTS/[Project Name]/` |
 | System change | Engineering Council | `08_SYSTEMS/` |
 
 *Knowledge that does not reach the Vault is not institutional knowledge. It is lost.*
@@ -65,7 +65,7 @@ LUMIAION is responsible for identifying and surfacing the relevant Vault notes a
 | This session's domain (health? finance? research?) | Founder instruction |
 | Relevant department charter | `03_AI_COUNCIL/Departments/` |
 | Relevant ADRs and decisions | `04_DECISIONS/` |
-| Relevant project notes | `06_PROJECTS/` |
+| Relevant project notes | `11_PROJECTS/` |
 | Constitutional provisions if governance is involved | `00_CONSTITUTION/` |
 | Open questions from prior sessions in this domain | Vault search |
 

@@ -180,7 +180,7 @@ As Alpha Proxima develops:
 ## Open Questions
 
 - [ ] What health data should the Founder share with ATHENA as persistent context in the Vault?
-- [ ] Should ATHENA maintain a training log within `06_PROJECTS/`?
+- [ ] Should ATHENA maintain a training log within `11_PROJECTS/`?
 - [ ] How should ATHENA handle a situation where its recommendation conflicts with advice the Founder has received from a clinician?
 - [ ] At what point does ATHENA's knowledge base warrant a dedicated `07_RESEARCH/Health/` sublibrary?
 

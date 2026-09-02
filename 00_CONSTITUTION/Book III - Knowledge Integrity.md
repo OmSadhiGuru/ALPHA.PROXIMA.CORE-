@@ -7,6 +7,13 @@ updated: 2026-07-02
 status: ratified
 version: "1.0.0"
 authors: ["Frederick Belizaire Gunville"]
+artifact_type: constitutional-book
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Governance"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]"]
+related_documents: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]", "[[Research Governance Protocol]]"]
+related_research_programs: ["RP-001"]
 constitutional_rank: 3
 ---
 

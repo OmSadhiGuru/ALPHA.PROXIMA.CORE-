@@ -1,6 +1,6 @@
 ---
 title: "LUMIAION Architecture Spec v0.1"
-aliases: ["LUMIAION Architecture", "LIC Architecture", "LUMIAION Spec"]
+aliases: ["LUMIAION Architecture", "LUMIAION Architecture Spec", "LUMIAION Architecture Specification", "LIC Architecture", "LUMIAION Spec"]
 tags: [systems, architecture, lumiaion, intelligence, specification, alpha-proxima]
 created: 2026-07-02
 updated: 2026-07-02
@@ -165,7 +165,7 @@ At session start, LUMIAION loads context in priority order:
 | 2 | LUMIAION's own charter and spec | `03_AI_COUNCIL/Departments/`, `08_SYSTEMS/` | Yes |
 | 3 | Session domain charters | `03_AI_COUNCIL/Departments/` | Domain-specific |
 | 4 | Relevant recent ADRs | `04_DECISIONS/` | When decisions are in scope |
-| 5 | Active project notes | `06_PROJECTS/` | When projects are active |
+| 5 | Active project notes | `11_PROJECTS/` | When projects are active |
 | 6 | Relevant research | `07_RESEARCH/` | When research is needed |
 | 7 | Open questions from prior sessions | Relevant notes | When continuity needed |
 
@@ -308,7 +308,7 @@ Every session must end with knowledge writeback. This is not optional — it is 
 | Constitutional decision | `04_DECISIONS/` | ADR | Any Class I–III decision |
 | Proposal or idea | `05_PROPOSALS/` | Concept Note | When idea merits deliberation |
 | Research finding | `07_RESEARCH/` | Research note | When finding is significant |
-| Project output | `06_PROJECTS/[Project]/` | Project note | Any material project progress |
+| Project output | `11_PROJECTS/[Project]/` | Project note | Any material project progress |
 | Open question | Relevant existing note | Appended to Open Questions | When question needs tracking |
 | Synthesis insight | Most relevant folder | Standalone note | When insight is novel and significant |
 | Operational log | Session note (optional) | Timestamped entry | For high-frequency operational sessions |
