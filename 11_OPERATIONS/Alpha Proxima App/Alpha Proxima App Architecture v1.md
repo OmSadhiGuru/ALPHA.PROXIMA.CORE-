@@ -12,7 +12,7 @@ institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
 dependencies: ["[[Founder OS Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
-related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]"]
+related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
 
@@ -138,7 +138,9 @@ ap.py app check --max-defects 243   # today's honest baseline
 
 The ceiling exists because a gate that can never pass is not a gate — it is noise that teams learn to ignore. A ceiling that only ever decreases turns 243 defects from a permanent embarrassment into a tracked, closable number. **It must never be raised.** Raising it is how institutions quietly ratify their own decay.
 
-The ceiling is not stored in the repository. It is passed explicitly by whoever runs the check, so lowering it is a visible act in a command or a workflow, never a silent edit to a config file.
+The ceiling is not stored in a config file. It is passed explicitly by whoever runs the check, so lowering it is a visible act in a command or a workflow, never a silent edit.
+
+**Since 2026-09-02 the ratchet runs on every change**, enforced by [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING` and prints the Foundation's current coherence to each run's summary. The figures in this document are a dated record; the live number is the workflow's.
 
 ### 8. Presentation
 

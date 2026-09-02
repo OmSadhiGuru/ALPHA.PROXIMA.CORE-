@@ -108,7 +108,7 @@ $AP index                     # the vault index as JSON
 $AP view                      # the composed read model as JSON
 ```
 
-Paths are overridable with `--root`, `--state`, `--template`, `--app`, and `--index`.
+Paths are overridable with `--root`, `--state`, `--template`, `--app`, and `--index`. They are **global options and precede the subcommand** — `app --app out.html render`, not `app render --app out.html`, which argparse rejects. This matches `ap.py founder`.
 
 ### Regenerating
 
@@ -131,7 +131,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app render
 
 - Edit `app.html` or `vault-index.json` — both are generated. Edit `app.template.html`.
 - Expose the server beyond `127.0.0.1` — there is no authentication (`FD-002`).
-- **Raise `--max-defects`.** The ceiling ratchets down only. Raising it is how an institution quietly ratifies its own decay.
+- **Raise `--max-defects`.** The ceiling ratchets down only. Raising it is how an institution quietly ratifies its own decay. It is enforced on every change by [[12 - Continuous Integration Standard|Foundation Integrity]], whose `COHERENCE_CEILING` must be lowered in the same commit as the repairs that earn it.
 
 ---
 
