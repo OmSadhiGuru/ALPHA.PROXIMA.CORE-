@@ -60,6 +60,16 @@ ARTIFACT_TYPE_MAP = {
     "version-history": "standard",
 }
 
+IDENTITY_FIELDS = (
+    "research_program_id", "commission_id", "artifact_id", "claim_id",
+    "question_id", "future_id", "concept_id", "theory_id", "person_id",
+    "organization_id", "publication_id", "standard_id", "office_id",
+    "function_id", "tool_id", "policy_id", "charter_id", "order_id",
+    "directive_id", "decision_id", "proposal_id", "project_id",
+)
+INLINE_CODE_RE = re.compile(r"`+[^`\n]*`+")
+NON_CANONICAL_TOPS = {"Omi"}
+
 
 def load_vault_validator():
     spec = importlib.util.spec_from_file_location("vault_validator", VAULT_VALIDATOR_PATH)
@@ -80,10 +90,20 @@ def slugify(value: str) -> str:
     return value.strip("-") or "untitled"
 
 
-def node_id(node_type: str, path: str, title: str) -> str:
-    stable = slugify(title or Path(path).stem)
-    digest = hashlib.sha1(path.encode("utf-8")).hexdigest()[:8]
-    return f"apkg:{node_type}:{stable}-{digest}"
+def identity_candidate(note, node_type: str, title: str) -> tuple[str, str, str]:
+    """Return a move-stable ID when the note provides any durable identity.
+
+    Title fallback is intentionally marked provisional. It survives a file move,
+    unlike the original path hash, but a later title change still needs review.
+    """
+    explicit = note.frontmatter.get("node_id")
+    if isinstance(explicit, str) and re.fullmatch(r"apkg:[a-z0-9_]+:[a-z0-9][a-z0-9-]*", explicit):
+        return explicit, "yaml:node_id", "stable"
+    for field in IDENTITY_FIELDS:
+        value = note.frontmatter.get(field)
+        if isinstance(value, str) and value.strip():
+            return f"apkg:{node_type}:{slugify(value)}", f"yaml:{field}", "stable"
+    return f"apkg:{node_type}:{slugify(title or note.path.stem)}", "title_fallback", "provisional"
 
 
 def first_h1(body: str) -> str | None:
@@ -145,7 +165,10 @@ def infer_node_type(note) -> tuple[str, float, list[str]]:
 
 
 def wiki_links(note) -> list[str]:
-    text = vault_validator.strip_fenced_blocks(note.text)
+    # YAML relationship fields are extracted separately with stronger types.
+    # Scanning the whole note would duplicate a dependency as both REFERENCES
+    # and REQUIRES, making the graph measure the serializer rather than intent.
+    text = INLINE_CODE_RE.sub(" ", vault_validator.strip_fenced_blocks(note.body))
     links: list[str] = []
     for raw in vault_validator.WIKI_LINK_RE.findall(text):
         target = vault_validator.normalize_link_target(raw)
@@ -159,8 +182,24 @@ def make_node(note) -> dict[str, Any]:
     if not isinstance(title, str) or not title:
         title = first_h1(note.body) or note.path.stem
     node_type, confidence, reasons = infer_node_type(note)
+    candidate, identity_source, identity_stability = identity_candidate(note, node_type, title)
+    findings: list[dict[str, str]] = []
+    if identity_stability == "provisional":
+        findings.append({
+            "code": "provisional_identity",
+            "severity": "warning",
+            "message": "No durable identity field; node ID falls back to title.",
+        })
+    if note.frontmatter_errors:
+        findings.extend({
+            "code": "malformed_frontmatter",
+            "severity": "error",
+            "message": error,
+        } for error in note.frontmatter_errors)
     return {
-        "node_id": node_id(node_type, note.relative_path, title),
+        "node_id": candidate,
+        "identity_source": identity_source,
+        "identity_stability": identity_stability,
         "node_type": node_type,
         "node_type_confidence": confidence,
         "node_type_reasons": reasons,
@@ -168,9 +207,11 @@ def make_node(note) -> dict[str, Any]:
         "title": title,
         "yaml": note.frontmatter,
         "has_yaml": note.has_frontmatter,
+        "word_count": len(note.body.split()),
         "frontmatter_errors": note.frontmatter_errors,
         "artifact_type": note.frontmatter.get("artifact_type"),
         "institutional_owner": note.frontmatter.get("institutional_owner"),
+        "canonical_owner": note.frontmatter.get("institutional_owner"),
         "cognitive_function": note.frontmatter.get("cognitive_function"),
         "related_documents": as_list(note.frontmatter.get("related_documents")),
         "related_research_programs": as_list(note.frontmatter.get("related_research_programs")),
@@ -178,19 +219,51 @@ def make_node(note) -> dict[str, Any]:
         "tags": as_list(note.frontmatter.get("tags")),
         "status": note.frontmatter.get("status"),
         "version": note.frontmatter.get("version"),
+        "created": note.frontmatter.get("created"),
+        "updated": note.frontmatter.get("updated"),
+        "validation_findings": findings,
         "provenance": {
             "source": "markdown_scan",
             "generated_by": "node_registry.py",
-            "generated_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
+            "extraction_method": "read_only_markdown_scan",
+            "source_sha256": hashlib.sha256(note.text.encode("utf-8")).hexdigest(),
         },
     }
 
 
+def finalize_node_ids(nodes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for node in nodes:
+        groups.setdefault(str(node["node_id"]), []).append(node)
+    for candidate, matches in groups.items():
+        if len(matches) == 1:
+            continue
+        for node in matches:
+            digest = hashlib.sha1(str(node["source_path"]).encode("utf-8")).hexdigest()[:8]
+            node["requested_node_id"] = candidate
+            node["node_id"] = f"{candidate}-{digest}"
+            node["identity_stability"] = "collision_bound"
+            node["validation_findings"].append({
+                "code": "identity_collision",
+                "severity": "error",
+                "message": f"Identity candidate collides across {len(matches)} notes; path suffix applied.",
+            })
+    return sorted(nodes, key=lambda node: str(node["source_path"]).lower())
+
+
+def build_nodes(root: Path, include_hidden: bool = False) -> list[dict[str, Any]]:
+    notes = vault_validator.load_notes(root, include_hidden)
+    if not include_hidden:
+        notes = [note for note in notes if note.relative_path.split("/", 1)[0] not in NON_CANONICAL_TOPS]
+    return finalize_node_ids([make_node(note) for note in notes])
+
+
 def registry_payload(root: Path, nodes: list[dict[str, Any]]) -> dict[str, Any]:
+    canonical = json.dumps(nodes, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return {
-        "registry_version": "1.0.0",
-        "generated_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
-        "vault": str(root),
+        "registry_version": "2.0.0",
+        "source_root": ".",
+        "source_fingerprint": hashlib.sha256(canonical.encode("utf-8")).hexdigest(),
         "node_count": len(nodes),
         "principle": "The Node Registry is the first bridge between Markdown memory and LUMIAION's future institutional graph.",
         "nodes": nodes,
@@ -322,11 +395,10 @@ def resolve_output(root: Path, raw_path: str) -> Path:
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
     root = Path(args.vault).expanduser().resolve()
-    notes = vault_validator.load_notes(root, args.include_hidden)
-    nodes = [make_node(note) for note in notes]
+    nodes = build_nodes(root, args.include_hidden)
     output = resolve_output(root, args.output)
     report = resolve_output(root, args.report)
-    write_text(output, json.dumps(registry_payload(root, nodes), indent=2, ensure_ascii=False) + "\n", args.force)
+    write_text(output, json.dumps(registry_payload(root, nodes), indent=2, ensure_ascii=False, sort_keys=True) + "\n", args.force)
     write_text(report, render_report(root, nodes), args.force)
     print(f"Node registry written: {output}")
     print(f"Node registry report written: {report}")
