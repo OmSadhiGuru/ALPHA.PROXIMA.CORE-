@@ -270,6 +270,26 @@
   });
   grid.appendChild(pD);
 
+  // Founder intent routes
+  var pR = panel('Founder Intent Routes', V.handoffs.length);
+  if (!V.handoffs.length) emptyNote(pR,'No active Founder intent routes.');
+  V.handoffs.forEach(function(h){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', h.founder_intent));
+    hd.appendChild(pill(h.state));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub', h.primary_owner + ' · ' + h.id));
+    var det = disclose('route', [
+      ['Success', h.success_condition],
+      ['Next action', h.next_action],
+      ['Writeback', h.writeback_destination],
+      ['Result', h.result_id]
+    ]);
+    if (det) r.appendChild(det);
+    pR.appendChild(r);
+  });
+  grid.appendChild(pR);
+
   // Execution
   var pT = panel('Execution', V.tasks.length);
   if (!V.tasks.length) emptyNote(pT,'No active work units.');

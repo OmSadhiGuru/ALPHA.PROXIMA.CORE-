@@ -47,6 +47,17 @@ class TestStateLifecycle(unittest.TestCase):
             with self.assertRaises(fos.StateError):
                 fos.load_state(Path(tmp) / "absent.json")
 
+    def test_v1_state_loads_with_empty_handoff_collection(self):
+        state = fos.empty_state()
+        state["schema_version"] = "1.0.0"
+        state.pop("handoffs")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "founder-state.json"
+            path.write_text(json.dumps(state), encoding="utf-8")
+            migrated = fos.load_state(path)
+        self.assertEqual(migrated["schema_version"], fos.SCHEMA_VERSION)
+        self.assertEqual(migrated["handoffs"], [])
+
     def test_unsupported_schema_version_rejected(self):
         state = fos.empty_state()
         state["schema_version"] = "0.0.1"
@@ -265,7 +276,8 @@ class TestRendering(unittest.TestCase):
         self.assertIn('artifact_type: operations-dashboard', md)
         for heading in ("## Today", "### Top 3 Priorities", "### Next Action",
                         "## Decisions Requiring Founder", "## Execution",
-                        "## Agents / Systems", "## Blockers", "## System Health"):
+                        "## Founder Intent Routes", "## Agents / Systems",
+                        "## Blockers", "## System Health"):
             self.assertIn(heading, md)
 
     def test_render_all_writes_both_artifacts(self):
@@ -282,7 +294,7 @@ class TestView(unittest.TestCase):
     def test_view_answers_the_four_questions(self):
         view = fos.build_view(seeded())
         for key in ("mission", "priorities", "next_action", "decisions",
-                    "tasks", "blockers", "agents", "counts"):
+                    "tasks", "handoffs", "blockers", "agents", "counts"):
             self.assertIn(key, view)
 
     def test_summary_is_terminal_safe(self):
@@ -410,24 +422,35 @@ class TestCli(unittest.TestCase):
             })
             fos.save_state(state, state_path)
             note = root / "Healthy.md"
-            note.write_text("---\ntitle: Healthy\n---\n# Healthy\n", encoding="utf-8")
+            note.write_text(
+                "---\ntitle: Healthy\n---\n# Healthy\n[[Missing target]]\n",
+                encoding="utf-8",
+            )
             report = root / "repository-health.md"
 
             self.assertEqual(self._run(
                 tmp, "repository-health", "Assess repository health",
+                "--success-condition", "A report is ready for Founder review",
                 "--why", "Founder needs current evidence",
                 "--vault", str(root), "--report", str(report),
             ), 0)
 
             stored = fos.load_state(state_path)
+            self.assertEqual(stored["handoffs"][0]["state"], "review")
+            self.assertEqual(stored["handoffs"][0]["primary_owner"], "JERANIUM")
+            self.assertEqual(stored["handoffs"][0]["result_id"], "RES-001")
             self.assertEqual(stored["tasks"][0]["requested_by"], "Founder via LUMIAION")
             self.assertEqual(stored["tasks"][0]["owner"], "JERANIUM")
             self.assertEqual(stored["tasks"][0]["state"], "review")
             self.assertEqual(stored["agent_runs"][0]["status"], "complete")
             self.assertEqual(stored["results"][0]["kind"], "repository-health-report")
+            self.assertEqual(stored["results"][0]["ref"], "repository-health.md")
+            self.assertEqual(stored["handoffs"][0]["context_sources"], ["."])
             self.assertEqual(stored["agents"][0]["last_run_id"], "RUN-001")
             self.assertTrue(report.exists())
+            self.assertIn(r"\[\[Missing target]]", report.read_text())
             self.assertIn("Assess repository health", (root / "console.html").read_text())
+            self.assertIn("Founder Intent Routes", (root / "mirror.md").read_text())
 
 
 class TestShippedState(unittest.TestCase):

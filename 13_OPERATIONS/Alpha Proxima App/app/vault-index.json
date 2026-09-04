@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T05:09:14+00:00",
-  "note_count": 366,
+  "generated_at": "2026-09-04T02:08:27+00:00",
+  "note_count": 368,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -78,7 +78,7 @@
       "id": "13_OPERATIONS",
       "name": "Operations",
       "question": "What is happening now",
-      "count": 28
+      "count": 30
     },
     {
       "id": "14_FUTURE",
@@ -784,7 +784,7 @@
         "AI Council Registry\\",
         "Engine Registry\\"
       ],
-      "backlinks": 32
+      "backlinks": 33
     },
     {
       "id": "03-ai-council-departments-sohma-charter-md",
@@ -6060,7 +6060,7 @@
         "10-templates-implementation-note-template-md"
       ],
       "unresolved": [],
-      "backlinks": 20
+      "backlinks": 21
     },
     {
       "id": "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
@@ -6110,7 +6110,7 @@
         "08-systems-institutional-knowledge-graph-engineering-program-ep-001-institutional-knowledge-graph-md"
       ],
       "unresolved": [],
-      "backlinks": 27
+      "backlinks": 28
     },
     {
       "id": "08-systems-engineering-toolkit-osg-reading-color-css-guide-md",
@@ -6185,7 +6185,7 @@
         "08-systems-engineering-standards-08-logging-standard-md"
       ],
       "unresolved": [],
-      "backlinks": 10
+      "backlinks": 11
     },
     {
       "id": "08-systems-engineering-toolkit-tool-002-yaml-validator-md",
@@ -6504,9 +6504,9 @@
         "state",
         "alpha-proxima"
       ],
-      "updated": "2026-09-01",
+      "updated": "2026-09-03",
       "has_frontmatter": true,
-      "words": 623,
+      "words": 645,
       "links": [
         "13-operations-founder-os-founder-console-md",
         "13-operations-founder-os-founder-os-architecture-v1-md",
@@ -6873,7 +6873,7 @@
         "report",
         "alpha-proxima"
       ],
-      "updated": "2026-09-02",
+      "updated": "2026-09-03",
       "has_frontmatter": true,
       "words": 2949,
       "links": [
@@ -6908,7 +6908,7 @@
         "report",
         "alpha-proxima"
       ],
-      "updated": "2026-09-02",
+      "updated": "2026-09-03",
       "has_frontmatter": true,
       "words": 4732,
       "links": [
@@ -7164,7 +7164,7 @@
         "03-ai-council-departments-lumiaion-charter-md"
       ],
       "unresolved": [],
-      "backlinks": 19
+      "backlinks": 20
     },
     {
       "id": "08-systems-protocols-future-expansion-protocol-md",
@@ -7290,7 +7290,7 @@
         "00-constitution-book-ii-governance-framework-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "08-systems-protocols-research-governance-protocol-md",
@@ -7814,7 +7814,7 @@
         "07-research-rp-001-archive-archive-philosophy-md"
       ],
       "unresolved": [],
-      "backlinks": 9
+      "backlinks": 10
     },
     {
       "id": "08-systems-visual-systems-color-system-implementation-checklist-md",
@@ -8520,7 +8520,7 @@
         "08-systems-engineering-toolkit-tool-002-yaml-validator-md"
       ],
       "unresolved": [],
-      "backlinks": 102
+      "backlinks": 103
     },
     {
       "id": "12-people-frederick-belizaire-gunville-md",
@@ -8658,7 +8658,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1247,
+      "words": 1251,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
@@ -8666,8 +8666,8 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
         "13-operations-founder-os-readme-md",
         "13-operations-founder-os-founder-os-architecture-v1-md",
-        "05-proposals-cn-001-execution-tracker-md",
-        "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md"
+        "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
+        "05-proposals-cn-001-execution-tracker-md"
       ],
       "unresolved": [],
       "backlinks": 4
@@ -8879,7 +8879,7 @@
         "13-operations-office-registry-office-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 7
     },
     {
       "id": "13-operations-decision-pipelines-decision-pipelines-index-md",
@@ -8975,9 +8975,9 @@
         "lumiaion",
         "alpha-proxima"
       ],
-      "updated": "2026-09-01",
+      "updated": "2026-09-03",
       "has_frontmatter": true,
-      "words": 1088,
+      "words": 998,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "13-operations-workflow-registry-lumiaion-operating-manual-loom-md",
@@ -9015,7 +9015,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 2383,
+      "words": 2435,
       "links": [
         "08-systems-lumiaion-architecture-spec-v0-1-md",
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
@@ -9056,7 +9056,7 @@
       ],
       "updated": "2026-09-01",
       "has_frontmatter": true,
-      "words": 1087,
+      "words": 1104,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
@@ -9219,6 +9219,39 @@
       "backlinks": 16
     },
     {
+      "id": "13-operations-operational-health-fir-001-repository-health-result-md",
+      "path": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
+      "title": "Vault Validation Report",
+      "domain": "13_OPERATIONS",
+      "type": "engineering-report",
+      "status": "draft",
+      "version": "0.1.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "systems",
+        "engineering",
+        "validation",
+        "report",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-03",
+      "has_frontmatter": true,
+      "words": 15458,
+      "links": [
+        "08-systems-engineering-toolkit-tool-001-vault-validator-md",
+        "12-people-codex-md",
+        "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
+        "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
+    },
+    {
       "id": "13-operations-operational-health-operational-health-index-md",
       "path": "13_OPERATIONS/Operational Health/Operational Health Index.md",
       "title": "Operational Health Index",
@@ -9254,13 +9287,53 @@
       "backlinks": 9
     },
     {
+      "id": "13-operations-operational-procedures-founder-intent-routing-procedure-md",
+      "path": "13_OPERATIONS/Operational Procedures/Founder Intent Routing Procedure.md",
+      "title": "Founder Intent Routing Procedure",
+      "domain": "13_OPERATIONS",
+      "type": "operational-procedure",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Orchestration",
+      "engine": "LUMIAION",
+      "authors": [
+        "Founder",
+        "LUMIAION",
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "procedures",
+        "orchestration",
+        "routing",
+        "founder",
+        "lumiaion",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-03",
+      "has_frontmatter": true,
+      "words": 1044,
+      "links": [
+        "08-systems-the-orchestration-framework-md",
+        "08-systems-protocols-decision-routing-protocol-md",
+        "08-systems-protocols-knowledge-routing-protocol-md",
+        "03-ai-council-departments-lumiaion-charter-md",
+        "13-operations-workflow-registry-workflow-registry-md",
+        "13-operations-operational-procedures-operational-procedures-index-md",
+        "13-operations-dashboards-founder-reboot-control-center-md"
+      ],
+      "unresolved": [],
+      "backlinks": 3
+    },
+    {
       "id": "13-operations-operational-procedures-operational-procedures-index-md",
       "path": "13_OPERATIONS/Operational Procedures/Operational Procedures Index.md",
       "title": "Operational Procedures Index",
       "domain": "13_OPERATIONS",
       "type": "operations-index",
       "status": "active",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "CODEX",
@@ -9272,18 +9345,19 @@
         "procedures",
         "alpha-proxima"
       ],
-      "updated": "2026-07-02",
+      "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 180,
+      "words": 219,
       "links": [
         "13-operations-readme-md",
         "13-operations-workflow-registry-workflow-registry-md",
         "12-people-codex-md",
         "13-operations-review-cycles-review-cycles-registry-md",
-        "13-operations-artifact-registry-artifact-registry-md"
+        "13-operations-artifact-registry-artifact-registry-md",
+        "13-operations-operational-procedures-founder-intent-routing-procedure-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "13-operations-quarterly-reviews-quarterly-reviews-index-md",
@@ -9324,7 +9398,7 @@
       "domain": "13_OPERATIONS",
       "type": "operations-index",
       "status": "active",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "CODEX",
@@ -9338,7 +9412,7 @@
       ],
       "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 623,
+      "words": 657,
       "links": [
         "00-constitution-book-i-the-constitution-md",
         "08-systems-the-orchestration-framework-md",
@@ -9355,6 +9429,7 @@
         "13-operations-automation-queue-automation-queue-index-md",
         "13-operations-workflow-registry-lumiaion-operating-manual-loom-md",
         "13-operations-operational-procedures-operational-procedures-index-md",
+        "13-operations-operational-procedures-founder-intent-routing-procedure-md",
         "13-operations-decision-pipelines-decision-pipelines-index-md",
         "13-operations-institutional-observatory-institutional-observatory-index-md",
         "13-operations-executive-office-executive-office-index-md",
@@ -9563,7 +9638,7 @@
       "domain": "13_OPERATIONS",
       "type": "operations-registry",
       "status": "active",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "CODEX",
@@ -9576,9 +9651,9 @@
         "registry",
         "alpha-proxima"
       ],
-      "updated": "2026-07-07",
+      "updated": "2026-09-02",
       "has_frontmatter": true,
-      "words": 858,
+      "words": 1001,
       "links": [
         "13-operations-office-registry-office-registry-md",
         "13-operations-artifact-registry-artifact-registry-md",
@@ -9588,11 +9663,12 @@
         "13-operations-readme-md",
         "13-operations-decision-pipelines-decision-pipelines-index-md",
         "13-operations-automation-queue-automation-queue-index-md",
+        "13-operations-operational-procedures-founder-intent-routing-procedure-md",
         "13-operations-workflow-registry-lumiaion-operating-manual-loom-md",
         "13-operations-review-cycles-review-cycles-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "14-future-ai-recommendations-ai-recommendations-index-md",
@@ -12664,9 +12740,9 @@
     }
   ],
   "coherence": {
-    "note_count": 366,
-    "connected": 345,
-    "connectedness": 0.9426,
+    "note_count": 368,
+    "connected": 347,
+    "connectedness": 0.9429,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -13380,7 +13456,7 @@
       ],
       [
         "engineering-report",
-        3
+        4
       ],
       [
         "readme",
@@ -13547,6 +13623,10 @@
         1
       ],
       [
+        "operational-procedure",
+        1
+      ],
+      [
         "audit-report",
         1
       ],
@@ -13622,7 +13702,7 @@
     "status": [
       [
         "active",
-        203
+        204
       ],
       [
         "ratified",
@@ -13638,7 +13718,7 @@
       ],
       [
         "draft",
-        19
+        20
       ],
       [
         "archived",
@@ -13688,7 +13768,7 @@
     "function": [
       [
         "Implementation",
-        122
+        123
       ],
       [
         "Research Intelligence",
@@ -13696,7 +13776,7 @@
       ],
       [
         "Orchestration",
-        6
+        7
       ],
       [
         "Governance",

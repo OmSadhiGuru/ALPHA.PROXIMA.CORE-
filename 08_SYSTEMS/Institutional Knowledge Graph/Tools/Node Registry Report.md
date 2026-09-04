@@ -2,8 +2,8 @@
 title: "Node Registry Report"
 aliases: ["Institutional Knowledge Graph Node Registry Report"]
 tags: [systems, engineering, knowledge-graph, node-registry, report, alpha-proxima]
-created: 2026-09-02
-updated: 2026-09-02
+created: 2026-09-03
+updated: 2026-09-03
 status: draft
 version: "1.0.0"
 authors: ["CODEX"]
@@ -24,9 +24,9 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-next.Gdnbnx`
-- Generated: `2026-09-02T01:08:47-04:00`
-- Total nodes discovered: `367`
+- Vault: `/private/tmp/alpha-fir-work.H0ZK1A`
+- Generated: `2026-09-03T22:07:44-04:00`
+- Total nodes discovered: `369`
 - Unknown node types: `174`
 - Missing YAML: `18`
 - High-value cleanup candidates: `247`
@@ -37,13 +37,13 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 |-----------|-------|
 | `unknown` | `174` |
 | `standard` | `39` |
+| `engineering_tool` | `19` |
 | `future_research` | `19` |
-| `engineering_tool` | `18` |
 | `concept` | `16` |
 | `research_artifact` | `16` |
 | `charter` | `13` |
+| `founder_directive` | `13` |
 | `standing_order` | `13` |
-| `founder_directive` | `12` |
 | `policy` | `9` |
 | `theory` | `9` |
 | `office` | `8` |
@@ -309,4 +309,4 @@ This report is generated from a read-only Markdown scan. It does not modify note
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-09-02 | [[CODEX]] | Node registry report generated |
+| 1.0.0 | 2026-09-03 | [[CODEX]] | Node registry report generated |

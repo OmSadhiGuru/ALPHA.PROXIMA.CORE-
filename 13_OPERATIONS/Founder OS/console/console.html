@@ -133,52 +133,41 @@
 <body>
 <div class="wrap" id="app"></div>
 <script id="view-data" type="application/json">{
-  "generated_at": "2026-09-01T18:15:06+00:00",
-  "today": "2026-09-01",
-  "schema_version": "1.0.0",
+  "generated_at": "2026-09-04T02:08:27+00:00",
+  "today": "2026-09-03",
+  "schema_version": "1.1.0",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
   },
   "mission": {
-    "date": "2026-08-26",
-    "mission": "Establish one Founder cockpit: state, console, and a proven vertical slice",
-    "set_by": "lumiaion",
-    "set_at": "2026-08-26T09:20:54+00:00",
-    "sprint_id": "RBT-001"
+    "date": "2026-09-03",
+    "mission": "Make Founder state truthful and prove one executable FIR-001 lane",
+    "set_by": "LUMIAION",
+    "set_at": "2026-09-04T02:02:31+00:00",
+    "sprint_id": "FIR-001"
   },
-  "mission_is_stale": true,
+  "mission_is_stale": false,
   "priorities": [
     {
-      "id": "PRI-003",
+      "id": "PRI-005",
       "rank": 1,
-      "title": "Prove one end-to-end routing lane through LUMIAION",
-      "why": "No new agent is authorized until one routing proof completes (Reboot Audit).",
+      "title": "Review FIR-001 result and choose the next delivery boundary",
+      "why": "The executable route is proven to Founder review; expansion should follow explicit acceptance and FD-002.",
       "project": "PRJ-002",
-      "owner": "LUMIAION",
-      "status": "open",
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
-    },
-    {
-      "id": "PRI-004",
-      "rank": 2,
-      "title": "Resolve the last open draft PR (#7, Epoch III constitutional work)",
-      "why": "The only unmerged branch left; CN-001 coherence work cannot be called complete while it diverges.",
-      "project": "PRJ-003",
       "owner": "Founder",
       "status": "open",
-      "created_at": "2026-09-01T18:13:54+00:00",
-      "updated_at": "2026-09-01T18:13:54+00:00"
+      "created_at": "2026-09-04T02:06:02+00:00",
+      "updated_at": "2026-09-04T02:06:02+00:00"
     }
   ],
   "next_action": {
     "id": "NXT-001",
-    "title": "Decide document-level salvage for PR #7, or close it",
+    "title": "Review FIR-001 repository-health result in Founder Console",
     "owner": "Founder",
-    "context": "19 commits ahead / 84 behind at last audit; Reboot Audit forbids merging wholesale",
-    "priority_id": "PRI-004",
-    "set_at": "2026-09-01T18:13:54+00:00"
+    "context": "Approve or request revision before any iPhone delivery or agent expansion.",
+    "priority_id": "PRI-005",
+    "set_at": "2026-09-04T02:06:02+00:00"
   },
   "decisions": [
     {
@@ -192,22 +181,6 @@
         "Drop OMI from the Founder OS roadmap"
       ],
       "consequence_of_delay": "Low for now. Voice-captured decisions keep landing outside Founder OS until it is built.",
-      "status": "open",
-      "requested_by": "LUMIAION",
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "decided_at": null,
-      "decision_note": null
-    },
-    {
-      "id": "FD-004",
-      "title": "Accept repository-coherence-first recovery order",
-      "context": "Carried from the Founder Reboot Control Center (FD-RBT-001), still pending.",
-      "recommendation": "Accept",
-      "options": [
-        "Accept coherence-first",
-        "Expand agents first"
-      ],
-      "consequence_of_delay": "RBT-001 cannot close and no new agent can be authorized.",
       "status": "open",
       "requested_by": "LUMIAION",
       "created_at": "2026-08-26T09:20:54+00:00",
@@ -245,58 +218,9 @@
       "created_at": "2026-08-26T09:20:54+00:00",
       "decided_at": null,
       "decision_note": null
-    },
-    {
-      "id": "FD-007",
-      "title": "Salvage PR #7 and #8 selectively rather than merge wholesale",
-      "context": "Carried from the Founder Reboot Control Center (FD-RBT-004), still pending.",
-      "recommendation": "Accept",
-      "options": [
-        "Selective document-level salvage",
-        "Merge wholesale",
-        "Close both branches"
-      ],
-      "consequence_of_delay": "PR #7 (19 ahead / 84 behind) drifts further from main every week.",
-      "status": "open",
-      "requested_by": "LUMIAION",
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "decided_at": null,
-      "decision_note": null
     }
   ],
   "tasks": [
-    {
-      "id": "TSK-004",
-      "title": "Build the CN-001 relocation map from current main",
-      "project": "PRJ-003",
-      "owner": "CODEX",
-      "state": "assigned",
-      "requested_by": "LUMIAION",
-      "why": "Reboot Audit step 3: coherence must precede any expansion.",
-      "gate": "G2",
-      "output_ref": null,
-      "blocker_ids": [
-        "BLK-001"
-      ],
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-09-01T18:13:54+00:00"
-    },
-    {
-      "id": "TSK-005",
-      "title": "Salvage PR #7 and #8 document by document",
-      "project": "PRJ-003",
-      "owner": "LUMIAION",
-      "state": "waiting",
-      "requested_by": "Founder",
-      "why": "Reboot Audit forbids merging either wholesale; each document needs a class.",
-      "gate": "G2",
-      "output_ref": null,
-      "blocker_ids": [
-        "BLK-001"
-      ],
-      "created_at": "2026-08-26T09:20:54+00:00",
-      "updated_at": "2026-08-26T09:20:54+00:00"
-    },
     {
       "id": "TSK-006",
       "title": "Run the photo-to-social-post routing proof end to end",
@@ -310,6 +234,22 @@
       "blocker_ids": [],
       "created_at": "2026-08-26T09:20:54+00:00",
       "updated_at": "2026-08-26T09:20:54+00:00"
+    },
+    {
+      "id": "TSK-007",
+      "title": "Verify current Alpha Proxima repository health for Founder review",
+      "project": null,
+      "owner": "JERANIUM",
+      "state": "review",
+      "requested_by": "Founder via LUMIAION",
+      "why": "FIR-001 requires one proven end-to-end route before iPhone delivery or agent expansion",
+      "gate": "G1",
+      "output_ref": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
+      "blocker_ids": [],
+      "created_at": "2026-09-04T02:03:20+00:00",
+      "updated_at": "2026-09-04T02:03:21+00:00",
+      "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
+      "handoff_id": "FIR-001"
     }
   ],
   "agents": [
@@ -376,7 +316,7 @@
       "engine": "Anthropic Claude",
       "status": "idle",
       "authority": "Retrieval and packaging; canonization requires LUMIAION",
-      "last_run_id": null,
+      "last_run_id": "RUN-001",
       "notes": "Stands in for the unbuilt semantic memory layer."
     },
     {
@@ -470,25 +410,14 @@
       "resolved_at": null
     },
     {
-      "id": "BLK-004",
-      "title": "PR #7 (Epoch III constitutional work) still open and diverged",
-      "impact": "The last unmerged constitutional branch; needs document-level salvage decisions before its content can land.",
-      "owner": "Founder",
-      "status": "open",
-      "needs_founder": true,
-      "blocking_ids": [],
-      "created_at": "2026-09-01T18:13:41+00:00",
-      "resolved_at": null
-    },
-    {
-      "id": "BLK-005",
-      "title": "12 merged notes lack YAML frontmatter",
-      "impact": "Vault validation regressed from 5 to 17 errors; the Vault convention is unenforced for content merged from PRs #8, #9 and #10.",
-      "owner": "CODEX",
+      "id": "BLK-006",
+      "title": "Canonical checkout Git metadata is not writable",
+      "impact": "Cannot remove the stale index.lock, fast-forward local main, create an atomic commit, or apply the verified FIR-001 patch to the canonical checkout.",
+      "owner": "Codex host environment",
       "status": "open",
       "needs_founder": false,
       "blocking_ids": [],
-      "created_at": "2026-09-01T18:15:06+00:00",
+      "created_at": "2026-09-04T02:08:27+00:00",
       "resolved_at": null
     }
   ],
@@ -570,34 +499,34 @@
     {
       "id": "SYS-001",
       "area": "Repository",
-      "status": "ok",
-      "detail": "main at ad5295b; PRs #8, #9, #10, #12, #13 merged since the reboot.",
-      "checked_at": "2026-09-01T18:13:41+00:00",
-      "source": "git log, 2026-09-01"
+      "status": "degraded",
+      "detail": "Last locally verified origin/main is 1ec50f4, but the canonical checkout remains at 844a37e (78 commits behind); reconciliation is blocked by a stale .git/index.lock and read-only Git metadata in this session.",
+      "checked_at": "2026-09-04T02:08:27+00:00",
+      "source": "git rev-parse; git status; .git/index.lock inspection"
     },
     {
       "id": "SYS-002",
       "area": "Vault validation",
       "status": "degraded",
-      "detail": "17 errors / 504 warnings (was 5 / 479). All 12 new errors are missing YAML frontmatter in files merged with PRs #8, #9 and #10 — OSG_BUSINESS/*, docs/setup/, governance/CN-001 Execution Tracker. Belongs to CN-001.",
-      "checked_at": "2026-09-01T18:15:06+00:00",
-      "source": "ap.py validate, 2026-09-01"
+      "detail": "Current validator baseline: 0 critical, 23 errors, 998 warnings, 38 info; FIR-001 report persisted without increasing the 129 Console coherence baseline.",
+      "checked_at": "2026-09-04T02:06:02+00:00",
+      "source": "FIR-001 Repository Health Result; app check --max-defects 129"
     },
     {
       "id": "SYS-003",
       "area": "Open pull requests",
-      "status": "degraded",
-      "detail": "One draft PR open: #7. PRs #8, #9 and #10 merged 2026-09-01.",
-      "checked_at": "2026-09-01T18:13:41+00:00",
-      "source": "GitHub API, 2026-09-01"
+      "status": "ok",
+      "detail": "No open pull requests at the last verified remote refresh.",
+      "checked_at": "2026-09-04T02:02:31+00:00",
+      "source": "gh pr list"
     },
     {
       "id": "SYS-004",
       "area": "Founder OS state",
       "status": "ok",
-      "detail": "State document validates; 44 engine tests pass.",
-      "checked_at": "2026-09-01T18:13:41+00:00",
-      "source": "ap.py founder check"
+      "detail": "Founder state validates; 46 Founder OS tests and 40 Alpha Proxima App tests pass.",
+      "checked_at": "2026-09-04T02:02:31+00:00",
+      "source": "test_founder_os.py; test_alpha_app.py"
     },
     {
       "id": "SYS-005",
@@ -611,8 +540,8 @@
       "id": "SYS-006",
       "area": "Task queue",
       "status": "ok",
-      "detail": "Six work units tracked with owner, provenance, and state.",
-      "checked_at": "2026-08-26T09:20:54+00:00",
+      "detail": "Seven work units tracked; FIR-001 repository-health route is at Founder review with a persisted result.",
+      "checked_at": "2026-09-04T02:06:02+00:00",
       "source": "founder-state.json"
     }
   ],
@@ -634,17 +563,49 @@
     {
       "id": "PRJ-003",
       "name": "CN-001 Repository Coherence",
-      "status": "waiting",
-      "objective": "One canonical Vault taxonomy that validates cleanly",
+      "status": "complete",
+      "objective": "Historical CN-001 coherence tracker closed; current debt is measured by system health and explicit work items.",
       "owner": "CODEX"
     }
   ],
+  "handoffs": [
+    {
+      "id": "FIR-001",
+      "received_at": "2026-09-04T02:03:20+00:00",
+      "founder_intent": "Verify current Alpha Proxima repository health for Founder review",
+      "success_condition": "A persisted validation report and review-ready route are visible in Founder Console",
+      "primary_owner": "JERANIUM",
+      "supporting_roles": [
+        "LUMIAION"
+      ],
+      "priority": "normal",
+      "decision_class": "IV",
+      "context_sources": [
+        "."
+      ],
+      "constraints": [
+        "Report-only validation; do not mutate vault content"
+      ],
+      "deliverables": [
+        "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md"
+      ],
+      "approval_gate": "founder_review",
+      "writeback_destination": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
+      "state": "review",
+      "next_action": "Founder reviews RES-003",
+      "result_id": "RES-003",
+      "task_id": "TSK-007",
+      "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
+      "updated_at": "2026-09-04T02:03:21+00:00"
+    }
+  ],
   "counts": {
-    "priorities": 2,
-    "decisions": 5,
-    "tasks": 3,
-    "blockers": 4,
-    "founder_blockers": 3
+    "priorities": 1,
+    "decisions": 3,
+    "tasks": 2,
+    "blockers": 3,
+    "founder_blockers": 2,
+    "handoffs": 1
   }
 }</script>
 <script>
@@ -783,6 +744,26 @@
     pD.appendChild(r);
   });
   grid.appendChild(pD);
+
+  // Founder intent routes
+  var pR = panel('Founder Intent Routes', V.handoffs.length);
+  if (!V.handoffs.length) emptyNote(pR,'No active Founder intent routes.');
+  V.handoffs.forEach(function(h){
+    var r = el('div','row'), hd = el('div','row-head');
+    hd.appendChild(el('span','row-title', h.founder_intent));
+    hd.appendChild(pill(h.state));
+    r.appendChild(hd);
+    r.appendChild(el('p','row-sub', h.primary_owner + ' · ' + h.id));
+    var det = disclose('route', [
+      ['Success', h.success_condition],
+      ['Next action', h.next_action],
+      ['Writeback', h.writeback_destination],
+      ['Result', h.result_id]
+    ]);
+    if (det) r.appendChild(det);
+    pR.appendChild(r);
+  });
+  grid.appendChild(pR);
 
   // Execution
   var pT = panel('Execution', V.tasks.length);

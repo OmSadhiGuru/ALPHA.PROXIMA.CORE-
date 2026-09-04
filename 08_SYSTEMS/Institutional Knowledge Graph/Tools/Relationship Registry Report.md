@@ -2,8 +2,8 @@
 title: "Relationship Registry Report"
 aliases: ["Institutional Knowledge Graph Relationship Registry Report"]
 tags: [systems, engineering, knowledge-graph, relationships, report, alpha-proxima]
-created: 2026-09-02
-updated: 2026-09-02
+created: 2026-09-03
+updated: 2026-09-03
 status: draft
 version: "1.0.0"
 authors: ["CODEX"]
@@ -24,21 +24,21 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-next.Gdnbnx`
-- Generated: `2026-09-02T01:08:48-04:00`
-- Total relationships discovered: `3184`
-- Low-confidence relationships: `179`
-- Broken or unresolved links: `298`
+- Vault: `/private/tmp/alpha-fir-work.H0ZK1A`
+- Generated: `2026-09-03T22:07:47-04:00`
+- Total relationships discovered: `3217`
+- Low-confidence relationships: `181`
+- Broken or unresolved links: `300`
 
 ## Relationships by Type
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `REFERENCES` | `2021` |
-| `RELATED_TO` | `419` |
-| `PRODUCED_BY` | `306` |
-| `REQUIRES` | `246` |
-| `PART_OF` | `175` |
+| `REFERENCES` | `2035` |
+| `RELATED_TO` | `427` |
+| `PRODUCED_BY` | `310` |
+| `REQUIRES` | `251` |
+| `PART_OF` | `177` |
 | `IMPLEMENTS` | `11` |
 | `EXTENDS` | `2` |
 | `SUPERSEDES` | `2` |
@@ -48,9 +48,9 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Source | Count |
 |--------|-------|
-| `wiki_link` | `2023` |
-| `yaml_field` | `973` |
-| `folder_inference` | `175` |
+| `wiki_link` | `2037` |
+| `yaml_field` | `990` |
+| `folder_inference` | `177` |
 | `filename_inference` | `13` |
 
 ## Low-Confidence Relationships
@@ -162,7 +162,7 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `OWNED_BY` | `181` |
+| `OWNED_BY` | `183` |
 | `PRODUCED_BY` | `61` |
 | `REFERENCES` | `30` |
 | `DEPENDS_ON` | `16` |
@@ -352,4 +352,4 @@ This report is generated from a read-only scan. Relationships are candidates for
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-09-02 | [[CODEX]] | Relationship registry report generated |
+| 1.0.0 | 2026-09-03 | [[CODEX]] | Relationship registry report generated |

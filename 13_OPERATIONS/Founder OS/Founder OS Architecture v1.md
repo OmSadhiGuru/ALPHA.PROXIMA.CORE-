@@ -150,7 +150,7 @@ The mission's target loop, mapped onto entities that now exist:
 
 | Stage | Contract |
 |---|---|
-| FOUNDER | Intent enters as a `daily_mission`, `priority`, or `task`. |
+| FOUNDER | Intent enters as a persisted `handoff` with an observable success condition. |
 | LUMIAION | Classifies and assigns `owner`; sets `state = assigned`. |
 | CONTEXT COLLECTION | Sources write `context_items` with `source` and `ref`. |
 | ROUTING | `owner` names the office; `gate` names the LOOM gate (G0–G7). |
@@ -161,6 +161,12 @@ The mission's target loop, mapped onto entities that now exist:
 | MEMORY / STATE UPDATE | The state document is written and committed. Git history is institutional memory. |
 
 This is a data contract, not a scheduler. Asynchronous workers are supported later by design: `agent_runs` already models start, end, status, and output, so a worker can append a run record without the contract changing.
+
+Schema 1.1.0 proves the contract with one bounded worker route. The
+`repository-health` command transitions a handoff through captured, routed,
+executing, and review; links its task, agent run, and result; writes a portable
+Vault-relative report reference; and regenerates both Founder interfaces. It
+does not generalize routing or bypass Founder review.
 
 The Console surfaces LOOM gates on work units rather than inventing a parallel workflow. LOOM remains the authority on how work moves.
 

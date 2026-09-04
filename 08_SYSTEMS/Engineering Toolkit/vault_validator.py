@@ -444,7 +444,9 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -
         for check, check_issues in sorted(by_check.items()):
             lines.extend([f"### {check}", "", "| Severity | Path | Message |", "|----------|------|---------|"])
             for issue in check_issues:
-                message = issue.message.replace("|", "\\|")
+                # A diagnostic report must not turn the broken link it quotes
+                # into a second broken link of its own when the report is indexed.
+                message = issue.message.replace("|", "\\|").replace("[[", "\\[\\[")
                 lines.append(f"| {issue.severity} | `{issue.path}` | {message} |")
             lines.append("")
 

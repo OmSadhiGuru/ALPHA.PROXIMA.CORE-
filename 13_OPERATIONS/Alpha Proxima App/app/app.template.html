@@ -452,6 +452,26 @@
     } else { emptyNote(dp, 'Nothing is waiting on you.'); }
     grid.appendChild(dp);
 
+    /* Founder intent routes: one owner, one state, one next action. */
+    var rp = panel('Founder Intent Routes', O.counts.handoffs);
+    if (O.handoffs.length){
+      O.handoffs.forEach(function(h){
+        var row = el('div','row');
+        var hd = el('div','row-head');
+        hd.appendChild(el('span','row-title', h.founder_intent));
+        hd.appendChild(pill(h.state));
+        row.appendChild(hd);
+        row.appendChild(el('p','row-sub', h.primary_owner + '  ·  ' + h.id));
+        var more = disclose('route', [
+          ['Success', h.success_condition], ['Next action', h.next_action],
+          ['Writeback', h.writeback_destination], ['Result', h.result_id]
+        ]);
+        if (more) row.appendChild(more);
+        rp.appendChild(row);
+      });
+    } else { emptyNote(rp, 'No active Founder intent routes.'); }
+    grid.appendChild(rp);
+
     /* Blockers needing the Founder are surfaced, never buried in a task. */
     var bp = panel('Blockers', O.counts.blockers, O.counts.founder_blockers > 0);
     if (O.blockers.length){
