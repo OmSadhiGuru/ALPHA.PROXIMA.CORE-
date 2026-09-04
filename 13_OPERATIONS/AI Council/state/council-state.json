@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-09-04T15:18:07+00:00",
+  "sessions": [
+    {
+      "session_id": "MVC-20260904-001",
+      "founder_intent": "Make the Council system more alive through a local operational console.",
+      "decision_class": "III",
+      "interim_authority_basis": "Interim Authority Instrument; Founder direction of 2026-09-04",
+      "facilitator": "AGT-001",
+      "accountable_role": "AGT-007",
+      "advisors": [],
+      "assignments": [
+        {
+          "id": "RUN-001",
+          "role": "AGT-007",
+          "kind": "agent",
+          "deliverable": "Build and verify a read-only local Council Console backed by canonical Council state.",
+          "status": "complete",
+          "created_at": "2026-09-04T15:18:07+00:00",
+          "output": "Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.",
+          "completed_at": "2026-09-04T15:18:07+00:00"
+        }
+      ],
+      "dissent": [
+        {
+          "recorded_at": "2026-09-04T15:18:07+00:00",
+          "text": "No model provider or autonomous worker was invoked; the console is a local read model only."
+        }
+      ],
+      "ethics_trigger": "none",
+      "recommendation": "Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.",
+      "founder_decision": null,
+      "execution_owner": null,
+      "state": "founder-review",
+      "opened_at": "2026-09-04T15:18:07+00:00",
+      "updated_at": "2026-09-04T15:18:07+00:00",
+      "next_action": "Founder reviews the synthesis and records an explicit decision."
+    }
+  ]
+}

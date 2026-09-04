@@ -8,6 +8,7 @@ that would impersonate Founder, Ethics Council, or unappointed roles.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -197,10 +198,66 @@ def render(item: dict) -> str:
     return "\n".join(lines)
 
 
+def build_view(state: dict) -> dict:
+    """A compact read model for terminals, a local console, and future clients."""
+    sessions = sorted(state["sessions"], key=lambda item: item["opened_at"], reverse=True)
+    active = [item for item in sessions if item["state"] not in ("complete",)]
+    founder_review = [item for item in sessions if item["state"] == "founder-review"]
+    blocked = [item for item in sessions if item["state"] == "blocked"]
+    return {"generated_at": now(), "schema_version": state["schema_version"], "sessions": sessions,
+            "counts": {"total": len(sessions), "active": len(active),
+                       "founder_review": len(founder_review), "blocked": len(blocked)},
+            "next_action": (founder_review[0]["next_action"] if founder_review else
+                            (active[0]["next_action"] if active else "Open a bounded Council session when structured cross-function work is needed."))}
+
+
+def render_dashboard(state: dict) -> str:
+    """Self-contained local Console; it reads state and never writes it."""
+    view = build_view(state)
+    def session_card(item: dict) -> str:
+        decision = item.get("founder_decision") or {}
+        return (f"<article class='session {html.escape(item['state'])}'>"
+                f"<div class='meta'>{html.escape(item['session_id'])} · {html.escape(item['state'].upper())} · Class {html.escape(item['decision_class'])}</div>"
+                f"<h3>{html.escape(item['founder_intent'])}</h3>"
+                f"<p><b>Owner:</b> {html.escape(item['accountable_role'])} &nbsp; <b>Ethics:</b> {html.escape(item['ethics_trigger'])}</p>"
+                f"<p><b>Next:</b> {html.escape(item['next_action'])}</p>"
+                f"<p><b>Founder decision:</b> {html.escape(decision.get('decision', 'pending'))}</p></article>")
+    cards = "".join(session_card(item) for item in view["sessions"]) or "<article class='empty'><h3>No sessions yet</h3><p>The Council is active and ready. Open one only for a real Founder intent requiring structured advice or delegated execution.</p></article>"
+    counts = view["counts"]
+    return f"""<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Alpha Proxima — Council Console</title><style>
+:root{{color-scheme:dark;--ink:#e8edf1;--muted:#a8b3bc;--line:#29353e;--panel:#11191e;--accent:#75d4b2;--warn:#ffcc75;--block:#ff8d88}}*{{box-sizing:border-box}}body{{margin:0;background:#091015;color:var(--ink);font:16px system-ui,-apple-system,sans-serif}}main{{max-width:1060px;margin:auto;padding:44px 24px 64px}}h1{{margin:0 0 8px;font-size:2rem}}.lead,.meta{{color:var(--muted)}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}}.metric,.session,.next,.empty{{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}}.metric b{{font-size:1.7rem;display:block;color:var(--accent)}}.next{{border-color:var(--accent);margin-bottom:20px}}.session{{margin:12px 0}}.session.blocked{{border-left:4px solid var(--block)}}.session.founder-review{{border-left:4px solid var(--warn)}}h3{{margin:.45rem 0}}p{{margin:.55rem 0;line-height:1.45}}footer{{color:var(--muted);font-size:.85rem;margin-top:26px}}@media(max-width:680px){{.grid{{grid-template-columns:repeat(2,1fr)}}}}</style>
+<main><p class='meta'>ALPHA PROXIMA · MINIMUM VIABLE COUNCIL · LOCAL READ MODEL</p><h1>Council Console</h1><p class='lead'>What is happening? What needs the Founder? What happens next?</p>
+<section class='grid'><div class='metric'><b>{counts['active']}</b>active</div><div class='metric'><b>{counts['founder_review']}</b>need Founder</div><div class='metric'><b>{counts['blocked']}</b>blocked</div><div class='metric'><b>{counts['total']}</b>total sessions</div></section>
+<section class='next'><div class='meta'>NEXT ACTION</div><b>{html.escape(view['next_action'])}</b></section><section><h2>Sessions</h2>{cards}</section><footer>Rendered {html.escape(view['generated_at'])}. This console is read-only and does not confer authority, appoint roles, or substitute for Council review.</footer></main></html>"""
+
+
+def serve(path: Path, port: int) -> int:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    class Handler(BaseHTTPRequestHandler):
+        def send_body(self, body: bytes, content_type: str, status: int = 200) -> None:
+            self.send_response(status); self.send_header("Content-Type", content_type); self.send_header("Content-Length", str(len(body))); self.send_header("Cache-Control", "no-store"); self.end_headers(); self.wfile.write(body)
+        def do_GET(self) -> None:  # noqa: N802
+            try: state = load(path)
+            except StateError as exc: self.send_body(json.dumps({"error": str(exc)}).encode(), "application/json", 500); return
+            if self.path in ("/", "/index.html"): self.send_body(render_dashboard(state).encode(), "text/html; charset=utf-8")
+            elif self.path == "/api/view": self.send_body(json.dumps(build_view(state), indent=2).encode(), "application/json")
+            elif self.path == "/api/state": self.send_body(json.dumps(state, indent=2).encode(), "application/json")
+            else: self.send_body(b'{"error":"not found"}', "application/json", 404)
+        def log_message(self, *args) -> None: pass
+    server = HTTPServer(("127.0.0.1", port), Handler)
+    print(f"Council Console: http://127.0.0.1:{port}/\nRead model:      http://127.0.0.1:{port}/api/view\nLoopback only. Ctrl-C to stop.")
+    try: server.serve_forever()
+    except KeyboardInterrupt: print("\nStopped.")
+    finally: server.server_close()
+    return 0
+
+
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="ap.py council", description=__doc__)
     p.add_argument("--state", default=str(DEFAULT_STATE)); sub = p.add_subparsers(dest="command", required=True)
-    sub.add_parser("init"); sub.add_parser("list"); sub.add_parser("check")
+    sub.add_parser("init"); sub.add_parser("list"); sub.add_parser("check"); sub.add_parser("dashboard", help="Print the self-contained Council Console HTML.")
+    x = sub.add_parser("serve", help="Serve the Council Console on 127.0.0.1."); x.add_argument("--port", type=int, default=8788)
     x = sub.add_parser("open"); x.add_argument("intent"); x.add_argument("--class", dest="decision_class", choices=CLASSES, required=True); x.add_argument("--authority", required=True); x.add_argument("--owner", required=True); x.add_argument("--ethics-trigger", default="none")
     x = sub.add_parser("assign"); x.add_argument("session_id"); x.add_argument("role"); x.add_argument("deliverable"); x.add_argument("--kind", default="agent")
     x = sub.add_parser("output"); x.add_argument("session_id"); x.add_argument("run_id"); x.add_argument("summary")
@@ -221,6 +278,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "list":
             for item in state["sessions"]: print(f"{item['session_id']}  {item['state']:<15} {item['founder_intent']}")
             return 0
+        if args.command == "dashboard": print(render_dashboard(state)); return 0
+        if args.command == "serve": return serve(path, args.port)
         if args.command == "open": result = open_session(state, args.intent, args.decision_class, args.authority, args.owner, args.ethics_trigger)
         elif args.command == "assign": result = assign(state, args.session_id, args.role, args.deliverable, args.kind)
         elif args.command == "output": result = record_output(state, args.session_id, args.run_id, args.summary)

@@ -39,6 +39,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" council <command> [options]
 | `synthesize` | Record recommendation and dissent; move the session to Founder review. |
 | `decide` | Record an explicit Founder decision and, where permitted, execution owner. |
 | `render` | Print or write the self-contained Founder decision packet. |
+| `dashboard` / `serve [--port]` | Render or serve the read-only local Council Console and JSON read model. |
 | `list` / `check` | Show sessions or validate the canonical state. |
 
 ## Gates
@@ -52,6 +53,8 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" council <command> [options]
 ## State and outputs
 
 The default state path is `13_OPERATIONS/AI Council/state/council-state.json`. It is created only by `council init`; no sample or live session is committed by this tool. Decision packets are explicitly rendered to stdout or a user-selected path.
+
+`serve` binds only to `127.0.0.1` (default port `8788`) and exposes `/`, `/api/view`, and `/api/state`. It is intentionally read-only; session changes still go through explicit Kernel commands.
 
 ## Verification
 
