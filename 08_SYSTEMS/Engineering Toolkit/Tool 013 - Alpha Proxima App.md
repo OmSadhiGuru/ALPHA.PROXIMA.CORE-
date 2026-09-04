@@ -3,9 +3,9 @@ title: "Tool 013 - Alpha Proxima App"
 aliases: ["Alpha Proxima App Tool", "alpha_app", "Engineering Toolkit Tool 013", "ap app"]
 tags: [systems, engineering, toolkit, app, interface, knowledge-graph, coherence, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["CLAUDE"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -73,9 +73,9 @@ Loopback only. No authentication, per ratified `FD-002`.
 
 ## Coherence Ratchet
 
-`check` fails when defects exceed `--max-defects` (default 0). The ceiling exists so the gate can pass today and tighten over time; **it must only ever be lowered.** It is passed explicitly rather than stored, so every change to it is visible in a command or workflow rather than buried in configuration.
+`check` fails when defects exceed `--max-defects` (default 0). The ceiling exists so the gate can pass today and tighten over time; **it must only ever be lowered.** The CLI receives it explicitly. CI keeps its live value in the committed one-line file `.github/coherence-ceiling`, so every change remains visible without requiring an edit to the workflow.
 
-The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING`.
+The ratchet runs on every change via [[12 - Continuous Integration Standard|Foundation Integrity]], which loads `COHERENCE_CEILING` from `.github/coherence-ceiling`.
 
 Baseline recorded 2026-09-02: **129 defects** across 366 documents — 21 orphans, 17 missing frontmatter, 87 broken links, 4 empty. All belong to CN-001, which owns the taxonomy.
 
@@ -107,4 +107,5 @@ This tool builds a **lean operational subset** — regenerated on every render, 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
 | 1.0.0 | 2026-09-01 | CLAUDE | First registration: two-half composition, vault index, coherence ratchet, loopback contract |

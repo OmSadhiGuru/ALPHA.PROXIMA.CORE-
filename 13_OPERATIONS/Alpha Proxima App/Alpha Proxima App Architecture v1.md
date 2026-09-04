@@ -3,9 +3,9 @@ title: "Alpha Proxima App Architecture v1"
 aliases: ["Alpha Proxima App", "App Architecture", "Alpha Proxima App Architecture", "The App"]
 tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lumiaion, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.0.1"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -138,9 +138,9 @@ ap.py app check --max-defects 243   # today's honest baseline
 
 The ceiling exists because a gate that can never pass is not a gate — it is noise that teams learn to ignore. A ceiling that only ever decreases turns 243 defects from a permanent embarrassment into a tracked, closable number. **It must never be raised.** Raising it is how institutions quietly ratify their own decay.
 
-The ceiling is not stored in a config file. It is passed explicitly by whoever runs the check, so lowering it is a visible act in a command or a workflow, never a silent edit.
+The CLI receives the ceiling explicitly. CI stores its live value in the committed one-line file `.github/coherence-ceiling`, so lowering it is a visible reviewable change without editing the workflow itself.
 
-**Since 2026-09-02 the ratchet runs on every change**, enforced by [[12 - Continuous Integration Standard|Foundation Integrity]], which declares the ceiling as `COHERENCE_CEILING` and prints the Foundation's current coherence to each run's summary. The figures in this document are a dated record; the live number is the workflow's.
+**Since 2026-09-02 the ratchet runs on every change**, enforced by [[12 - Continuous Integration Standard|Foundation Integrity]], which loads `COHERENCE_CEILING` from `.github/coherence-ceiling` and prints the Foundation's current coherence to each run's summary. The figures in this document are a dated record; the live number is the committed ceiling file and the workflow run summary.
 
 ### 8. Presentation
 
@@ -252,4 +252,5 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
 | 1.0.0 | 2026-09-01 | CLAUDE | First Alpha Proxima App architecture: the two halves, the vault index contract, coherence as a ratchet, and the presentation boundary |
