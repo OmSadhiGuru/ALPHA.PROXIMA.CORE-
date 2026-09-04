@@ -3,16 +3,16 @@ title: "AI Council Operations Registry"
 aliases: ["Reasoning Office Registry", "AI Operations Registry"]
 tags: [operations, ai-council, reasoning-engines, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[AI Council Registry]]", "[[Engine Registry]]", "[[Office Registry]]"]
-related_documents: ["[[13_OPERATIONS]]", "[[AI Council Registry]]", "[[Engine Registry]]", "[[CODEX]]"]
+related_documents: ["[[13_OPERATIONS]]", "[[AI Council Registry]]", "[[Engine Registry]]", "[[CODEX]]", "[[Council Node Architecture]]", "[[Agent and Subagent Registry]]"]
 related_research_programs: []
 ---
 
@@ -42,7 +42,7 @@ This registry is operational. It does not replace charters, engine registry reco
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.0.0 |
+| **Version** | 1.1.0 |
 | **Status** | active |
 | **Last Updated** | 2026-07-02 |
 
@@ -60,6 +60,8 @@ This registry is operational. It does not replace charters, engine registry reco
 - [[Engine Registry]]
 - [[LUMIAION Charter]]
 - [[CODEX]]
+- [[Council Node Architecture]]
+- [[Agent and Subagent Registry]]
 
 ---
 
@@ -85,6 +87,8 @@ Adding a future office should require adding a row and linking its charter or pr
 
 ## Core Content
 
+The table below remains the office/engine view. Named execution roles and their bounded worker profiles live in the [[Agent and Subagent Registry]]; authority and node relationships live in the [[Council Node Architecture]].
+
 | Reasoning Office | Preferred Engine | Institutional Role | Inputs | Outputs | Operational Boundary | Engineering Support |
 |------------------|------------------|--------------------|--------|---------|----------------------|--------------------|
 | LUMIAION | LUMIAION | Institutional Intelligence and orchestration | Founder intent, office reports, vault context | Routing, synthesis, continuity, memory writeback | Orchestrates; does not replace governance | Context loaders, routing scaffolds, review packets |
@@ -107,5 +111,5 @@ Adding a future office should require adding a row and linking its charter or pr
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | Founder / CODEX (CF-07) | Links the office/engine view to the Council Node Architecture and Agent/Subagent Registry. |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial AI Council operations registry |
-

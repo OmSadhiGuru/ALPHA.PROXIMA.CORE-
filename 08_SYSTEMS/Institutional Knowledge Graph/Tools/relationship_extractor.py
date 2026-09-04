@@ -53,7 +53,7 @@ class NodeLookup:
     def __init__(self, nodes: list[dict[str, Any]]):
         self.nodes = nodes
         self.by_id = {node["node_id"]: node for node in nodes}
-        self.by_key: dict[str, dict[str, Any]] = {}
+        self.by_key: dict[str, list[dict[str, Any]]] = {}
         for node in nodes:
             self.add(node["source_path"], node)
             self.add(str(Path(node["source_path"]).with_suffix("")), node)
@@ -63,25 +63,34 @@ class NodeLookup:
                 self.add(alias, node)
 
     def add(self, key: str, node: dict[str, Any]) -> None:
-        key = key.strip()
+        key = normalize_link(key).lower()
         if not key:
             return
-        self.by_key.setdefault(key, node)
-        self.by_key.setdefault(key.lower(), node)
+        matches = self.by_key.setdefault(key, [])
+        if all(match["node_id"] != node["node_id"] for match in matches):
+            matches.append(node)
+
+    def candidates(self, raw_target: str) -> list[dict[str, Any]]:
+        target = normalize_link(raw_target).lower()
+        if not target:
+            return []
+        direct = self.by_key.get(target, [])
+        if direct:
+            return direct
+        target_name = Path(target).name
+        named = self.by_key.get(target_name, [])
+        if named:
+            return named
+        matches = [
+            node for node in self.nodes
+            if str(Path(node["source_path"]).with_suffix("")).lower().endswith(f"/{target}")
+        ]
+        unique = {node["node_id"]: node for node in matches}
+        return [unique[key] for key in sorted(unique)]
 
     def resolve(self, raw_target: str) -> dict[str, Any] | None:
-        target = normalize_link(raw_target)
-        if not target:
-            return None
-        if target in self.by_key:
-            return self.by_key[target]
-        if target.lower() in self.by_key:
-            return self.by_key[target.lower()]
-        target_name = Path(target).name
-        if target_name in self.by_key:
-            return self.by_key[target_name]
-        matches = [node for key, node in self.by_key.items() if key.endswith(f"/{target}") or key.endswith(f"/{target_name}")]
-        return matches[0] if matches else None
+        matches = self.candidates(raw_target)
+        return matches[0] if len(matches) == 1 else None
 
 
 def relationship(
@@ -96,7 +105,6 @@ def relationship(
     source_detail: str | None = None,
 ) -> dict[str, Any]:
     target_id = target_node["node_id"] if target_node else None
-    now = dt.datetime.now().astimezone().isoformat(timespec="seconds")
     return {
         "relationship_id": stable_relationship_id(source["node_id"], rel_type, target_id or target_raw, source_kind, source_detail),
         "relationship_type": rel_type,
@@ -110,8 +118,14 @@ def relationship(
         "relationship_source": source_kind,
         "source_detail": source_detail,
         "evidence": evidence,
-        "created": now,
-        "updated": now,
+        "created": source.get("created"),
+        "updated": source.get("updated"),
+        "provenance": {
+            "generated_by": "relationship_extractor.py",
+            "extraction_method": source_kind,
+            "source_path": source["source_path"],
+            "source_detail": source_detail,
+        },
     }
 
 
@@ -120,6 +134,14 @@ def add_unique(relationships: list[dict[str, Any]], seen: set[str], rel: dict[st
         return
     seen.add(rel["relationship_id"])
     relationships.append(rel)
+
+
+def add_unresolved(unresolved: list[dict[str, Any]], rel: dict[str, Any], lookup: NodeLookup) -> None:
+    candidates = lookup.candidates(str(rel["target_raw"]))
+    rel["resolution_status"] = "ambiguous" if len(candidates) > 1 else "missing"
+    rel["candidate_node_ids"] = sorted(node["node_id"] for node in candidates)
+    rel["status"] = "unresolved"
+    unresolved.append(rel)
 
 
 def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -135,7 +157,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         for target_raw in as_list(node.get("related_documents")):
             target = lookup.resolve(target_raw)
@@ -143,7 +165,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         for target_raw in as_list(node.get("yaml", {}).get("dependencies")):
             target = lookup.resolve(target_raw)
@@ -152,7 +174,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         for program in as_list(node.get("related_research_programs")):
             target = lookup.resolve(program)
@@ -160,7 +182,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         owner = node.get("institutional_owner")
         if owner:
@@ -169,7 +191,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         for author in as_list(node.get("yaml", {}).get("authors")):
             target = lookup.resolve(author)
@@ -177,7 +199,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         source_path = Path(node["source_path"])
         parts = source_path.parts
@@ -204,7 +226,7 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
             if target:
                 add_unique(relationships, seen, rel)
             else:
-                unresolved.append(rel)
+                add_unresolved(unresolved, rel, lookup)
 
         if node["node_type"] == "evidence_claim":
             for link in node.get("wiki_links", []):
@@ -212,15 +234,21 @@ def extract_relationships(nodes: list[dict[str, Any]]) -> tuple[list[dict[str, A
                 if target and target["node_type"] in {"canonical_synthesis", "research_artifact", "theory", "concept"}:
                     add_unique(relationships, seen, relationship(node, "SUPPORTS", target, link, "wiki_link", 0.45, evidence=node["source_path"], source_detail="evidence_candidate"))
 
+    relationships.sort(key=lambda rel: rel["relationship_id"])
+    unresolved.sort(key=lambda rel: rel["relationship_id"])
     return relationships, unresolved
 
 
 def payload(root: Path, node_registry_path: Path, relationships: list[dict[str, Any]], unresolved: list[dict[str, Any]]) -> dict[str, Any]:
+    canonical = json.dumps(
+        {"relationships": relationships, "unresolved": unresolved},
+        ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+    )
     return {
-        "registry_version": "1.0.0",
-        "generated_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
-        "vault": str(root),
-        "node_registry": str(node_registry_path),
+        "registry_version": "2.0.0",
+        "source_root": ".",
+        "source_fingerprint": hashlib.sha256(canonical.encode("utf-8")).hexdigest(),
+        "node_registry": node_registry_path.name,
         "relationship_count": len(relationships),
         "unresolved_count": len(unresolved),
         "principle": "Nodes are memory objects. Relationships are the beginning of institutional reasoning.",
@@ -358,7 +386,7 @@ def main(argv: list[str]) -> int:
     relationships, unresolved = extract_relationships(nodes)
     output = resolve(root, args.output)
     report = resolve(root, args.report)
-    write_text(output, json.dumps(payload(root, node_registry_path, relationships, unresolved), indent=2, ensure_ascii=False) + "\n", args.force)
+    write_text(output, json.dumps(payload(root, node_registry_path, relationships, unresolved), indent=2, ensure_ascii=False, sort_keys=True) + "\n", args.force)
     write_text(report, render_report(root, relationships, unresolved), args.force)
     print(f"Relationship registry written: {output}")
     print(f"Relationship registry report written: {report}")

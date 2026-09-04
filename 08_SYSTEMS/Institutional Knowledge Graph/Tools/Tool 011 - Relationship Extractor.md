@@ -3,9 +3,9 @@ title: "Tool 011 - Relationship Extractor"
 aliases: ["Relationship Extractor", "Institutional Knowledge Graph Relationship Extractor", "ES-006 Relationship Extractor"]
 tags: [systems, engineering, knowledge-graph, relationships, automation, alpha-proxima]
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -122,6 +122,8 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" relationship-extract --vault . --
 
 The extractor treats resolved internal links as graph relationship candidates. Unresolved links are preserved separately so future cleanup work can repair missing targets, ambiguous names, or external dependency references.
 
+Ambiguous targets are preserved with every candidate node ID. The extractor never chooses the first filesystem match. Machine-readable relationships use source-document lifecycle dates rather than generation timestamps, so unchanged inputs produce byte-identical outputs.
+
 YAML `dependencies` produce `REQUIRES` when the dependency resolves to an internal node. Unresolved dependency strings are preserved as `DEPENDS_ON` candidates because they often describe external systems, tools, or standards that may later become explicit nodes.
 
 ## Future Improvements
@@ -136,5 +138,5 @@ YAML `dependencies` produce `REQUIRES` when the dependency resolves to an intern
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | [[CODEX]] | Preserve ambiguous candidates, add deterministic provenance, and make registries reproducible |
 | 1.0.0 | 2026-07-03 | [[CODEX]] | Initial ES-006 Relationship Extractor |
-

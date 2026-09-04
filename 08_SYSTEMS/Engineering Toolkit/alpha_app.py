@@ -45,8 +45,9 @@ APP_DIR = VAULT_ROOT / "13_OPERATIONS" / "Alpha Proxima App"
 DEFAULT_TEMPLATE = APP_DIR / "app" / "app.template.html"
 DEFAULT_APP = APP_DIR / "app" / "app.html"
 DEFAULT_INDEX = APP_DIR / "app" / "vault-index.json"
+TRUTH_KERNEL_PATH = VAULT_ROOT / "08_SYSTEMS" / "Institutional Knowledge Graph" / "Tools" / "truth_kernel.py"
 
-APP_VERSION = "1.2.0"
+APP_VERSION = "1.3.0"
 
 VIEW_PLACEHOLDER = "/*__ALPHA_APP_VIEW__*/null"
 
@@ -110,8 +111,21 @@ def _load_sibling(filename: str, name: str):
     return module
 
 
+def _load_path(path: Path, name: str):
+    if not path.exists():
+        raise AppError(f"Required module not found: {path}")
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise AppError(f"Unable to load module: {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
 vault_validator = _load_sibling("vault_validator.py", "vault_validator")
 founder_os = _load_sibling("founder_os.py", "founder_os")
+truth_kernel = _load_path(TRUTH_KERNEL_PATH, "alpha_app_truth_kernel")
 
 
 # --------------------------------------------------------------------------
@@ -392,6 +406,8 @@ def build_app_view(state: dict, root: Path) -> dict[str, Any]:
     """
     operate = founder_os.build_view(state)
     know = build_vault_index(root)
+    kernel = truth_kernel.build(root)
+    know["truth_kernel"] = truth_kernel.summary(kernel)
     return {
         "app_version": APP_VERSION,
         "generated_at": now_iso(),
@@ -447,6 +463,7 @@ def write_outputs(view: dict, template_path: Path, app_path: Path,
 def summarize(view: dict) -> str:
     operate, know = view["operate"], view["know"]
     coherence = know["coherence"]
+    kernel = know["truth_kernel"]
     lines = [
         f"ALPHA PROXIMA · {view['today']}",
         "",
@@ -466,6 +483,12 @@ def summarize(view: dict) -> str:
         f"  orphans      {coherence['counts']['orphans']}",
         f"  no metadata  {coherence['counts']['missing_frontmatter']}",
         f"  broken links {coherence['counts']['broken_links']}",
+        "",
+        "TRUTH KERNEL",
+        f"  nodes        {kernel['counts']['nodes']}",
+        f"  relations    {kernel['counts']['relationships']}",
+        f"  unresolved   {kernel['counts']['unresolved_relationships']}",
+        f"  findings     {kernel['health']['counts']['findings']}  [{kernel['health']['status'].upper()}]",
     ]
     return "\n".join(lines)
 
@@ -510,11 +533,26 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
                     self._json(founder_os.build_view(state))
                 elif self.path == "/api/vault":
                     self._json(build_vault_index(root))
+                elif self.path in ("/api/truth-kernel", "/api/v1/truth-kernel"):
+                    self._json(truth_kernel.build(root))
+                elif self.path == "/api/v1/nodes":
+                    self._json({"schema_version": "1.0.0", "nodes": truth_kernel.build(root)["nodes"]})
+                elif self.path == "/api/v1/relationships":
+                    contract = truth_kernel.build(root)
+                    self._json({
+                        "schema_version": "1.0.0",
+                        "relationships": contract["relationships"],
+                        "unresolved_relationships": contract["unresolved_relationships"],
+                    })
+                elif self.path == "/api/v1/validation":
+                    self._json(truth_kernel.build(root)["validation"])
+                elif self.path == "/api/v1/health":
+                    self._json(truth_kernel.summary(truth_kernel.build(root)))
                 elif self.path == "/api/state":
                     self._json(state)
                 else:
                     self._json({"error": "not found"}, 404)
-            except (AppError, founder_os.StateError) as exc:
+            except (AppError, founder_os.StateError, OSError, RuntimeError, ValueError) as exc:
                 self._json({"error": str(exc)}, 500)
 
         def log_message(self, *args) -> None:  # keep the terminal calm

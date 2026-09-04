@@ -5,7 +5,7 @@ tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lu
 created: 2026-09-01
 updated: 2026-09-03
 status: active
-version: "1.0.1"
+version: "1.1.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -142,6 +142,18 @@ The CLI receives the ceiling explicitly. CI stores its live value in the committ
 
 **Since 2026-09-02 the ratchet runs on every change**, enforced by [[12 - Continuous Integration Standard|Foundation Integrity]], which loads `COHERENCE_CEILING` from `.github/coherence-ceiling` and prints the Foundation's current coherence to each run's summary. The figures in this document are a dated record; the live number is the committed ceiling file and the workflow run summary.
 
+### 7.1 Truth Kernel read contract
+
+[[Tool 014 - Truth Kernel]] extends the Know half with a deterministic graph contract while preserving Markdown as canonical. The App embeds only the compact Truth Kernel summary and exposes the full derived contract through loopback-only, versioned read endpoints:
+
+- `/api/v1/truth-kernel`
+- `/api/v1/nodes`
+- `/api/v1/relationships`
+- `/api/v1/validation`
+- `/api/v1/health`
+
+No endpoint writes to the Vault. Every response carries source or contract fingerprints, explicit unresolved relationships, and validation status so future spatial interfaces can distinguish knowledge from inference.
+
 ### 8. Presentation
 
 One self-contained HTML file with the read model inlined at render time. No build step, no framework, no bundler, no external font, no network call, no analytics. It opens by double-click on Mac, PC, and phone from the synced vault, and renders identically from the loopback server.
@@ -252,5 +264,6 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | CODEX | Add the deterministic Truth Kernel read contract and interface projection |
 | 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
 | 1.0.0 | 2026-09-01 | CLAUDE | First Alpha Proxima App architecture: the two halves, the vault index contract, coherence as a ratchet, and the presentation boundary |

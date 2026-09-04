@@ -3,9 +3,9 @@ title: "Tool 010 - Node Registry Generator"
 aliases: ["Node Registry Generator", "Institutional Knowledge Graph Node Registry Tool"]
 tags: [systems, engineering, knowledge-graph, node-registry, tool, alpha-proxima]
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -83,7 +83,9 @@ Options:
 
 The generator reuses the Engineering Toolkit Markdown and YAML parser to keep graph extraction aligned with vault validation.
 
-Node IDs are deterministic and include a path-derived hash so early registry generation remains stable while avoiding collisions.
+Node IDs prefer explicit `node_id` and taxonomy identity fields, then use a title-based provisional fallback. Unique fallback IDs survive file moves. Collisions remain visible, receive deterministic disambiguation suffixes, and are never silently overwritten.
+
+Machine-readable registries omit runtime timestamps and absolute Vault paths. Unchanged source content therefore produces byte-identical output with a source fingerprint.
 
 ## Future Improvements
 
@@ -96,4 +98,5 @@ Node IDs are deterministic and include a path-derived hash so early registry gen
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | [[CODEX]] | Add move-stable identity precedence, visible collision handling, fingerprints, and reproducible output |
 | 1.0.0 | 2026-07-03 | [[CODEX]] | Initial Node Registry Generator for ES-005 |
