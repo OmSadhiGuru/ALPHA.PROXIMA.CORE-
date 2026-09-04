@@ -4,8 +4,8 @@ aliases: ["Constitution v2.0 Draft", "Epoch V Constitutional Ratification Packet
 tags: [constitution, proposal, ratification, epoch-v, alpha-proxima]
 created: 2026-09-03
 updated: 2026-09-03
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 authors: ["CODEX (CF-07)"]
 artifact_type: constitutional-proposal
 institutional_owner: "Alpha Proxima Foundation"
@@ -13,6 +13,7 @@ dependencies: ["[[Book I - The Constitution]]", "[[Constitutional Hierarchy Stat
 related_documents: ["[[Consolidated Ethics Framework]]", "[[Knowledge Architecture Specification]]", "[[Book II Amendment — Council Topology]]"]
 related_research_programs: []
 initiative: "Epoch V — Constitutional Coherence"
+basis_ratification: "Founder-ratified 2026-09-03 as the approved basis for preparing the exact Books I-V reconciliation; Constitution v2.0 not enacted"
 ---
 
 # Constitution v2.0 Ratification Draft
@@ -24,6 +25,12 @@ This document assembles the Epoch V coherence work into a bounded ratification p
 ## Context
 
 Epoch V reconciled the constitutional hierarchy, legacy AI-governance models, cognitive functions, namespace structure, and institutional registers. The final Tier-3 drafts consolidate ethics, unify knowledge architecture, and prepare the Book II council-topology amendment. Constitution v2.0 should preserve the five-Book corpus while incorporating these decisions coherently and recording unresolved governance dependencies honestly.
+
+### Founder Ratification of Drafting Basis
+
+On 2026-09-03, the Founder ratified the Epoch V Tier-3 packet merged through PR #24 as the approved basis for preparing the exact Constitution v2.0 Books I–V reconciliation. The Founder explicitly limited that ratification: it does not convene councils, appoint engines, or enact Constitution v2.0.
+
+This authorization permits preparation and review of an exact five-Book draft. The resulting commit requires separate final ratification before it becomes operative.
 
 ## Core Content
 
@@ -52,7 +59,7 @@ Epoch V reconciled the constitutional hierarchy, legacy AI-governance models, co
 
 ### 3. Ratification Checklist
 
-- [ ] Produce a line-level reconciliation of Books I–V against all Founder-ratified Epoch V instruments.
+- [x] Produce a line-level reconciliation of Books I–V against all Founder-ratified Epoch V instruments. *(Prepared 2026-09-03; final exact commit pending.)*
 - [ ] Confirm that every new provision has one authority source and no contradictory duplicate.
 - [ ] Resolve the amendment-process record for the Book II Council Topology insertion.
 - [ ] Obtain required Ethics review, or explicitly record why it cannot yet occur and what remains blocked.
@@ -103,4 +110,5 @@ Constitution v2.0 is ready to be called ratified only when:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-03 | Founder | Ratified the PR #24 Tier-3 packet as the drafting basis for an exact Books I–V reconciliation; no council convening, engine appointment, or v2.0 enactment. |
 | 0.1.0 | 2026-09-03 | CODEX (CF-07) | Initial Epoch V v2.0 integration and ratification packet; no enactment implied. |

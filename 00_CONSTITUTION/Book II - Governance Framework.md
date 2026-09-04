@@ -3,26 +3,29 @@ title: "Book II - Governance Framework"
 aliases: ["Governance Framework", "Book II", "Alpha Proxima Governance"]
 tags: [constitution, governance, foundational, alpha-proxima, framework]
 created: 2026-07-02
-updated: 2026-07-02
-status: ratified
-version: "1.0.0"
-authors: ["Founder", "Alpha Proxima Foundation"]
+updated: 2026-09-03
+status: draft
+version: "2.0.0"
+authors: ["Founder", "Alpha Proxima Foundation", "CODEX (CF-07)"]
 artifact_type: governance-framework
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Governance"
 reasoning_engine: "Alpha Council"
 dependencies: ["[[Book I - The Constitution]]"]
-related_documents: ["[[Book I - The Constitution]]", "[[Book III - Knowledge Integrity]]"]
+related_documents: ["[[Book I - The Constitution]]", "[[Book III - Knowledge Integrity]]", "[[Book IV - Cognitive Architecture]]", "[[Book V - Cognitive Council]]", "[[Governance Model Crosswalk & Council Topology]]"]
 related_research_programs: []
+ratification_state: "proposed — exact v2.0 text not yet ratified or operative"
 ---
 
 # Book II — Governance Framework of the Alpha Proxima Foundation
+
+> **Constitution v2.0 reconciliation draft.** The ratified v1.0.0 text remains operative on `main` until the Founder ratifies and enacts an exact v2.0 commit.
 
 ## Purpose
 
 This document defines the complete governance architecture of the Alpha Proxima Foundation. It establishes every governing council, every decision hierarchy, every conflict resolution mechanism, and every amendment process that will carry this institution across decades of technological change.
 
-This document is subordinate only to [[Book I - The Constitution]]. All councils, protocols, and charters derive their authority from both documents read together.
+This document is subordinate to [[Book I - The Constitution]] and is a peer of Books III–V within its governance domain. All councils, protocols, and charters derive authority from the five-Book corpus read under the [[Constitutional Hierarchy Statement]].
 
 ---
 
@@ -43,7 +46,7 @@ This framework was designed with three constraints:
 
 ### Article I — Foundational Structure
 
-The Alpha Proxima Foundation is governed by seven councils arranged in a hierarchy of authority. Each council holds sovereign authority within its domain. No council may override another within that domain without triggering the Conflict Resolution Protocol (Article VI).
+The Alpha Proxima Foundation uses distinct constituent, supreme, strategic, operational, ratifying, specialist, and oversight bodies. Authority is delegated by domain; no body may silently absorb another body's function. Operational status—named, constituted, convened, or inactive—must be recorded separately from constitutional existence.
 
 ```
 Alpha Proxima Foundation
@@ -51,16 +54,17 @@ Alpha Proxima Foundation
 ├── Founder
 │   (Supreme authority; constitutional guardian)
 │
+├── Alpha Council
+│   (Supreme deliberation; constitutional governance)
+│
 ├── Executive Council
 │   (Strategic direction; cross-council coordination)
 │
-├── AI Council
-│   (Intelligence architecture; engine governance)
-│   └── [[LUMIAION]] (Constitutional Intelligence Core)
-│       ├── [[SOHMA Charter|SOHMA Department]]
-│       ├── [[ATHENA Charter|ATHENA Department]]
-│       ├── [[VORTEX Charter|VORTEX Department]]
-│       └── [[JERANIUM Charter|JERANIUM Department]]
+├── Cognitive Council
+│   (Operational governance of cognitive functions)
+│
+├── AI Ratification Council
+│   (Ratification of governed engine appointments and AI-architecture changes)
 │
 ├── Research Council
 │   (Knowledge generation; epistemic standards)
@@ -108,48 +112,48 @@ The Executive Council:
 - Coordinates when decisions span multiple councils
 - Reviews the [[AI Council Registry]] and [[Engine Registry]] annually
 
-The Executive Council does not govern AI systems directly. That authority belongs to the AI Council.
+The Executive Council does not operate or ratify cognitive functions directly. Operational authority belongs to the Cognitive Council; ratification authority belongs to the AI Ratification Council where the constitutional corpus requires it.
 
 ---
 
-### Article IV — The AI Council
+### Article IV — The AI Ratification Council
 
-**Authority Class:** Intelligence Architecture  
-**Composition:** Chief Architects (one per domain) + [[LUMIAION]] (permanent non-voting seat)  
-**Decision Threshold:** Simple majority of Chief Architects
+**Authority Class:** Intelligence Architecture Ratification
+**Composition:** As established by its ratified charter; [[LUMIAION]] may advise but does not vote
+**Decision Threshold:** As established by its ratified charter
 
-The AI Council is the governing body for all intelligence systems operating within Alpha Proxima. It:
+The AI Ratification Council is distinct from the operational Cognitive Council. It:
 
-- Maintains the [[AI Council Registry]] and [[Engine Registry]]
-- Evaluates, approves, and deprecates AI engines
-- Defines the boundaries of each intelligence department
-- Oversees [[LUMIAION]] as Constitutional Intelligence Core
-- Reviews department charters annually
+- Ratifies engine appointments and replacements where Books IV–V require ratification
+- Ratifies governed AI-architecture and registry changes within its delegated authority
+- Reviews concentration, succession, and constitutional-architecture risks
+- Preserves historical AI Council records while interpreting the legacy name according to the [[Governance Model Crosswalk & Council Topology]]
 
-**Critical principle:** The AI Council governs *roles*, not *engines*. The role of Chief Knowledge Architect exists permanently. The engine fulfilling that role — today Claude, tomorrow something else — is a replaceable implementation detail. See [[Engine Registry]] for the current mapping.
+**Critical principle:** the Cognitive Function is permanent; the Reasoning Engine is provisional. The Cognitive Council operates the portfolio, the AI Ratification Council ratifies required changes, and the [[Engine Registry]] records current appointments.
 
-**Current Chief Architect roles:**
+The Chief Architect and Department models are historical taxonomies cross-walked to the canonical Cognitive Function model. They do not independently create current authority.
 
-| Role | Domain | Current Engine |
-|------|--------|---------------|
-| Chief Systems Architect | Orchestration, integration | OpenAI GPT |
-| Chief Knowledge Architect | Knowledge architecture, memory | Anthropic Claude |
-| Chief Science Architect | Scientific reasoning, biology, physics | Google Gemini |
-| Chief Research Architect | Research synthesis, information retrieval | Perplexity |
-| Chief Deep Investigation Architect | Complex investigation, multi-source analysis | Genspark |
-| Chief Engineering Architect | Code, infrastructure, systems engineering | DeepSeek |
-| Chief Memory Architect | Long-term memory, vector storage, retrieval | Future Local Models |
+### Article IV-A — Council Topology
+
+| Body | Scope | Authority | Ordinary escalation |
+|------|-------|-----------|---------------------|
+| Cognitive Council | Cognitive Function portfolio, monitoring, recommendations, suspension, and lifecycle administration | Operational | AI Ratification Council |
+| AI Ratification Council | Governed engine appointments and AI-architecture changes | Ratifying | Alpha Council |
+| Alpha Council | Supreme institutional deliberation, constitutional amendments, and unresolved disputes | Supreme | Founder |
+| Ethics Council | Ethical and constitutional oversight across all bodies | Cross-cutting oversight | Alpha Council / Founder |
+
+The ordinary escalation order is Cognitive Council → AI Ratification Council → Alpha Council → Founder. The Ethics Council may enter at any level when a review trigger applies. A higher body does not absorb routine functions delegated to a lower body.
 
 ---
 
 ### Article V — The Research, Engineering, Ethics, and Community Councils
 
-Each specialist council operates with sovereign authority within its domain, subject to Executive Council strategic direction and Founder constitutional authority.
+Each specialist council holds delegated authority within its domain, subject to the constitutional hierarchy, Executive Council strategy, Alpha Council supremacy, and Founder constituent authority. Constitutional existence does not imply that a body has been staffed or convened.
 
 **Research Council**
 - Maintains epistemic standards for all knowledge produced by Alpha Proxima
 - Approves knowledge before it enters the canonical [[Obsidian Vault]]
-- Governs [[JERANIUM Charter|JERANIUM]] as the institutional research intelligence
+- Governs institutional research review and canonisation; it does not govern JERANIUM/CF-15, which is a data-and-systems function
 
 **Engineering Council**
 - Owns all technical infrastructure (see [[Foundational Architecture]])
@@ -175,9 +179,9 @@ All decisions within Alpha Proxima are classified by the same taxonomy establish
 
 | Class | Type | Primary Authority | Ratification |
 |-------|------|-------------------|-------------|
-| Class I | Constitutional | Founder | All councils notified; Ethics Council review required |
+| Class I | Constitutional | Alpha Council when constituted; Founder under recorded constituent/interim authority | Founder final ratification; Ethics Council review required or explicitly pending |
 | Class II | Institutional charters | Executive Council | Relevant specialist council must concur |
-| Class III | Operational protocols | Specialist councils | AI Council concurs on AI-related matters |
+| Class III | Operational protocols | Specialist council, Cognitive Council, office, or delegate within scope | AI Ratification Council concurs only where Books IV–V require ratification |
 | Class IV | Tactical execution | Department or delegate | Logged; reviewable |
 
 ---
@@ -208,7 +212,7 @@ Succession of the Founder is the single most consequential event in the institut
 
 ### Article IX — Amendment of This Document
 
-This document may be amended by the same process as [[Book I - The Constitution]], Article VI. Given that this document governs the councils that would vote on its own amendment, the Ethics Council must independently review all proposed amendments for constitutional alignment before ratification.
+This document may be amended only through [[Book I - The Constitution]], Article VI. Ethics Council review is required; while that Council remains unconvened, the review must be recorded as pending unless an explicit valid interim instrument supplies the review authority. No draft or merged pull request alone amends this Book.
 
 ---
 
@@ -226,14 +230,16 @@ This document may be amended by the same process as [[Book I - The Constitution]
 - [[Foundational Architecture]]
 - [[Institutional Relationship Map]]
 - [[Future Expansion Protocol]]
-- [[Ethics Council]] *(to be created)*
+- [[Ethics Council Charter]]
+- [[Governance Model Crosswalk & Council Topology]]
+- [[Book II Amendment — Council Topology]]
 
 ---
 
 ## Open Questions
 
 - [ ] Who are the founding members of the Executive Council beyond the Founder?
-- [ ] Should the Ethics Council have a human chair, or operate as a panel?
+- [ ] Name and convene the Ethics Council members established by its charter.
 - [ ] What is the quorum for the Research and Engineering Councils?
 - [ ] How are Community Council members nominated and ratified?
 - [ ] What constitutes "incapacity" sufficient to trigger the succession protocol?
@@ -244,4 +250,5 @@ This document may be amended by the same process as [[Book I - The Constitution]
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-03 | Founder + CODEX (CF-07) | Reconciliation draft: canonical Council Topology, AI Ratification Council terminology, operational-status honesty, and clarified decision authority. Pending final ratification and enactment. |
 | 1.0.0 | 2026-07-02 | Founder | Initial ratification of Governance Framework |
