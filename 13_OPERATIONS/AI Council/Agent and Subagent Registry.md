@@ -4,8 +4,8 @@ aliases: ["Agent Registry", "Subagent Registry", "ASR"]
 tags: [operations, agents, subagents, council, routing, alpha-proxima]
 created: 2026-09-03
 updated: 2026-09-03
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 authors: ["Founder", "CODEX (CF-07)"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
@@ -25,6 +25,10 @@ Name the reusable non-voting agent roles that serve the Council and define the b
 ## Context
 
 The Cognitive Function Registry defines permanent capabilities. The Office Registry defines operational ownership. This registry supplies the missing implementation layer: which named role receives a routed task and which narrow workers may support it.
+
+### Activation
+
+Approved by the Founder on 2026-09-03 for use with the [[Minimum Viable Council Procedure]]. “Available” roles may be routed only within existing delegation. “Blocked” roles remain blocked until their required appointments are separately recorded.
 
 ## Core Content
 
@@ -97,4 +101,5 @@ The Cognitive Function Registry defines permanent capabilities. The Office Regis
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-03 | Founder | Approved for operational routing and bounded subagent use; no engine or human appointment implied. |
 | 0.1.0 | 2026-09-03 | Founder + CODEX (CF-07) | Initial operational registry of 16 named agent roles and bounded subagent profiles; no appointments created. |

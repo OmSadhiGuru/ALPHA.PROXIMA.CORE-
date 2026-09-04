@@ -4,8 +4,8 @@ aliases: ["Council Nodal Architecture", "CNA", "NODA Council Map"]
 tags: [governance, council, node-architecture, agents, subagents, cognitive-functions, alpha-proxima]
 created: 2026-09-03
 updated: 2026-09-03
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 authors: ["Founder", "CODEX (CF-07)"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -28,6 +28,10 @@ Translate the Foundation's constitutional bodies, cognitive functions, offices, 
 The Foundation already contains several legitimate views of responsibility. The [[Governance Model Crosswalk & Council Topology]] makes the Cognitive Function model canonical and supersedes the old flat Chief Architect and Department models. [[ADR-0002 - Reconciling the Four Institutional Taxonomies]] recognizes orthogonal authority, engine, domain, and operational axes.
 
 This document adds no fifth institutional axis. Agent roles and subagents belong to Book V's **Implementation** tier: they are execution nodes attached to existing Cognitive Functions and Offices.
+
+### Activation
+
+Approved by the Founder on 2026-09-03 for minimum viable Council operation under the [[Interim Authority Instrument]]. This activates the architecture as an operational routing map only; it does not name human Council members, appoint engines, or change constitutional authority.
 
 ## Core Content
 
@@ -168,4 +172,5 @@ Specialist outputs
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-03 | Founder | Approved for minimum viable Council operation under interim authority; no human seats or engines appointed. |
 | 0.1.0 | 2026-09-03 | Founder + CODEX (CF-07) | Initial node architecture for minimum Council operation; maps authority, functions, offices, domain interfaces, agent roles, and expiring subagents without creating appointments. |

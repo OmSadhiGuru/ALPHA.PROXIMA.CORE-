@@ -98,6 +98,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 011 | active | [[Tool 011 - Relationship Extractor]] | `08_SYSTEMS/Institutional Knowledge Graph/Tools/relationship_extractor.py` |
 | 012 | active | [[Tool 012 - Founder OS State Engine]] | `08_SYSTEMS/Engineering Toolkit/founder_os.py` |
 | 013 | active | [[Tool 013 - Alpha Proxima App]] | `08_SYSTEMS/Engineering Toolkit/alpha_app.py` |
+| 014 | draft | [[Tool 014 - Council Session Kernel]] | `08_SYSTEMS/Engineering Toolkit/council_kernel.py` |
 
 ## CLI Commands
 
@@ -108,6 +109,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap migrate` | Plan or apply selected metadata migrations |
 | `ap stats` | Generate Engineering Dashboard Report |
 | `ap report` | Alias for dashboard report |
+| `ap council` | Open, gate, record, and render Minimum Viable Council sessions |
 | `ap dependency-map` | Generate Vault Dependency Report |
 | `ap office-check` | Generate Office Integrity Report |
 | `ap research-check` | Generate Research Integrity Report |
