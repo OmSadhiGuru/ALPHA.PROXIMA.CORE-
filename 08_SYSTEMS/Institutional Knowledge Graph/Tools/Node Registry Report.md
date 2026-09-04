@@ -2,8 +2,8 @@
 title: "Node Registry Report"
 aliases: ["Institutional Knowledge Graph Node Registry Report"]
 tags: [systems, engineering, knowledge-graph, node-registry, report, alpha-proxima]
-created: 2026-09-02
-updated: 2026-09-02
+created: 2026-09-04
+updated: 2026-09-04
 status: draft
 version: "1.0.0"
 authors: ["CODEX"]
@@ -24,29 +24,29 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-next.Gdnbnx`
-- Generated: `2026-09-02T01:08:47-04:00`
-- Total nodes discovered: `367`
-- Unknown node types: `174`
-- Missing YAML: `18`
-- High-value cleanup candidates: `247`
+- Vault: `/Users/Fred/Documents/Obsidian Vault`
+- Generated: `2026-09-04T11:19:45-04:00`
+- Total nodes discovered: `381`
+- Unknown node types: `177`
+- Missing YAML: `17`
+- High-value cleanup candidates: `250`
 
 ## Nodes by Type
 
 | Node Type | Count |
 |-----------|-------|
-| `unknown` | `174` |
-| `standard` | `39` |
+| `unknown` | `177` |
+| `standard` | `40` |
+| `engineering_tool` | `22` |
 | `future_research` | `19` |
-| `engineering_tool` | `18` |
 | `concept` | `16` |
 | `research_artifact` | `16` |
+| `founder_directive` | `14` |
 | `charter` | `13` |
 | `standing_order` | `13` |
-| `founder_directive` | `12` |
-| `policy` | `9` |
+| `policy` | `12` |
+| `office` | `9` |
 | `theory` | `9` |
-| `office` | `8` |
 | `research_program` | `7` |
 | `canonical_synthesis` | `4` |
 | `open_question` | `4` |
@@ -58,8 +58,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 | Source Path | Title | Reason |
 |-------------|-------|--------|
-| `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Book IV - Cognitive Architecture | no_confident_rule |
-| `00_CONSTITUTION/Book V - Cognitive Council.md` | Book V - Cognitive Council | no_confident_rule |
 | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | Constitutional Hierarchy Statement | no_confident_rule |
 | `00_CONSTITUTION/Founding Principles of Alpha Proxima.md` | Founding Principles of Alpha Proxima | no_confident_rule |
 | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Alpha Proxima — 10 Year Vision | no_confident_rule |
@@ -67,6 +65,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `03_AI_COUNCIL/Alpha Council.md` | Alpha Council | no_confident_rule |
 | `03_AI_COUNCIL/Cognitive Function Matrix.md` | Cognitive Function Matrix | no_confident_rule |
 | `03_AI_COUNCIL/Cognitive Function Registry.md` | Cognitive Function Registry | no_confident_rule |
+| `03_AI_COUNCIL/Council Node Architecture.md` | Council Node Architecture | no_confident_rule |
 | `03_AI_COUNCIL/Engine Registry.md` | Engine Registry | no_confident_rule |
 | `03_AI_COUNCIL/Engine Succession Policy.md` | Engine Succession Policy | no_confident_rule |
 | `03_AI_COUNCIL/Institutional Registry.md` | Institutional Registry | no_confident_rule |
@@ -78,6 +77,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | CIR-002 — Institutional Completeness Review | no_confident_rule |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | CIR-003 Epoch V — Constitutional Coherence | no_confident_rule |
 | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | Directive Governance Framework | no_confident_rule |
+| `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | Book II Amendment — Council Topology | no_confident_rule |
 | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | Governance Model Crosswalk & Council Topology | no_confident_rule |
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | Interim Authority Instrument | no_confident_rule |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | FGR-001 — Epoch II Stewardship Audit | no_confident_rule |
@@ -130,12 +130,13 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `07_RESEARCH/RP-002/21 Version History/RP-002 Version History.md` | RP-002 Version History | no_confident_rule |
 | `07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Institutional Synthesis Report.md` | ISR-001 — Institutional Synthesis Report: RP-001 and RP-002 | no_confident_rule |
 | `07_RESEARCH/RP-003/00 Institutional Stewardship Review/ISR-001 Knowledge Graph Update Recommendations.md` | ISR-001 Knowledge Graph Update Recommendations | no_confident_rule |
-| `08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md` | ALPHAPROXIMA Enterprise Knowledge Architecture v1.0 | no_confident_rule |
 | `08_SYSTEMS/Alpha Proxima Operating Model v1.0.md` | Alpha Proxima Operating Model v1.0 | no_confident_rule |
+| `08_SYSTEMS/ALPHAPROXIMA Enterprise Knowledge Architecture v1.0.md` | ALPHAPROXIMA Enterprise Knowledge Architecture v1.0 | no_confident_rule |
 | `08_SYSTEMS/Automation/Vault Note Generator.md` | Vault Note Generator | no_confident_rule |
 | `08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md` | OSG Reading Color CSS Guide | no_confident_rule |
 | `08_SYSTEMS/Foundational Architecture.md` | Foundational Architecture | no_confident_rule |
 | `08_SYSTEMS/Institutional Relationship Map.md` | Institutional Relationship Map | no_confident_rule |
+| `08_SYSTEMS/Knowledge Architecture Specification.md` | Knowledge Architecture Specification | no_confident_rule |
 | `08_SYSTEMS/LUMIAION Architecture Spec v0.1.md` | LUMIAION Architecture Spec v0.1 | no_confident_rule |
 | `08_SYSTEMS/The Orchestration Framework.md` | The Orchestration Framework | no_confident_rule |
 | `08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md` | Color System - Implementation Checklist | no_confident_rule |
@@ -148,22 +149,24 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `10_TEMPLATES/Research Note Template.md` | [Research Title] | no_confident_rule |
 | `10_TEMPLATES/Research Program Template/Research Program Methodology.md` | Research Program Methodology — Alpha Proxima Standard | no_confident_rule |
 | `10_TEMPLATES/Vault Structure Convention.md` | Vault Structure Convention | no_confident_rule |
+| `11_OPERATIONS/Weekly Execution Plans/2026-09-03 - Truth Kernel Execution Plan.md` | Truth Kernel — Weekly Execution Plan | no_confident_rule |
 | `11_PROJECTS/README.md` | 11_PROJECTS | no_confident_rule |
+| `13_OPERATIONS/AI Council/MVC-001 Council Activation Record.md` | MVC-001 Council Activation Record | no_confident_rule |
 | `13_OPERATIONS/Alpha Proxima App/Alpha Proxima App Architecture v1.md` | Alpha Proxima App Architecture v1 | no_confident_rule |
+| `13_OPERATIONS/Operational Procedures/Minimum Viable Council Procedure.md` | Minimum Viable Council Procedure | no_confident_rule |
 | `13_OPERATIONS/Reboot/Repository Reboot Audit - 2026-08-23.md` | Repository Reboot Audit - 2026-08-23 | no_confident_rule |
 | `13_OPERATIONS/Workflow Registry/LUMIAION - Operating Manual (LOOM).md` | LUMIAION Operating Manual (LOOM) | no_confident_rule |
 | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/AI COUNCIL/AI COUNCIL.md` | AI Council | no_confident_rule |
 | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/ALPHA PROXIMA ROLES/ARCHITECTURE MAP.md` | Architecture Map | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | LUMIAION Vault | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/BUILDING MILESTONE.md` | Building Milestone | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/CONSTITUTIONV1.0.md` | CONSTITUTIONV1.0 | no_confident_rule |
-| `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/building milestone/Phase 1/PHASE 1 - FOUNDATION.md` | Phase 1 - Foundation | no_confident_rule |
 
 ## Missing YAML
 
 | Source Path | Title |
 |-------------|-------|
 | `Awaken the Inner Guru Production Folder.md` | Awaken the Inner Guru Production Folder |
+| `docs/constitution/LUMIAION_CONSTITUTION.md` | LUMIAION |
+| `docs/constitution/README.md` | LUMIAION Constitution |
+| `docs/setup/Claude-Code-in-Obsidian.md` | Claude Code inside Obsidian — Setup Guide |
 | `OSG_BUSINESS/00 OSG Business Foundation — Overview.md` | OSG Business Foundation — Launch Package |
 | `OSG_BUSINESS/01 Flagship Course.md` | Flagship Course — *The Inner Architecture* |
 | `OSG_BUSINESS/02 Coaching Offers.md` | OSG Coaching Offers |
@@ -174,20 +177,14 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `OSG_BUSINESS/07 30-Day Launch Checklist.md` | 30-Day Launch Checklist |
 | `OSG_BUSINESS/OSG_ACADEMY/Awaken the Inner Guru — Production Blueprint.md` | Awaken the Inner Guru |
 | `OSG_BUSINESS/OSG_ACADEMY/OSG Learning Standard (OLS) v1.0.md` | OSG Learning Standard (OLS) v1.0 |
-| `Omi/Memories.md` | Omi Memory Export |
 | `Sans titre 1.md` | Sans titre 1 |
 | `Sans titre.md` | Sans titre |
 | `Vault.md` | Vault |
-| `docs/constitution/LUMIAION_CONSTITUTION.md` | LUMIAION |
-| `docs/constitution/README.md` | LUMIAION Constitution |
-| `docs/setup/Claude-Code-in-Obsidian.md` | Claude Code inside Obsidian — Setup Guide |
 
 ## High-Value Cleanup Candidates
 
 | Source Path | Issue |
 |-------------|-------|
-| `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | unknown node type, missing artifact_type |
-| `00_CONSTITUTION/Book V - Cognitive Council.md` | unknown node type, missing artifact_type |
 | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | unknown node type, missing artifact_type |
 | `00_CONSTITUTION/Founding Principles of Alpha Proxima.md` | unknown node type, missing artifact_type |
 | `01_VISION/Alpha Proxima — 10 Year Vision.md` | unknown node type, missing artifact_type |
@@ -196,6 +193,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `03_AI_COUNCIL/Cognitive Council Charter.md` | missing artifact_type |
 | `03_AI_COUNCIL/Cognitive Function Matrix.md` | unknown node type, missing artifact_type |
 | `03_AI_COUNCIL/Cognitive Function Registry.md` | unknown node type, missing artifact_type |
+| `03_AI_COUNCIL/Council Node Architecture.md` | unknown node type |
 | `03_AI_COUNCIL/Departments/ATHENA Charter.md` | missing artifact_type |
 | `03_AI_COUNCIL/Departments/JERANIUM Charter.md` | missing artifact_type |
 | `03_AI_COUNCIL/Departments/LUMIAION Charter.md` | missing artifact_type |
@@ -212,8 +210,9 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Constitutional Audit/CAR-001 Constitutional Audit Report.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-001 Epoch III Constitutional Refactoring.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | unknown node type, missing artifact_type |
-| `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | unknown node type |
 | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | unknown node type |
 | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | unknown node type, missing artifact_type |
@@ -309,4 +308,4 @@ This report is generated from a read-only Markdown scan. It does not modify note
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-09-02 | [[CODEX]] | Node registry report generated |
+| 1.0.0 | 2026-09-04 | [[CODEX]] | Node registry report generated |

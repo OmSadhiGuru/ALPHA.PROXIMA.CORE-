@@ -86,7 +86,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── founder_os.py        state engine, CLI, renderer, loopback server
-└── test_founder_os.py   44 tests
+└── test_founder_os.py   46 tests
 ```
 
 ### Daily use
@@ -96,7 +96,7 @@ AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder'
 
 $AP show                                    # the four questions, in the terminal
 $AP mission "Close RBT-001" --sprint RBT-001
-$AP priority-add "Resolve the draft PRs" --why "CN-001 is blocked" --owner Founder
+$AP priority-add "Review repository health" --why "Current evidence precedes repair" --owner Founder
 $AP next-action "Review PR #10" --owner Founder --priority PRI-001
 $AP priority-status PRI-001 done
 ```
@@ -104,10 +104,10 @@ $AP priority-status PRI-001 done
 Routing and execution:
 
 ```bash
-$AP task-add "Build the CN-001 relocation map" --owner CODEX \
+$AP task-add "Build the approved relocation map" --owner CODEX \
     --why "Coherence precedes expansion" --by LUMIAION --gate G2
 $AP task-state TSK-001 working
-$AP task-state TSK-001 complete --output "[[CN-001 Relocation Map]]"
+$AP task-state TSK-001 complete --output "[[Approved Relocation Map]]"
 $AP agent-status AGT-003 working
 $AP blocker-add "No OMI credential" --impact "Capture pipeline cannot ship" \
     --owner Founder --needs-founder
@@ -121,8 +121,10 @@ state, and refreshed Console without altering institutional notes.
 
 ```bash
 $AP repository-health "Assess current repository health" \
+    --success-condition "A persisted report is ready for Founder review" \
     --why "Founder needs current evidence before choosing a repair" \
-    --report "/tmp/alpha-proxima-vault-validation.md"
+    --vault . \
+    --report "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md"
 ```
 
 Founder decisions:
@@ -164,15 +166,16 @@ Every mutating command validates, saves, and re-renders both views. There is no 
 
 The next session can resume from here without re-deriving anything.
 
-**Verified state as of 2026-09-01**
+**Verified state as of 2026-09-03**
 
-- Console V1 is built, tested, and rendering. Founder OS V1 merged in PR #12; the `task-state` fix in PR #13. `main` at ad5295b.
-- PRs #8, #9 and #10 were merged by the Founder on 2026-09-01. Only #7 remains open. PR #10 landed the CN-001 *tracker* only — the relocation map is still to build.
+- Console and Alpha Proxima App render from Founder OS schema 1.1.0; 46 Founder OS tests and 40 App tests pass.
+- At the last verified remote refresh, `main` was `1ec50f4`, PRs #7 through #23 were reconciled or merged, and no pull request remained open.
+- FIR-001 repository health is executable end to end through Founder → LUMIAION → JERANIUM → Vault Validator → persisted result → Console review.
 - The vertical slice — Mission → state → Console → editable → persisted → tested — is closed end to end.
 - **`FD-001` is ratified.** Vault-native git-versioned JSON is the Founder OS state store. Revisit only when concurrent multi-writer access is genuinely required.
 - **`FD-002` is ratified.** Console V1 stays local-only. Any hosted deployment is a separate decision that must ship authentication first.
 - `ap.py founder task-state` shipped broken in the first cut (argparse dest collision) and is fixed; the CLI surface did not change.
-- Vault validation is unchanged from its pre-session baseline: 5 errors, 479 warnings. Those belong to CN-001.
+- Current validation reports 0 critical, 23 errors, 998 warnings, and 38 info. Console coherence remains at its 129-defect ratchet.
 
 **Waiting on the Founder**
 
@@ -181,9 +184,9 @@ The next session can resume from here without re-deriving anything.
 
 **Next three actions**
 
-1. Decide document-level salvage for PR #7, or close it — the last unmerged branch.
-2. Build the CN-001 relocation map from current `main` (the tracker landed with PR #10; the map did not).
-3. Run the photo-to-social-post routing proof through Founder OS, recording each handoff as an `agent_run`.
+1. Founder reviews the persisted FIR-001 result.
+2. Reconcile this atomic patch into the canonical checkout once Git metadata is writable.
+3. Choose an authenticated or private-synced iPhone boundary before exposing Founder state.
 
 **Not built, deliberately**
 

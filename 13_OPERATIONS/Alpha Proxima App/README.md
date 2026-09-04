@@ -139,9 +139,9 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app render
 
 The next session can resume from here without re-deriving anything.
 
-**Verified state after PR #7 reconciliation**
+**Verified state as of 2026-09-03**
 
-- App V1 is built, tested, and rendering. 35 app tests pass; Founder OS's 45 pass unchanged.
+- App V1 and the FIR-001 route are built, tested, and rendering. 40 App tests and 46 Founder OS tests pass.
 - Verified in headless Chromium at 330 px, 485 px, 768 px, and 1280 px: no horizontal overflow, no JavaScript errors, all 19 interactive assertions passing.
 - The app is registered as `ap.py app`. Four pre-existing files were modified, all of them registrations or cross-references: `ap.py` (one registry line), [[Alpha Proxima Engineering Toolkit]] (Tool 013 and two CLI rows), and the Founder OS [[Founder OS README|README]] and [[Founder OS Architecture v1|architecture]] (links back to this app).
 - The Founder-ratified hierarchy is enacted: `11_PROJECTS`, `12_PEOPLE`, and `13_OPERATIONS`. Generated and personal Obsidian state is excluded from version control.
@@ -150,8 +150,8 @@ The next session can resume from here without re-deriving anything.
 
 | Signal | Value |
 |---|---|
-| Institutional documents | 363 |
-| Connected | 345 (94.3%) |
+| Institutional documents | 368 |
+| Connected | 347 (94.3%) |
 | Orphans | 21 |
 | Missing frontmatter | 17 |
 | Broken links | 87 |
@@ -159,7 +159,7 @@ The next session can resume from here without re-deriving anything.
 | Coherence defects | 129 |
 | Folders outside the canonical hierarchy | 5, holding 55 documents |
 
-**All of this belongs to CN-001, not to the app.** The app's job is to keep it visible; [[CN-001 Execution Tracker]] owns the repair.
+The app keeps this inherited coherence debt visible and enforces the 129-defect ratchet. The obsolete CN-001 execution status is closed; any future repair must enter Founder state as current work rather than rely on that historical tracker.
 
 **Waiting on the Founder**
 
@@ -169,9 +169,9 @@ The next session can resume from here without re-deriving anything.
 
 **Next three actions**
 
-1. Take the domain map to CN-001 and decide placement for the five loose folders.
-2. Lower `--max-defects` in the same commit as each repaired batch.
-3. Regenerate or formally retire the 2026-07-03 graph registries, which the app's index now supersedes operationally.
+1. Review the FIR-001 result surfaced in Operate.
+2. Lower `--max-defects` in the same commit as each future repaired batch.
+3. Choose the private iPhone delivery boundary required by FD-002.
 
 **Not built, deliberately**
 

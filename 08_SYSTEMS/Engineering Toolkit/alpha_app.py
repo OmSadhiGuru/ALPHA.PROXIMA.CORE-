@@ -592,7 +592,7 @@ def build_parser() -> argparse.ArgumentParser:
     check_cmd.add_argument(
         "--max-defects", type=int, default=0, metavar="N",
         help="Defects tolerated before this command fails. The Foundation lowers "
-             "this number as CN-001 repairs the vault; it should never be raised.")
+             "this number as explicit repair work closes the gap; it should never be raised.")
     sub.add_parser("index", help="Print the vault index as JSON.")
     sub.add_parser("view", help="Print the composed read model as JSON.")
     serve_cmd = sub.add_parser("serve", help="Serve the app on 127.0.0.1.")
@@ -636,9 +636,9 @@ def main(argv: list[str] | None = None) -> int:
                 return 0
             print(f"{defects} coherence defect(s) against a ceiling of {ceiling}.")
             if defects > ceiling:
-                print("Above the ceiling. Repairs belong to CN-001, which owns the taxonomy.")
+                print("Above the ceiling. Record explicit repair work before changing the ratchet.")
                 return 1
-            print("Within the agreed ceiling. Lower it as CN-001 closes the gap.")
+            print("Within the agreed ceiling. Lower it with each verified repair batch.")
             return 0
 
         if args.command == "render":

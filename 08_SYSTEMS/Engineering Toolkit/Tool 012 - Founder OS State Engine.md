@@ -3,7 +3,7 @@ title: "Tool 012 - Founder OS State Engine"
 aliases: ["Founder OS State Engine", "founder_os", "Engineering Toolkit Tool 012", "ap founder"]
 tags: [systems, engineering, toolkit, founder-os, console, state, alpha-proxima]
 created: 2026-08-26
-updated: 2026-09-01
+updated: 2026-09-03
 status: active
 version: "1.1.0"
 authors: ["CODEX"]
@@ -43,6 +43,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder <command> [options]
 | `serve [--port]` | Serve the Console and its read model on `127.0.0.1`. |
 | `state` / `view` | Print raw state / the Console read model as JSON. |
 | `mission <text>` | Set the Mission of the Day. |
+| `repository-health <intent> --success-condition <condition>` | Execute the bounded Founder → LUMIAION → JERANIUM validation route and persist its review result. |
 | `priority-add <title>` | Add a Top 3 priority (rejected when three are already open). |
 | `priority-status <id> <status>` | `open` \| `done` \| `dropped`. |
 | `next-action <title>` | Set the single Next Action. |

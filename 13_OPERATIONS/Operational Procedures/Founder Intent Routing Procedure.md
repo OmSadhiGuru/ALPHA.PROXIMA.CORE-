@@ -3,9 +3,9 @@ title: "Founder Intent Routing Procedure"
 aliases: ["Unified Founder Routing", "One-Inbox Routing", "FIR-001"]
 tags: [operations, procedures, orchestration, routing, founder, lumiaion, alpha-proxima]
 created: 2026-08-28
-updated: 2026-09-03
+updated: 2026-09-04
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["Founder", "LUMIAION", "CODEX"]
 artifact_type: operational-procedure
 institutional_owner: "Alpha Proxima Foundation"
@@ -146,6 +146,28 @@ A routed request is complete only when:
 - durable context has a declared writeback destination; and
 - one next action is visible, or the work is closed.
 
+## Implemented V1 Route
+
+FIR-001 now has one executable route: repository health. The state engine
+captures the Founder intent and success condition, records LUMIAION's routing
+decision, assigns JERANIUM, runs the report-only Vault Validator, persists the
+task/run/result/handoff chain, and regenerates Founder Console. Each execution
+stops at `review`; it cannot approve its own output. The Founder approved the
+first persisted execution on 2026-09-04, after which its state became
+`completed`.
+
+```bash
+AP='python3 "08_SYSTEMS/Engineering Toolkit/ap.py" founder'
+$AP repository-health "Assess current repository health" \
+  --success-condition "A persisted report is ready for Founder review" \
+  --why "Founder needs current evidence before choosing a repair" \
+  --vault . \
+  --report "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md"
+```
+
+This is intentionally not a general dispatcher. New domains and delivery
+channels remain unimplemented until this route is reviewed and preserved.
+
 ## Failure Recovery
 
 If a tool, engine, project, or session cannot reach the assigned owner:
@@ -160,6 +182,7 @@ If a tool, engine, project, or session cannot reach the assigned owner:
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
+| 1.1.0 | 2026-09-04 | Founder / LUMIAION / CODEX | Implemented, persisted, and Founder-approved the first repository-health execution |
 | 1.0.0 | 2026-09-03 | Founder | Approved FIR-001 and its Council Node Architecture integration for active operational routing. |
 | 0.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Connects FIR-001 to the Council Node Architecture and Agent/Subagent Registry; clarifies that subagents are implementation nodes without independent authority. |
 | 0.1.0 | 2026-08-28 | Founder / LUMIAION / CODEX | Initial unified Founder-intent routing procedure submitted for review |

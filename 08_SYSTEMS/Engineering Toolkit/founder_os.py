@@ -36,7 +36,7 @@ DEFAULT_TEMPLATE = FOUNDER_OS_DIR / "console" / "console.template.html"
 DEFAULT_CONSOLE = FOUNDER_OS_DIR / "console" / "console.html"
 DEFAULT_MIRROR = FOUNDER_OS_DIR / "Founder Console.md"
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 MAX_PRIORITIES = 3
 
 TASK_STATES = ("assigned", "working", "waiting", "blocked", "review", "complete")
@@ -46,6 +46,7 @@ INTEGRATION_STATES = ("connected", "not_connected", "planned", "blocked")
 HEALTH_STATES = ("ok", "degraded", "unknown", "failing")
 PRIORITY_STATES = ("open", "done", "dropped")
 BLOCKER_STATES = ("open", "resolved")
+HANDOFF_STATES = ("captured", "routed", "executing", "review", "approved", "completed", "blocked")
 
 # Collection name -> (id prefix, allowed status values, status field name).
 COLLECTIONS = {
@@ -60,6 +61,7 @@ COLLECTIONS = {
     "projects": ("PRJ", None, "status"),
     "integrations": ("INT", INTEGRATION_STATES, "status"),
     "system_health": ("SYS", HEALTH_STATES, "status"),
+    "handoffs": ("FIR", HANDOFF_STATES, "state"),
 }
 
 # Fields every record in a collection must carry. Provenance fields are
@@ -77,6 +79,9 @@ REQUIRED_RECORD_FIELDS = {
     "projects": ("id", "name", "status"),
     "integrations": ("id", "name", "status"),
     "system_health": ("id", "area", "status", "detail"),
+    "handoffs": ("id", "received_at", "founder_intent", "success_condition",
+                 "primary_owner", "approval_gate", "writeback_destination",
+                 "state", "next_action"),
 }
 
 
@@ -137,6 +142,9 @@ def load_state(path: Path) -> dict:
         state = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         raise StateError(f"State document is not valid JSON: {exc}") from exc
+    if state.get("schema_version") == "1.0.0":
+        state["handoffs"] = []
+        state["schema_version"] = SCHEMA_VERSION
     validate_state(state)
     return state
 
@@ -241,6 +249,10 @@ def open_blockers(state: dict) -> list[dict]:
     return [b for b in state["blockers"] if b["status"] == "open"]
 
 
+def active_handoffs(state: dict) -> list[dict]:
+    return [h for h in state["handoffs"] if h["state"] != "completed"]
+
+
 def build_view(state: dict) -> dict:
     """The Console's read model. Presentation layers consume this, not raw state."""
     mission = state.get("daily_mission")
@@ -261,12 +273,14 @@ def build_view(state: dict) -> dict:
         "integrations": state["integrations"],
         "system_health": state["system_health"],
         "projects": state["projects"],
+        "handoffs": active_handoffs(state),
         "counts": {
             "priorities": len(open_priorities(state)),
             "decisions": len(open_decisions(state)),
             "tasks": len(active_tasks(state)),
             "blockers": len(open_blockers(state)),
             "founder_blockers": len([b for b in open_blockers(state) if b["needs_founder"]]),
+            "handoffs": len(active_handoffs(state)),
         },
     }
 
@@ -467,7 +481,8 @@ def resolve_blocker(state: dict, blocker_id: str, note: str | None = None) -> di
     return record
 
 
-def run_repository_health_lane(state: dict, intention: str, why: str,
+def run_repository_health_lane(state: dict, intention: str, success_condition: str,
+                               why: str,
                                vault_root: Path, report_path: Path) -> dict:
     """Route one Founder intention through LUMIAION to JERANIUM.
 
@@ -476,11 +491,21 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
     persists a result reference, and leaves the task at Founder review.
     """
     intention = intention.strip()
+    success_condition = success_condition.strip()
     why = why.strip()
-    if not intention or not why:
-        raise StateError("Repository-health intention and why are required.")
+    if not intention or not success_condition or not why:
+        raise StateError(
+            "Repository-health intention, success condition, and why are required."
+        )
     if not vault_root.is_dir():
         raise StateError(f"Vault root is not a directory: {vault_root}")
+
+    try:
+        persisted_report_ref = str(report_path.relative_to(vault_root))
+        persisted_vault_ref = "."
+    except ValueError:
+        persisted_report_ref = str(report_path)
+        persisted_vault_ref = str(vault_root)
 
     jeranium = next(
         (agent for agent in state["agents"] if agent.get("name") == "JERANIUM"),
@@ -488,6 +513,32 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
     )
     if jeranium is None or jeranium.get("status") in {"proposed", "blocked", "retired"}:
         raise StateError("JERANIUM must be registered and available for this lane.")
+
+    handoff = {
+        "id": next_id(state, "handoffs"),
+        "received_at": now_iso(),
+        "founder_intent": intention,
+        "success_condition": success_condition,
+        "primary_owner": "JERANIUM",
+        "supporting_roles": ["LUMIAION"],
+        "priority": "normal",
+        "decision_class": "IV",
+        "context_sources": [persisted_vault_ref],
+        "constraints": ["Report-only validation; do not mutate vault content"],
+        "deliverables": [persisted_report_ref],
+        "approval_gate": "founder_review",
+        "writeback_destination": persisted_report_ref,
+        "state": "captured",
+        "next_action": "LUMIAION classifies and routes the request",
+        "result_id": None,
+        "task_id": None,
+    }
+    state["handoffs"].append(handoff)
+    handoff.update({
+        "state": "routed",
+        "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
+        "next_action": "JERANIUM executes report-only vault validation",
+    })
 
     # Import locally so Founder OS remains usable even if an optional worker is
     # moved later. Both modules are standard-library-only and share this folder.
@@ -498,7 +549,10 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
         requested_by="Founder via LUMIAION", gate="G1",
     )
     task["routing_decision"] = "LUMIAION -> JERANIUM -> Vault Validator"
+    task["handoff_id"] = handoff["id"]
+    handoff["task_id"] = task["id"]
     set_task_state(state, task["id"], "working")
+    handoff.update({"state": "executing", "next_action": "Persist the validation result"})
 
     run = {
         "id": next_id(state, "agent_runs"),
@@ -508,6 +562,7 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
         "started_at": now_iso(),
         "route": "LUMIAION -> JERANIUM",
         "worker": "vault_validator.validate",
+        "handoff_id": handoff["id"],
     }
     state["agent_runs"].append(run)
     jeranium["status"] = "working"
@@ -532,7 +587,7 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
         "id": next_id(state, "results"),
         "task_id": task["id"],
         "kind": "repository-health-report",
-        "ref": str(report_path),
+        "ref": persisted_report_ref,
         "summary": f"Scanned {len(notes)} Markdown notes: {issue_text}.",
         "produced_at": now_iso(),
         "produced_by": "JERANIUM",
@@ -540,9 +595,15 @@ def run_repository_health_lane(state: dict, intention: str, why: str,
     state["results"].append(result)
     set_task_state(state, task["id"], "review", output_ref=result["ref"])
     run.update({"status": "complete", "ended_at": now_iso(), "result_id": result["id"]})
+    handoff.update({
+        "state": "review",
+        "result_id": result["id"],
+        "next_action": f"Founder reviews {result['id']}",
+        "updated_at": now_iso(),
+    })
     jeranium["status"] = "idle"
     validate_state(state)
-    return {"task": task, "run": run, "result": result}
+    return {"handoff": handoff, "task": task, "run": run, "result": result}
 
 
 # --------------------------------------------------------------------------
@@ -646,6 +707,13 @@ def render_mirror(state: dict) -> str:
         [[d["id"], d["title"], d["recommendation"], d["consequence_of_delay"]]
          for d in view["decisions"]],
         "_No decisions awaiting the Founder._",
+    )
+    table(
+        "Founder Intent Routes",
+        ["ID", "Intent", "State", "Owner", "Next action"],
+        [[h["id"], h["founder_intent"], h["state"].upper(), h["primary_owner"],
+          h["next_action"]] for h in view["handoffs"]],
+        "_No active Founder intent routes._",
     )
     table(
         "Execution",
@@ -877,6 +945,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Run the Founder -> LUMIAION -> JERANIUM repository-health lane.",
     )
     p.add_argument("intention")
+    p.add_argument("--success-condition", required=True)
     p.add_argument("--why", required=True)
     p.add_argument("--vault", default=str(VAULT_ROOT))
     p.add_argument("--report", required=True)
@@ -949,12 +1018,13 @@ def main(argv: list[str] | None = None) -> int:
             print(resolve_blocker(state, args.id, args.note)["id"])
         elif args.command == "repository-health":
             lane = run_repository_health_lane(
-                state, args.intention, args.why,
+                state, args.intention, args.success_condition, args.why,
                 Path(args.vault).expanduser().resolve(),
                 Path(args.report).expanduser().resolve(),
             )
             print(
-                f"{lane['task']['id']} -> {lane['run']['id']} -> "
+                f"{lane['handoff']['id']} -> {lane['task']['id']} -> "
+                f"{lane['run']['id']} -> "
                 f"{lane['result']['id']} ({lane['result']['ref']})"
             )
         else:
