@@ -4,8 +4,8 @@ aliases: ["MVC Procedure", "MVC Protocol", "Interim Council Operating Protocol",
 tags: [operations, council, interim-authority, agents, deliberation, alpha-proxima]
 created: 2026-09-03
 updated: 2026-09-03
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 authors: ["Founder", "CODEX (CF-07)"]
 artifact_type: operational-procedure
 institutional_owner: "Alpha Proxima Foundation"
@@ -25,6 +25,10 @@ Allow structured Council-level work to begin before the Alpha Council's three hu
 ## Context
 
 The [[Interim Authority Instrument]] makes the Founder the interim constituent authority and explicitly forbids pretending that the Alpha Council already exists as a voting body. The Foundation nevertheless needs a repeatable way to gather independent analysis, preserve dissent, make Founder decisions, and route approved execution.
+
+### Activation
+
+Approved by the Founder on 2026-09-03 and activated under the [[Interim Authority Instrument]]. The first activation record is [[MVC-001 Council Activation Record]]. This procedure remains limited to advisory and delegated work until human seats are filled and the interim instrument sunsets.
 
 ## Core Content
 
@@ -117,4 +121,5 @@ This protocol becomes operational only after explicit Founder approval of its ex
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.0 | 2026-09-03 | Founder | Approved and activated under the Interim Authority Instrument for advisory and delegated Council work. |
 | 0.1.0 | 2026-09-03 | Founder + CODEX (CF-07) | Initial minimum operating protocol under Founder interim authority; advisory and delegated work only until human seats are filled. |

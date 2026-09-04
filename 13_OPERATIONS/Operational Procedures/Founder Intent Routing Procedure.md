@@ -4,8 +4,8 @@ aliases: ["Unified Founder Routing", "One-Inbox Routing", "FIR-001"]
 tags: [operations, procedures, orchestration, routing, founder, lumiaion, alpha-proxima]
 created: 2026-08-28
 updated: 2026-09-03
-status: under_review
-version: "0.2.0"
+status: active
+version: "1.0.0"
 authors: ["Founder", "LUMIAION", "CODEX"]
 artifact_type: operational-procedure
 institutional_owner: "Alpha Proxima Foundation"
@@ -23,6 +23,8 @@ related_research_programs: []
 Give the Founder one reliable intake surface. The Founder states an intent once; Alpha Proxima classifies it, loads relevant memory, assigns accountable execution, and returns one review-ready result.
 
 This procedure removes manual department selection from the Founder's workload. A request received in the wrong project, department, tool, or session remains valid intake.
+
+The Founder approved this routing procedure and its Council Node Architecture integration on 2026-09-03. It is now active within the authority and approval gates stated here.
 
 ## Scope
 
@@ -158,5 +160,6 @@ If a tool, engine, project, or session cannot reach the assigned owner:
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
+| 1.0.0 | 2026-09-03 | Founder | Approved FIR-001 and its Council Node Architecture integration for active operational routing. |
 | 0.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Connects FIR-001 to the Council Node Architecture and Agent/Subagent Registry; clarifies that subagents are implementation nodes without independent authority. |
 | 0.1.0 | 2026-08-28 | Founder / LUMIAION / CODEX | Initial unified Founder-intent routing procedure submitted for review |
