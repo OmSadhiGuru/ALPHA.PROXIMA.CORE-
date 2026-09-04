@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-09-04T15:17:33+00:00",
+  "updated_at": "2026-09-04T15:18:26+00:00",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
@@ -103,7 +103,7 @@
       "requested_by": "LUMIAION",
       "created_at": "2026-08-26T09:20:54+00:00",
       "decided_at": "2026-09-01T18:13:41+00:00",
-      "decision_note": "Ratified by the Founder 2026-09-01. Console V1 stays local-only: file:// and a 127.0.0.1 loopback server, no authentication because the socket is not reachable off-host. Verified loopback-only (refused on the host interface IP). Any hosted deployment is a separate decision that must ship an authentication system first."
+      "decision_note": "Ratified by the Founder 2026-09-01. Console V1 stays local-only: file:// and a 127.0.0.1 loopback server, no authentication because the socket is not reachable off-host. Verified loopback-only (refused on the host interface IP). Any hosted deployment is a separate decision that must ship an authentication system first. Selected 2026-09-04: private static-file delivery through iCloud Drive/Files sync; no public hosting, exposed loopback server, repository credentials, or second state writer."
     },
     {
       "id": "FD-003",

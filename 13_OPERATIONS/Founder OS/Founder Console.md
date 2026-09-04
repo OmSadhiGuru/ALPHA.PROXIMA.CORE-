@@ -21,7 +21,7 @@ related_research_programs: []
 > [!warning] Generated file
 > This note is rendered from `state/founder-state.json` by `ap.py founder render`. Edits here are overwritten. Change state with `ap.py founder <command>`.
 
-_Rendered 2026-09-04T15:17:33+00:00 · schema 1.1.0_
+_Rendered 2026-09-04T15:18:26+00:00 · schema 1.1.0_
 
 ## Today
 
