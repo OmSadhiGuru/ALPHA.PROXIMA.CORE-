@@ -43,3 +43,11 @@ class CouncilKernelTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "state.json"; ck.save(state, path)
             self.assertEqual(len(ck.load(path)["sessions"]), 1)
+
+    def test_dashboard_is_read_only_and_names_next_action(self):
+        state = ck.empty_state(); self.open(state)
+        view = ck.build_view(state)
+        self.assertEqual(view["counts"]["active"], 1)
+        dashboard = ck.render_dashboard(state)
+        self.assertIn("Council Console", dashboard)
+        self.assertIn("Test bounded implementation", dashboard)
