@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-04T13:38:48+00:00",
-  "note_count": 372,
+  "generated_at": "2026-09-04T15:17:34+00:00",
+  "note_count": 375,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -93,6 +93,12 @@
       "count": 30
     },
     {
+      "id": "11_OPERATIONS",
+      "name": "11 Operations",
+      "question": "Not yet placed in the canonical hierarchy",
+      "count": 2
+    },
+    {
       "id": "OSG_BUSINESS",
       "name": "Osg Business",
       "question": "Not yet placed in the canonical hierarchy",
@@ -120,7 +126,7 @@
       "id": "root",
       "name": "Root",
       "question": "Not yet placed in the canonical hierarchy",
-      "count": 8
+      "count": 9
     }
   ],
   "entries": [
@@ -6785,7 +6791,7 @@
       "unresolved": [
         "Vault Dependency Report"
       ],
-      "backlinks": 7
+      "backlinks": 8
     },
     {
       "id": "08-systems-institutional-knowledge-graph-ep-001-engineering-roadmap-md",
@@ -6855,7 +6861,7 @@
         "Vault Dependency Report",
         "Engineering Dashboard Report"
       ],
-      "backlinks": 4
+      "backlinks": 6
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -6890,7 +6896,7 @@
         "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md"
       ],
       "unresolved": [],
-      "backlinks": 12
+      "backlinks": 14
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md",
@@ -6959,7 +6965,7 @@
         "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md"
       ],
       "unresolved": [],
-      "backlinks": 9
+      "backlinks": 10
     },
     {
       "id": "08-systems-institutional-knowledge-graph-relationship-taxonomy-md",
@@ -6993,7 +6999,7 @@
         "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md"
       ],
       "unresolved": [],
-      "backlinks": 8
+      "backlinks": 9
     },
     {
       "id": "08-systems-institutional-knowledge-graph-tools-node-registry-report-md",
@@ -9161,7 +9167,7 @@
       ],
       "updated": "2026-09-04",
       "has_frontmatter": true,
-      "words": 942,
+      "words": 840,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "13-operations-workflow-registry-lumiaion-operating-manual-loom-md",
@@ -9813,7 +9819,7 @@
         "13-operations-review-cycles-review-cycles-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 11
+      "backlinks": 12
     },
     {
       "id": "13-operations-workflow-registry-workflow-registry-md",
@@ -11443,6 +11449,76 @@
       "backlinks": 0
     },
     {
+      "id": "11-operations-weekly-execution-plans-2026-09-03-truth-kernel-baseline-report-md",
+      "path": "11_OPERATIONS/Weekly Execution Plans/2026-09-03 - Truth Kernel Baseline Report.md",
+      "title": "Truth Kernel Baseline Report",
+      "domain": "11_OPERATIONS",
+      "type": "engineering-baseline",
+      "status": "draft",
+      "version": "0.1.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "engineering",
+        "backend",
+        "knowledge-graph",
+        "baseline",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-03",
+      "has_frontmatter": true,
+      "words": 555,
+      "links": [
+        "11-operations-weekly-execution-plans-2026-09-03-truth-kernel-execution-plan-md",
+        "08-systems-institutional-knowledge-graph-graph-readiness-assessment-md",
+        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
+      "id": "11-operations-weekly-execution-plans-2026-09-03-truth-kernel-execution-plan-md",
+      "path": "11_OPERATIONS/Weekly Execution Plans/2026-09-03 - Truth Kernel Execution Plan.md",
+      "title": "Truth Kernel — Weekly Execution Plan",
+      "domain": "11_OPERATIONS",
+      "type": "execution-plan",
+      "status": "draft",
+      "version": "0.1.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Implementation",
+      "engine": "CODEX",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "engineering",
+        "backend",
+        "knowledge-graph",
+        "weekly-plan",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-03",
+      "has_frontmatter": true,
+      "words": 1257,
+      "links": [
+        "08-systems-institutional-knowledge-graph-graph-readiness-assessment-md",
+        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
+        "11-operations-weekly-execution-plans-2026-09-03-truth-kernel-baseline-report-md",
+        "13-operations-workflow-registry-lumiaion-operating-manual-loom-md",
+        "08-systems-institutional-knowledge-graph-engineering-program-ep-001-institutional-knowledge-graph-md",
+        "08-systems-institutional-knowledge-graph-node-taxonomy-md",
+        "08-systems-institutional-knowledge-graph-relationship-taxonomy-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
       "id": "alpha-proxima-core-md",
       "path": "Alpha Proxima Core.md",
       "title": "Alpha Proxima Core",
@@ -12903,6 +12979,26 @@
       "backlinks": 0
     },
     {
+      "id": "untitled-md",
+      "path": "Untitled.md",
+      "title": "Untitled",
+      "domain": "root",
+      "type": "unclassified",
+      "status": "unknown",
+      "version": "",
+      "owner": "",
+      "function": "",
+      "engine": "",
+      "authors": [],
+      "tags": [],
+      "updated": "",
+      "has_frontmatter": false,
+      "words": 0,
+      "links": [],
+      "unresolved": [],
+      "backlinks": 0
+    },
+    {
       "id": "vault-md",
       "path": "Vault.md",
       "title": "Vault",
@@ -12924,9 +13020,9 @@
     }
   ],
   "coherence": {
-    "note_count": 372,
-    "connected": 351,
-    "connectedness": 0.9435,
+    "note_count": 375,
+    "connected": 353,
+    "connectedness": 0.9413,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -13037,6 +13133,12 @@
         "domain": "root"
       },
       {
+        "id": "untitled-md",
+        "path": "Untitled.md",
+        "title": "Untitled",
+        "domain": "root"
+      },
+      {
         "id": "vault-md",
         "path": "Vault.md",
         "title": "Vault",
@@ -13132,6 +13234,12 @@
         "id": "sans-titre-md",
         "path": "Sans titre.md",
         "title": "Sans titre",
+        "domain": "root"
+      },
+      {
+        "id": "untitled-md",
+        "path": "Untitled.md",
+        "title": "Untitled",
         "domain": "root"
       },
       {
@@ -13574,6 +13682,12 @@
         "domain": "root"
       },
       {
+        "id": "untitled-md",
+        "path": "Untitled.md",
+        "title": "Untitled",
+        "domain": "root"
+      },
+      {
         "id": "vault-md",
         "path": "Vault.md",
         "title": "Vault",
@@ -13581,17 +13695,17 @@
       }
     ],
     "counts": {
-      "orphans": 21,
-      "missing_frontmatter": 17,
+      "orphans": 22,
+      "missing_frontmatter": 18,
       "broken_links": 85,
-      "empty_notes": 4
+      "empty_notes": 5
     }
   },
   "facets": {
     "type": [
       [
         "unclassified",
-        182
+        183
       ],
       [
         "legacy-placeholder",
@@ -13834,6 +13948,14 @@
         1
       ],
       [
+        "engineering-baseline",
+        1
+      ],
+      [
+        "execution-plan",
+        1
+      ],
+      [
         "technical-standard",
         1
       ],
@@ -13897,11 +14019,11 @@
       ],
       [
         "unknown",
-        42
+        43
       ],
       [
         "draft",
-        28
+        30
       ],
       [
         "placeholder",
@@ -13955,7 +14077,7 @@
     "function": [
       [
         "Implementation",
-        123
+        125
       ],
       [
         "Research Intelligence",

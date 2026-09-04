@@ -21,7 +21,7 @@ related_research_programs: []
 > [!warning] Generated file
 > This note is rendered from `state/founder-state.json` by `ap.py founder render`. Edits here are overwritten. Change state with `ap.py founder <command>`.
 
-_Rendered 2026-09-04T13:38:48+00:00 · schema 1.1.0_
+_Rendered 2026-09-04T15:17:33+00:00 · schema 1.1.0_
 
 ## Today
 
@@ -31,13 +31,11 @@ _Set by LUMIAION · sprint FIR-001_
 
 ### Top 3 Priorities
 
-| # | Priority | Why | Owner |
-|---|---|---|---|
-| 1 | Review FIR-001 result and choose the next delivery boundary | The executable route is proven to Founder review; expansion should follow explicit acceptance and FD-002. | Founder |
+_No open priorities._
 
 ### Next Action
 
-**Review FIR-001 repository-health result in Founder Console** — Founder
+_No next action set._
 
 ## Decisions Requiring Founder
 
@@ -49,16 +47,13 @@ _Set by LUMIAION · sprint FIR-001_
 
 ## Founder Intent Routes
 
-| ID | Intent | State | Owner | Next action |
-|---|---|---|---|---|
-| FIR-001 | Verify current Alpha Proxima repository health for Founder review | REVIEW | JERANIUM | Founder reviews RES-003 |
+_No active Founder intent routes._
 
 ## Execution
 
 | ID | Task | State | Owner | Why |
 |---|---|---|---|---|
 | TSK-006 | Run the photo-to-social-post routing proof end to end | ASSIGNED | LUMIAION | First operational proof that Founder -> LUMIAION -> specialist -> Founder works. |
-| TSK-007 | Verify current Alpha Proxima repository health for Founder review | REVIEW | JERANIUM | FIR-001 requires one proven end-to-end route before iPhone delivery or agent expansion |
 
 ## Agents / Systems
 

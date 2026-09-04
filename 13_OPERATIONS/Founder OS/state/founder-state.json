@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-09-04T13:38:48+00:00",
+  "updated_at": "2026-09-04T15:17:33+00:00",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
@@ -12,14 +12,7 @@
     "set_at": "2026-09-04T13:38:33+00:00",
     "sprint_id": "FIR-001"
   },
-  "next_action": {
-    "id": "NXT-001",
-    "title": "Review FIR-001 repository-health result in Founder Console",
-    "owner": "Founder",
-    "context": "Approve or request revision before any iPhone delivery or agent expansion.",
-    "priority_id": "PRI-005",
-    "set_at": "2026-09-04T02:06:02+00:00"
-  },
+  "next_action": null,
   "priorities": [
     {
       "id": "PRI-001",
@@ -72,9 +65,9 @@
       "why": "The executable route is proven to Founder review; expansion should follow explicit acceptance and FD-002.",
       "project": "PRJ-002",
       "owner": "Founder",
-      "status": "open",
+      "status": "done",
       "created_at": "2026-09-04T02:06:02+00:00",
-      "updated_at": "2026-09-04T02:06:02+00:00"
+      "updated_at": "2026-09-04T15:17:33+00:00"
     }
   ],
   "decisions": [
@@ -289,14 +282,14 @@
       "title": "Verify current Alpha Proxima repository health for Founder review",
       "project": null,
       "owner": "JERANIUM",
-      "state": "review",
+      "state": "complete",
       "requested_by": "Founder via LUMIAION",
       "why": "FIR-001 requires one proven end-to-end route before iPhone delivery or agent expansion",
       "gate": "G1",
       "output_ref": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
       "blocker_ids": [],
       "created_at": "2026-09-04T02:03:20+00:00",
-      "updated_at": "2026-09-04T02:03:21+00:00",
+      "updated_at": "2026-09-04T15:17:33+00:00",
       "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
       "handoff_id": "FIR-001"
     }
@@ -768,12 +761,15 @@
       ],
       "approval_gate": "founder_review",
       "writeback_destination": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
-      "state": "review",
-      "next_action": "Founder reviews RES-003",
+      "state": "completed",
+      "next_action": "Closed by Founder approval on 2026-09-04",
       "result_id": "RES-003",
       "task_id": "TSK-007",
       "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
-      "updated_at": "2026-09-04T02:03:21+00:00"
+      "updated_at": "2026-09-04T02:03:21+00:00",
+      "approval_note": "Founder approved FIR-001 in sprint order 1 -> 2 -> 3.",
+      "approved_at": "2026-09-04T15:17:33+00:00",
+      "completed_at": "2026-09-04T15:17:33+00:00"
     }
   ]
 }

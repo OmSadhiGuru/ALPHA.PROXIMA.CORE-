@@ -133,7 +133,7 @@
 <body>
 <div class="wrap" id="app"></div>
 <script id="view-data" type="application/json">{
-  "generated_at": "2026-09-04T13:38:48+00:00",
+  "generated_at": "2026-09-04T15:17:33+00:00",
   "today": "2026-09-04",
   "schema_version": "1.1.0",
   "founder": {
@@ -148,27 +148,8 @@
     "sprint_id": "FIR-001"
   },
   "mission_is_stale": false,
-  "priorities": [
-    {
-      "id": "PRI-005",
-      "rank": 1,
-      "title": "Review FIR-001 result and choose the next delivery boundary",
-      "why": "The executable route is proven to Founder review; expansion should follow explicit acceptance and FD-002.",
-      "project": "PRJ-002",
-      "owner": "Founder",
-      "status": "open",
-      "created_at": "2026-09-04T02:06:02+00:00",
-      "updated_at": "2026-09-04T02:06:02+00:00"
-    }
-  ],
-  "next_action": {
-    "id": "NXT-001",
-    "title": "Review FIR-001 repository-health result in Founder Console",
-    "owner": "Founder",
-    "context": "Approve or request revision before any iPhone delivery or agent expansion.",
-    "priority_id": "PRI-005",
-    "set_at": "2026-09-04T02:06:02+00:00"
-  },
+  "priorities": [],
+  "next_action": null,
   "decisions": [
     {
       "id": "FD-003",
@@ -234,22 +215,6 @@
       "blocker_ids": [],
       "created_at": "2026-08-26T09:20:54+00:00",
       "updated_at": "2026-08-26T09:20:54+00:00"
-    },
-    {
-      "id": "TSK-007",
-      "title": "Verify current Alpha Proxima repository health for Founder review",
-      "project": null,
-      "owner": "JERANIUM",
-      "state": "review",
-      "requested_by": "Founder via LUMIAION",
-      "why": "FIR-001 requires one proven end-to-end route before iPhone delivery or agent expansion",
-      "gate": "G1",
-      "output_ref": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
-      "blocker_ids": [],
-      "created_at": "2026-09-04T02:03:20+00:00",
-      "updated_at": "2026-09-04T02:03:21+00:00",
-      "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
-      "handoff_id": "FIR-001"
     }
   ],
   "agents": [
@@ -557,44 +522,14 @@
       "owner": "CODEX"
     }
   ],
-  "handoffs": [
-    {
-      "id": "FIR-001",
-      "received_at": "2026-09-04T02:03:20+00:00",
-      "founder_intent": "Verify current Alpha Proxima repository health for Founder review",
-      "success_condition": "A persisted validation report and review-ready route are visible in Founder Console",
-      "primary_owner": "JERANIUM",
-      "supporting_roles": [
-        "LUMIAION"
-      ],
-      "priority": "normal",
-      "decision_class": "IV",
-      "context_sources": [
-        "."
-      ],
-      "constraints": [
-        "Report-only validation; do not mutate vault content"
-      ],
-      "deliverables": [
-        "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md"
-      ],
-      "approval_gate": "founder_review",
-      "writeback_destination": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
-      "state": "review",
-      "next_action": "Founder reviews RES-003",
-      "result_id": "RES-003",
-      "task_id": "TSK-007",
-      "routing_decision": "LUMIAION -> JERANIUM -> Vault Validator",
-      "updated_at": "2026-09-04T02:03:21+00:00"
-    }
-  ],
+  "handoffs": [],
   "counts": {
-    "priorities": 1,
+    "priorities": 0,
     "decisions": 3,
-    "tasks": 2,
+    "tasks": 1,
     "blockers": 2,
     "founder_blockers": 2,
-    "handoffs": 1
+    "handoffs": 0
   }
 }</script>
 <script>
