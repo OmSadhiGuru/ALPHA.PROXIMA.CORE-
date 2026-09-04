@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-09-04T15:18:07+00:00",
+  "updated_at": "2026-09-04T15:30:04+00:00",
   "sessions": [
     {
       "session_id": "MVC-20260904-001",
@@ -30,12 +30,16 @@
       ],
       "ethics_trigger": "none",
       "recommendation": "Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.",
-      "founder_decision": null,
-      "execution_owner": null,
-      "state": "founder-review",
+      "founder_decision": {
+        "decision": "approve",
+        "by": "Founder",
+        "recorded_at": "2026-09-04T15:30:04+00:00"
+      },
+      "execution_owner": "AGT-007",
+      "state": "executing",
       "opened_at": "2026-09-04T15:18:07+00:00",
-      "updated_at": "2026-09-04T15:18:07+00:00",
-      "next_action": "Founder reviews the synthesis and records an explicit decision."
+      "updated_at": "2026-09-04T15:30:04+00:00",
+      "next_action": "Route bounded execution."
     }
   ]
 }
