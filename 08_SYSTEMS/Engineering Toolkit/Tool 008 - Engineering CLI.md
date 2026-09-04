@@ -44,6 +44,8 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 | `graph-colors` | [[Tool 009 - Graph Color System]] |
 | `node-registry` | [[Tool 010 - Node Registry Generator]] |
 | `relationship-extract` | [[Tool 011 - Relationship Extractor]] |
+| `founder` | [[Tool 012 - Founder OS State Engine]] |
+| `council` | [[Tool 014 - Council Session Kernel]] |
 
 ## Usage Examples
 
