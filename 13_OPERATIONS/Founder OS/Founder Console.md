@@ -3,7 +3,7 @@ title: "Founder Console"
 aliases: ["Founder Console", "Founder OS Console", "Console V1"]
 tags: [operations, founder-os, console, dashboard, lumiaion, alpha-proxima]
 created: 2026-08-26
-updated: 2026-09-03
+updated: 2026-09-04
 status: active
 version: "1.0.0"
 authors: ["LUMIAION", "CODEX"]
@@ -21,11 +21,11 @@ related_research_programs: []
 > [!warning] Generated file
 > This note is rendered from `state/founder-state.json` by `ap.py founder render`. Edits here are overwritten. Change state with `ap.py founder <command>`.
 
-_Rendered 2026-09-04T02:08:27+00:00 · schema 1.1.0_
+_Rendered 2026-09-04T13:38:48+00:00 · schema 1.1.0_
 
 ## Today
 
-**2026-09-03** — Make Founder state truthful and prove one executable FIR-001 lane
+**2026-09-04** — Make Founder state truthful and prove one executable FIR-001 lane
 
 _Set by LUMIAION · sprint FIR-001_
 
@@ -83,14 +83,13 @@ _Set by LUMIAION · sprint FIR-001_
 |---|---|---|---|---|
 | BLK-002 | Semantic memory layer (Layer 3) does not exist | LUMIAION cannot search the full Vault in-session; context loading stays manual. | Founder | Yes |
 | BLK-003 | No OMI adapter or credential in the repository | The OMI capture pipeline cannot be implemented or tested. | Founder | Yes |
-| BLK-006 | Canonical checkout Git metadata is not writable | Cannot remove the stale index.lock, fast-forward local main, create an atomic commit, or apply the verified FIR-001 patch to the canonical checkout. | Codex host environment | No |
 
 ## System Health
 
 | Area | Status | Detail |
 |---|---|---|
-| Repository | DEGRADED | Last locally verified origin/main is 1ec50f4, but the canonical checkout remains at 844a37e (78 commits behind); reconciliation is blocked by a stale .git/index.lock and read-only Git metadata in this session. |
-| Vault validation | DEGRADED | Current validator baseline: 0 critical, 23 errors, 998 warnings, 38 info; FIR-001 report persisted without increasing the 129 Console coherence baseline. |
+| Repository | OK | Canonical checkout reconciled to origin/main 76a489e; FIR-001 is isolated on codex/fir001-state-truth with personal plugin/cache state excluded. |
+| Vault validation | DEGRADED | Tracked-corpus validator baseline: 0 critical, 22 errors, 983 warnings, 37 info; Console coherence is 127, below the 129 ceiling. |
 | Open pull requests | OK | No open pull requests at the last verified remote refresh. |
 | Founder OS state | OK | Founder state validates; 46 Founder OS tests and 40 Alpha Proxima App tests pass. |
 | Memory / context | DEGRADED | Layer 3 semantic memory unbuilt; context loading remains manual and selective. |

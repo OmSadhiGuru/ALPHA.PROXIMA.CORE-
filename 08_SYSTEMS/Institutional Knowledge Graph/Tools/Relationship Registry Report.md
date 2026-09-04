@@ -2,8 +2,8 @@
 title: "Relationship Registry Report"
 aliases: ["Institutional Knowledge Graph Relationship Registry Report"]
 tags: [systems, engineering, knowledge-graph, relationships, report, alpha-proxima]
-created: 2026-09-03
-updated: 2026-09-03
+created: 2026-09-04
+updated: 2026-09-04
 status: draft
 version: "1.0.0"
 authors: ["CODEX"]
@@ -24,20 +24,20 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-fir-work.H0ZK1A`
-- Generated: `2026-09-03T22:07:47-04:00`
-- Total relationships discovered: `3217`
+- Vault: `/Users/Fred/Documents/Obsidian Vault`
+- Generated: `2026-09-04T09:38:36-04:00`
+- Total relationships discovered: `3338`
 - Low-confidence relationships: `181`
-- Broken or unresolved links: `300`
+- Broken or unresolved links: `315`
 
 ## Relationships by Type
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `REFERENCES` | `2035` |
-| `RELATED_TO` | `427` |
-| `PRODUCED_BY` | `310` |
-| `REQUIRES` | `251` |
+| `REFERENCES` | `2096` |
+| `RELATED_TO` | `460` |
+| `PRODUCED_BY` | `311` |
+| `REQUIRES` | `277` |
 | `PART_OF` | `177` |
 | `IMPLEMENTS` | `11` |
 | `EXTENDS` | `2` |
@@ -48,8 +48,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Source | Count |
 |--------|-------|
-| `wiki_link` | `2037` |
-| `yaml_field` | `990` |
+| `wiki_link` | `2098` |
+| `yaml_field` | `1050` |
 | `folder_inference` | `177` |
 | `filename_inference` | `13` |
 
@@ -162,9 +162,9 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 
 | Relationship Type | Count |
 |-------------------|-------|
-| `OWNED_BY` | `183` |
-| `PRODUCED_BY` | `61` |
-| `REFERENCES` | `30` |
+| `OWNED_BY` | `190` |
+| `PRODUCED_BY` | `70` |
+| `REFERENCES` | `29` |
 | `DEPENDS_ON` | `16` |
 | `RELATED_TO` | `8` |
 | `SUPERSEDES` | `2` |
@@ -174,12 +174,18 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | Type | Source Path | Target | Relationship Source | Source Detail |
 |------|-------------|--------|---------------------|---------------|
 | `OWNED_BY` | `00_CONSTITUTION/Book I - The Constitution.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `PRODUCED_BY` | `00_CONSTITUTION/Book I - The Constitution.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
 | `OWNED_BY` | `00_CONSTITUTION/Book II - Governance Framework.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `00_CONSTITUTION/Book II - Governance Framework.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `00_CONSTITUTION/Book II - Governance Framework.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
 | `OWNED_BY` | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `REFERENCES` | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | `Community Council Charter` | `wiki_link` | `` |
+| `PRODUCED_BY` | `00_CONSTITUTION/Book III - Knowledge Integrity.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
+| `OWNED_BY` | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
+| `OWNED_BY` | `00_CONSTITUTION/Book V - Cognitive Council.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `00_CONSTITUTION/Book V - Cognitive Council.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
+| `PRODUCED_BY` | `00_CONSTITUTION/Book V - Cognitive Council.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `00_CONSTITUTION/Founding Principles of Alpha Proxima.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
 | `REFERENCES` | `03_AI_COUNCIL/AI Council Registry.md` | `10_TEMPLATES/` | `wiki_link` | `` |
@@ -196,6 +202,8 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `SUPERSEDES` | `04_DECISIONS/ADR-0002 - Reconciling the Four Institutional Taxonomies.md` | `null` | `yaml_field` | `supersedes` |
 | `OWNED_BY` | `05_PROPOSALS/CN-001 Execution Tracker.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `05_PROPOSALS/CN-001 Execution Tracker.md` | `CLAUDE` | `yaml_field` | `authors` |
+| `OWNED_BY` | `05_PROPOSALS/Constitution v2.0 Ratification Draft.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `PRODUCED_BY` | `05_PROPOSALS/Constitution v2.0 Ratification Draft.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
 | `OWNED_BY` | `05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `05_PROPOSALS/Phase III Preparation/02_STRATEGY ARCHITECTURE BLUEPRINT.md` | `Claude Code — Vault Architect` | `yaml_field` | `authors` |
 | `OWNED_BY` | `05_PROPOSALS/Phase III Preparation/08_SYSTEMS DRAFT TRIAGE REGISTER.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
@@ -211,7 +219,12 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `REFERENCES` | `06_GOVERNANCE/Canonical Terminology/Canonical Terminology Register.md` | `08_SYSTEMS/Protocols/` | `wiki_link` | `` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Canonical Terminology/Canonical Terminology Register.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Constitutional Audit/CAR-001 Constitutional Audit Report.md` | `Chief Institutional Architect` | `yaml_field` | `authors` |
+| `OWNED_BY` | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
+| `OWNED_BY` | `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
+| `OWNED_BY` | `06_GOVERNANCE/Epoch V/Consolidated Ethics Framework.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
+| `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Consolidated Ethics Framework.md` | `CODEX (CF-07)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
 | `PRODUCED_BY` | `06_GOVERNANCE/Institutional Glossary & Acronym Register.md` | `LUMIAION (CF-01)` | `yaml_field` | `authors` |
@@ -310,19 +323,6 @@ Summarize candidate graph relationships extracted by [[Tool 011 - Relationship E
 | `DEPENDS_ON` | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 010 - Node Registry Generator.md` | `Python 3 standard library` | `yaml_field` | `dependencies` |
 | `OWNED_BY` | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 010 - Node Registry Generator.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 | `DEPENDS_ON` | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 011 - Relationship Extractor.md` | `Python 3 standard library` | `yaml_field` | `dependencies` |
-| `OWNED_BY` | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Tool 011 - Relationship Extractor.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `PRODUCED_BY` | `08_SYSTEMS/Institutional Relationship Map.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `PRODUCED_BY` | `08_SYSTEMS/Protocols/Communication Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `PRODUCED_BY` | `08_SYSTEMS/Protocols/Decision Routing Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `OWNED_BY` | `08_SYSTEMS/Protocols/Future Expansion Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `PRODUCED_BY` | `08_SYSTEMS/Protocols/Future Expansion Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `PRODUCED_BY` | `08_SYSTEMS/Protocols/Knowledge Ownership Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `PRODUCED_BY` | `08_SYSTEMS/Protocols/Knowledge Routing Protocol.md` | `Alpha Proxima Foundation` | `yaml_field` | `authors` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Dashboard.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Index.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Lifecycle Diagram.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
-| `OWNED_BY` | `08_SYSTEMS/Research Management Toolkit/Research Management Toolkit v1.0.md` | `Alpha Proxima Foundation` | `yaml_field` | `institutional_owner` |
 
 ## High-Value Cleanup Recommendations
 
@@ -352,4 +352,4 @@ This report is generated from a read-only scan. Relationships are candidates for
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-09-03 | [[CODEX]] | Relationship registry report generated |
+| 1.0.0 | 2026-09-04 | [[CODEX]] | Relationship registry report generated |

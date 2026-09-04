@@ -2,8 +2,8 @@
 title: "Vault Validation Report"
 aliases: []
 tags: [systems, engineering, validation, report, alpha-proxima]
-created: 2026-09-03
-updated: 2026-09-03
+created: 2026-09-04
+updated: 2026-09-04
 status: draft
 version: "0.1.0"
 authors: ["CODEX"]
@@ -24,22 +24,22 @@ Report engineering quality issues detected by [[Tool 001 - Vault Validator]].
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-fir-work.H0ZK1A`
-- Generated: `2026-09-03T22:05:47-04:00`
-- Markdown notes scanned: `368`
+- Vault: `/Users/Fred/Documents/Obsidian Vault`
+- Generated: `2026-09-04T09:38:35-04:00`
+- Markdown notes scanned: `373`
 - Critical: `0`
-- Errors: `23`
-- Warnings: `998`
-- Info: `38`
+- Errors: `22`
+- Warnings: `983`
+- Info: `37`
 
 ## Folder Classification
 
 | Category | Top-Level Folder Count |
 |----------|------------------------|
-| institutional | `16` |
-| legacy | `0` |
-| tool-managed | `0` |
-| hidden | `3` |
+| institutional | `17` |
+| legacy | `1` |
+| tool-managed | `1` |
+| hidden | `9` |
 | temporary | `0` |
 | unclassified | `5` |
 
@@ -51,7 +51,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 
 | Severity | Path | Message |
 |----------|------|---------|
-| error | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing wiki link target: \[\[Community Council Charter]] |
 | error | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | Missing wiki link target: \[\[Note]] |
 | error | `08_SYSTEMS/Engineering Standards/12 - Continuous Integration Standard.md` | Missing wiki link target: \[\[folder/Note]] |
 | error | `08_SYSTEMS/Engineering Toolkit/Tool 013 - Alpha Proxima App.md` | Missing wiki link target: \[\[Note]] |
@@ -92,7 +91,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 
 | Severity | Path | Message |
 |----------|------|---------|
-| info | `06_GOVERNANCE/Institutional Open Questions Register.md` | No incoming wiki links found. |
 | info | `06_GOVERNANCE/Institutional Policies/Privacy Policy.md` | No incoming wiki links found. |
 | info | `06_GOVERNANCE/Standards Council/Standards Council Evaluation.md` | No incoming wiki links found. |
 | info | `06_GOVERNANCE/Standing Orders/SO-001 Institutional Observatory — Continuous Monitoring Protocol.md` | No incoming wiki links found. |
@@ -104,10 +102,10 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | info | `07_RESEARCH/RP-002/07 Future Sources/RP-002 Future Sources.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-002/13 Research Graph/RP-002 Research Graph.md` | No incoming wiki links found. |
 | info | `07_RESEARCH/RP-002/16 Visual Knowledge/RP-002 Visual Knowledge Index.md` | No incoming wiki links found. |
-| info | `07_RESEARCH/RP-002/ARCHIVE/ARCHIVE Philosophy.md` | No incoming wiki links found. |
 | info | `08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md` | No incoming wiki links found. |
 | info | `08_SYSTEMS/Institutional Knowledge Graph/Tools/Relationship Registry Report.md` | No incoming wiki links found. |
 | info | `08_SYSTEMS/Research Management Toolkit/Reports/ES-004 - Research Management Toolkit Delivery Report.md` | No incoming wiki links found. |
+| info | `13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md` | No incoming wiki links found. |
 | info | `14_FUTURE/Templates/Research Commission Template.md` | No incoming wiki links found. |
 | info | `99_ARCHIVE/Legacy ALPHA PROXIMA/ALPHA.PROXIMA.FOUNDATION/Building achitecture/LUMIAION VAULT.md` | No incoming wiki links found. |
 | info | `Building Milestone.md` | No incoming wiki links found. |
@@ -135,16 +133,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 
 | Severity | Path | Message |
 |----------|------|---------|
-| warning | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing required frontmatter field: artifact_type |
-| warning | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing required frontmatter field: dependencies |
-| warning | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing required frontmatter field: institutional_owner |
-| warning | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing required frontmatter field: related_documents |
-| warning | `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Missing required frontmatter field: related_research_programs |
-| warning | `00_CONSTITUTION/Book V - Cognitive Council.md` | Missing required frontmatter field: artifact_type |
-| warning | `00_CONSTITUTION/Book V - Cognitive Council.md` | Missing required frontmatter field: dependencies |
-| warning | `00_CONSTITUTION/Book V - Cognitive Council.md` | Missing required frontmatter field: institutional_owner |
-| warning | `00_CONSTITUTION/Book V - Cognitive Council.md` | Missing required frontmatter field: related_documents |
-| warning | `00_CONSTITUTION/Book V - Cognitive Council.md` | Missing required frontmatter field: related_research_programs |
 | warning | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | Missing required frontmatter field: artifact_type |
 | warning | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | Missing required frontmatter field: dependencies |
 | warning | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | Missing required frontmatter field: institutional_owner |
@@ -265,11 +253,6 @@ Tool-managed and hidden folders are excluded from default institutional validati
 | warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | Missing required frontmatter field: institutional_owner |
 | warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | Missing required frontmatter field: related_documents |
 | warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | Missing required frontmatter field: related_research_programs |
-| warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | Missing required frontmatter field: artifact_type |
-| warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | Missing required frontmatter field: dependencies |
-| warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | Missing required frontmatter field: institutional_owner |
-| warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | Missing required frontmatter field: related_documents |
-| warning | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | Missing required frontmatter field: related_research_programs |
 | warning | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | Missing required frontmatter field: artifact_type |
 | warning | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | Missing required frontmatter field: dependencies |
 | warning | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | Missing required frontmatter field: institutional_owner |
@@ -1154,4 +1137,4 @@ This report is diagnostic. It does not approve, reject, move, or modify institut
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 0.1.0 | 2026-09-03 | [[CODEX]] | Validation report generated |
+| 0.1.0 | 2026-09-04 | [[CODEX]] | Validation report generated |

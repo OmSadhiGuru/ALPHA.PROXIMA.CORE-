@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-09-04T02:08:27+00:00",
+  "updated_at": "2026-09-04T13:38:48+00:00",
   "founder": {
     "name": "Frederick Belizaire Gunville",
     "role": "Executive authority (Book I)"
   },
   "daily_mission": {
-    "date": "2026-09-03",
+    "date": "2026-09-04",
     "mission": "Make Founder state truthful and prove one executable FIR-001 lane",
     "set_by": "LUMIAION",
-    "set_at": "2026-09-04T02:02:31+00:00",
+    "set_at": "2026-09-04T13:38:33+00:00",
     "sprint_id": "FIR-001"
   },
   "next_action": {
@@ -516,11 +516,12 @@
       "title": "Canonical checkout Git metadata is not writable",
       "impact": "Cannot remove the stale index.lock, fast-forward local main, create an atomic commit, or apply the verified FIR-001 patch to the canonical checkout.",
       "owner": "Codex host environment",
-      "status": "open",
+      "status": "resolved",
       "needs_founder": false,
       "blocking_ids": [],
       "created_at": "2026-09-04T02:08:27+00:00",
-      "resolved_at": null
+      "resolved_at": "2026-09-04T13:37:24+00:00",
+      "resolution_note": "Resolved after Git metadata access was enabled; stale lock quarantined and canonical main fast-forwarded."
     }
   ],
   "context_items": [
@@ -592,7 +593,7 @@
       "task_id": "TSK-007",
       "kind": "repository-health-report",
       "ref": "13_OPERATIONS/Operational Health/FIR-001 Repository Health Result.md",
-      "summary": "Scanned 368 Markdown notes: 0 critical, 23 error, 998 warning, 38 info.",
+      "summary": "Scanned 372 tracked-corpus Markdown notes: 0 critical, 22 error, 983 warning, 37 info.",
       "produced_at": "2026-09-04T02:03:21+00:00",
       "produced_by": "JERANIUM"
     }
@@ -698,17 +699,17 @@
     {
       "id": "SYS-001",
       "area": "Repository",
-      "status": "degraded",
-      "detail": "Last locally verified origin/main is 1ec50f4, but the canonical checkout remains at 844a37e (78 commits behind); reconciliation is blocked by a stale .git/index.lock and read-only Git metadata in this session.",
-      "checked_at": "2026-09-04T02:08:27+00:00",
-      "source": "git rev-parse; git status; .git/index.lock inspection"
+      "status": "ok",
+      "detail": "Canonical checkout reconciled to origin/main 76a489e; FIR-001 is isolated on codex/fir001-state-truth with personal plugin/cache state excluded.",
+      "checked_at": "2026-09-04T13:37:24+00:00",
+      "source": "git rev-parse; git diff origin/main...HEAD"
     },
     {
       "id": "SYS-002",
       "area": "Vault validation",
       "status": "degraded",
-      "detail": "Current validator baseline: 0 critical, 23 errors, 998 warnings, 38 info; FIR-001 report persisted without increasing the 129 Console coherence baseline.",
-      "checked_at": "2026-09-04T02:06:02+00:00",
+      "detail": "Tracked-corpus validator baseline: 0 critical, 22 errors, 983 warnings, 37 info; Console coherence is 127, below the 129 ceiling.",
+      "checked_at": "2026-09-04T13:38:48+00:00",
       "source": "FIR-001 Repository Health Result; app check --max-defects 129"
     },
     {

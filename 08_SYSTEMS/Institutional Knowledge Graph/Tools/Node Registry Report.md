@@ -2,8 +2,8 @@
 title: "Node Registry Report"
 aliases: ["Institutional Knowledge Graph Node Registry Report"]
 tags: [systems, engineering, knowledge-graph, node-registry, report, alpha-proxima]
-created: 2026-09-03
-updated: 2026-09-03
+created: 2026-09-04
+updated: 2026-09-04
 status: draft
 version: "1.0.0"
 authors: ["CODEX"]
@@ -24,9 +24,9 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 ## Summary
 
-- Vault: `/private/tmp/alpha-fir-work.H0ZK1A`
-- Generated: `2026-09-03T22:07:44-04:00`
-- Total nodes discovered: `369`
+- Vault: `/Users/Fred/Documents/Obsidian Vault`
+- Generated: `2026-09-04T09:38:36-04:00`
+- Total nodes discovered: `373`
 - Unknown node types: `174`
 - Missing YAML: `18`
 - High-value cleanup candidates: `247`
@@ -41,10 +41,10 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `future_research` | `19` |
 | `concept` | `16` |
 | `research_artifact` | `16` |
+| `founder_directive` | `14` |
 | `charter` | `13` |
-| `founder_directive` | `13` |
 | `standing_order` | `13` |
-| `policy` | `9` |
+| `policy` | `12` |
 | `theory` | `9` |
 | `office` | `8` |
 | `research_program` | `7` |
@@ -58,8 +58,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 | Source Path | Title | Reason |
 |-------------|-------|--------|
-| `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | Book IV - Cognitive Architecture | no_confident_rule |
-| `00_CONSTITUTION/Book V - Cognitive Council.md` | Book V - Cognitive Council | no_confident_rule |
 | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | Constitutional Hierarchy Statement | no_confident_rule |
 | `00_CONSTITUTION/Founding Principles of Alpha Proxima.md` | Founding Principles of Alpha Proxima | no_confident_rule |
 | `01_VISION/Alpha Proxima — 10 Year Vision.md` | Alpha Proxima — 10 Year Vision | no_confident_rule |
@@ -78,6 +76,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | CIR-002 — Institutional Completeness Review | no_confident_rule |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | CIR-003 Epoch V — Constitutional Coherence | no_confident_rule |
 | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | Directive Governance Framework | no_confident_rule |
+| `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | Book II Amendment — Council Topology | no_confident_rule |
 | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | Governance Model Crosswalk & Council Topology | no_confident_rule |
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | Interim Authority Instrument | no_confident_rule |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | FGR-001 — Epoch II Stewardship Audit | no_confident_rule |
@@ -136,6 +135,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `08_SYSTEMS/Engineering Toolkit/OSG Reading Color CSS Guide.md` | OSG Reading Color CSS Guide | no_confident_rule |
 | `08_SYSTEMS/Foundational Architecture.md` | Foundational Architecture | no_confident_rule |
 | `08_SYSTEMS/Institutional Relationship Map.md` | Institutional Relationship Map | no_confident_rule |
+| `08_SYSTEMS/Knowledge Architecture Specification.md` | Knowledge Architecture Specification | no_confident_rule |
 | `08_SYSTEMS/LUMIAION Architecture Spec v0.1.md` | LUMIAION Architecture Spec v0.1 | no_confident_rule |
 | `08_SYSTEMS/The Orchestration Framework.md` | The Orchestration Framework | no_confident_rule |
 | `08_SYSTEMS/Visual Systems/Color System - Implementation Checklist.md` | Color System - Implementation Checklist | no_confident_rule |
@@ -186,8 +186,6 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 
 | Source Path | Issue |
 |-------------|-------|
-| `00_CONSTITUTION/Book IV - Cognitive Architecture.md` | unknown node type, missing artifact_type |
-| `00_CONSTITUTION/Book V - Cognitive Council.md` | unknown node type, missing artifact_type |
 | `00_CONSTITUTION/Constitutional Hierarchy Statement.md` | unknown node type, missing artifact_type |
 | `00_CONSTITUTION/Founding Principles of Alpha Proxima.md` | unknown node type, missing artifact_type |
 | `01_VISION/Alpha Proxima — 10 Year Vision.md` | unknown node type, missing artifact_type |
@@ -212,8 +210,9 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `06_GOVERNANCE/Constitutional Audit/CAR-001 Constitutional Audit Report.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-001 Epoch III Constitutional Refactoring.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Constitutional Impact Report/CIR-002 Institutional Completeness Review.md` | unknown node type, missing artifact_type |
-| `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Constitutional Impact Report/CIR-003 Epoch V Constitutional Coherence.md` | unknown node type |
 | `06_GOVERNANCE/Directive Governance Framework/Directive Governance Framework.md` | unknown node type, missing artifact_type |
+| `06_GOVERNANCE/Epoch V/Book II Amendment — Council Topology.md` | unknown node type |
 | `06_GOVERNANCE/Epoch V/Governance Model Crosswalk.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Epoch V/Interim Authority Instrument.md` | unknown node type, missing artifact_type |
 | `06_GOVERNANCE/Foundation Gap Report/FGR-001 Epoch II Stewardship Audit.md` | unknown node type, missing artifact_type |
@@ -286,6 +285,7 @@ Summarize graph node candidates discovered by [[Tool 010 - Node Registry Generat
 | `07_RESEARCH/RP-002/06 Source - Illustrated/RP-002 Source Note - Illustrated.md` | missing artifact_type |
 | `07_RESEARCH/RP-002/07 Future Sources/RP-002 Future Sources.md` | missing artifact_type |
 | `07_RESEARCH/RP-002/08 Comparative Framework/RP-002 Comparative Framework.md` | unknown node type, missing artifact_type |
+| `07_RESEARCH/RP-002/09 Canonical Synthesis/RP-002 Canonical Synthesis.md` | missing artifact_type |
 
 ## Recommendations for ES-006
 
@@ -309,4 +309,4 @@ This report is generated from a read-only Markdown scan. It does not modify note
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-09-03 | [[CODEX]] | Node registry report generated |
+| 1.0.0 | 2026-09-04 | [[CODEX]] | Node registry report generated |
