@@ -3,9 +3,9 @@ title: "CIR-003 Epoch V — Constitutional Coherence"
 aliases: ["CIR-003", "Epoch V Opening", "Constitutional Coherence Epoch"]
 tags: [governance, constitutional-impact-report, epoch-v, coherence, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-03
 status: active
-version: "0.1.0"
+version: "0.2.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Constitutional Impact Report
 initiative: "Epoch V — Constitutional Coherence"
@@ -48,6 +48,18 @@ CAR-001 found the Foundation **conceptually strong but structurally stratified**
 
 Per CAR-001 Deliverable 10: structure & navigation (folder numbering, MOC rebuild, legacy archive, `.gitignore`), completeness (consolidated Ethics Framework, institutional glossary/acronyms, timeline, open-questions register, knowledge-architecture spec), then ratification of **Constitution v2.0** as a reconciled whole.
 
+### Tier-3 drafting status (2026-09-03)
+
+| Deliverable | Status |
+|-------------|--------|
+| Institutional Glossary & Acronym Register | Complete |
+| Institutional Timeline | Complete |
+| Institutional Open Questions Register | Complete and active |
+| Consolidated Ethics Framework | Draft prepared; pending review/adoption |
+| Knowledge Architecture Specification | Draft prepared; pending review/adoption |
+| Book II Council Topology amendment | Draft prepared; OQ-006 remains open pending constitutional enactment |
+| Constitution v2.0 | [[Constitution v2.0 Ratification Draft|Ratification draft]] assembled; exact Books I–V reconciliation and Founder ratification remain pending |
+
 ## 6. Guardrail
 
 Tier-1 instruments were Founder-ratified on 2026-09-01 under the now-operative Interim Authority Instrument. Registry amendments, legacy supersession banners, Ethics Council convening, and later Alpha Council confirmation remain separate enactment steps.
@@ -58,4 +70,5 @@ Tier-1 instruments were Founder-ratified on 2026-09-01 under the now-operative I
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 0.2.0 | 2026-09-03 | CODEX (CF-07) | Records Tier-3 drafts and assembles the Constitution v2.0 ratification packet without implying enactment. |
 | 0.1.0 | 2026-09-01 | LUMIAION (CF-01) | Opens Epoch V; corrects CIR-002 completeness claim (CAR-F05); registers Tier-1 deliverables and remaining Founder actions; roadmap to Constitution v2.0. |
