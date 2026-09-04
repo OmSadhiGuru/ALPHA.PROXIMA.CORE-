@@ -5,7 +5,7 @@ tags: [systems, engineering, toolkit, app, interface, knowledge-graph, coherence
 created: 2026-09-01
 updated: 2026-09-03
 status: active
-version: "1.0.1"
+version: "1.1.0"
 authors: ["CLAUDE"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -85,15 +85,18 @@ The ceiling reached this figure by 243 (pre-expansion) → 422 (one-time reset f
 
 [[Tool 010 - Node Registry Generator]] and [[Tool 011 - Relationship Extractor]] build the full institutional knowledge graph, with node typing, confidence scoring, and stable `apkg:` identifiers. Their registries were last generated 2026-07-03 against a different machine's vault path and total 1.9 MB.
 
+[[Tool 014 - Truth Kernel]] now composes those graph layers into a deterministic read-only contract. The Know interface displays its node, relationship, unresolved, health, and fingerprint summary. The loopback server exposes versioned nodes, relationships, validation, health, and full-contract endpoints; source notes remain untouched.
+
 This tool builds a **lean operational subset** — regenerated on every render, sized to inline into a page — for interface use. It does not replace them. Where the registries are the archival graph, this index is the working one.
 
 ## Verification
 
 | Check | Result |
 |---|---|
-| `test_alpha_app.py` | 40 passed |
+| `test_alpha_app.py` | 41 passed |
 | `test_founder_os.py` | 45 passed, unchanged |
-| Headless Chromium, 330–1280 px | renders; 0 JS errors; no horizontal overflow; 19 interactive assertions passed |
+| `test_truth_kernel.py` | 11 passed |
+| Integrated browser, desktop and 390×844 | renders; Know interaction passes; 0 console warnings or errors |
 
 ## Related Documents
 
@@ -107,5 +110,6 @@ This tool builds a **lean operational subset** — regenerated on every render, 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | CODEX | Integrate the read-only Truth Kernel summary and versioned graph endpoints |
 | 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
 | 1.0.0 | 2026-09-01 | CLAUDE | First registration: two-half composition, vault index, coherence ratchet, loopback contract |

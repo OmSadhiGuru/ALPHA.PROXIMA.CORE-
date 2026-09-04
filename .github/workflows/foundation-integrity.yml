@@ -76,6 +76,9 @@ jobs:
       - name: Alpha Proxima App
         run: python3 "08_SYSTEMS/Engineering Toolkit/test_alpha_app.py"
 
+      - name: Truth Kernel
+        run: python3 "08_SYSTEMS/Institutional Knowledge Graph/Tools/test_truth_kernel.py"
+
       - name: Founder state validates
         run: python3 "$AP" founder check
 

@@ -313,6 +313,16 @@ class TestAppView(unittest.TestCase):
             view = app.build_app_view(fos.empty_state(), vault(tmp))
         json.loads(json.dumps(view))
 
+    def test_view_exposes_the_truth_kernel_summary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            view = app.build_app_view(fos.empty_state(), vault(tmp))
+        kernel = view["know"]["truth_kernel"]
+        self.assertEqual(kernel["mode"], "read_only")
+        self.assertEqual(kernel["counts"]["nodes"], view["know"]["note_count"])
+        self.assertIn("relationships", kernel["counts"])
+        self.assertIn("findings", kernel["health"]["counts"])
+        self.assertEqual(len(kernel["contract_fingerprint"]), 64)
+
 
 class TestRenderer(unittest.TestCase):
     TEMPLATE = "<html><body><script>var V=" + app.VIEW_PLACEHOLDER + ";</script></body></html>"

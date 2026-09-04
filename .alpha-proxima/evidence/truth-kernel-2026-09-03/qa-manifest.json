@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "captured_at": "2026-09-04T09:36:25-04:00",
+  "scope": "read-only Truth Kernel weekly QA",
+  "source_fingerprint": "72b1c36a92c59c3b4ac3f5bd30828ff85e887ee229831d85d31113884f1d819e",
+  "contract_fingerprint": "77b09b4408b9ce6548466ad0a93438c056f60c4802d2b584f62b9ef490d857fd",
+  "counts": {
+    "nodes": 378,
+    "relationships": 2622,
+    "unresolved_relationships": 727,
+    "errors": 20,
+    "warnings": 1457
+  },
+  "tests": {
+    "founder_os": 45,
+    "alpha_proxima_app": 41,
+    "truth_kernel": 11
+  },
+  "generation_seconds": 2.57,
+  "deterministic_rerun": true,
+  "source_notes_unchanged": true,
+  "artifacts_sha256": {
+    "node_registry.json": "5d335c36a881297d4103d9039ee4b14698c9065da35604bec3222fe032d6b090",
+    "relationship_registry.json": "c772887cfabd0626e84009126721de8cb6f838bc0a4967892e01c45f5f882e78",
+    "truth-kernel.json": "5473c5145ae6fb381c1cbc3d2cfc86b1fe75c3e035fa05d0f311fd31b2d8dc64"
+  },
+  "verification_boundary": {
+    "code": "passed locally",
+    "data": "passed on branch source tree",
+    "api": "HTTP 200 on all versioned read endpoints",
+    "browser": "integrated browser desktop passed",
+    "mobile": "390x844 passed",
+    "remote_ci": "passed on PR #30: 4/4 checks",
+    "founder_close": "pending"
+  }
+}

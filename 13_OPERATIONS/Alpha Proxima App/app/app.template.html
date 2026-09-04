@@ -768,7 +768,21 @@
 
     /* -- coherence ------------------------------------------------ */
     var C = K.coherence;
+    var TK = K.truth_kernel || null;
     var grid = el('div','grid');
+
+    if (TK){
+      var kp = panel('Truth Kernel', TK.health.status, TK.health.status !== 'ready');
+      var ks = el('div','stat');
+      ks.appendChild(el('span','n ' + (TK.health.status === 'ready' ? 'ok' : 'warn'),
+        String(TK.counts.nodes)));
+      ks.appendChild(el('span','u', TK.counts.relationships + ' relationships · ' +
+        TK.counts.unresolved_relationships + ' unresolved'));
+      kp.appendChild(ks);
+      kp.appendChild(el('p','row-sub', TK.health.counts.findings +
+        ' validation findings · read-only · ' + TK.contract_fingerprint.slice(0,12)));
+      grid.appendChild(kp);
+    }
 
     var cp = panel('Connectedness', null, false, false);
     var pct = Math.round((C.connectedness || 0) * 1000) / 10;
