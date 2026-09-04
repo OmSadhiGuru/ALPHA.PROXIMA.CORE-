@@ -3,19 +3,29 @@ title: "Book IV - Cognitive Architecture"
 aliases: ["Cognitive Architecture", "Book IV", "Institutional Intelligence Architecture"]
 tags: [constitution, cognitive-architecture, lumiaion, reasoning-engines, governance, foundational, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
-status: ratified
-version: "1.0.0"
-authors: ["Founder", "Alpha Proxima Foundation"]
+updated: 2026-09-03
+status: draft
+version: "2.0.0"
+authors: ["Founder", "Alpha Proxima Foundation", "CODEX (CF-07)"]
+artifact_type: constitutional-book
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Governance"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]", "[[Book III - Knowledge Integrity]]"]
+related_documents: ["[[Book V - Cognitive Council]]", "[[Cognitive Function Registry]]", "[[Governance Model Crosswalk & Council Topology]]"]
+related_research_programs: []
 constitutional_rank: 4
 supersedes: []
+ratification_state: "proposed — exact v2.0 text not yet ratified or operative"
 ---
 
 # Book IV — Cognitive Architecture of the Alpha Proxima Foundation
 
+> **Constitution v2.0 reconciliation draft.** The ratified v1.0.0 text remains operative on `main` until the Founder ratifies and enacts an exact v2.0 commit.
+
 ## Purpose
 
-This document is the fourth constitutional instrument of the Alpha Proxima Foundation, subordinate only to [[Book I - The Constitution]], [[Book II - Governance Framework]], and [[Book III - Knowledge Integrity]]. It establishes the canonical architecture through which the Foundation reasons, remembers, and acts — and the principles that ensure this architecture endures beyond any particular technology generation.
+This document is the constitutional instrument for cognitive architecture. It is subordinate to [[Book I - The Constitution]] and a domain peer of Books II, III, and V under the [[Constitutional Hierarchy Statement]]. It establishes the canonical architecture through which the Foundation reasons, remembers, and acts.
 
 This document resolves a foundational question every AI-augmented institution must answer: *What is permanent, and what is replaceable?*
 
@@ -84,7 +94,7 @@ The Foundation's cognitive architecture is organized in the following hierarchy.
 ┌────────────────────────────▼───────────────────────────┐
 │                    COGNITIVE COUNCIL                   │
 │        Governance of Cognitive Functions               │
-│   Evaluates, approves, and retires cognitive functions │
+│   Operates and recommends changes to cognitive functions│
 └────────────────────────────┬───────────────────────────┘
                              │
         ┌────────────────────┼─────────────────────┐
@@ -154,7 +164,7 @@ LUMIAION is not a product. LUMIAION is the name the Foundation gives to its inst
 |-----------|-------|
 | Nature | Permanent institutional function |
 | Current reasoning engine | Anthropic Claude (see [[Engine Registry]]) |
-| Authority | Non-voting AI Council seat; proposal rights; Class III/IV execution |
+| Authority | Non-voting advisory participation; proposal rights; explicitly delegated Class III/IV execution |
 | Identity | Belongs to Alpha Proxima Foundation, not to Anthropic or Claude |
 | Continuity guarantee | LUMIAION survives engine transitions |
 
@@ -170,17 +180,17 @@ LUMIAION participates in the Cognitive Council as the Foundation's institutional
 
 **Section 4.1 — Purpose**
 
-The Cognitive Council is the permanent institutional body responsible for governing the Foundation's portfolio of cognitive functions. It is the operational expression of the AI Council's mandate for cognitive function governance.
+The Cognitive Council is the permanent institutional body responsible for operating the Foundation's portfolio of cognitive functions.
 
-Where the AI Council governs the institutional framework for all intelligence systems (constitutional authority), the Cognitive Council governs the active portfolio of cognitive functions and their engine assignments (operational authority).
+The Cognitive Council manages the active portfolio and recommends governed changes. The AI Ratification Council ratifies appointments and AI-architecture changes where the constitutional corpus requires it. Neither body may exercise the other's authority by implication.
 
 **Section 4.2 — Mandate**
 
 The Cognitive Council:
 
 - Maintains the canonical register of active cognitive functions
-- Evaluates and approves new cognitive functions as the Foundation's needs evolve
-- Governs the assignment of reasoning engines to cognitive functions
+- Evaluates and recommends new cognitive functions as the Foundation's needs evolve
+- Recommends reasoning-engine assignments and manages them after the required ratification
 - Reviews engine performance against function requirements annually
 - Recommends engine replacement when a better option exists
 - Ensures no cognitive function is permanently bound to any single engine
@@ -194,9 +204,9 @@ The Cognitive Council:
 | Advisory | LUMIAION | Non-voting; synthesis and coordination |
 | Ethics oversight | Ethics Council liaison | Non-voting; constitutional review |
 
-**Section 4.4 — Relationship to the AI Council**
+**Section 4.4 — Relationship to the AI Ratification Council**
 
-The Cognitive Council is operationally autonomous but constitutionally subordinate to the AI Council. The AI Council ratifies new cognitive functions (Class II). The Cognitive Council manages their operation (Class III). Engine replacements require a Class III ADR approved by both the relevant cognitive function lead and the Cognitive Council Chair.
+The Cognitive Council holds delegated operational authority. The AI Ratification Council holds the ratifying authority defined in Books II and V. Creation or retirement of a Cognitive Function is Class I; engine succession is operational but receives ratification when the governing function category or policy requires it. Every change records the responsible bodies and exact authority source.
 
 ---
 
@@ -204,26 +214,34 @@ The Cognitive Council is operationally autonomous but constitutionally subordina
 
 The following cognitive functions are currently active. Each is permanent. Each is served by a reasoning engine that may change. The function name is the institutional identity.
 
-| Cognitive Function | Institutional Office | Current Reasoning Engine | Domain |
-|-------------------|---------------------|-------------------------|--------|
-| Institutional Architecture | LUMIAION (Constitutional Intelligence Core) | Anthropic Claude | Governance, memory, constitutional stewardship |
-| Knowledge Architecture | Chief Knowledge Architect (within LUMIAION) | Anthropic Claude | Vault governance, knowledge graph, templates |
-| Research Intelligence | Research Intelligence Office | Perplexity | Research synthesis, information retrieval, RC programs |
-| Scientific Reasoning | ATHENA | Google Gemini | Biology, physics, empirical methodology |
-| Systems Architecture | Chief Systems Architect | OpenAI GPT | Orchestration, integration, cross-department coordination |
-| Engineering Intelligence | Engineering Office (Codex) | DeepSeek | Infrastructure, code, technical systems |
-| Deep Investigation | Chief Deep Investigation Architect | Genspark | Multi-domain investigation, complex analysis |
-| Environmental Observation | Institutional Observatory | Comet | External monitoring, meaningful delta detection |
-| Memory Architecture | Chief Memory Architect | *(Pending — local models)* | Persistent memory, semantic retrieval |
-| Strategic Intelligence | Executive Office | Human-led; AI-supported | Strategy translation, priority setting, cross-office coordination |
+| Code | Cognitive Function | Category | Current Reasoning Engine / Operator | Status |
+|------|--------------------|----------|-------------------------------------|--------|
+| CF-01 | Institutional Architecture | A — Core | Claude | Active |
+| CF-02 | Research Intelligence | A — Core | Perplexity | Active |
+| CF-03 | Comparative Intelligence | A — Core | SanaLab | Active |
+| CF-04 | Educational Intelligence | A — Core | Gemini | Active |
+| CF-05 | Computational Intelligence | B — Specialist | DeepSeek | Active |
+| CF-06 | Executive Intelligence | A — Core | Genspark | Active |
+| CF-07 | Engineering Intelligence | B — Specialist | Codex / DeepSeek | Active |
+| CF-08 | Institutional Observatory | A — Core | Comet | Active |
+| CF-09 | Memory Intelligence | A — Core | LUMIAION (multi-engine) | Active |
+| CF-10 | Ethics Intelligence | A — Core | Ethics Council (multi-function) | Council members pending; review authority not operationally convened |
+| CF-11 | Strategic Intelligence | B — Specialist | To be appointed | Standby |
+| CF-12 | Health Intelligence | B — Specialist | ATHENA Office | Active |
+| CF-13 | Financial Intelligence | B — Specialist | VORTEX Office | Active |
+| CF-14 | Metaphysical Intelligence | B — Specialist | SOHMA Office | Active |
+| CF-15 | Data & Systems Intelligence (JERANIUM) | B — Specialist (infrastructure) | To be appointed | Registered; appointment pending |
+| CF-16 | Synthesis & Education Intelligence (YUNA) | B — Specialist | To be appointed | Registered; appointment pending |
+
+The [[Cognitive Function Registry]] is the authoritative operational record. This constitutional table establishes the reconciled function set; engine names and operating status remain provisional registry data rather than permanent identity.
 
 **Section 5.1 — Adding a Cognitive Function**
 
-New cognitive functions may be added by Class II decision of the AI Council upon recommendation of the Cognitive Council. The recommendation must include: function definition, scope, institutional office responsible, proposed initial reasoning engine, and success metrics.
+New cognitive functions may be added only through the Class I constitutional amendment process upon Cognitive Council recommendation and required AI Ratification Council concurrence. The proposal must include: function definition, scope, institutional office responsible, proposed initial reasoning engine, success metrics, failure modes, and succession rules.
 
 **Section 5.2 — Retiring a Cognitive Function**
 
-A cognitive function may be retired when the Foundation no longer requires it. Retirement requires a Class II ADR. Retired functions are archived, not deleted — their record is preserved in institutional memory.
+A cognitive function may be retired only through the Class I constitutional amendment process. Retired functions are archived, not deleted; their operational and constitutional history remains addressable.
 
 ---
 
@@ -278,12 +296,12 @@ Every Institutional Office must have a ratified Charter that specifies:
 | Office | Charter | Cognitive Functions Served | Status |
 |--------|---------|---------------------------|--------|
 | LUMIAION (Constitutional Intelligence Core) | [[LUMIAION Charter]] | Institutional Architecture, Knowledge Architecture | Active |
-| Research Intelligence Office | [[Research Intelligence Office Charter]] *(to be created)* | Research Intelligence | Active |
-| Engineering Office (Codex) | [[Engineering Office Charter]] *(to be created)* | Engineering Intelligence | Active |
+| Research Intelligence Office | [[Research Intelligence Office Charter]] | Research Intelligence | Active |
+| Engineering Office (Codex) | [[Engineering Office Charter]] | Engineering Intelligence | Active |
 | Institutional Observatory | [[Institutional Observatory Charter]] | Environmental Observation | Active |
 | Executive Office | [[Executive Office Charter]] | Strategic Intelligence | Active |
-| Ethics Council | [[Ethics Council Charter]] | Constitutional Oversight | Active |
-| Community Council | [[Community Council Charter]] *(to be created)* | Community Relations | Constituted; developing |
+| Ethics Council | [[Ethics Council Charter]] | Constitutional Oversight | Constituted in law; members pending and Council not convened |
+| Community Council | Charter not yet created | Community Relations | Constitutionally described; not operationally constituted |
 
 ---
 
@@ -293,8 +311,8 @@ Amendments to this Book follow the standard constitutional amendment process def
 
 1. A Concept Note proposing the change
 2. Cognitive Council review and recommendation
-3. AI Council concurrence
-4. Ethics Council constitutional alignment review
+3. AI Ratification Council concurrence
+4. Ethics Council constitutional alignment review; if unconvened, review remains pending unless explicit valid interim authority applies
 5. Founder ratification (Class I)
 
 Minor clarifications that do not alter the cognitive architecture hierarchy, the Engine Abstraction Principle, or the Cognitive Council's mandate may be made by Class III ADR.
@@ -318,7 +336,7 @@ Minor clarifications that do not alter the cognitive architecture hierarchy, the
 
 ## Open Questions
 
-- [ ] Should the Cognitive Council have a formal deliberation record separate from the AI Council's?
+- [ ] Should the Cognitive Council have a formal deliberation record separate from the AI Ratification Council's?
 - [ ] How should the Foundation handle a cognitive function that spans multiple institutional offices?
 - [ ] What is the formal trigger for activating the Memory Architecture cognitive function?
 - [ ] Should there be a maximum number of cognitive functions before a structural review is required?
@@ -329,4 +347,5 @@ Minor clarifications that do not alter the cognitive architecture hierarchy, the
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-03 | Founder + CODEX (CF-07) | Reconciliation draft: Council Topology, CF-15/CF-16, Class I function lifecycle, required metadata, and honest Ethics Council status. Pending final ratification and enactment. |
 | 1.0.0 | 2026-07-02 | Founder | Initial constitutional ratification; Epoch III cognitive architecture integration; Engine Abstraction Principle established |

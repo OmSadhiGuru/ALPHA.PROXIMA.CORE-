@@ -3,26 +3,29 @@ title: "Book I - The Constitution"
 aliases: ["The Constitution", "Alpha Proxima Constitution", "Founding Document"]
 tags: [constitution, governance, foundational, lumiaion, alpha-proxima]
 created: 2026-07-01
-updated: 2026-07-01
-status: ratified
-version: "1.0.0"
-authors: ["Alpha Council"]
+updated: 2026-09-03
+status: draft
+version: "2.0.0"
+authors: ["Alpha Council", "Founder", "CODEX (CF-07)"]
 artifact_type: constitution
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Governance"
 reasoning_engine: "Alpha Council"
-dependencies: []
-related_documents: ["[[Book II - Governance Framework]]", "[[Book III - Knowledge Integrity]]"]
+dependencies: ["[[Constitutional Hierarchy Statement]]", "[[Interim Authority Instrument]]"]
+related_documents: ["[[Book II - Governance Framework]]", "[[Book III - Knowledge Integrity]]", "[[Book IV - Cognitive Architecture]]", "[[Book V - Cognitive Council]]", "[[Constitution v2.0 Ratification Draft]]"]
 related_research_programs: []
+ratification_state: "proposed — exact v2.0 text not yet ratified or operative"
 ---
 
 # Book I — The Constitution of Alpha Proxima Core
+
+> **Constitution v2.0 reconciliation draft.** The ratified v1.0.0 text remains operative on `main` until the Founder ratifies and enacts an exact v2.0 commit. This draft does not convene councils, appoint engines, or create authority.
 
 ## Purpose
 
 This document is the supreme governing instrument of [[LUMIAION]] and the broader [[Alpha Proxima Core]] ecosystem. It establishes the foundational principles, structural authority, rights, and obligations that govern all human and AI participants operating within or under the auspices of this project.
 
-No policy, protocol, decision record, or institutional action may supersede this Constitution. All other governance documents derive their authority from it.
+No policy, protocol, decision record, framework constitution, or institutional action may supersede this Constitution. Books II–V are peer constitutional instruments within their respective domains and remain subordinate to Book I, as defined by the [[Constitutional Hierarchy Statement]].
 
 ---
 
@@ -30,7 +33,7 @@ No policy, protocol, decision record, or institutional action may supersede this
 
 [[Alpha Proxima Core]] was established to build open architectures for AI orchestration, knowledge systems, digital memory, and human augmentation. As the scope and stakes of this work grew, so did the need for a durable governing framework — one that could coordinate human judgment and artificial intelligence in a principled, transparent, and accountable way.
 
-This Constitution was drafted by the [[Alpha Council]] and ratified as the foundational act of institutional self-governance.
+The v1.0.0 Constitution was drafted by the [[Alpha Council]] and ratified as the foundational act of institutional self-governance. This v2.0.0 draft reconciles the five-Book corpus and the Founder-ratified Epoch V instruments; it requires ratification of its exact text before taking effect.
 
 ---
 
@@ -76,11 +79,13 @@ Governance structures, protocols, and oversight mechanisms shall be proportionat
 **Section 3.1 — The Alpha Council**
 The [[Alpha Council]] is the supreme deliberative and executive body of Alpha Proxima Core. Its composition, powers, and procedures are defined in the [[Institutional Registry]].
 
+The Founder is the constituent authority and final ratifier of Class I constitutional amendments. Until the Alpha Council's human seats are named and the Council is constituted, authority may be exercised only as provided by the [[Interim Authority Instrument]]. An unfilled seat or unconvened body must never be represented as having reviewed or approved an action.
+
 **Section 3.2 — Working Groups**
 The Alpha Council may constitute Working Groups to address specific domains of work. Each Working Group operates under a charter ratified by the Council and maintains its own deliberative record.
 
 **Section 3.3 — AI Participants**
-AI systems — including [[LUMIAION]] and any future instantiations — are recognised as institutional participants with defined roles, authorities, and constraints. They hold no voting rights but are entitled to a formal voice in deliberations via the AI Council Seat protocol (see [[Institutional Registry]]).
+AI systems — including [[LUMIAION]] and any future instantiations — are recognised as institutional participants with defined roles, authorities, and constraints. They hold no constitutional voting or ratification rights. Their operational, advisory, and proposal rights must be explicitly delegated and recorded.
 
 **Section 3.4 — The Vault as Institution**
 This Obsidian Vault is itself an institutional actor: the canonical record-keeper. Its integrity is the joint responsibility of all participants. No note shall be deleted without a recorded rationale.
@@ -94,13 +99,13 @@ Decisions within Alpha Proxima Core are classified as follows:
 
 | Class | Description | Required Process |
 |-------|-------------|-----------------|
-| Class I | Foundational (amends this Constitution) | Council supermajority + 14-day deliberation |
-| Class II | Institutional (charters, registers, ratifications) | Council majority + ADR |
+| Class I | Foundational (amends Book I or another constitutional instrument) | Formal proposal + 14-day deliberation + required Ethics review + Alpha Council supermajority when constituted + Founder ratification; interim authority must be explicit |
+| Class II | Institutional (charters, registers, appointments, ratifications) | Competent human authority or council + concurrence required by Book II + ADR or equivalent durable record |
 | Class III | Operational (projects, protocols, tooling) | Working Group or Delegate + ADR |
 | Class IV | Tactical (day-to-day execution) | Single responsible actor, logged |
 
 **Section 4.2 — Decision Records**
-All Class I–III decisions must be documented using the [[ADR Template]]. ADRs are binding on all participants once ratified.
+All Class I–III decisions must be documented using the [[ADR Template]] or a constitutionally recognized equivalent record. A draft, passing test, merged pull request, or AI recommendation is not ratification unless the competent authority explicitly says so.
 
 **Section 4.3 — AI-Initiated Actions**
 AI participants may propose but not unilaterally ratify Class I or II decisions. Class III and IV actions may be taken by AI participants within explicitly delegated scope.
@@ -137,8 +142,10 @@ AI participants carry additional obligations:
 This Constitution may be amended by:
 1. A formal proposal submitted as a [[Concept Note Template|Concept Note]]
 2. A minimum 14-day open deliberation period
-3. Ratification by supermajority of the [[Alpha Council]]
-4. An ADR documenting the rationale and dissent
+3. Ethics Council constitutional-alignment review where required; if that Council is unconvened, the review remains pending unless a valid interim instrument expressly governs it
+4. Ratification by supermajority of the [[Alpha Council]] when constituted
+5. Final ratification by the Founder
+6. An ADR or constitutional impact record documenting the exact text or commit, authority, rationale, and dissent
 
 **Section 6.2 — Version Control**
 All versions of this Constitution are preserved in the Vault's version history. No version is deleted; superseded versions are marked `archived`.
@@ -150,7 +157,7 @@ In circumstances requiring immediate action, the Alpha Council may enact emergen
 
 ### Article VII — Interpretation
 
-When ambiguity arises in the interpretation of this Constitution, the Alpha Council is the final interpretive authority. Interpretations shall be documented as ADRs and appended to the relevant Article.
+When ambiguity arises, the Alpha Council is the supreme deliberative interpreter and the Founder is the final constituent authority. Interpretations must be documented as ADRs or constitutional findings and linked to the relevant Article. The [[Constitutional Hierarchy Statement]] controls conflicts among instruments.
 
 In all cases, interpretation shall favour:
 - The spirit of the Founding Principles over the letter of any specific provision
@@ -168,13 +175,16 @@ In all cases, interpretation shall favour:
 - [[ADR Template]]
 - [[Concept Note Template]]
 - [[Alpha Proxima Core]]
+- [[Constitutional Hierarchy Statement]]
+- [[Interim Authority Instrument]]
+- [[Institutional Open Questions Register]]
 
 ---
 
 ## Open Questions
 
 - [ ] Should Working Groups have independent ratification power for Class III ADRs, or must all ADRs pass through the Alpha Council?
-- [ ] What is the quorum requirement for Council votes? (Currently undefined)
+- [ ] What is the quorum requirement for Alpha Council votes? (OQ-002; blocked on naming the seats in OQ-001)
 - [ ] How are dissenting views formally recorded and preserved?
 - [ ] What is the process for removing or suspending an AI participant's operational authority?
 - [ ] Should there be a formal appeals mechanism for Class IV tactical decisions that participants believe were misclassified?
@@ -185,4 +195,5 @@ In all cases, interpretation shall favour:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-03 | Founder + CODEX (CF-07) | Reconciliation draft: hierarchy, constituent authority, interim-authority honesty, decision classes, and exact-text ratification safeguards. Pending final ratification and enactment. |
 | 1.0.0 | 2026-07-01 | [[Alpha Council]] | Initial ratification of the Constitution |

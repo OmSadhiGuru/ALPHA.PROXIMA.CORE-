@@ -3,25 +3,28 @@ title: "Book III - Knowledge Integrity"
 aliases: ["Knowledge Integrity", "Book III", "Epistemic Constitution"]
 tags: [constitution, knowledge, integrity, epistemology, governance, foundational, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
-status: ratified
-version: "1.0.0"
-authors: ["Frederick Belizaire Gunville"]
+updated: 2026-09-03
+status: draft
+version: "2.0.0"
+authors: ["Frederick Belizaire Gunville", "CODEX (CF-07)"]
 artifact_type: constitutional-book
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Governance"
 reasoning_engine: "LUMIAION"
 dependencies: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]"]
-related_documents: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]", "[[Research Governance Protocol]]"]
-related_research_programs: ["RP-001"]
+related_documents: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]", "[[Research Governance Protocol]]", "[[Consolidated Ethics Framework]]", "[[Knowledge Architecture Specification]]"]
+related_research_programs: ["[[RP-001 Master Index]]", "[[RP-002 Master Index]]"]
 constitutional_rank: 3
+ratification_state: "proposed — exact v2.0 text not yet ratified or operative"
 ---
 
 # Book III — Knowledge Integrity
 
+> **Constitution v2.0 reconciliation draft.** The ratified v1.0.0 text remains operative on `main` until the Founder ratifies and enacts an exact v2.0 commit.
+
 ## Purpose
 
-This document is the third constitutional instrument of the Alpha Proxima Foundation, subordinate only to [[Book I - The Constitution]] and [[Book II - Governance Framework]]. It governs the production, evaluation, preservation, and revision of all knowledge within the Foundation.
+This document is the constitutional instrument governing knowledge integrity. It is subordinate to [[Book I - The Constitution]] and a domain peer of Books II, IV, and V under the [[Constitutional Hierarchy Statement]]. It governs the production, evaluation, preservation, canonisation, application, and revision of all institutional knowledge.
 
 Knowledge is not neutral. It is produced by agents with assumptions, tools with limitations, and institutions with interests. This document establishes the principles and obligations that govern how Alpha Proxima handles knowledge — so that the Foundation's outputs can be trusted, revised, and built upon with confidence across generations.
 
@@ -133,9 +136,28 @@ Human contributors to Foundation research are responsible for:
 **Section 3.4 — Institutional Responsibility**
 The Foundation as an institution is responsible for:
 - Maintaining the Research Governance Protocol (see [[Research Governance Protocol]])
-- Ensuring the [[Ethics Council Charter|Ethics Council]] reviews all research before canonisation
+- Ensuring required Research and Ethics reviews occur before canonisation
+- Never representing an unconvened council, automated validator, or AI participant as having supplied human review
 - Creating a culture in which "I don't know" and "the evidence is mixed" are considered valid and valued outputs
 - Never using institutional authority to suppress inconvenient findings
+
+### Article III-A — Knowledge Architecture and Lifecycle
+
+**Section 3A.1 — Knowledge Object Contract**
+
+Every knowledge object participating in the institutional graph must have a stable identity, accountable steward, source and provenance, creation and review timestamps, lifecycle status, semantic version, access boundary where needed, and a revision or supersession trail. A claim must carry a Book III evidence class. A graph-ready object must carry at least one typed relationship or be explicitly marked unintegrated.
+
+**Section 3A.2 — Canonical Lifecycle**
+
+Institutional knowledge proceeds through eight distinguishable states: capture, structure, connect, validate, review, canonise, apply, and evolve. Each transition preserves provenance and responsible authority. Automation may assist capture, extraction, connection, and validation; it may not independently perform human review or canonisation.
+
+**Section 3A.3 — Unified Ontology**
+
+The [[Knowledge Architecture Specification]] governs the crosswalk among research objects, Institutional Knowledge Graph nodes and relationships, and Living Genome Cells, Organs, Connections, and Mutations. Shared schemas do not erase ownership boundaries: personal Living Genome knowledge enters institutional canon only through consent, appropriate access controls, provenance, and the applicable review.
+
+**Section 3A.4 — Relationship Integrity**
+
+Relationships are typed, directional where applicable, and provenance-bearing. Use the strongest accurate approved type. Inferred or ambiguous relationships remain explicitly provisional. Contradictions are represented and preserved rather than collapsed into false consensus.
 
 ---
 
@@ -149,7 +171,7 @@ Minor revisions (corrections, additions, clarifications) may be made by [[LUMIAI
 
 Major revisions (changes to core claims, reclassification of evidence class, significant additions) require:
 1. A brief Concept Note documenting the change and its justification
-2. Ethics Council review if the revision has significant implications
+2. Ethics Council review if the revision has significant implications; if the Council is unconvened, the review remains pending unless a valid interim instrument applies
 3. Updated Version History with explicit statement of what changed and why
 
 **Section 4.3 — Prior Versions Preserved**
@@ -180,13 +202,13 @@ AI participants must proactively disclose relevant limitations when producing kn
 
 This document is the third highest governing instrument of the Alpha Proxima Foundation, after [[Book I - The Constitution]] and [[Book II - Governance Framework]]. It supersedes any protocol, charter, or ADR that conflicts with it.
 
-The [[Research Governance Protocol]] and [[Ethics Council Charter]] are subordinate to this document and must be consistent with it.
+The [[Research Governance Protocol]], [[Ethics Council Charter]], [[Consolidated Ethics Framework]], and [[Knowledge Architecture Specification]] are subordinate to this document and must be consistent with it.
 
 ---
 
 ### Article VII — Amendment
 
-This document may be amended through the same Class I process required for [[Book I - The Constitution]]. Given this document's constitutional rank, the [[Ethics Council Charter|Ethics Council]] review is mandatory for any proposed amendment.
+This document may be amended through the Class I process in [[Book I - The Constitution]]. Ethics Council review is mandatory; while that Council remains unconvened, the review must be recorded as pending unless an explicit valid interim instrument governs it.
 
 ---
 
@@ -200,6 +222,9 @@ This document may be amended through the same Class I process required for [[Boo
 - [[JERANIUM Charter]]
 - [[LUMIAION Charter]]
 - [[Knowledge Ownership Protocol]]
+- [[Consolidated Ethics Framework]]
+- [[Knowledge Architecture Specification]]
+- [[Genome Constitution v1.0]]
 
 ---
 
@@ -216,4 +241,5 @@ This document may be amended through the same Class I process required for [[Boo
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-03 | Founder + CODEX (CF-07) | Reconciliation draft: unified knowledge lifecycle and ontology, ownership boundaries, relationship integrity, and explicit human-review safeguards. Pending final ratification and enactment. |
 | 1.0.0 | 2026-07-02 | Frederick Belizaire Gunville | Initial ratification — third constitutional instrument of Alpha Proxima Foundation |

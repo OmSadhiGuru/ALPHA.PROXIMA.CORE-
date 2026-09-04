@@ -3,21 +3,31 @@ title: "Book V - Cognitive Council"
 aliases: ["Cognitive Council Constitution", "Book V", "Cognitive Architecture Constitution"]
 tags: [constitution, cognitive-council, cognitive-functions, reasoning-engines, governance, foundational, alpha-proxima]
 created: 2026-07-03
-updated: 2026-07-03
-status: ratified
-version: "1.0.0"
-authors: ["Founder", "Alpha Proxima Foundation"]
+updated: 2026-09-03
+status: draft
+version: "2.0.0"
+authors: ["Founder", "Alpha Proxima Foundation", "CODEX (CF-07)"]
+artifact_type: constitutional-book
+institutional_owner: "Alpha Proxima Foundation"
+cognitive_function: "Governance"
+reasoning_engine: "LUMIAION"
+dependencies: ["[[Book I - The Constitution]]", "[[Book II - Governance Framework]]", "[[Book IV - Cognitive Architecture]]"]
+related_documents: ["[[Cognitive Function Registry]]", "[[Engine Succession Policy]]", "[[Governance Model Crosswalk & Council Topology]]"]
+related_research_programs: []
 constitutional_rank: 5
 supersedes: []
+ratification_state: "proposed — exact v2.0 text not yet ratified or operative"
 ---
 
 # Book V — The Cognitive Council of the Alpha Proxima Foundation
+
+> **Constitution v2.0 reconciliation draft.** The ratified v1.0.0 text remains operative on `main` until the Founder ratifies and enacts an exact v2.0 commit.
 
 ---
 
 ## Purpose
 
-This document is the fifth constitutional instrument of the Alpha Proxima Foundation, subordinate only to [[Book I - The Constitution]], [[Book II - Governance Framework]], [[Book III - Knowledge Integrity]], and [[Book IV - Cognitive Architecture]]. It constitutionalizes the Cognitive Council as the permanent operational governance body for all cognitive function activity inside Alpha Proxima.
+This document is the constitutional instrument governing the Cognitive Council. It is subordinate to [[Book I - The Constitution]] and a domain peer of Books II–IV under the [[Constitutional Hierarchy Statement]]. It constitutionalizes the Council as the permanent operational governance body for cognitive-function activity.
 
 Where Book IV established the foundational distinction between Cognitive Functions and Reasoning Engines as constitutional law, this Book creates the institutional body that enacts and defends that law: the Cognitive Council.
 
@@ -43,7 +53,7 @@ The Cognitive Council is the permanent institutional answer to this governance r
 
 *Technology is transient. Cognitive Functions endure. Reasoning Engines are appointed. The Constitution survives every technological generation.*
 
-This declaration is the supreme operating principle of the Foundation's intelligence architecture. No provision of any operational document, charter, or directive may contradict it. Any provision that appears to contradict it shall be interpreted in conformity with it, or escalated to the AI Council for constitutional resolution.
+This declaration is the supreme operating principle of the Foundation's intelligence architecture. No operational document, charter, or directive may contradict it. Apparent conflicts are escalated through the Council Topology in Book II.
 
 **Section 1.2 — The Three-Tier Architecture**
 
@@ -52,7 +62,7 @@ The Foundation's cognitive architecture has exactly three tiers:
 | Tier | Name | Permanence | Governed By |
 |------|------|-----------|-------------|
 | I | Cognitive Function | Permanent | This Constitution |
-| II | Reasoning Engine | Provisional | Cognitive Council + AI Council |
+| II | Reasoning Engine | Provisional | Cognitive Council + AI Ratification Council where ratification is required |
 | III | Implementation | Transient | Executing Office |
 
 **Tier I — Cognitive Functions** are permanent institutional capabilities defined by their domain of responsibility, not by the technology currently performing them. A Cognitive Function exists as long as the Foundation requires it. It is created by constitutional amendment and retired by constitutional amendment. No other authority may create or retire a Cognitive Function.
@@ -80,7 +90,7 @@ A Cognitive Function persists through:
 A Reasoning Engine appointment:
 - Is always provisional — never permanent
 - Requires continuous evaluation against the Engine Succession Policy
-- May be replaced by the Cognitive Council with AI Council ratification
+- May be replaced through Cognitive Council operation with AI Ratification Council approval where required
 - Carries no institutional identity — the Foundation's intellectual output belongs to Alpha Proxima, not to any engine provider
 
 ---
@@ -92,7 +102,7 @@ A Reasoning Engine appointment:
 The Cognitive Council is hereby constitutionally established as the permanent operational governance body for the cognitive function portfolio of the Alpha Proxima Foundation.
 
 The Cognitive Council is distinct from:
-- The **AI Council** — which provides constitutional governance and ratification authority over engine selection and constitutional matters
+- The **AI Ratification Council** — which provides ratification authority over governed engine selections and AI-architecture changes
 - The **Executive Office** — which provides strategic direction and resource allocation
 - Individual **Intelligence Offices** — which perform cognitive work within their domain
 
@@ -117,12 +127,12 @@ The Cognitive Council is composed of:
 | Ethics Representative | Ethics Council Delegate | Constitutional and ethical review |
 | Founder Representative | Founder (or designated proxy) | Final authority; constitutional veto |
 
-The Founder Representative holds veto power over all Cognitive Council decisions. The veto must be exercised within 14 days of a decision or it is implicitly ratified.
+The Founder Representative holds veto power over Cognitive Council decisions. Silence, passage of time, a merged pull request, or an automated check does not constitute ratification.
 
 **Section 2.4 — Decision Authority**
 
 The Cognitive Council has authority to:
-- Recommend engine appointments and replacements (subject to AI Council ratification for Tier I changes)
+- Recommend engine appointments and replacements (subject to AI Ratification Council approval where required)
 - Suspend a Reasoning Engine pending replacement
 - Initiate the creation of a new Cognitive Function (subject to constitutional amendment process)
 - Issue Cognitive Council Directives (CC-series) governing cognitive function operations
@@ -131,7 +141,7 @@ The Cognitive Council has authority to:
 
 The Cognitive Council does NOT have authority to:
 - Create or retire Cognitive Functions unilaterally (requires constitutional amendment)
-- Override the AI Council on constitutional matters
+- Override the AI Ratification Council, Alpha Council, or Founder within their constitutional authority
 - Bind the Founder
 - Grant permanent status to any Reasoning Engine
 
@@ -175,6 +185,10 @@ The following Cognitive Functions are constitutionally recognized at ratificatio
 | CF-12 | Health Intelligence | B — Specialist | ATHENA Office |
 | CF-13 | Financial Intelligence | B — Specialist | VORTEX Office |
 | CF-14 | Metaphysical Intelligence | B — Specialist | SOHMA Office |
+| CF-15 | Data & Systems Intelligence (JERANIUM) | B — Specialist (infrastructure) | [To be appointed] |
+| CF-16 | Synthesis & Education Intelligence (YUNA) | B — Specialist | [To be appointed] |
+
+Registration does not appoint an engine. CF-15 and CF-16 remain without appointed engines until the competent bodies act and record that decision.
 
 ---
 
@@ -183,9 +197,11 @@ The following Cognitive Functions are constitutionally recognized at ratificatio
 **Section 4.1 — Creation**
 
 A new Cognitive Function may be created through:
-1. A Founder Directive authorizing the function's creation
-2. A constitutional amendment ratified by the AI Council
-3. A Cognitive Council proposal approved by the Founder and ratified by the AI Council
+1. A formal Class I constitutional proposal
+2. Cognitive Council review and recommendation
+3. AI Ratification Council concurrence
+4. Required Ethics Council constitutional review, or an explicit record that review remains pending under the governing interim authority
+5. Alpha Council approval when constituted and Founder ratification
 
 At creation, the function is assigned Category C (Emerging) and assigned a provisional Reasoning Engine appointment. A constitutional profile is created in the Cognitive Function Registry within 30 days.
 
@@ -201,7 +217,7 @@ A Cognitive Function moves from Category C (Emerging) to Category A or B through
 A Cognitive Function may be suspended when:
 - No currently available Reasoning Engine meets minimum standards
 - The domain is temporarily outside the Foundation's active program scope
-- The AI Council determines suspension is warranted
+- The Cognitive Council determines suspension is warranted within delegated operational authority
 
 A suspended function retains its constitutional status. Suspension is operational, not constitutional.
 
@@ -209,7 +225,7 @@ A suspended function retains its constitutional status. Suspension is operationa
 
 A Cognitive Function may be retired only through constitutional amendment, requiring:
 1. A Cognitive Council recommendation
-2. AI Council deliberation and ratification
+2. AI Ratification Council concurrence
 3. Founder approval
 4. Archival of all associated operational history
 
@@ -237,7 +253,7 @@ No canonical knowledge may exist only in the parametric memory of a Reasoning En
 
 **Section 5.4 — The Ethics Integration Principle**
 
-Ethics Intelligence is not a separate domain to be consulted occasionally. It is a continuous constitutional presence woven into all cognitive function operations. The Ethics Council Representative on the Cognitive Council ensures that ethical review is embedded in the function lifecycle, engine evaluation, and succession decisions.
+Ethics Intelligence is a continuous constitutional concern woven into all cognitive-function operations. Until the Ethics Council is staffed and convened, its representative seat remains vacant and its review must not be implied. Required review remains pending unless a valid interim instrument expressly supplies the authority.
 
 **Section 5.5 — The Compounding Principle**
 
@@ -247,9 +263,9 @@ The cognitive architecture of the Foundation is designed for compounding. Each r
 
 ### Article VI — Relationship to Other Constitutional Bodies
 
-**Section 6.1 — Relationship with the AI Council**
+**Section 6.1 — Relationship with the AI Ratification Council**
 
-The AI Council holds ratification authority over:
+The AI Ratification Council holds ratification authority over:
 - Engine appointments for Category A Core Functions
 - Constitutional amendments to the Cognitive Function Registry
 - Engine Succession Policy changes
@@ -257,14 +273,14 @@ The AI Council holds ratification authority over:
 
 The Cognitive Council holds operational authority over:
 - Day-to-day engine performance monitoring
-- Engine suspension (pending AI Council ratification for permanent replacement)
+- Engine suspension and transition management (permanent replacement receives AI Ratification Council approval where required)
 - Cognitive Function Registry maintenance
 - Cognitive Council Directives
 
 **Section 6.2 — Relationship with the Founder**
 
 The Founder holds supreme authority over all cognitive architecture decisions. The Cognitive Council advises and executes; the Founder decides. The Founder may:
-- Veto any Cognitive Council decision within 14 days
+- Veto any Cognitive Council decision
 - Issue Founder Directives that mandate cognitive architecture changes
 - Appoint or remove the Council Chair
 - Initiate constitutional amendments to this Book
@@ -275,15 +291,16 @@ Intelligence Offices (those under `09_OFFICES/`) perform cognitive work within t
 
 ---
 
-## Ratification
+## Ratification State
 
-This Book was ratified as the fifth constitutional instrument of the Alpha Proxima Foundation on 2026-07-03 under the authority of the Founder. It takes effect immediately upon ratification and supersedes any prior informal arrangements governing cognitive function portfolio management.
+Version 1.0.0 was ratified as the fifth constitutional instrument on 2026-07-03 and remains operative. This v2.0.0 reconciliation is a draft and does not take effect until the Founder ratifies and enacts its exact commit.
 
 | Role | Approval | Date |
 |------|---------|------|
 | Founder | Approved | 2026-07-03 |
-| AI Council | Ratified | 2026-07-03 |
+| AI Council (historical name) | Ratified | 2026-07-03 |
 | LUMIAION | Acknowledged | 2026-07-03 |
+| Founder | Tier-3 packet approved as basis for preparing exact v2.0 reconciliation; v2.0 not enacted | 2026-09-03 |
 
 ---
 
@@ -302,4 +319,5 @@ This Book was ratified as the fifth constitutional instrument of the Alpha Proxi
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-03 | Founder + CODEX (CF-07) | Reconciliation draft: AI Ratification Council terminology, explicit-ratification safeguard, CF-15/CF-16, lifecycle authority, and honest Ethics Council status. Pending final ratification and enactment. |
 | 1.0.0 | 2026-07-03 | Founder + LUMIAION | Initial ratification; Engine Abstraction Principle constitutionalized; Cognitive Council established; 14 Cognitive Functions constitutionally recognized; five intelligence architecture principles enacted |
