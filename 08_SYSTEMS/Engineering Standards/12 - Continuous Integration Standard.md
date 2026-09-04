@@ -3,9 +3,9 @@ title: "12 - Continuous Integration Standard"
 aliases: ["CI Standard", "Continuous Integration Standard", "Foundation Integrity", "Coherence Ratchet"]
 tags: [systems, engineering, standards, ci, automation, coherence, integrity, alpha-proxima]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CLAUDE"]
 artifact_type: engineering-standard
 standard_id: "ES-12"
@@ -56,10 +56,22 @@ Running the vault index three times would answer the same question three times. 
 
 ### The ratchet
 
-- Coherence defects are gated against `COHERENCE_CEILING`, declared in the workflow.
+- Coherence defects are gated against `COHERENCE_CEILING`, loaded by the workflow from the committed one-line file `.github/coherence-ceiling`.
 - **The ceiling ratchets down. It must never be raised to excuse defects introduced within the indexed corpus.** A Founder-ratified expansion of the corpus may reset the baseline once, provided the old and new corpus sizes and complete defect composition are recorded in the same change.
 - Lowering it belongs in the same commit as the repairs that earned it, so the number is never left behind.
-- The ceiling lives in the workflow rather than a config file so that every movement is a visible, reviewable edit.
+- The ceiling lives in its own committed file so every earned decrease is a visible, reviewable one-line diff without creating conflicts in the workflow. The workflow validates that the file contains exactly one non-negative integer before using it.
+
+### Ceiling history
+
+| Ceiling | Reason |
+|---:|---|
+| 243 | Pre-expansion baseline |
+| 422 | One-time reset after PR #7 expanded the indexed corpus; later shown to include an instrument defect |
+| 417 | PR #21 removed template placeholders that were never links |
+| 130 | PR #20 taught the indexer to resolve valid path-qualified Obsidian links |
+| 129 | FIR-001 landed as a connected, fully described document |
+
+The live value is `.github/coherence-ceiling` and the workflow run summary. This table preserves why the value moved; it is not another configuration source.
 
 ### Check the instrument before raising the tolerance
 
@@ -188,8 +200,7 @@ A gate never observed failing is not a verified gate. The negative case was test
 
 ## Open Questions
 
-- Should the ceiling live in a committed file that CI reads, so lowering it is a one-line diff rather than a workflow edit? The current choice favours visibility over convenience.
-- Should a pull request that raises `COHERENCE_CEILING` be blocked mechanically, rather than by this standard's prohibition?
+- Should a pull request that raises `.github/coherence-ceiling` be blocked mechanically, rather than by this standard's prohibition?
 - Does the Foundation want CI to run on a schedule as well as on change, to catch decay in a repository that sits idle?
 
 ---
@@ -198,4 +209,5 @@ A gate never observed failing is not a verified gate. The negative case was test
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | CODEX | Move the live ceiling into a validated one-line committed file after repeated workflow conflicts |
 | 1.0.0 | 2026-09-02 | CLAUDE | First CI standard: the two jobs, the ratchet, report-versus-gate, zero dependencies, and the no-`paths`-filter decision |
