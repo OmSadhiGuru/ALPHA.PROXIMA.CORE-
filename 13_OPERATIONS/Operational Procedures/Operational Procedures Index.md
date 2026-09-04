@@ -3,16 +3,16 @@ title: "Operational Procedures Index"
 aliases: ["Operations Procedures"]
 tags: [operations, procedures, alpha-proxima]
 created: 2026-07-02
-updated: 2026-09-02
+updated: 2026-09-03
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CODEX"]
 artifact_type: operations-index
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[13_OPERATIONS]]", "[[Workflow Registry]]"]
-related_documents: ["[[13_OPERATIONS]]", "[[Workflow Registry]]", "[[Founder Intent Routing Procedure]]"]
+related_documents: ["[[13_OPERATIONS]]", "[[Workflow Registry]]", "[[Founder Intent Routing Procedure]]", "[[Minimum Viable Council Procedure]]"]
 related_research_programs: []
 ---
 
@@ -35,7 +35,7 @@ Procedures describe repeatable operations. They do not decide outcomes.
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.0.0 |
+| **Version** | 1.2.0 |
 | **Status** | active |
 
 ## Author
@@ -65,6 +65,7 @@ New procedures should be created only when they reduce repeated coordination wor
 | Procedure | Status | Purpose |
 |-----------|--------|---------|
 | [[Founder Intent Routing Procedure]] | under review | Convert any Founder request into one owned, context-complete, resumable execution route |
+| [[Minimum Viable Council Procedure]] | draft | Run advisory and delegated Council work under Founder interim authority without implying quorum |
 | Review packet preparation | planned | Prepare daily, weekly, monthly, quarterly, and annual packets |
 | Proposal routing | planned | Route future proposals into research, architecture, engineering, decision, or archive |
 | Engineering validation run | planned | Run and review validators |
@@ -73,6 +74,6 @@ New procedures should be created only when they reduce repeated coordination wor
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Adds the Minimum Viable Council Procedure to the canonical operations index. |
 | 1.1.0 | 2026-09-02 | Founder / LUMIAION / CODEX | Added FIR-001 unified Founder-intent routing procedure |
 | 1.0.0 | 2026-07-02 | [[CODEX]] | Initial procedures index |
-
