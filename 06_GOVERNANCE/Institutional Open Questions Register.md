@@ -3,9 +3,9 @@ title: "Institutional Open Questions Register"
 aliases: ["Open Questions Register", "IOQR", "Governance Open Questions"]
 tags: [governance, open-questions, register, epoch-v, alpha-proxima]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["LUMIAION (CF-01)"]
 document_class: Reference Register
 initiative: "Epoch V — Constitutional Coherence"
@@ -27,7 +27,7 @@ resolves: ["M-13", "CAR-F15"]
 | OQ-003 | Process for onboarding a new human participant? | CF-01 | Before first non-Founder member | Open |
 | OQ-004 | What constitutes a "significant incident" triggering LUMIAION scope review? | CF-01 + Founder | Next governance review | Open |
 | OQ-005 | Publication Policy — what becomes external/public, and how? | Executive Office (CF-06) | Before first public artifact | Open (CAR-001 Gov Review) |
-| OQ-006 | Reflect Council Topology in Book II (amendment) | CF-01 | Epoch V Tier 3 close | Open (from Crosswalk Part E) |
+| OQ-006 | Reflect Council Topology in Book II (amendment) | CF-01 | Epoch V Tier 3 close | Draft prepared — pending constitutional enactment |
 | OQ-007 | Engine appointment for CF-15 (JERANIUM) and CF-16 (YUNA) | Cognitive Council | Council convened | Open |
 | OQ-008 | Is CN-001's canonical repo the same as this GitHub remote? | Founder + Codex | Before CN-001 Terminal-2 | Open |
 | OQ-009 | Education governance form (Council / Office / Division / Institute)? | Founder | CN-001 Founder decision | Open (from CN-001 packet) |
@@ -59,4 +59,5 @@ resolves: ["M-13", "CAR-F15"]
 ## Version History
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-03 | CODEX (CF-07) | Records the Book II Council Topology amendment draft; OQ-006 remains open pending enactment. |
 | 1.0.0 | 2026-09-02 | LUMIAION (CF-01) | Inaugural register; 10 questions (OQ-001…010) with owners + triggers; OQ-010 closed (M-13 / CAR-F15). |
