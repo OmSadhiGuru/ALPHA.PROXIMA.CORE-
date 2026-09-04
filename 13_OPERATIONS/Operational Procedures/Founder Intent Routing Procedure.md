@@ -3,16 +3,16 @@ title: "Founder Intent Routing Procedure"
 aliases: ["Unified Founder Routing", "One-Inbox Routing", "FIR-001"]
 tags: [operations, procedures, orchestration, routing, founder, lumiaion, alpha-proxima]
 created: 2026-08-28
-updated: 2026-09-02
+updated: 2026-09-03
 status: under_review
-version: "0.1.0"
+version: "0.2.0"
 authors: ["Founder", "LUMIAION", "CODEX"]
 artifact_type: operational-procedure
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Orchestration"
 reasoning_engine: "LUMIAION"
 dependencies: ["[[The Orchestration Framework]]", "[[Decision Routing Protocol]]", "[[Knowledge Routing Protocol]]", "[[LUMIAION Charter]]"]
-related_documents: ["[[Workflow Registry]]", "[[Operational Procedures Index]]", "[[Founder Reboot Control Center]]"]
+related_documents: ["[[Workflow Registry]]", "[[Operational Procedures Index]]", "[[Founder Reboot Control Center]]", "[[Council Node Architecture]]", "[[Agent and Subagent Registry]]", "[[Minimum Viable Council Procedure]]"]
 related_research_programs: []
 ---
 
@@ -41,10 +41,12 @@ No receiving context may reject a valid Founder intent merely because another de
 | Founder | States intent, supplies unavailable constraints, and approves gated outcomes |
 | LUMIAION | Owns classification, priority, routing, conflict resolution, synthesis, and escalation |
 | JERANIUM | Retrieves relevant institutional memory, structures context, checks duplication, and supports writeback |
-| Domain department | Owns specialist execution within its ratified charter |
+| Domain Interface or specialist Office | Owns specialist execution within its ratified scope |
 | CODEX or engineering delegate | Implements technical artifacts when the route requires engineering |
 
 LUMIAION is the routing authority. JERANIUM strengthens the route with memory and knowledge infrastructure; it does not replace LUMIAION's orchestration authority.
+
+Agent roles and runtime subagents are selected from the [[Agent and Subagent Registry]]. They serve existing Cognitive Functions and Offices; they do not create a new authority or department layer.
 
 ## Intake Contract
 
@@ -85,7 +87,7 @@ Unknown information is recorded as `unknown`; it is not invented. Clarification 
 
 - Every request has exactly one primary owner.
 - Cross-domain requests may have supporting roles, but never competing owners.
-- A department receiving an out-of-domain request must hand it off; it must not silently absorb the work.
+- A Domain Interface, Office, agent, or subagent receiving an out-of-domain request must hand it off; it must not silently absorb the work.
 - The Founder is not asked to restate information already present in the packet or canonical memory.
 - The system returns one result, one status, and one next action.
 - Public publication, financial execution, medical decisions, constitutional changes, and destructive actions retain their existing approval requirements.
@@ -156,4 +158,5 @@ If a tool, engine, project, or session cannot reach the assigned owner:
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
+| 0.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Connects FIR-001 to the Council Node Architecture and Agent/Subagent Registry; clarifies that subagents are implementation nodes without independent authority. |
 | 0.1.0 | 2026-08-28 | Founder / LUMIAION / CODEX | Initial unified Founder-intent routing procedure submitted for review |
