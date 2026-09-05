@@ -416,6 +416,15 @@ class TestShippedApp(unittest.TestCase):
         self.assertIn(app.VIEW_PLACEHOLDER,
                       app.DEFAULT_TEMPLATE.read_text(encoding="utf-8"))
 
+    def test_shipped_app_has_a_javascript_free_iphone_fallback(self):
+        state = fos.load_state(fos.DEFAULT_STATE)
+        rendered = app.render_app(app.build_app_view(state, app.VAULT_ROOT),
+                                  app.DEFAULT_TEMPLATE)
+        fallback = rendered.split('<script id="view-data"', 1)[0]
+        self.assertIn('class="static-snapshot"', fallback)
+        self.assertIn("What matters today?", fallback)
+        self.assertIn("What needs me?", fallback)
+
     def test_the_real_vault_builds_and_renders(self):
         if not (app.DEFAULT_TEMPLATE.exists() and fos.DEFAULT_STATE.exists()):
             self.skipTest("no shipped template or state yet")

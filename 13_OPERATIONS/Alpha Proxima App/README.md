@@ -3,9 +3,9 @@ title: "Alpha Proxima App README"
 aliases: ["Alpha Proxima App README", "App Handbook", "App Continuation"]
 tags: [operations, app, interface, readme, handbook, continuation, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-05
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["CLAUDE"]
 artifact_type: readme
 institutional_owner: "Alpha Proxima Foundation"
@@ -40,6 +40,8 @@ start "13_OPERATIONS\Alpha Proxima App\app\app.html"     # Windows
 ```
 
 Self-contained — both halves are inlined at render time. No server, no network, no build step. On mobile, open it from the synced vault folder.
+
+The generated file uses progressive enhancement. iPhone Files/Quick Look, which may not run local JavaScript, receives a pre-rendered Today snapshot with Founder attention, active work, and platform health. A JavaScript-capable browser replaces that snapshot with the complete interactive Operate/Know interface. This keeps one canonical artifact instead of maintaining a separate mobile app that can drift.
 
 For a live view that re-reads state and re-indexes the vault on every request:
 
@@ -80,6 +82,8 @@ Switch with the pill at the top, arrow keys, or the URL: `app.html#operate`, `ap
 13_OPERATIONS/Alpha Proxima App/
 ├── README.md                             this file
 ├── Alpha Proxima App Architecture v1.md  the contracts and the reasoning
+├── design/
+│   └── mobile-platform-v1-concept.png   approved implementation reference
 └── app/
     ├── app.template.html                 the interface (edit this to change the design)
     ├── app.html                          generated — do not edit
@@ -91,7 +95,7 @@ Implementation lives with the rest of the toolkit:
 ```
 08_SYSTEMS/Engineering Toolkit/
 ├── alpha_app.py        index, read model, renderer, loopback server
-└── test_alpha_app.py   40 tests
+└── test_alpha_app.py   42 tests
 ```
 
 ### Commands
@@ -141,7 +145,7 @@ The next session can resume from here without re-deriving anything.
 
 **Verified state as of 2026-09-03**
 
-- App V1 and the FIR-001 route are built, tested, and rendering. 40 App tests and 46 Founder OS tests pass.
+- App V1 and the FIR-001 route are built, tested, and rendering. 42 App tests and 46 Founder OS tests pass.
 - Verified in headless Chromium at 330 px, 485 px, 768 px, and 1280 px: no horizontal overflow, no JavaScript errors, all 19 interactive assertions passing.
 - The app is registered as `ap.py app`. Four pre-existing files were modified, all of them registrations or cross-references: `ap.py` (one registry line), [[Alpha Proxima Engineering Toolkit]] (Tool 013 and two CLI rows), and the Founder OS [[Founder OS README|README]] and [[Founder OS Architecture v1|architecture]] (links back to this app).
 - The Founder-ratified hierarchy is enacted: `11_PROJECTS`, `12_PEOPLE`, and `13_OPERATIONS`. Generated and personal Obsidian state is excluded from version control.
@@ -186,3 +190,4 @@ A visual graph (a 363-node hairball is decorative, not navigable — the per-doc
 | 1.0.0 | 2026-09-01 | CLAUDE | First App handbook: the two halves, commands, enforced rules, and the coherence baseline |
 | 1.1.0 | 2026-09-02 | Founder / CODEX | PR #7 reconciliation: enact `11_PROJECTS`, `12_PEOPLE`, `13_OPERATIONS`; refresh generated index and the expanded-corpus baseline |
 | 1.2.0 | 2026-09-02 | Founder / CODEX | Enact the ratified `14_FUTURE` namespace and remove the final top-level number collision |
+| 1.3.0 | 2026-09-05 | Founder / CODEX | Add a pre-rendered iPhone-safe interface while preserving the full interactive Operate/Know platform |

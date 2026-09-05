@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import html
 import json
 import re
 import sys
@@ -435,10 +436,40 @@ def render_app(view: dict, template_path: Path) -> str:
     template = template_path.read_text(encoding="utf-8")
     if VIEW_PLACEHOLDER not in template:
         raise AppError(f"App template is missing the {VIEW_PLACEHOLDER} placeholder.")
+    fallback_placeholder = "<!--__ALPHA_APP_STATIC_FALLBACK__*/"
     payload = json.dumps(view, ensure_ascii=False, separators=(",", ":"))
     # Prevent an embedded </script> inside data from terminating the tag early.
     payload = payload.replace("</", "<\\/")
-    return template.replace(VIEW_PLACEHOLDER, payload)
+    operate = view["operate"]
+    mission = operate.get("mission") or {}
+    def escape(value: object) -> str:
+        return html.escape(str(value or "—"))
+    def rows(records: list[dict], detail: str) -> str:
+        if not records:
+            return '<p class="static-empty">Nothing currently requires attention.</p>'
+        return "".join(
+            '<article class="static-row"><small>' + escape(item.get("id")) + ' · ' +
+            escape(item.get("state") or item.get("status") or item.get("owner")) +
+            '</small><h3>' + escape(item.get("title") or item.get("founder_intent") or item.get("area")) +
+            '</h3><p>' + escape(item.get(detail) or item.get("impact")) + '</p></article>'
+            for item in records
+        )
+    founder_items = list(operate.get("decisions", [])) + [
+        item for item in operate.get("blockers", []) if item.get("needs_founder")
+    ]
+    fallback = (
+        '<div class="static-snapshot"><header><strong>ALPHA PROXIMA</strong>'
+        '<span>' + escape(view.get("today")) + '</span></header>'
+        '<nav><span aria-current="page">Today</span><span>Council</span><span>Knowledge</span></nav>'
+        '<main><section class="static-mission"><h1>What matters today?</h1><p>' +
+        escape(mission.get("mission")) + '</p></section>'
+        '<section><h2>What needs me?</h2>' + rows(founder_items, "recommendation") + '</section>'
+        '<section><h2>What is happening?</h2>' + rows(operate.get("tasks", []), "why") + '</section>'
+        '<section><h2>Platform health</h2>' + rows(operate.get("system_health", []), "detail") + '</section>'
+        '</main><footer>Static iPhone view · open in a browser for search and navigation.</footer></div>'
+    )
+    rendered = template.replace(VIEW_PLACEHOLDER, payload)
+    return rendered.replace(fallback_placeholder, fallback) if fallback_placeholder in rendered else rendered
 
 
 def write_outputs(view: dict, template_path: Path, app_path: Path,

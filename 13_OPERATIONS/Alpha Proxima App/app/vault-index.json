@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:19:48+00:00",
+  "generated_at": "2026-09-05T12:51:56+00:00",
   "note_count": 381,
   "domains": [
     {
@@ -6782,7 +6782,7 @@
       ],
       "updated": "2026-09-04",
       "has_frontmatter": true,
-      "words": 399,
+      "words": 444,
       "links": [
         "08-systems-engineering-toolkit-tool-008-engineering-cli-md",
         "13-operations-operational-procedures-minimum-viable-council-procedure-md",
@@ -9060,7 +9060,7 @@
       "domain": "13_OPERATIONS",
       "type": "readme",
       "status": "active",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "Claude",
@@ -9076,9 +9076,9 @@
         "continuation",
         "alpha-proxima"
       ],
-      "updated": "2026-09-01",
+      "updated": "2026-09-05",
       "has_frontmatter": true,
-      "words": 1251,
+      "words": 1336,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "13-operations-founder-os-founder-console-md",
@@ -14364,7 +14364,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "4d5e57dd00f112c769c859111fa6dd73879161155d40d89d476e7b6318976c8a",
+      "fingerprint": "c8504ac160c24149902ccbf1e707d5e06d77e1b2672ffdc5f2ff6702e19a2909",
       "note_count": 381
     },
     "health": {
@@ -14411,6 +14411,6 @@
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "62446e1c8540498cb61279f2344dcf90cf5116be54fdfa73382ae0e251c03a21"
+    "contract_fingerprint": "0e061361466890424b866f225462c7a1c40440664cf5a6b13a7e333a8891f56e"
   }
 }
