@@ -3,9 +3,9 @@ title: "Tool 001 - Vault Validator"
 aliases: ["Vault Validator", "Engineering Toolkit Tool 001"]
 tags: [systems, engineering, toolkit, validation, obsidian, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-09-05
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
@@ -24,6 +24,17 @@ The Vault Validator scans the Obsidian Vault for engineering quality issues and 
 
 It checks for missing YAML, invalid frontmatter, missing required metadata, broken wiki links, missing backlinks, duplicate filenames, likely incorrect folder placement, and top-level folder classification.
 
+## Validation Debt Baseline
+
+The report always shows the full inventory. A reviewed baseline lets CI fail only on defects introduced after the baseline:
+
+```bash
+python3 "08_SYSTEMS/Engineering Toolkit/vault_validator.py" --write-baseline "08_SYSTEMS/Engineering Toolkit/validation-baseline.json" --force
+python3 "08_SYSTEMS/Engineering Toolkit/vault_validator.py" --baseline "08_SYSTEMS/Engineering Toolkit/validation-baseline.json" --fail-on error --force
+```
+
+See [[Validation Debt Policy]]. The baseline does not hide inherited debt; it separates it from regressions.
+
 ---
 
 ## Dependencies
@@ -41,9 +52,9 @@ It checks for missing YAML, invalid frontmatter, missing required metadata, brok
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.0.0 |
+| **Version** | 1.1.0 |
 | **Status** | active |
-| **Last Updated** | 2026-07-02 |
+| **Last Updated** | 2026-09-05 |
 
 ---
 
