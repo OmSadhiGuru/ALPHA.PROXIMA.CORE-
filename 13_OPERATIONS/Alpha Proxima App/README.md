@@ -3,9 +3,9 @@ title: "Alpha Proxima App README"
 aliases: ["Alpha Proxima App README", "App Handbook", "App Continuation"]
 tags: [operations, app, interface, readme, handbook, continuation, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-09
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["CLAUDE"]
 artifact_type: readme
 institutional_owner: "Alpha Proxima Foundation"
@@ -46,12 +46,17 @@ For a live view that re-reads state and re-indexes the vault on every request:
 ```bash
 python3 "08_SYSTEMS/Engineering Toolkit/ap.py" app serve
 # http://127.0.0.1:8788/            the app
-# http://127.0.0.1:8788/api/app     composed read model  (the spatial/VR contract)
+# http://127.0.0.1:8788/api/v1/app  composed read model  (the spatial/VR contract)
+# http://127.0.0.1:8788/api/app     compatibility alias for existing clients
 # http://127.0.0.1:8788/api/vault   vault index only
 # http://127.0.0.1:8788/api/view    Founder OS read model only
+# http://127.0.0.1:8788/api/v1/system-backbone
+#                                      systems + departments + attention + Truth Kernel
 ```
 
 Loopback only, no authentication. Do not expose it — `FD-002` is ratified.
+
+`/api/view`, `/api/vault`, and `/api/truth-kernel` are local diagnostic compatibility routes, not stable client contracts. Raw `/api/state` access is retired and returns `410 Gone`; consume `/api/v1/app` so storage remains private behind the read model.
 
 ### The two halves
 
@@ -186,3 +191,4 @@ A visual graph (a 363-node hairball is decorative, not navigable — the per-doc
 | 1.0.0 | 2026-09-01 | CLAUDE | First App handbook: the two halves, commands, enforced rules, and the coherence baseline |
 | 1.1.0 | 2026-09-02 | Founder / CODEX | PR #7 reconciliation: enact `11_PROJECTS`, `12_PEOPLE`, `13_OPERATIONS`; refresh generated index and the expanded-corpus baseline |
 | 1.2.0 | 2026-09-02 | Founder / CODEX | Enact the ratified `14_FUTURE` namespace and remove the final top-level number collision |
+| 1.3.0 | 2026-09-09 | Founder / CODEX | Add the common read-only System Backbone contract for every Alpha Proxima interface and future adapter |

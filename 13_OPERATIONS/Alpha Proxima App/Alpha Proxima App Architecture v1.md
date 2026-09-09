@@ -3,9 +3,9 @@ title: "Alpha Proxima App Architecture v1"
 aliases: ["Alpha Proxima App", "App Architecture", "Alpha Proxima App Architecture", "The App"]
 tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lumiaion, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-03
+updated: 2026-09-09
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -154,6 +154,31 @@ The CLI receives the ceiling explicitly. CI stores its live value in the committ
 
 No endpoint writes to the Vault. Every response carries source or contract fingerprints, explicit unresolved relationships, and validation status so future spatial interfaces can distinguish knowledge from inference.
 
+### 7.2 System Backbone contract
+
+`GET /api/v1/system-backbone` is the common read contract for every Alpha Proxima presentation layer. It composes, without copying or mutating:
+
+- registered integrations and their honest `connected`, `not_connected`, `planned`, or `blocked` state;
+- the active LUMIAION, JERANIUM, ATHENA, SOHMA, and VORTEX department topology;
+- normalized Founder-attention signals from priorities, decisions, blockers, and degraded system health;
+- Truth Kernel counts and fingerprinted knowledge health.
+
+This endpoint is the systematic base for the spatial LUMIAION interface. A named system is not presented as connected until its adapter exists and the canonical Founder state records `connected`. Future adapters publish into the existing single-writer state contract; they do not write directly to the interface or create parallel stores.
+
+### 7.3 API stability and compatibility
+
+| Endpoint | Status | Intended consumer |
+|---|---|---|
+| `/api/v1/app` | Stable, versioned | Complete LUMIAION, spatial, voice, and accessibility read model |
+| `/api/app` | Compatibility alias | Existing clients; new clients use `/api/v1/app` |
+| `/api/v1/system-backbone` | Stable, versioned | System topology, connectivity, attention, and knowledge health |
+| `/api/v1/truth-kernel`, `/nodes`, `/relationships`, `/validation`, `/health` | Stable, versioned | Deterministic graph consumers |
+| `/api/view`, `/api/vault` | Diagnostic compatibility endpoints | Local inspection only; not a client contract |
+| `/api/truth-kernel` | Legacy compatibility alias | Local inspection only; new clients use `/api/v1/truth-kernel` |
+| `/api/state` | Retired (`410 Gone`) | Raw canonical state must never be a presentation dependency |
+
+The raw Founder state endpoint was not an intentional public contract. It bypassed `founder_os.build_view()` and has therefore been retired. This preserves the single-writer store while preventing future interfaces from coupling themselves to its storage schema.
+
 ### 8. Presentation
 
 One self-contained HTML file with the read model inlined at render time. No build step, no framework, no bundler, no external font, no network call, no analytics. It opens by double-click on Mac, PC, and phone from the synced vault, and renders identically from the loopback server.
@@ -219,6 +244,7 @@ $AP show      # both halves, in the terminal
 $AP render    # regenerate app.html and vault-index.json
 $AP check     # coherence defects against a ceiling
 $AP serve     # http://127.0.0.1:8788/
+# GET /api/v1/system-backbone  # normalized systems, departments, attention, knowledge health
 open "13_OPERATIONS/Alpha Proxima App/app/app.html"
 ```
 
@@ -264,6 +290,7 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-09-09 | Founder / CODEX | Add the System Backbone contract, version the composed app endpoint, classify compatibility routes, and retire raw `/api/state` exposure |
 | 1.1.0 | 2026-09-03 | CODEX | Add the deterministic Truth Kernel read contract and interface projection |
 | 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
 | 1.0.0 | 2026-09-01 | CLAUDE | First Alpha Proxima App architecture: the two halves, the vault index contract, coherence as a ratchet, and the presentation boundary |
