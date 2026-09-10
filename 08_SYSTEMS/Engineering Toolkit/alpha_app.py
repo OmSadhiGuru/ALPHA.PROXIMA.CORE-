@@ -30,8 +30,10 @@ Design constraints (inherited from `Founder OS Architecture v1`):
 from __future__ import annotations
 
 import argparse
+import hmac
 import importlib.util
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -572,15 +574,38 @@ def summarize(view: dict) -> str:
 # localhost server -- the contract future presentation layers consume
 # --------------------------------------------------------------------------
 
-def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -> int:
-    """Serve the app and its read model on loopback only.
+LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
+
+
+def check_reachability_gate(host: str, port: int, token: str | None) -> None:
+    """FD-002 as code: a non-loopback bind is refused unless a token is set.
+
+    Authentication ships before reachability, never after -- this is called
+    before the socket opens, not after the first request arrives.
+    """
+    if host not in LOOPBACK_HOSTS and not token:
+        raise AppError(
+            f"Refusing to bind {host}:{port} without a token (FD-002: authentication "
+            "ships before reachability). Pass --token or set ALPHA_APP_TOKEN."
+        )
+
+
+def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
+          host: str = "127.0.0.1", token: str | None = None) -> int:
+    """Serve the app and its read model.
 
     Binding to 127.0.0.1 keeps the Foundation's state and index private by
     default: no authentication system is required because the socket is not
-    reachable off-host. Exposing this beyond loopback is a Founder decision
-    (`FD-002`, ratified), and would have to ship authentication first.
+    reachable off-host. Exposing this beyond loopback is the `FD-002` decision
+    this module now enforces rather than merely documents: a non-loopback
+    `host` is refused unless a `token` is set (explicitly or via
+    `ALPHA_APP_TOKEN`), so authentication ships *before* reachability, never
+    after. The token gates every response, the rendered page included.
     """
+    check_reachability_gate(host, port, token)
+
     from http.server import BaseHTTPRequestHandler, HTTPServer
+    from urllib.parse import urlsplit, parse_qs
 
     class Handler(BaseHTTPRequestHandler):
         def _send(self, body: bytes, content_type: str, status: int = 200) -> None:
@@ -595,7 +620,21 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
             self._send(json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8"),
                        "application/json; charset=utf-8", status)
 
+        def _authorized(self, parsed) -> bool:
+            if not token:
+                return True
+            header = self.headers.get("Authorization", "")
+            presented = header[7:] if header.startswith("Bearer ") else ""
+            if not presented:
+                presented = parse_qs(parsed.query).get("token", [""])[0]
+            return hmac.compare_digest(presented, token)
+
         def do_GET(self) -> None:  # noqa: N802 - stdlib naming
+            parsed = urlsplit(self.path)
+            self.path = parsed.path  # downstream routing matches on the path alone
+            if not self._authorized(parsed):
+                self._json({"error": "unauthorized"}, 401)
+                return
             try:
                 state = founder_os.load_state(state_path)
                 if self.path in ("/", "/index.html", "/app.html"):
@@ -638,10 +677,11 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
         def log_message(self, *args) -> None:  # keep the terminal calm
             pass
 
-    server = HTTPServer(("127.0.0.1", port), Handler)
-    print(f"Alpha Proxima App: http://127.0.0.1:{port}/")
-    print(f"Read model:        http://127.0.0.1:{port}/api/app")
-    print("Loopback only. Ctrl-C to stop.")
+    server = HTTPServer((host, port), Handler)
+    print(f"Alpha Proxima App: http://{host}:{port}/{'?token=' + token if token else ''}")
+    print(f"Read model:        http://{host}:{port}/api/app")
+    print("Loopback only. Ctrl-C to stop." if host in LOOPBACK_HOSTS
+          else "Token-gated — every request must present it. Ctrl-C to stop.")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
@@ -677,6 +717,14 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("view", help="Print the composed read model as JSON.")
     serve_cmd = sub.add_parser("serve", help="Serve the app on 127.0.0.1.")
     serve_cmd.add_argument("--port", type=int, default=8788)
+    serve_cmd.add_argument(
+        "--host", default="127.0.0.1",
+        help="Bind address. Anything but 127.0.0.1/localhost requires --token "
+             "or ALPHA_APP_TOKEN (FD-002: authentication before reachability).")
+    serve_cmd.add_argument(
+        "--token", default=None,
+        help="Shared token every request must present (header 'Authorization: "
+             "Bearer <token>' or '?token=' query param). Falls back to $ALPHA_APP_TOKEN.")
     return parser
 
 
@@ -688,7 +736,8 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.command == "serve":
-            return serve(state_path, root, template_path, args.port)
+            token = args.token or os.environ.get("ALPHA_APP_TOKEN")
+            return serve(state_path, root, template_path, args.port, host=args.host, token=token)
 
         if args.command == "index":
             print(json.dumps(build_vault_index(root), indent=2, ensure_ascii=False))

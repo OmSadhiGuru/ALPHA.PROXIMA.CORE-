@@ -472,5 +472,35 @@ class TestShippedApp(unittest.TestCase):
         self.assertIn('"replacement": "/api/v1/app"', source)
 
 
+class TestReachabilityGate(unittest.TestCase):
+    """FD-002 as code: a non-loopback bind is refused unless a token is set."""
+
+    def test_refuses_non_loopback_without_token(self):
+        with self.assertRaises(app.AppError):
+            app.check_reachability_gate("0.0.0.0", 8788, None)
+
+    def test_refuses_non_loopback_with_an_empty_token(self):
+        with self.assertRaises(app.AppError):
+            app.check_reachability_gate("0.0.0.0", 8788, "")
+
+    def test_accepts_non_loopback_with_a_token(self):
+        app.check_reachability_gate("0.0.0.0", 8788, "secret")  # must not raise
+
+    def test_loopback_needs_no_token(self):
+        for host in ("127.0.0.1", "localhost", "::1"):
+            app.check_reachability_gate(host, 8788, None)  # must not raise
+
+    def test_serve_checks_the_gate_before_touching_state_or_the_vault(self):
+        """The refusal must happen before any I/O, not after a request arrives."""
+        missing = Path("/nonexistent/does-not-exist")
+        with self.assertRaises(app.AppError):
+            app.serve(missing, missing, missing, host="0.0.0.0", token=None)
+
+    def test_the_token_check_uses_constant_time_comparison(self):
+        """A naive `==` on a shared secret invites a timing attack."""
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        self.assertIn("hmac.compare_digest", source)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

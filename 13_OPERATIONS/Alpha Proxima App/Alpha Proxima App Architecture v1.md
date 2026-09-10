@@ -3,9 +3,9 @@ title: "Alpha Proxima App Architecture v1"
 aliases: ["Alpha Proxima App", "App Architecture", "Alpha Proxima App Architecture", "The App"]
 tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lumiaion, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-09
+updated: 2026-09-10
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -193,12 +193,20 @@ Deliberately absent: burndown charts, velocity, activity feeds, engagement metri
 |---|---|
 | Credentials in the repository | None. None added. |
 | Network calls from the app | None. Asserted by `test_the_app_makes_no_network_call`. |
-| Server binding | `127.0.0.1` only, port 8788. Not reachable off-host. |
-| Authentication | **Not implemented, and not required at loopback scope.** |
+| Server binding | `127.0.0.1` by default. A non-loopback `--host` is refused unless a token is set. |
+| Authentication | **Not required at loopback scope. Enforced, not optional, off it.** |
 | Third-party dependencies | None. Python standard library and vanilla JavaScript. |
 | Personal data | Only the Founder's name and role, already present in the vault. |
 
 `FD-002` is ratified: the Founder's surfaces stay local-only, and any hosted deployment must ship authentication first. This app was built to that constraint rather than around it, and no amendment was required.
+
+### 9.1 Reachability gate
+
+The Founder asked to reach the app from a phone. `FD-002` does not forbid that — it forbids reaching it *without authentication shipping first*. `serve()` now enforces the ordering itself: `check_reachability_gate(host, port, token)` runs before the socket opens, and raises rather than binds when `host` is not `127.0.0.1` / `localhost` / `::1` and no token is set. There is no code path that reaches a non-loopback bind with authentication merely documented and not present.
+
+A set token gates every response, the rendered page included — via `Authorization: Bearer <token>` or a `?token=` query parameter (the latter so a phone can save the URL as a bookmark), compared with `hmac.compare_digest` rather than `==`, closing the timing side-channel a naive comparison would open. `ALPHA_APP_TOKEN` is the recommended way to supply it, so the secret does not sit in shell history or `ps`.
+
+This is a capability, not a standing exposure: the default remains `127.0.0.1` with no token required, unchanged. Turning it on is still the Founder's act each time (`--host <address> --token <secret>`), done today over Tailscale — a private, authenticated mesh between the Founder's own devices, never a public listener — rather than a port opened on the home network or the internet. Covered by `TestReachabilityGate` in `test_alpha_app.py` (6 tests): the refusal, the loopback exemption, and that the comparison is constant-time.
 
 The one injection surface — a note title or tag reaching the inlined JSON — is closed by escaping `</` before inlining, asserted by `test_render_escapes_closing_script_tags`. All DOM text is set through `textContent`; the app never assigns `innerHTML`.
 
@@ -246,6 +254,10 @@ $AP check     # coherence defects against a ceiling
 $AP serve     # http://127.0.0.1:8788/
 # GET /api/v1/system-backbone  # normalized systems, departments, attention, knowledge health
 open "13_OPERATIONS/Alpha Proxima App/app/app.html"
+
+# Off-host (e.g. a phone, over Tailscale) -- refused without a token (FD-002):
+export ALPHA_APP_TOKEN="$(python3 -c 'import secrets; print(secrets.token_urlsafe(24))')"
+$AP serve --host "$(tailscale ip -4)" --token "$ALPHA_APP_TOKEN"
 ```
 
 ---
@@ -290,6 +302,7 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.3.0 | 2026-09-10 | Founder / CLAUDE | Add the FD-002 reachability gate: a non-loopback bind is refused without a token; every response is token-gated with a constant-time check |
 | 1.2.0 | 2026-09-09 | Founder / CODEX | Add the System Backbone contract, version the composed app endpoint, classify compatibility routes, and retire raw `/api/state` exposure |
 | 1.1.0 | 2026-09-03 | CODEX | Add the deterministic Truth Kernel read contract and interface projection |
 | 1.0.1 | 2026-09-03 | CODEX | Record the dedicated committed source of the CI coherence ceiling |
