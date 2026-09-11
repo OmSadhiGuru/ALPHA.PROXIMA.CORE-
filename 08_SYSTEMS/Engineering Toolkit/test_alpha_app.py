@@ -323,6 +323,30 @@ class TestAppView(unittest.TestCase):
         self.assertIn("findings", kernel["health"]["counts"])
         self.assertEqual(len(kernel["contract_fingerprint"]), 64)
 
+    def test_view_exposes_one_honest_system_backbone(self):
+        state = fos.empty_state()
+        state["integrations"].extend([
+            {"id": "INT-001", "name": "Obsidian Vault", "kind": "knowledge", "status": "connected"},
+            {"id": "INT-002", "name": "ATHENA", "kind": "signal", "status": "planned",
+             "planned_capability": "Health readiness"},
+        ])
+        state["agents"].append({
+            "id": "AGT-001", "name": "ATHENA", "role": "Health department",
+            "office": "Department", "status": "idle", "authority": "Domain analysis",
+        })
+        state["system_health"].append({
+            "id": "SYS-001", "area": "Memory", "status": "degraded", "detail": "Manual retrieval",
+        })
+        with tempfile.TemporaryDirectory() as tmp:
+            view = app.build_app_view(state, vault(tmp))
+        backbone = view["system_backbone"]
+        self.assertEqual(backbone["counts"]["systems"], 2)
+        self.assertEqual(backbone["counts"]["connected_systems"], 1)
+        self.assertFalse(next(x for x in backbone["systems"] if x["name"] == "ATHENA")["connected"])
+        self.assertEqual(backbone["departments"][0]["name"], "ATHENA")
+        self.assertEqual(backbone["attention"][0]["id"], "SYS-001")
+        self.assertEqual(backbone["counts"]["knowledge_nodes"], view["know"]["note_count"])
+
 
 class TestRenderer(unittest.TestCase):
     TEMPLATE = "<html><body><script>var V=" + app.VIEW_PLACEHOLDER + ";</script></body></html>"
@@ -449,6 +473,42 @@ class TestShippedApp(unittest.TestCase):
         for forbidden in ("save_state", "set_mission", "add_task", "add_priority",
                           "resolve_decision"):
             self.assertNotIn(f"founder_os.{forbidden}", source)
+
+    def test_the_app_never_exposes_raw_founder_state(self):
+        """Presentation clients receive a read model, never the canonical store."""
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("self._json(state)", source)
+        self.assertIn('"replacement": "/api/v1/app"', source)
+
+
+class TestReachabilityGate(unittest.TestCase):
+    """FD-002 as code: a non-loopback bind is refused unless a token is set."""
+
+    def test_refuses_non_loopback_without_token(self):
+        with self.assertRaises(app.AppError):
+            app.check_reachability_gate("0.0.0.0", 8788, None)
+
+    def test_refuses_non_loopback_with_an_empty_token(self):
+        with self.assertRaises(app.AppError):
+            app.check_reachability_gate("0.0.0.0", 8788, "")
+
+    def test_accepts_non_loopback_with_a_token(self):
+        app.check_reachability_gate("0.0.0.0", 8788, "secret")  # must not raise
+
+    def test_loopback_needs_no_token(self):
+        for host in ("127.0.0.1", "localhost", "::1"):
+            app.check_reachability_gate(host, 8788, None)  # must not raise
+
+    def test_serve_checks_the_gate_before_touching_state_or_the_vault(self):
+        """The refusal must happen before any I/O, not after a request arrives."""
+        missing = Path("/nonexistent/does-not-exist")
+        with self.assertRaises(app.AppError):
+            app.serve(missing, missing, missing, host="0.0.0.0", token=None)
+
+    def test_the_token_check_uses_constant_time_comparison(self):
+        """A naive `==` on a shared secret invites a timing attack."""
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        self.assertIn("hmac.compare_digest", source)
 
 
 if __name__ == "__main__":

@@ -24,6 +24,7 @@ COMMANDS = {
     "founder": ("founder_os.py", "Founder OS state engine and Founder Console V1"),
     "council": ("council_kernel.py", "Minimum Viable Council session kernel"),
     "app": ("alpha_app.py", "Alpha Proxima App — the Foundation's operate and know halves"),
+    "spatial": ("alpha_spatial.py", "System Backbone contract as Markdown or JSON — first consumer of /api/v1/system-backbone"),
     "node-registry": ("../Institutional Knowledge Graph/Tools/node_registry.py", "Generate the Institutional Knowledge Graph node registry"),
     "relationship-extract": ("../Institutional Knowledge Graph/Tools/relationship_extractor.py", "Generate the Institutional Knowledge Graph relationship registry"),
     "truth-kernel": ("../Institutional Knowledge Graph/Tools/truth_kernel.py", "Build the read-only Truth Kernel contract and validation report"),
