@@ -25,6 +25,7 @@ def seeded() -> dict:
     state["agents"].append({
         "id": "AGT-001", "name": "LUMIAION", "role": "Orchestration",
         "status": "active", "authority": "Class III/IV within scope",
+        "office": "LUMIAION",
     })
     return state
 
@@ -386,7 +387,7 @@ class TestCli(unittest.TestCase):
             state = fos.load_state(state_path)
             state["agents"].append({"id": "AGT-001", "name": "LUMIAION",
                                     "role": "Orchestration", "status": "idle",
-                                    "authority": "Class III/IV"})
+                                    "authority": "Class III/IV", "office": "LUMIAION"})
             fos.save_state(state, state_path)
             self.assertEqual(self._run(tmp, "agent-status", "AGT-001", "working"), 0)
             self.assertEqual(json.loads(state_path.read_text())["agents"][0]["status"],
@@ -419,6 +420,7 @@ class TestCli(unittest.TestCase):
             state["agents"].append({
                 "id": "AGT-001", "name": "JERANIUM", "role": "Knowledge routing",
                 "status": "idle", "authority": "Report-only validation",
+                "office": "Knowledge",
             })
             fos.save_state(state, state_path)
             note = root / "Healthy.md"
