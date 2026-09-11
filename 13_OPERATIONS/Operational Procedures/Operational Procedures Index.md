@@ -3,16 +3,16 @@ title: "Operational Procedures Index"
 aliases: ["Operations Procedures"]
 tags: [operations, procedures, alpha-proxima]
 created: 2026-07-02
-updated: 2026-09-03
+updated: 2026-09-04
 status: active
-version: "1.3.0"
+version: "1.4.0"
 authors: ["CODEX"]
 artifact_type: operations-index
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[13_OPERATIONS]]", "[[Workflow Registry]]"]
-related_documents: ["[[13_OPERATIONS]]", "[[Workflow Registry]]", "[[Founder Intent Routing Procedure]]", "[[Minimum Viable Council Procedure]]", "[[MVC-001 Council Activation Record]]"]
+related_documents: ["[[13_OPERATIONS]]", "[[Workflow Registry]]", "[[Founder Intent Routing Procedure]]", "[[Minimum Viable Council Procedure]]", "[[CODEX Engineering Orchestra Procedure]]", "[[MVC-001 Council Activation Record]]"]
 related_research_programs: []
 ---
 
@@ -35,7 +35,7 @@ Procedures describe repeatable operations. They do not decide outcomes.
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.3.0 |
+| **Version** | 1.4.0 |
 | **Status** | active |
 
 ## Author
@@ -66,6 +66,7 @@ New procedures should be created only when they reduce repeated coordination wor
 |-----------|--------|---------|
 | [[Founder Intent Routing Procedure]] | active | Convert any Founder request into one owned, context-complete, resumable execution route |
 | [[Minimum Viable Council Procedure]] | active | Run advisory and delegated Council work under Founder interim authority without implying quorum |
+| [[CODEX Engineering Orchestra Procedure]] | active | Convert departmental technical needs into bounded, verified engineering results and writeback |
 | Review packet preparation | planned | Prepare daily, weekly, monthly, quarterly, and annual packets |
 | Proposal routing | planned | Route future proposals into research, architecture, engineering, decision, or archive |
 | Engineering validation run | planned | Run and review validators |
@@ -74,6 +75,7 @@ New procedures should be created only when they reduce repeated coordination wor
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.4.0 | 2026-09-04 | Founder / CODEX (CF-07) | Adds the CODEX Engineering Orchestra procedure for department-to-engineering information flow. |
 | 1.3.0 | 2026-09-03 | Founder | Records activation of FIR-001 and the Minimum Viable Council Procedure through [[MVC-001 Council Activation Record]]. |
 | 1.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Adds the Minimum Viable Council Procedure to the canonical operations index. |
 | 1.1.0 | 2026-09-02 | Founder / LUMIAION / CODEX | Added FIR-001 unified Founder-intent routing procedure |

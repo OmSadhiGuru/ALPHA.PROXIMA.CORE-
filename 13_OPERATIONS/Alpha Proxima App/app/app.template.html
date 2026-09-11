@@ -241,10 +241,19 @@
   footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
          font-size:.75rem;color:var(--ink-3);line-height:1.7}
   footer code{background:rgba(152,161,182,.1);padding:1px 5px;border-radius:4px}
+  .static-snapshot header{display:flex;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .static-snapshot header strong{letter-spacing:.18em;font-size:.82rem}.static-snapshot header span{color:var(--ink-3);font-size:.78rem}
+  .static-snapshot nav{position:sticky;top:0;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);background:var(--bg);border-bottom:1px solid var(--line);margin:0 -8px;padding:8px}
+  .static-snapshot nav span{text-align:center;padding:12px 4px;color:var(--ink-2)}.static-snapshot nav [aria-current]{color:var(--founder);border-bottom:2px solid var(--founder)}
+  .static-snapshot main{max-width:760px}.static-snapshot section{padding:24px 0;border-bottom:1px solid var(--line)}
+  .static-snapshot h1{font-size:clamp(2rem,9vw,3.25rem);line-height:1.08;margin:0 0 20px}.static-mission>p{font-size:1.25rem;color:var(--ink);max-width:34ch}
+  .static-snapshot h2{font-size:1.35rem;margin:0 0 12px}.static-row{padding:16px 0;border-top:1px solid var(--line)}
+  .static-row small{color:var(--core);letter-spacing:.08em;text-transform:uppercase}.static-row h3{margin:5px 0;font-size:1rem}.static-row p,.static-empty{margin:0;color:var(--ink-2)}
+  .static-snapshot footer{padding-bottom:80px}.js .static-snapshot{display:none}
 </style>
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="wrap" id="app"><!--__ALPHA_APP_STATIC_FALLBACK__*/</div>
 <script id="view-data" type="application/json">/*__ALPHA_APP_VIEW__*/null</script>
 <script>
 (function(){
@@ -311,6 +320,8 @@
     app.appendChild(el('p','empty','No view rendered. Run: ap.py app render'));
     return;
   }
+  app.textContent = '';
+  document.documentElement.classList.add('js');
 
   /* ------------------------------------------------------------------ *
    * header and the two halves                                           *
