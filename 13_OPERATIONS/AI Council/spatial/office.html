@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpha Proxima — 3D Office</title>
+<style>
+  :root{color-scheme:dark;--ink:#e8edf1;--muted:#9fb0ba;--line:#26323b;--panel:#101820;--bg:#070c10;
+        --available:#6ee7b7;--busy:#ffcf6e;--idle:#5c6b76;--accent:#7fb8ff}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}
+  #scene{position:fixed;inset:0}
+  #hud{position:fixed;inset:0;pointer-events:none}
+  .pill{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;
+        background:rgba(16,24,32,.85);border:1px solid var(--line);border-radius:8px;
+        padding:3px 8px;font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+  .pill.pod{pointer-events:none}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .dot.available{background:var(--available)}
+  .dot.busy{background:var(--busy)}
+  .dot.idle{background:var(--idle)}
+  header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
+         align-items:baseline;pointer-events:none;background:linear-gradient(var(--bg),transparent)}
+  header h1{font-size:15px;margin:0;letter-spacing:.04em;text-transform:uppercase}
+  header .meta{color:var(--muted);font-size:12px}
+  #panel{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:90vw;background:var(--panel);
+         border-left:1px solid var(--line);padding:20px;overflow:auto;transform:translateX(100%);
+         transition:transform .2s ease}
+  #panel.open{transform:translateX(0)}
+  #panel h2{margin:0 0 2px;font-size:16px}
+  #panel .owner{color:var(--muted);font-size:12px;margin-bottom:14px}
+  #panel .field{margin:10px 0}
+  #panel .field b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+  #panel .state{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;text-transform:uppercase}
+  #panel .state.available{background:rgba(110,231,183,.15);color:var(--available)}
+  #panel .state.blocked{background:rgba(92,107,118,.25);color:var(--muted)}
+  #panel .state.advisory-only{background:rgba(255,207,110,.15);color:var(--busy)}
+  #panel .cmd{background:#04070a;border:1px solid var(--line);border-radius:8px;padding:10px;
+              font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;word-break:break-word;user-select:all}
+  #panel .close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);
+                font-size:18px;cursor:pointer;pointer-events:auto}
+  #panel button.copy{margin-top:8px;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+                      border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;pointer-events:auto}
+  ul.outputs{list-style:none;margin:0;padding:0}
+  ul.outputs li{border-top:1px solid var(--line);padding:8px 0;font-size:12px;color:var(--muted)}
+  #panel, #panel button{pointer-events:auto}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="hud"></div>
+<header>
+  <h1>Alpha Proxima · Council 3D Office</h1>
+  <span class="meta" id="genmeta"></span>
+</header>
+<aside id="panel">
+  <button class="close" onclick="closePanel()">✕</button>
+  <div id="panelBody"></div>
+</aside>
+
+<!--
+  Deliberate exception to this repo's "no network call" convention: this is
+  the one template that intentionally loads a remote script. Pinned to an
+  exact version -- never @latest -- so the page's behavior cannot change
+  underneath it.
+-->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+const VIEW = {"schema_version":"1.0.0","generated_at":"2026-09-11T03:12:06+00:00","registry":{"schema_version":"1.0.0","source_path":"13_OPERATIONS/AI Council/Agent and Subagent Registry.md","generated_at":"2026-09-11T03:12:06+00:00","document_version":"1.0.0","roles":[{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"]},{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"]},{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"]},{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"]},{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"]},{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"]},{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"]},{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"]},{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"]},{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"]},{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"]},{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"]},{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"]},{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"]}],"subagent_profiles":[{"profile":"Context Loader","output":"Minimal source packet and unresolved facts","boundary":"Read-only; preserve unknowns"},{"profile":"Constitutional Mapper","output":"Authority, conflicts, and ratification gates","boundary":"Advisory only"},{"profile":"Source Scout","output":"Source set with provenance","boundary":"No canonisation"},{"profile":"Evidence Classifier","output":"Claim-level Book III classes","boundary":"Provisional until review"},{"profile":"Citation Verifier","output":"Source-to-claim check","boundary":"Does not judge institutional acceptance"},{"profile":"Framework Mapper","output":"Competing models and relationships","boundary":"Preserve dissent"},{"profile":"Architect","output":"Design/specification","boundary":"Does not approve own design"},{"profile":"Builder","output":"Implemented artifact","boundary":"Scoped writes only"},{"profile":"Tester","output":"Reproducible verification record","boundary":"Passing tests are not approval"},{"profile":"Security Reviewer","output":"Risks and mitigations","boundary":"Does not expand permissions"},{"profile":"Ethics Trigger Classifier","output":"Review tier and reasons","boundary":"Cannot speak for Ethics Council"},{"profile":"Synthesis Editor","output":"One coherent decision surface","boundary":"Preserve material disagreement"},{"profile":"Recorder","output":"Attendance, inputs, outputs, decision, next action","boundary":"No invented votes or attendance"}],"invocation_rules":["Every task has one accountable Agent Role.","Subagents receive one bounded deliverable and the smallest sufficient context.","Parallel subagents investigate independently when epistemic diversity matters.","The accountable role reconciles outputs and preserves dissent.","No agent or subagent votes, ratifies, appoints itself, expands scope, or claims review by an unconvened body.","Results return to the Founder as one review surface and one next action.","Runtime instances expire when the task closes; only their durable output and provenance remain."],"owners":[{"owner":"LUMIAION","role_ids":["AGT-001","AGT-009"]},{"owner":"Research Intelligence Office","role_ids":["AGT-002","AGT-003","AGT-004"]},{"owner":"Engineering Office","role_ids":["AGT-005","AGT-007"]},{"owner":"Executive Office","role_ids":["AGT-006","AGT-011"]},{"owner":"Institutional Observatory","role_ids":["AGT-008"]},{"owner":"Ethics Council when convened","role_ids":["AGT-010"]},{"owner":"ATHENA","role_ids":["AGT-012"]},{"owner":"VORTEX","role_ids":["AGT-013"]},{"owner":"SOHMA","role_ids":["AGT-014"]},{"owner":"Owner pending","role_ids":["AGT-015","AGT-016"]}],"counts":{"roles":16,"available":12,"advisory_only":1,"blocked":3,"owners":10}},"council":{"generated_at":"2026-09-11T03:12:06+00:00","schema_version":"1.0.0","sessions":[{"session_id":"MVC-20260904-001","founder_intent":"Make the Council system more alive through a local operational console.","decision_class":"III","interim_authority_basis":"Interim Authority Instrument; Founder direction of 2026-09-04","facilitator":"AGT-001","accountable_role":"AGT-007","advisors":[],"assignments":[{"id":"RUN-001","role":"AGT-007","kind":"agent","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","status":"complete","created_at":"2026-09-04T15:18:07+00:00","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"},{"id":"RUN-002","role":"AGT-007","kind":"agent","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","status":"complete","created_at":"2026-09-04T22:56:40+00:00","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"}],"dissent":[{"recorded_at":"2026-09-04T15:18:07+00:00","text":"No model provider or autonomous worker was invoked; the console is a local read model only."}],"ethics_trigger":"none","recommendation":"Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.","founder_decision":{"decision":"approve","by":"Founder","recorded_at":"2026-09-04T15:30:04+00:00"},"execution_owner":"AGT-007","state":"investigating","opened_at":"2026-09-04T15:18:07+00:00","updated_at":"2026-09-04T22:56:40+00:00","next_action":"Route bounded execution."}],"counts":{"total":1,"active":1,"founder_review":0,"blocked":0},"next_action":"Route bounded execution."},"desks":[{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"],"active_assignment":null,"recent_outputs":[{"session_id":"MVC-20260904-001","run_id":"RUN-002","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"},{"session_id":"MVC-20260904-001","run_id":"RUN-001","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"}]},{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"],"active_assignment":null,"recent_outputs":[]}]};
+
+(function () {
+  const desks = VIEW.desks;
+  const owners = VIEW.registry.owners;
+
+  document.getElementById('genmeta').textContent =
+    desks.length + ' roles · ' + owners.length + ' owners · ' + VIEW.generated_at;
+
+  // ---- layout: one pod per owner, sized by role count, on a loose grid ----
+  const COLS = 4, CELL = 9;
+  const podFor = {}, deskFor = {};
+  owners.forEach((o, i) => {
+    const col = i % COLS, row = Math.floor(i / COLS);
+    podFor[o.owner] = {
+      x: (col - (COLS - 1) / 2) * CELL,
+      z: row * CELL,
+      w: 3.4 + o.role_ids.length * 1.1,
+      d: 3.4,
+      roleIds: o.role_ids,
+      unstaffed: o.owner === 'Owner pending',
+    };
+  });
+  Object.values(podFor).forEach(pod => {
+    pod.roleIds.forEach((id, i) => {
+      const spread = (pod.roleIds.length - 1) / 2;
+      deskFor[id] = { x: pod.x + (i - spread) * 1.6, z: pod.z + 0.6 };
+    });
+  });
+
+  // ---- scene / isometric camera ----
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x070c10);
+  const frustum = 16, aspect = window.innerWidth / window.innerHeight;
+  const camera = new THREE.OrthographicCamera(-frustum * aspect, frustum * aspect, frustum, -frustum, 0.1, 200);
+  const isoDir = new THREE.Vector3(1, 1.15, 1).normalize();
+  let camDist = 30, camTarget = new THREE.Vector3(0, 0, (Object.keys(podFor).length / COLS) * CELL / 2);
+  function placeCamera() {
+    camera.position.copy(camTarget).addScaledVector(isoDir, camDist);
+    camera.lookAt(camTarget);
+  }
+  placeCamera();
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('scene').appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.9);
+  sun.position.set(20, 30, 10);
+  scene.add(sun);
+
+  const STATE_COLOR = { available: 0x6ee7b7, blocked: 0x5c6b76, 'advisory-only': 0xffcf6e };
+
+  function statusOf(desk) {
+    if (desk.active_assignment) return 'busy';
+    if (desk.state === 'available') return 'available';
+    return 'idle';
+  }
+
+  const clickTargets = [];
+
+  // ---- pods ----
+  Object.entries(podFor).forEach(([owner, pod]) => {
+    const floorMat = new THREE.MeshStandardMaterial({
+      color: pod.unstaffed ? 0x1a2229 : 0x162029,
+      roughness: 0.95,
+      transparent: pod.unstaffed,
+      opacity: pod.unstaffed ? 0.55 : 1,
+    });
+    const floor = new THREE.Mesh(new THREE.BoxGeometry(pod.w, 0.3, pod.d), floorMat);
+    floor.position.set(pod.x, -0.15, pod.z);
+    scene.add(floor);
+
+    const label = document.createElement('div');
+    label.className = 'pill pod';
+    label.style.background = 'rgba(16,24,32,.6)';
+    label.textContent = owner;
+    document.getElementById('hud').appendChild(label);
+    pod.labelEl = label;
+    pod.labelAnchor = new THREE.Vector3(pod.x, 1.6, pod.z - pod.d / 2 - 0.3);
+  });
+
+  // ---- desks ----
+  function makeDesk(deskInfo, roleId) {
+    const group = new THREE.Group();
+    const deskMat = new THREE.MeshStandardMaterial({ color: 0x2b3742, roughness: 0.7 });
+    const top = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.08, 0.7), deskMat);
+    top.position.y = 0.75;
+    group.add(top);
+    const legGeo = new THREE.BoxGeometry(0.08, 0.75, 0.08);
+    [[-0.55, -0.3], [0.55, -0.3], [-0.55, 0.3], [0.55, 0.3]].forEach(([dx, dz]) => {
+      const leg = new THREE.Mesh(legGeo, deskMat);
+      leg.position.set(dx, 0.375, dz);
+      group.add(leg);
+    });
+    const chair = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.5, 12),
+      new THREE.MeshStandardMaterial({ color: 0x1c252d }));
+    chair.position.set(0, 0.25, 0.65);
+    group.add(chair);
+
+    const status = statusOf(deskInfo);
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 12),
+      new THREE.MeshStandardMaterial({
+        color: STATE_COLOR[deskInfo.state] ?? 0x5c6b76,
+        emissive: STATE_COLOR[deskInfo.state] ?? 0x000000,
+        emissiveIntensity: status === 'busy' ? 1.2 : 0.4,
+      }));
+    dot.position.set(0.5, 1.0, -0.3);
+    group.add(dot);
+
+    group.position.set(deskFor[roleId].x, 0, deskFor[roleId].z);
+    group.userData = { roleId };
+    scene.add(group);
+    clickTargets.push(top);
+    top.userData = { roleId };
+
+    const label = document.createElement('div');
+    label.className = 'pill';
+    label.innerHTML = '<span class="dot ' + status + '"></span>' + deskInfo.named_role;
+    label.style.cursor = 'pointer';
+    label.onclick = () => openPanel(roleId);
+    document.getElementById('hud').appendChild(label);
+    return { anchor: new THREE.Vector3(deskFor[roleId].x, 1.4, deskFor[roleId].z), el: label };
+  }
+
+  const deskLabels = desks.map(d => makeDesk(d, d.id));
+  const podLabels = Object.values(podFor);
+
+  // ---- interaction: click a desk top, orbit drag, wheel zoom ----
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  renderer.domElement.addEventListener('click', (event) => {
+    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects(clickTargets)[0];
+    if (hit) openPanel(hit.object.userData.roleId);
+  });
+
+  let dragging = false, lastX = 0, lastY = 0, azimuth = 0;
+  renderer.domElement.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    azimuth -= (e.clientX - lastX) * 0.005;
+    lastX = e.clientX; lastY = e.clientY;
+    const dir = isoDir.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), azimuth);
+    camera.position.copy(camTarget).addScaledVector(dir, camDist);
+    camera.lookAt(camTarget);
+  });
+  renderer.domElement.addEventListener('wheel', (e) => {
+    camDist = Math.min(60, Math.max(10, camDist + e.deltaY * 0.02));
+    placeCamera();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    const a = window.innerWidth / window.innerHeight;
+    camera.left = -frustum * a; camera.right = frustum * a;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  function project(vec3) {
+    const p = vec3.clone().project(camera);
+    return { x: (p.x * 0.5 + 0.5) * window.innerWidth, y: (-p.y * 0.5 + 0.5) * window.innerHeight };
+  }
+
+  (function tick() {
+    deskLabels.forEach(({ anchor, el }) => {
+      const p = project(anchor);
+      el.style.left = p.x + 'px'; el.style.top = p.y + 'px';
+    });
+    podLabels.forEach(pod => {
+      const p = project(pod.labelAnchor);
+      pod.labelEl.style.left = p.x + 'px'; pod.labelEl.style.top = p.y + 'px';
+    });
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  })();
+
+  // ---- side panel ----
+  window.closePanel = () => document.getElementById('panel').classList.remove('open');
+  window.openPanel = (roleId) => {
+    const desk = desks.find(d => d.id === roleId);
+    if (!desk) return;
+    const body = document.getElementById('panelBody');
+    const active = desk.active_assignment;
+    const cmd = active
+      ? 'ap.py council run ' + active.session_id + ' ' + active.run_id + ' --prompt "..."'
+      : '# assign this role to a session first:\nap.py council assign <session_id> ' + desk.id + ' "<deliverable>"';
+    body.innerHTML =
+      '<h2>' + desk.named_role + '</h2>' +
+      '<div class="owner">' + desk.operating_owner + ' · ' + desk.id + '</div>' +
+      '<div class="field"><b>State</b><span class="state ' + desk.state + '">' + desk.state + '</span></div>' +
+      '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
+      '<div class="field"><b>May instantiate</b>' + desk.may_instantiate.join(', ') + '</div>' +
+      (active
+        ? '<div class="field"><b>Active assignment</b>' + active.session_id + ' / ' + active.run_id +
+          ' — ' + active.status + '<br>' + active.deliverable + '</div>'
+        : '<div class="field"><b>Active assignment</b>None</div>') +
+      '<div class="field"><b>Next command</b><div class="cmd" id="cmdText">' + cmd + '</div>' +
+      '<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById(\'cmdText\').textContent)">Copy</button></div>' +
+      (desk.recent_outputs.length
+        ? '<div class="field"><b>Recent outputs</b><ul class="outputs">' +
+          desk.recent_outputs.map(o => '<li>' + o.session_id + ' / ' + o.run_id + '<br>' + o.output + '</li>').join('') +
+          '</ul></div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
+  };
+})();
+</script>
+</body>
+</html>

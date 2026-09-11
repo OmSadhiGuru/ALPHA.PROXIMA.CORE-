@@ -76,6 +76,15 @@ jobs:
       - name: Alpha Proxima App
         run: python3 "08_SYSTEMS/Engineering Toolkit/test_alpha_app.py"
 
+      - name: Agent and Subagent Registry parser
+        run: python3 "08_SYSTEMS/Engineering Toolkit/test_role_registry.py"
+
+      - name: Council session kernel
+        run: python3 "08_SYSTEMS/Engineering Toolkit/test_council_kernel.py"
+
+      - name: 3D office spatial view
+        run: python3 "08_SYSTEMS/Engineering Toolkit/test_office_spatial.py"
+
       - name: Truth Kernel
         run: python3 "08_SYSTEMS/Institutional Knowledge Graph/Tools/test_truth_kernel.py"
 

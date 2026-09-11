@@ -9,9 +9,13 @@ from __future__ import annotations
 
 import argparse
 import html
+import importlib.util
 import json
+import os
 import re
+import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -21,13 +25,51 @@ DEFAULT_STATE = VAULT_ROOT / "13_OPERATIONS" / "AI Council" / "state" / "council
 SCHEMA_VERSION = "1.0.0"
 CLASSES = ("I", "II", "III", "IV")
 STATES = ("open", "investigating", "founder-review", "approved", "executing", "complete", "blocked")
-AVAILABLE = {f"AGT-{number:03d}" for number in (1,2,3,4,5,6,7,8,9,12,13,14)}
-ADVISORY_ONLY = {"AGT-010"}
-BLOCKED = {"AGT-011", "AGT-015", "AGT-016"}
+ROLE_ID_RE = re.compile(r"^AGT-\d{3}$")
 
 
 class StateError(Exception):
     pass
+
+
+class ExecutionError(StateError):
+    """Raised when a real subprocess invocation of an agent role fails."""
+
+
+def _load_sibling(filename: str, name: str):
+    """Import a toolkit module by path.
+
+    `ap.py` execs tools into synthetic module namespaces, so an ordinary
+    `import role_registry` does not reliably resolve when this file runs via
+    `ap.py council ...`. Mirrors the loader `alpha_app.py` already uses.
+    """
+    path = (TOOLKIT_DIR / filename).resolve()
+    if not path.exists():
+        raise StateError(f"Required toolkit module not found: {path}")
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise StateError(f"Unable to load toolkit module: {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+role_registry = _load_sibling("role_registry.py", "council_kernel_role_registry")
+
+
+def _role_sets(root: Path = VAULT_ROOT) -> tuple[set[str], set[str], set[str]]:
+    """Derive available/advisory-only/blocked role ids from the registry.
+
+    Replaces what used to be hand-maintained module-level constants
+    (`AVAILABLE`/`ADVISORY_ONLY`/`BLOCKED`) that could drift from the actual
+    Founder-approved registry document without any code noticing.
+    """
+    registry = role_registry.load_roles(root)
+    available = {r["id"] for r in registry["roles"] if r["state"] == "available"}
+    advisory_only = {r["id"] for r in registry["roles"] if r["state"] == "advisory-only"}
+    blocked = {r["id"] for r in registry["roles"] if r["state"] == "blocked"}
+    return available, advisory_only, blocked
 
 
 def now() -> str:
@@ -56,8 +98,13 @@ def validate_state(state: dict) -> None:
         ids.add(session["session_id"])
         if session["decision_class"] not in CLASSES or session["state"] not in STATES:
             raise StateError(f"Session {session['session_id']} has invalid class or state.")
-        if session["accountable_role"] not in AVAILABLE:
-            raise StateError(f"Session {session['session_id']} has non-executable accountable role.")
+        # Structural check only: a role's live availability is enforced at the
+        # point of action (open_session/assign/execute_assignment), not here.
+        # A session opened against a role the registry later marks blocked
+        # must stay loadable -- its historical record shouldn't become
+        # unparseable JSON just because the registry changed after the fact.
+        if not ROLE_ID_RE.fullmatch(session["accountable_role"]):
+            raise StateError(f"Session {session['session_id']} has a malformed accountable role.")
 
 
 def load(path: Path) -> dict:
@@ -93,14 +140,15 @@ def next_session_id(state: dict) -> str:
     return f"{prefix}{max(serials, default=0) + 1:03d}"
 
 
-def require_role(role: str, *, accountable: bool = False) -> None:
-    if role in BLOCKED:
+def require_role(role: str, *, accountable: bool = False, root: Path = VAULT_ROOT) -> None:
+    available, advisory_only, blocked = _role_sets(root)
+    if role in blocked:
         raise StateError(f"{role} is blocked pending a separate appointment.")
-    if role == "AGT-010":
+    if role in advisory_only:
         if accountable:
-            raise StateError("AGT-010 Ethics Sentinel is advisory only and cannot own a session.")
+            raise StateError(f"{role} is advisory only and cannot own a session.")
         return
-    if role not in AVAILABLE:
+    if role not in available:
         raise StateError(f"Unknown or unavailable agent role {role!r}.")
 
 
@@ -149,6 +197,129 @@ def record_output(state: dict, session_id: str, run_id: str, output: str) -> dic
     run.update({"status": "complete", "output": output.strip(), "completed_at": now()})
     item["updated_at"] = now()
     return run
+
+
+SYSTEM_PROMPT_TEMPLATE = """You are {named_role} ({role_id}), operating under {operating_owner}.
+Current implementation: {current_implementation}.
+You may instantiate only these bounded subagent kinds: {may_instantiate}.
+
+Standing rules (Agent and Subagent Registry, Invocation Rules):
+{invocation_rules}
+
+Deliverable for this assignment: {deliverable}
+
+You do not vote, ratify, appoint yourself, expand scope, or claim review by an
+unconvened body. Return one bounded, text-only deliverable for this assignment
+and nothing else. You cannot read or write files, run commands, or invoke tools."""
+
+
+def _build_system_prompt(role_record: dict, deliverable: str, invocation_rules: list[str]) -> str:
+    numbered_rules = "\n".join(f"{i}. {rule}" for i, rule in enumerate(invocation_rules, start=1))
+    return SYSTEM_PROMPT_TEMPLATE.format(
+        named_role=role_record["named_role"],
+        role_id=role_record["id"],
+        operating_owner=role_record["operating_owner"],
+        current_implementation=role_record["current_implementation"],
+        may_instantiate=", ".join(role_record["may_instantiate"]) or "none",
+        invocation_rules=numbered_rules,
+        deliverable=deliverable,
+    )
+
+
+def _parse_claude_output(stdout: str) -> str:
+    """Extract the answer text from a `claude -p --output-format json` call.
+
+    Prefers a single top-level JSON object (the normal `json` output shape,
+    with a `result` field). Falls back to a line-by-line NDJSON scan for the
+    last `type: "result"` event, in case the installed CLI only supports the
+    streaming shape -- kept as a fallback, not the primary path, since v1 has
+    no need for streaming (this call is a single blocking round trip).
+    """
+    text = stdout.strip()
+    if not text:
+        return ""
+    try:
+        payload = json.loads(text)
+        if isinstance(payload, dict) and "result" in payload:
+            return str(payload["result"] or "").strip()
+    except json.JSONDecodeError:
+        pass
+    result = ""
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(event, dict) and event.get("type") == "result":
+            result = str(event.get("result") or "").strip()
+    return result
+
+
+def execute_assignment(state: dict, session_id: str, run_id: str, prompt: str, *,
+                       root: Path = VAULT_ROOT, timeout: int = 120,
+                       claude_bin: str = "claude", model: str | None = None) -> dict:
+    """Run a real `claude` CLI call for one assignment and record its output.
+
+    This is the only function in this module that spawns a process. It still
+    writes state through `record_output` -- the single-writer rule holds;
+    this function only automates *how* the output text is produced, not *who*
+    is allowed to persist it.
+
+    v1 limitation, deliberate: this call is pure text-in/text-out. No MCP
+    tools, no filesystem access, no sub-agent spawning. Extending tool access
+    is a separate, explicitly-scoped decision, not an incidental capability
+    of this function.
+    """
+    item = session(state, session_id)
+    run = next((x for x in item["assignments"] if x["id"] == run_id), None)
+    if not run:
+        raise StateError(f"No assignment {run_id!r} in {session_id}.")
+
+    available, advisory_only, blocked = _role_sets(root)
+    if run["role"] in blocked:
+        raise ExecutionError(f"{run['role']} is blocked pending a separate appointment.")
+    if run["role"] in advisory_only:
+        raise ExecutionError(
+            f"{run['role']} is advisory-only and cannot be executed as an assignment; "
+            "record a manual summary via `council output` instead."
+        )
+    if run["role"] not in available:
+        raise ExecutionError(f"Unknown or unavailable agent role {run['role']!r}.")
+
+    registry = role_registry.load_roles(root)
+    role_record = role_registry.role(registry, run["role"])
+    system_prompt = _build_system_prompt(role_record, run["deliverable"], registry["invocation_rules"])
+
+    args = [claude_bin, "-p", prompt, "--output-format", "json",
+            "--system-prompt", system_prompt,
+            "--disallowedTools", "Bash,Edit,Write,Read,Glob,Grep,Agent,NotebookEdit,Task"]
+    if model:
+        args += ["--model", model]
+
+    with tempfile.TemporaryDirectory(prefix="council-exec-") as tmp:
+        env = {key: value for key, value in os.environ.items() if key != "CLAUDECODE"}
+        try:
+            result = subprocess.run(args, cwd=tmp, env=env, capture_output=True,
+                                    text=True, timeout=timeout)
+        except FileNotFoundError as exc:
+            raise ExecutionError(
+                f"`{claude_bin}` not found on PATH. Install the Claude CLI or pass --claude-bin."
+            ) from exc
+        except subprocess.TimeoutExpired as exc:
+            raise ExecutionError(f"Claude CLI timed out after {timeout}s for {run_id}.") from exc
+
+    if result.returncode != 0:
+        raise ExecutionError(
+            f"Claude CLI exited {result.returncode} for {run_id}: {result.stderr.strip()[:500]}"
+        )
+    output_text = _parse_claude_output(result.stdout)
+    if not output_text:
+        raise ExecutionError(f"Claude CLI produced no usable result for {run_id}.")
+
+    return record_output(state, session_id, run_id, output_text)
 
 
 def synthesize(state: dict, session_id: str, recommendation: str, dissent: str | None) -> dict:
@@ -261,6 +432,10 @@ def parser() -> argparse.ArgumentParser:
     x = sub.add_parser("open"); x.add_argument("intent"); x.add_argument("--class", dest="decision_class", choices=CLASSES, required=True); x.add_argument("--authority", required=True); x.add_argument("--owner", required=True); x.add_argument("--ethics-trigger", default="none")
     x = sub.add_parser("assign"); x.add_argument("session_id"); x.add_argument("role"); x.add_argument("deliverable"); x.add_argument("--kind", default="agent")
     x = sub.add_parser("output"); x.add_argument("session_id"); x.add_argument("run_id"); x.add_argument("summary")
+    x = sub.add_parser("run", help="Execute an assignment via the real `claude` CLI and record its output.")
+    x.add_argument("session_id"); x.add_argument("run_id"); x.add_argument("--prompt", required=True)
+    x.add_argument("--timeout", type=int, default=120); x.add_argument("--model", default=None)
+    x.add_argument("--claude-bin", default="claude")
     x = sub.add_parser("synthesize"); x.add_argument("session_id"); x.add_argument("recommendation"); x.add_argument("--dissent")
     x = sub.add_parser("decide"); x.add_argument("session_id"); x.add_argument("decision"); x.add_argument("--by", required=True); x.add_argument("--execution-owner")
     x = sub.add_parser("render"); x.add_argument("session_id"); x.add_argument("--output")
@@ -283,6 +458,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "open": result = open_session(state, args.intent, args.decision_class, args.authority, args.owner, args.ethics_trigger)
         elif args.command == "assign": result = assign(state, args.session_id, args.role, args.deliverable, args.kind)
         elif args.command == "output": result = record_output(state, args.session_id, args.run_id, args.summary)
+        elif args.command == "run": result = execute_assignment(state, args.session_id, args.run_id, args.prompt, timeout=args.timeout, claude_bin=args.claude_bin, model=args.model)
         elif args.command == "synthesize": result = synthesize(state, args.session_id, args.recommendation, args.dissent)
         elif args.command == "decide": result = decide(state, args.session_id, args.decision, args.by, args.execution_owner)
         elif args.command == "render":
