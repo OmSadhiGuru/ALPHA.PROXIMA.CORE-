@@ -66,12 +66,20 @@ COLLECTIONS = {
 
 # Fields every record in a collection must carry. Provenance fields are
 # mandatory so any work item can answer why it exists and who owns it.
+#
+# "office" on an agent is not decorative: `alpha_app.build_system_backbone`
+# reads it to classify which agents are the Foundation's Department topology
+# (office == "Department", plus LUMIAION and JERANIUM by name). It is
+# required here, not merely conventional, so that contract cannot silently
+# drift from what this state engine actually guarantees. An agent with no
+# assigned office yet uses "—", the same not-yet-placed sentinel the vault
+# domain map already uses elsewhere.
 REQUIRED_RECORD_FIELDS = {
     "priorities": ("id", "rank", "title", "why", "owner", "status"),
     "decisions": ("id", "title", "context", "recommendation", "options",
                   "consequence_of_delay", "status", "requested_by"),
     "tasks": ("id", "title", "owner", "state", "requested_by", "why"),
-    "agents": ("id", "name", "role", "status", "authority"),
+    "agents": ("id", "name", "role", "status", "authority", "office"),
     "agent_runs": ("id", "agent_id", "status"),
     "blockers": ("id", "title", "impact", "owner", "status", "needs_founder"),
     "context_items": ("id", "source", "summary"),
