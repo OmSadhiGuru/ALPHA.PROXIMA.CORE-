@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
 import re
 import sys
 from collections import Counter, defaultdict
@@ -62,6 +63,11 @@ class Issue:
     check: str
     path: str
     message: str
+
+
+def issue_signature(issue: Issue) -> str:
+    """Stable identifier for validation debt; never includes machine-local paths."""
+    return "|".join((issue.severity, issue.check, issue.path, issue.message))
 
 
 @dataclass
@@ -376,9 +382,13 @@ def summarize_folder_categories(root: Path) -> Counter[str]:
     return categories
 
 
-def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -> str:
+def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue], baseline: set[str] | None = None) -> str:
     now = dt.datetime.now().astimezone().isoformat(timespec="seconds")
     summary = summarize_issues(issues)
+    baseline = baseline or set()
+    new_issues = [issue for issue in issues if issue_signature(issue) not in baseline]
+    baseline_issues = len(issues) - len(new_issues)
+    new_summary = summarize_issues(new_issues)
     folder_summary = summarize_folder_categories(root)
     by_check: dict[str, list[Issue]] = defaultdict(list)
     for issue in sorted(issues, key=lambda item: (item.check, item.path, item.message)):
@@ -418,6 +428,8 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -
         f"- Errors: `{summary['error']}`",
         f"- Warnings: `{summary['warning']}`",
         f"- Info: `{summary['info']}`",
+        f"- Existing validation debt: `{baseline_issues}`",
+        f"- New issues since baseline: `{len(new_issues)}` (critical `{new_summary['critical']}`, errors `{new_summary['error']}`, warnings `{new_summary['warning']}`)",
         "",
         "## Folder Classification",
         "",
@@ -454,7 +466,7 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -
         [
             "## Implementation Notes",
             "",
-            "This report is diagnostic. It does not approve, reject, move, or modify institutional documents.",
+            "This report is diagnostic. Existing validation debt remains visible; only new issues are eligible to fail a baseline-aware CI lane.",
             "",
             "## Future Improvements",
             "",
@@ -469,6 +481,23 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue]) -
         ]
     )
     return "\n".join(lines) + "\n"
+
+
+def load_baseline(path: Path) -> set[str]:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Cannot load validation baseline {path}: {exc}") from exc
+    signatures = data.get("issue_signatures")
+    if not isinstance(signatures, list) or not all(isinstance(item, str) for item in signatures):
+        raise ValueError(f"Validation baseline {path} must contain an issue_signatures string list.")
+    return set(signatures)
+
+
+def write_baseline(path: Path, issues: list[Issue]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {"schema_version": "1.0.0", "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "issue_signatures": sorted(issue_signature(issue) for issue in issues)}
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def validate(root: Path, include_hidden: bool) -> tuple[list[Note], list[Issue]]:
@@ -487,6 +516,8 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--output", default=str(DEFAULT_REPORT), help="Markdown validation report output path.")
     parser.add_argument("--format", choices=["markdown"], default="markdown", help="Report format.")
     parser.add_argument("--include-hidden", action="store_true", help="Include hidden folders.")
+    parser.add_argument("--baseline", help="JSON baseline of known validation debt; fail-on applies only to new issues.")
+    parser.add_argument("--write-baseline", help="Write the current issue set as a reviewed baseline JSON file.")
     parser.add_argument("--fail-on", choices=["warning", "error"], help="Exit with code 1 when issues exist at or above this level.")
     parser.add_argument("--force", action="store_true", help="Overwrite the output report if it already exists.")
     return parser.parse_args(argv)
@@ -508,7 +539,22 @@ def main(argv: list[str]) -> int:
         return 2
 
     notes, issues = validate(root, args.include_hidden)
-    report = render_markdown_report(root, notes, issues)
+    if args.baseline and args.write_baseline:
+        print("error: use either --baseline or --write-baseline, not both", file=sys.stderr)
+        return 2
+    if args.write_baseline:
+        baseline_path = Path(args.write_baseline).expanduser()
+        if not baseline_path.is_absolute(): baseline_path = root / baseline_path
+        write_baseline(baseline_path, issues)
+        print(f"Baseline written: {baseline_path}")
+    baseline: set[str] = set()
+    if args.baseline:
+        baseline_path = Path(args.baseline).expanduser()
+        if not baseline_path.is_absolute(): baseline_path = root / baseline_path
+        try: baseline = load_baseline(baseline_path)
+        except ValueError as exc:
+            print(f"error: {exc}", file=sys.stderr); return 2
+    report = render_markdown_report(root, notes, issues, baseline)
     output = Path(args.output).expanduser()
     if not output.is_absolute():
         output = root / output
@@ -527,7 +573,8 @@ def main(argv: list[str]) -> int:
         f"{summary['warning']} warnings, "
         f"{summary['info']} info"
     )
-    return 1 if should_fail(issues, args.fail_on) else 0
+    new_issues = [issue for issue in issues if issue_signature(issue) not in baseline]
+    return 1 if should_fail(new_issues, args.fail_on) else 0
 
 
 if __name__ == "__main__":
