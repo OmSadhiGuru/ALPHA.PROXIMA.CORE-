@@ -30,9 +30,11 @@ Design constraints (inherited from `Founder OS Architecture v1`):
 from __future__ import annotations
 
 import argparse
+import hmac
 import importlib.util
 import html
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -48,7 +50,7 @@ DEFAULT_APP = APP_DIR / "app" / "app.html"
 DEFAULT_INDEX = APP_DIR / "app" / "vault-index.json"
 TRUTH_KERNEL_PATH = VAULT_ROOT / "08_SYSTEMS" / "Institutional Knowledge Graph" / "Tools" / "truth_kernel.py"
 
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.4.0"
 
 VIEW_PLACEHOLDER = "/*__ALPHA_APP_VIEW__*/null"
 
@@ -398,6 +400,79 @@ def coherence_report(entries: list[dict[str, Any]]) -> dict[str, Any]:
 # the composed read model
 # --------------------------------------------------------------------------
 
+def build_system_backbone(state: dict, kernel: dict[str, Any]) -> dict[str, Any]:
+    """Normalize every registered system onto one read-only control contract.
+
+    Registration is not the same as connectivity.  The contract deliberately
+    preserves the state engine's honest statuses so a planned adapter never
+    appears live merely because a presentation layer can name it.
+    """
+    systems = []
+    for item in state["integrations"]:
+        systems.append({
+            "id": item["id"],
+            "name": item["name"],
+            "kind": item.get("kind", "unknown"),
+            "status": item["status"],
+            "connected": item["status"] == "connected",
+            "notes": item.get("notes", ""),
+            "planned_capability": item.get("planned_capability"),
+        })
+
+    attention = []
+    for priority in founder_os.open_priorities(state):
+        attention.append({
+            "id": priority["id"], "kind": "priority", "severity": "attention",
+            "title": priority["title"], "owner": priority["owner"],
+        })
+    for decision in founder_os.open_decisions(state):
+        attention.append({
+            "id": decision["id"], "kind": "decision", "severity": "founder",
+            "title": decision["title"], "owner": "Founder",
+        })
+    for blocker in founder_os.open_blockers(state):
+        attention.append({
+            "id": blocker["id"], "kind": "blocker", "severity": "blocked",
+            "title": blocker["title"], "owner": blocker["owner"],
+        })
+    for health in state["system_health"]:
+        if health["status"] != "ok":
+            attention.append({
+                "id": health["id"], "kind": "system_health",
+                "severity": health["status"], "title": health["area"],
+                "owner": "LUMIAION", "detail": health["detail"],
+            })
+
+    departments = [
+        {
+            "id": agent["id"], "name": agent["name"], "status": agent["status"],
+            "role": agent["role"], "authority": agent["authority"],
+        }
+        for agent in state["agents"]
+        if agent.get("office") == "Department" or agent["name"] in {"LUMIAION", "JERANIUM"}
+    ]
+    return {
+        "schema_version": "1.0.0",
+        "mode": "read_only",
+        "canonical_sources": {
+            "operate": "13_OPERATIONS/Founder OS/state/founder-state.json",
+            "know": "obsidian_markdown",
+        },
+        "systems": systems,
+        "departments": departments,
+        "attention": attention,
+        "counts": {
+            "systems": len(systems),
+            "connected_systems": sum(item["connected"] for item in systems),
+            "departments": len(departments),
+            "attention_signals": len(attention),
+            "knowledge_nodes": kernel["counts"]["nodes"],
+            "knowledge_findings": kernel["health"]["counts"]["findings"],
+        },
+        "truth_kernel": truth_kernel.summary(kernel),
+    }
+
+
 def build_app_view(state: dict, root: Path) -> dict[str, Any]:
     """The application's read model: both halves, one document.
 
@@ -409,6 +484,7 @@ def build_app_view(state: dict, root: Path) -> dict[str, Any]:
     know = build_vault_index(root)
     kernel = truth_kernel.build(root)
     know["truth_kernel"] = truth_kernel.summary(kernel)
+    backbone = build_system_backbone(state, kernel)
     return {
         "app_version": APP_VERSION,
         "generated_at": now_iso(),
@@ -416,6 +492,7 @@ def build_app_view(state: dict, root: Path) -> dict[str, Any]:
         "founder": operate["founder"],
         "operate": operate,
         "know": know,
+        "system_backbone": backbone,
         "halves": [
             {"id": "operate", "name": "Operate", "question": "What is happening now?",
              "count": operate["counts"]["priorities"] + operate["counts"]["decisions"]},
@@ -528,15 +605,38 @@ def summarize(view: dict) -> str:
 # localhost server -- the contract future presentation layers consume
 # --------------------------------------------------------------------------
 
-def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -> int:
-    """Serve the app and its read model on loopback only.
+LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
+
+
+def check_reachability_gate(host: str, port: int, token: str | None) -> None:
+    """FD-002 as code: a non-loopback bind is refused unless a token is set.
+
+    Authentication ships before reachability, never after -- this is called
+    before the socket opens, not after the first request arrives.
+    """
+    if host not in LOOPBACK_HOSTS and not token:
+        raise AppError(
+            f"Refusing to bind {host}:{port} without a token (FD-002: authentication "
+            "ships before reachability). Pass --token or set ALPHA_APP_TOKEN."
+        )
+
+
+def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
+          host: str = "127.0.0.1", token: str | None = None) -> int:
+    """Serve the app and its read model.
 
     Binding to 127.0.0.1 keeps the Foundation's state and index private by
     default: no authentication system is required because the socket is not
-    reachable off-host. Exposing this beyond loopback is a Founder decision
-    (`FD-002`, ratified), and would have to ship authentication first.
+    reachable off-host. Exposing this beyond loopback is the `FD-002` decision
+    this module now enforces rather than merely documents: a non-loopback
+    `host` is refused unless a `token` is set (explicitly or via
+    `ALPHA_APP_TOKEN`), so authentication ships *before* reachability, never
+    after. The token gates every response, the rendered page included.
     """
+    check_reachability_gate(host, port, token)
+
     from http.server import BaseHTTPRequestHandler, HTTPServer
+    from urllib.parse import urlsplit, parse_qs
 
     class Handler(BaseHTTPRequestHandler):
         def _send(self, body: bytes, content_type: str, status: int = 200) -> None:
@@ -551,14 +651,28 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
             self._send(json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8"),
                        "application/json; charset=utf-8", status)
 
+        def _authorized(self, parsed) -> bool:
+            if not token:
+                return True
+            header = self.headers.get("Authorization", "")
+            presented = header[7:] if header.startswith("Bearer ") else ""
+            if not presented:
+                presented = parse_qs(parsed.query).get("token", [""])[0]
+            return hmac.compare_digest(presented, token)
+
         def do_GET(self) -> None:  # noqa: N802 - stdlib naming
+            parsed = urlsplit(self.path)
+            self.path = parsed.path  # downstream routing matches on the path alone
+            if not self._authorized(parsed):
+                self._json({"error": "unauthorized"}, 401)
+                return
             try:
                 state = founder_os.load_state(state_path)
                 if self.path in ("/", "/index.html", "/app.html"):
                     view = build_app_view(state, root)
                     self._send(render_app(view, template_path).encode("utf-8"),
                                "text/html; charset=utf-8")
-                elif self.path == "/api/app":
+                elif self.path in ("/api/app", "/api/v1/app"):
                     self._json(build_app_view(state, root))
                 elif self.path == "/api/view":
                     self._json(founder_os.build_view(state))
@@ -579,8 +693,13 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
                     self._json(truth_kernel.build(root)["validation"])
                 elif self.path == "/api/v1/health":
                     self._json(truth_kernel.summary(truth_kernel.build(root)))
+                elif self.path == "/api/v1/system-backbone":
+                    self._json(build_system_backbone(state, truth_kernel.build(root)))
                 elif self.path == "/api/state":
-                    self._json(state)
+                    self._json({
+                        "error": "endpoint retired: raw Founder state is not a presentation contract",
+                        "replacement": "/api/v1/app",
+                    }, 410)
                 else:
                     self._json({"error": "not found"}, 404)
             except (AppError, founder_os.StateError, OSError, RuntimeError, ValueError) as exc:
@@ -589,10 +708,11 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788) -
         def log_message(self, *args) -> None:  # keep the terminal calm
             pass
 
-    server = HTTPServer(("127.0.0.1", port), Handler)
-    print(f"Alpha Proxima App: http://127.0.0.1:{port}/")
-    print(f"Read model:        http://127.0.0.1:{port}/api/app")
-    print("Loopback only. Ctrl-C to stop.")
+    server = HTTPServer((host, port), Handler)
+    print(f"Alpha Proxima App: http://{host}:{port}/{'?token=' + token if token else ''}")
+    print(f"Read model:        http://{host}:{port}/api/app")
+    print("Loopback only. Ctrl-C to stop." if host in LOOPBACK_HOSTS
+          else "Token-gated — every request must present it. Ctrl-C to stop.")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
@@ -628,6 +748,14 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("view", help="Print the composed read model as JSON.")
     serve_cmd = sub.add_parser("serve", help="Serve the app on 127.0.0.1.")
     serve_cmd.add_argument("--port", type=int, default=8788)
+    serve_cmd.add_argument(
+        "--host", default="127.0.0.1",
+        help="Bind address. Anything but 127.0.0.1/localhost requires --token "
+             "or ALPHA_APP_TOKEN (FD-002: authentication before reachability).")
+    serve_cmd.add_argument(
+        "--token", default=None,
+        help="Shared token every request must present (header 'Authorization: "
+             "Bearer <token>' or '?token=' query param). Falls back to $ALPHA_APP_TOKEN.")
     return parser
 
 
@@ -639,7 +767,8 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.command == "serve":
-            return serve(state_path, root, template_path, args.port)
+            token = args.token or os.environ.get("ALPHA_APP_TOKEN")
+            return serve(state_path, root, template_path, args.port, host=args.host, token=token)
 
         if args.command == "index":
             print(json.dumps(build_vault_index(root), indent=2, ensure_ascii=False))
