@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpha Proxima — Galactic Council (prototype)</title>
+<style>
+  :root{color-scheme:dark;--ink:#eef1f6;--muted:#93a2b8;--line:#232e42;--panel:#0c1220;
+        --bg-top:#050810;--bg-bottom:#0a1330;--gold:#ffe1a8;--accent:#8fb3ff}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:radial-gradient(ellipse at 50% 20%, var(--bg-bottom), var(--bg-top));
+            color:var(--ink);font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}
+  #scene{position:fixed;inset:0}
+  #hud{position:fixed;inset:0;pointer-events:none}
+  .label{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;
+         background:rgba(8,12,22,.82);border:1px solid var(--line);border-radius:8px;
+         padding:3px 9px;font-size:11px;white-space:nowrap;align-items:center;gap:6px;
+         cursor:pointer;display:none}
+  .label.shown{display:flex}
+  .label.dim{pointer-events:none;opacity:.55}
+  .label .dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--muted)}
+  .label.available .dot{background:#6ee7b7}
+  .label.executing .dot{background:#ff9d6e}
+  .label.busy .dot{background:#ffcf6e}
+  .label.proposed{border-style:dashed;color:var(--muted)}
+  .label.lumiaion{border-color:var(--gold);color:var(--gold);font-weight:700;font-size:13px;
+                  box-shadow:0 0 22px -6px var(--gold)}
+
+  header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
+         align-items:flex-start;pointer-events:none;z-index:2}
+  header h1{font-size:14px;margin:0 0 4px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  #breadcrumb{pointer-events:auto;font-size:12px;color:var(--muted)}
+  #breadcrumb button{background:none;border:none;color:var(--accent);font:inherit;cursor:pointer;padding:0}
+  #breadcrumb button:focus-visible, .label:focus-visible, #search:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  #backBtn{pointer-events:auto;background:rgba(12,18,32,.85);border:1px solid var(--line);color:var(--ink);
+           border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;display:none}
+  #backBtn.shown{display:inline-block}
+  #search{pointer-events:auto;background:rgba(12,18,32,.85);border:1px solid var(--line);color:var(--ink);
+          border-radius:8px;padding:6px 10px;font-size:12px;width:220px}
+  #searchResults{pointer-events:auto;position:absolute;top:32px;right:0;background:var(--panel);
+                border:1px solid var(--line);border-radius:8px;width:240px;max-height:220px;overflow:auto;display:none}
+  #searchResults.shown{display:block}
+  #searchResults div{padding:6px 10px;font-size:12px;cursor:pointer;border-bottom:1px solid var(--line)}
+  #searchResults div:hover, #searchResults div:focus-visible{background:#182236}
+
+  #panel{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:92vw;background:var(--panel);
+         border-left:1px solid var(--line);padding:20px;overflow:auto;transform:translateX(100%);
+         transition:transform .2s ease;z-index:3}
+  #panel.open{transform:translateX(0)}
+  #panel h2{margin:0 0 2px;font-size:16px}
+  #panel .sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+  #panel .field{margin:10px 0}
+  #panel .field b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+  #panel .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;text-transform:uppercase}
+  #panel .badge.available{background:rgba(110,231,183,.15);color:#6ee7b7}
+  #panel .badge.blocked{background:rgba(147,162,184,.2);color:var(--muted)}
+  #panel .badge.advisory-only{background:rgba(255,207,110,.15);color:#ffcf6e}
+  #panel .close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer}
+  #panel textarea{width:100%;min-height:70px;background:#04070d;border:1px solid var(--line);border-radius:8px;
+                  color:var(--ink);font:inherit;padding:8px;resize:vertical}
+  #panel button.primary{margin-top:8px;background:var(--gold);border:none;color:#1a1400;font-weight:600;
+                        border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer}
+  #panel .demo-flag{background:rgba(255,159,110,.15);color:#ff9d6e;border-radius:8px;padding:8px 10px;
+                     font-size:11px;margin:10px 0}
+  #panel .satellites{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  #panel .satellite{background:#141d30;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:11px}
+
+  #fallback{display:none;position:fixed;inset:0;overflow:auto;padding:24px;background:var(--bg-top)}
+  #fallback.shown{display:block}
+  #fallback h2{color:var(--gold)}
+  #fallback ul{list-style:none;padding-left:16px}
+  #fallback li{margin:4px 0}
+  #fallback button{background:#141d30;border:1px solid var(--line);color:var(--ink);border-radius:6px;
+                   padding:4px 10px;font:inherit;cursor:pointer}
+
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="hud"></div>
+<div id="fallback" role="region" aria-label="Council structure (no WebGL)"></div>
+
+<header>
+  <div>
+    <h1>Alpha Proxima · Galactic Council <span style="color:var(--muted);font-weight:400">— prototype</span></h1>
+    <nav id="breadcrumb" aria-label="Breadcrumb"></nav>
+  </div>
+  <div style="position:relative;pointer-events:auto">
+    <button id="backBtn">← Back to Council</button>
+    <input id="search" type="text" placeholder="Search name, role, or skill…" aria-label="Search roles" autocomplete="off">
+    <div id="searchResults" role="listbox"></div>
+  </div>
+</header>
+
+<!-- Keyboard/screen-reader parity: every seat is also a real, focusable button here. -->
+<nav id="a11yList" class="sr-only" aria-label="Council roles (keyboard list)"></nav>
+
+<aside id="panel" role="dialog" aria-label="Details">
+  <button class="close" onclick="closePanel()" aria-label="Close">✕</button>
+  <div id="panelBody"></div>
+</aside>
+
+<!--
+  Deliberate, documented exception to the "no network call" convention
+  (same exception `office.template.html` already takes): pinned exact
+  version, never @latest.
+-->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+const VIEW = /*__GALAXY_VIEW__*/null;
+const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+(function () {
+  const galaxy = VIEW.galaxy;
+  const DEPT_COLORS = [0x8fb3ff, 0xffb37a, 0x9be3c8, 0xd9a8ff, 0xffd47a, 0x7fd9e0, 0xff9d9d, 0xb8c4ff];
+
+  // ---------------------------------------------------------------------
+  // WebGL availability check -- an honest fallback, not a silent failure.
+  // ---------------------------------------------------------------------
+  function hasWebGL() {
+    try {
+      const c = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+    } catch (e) { return false; }
+  }
+
+  if (!hasWebGL()) {
+    document.getElementById('fallback').classList.add('shown');
+    renderFallbackList();
+    return; // no THREE, no scene -- the readable list below is the whole page
+  }
+
+  function renderFallbackList() {
+    const el = document.getElementById('fallback');
+    let html = '<h2>Alpha Proxima Council</h2><p>WebGL is not available on this device — showing the same structure as a plain list.</p>';
+    html += '<h3>LUMIAION</h3><ul><li>' + galaxy.center.named_role + '</li></ul>';
+    html += '<h3>Inner circle</h3><ul>' + galaxy.inner_circle.map(s =>
+      '<li>' + (s.proposed ? '[Unassigned] ' + s.function : s.desk.named_role) + '</li>').join('') + '</ul>';
+    html += '<h3>Council</h3>';
+    galaxy.council.forEach(c => {
+      html += '<h4>' + c.owner + '</h4><ul><li><b>' + c.lead.named_role + '</b> (lead)</li>' +
+        c.constellation.map(m => '<li>' + m.named_role + (m.state !== 'available' ? ' — ' + m.state : '') + '</li>').join('') +
+        '</ul>';
+    });
+    html += '<h3>Unassigned (no department yet)</h3><ul>' +
+      galaxy.unassigned.map(u => '<li>' + u.named_role + '</li>').join('') + '</ul>';
+    el.innerHTML = html;
+  }
+
+  // ---------------------------------------------------------------------
+  // layout: fixed positions, computed once. Nothing here orbits over time.
+  // ---------------------------------------------------------------------
+  const positions = {}; // id -> THREE.Vector3
+  const deptColorOf = {};
+  positions['AGT-001'] = new THREE.Vector3(0, 1.1, 0);
+
+  const innerR = 3.4;
+  galaxy.inner_circle.forEach((seat, i) => {
+    const angle = (i / galaxy.inner_circle.length) * Math.PI * 2;
+    const pos = new THREE.Vector3(Math.cos(angle) * innerR, 0.55, Math.sin(angle) * innerR);
+    if (!seat.proposed) positions[seat.desk.id] = pos;
+    seat.__pos = pos;
+  });
+
+  const councilR = 6.8;
+  galaxy.council.forEach((c, i) => {
+    const angle = (i / galaxy.council.length) * Math.PI * 2 + 0.2;
+    deptColorOf[c.owner] = DEPT_COLORS[i % DEPT_COLORS.length];
+    positions[c.lead.id] = new THREE.Vector3(Math.cos(angle) * councilR, 0, Math.sin(angle) * councilR);
+    c.__angle = angle;
+    c.constellation.forEach((m, j) => {
+      const r = 10 + j * 2.8;
+      const jitter = (j % 2 === 0 ? -1 : 1) * 0.12;
+      positions[m.id] = new THREE.Vector3(Math.cos(angle + jitter) * r, -0.2 + (j % 2) * 0.4, Math.sin(angle + jitter) * r);
+    });
+  });
+
+  galaxy.unassigned.forEach((u, i) => {
+    const angle = Math.PI * 1.15 + i * 0.3; // held apart, past the last council sector
+    positions[u.id] = new THREE.Vector3(Math.cos(angle) * 21, -0.4, Math.sin(angle) * 21);
+  });
+
+  // ---------------------------------------------------------------------
+  // scene
+  // ---------------------------------------------------------------------
+  const scene = new THREE.Scene();
+  const aspect = window.innerWidth / window.innerHeight;
+  const frustum = 15;
+  const camera = new THREE.OrthographicCamera(-frustum * aspect, frustum * aspect, frustum, -frustum, 0.1, 300);
+
+  const VIEWS = {
+    overview: { target: new THREE.Vector3(0, 0, 1), dist: 32, elevation: 0.78, azimuth: Math.PI * 0.15 },
+  };
+  let currentView = 'overview';
+  let camState = Object.assign({}, VIEWS.overview);
+
+  function cameraVectorFor(v) {
+    const dir = new THREE.Vector3(Math.cos(v.azimuth), v.elevation, Math.sin(v.azimuth)).normalize();
+    return v.target.clone().addScaledVector(dir, v.dist);
+  }
+  function applyCamera() {
+    camera.position.copy(cameraVectorFor(camState));
+    camera.lookAt(camState.target);
+  }
+  applyCamera();
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('scene').appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0x8899cc, 0.5));
+  const key = new THREE.DirectionalLight(0xffffff, 0.7);
+  key.position.set(10, 20, 10);
+  scene.add(key);
+
+  // A quiet starfield -- static, low density, never distracting.
+  {
+    const count = 600;
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const r = 60 + Math.random() * 120;
+      const theta = Math.random() * Math.PI * 2, phi = Math.acos(2 * Math.random() - 1);
+      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      pos[i * 3 + 1] = Math.abs(r * Math.cos(phi)) * 0.3 + 5;
+      pos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x8fa0c8, size: 0.06, transparent: true, opacity: 0.55 })));
+  }
+
+  // The Vault: a faint luminous root-mesh beneath everything.
+  {
+    const grid = new THREE.GridHelper(44, 22, 0x2a3b5c, 0x141d30);
+    grid.position.y = -0.02;
+    grid.material.transparent = true;
+    grid.material.opacity = 0.35;
+    scene.add(grid);
+  }
+
+  // LUMIAION -- compact, white-gold, sculptural.
+  const lumiaionGroup = new THREE.Group();
+  lumiaionGroup.position.copy(positions['AGT-001']);
+  const core = new THREE.Mesh(new THREE.OctahedronGeometry(0.85, 0),
+    new THREE.MeshStandardMaterial({ color: 0xffe1a8, emissive: 0xffb347, emissiveIntensity: 0.7, roughness: 0.3 }));
+  lumiaionGroup.add(core);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.3, 0.03, 8, 48),
+    new THREE.MeshStandardMaterial({ color: 0xffe1a8, emissive: 0xffe1a8, emissiveIntensity: 0.5 }));
+  ring.rotation.x = Math.PI / 2.2;
+  lumiaionGroup.add(ring);
+  scene.add(lumiaionGroup);
+  const lumiaionLight = new THREE.PointLight(0xffd9a0, 1.6, 20);
+  lumiaionLight.position.copy(positions['AGT-001']);
+  scene.add(lumiaionLight);
+
+  const clickTargets = []; // { mesh, id, kind }
+  const meshFor = {};
+
+  function makeSeat(id, pos, color, radius, opts) {
+    opts = opts || {};
+    const geo = opts.dashed
+      ? new THREE.RingGeometry(radius * 0.7, radius, 10, 1)
+      : new THREE.SphereGeometry(radius, 16, 16);
+    const mat = new THREE.MeshStandardMaterial({
+      color, emissive: color, emissiveIntensity: opts.dim ? 0.15 : 0.45,
+      transparent: !!opts.dashed, opacity: opts.dashed ? 0.35 : 1, wireframe: !!opts.dashed,
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.copy(pos);
+    scene.add(mesh);
+    if (id) {
+      meshFor[id] = mesh;
+      clickTargets.push({ mesh, id });
+    }
+    return mesh;
+  }
+
+  function line(a, b, color, opacity) {
+    const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
+    const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: opacity ?? 0.25 });
+    scene.add(new THREE.Line(geo, mat));
+  }
+
+  // Inner circle.
+  galaxy.inner_circle.forEach(seat => {
+    if (seat.proposed) {
+      makeSeat(null, seat.__pos, 0x8899bb, 0.3, { dashed: true, dim: true });
+    } else {
+      makeSeat(seat.desk.id, positions[seat.desk.id], 0x9fd6ff, 0.28);
+      line(positions['AGT-001'], positions[seat.desk.id], 0x9fd6ff, 0.3);
+    }
+  });
+
+  // Council ring + constellations.
+  galaxy.council.forEach(c => {
+    const color = deptColorOf[c.owner];
+    makeSeat(c.lead.id, positions[c.lead.id], color, 0.34);
+    line(positions['AGT-001'], positions[c.lead.id], color, 0.22);
+    c.constellation.forEach(m => {
+      const dim = m.state !== 'available';
+      makeSeat(m.id, positions[m.id], color, 0.18, { dim });
+      line(positions[c.lead.id], positions[m.id], color, 0.18);
+    });
+  });
+
+  // Unassigned holding cluster.
+  galaxy.unassigned.forEach(u => {
+    makeSeat(u.id, positions[u.id], 0x6b7690, 0.22, { dashed: true, dim: true });
+  });
+
+  // ---------------------------------------------------------------------
+  // labels (HTML overlay, progressive disclosure by current view)
+  // ---------------------------------------------------------------------
+  const labels = []; // { el, pos, id, tier }
+  function addLabel(id, pos, text, cls, tier) {
+    const el = document.createElement('div');
+    el.className = 'label ' + (cls || '');
+    const dot = document.createElement('span'); dot.className = 'dot';
+    el.appendChild(dot);
+    el.appendChild(document.createTextNode(text));
+    el.tabIndex = 0;
+    el.setAttribute('role', 'button');
+    el.onclick = () => id && selectRole(id);
+    el.onkeydown = (e) => { if ((e.key === 'Enter' || e.key === ' ') && id) { e.preventDefault(); selectRole(id); } };
+    document.getElementById('hud').appendChild(el);
+    labels.push({ el, pos, id, tier });
+    return el;
+  }
+  const lumiaionLabel = addLabel('AGT-001', positions['AGT-001'].clone().add(new THREE.Vector3(0, 1.1, 0)),
+    galaxy.center.named_role, 'lumiaion', 'overview');
+  lumiaionLabel.onclick = () => openLumiaionDialogue();
+
+  // Per the brief: the overview shows only LUMIAION and department names.
+  // Everything else (inner-circle seats, constellation members, the
+  // unassigned holding cluster) reveals its label on hover/focus, so the
+  // scene stays legible at rest instead of a crown of overlapping boxes.
+  galaxy.inner_circle.forEach(seat => {
+    if (seat.proposed) {
+      addLabel(null, seat.__pos.clone().add(new THREE.Vector3(0, 0.4, 0)), seat.function, 'proposed', 'hover');
+    } else {
+      addLabel(seat.desk.id, positions[seat.desk.id].clone().add(new THREE.Vector3(0, 0.4, 0)),
+        seat.desk.named_role, statusClass(seat.desk), 'hover');
+    }
+  });
+
+  galaxy.council.forEach(c => {
+    addLabel(c.lead.id, positions[c.lead.id].clone().add(new THREE.Vector3(0, 0.5, 0)),
+      c.owner, statusClass(c.lead), 'overview');
+    c.constellation.forEach(m => {
+      addLabel(m.id, positions[m.id].clone().add(new THREE.Vector3(0, 0.35, 0)),
+        m.named_role, statusClass(m) + ' dim', 'department:' + c.owner);
+    });
+  });
+
+  galaxy.unassigned.forEach(u => {
+    addLabel(u.id, positions[u.id].clone().add(new THREE.Vector3(0, 0.35, 0)), u.named_role, 'proposed', 'hover');
+  });
+
+  function statusClass(desk) {
+    const a = desk.active_assignment;
+    if (a && a.status === 'executing') return 'executing';
+    if (a) return 'busy';
+    if (desk.state === 'available') return 'available';
+    return 'proposed';
+  }
+
+  function project(vec3) {
+    const p = vec3.clone().project(camera);
+    return { x: (p.x * 0.5 + 0.5) * window.innerWidth, y: (-p.y * 0.5 + 0.5) * window.innerHeight,
+             behind: p.z > 1 };
+  }
+
+  // ---------------------------------------------------------------------
+  // navigation: overview <-> department <-> agent, with a bounded camera tween
+  // ---------------------------------------------------------------------
+  let activeDept = null, activeRole = null;
+  const breadcrumbEl = document.getElementById('breadcrumb');
+  const backBtn = document.getElementById('backBtn');
+
+  function renderBreadcrumb() {
+    let html = '<button onclick="window.goToOverview()">Council</button>';
+    if (activeDept) html += ' / <button onclick="window.goToDept(\'' + activeDept + '\')">' + activeDept + '</button>';
+    if (activeRole) {
+      const desk = findDesk(activeRole);
+      if (desk) html += ' / ' + desk.named_role;
+    }
+    breadcrumbEl.innerHTML = html;
+    backBtn.classList.toggle('shown', !!activeDept);
+  }
+
+  function findDesk(id) {
+    if (galaxy.center.id === id) return galaxy.center;
+    for (const s of galaxy.inner_circle) if (s.desk && s.desk.id === id) return s.desk;
+    for (const c of galaxy.council) {
+      if (c.lead.id === id) return c.lead;
+      for (const m of c.constellation) if (m.id === id) return m;
+    }
+    for (const u of galaxy.unassigned) if (u.id === id) return u;
+    return null;
+  }
+  function findDept(id) {
+    return galaxy.council.find(c => c.lead.id === id || c.constellation.some(m => m.id === id));
+  }
+
+  let tweenStart = null, tweenFrom = null, tweenTo = null, tweenDuration = 700;
+  function tweenTo_(view) {
+    if (REDUCED_MOTION) { camState = Object.assign({}, view); applyCamera(); return; }
+    tweenFrom = Object.assign({}, camState);
+    tweenTo = Object.assign({}, view);
+    tweenStart = performance.now();
+  }
+
+  window.goToOverview = () => {
+    activeDept = null; activeRole = null;
+    tweenTo_(VIEWS.overview);
+    renderBreadcrumb();
+    updateLabelVisibility();
+    closePanel();
+  };
+  window.goToDept = (owner) => {
+    const c = galaxy.council.find(x => x.owner === owner);
+    if (!c) return;
+    activeDept = owner; activeRole = null;
+    const target = positions[c.lead.id].clone();
+    tweenTo_({ target, dist: 9, elevation: 0.7, azimuth: c.__angle });
+    renderBreadcrumb();
+    updateLabelVisibility();
+  };
+  function selectRole(id) {
+    activeRole = id;
+    const dept = findDept(id);
+    if (dept && dept.owner !== activeDept) window.goToDept(dept.owner);
+    renderBreadcrumb();
+    openPanel(id);
+  }
+  backBtn.onclick = () => window.goToOverview();
+
+  function updateLabelVisibility() {
+    labels.forEach(l => {
+      const show = l.tier === 'overview' || l.tier === 'department:' + activeDept;
+      l.el.classList.toggle('shown', show);
+    });
+  }
+  updateLabelVisibility();
+
+  // ---------------------------------------------------------------------
+  // interaction: click a seat mesh, drag to orbit (bounded), wheel zoom (bounded)
+  // ---------------------------------------------------------------------
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  renderer.domElement.addEventListener('click', (e) => {
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects(clickTargets.map(t => t.mesh))[0];
+    if (hit) {
+      const found = clickTargets.find(t => t.mesh === hit.object);
+      if (found) selectRole(found.id);
+    }
+  });
+
+  let dragging = false, lastX = 0;
+  const pointerScreen = { x: -9999, y: -9999 };
+  renderer.domElement.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('mousemove', e => {
+    pointerScreen.x = e.clientX; pointerScreen.y = e.clientY;
+    if (!dragging) return;
+    const delta = (e.clientX - lastX) * 0.004;
+    lastX = e.clientX;
+    camState.azimuth += delta;
+    applyCamera();
+  });
+  renderer.domElement.addEventListener('wheel', e => {
+    camState.dist = Math.min(40, Math.max(6, camState.dist + e.deltaY * 0.02));
+    applyCamera();
+  }, { passive: true });
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') window.goToOverview();
+  });
+
+  window.addEventListener('resize', () => {
+    const a = window.innerWidth / window.innerHeight;
+    camera.left = -frustum * a; camera.right = frustum * a;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  (function tick(now) {
+    if (tweenStart !== null) {
+      const t = Math.min(1, (now - tweenStart) / tweenDuration);
+      const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      camState.target = tweenFrom.target.clone().lerp(tweenTo.target, ease);
+      camState.dist = tweenFrom.dist + (tweenTo.dist - tweenFrom.dist) * ease;
+      camState.elevation = tweenFrom.elevation + (tweenTo.elevation - tweenFrom.elevation) * ease;
+      let da = tweenTo.azimuth - tweenFrom.azimuth;
+      da = Math.atan2(Math.sin(da), Math.cos(da));
+      camState.azimuth = tweenFrom.azimuth + da * ease;
+      applyCamera();
+      if (t >= 1) tweenStart = null;
+    }
+    labels.forEach(l => {
+      const p = project(l.pos);
+      l.el.style.left = p.x + 'px'; l.el.style.top = p.y + 'px';
+      let tierOk = l.tier === 'overview' || l.tier === 'department:' + activeDept;
+      if (!tierOk && l.tier === 'hover') {
+        const dx = p.x - pointerScreen.x, dy = p.y - pointerScreen.y;
+        tierOk = (dx * dx + dy * dy) < 1600; // ~40px reveal radius
+      }
+      l.el.classList.toggle('shown', tierOk && !p.behind);
+    });
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  })(performance.now());
+
+  // ---------------------------------------------------------------------
+  // side panel
+  // ---------------------------------------------------------------------
+  window.closePanel = () => document.getElementById('panel').classList.remove('open');
+  function openPanel(id) {
+    const desk = findDesk(id);
+    if (!desk) return;
+    const dept = findDept(id);
+    const body = document.getElementById('panelBody');
+    const skills = (desk.may_instantiate || []);
+    const profiles = galaxy.subagent_profiles.filter(p => skills.some(s => p.profile.toLowerCase().includes(s.split(' ')[0].toLowerCase())));
+    body.innerHTML =
+      '<h2>' + desk.named_role + '</h2>' +
+      '<div class="sub">' + desk.operating_owner + ' · ' + desk.id +
+      (dept && dept.lead.id !== desk.id ? ' · reports via ' + dept.lead.named_role : '') + '</div>' +
+      '<div class="field"><b>Status</b><span class="badge ' + desk.state + '">' + desk.state + '</span></div>' +
+      '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
+      '<div class="field"><b>May instantiate (subagent kinds)</b>' +
+      '<div class="satellites">' + skills.map(s => '<span class="satellite">' + s + '</span>').join('') + '</div></div>' +
+      (desk.active_assignment
+        ? '<div class="field"><b>Active assignment</b>' + desk.active_assignment.status.toUpperCase() +
+          ' — ' + desk.active_assignment.deliverable + '</div>'
+        : '<div class="field"><b>Active assignment</b>None</div>') +
+      (desk.recent_outputs && desk.recent_outputs.length
+        ? '<div class="field"><b>Recent outputs</b>' + desk.recent_outputs.map(o => '<div>' + o.output + '</div>').join('') + '</div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
+  }
+
+  window.openLumiaionDialogue = () => {
+    activeRole = null; activeDept = null;
+    const body = document.getElementById('panelBody');
+    body.innerHTML =
+      '<h2>LUMIAION</h2>' +
+      '<div class="sub">Orchestration · formulate an intention</div>' +
+      '<div class="field"><b>Your intention</b><textarea id="intentBox" placeholder="e.g. Prepare a coherence report for the Founder"></textarea></div>' +
+      '<button class="primary" onclick="window.previewIntention()">Preview mission proposal</button>' +
+      '<div id="intentPreview"></div>';
+    document.getElementById('panel').classList.add('open');
+  };
+  window.previewIntention = () => {
+    const text = (document.getElementById('intentBox').value || 'your intention').trim();
+    document.getElementById('intentPreview').innerHTML =
+      '<div class="demo-flag">DEMONSTRATION — no real routing or execution happens here.</div>' +
+      '<div class="field"><b>Objective (mock)</b>' + text + '</div>' +
+      '<div class="field"><b>Departments concerned (mock)</b>Depends on intention — not yet routed</div>' +
+      '<div class="field"><b>Steps (mock)</b>Clarify → assign → execute → synthesize → Founder review</div>' +
+      '<div class="field"><b>Deliverables (mock)</b>One reviewable proposal packet</div>' +
+      '<div class="field"><b>Limits / decisions needed</b>Real routing requires `ap.py council open/assign/run`</div>';
+  };
+
+  // ---------------------------------------------------------------------
+  // search
+  // ---------------------------------------------------------------------
+  const allDesks = [galaxy.center]
+    .concat(galaxy.inner_circle.filter(s => !s.proposed).map(s => s.desk))
+    .concat(galaxy.council.flatMap(c => [c.lead].concat(c.constellation)))
+    .concat(galaxy.unassigned);
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('searchResults');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) { searchResults.classList.remove('shown'); return; }
+    const matches = allDesks.filter(d =>
+      d.named_role.toLowerCase().includes(q) ||
+      (d.may_instantiate || []).some(s => s.toLowerCase().includes(q))
+    ).slice(0, 8);
+    searchResults.innerHTML = matches.map(d =>
+      '<div tabindex="0" role="option" onclick="window.__pick(\'' + d.id + '\')" ' +
+      'onkeydown="if(event.key===\'Enter\')window.__pick(\'' + d.id + '\')">' + d.named_role + '</div>').join('') ||
+      '<div>No matches</div>';
+    searchResults.classList.add('shown');
+  });
+  window.__pick = (id) => { selectRole(id); searchResults.classList.remove('shown'); searchInput.value = ''; };
+
+  // ---------------------------------------------------------------------
+  // accessible keyboard list (visually hidden, always present)
+  // ---------------------------------------------------------------------
+  const a11y = document.getElementById('a11yList');
+  a11y.innerHTML = allDesks.map(d =>
+    '<button onclick="window.__pick(\'' + d.id + '\')">' + d.named_role + ' — ' + d.operating_owner + '</button>').join('');
+
+  renderBreadcrumb();
+})();
+</script>
+</body>
+</html>
