@@ -177,8 +177,18 @@ def write_output(view: dict, template_path: Path, output_path: Path) -> Path:
 def serve(root: Path, template_path: Path, port: int = 8789,
           host: str = "127.0.0.1", token: str | None = None,
           council_state_path: Path | None = None) -> int:
-    """Serve the office view. See `alpha_app.serve` for the security model this mirrors."""
+    """Serve the office view. See `alpha_app.serve` for the security model this mirrors.
+
+    Also serves the Galaxy Council prototype (`/galaxy`, `/api/galaxy`) on
+    this same port/token, so the Founder has one URL for both views instead
+    of two separate servers. Loaded lazily, function-local: importing this
+    at module level would make `office_spatial` and `council_galaxy_prototype`
+    load each other at import time (each is the other's sibling dependency),
+    which is harmless once but wasteful on every import of either module for
+    reasons that have nothing to do with serving.
+    """
     check_reachability_gate(host, port, token)
+    galaxy_prototype = _load_sibling("council_galaxy_prototype.py", "office_serve_galaxy_prototype")
 
     from http.server import BaseHTTPRequestHandler, HTTPServer
     from urllib.parse import urlsplit, parse_qs
@@ -226,9 +236,16 @@ def serve(root: Path, template_path: Path, port: int = 8789,
                 elif self.path == "/api/v1/sessions":
                     state = council_kernel.load(council_state_path or council_kernel.DEFAULT_STATE)
                     self._json(council_kernel.build_view(state))
+                elif self.path in ("/galaxy", "/galaxy.html", "/galaxy-prototype.html"):
+                    view = galaxy_prototype.build_galaxy_view(root, council_state_path)
+                    self._send(galaxy_prototype.render_app(view, galaxy_prototype.DEFAULT_TEMPLATE).encode("utf-8"),
+                               "text/html; charset=utf-8")
+                elif self.path == "/api/galaxy":
+                    self._json(galaxy_prototype.build_galaxy_view(root, council_state_path))
                 else:
                     self._json({"error": "not found"}, 404)
-            except (OfficeError, role_registry.RegistryError, council_kernel.StateError, OSError) as exc:
+            except (OfficeError, role_registry.RegistryError, council_kernel.StateError,
+                    galaxy_prototype.PrototypeError, OSError) as exc:
                 self._json({"error": str(exc)}, 500)
 
         def log_message(self, *args) -> None:  # keep the terminal calm
