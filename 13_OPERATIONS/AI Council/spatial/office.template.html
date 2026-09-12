@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Alpha Proxima — 3D Office</title>
 <style>
   :root{color-scheme:dark;--ink:#e8edf1;--muted:#9fb0ba;--line:#26323b;--panel:#101820;--bg:#070c10;
@@ -285,6 +285,46 @@ const VIEW = /*__OFFICE_VIEW__*/null;
   renderer.domElement.addEventListener('wheel', (e) => {
     camDist = Math.min(60, Math.max(10, camDist + e.deltaY * 0.02));
     placeCamera();
+  }, { passive: true });
+
+  // Touch: one finger orbits (same math as mouse drag), two fingers pinch
+  // to zoom. Taps still reach the `click` handler above -- browsers
+  // synthesize it from a touchend with little movement, so selection needs
+  // no separate touch code. `{passive:false}` + preventDefault stops the
+  // page itself from scrolling/zooming while a gesture is in progress.
+  let pinchStartDist = 0, pinchStartCamDist = camDist;
+  function touchDist(touches) {
+    return Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+  }
+  renderer.domElement.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      pinchStartDist = touchDist(e.touches);
+      pinchStartCamDist = camDist;
+    }
+  }, { passive: true });
+  renderer.domElement.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      const t = e.touches[0];
+      azimuth -= (t.clientX - lastX) * 0.005;
+      lastX = t.clientX; lastY = t.clientY;
+      const dir = isoDir.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), azimuth);
+      camera.position.copy(camTarget).addScaledVector(dir, camDist);
+      camera.lookAt(camTarget);
+    } else if (e.touches.length === 2) {
+      e.preventDefault();
+      const dist = touchDist(e.touches);
+      if (pinchStartDist > 0) {
+        camDist = Math.min(60, Math.max(10, pinchStartCamDist * (pinchStartDist / dist)));
+        placeCamera();
+      }
+    }
+  }, { passive: false });
+  renderer.domElement.addEventListener('touchend', (e) => {
+    if (e.touches.length === 0) dragging = false;
   }, { passive: true });
 
   window.addEventListener('resize', () => {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Alpha Proxima — Galactic Council (prototype)</title>
 <style>
   :root{color-scheme:dark;--ink:#eef1f6;--muted:#93a2b8;--line:#232e42;--panel:#0c1220;
@@ -515,6 +515,48 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   renderer.domElement.addEventListener('wheel', e => {
     camState.dist = Math.min(40, Math.max(6, camState.dist + e.deltaY * 0.02));
     applyCamera();
+  }, { passive: true });
+
+  // Touch: one finger orbits (same math as mouse drag) and also updates
+  // pointerScreen so hover-reveal labels work under a finger, since touch
+  // has no real hover; two fingers pinch to zoom. Taps still reach the
+  // `click` handler above -- browsers synthesize it from a touchend with
+  // little movement. `{passive:false}` + preventDefault stops the page
+  // itself from scrolling/zooming while a gesture is in progress.
+  let pinchStartDist = 0, pinchStartCamDist = camState.dist;
+  function touchDist(touches) {
+    return Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+  }
+  renderer.domElement.addEventListener('touchstart', e => {
+    if (e.touches.length === 1) {
+      dragging = true; lastX = e.touches[0].clientX;
+      pointerScreen.x = e.touches[0].clientX; pointerScreen.y = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      pinchStartDist = touchDist(e.touches);
+      pinchStartCamDist = camState.dist;
+    }
+  }, { passive: true });
+  renderer.domElement.addEventListener('touchmove', e => {
+    if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      const t = e.touches[0];
+      pointerScreen.x = t.clientX; pointerScreen.y = t.clientY;
+      const delta = (t.clientX - lastX) * 0.004;
+      lastX = t.clientX;
+      camState.azimuth += delta;
+      applyCamera();
+    } else if (e.touches.length === 2) {
+      e.preventDefault();
+      const dist = touchDist(e.touches);
+      if (pinchStartDist > 0) {
+        camState.dist = Math.min(40, Math.max(6, pinchStartCamDist * (pinchStartDist / dist)));
+        applyCamera();
+      }
+    }
+  }, { passive: false });
+  renderer.domElement.addEventListener('touchend', e => {
+    if (e.touches.length === 0) dragging = false;
   }, { passive: true });
 
   window.addEventListener('keydown', e => {
