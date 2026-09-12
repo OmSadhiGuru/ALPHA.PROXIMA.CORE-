@@ -170,7 +170,11 @@ def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         "generated_at": role_registry.now_iso(),
         "galaxy": classify_roles(office_view),
         "brain": office_view["brain"],
-        "council_counts": office_view["council"]["counts"],
+        # The full session/assignment ledger (council_kernel.build_view), not
+        # just counts -- feeds the "Council Sessions" logistics panel, which
+        # is a second read of the same data the per-desk assignment fields
+        # already carry, not a new source of truth.
+        "council": office_view["council"],
     }
 
 
