@@ -61,8 +61,9 @@
 <div id="hud"></div>
 <header>
   <h1>Alpha Proxima · Council 3D Office</h1>
-  <span class="meta" id="genmeta"></span>
+  <span class="meta"><a id="galaxyLink" href="#" style="pointer-events:auto">Galactic Council →</a> · <span id="genmeta"></span></span>
 </header>
+<script>document.getElementById('galaxyLink').href = '/galaxy' + window.location.search;</script>
 <aside id="panel">
   <button class="close" onclick="closePanel()">✕</button>
   <div id="panelBody"></div>
@@ -341,7 +342,7 @@ const VIEW = /*__OFFICE_VIEW__*/null;
     const active = desk.active_assignment;
     const cmd = active
       ? 'ap.py council run ' + active.session_id + ' ' + active.run_id + ' --prompt "..."'
-      : '# assign this role to a session first:\nap.py council assign <session_id> ' + desk.id + ' "<deliverable>"';
+      : '# assign this role to a session first:\nap.py council assign &lt;session_id&gt; ' + desk.id + ' "&lt;deliverable&gt;"';
     body.innerHTML =
       '<h2>' + desk.named_role + '</h2>' +
       '<div class="owner">' + desk.operating_owner + ' · ' + desk.id + '</div>' +
