@@ -98,6 +98,30 @@ def _recent_outputs(state: dict, role_id: str, limit: int = 3) -> list[dict[str,
     return completed[:limit]
 
 
+def _brain_summary(root: Path) -> dict[str, Any]:
+    """A light read of the Alpha Proxima vault, for the central Brain node.
+
+    Reuses `alpha_app`'s own vault index and Truth Kernel builders (already
+    loaded as a sibling for the reachability gate) rather than re-parsing the
+    vault a second way. Only a compact summary is returned -- never the full
+    entries list -- so the office view stays a light poll, not a second copy
+    of `alpha_app`'s own index.
+    """
+    vault_index = alpha_app.build_vault_index(root)
+    coherence = vault_index["coherence"]
+    kernel = alpha_app.truth_kernel.build(root)
+    kernel_summary = alpha_app.truth_kernel.summary(kernel)
+    return {
+        "note_count": vault_index["note_count"],
+        "domain_count": len(vault_index["domains"]),
+        "connectedness": coherence["connectedness"],
+        "coherence_defects": sum(coherence["counts"].values()),
+        "knowledge_nodes": kernel_summary["counts"]["nodes"],
+        "knowledge_findings": kernel_summary["health"]["counts"]["findings"],
+        "health_status": kernel_summary["health"]["status"],
+    }
+
+
 def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
     """The application's read model: the registry's roles, joined to live Council state."""
     registry = role_registry.load_roles(root)
@@ -119,6 +143,7 @@ def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         "registry": registry,
         "council": sessions_view,
         "desks": desks,
+        "brain": _brain_summary(root),
     }
 
 

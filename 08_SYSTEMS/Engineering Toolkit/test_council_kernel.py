@@ -110,6 +110,39 @@ class ExecuteAssignmentTests(unittest.TestCase):
             with self.assertRaisesRegex(ck.ExecutionError, "exited 1"):
                 ck.execute_assignment(self.state, self.item["session_id"], self.run["id"], "prompt")
 
+    def test_marks_executing_during_the_call(self):
+        seen = {}
+        def fake_run(args, **kwargs):
+            seen["status"] = self.run["status"]
+            seen["has_timestamp"] = "executing_since" in self.run
+            return _completed(stdout=json.dumps({"result": "ok"}))
+        with patch("subprocess.run", side_effect=fake_run):
+            ck.execute_assignment(self.state, self.item["session_id"], self.run["id"], "prompt")
+        self.assertEqual(seen["status"], "executing")
+        self.assertTrue(seen["has_timestamp"])
+        # Cleared again once the call completes.
+        self.assertNotIn("executing_since", self.run)
+
+    def test_executing_status_is_saved_to_disk_before_the_subprocess_call(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "state.json"
+            ck.save(self.state, path)
+            seen = {}
+            def fake_run(args, **kwargs):
+                seen["on_disk_status"] = ck.load(path)["sessions"][0]["assignments"][0]["status"]
+                return _completed(stdout=json.dumps({"result": "ok"}))
+            with patch("subprocess.run", side_effect=fake_run):
+                ck.execute_assignment(self.state, self.item["session_id"], self.run["id"], "prompt",
+                                      state_path=path)
+        self.assertEqual(seen["on_disk_status"], "executing")
+
+    def test_failed_execution_reverts_status_to_assigned_not_stuck_executing(self):
+        with patch("subprocess.run", return_value=_completed(returncode=1, stderr="boom")):
+            with self.assertRaises(ck.ExecutionError):
+                ck.execute_assignment(self.state, self.item["session_id"], self.run["id"], "prompt")
+        self.assertEqual(self.run["status"], "assigned")
+        self.assertNotIn("executing_since", self.run)
+
     def test_empty_output_raises_execution_error(self):
         with patch("subprocess.run", return_value=_completed(stdout=json.dumps({"result": "  "}))):
             with self.assertRaisesRegex(ck.ExecutionError, "no usable result"):
