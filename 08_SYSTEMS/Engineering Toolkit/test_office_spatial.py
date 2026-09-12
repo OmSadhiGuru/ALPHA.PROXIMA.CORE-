@@ -40,6 +40,16 @@ class TestBuildOfficeView(unittest.TestCase):
         for desk in view["desks"]:
             self.assertIn(desk["id"], ids)
 
+    def test_composes_a_brain_summary_from_the_vault(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state_path = council_state_with_one_assignment(tmp)
+            view = office.build_office_view(office.VAULT_ROOT, state_path)
+        brain = view["brain"]
+        for field in ("note_count", "domain_count", "connectedness", "coherence_defects",
+                     "knowledge_nodes", "knowledge_findings", "health_status"):
+            self.assertIn(field, brain)
+        self.assertGreater(brain["note_count"], 0)
+
     def test_active_assignment_surfaces_on_the_right_desk(self):
         with tempfile.TemporaryDirectory() as tmp:
             state_path = council_state_with_one_assignment(tmp)

@@ -260,13 +260,21 @@ def _parse_claude_output(stdout: str) -> str:
 
 def execute_assignment(state: dict, session_id: str, run_id: str, prompt: str, *,
                        root: Path = VAULT_ROOT, timeout: int = 120,
-                       claude_bin: str = "claude", model: str | None = None) -> dict:
+                       claude_bin: str = "claude", model: str | None = None,
+                       state_path: Path | None = None) -> dict:
     """Run a real `claude` CLI call for one assignment and record its output.
 
     This is the only function in this module that spawns a process. It still
     writes state through `record_output` -- the single-writer rule holds;
     this function only automates *how* the output text is produced, not *who*
     is allowed to persist it.
+
+    If `state_path` is given, the assignment is marked `"executing"` and
+    saved to disk *before* the subprocess is spawned -- a deliberate second
+    write within one call, so a poller (the 3D office view) can show the
+    agent as actually working during the call, not just before-and-after.
+    Omit it (the default) to keep the old one-save-at-the-end behavior, e.g.
+    for callers that persist state themselves.
 
     v1 limitation, deliberate: this call is pure text-in/text-out. No MCP
     tools, no filesystem access, no sub-agent spawning. Extending tool access
@@ -293,6 +301,19 @@ def execute_assignment(state: dict, session_id: str, run_id: str, prompt: str, *
     role_record = role_registry.role(registry, run["role"])
     system_prompt = _build_system_prompt(role_record, run["deliverable"], registry["invocation_rules"])
 
+    def _revert_and_raise(message: str, cause: Exception | None = None) -> None:
+        run["status"] = "assigned"
+        run.pop("executing_since", None)
+        if state_path is not None:
+            save(state, state_path)
+        raise ExecutionError(message) from cause
+
+    run["status"] = "executing"
+    run["executing_since"] = now()
+    item["updated_at"] = now()
+    if state_path is not None:
+        save(state, state_path)
+
     args = [claude_bin, "-p", prompt, "--output-format", "json",
             "--system-prompt", system_prompt,
             "--disallowedTools", "Bash,Edit,Write,Read,Glob,Grep,Agent,NotebookEdit,Task"]
@@ -305,20 +326,21 @@ def execute_assignment(state: dict, session_id: str, run_id: str, prompt: str, *
             result = subprocess.run(args, cwd=tmp, env=env, capture_output=True,
                                     text=True, timeout=timeout)
         except FileNotFoundError as exc:
-            raise ExecutionError(
-                f"`{claude_bin}` not found on PATH. Install the Claude CLI or pass --claude-bin."
-            ) from exc
+            _revert_and_raise(
+                f"`{claude_bin}` not found on PATH. Install the Claude CLI or pass --claude-bin.", exc
+            )
         except subprocess.TimeoutExpired as exc:
-            raise ExecutionError(f"Claude CLI timed out after {timeout}s for {run_id}.") from exc
+            _revert_and_raise(f"Claude CLI timed out after {timeout}s for {run_id}.", exc)
 
     if result.returncode != 0:
-        raise ExecutionError(
+        _revert_and_raise(
             f"Claude CLI exited {result.returncode} for {run_id}: {result.stderr.strip()[:500]}"
         )
     output_text = _parse_claude_output(result.stdout)
     if not output_text:
-        raise ExecutionError(f"Claude CLI produced no usable result for {run_id}.")
+        _revert_and_raise(f"Claude CLI produced no usable result for {run_id}.")
 
+    run.pop("executing_since", None)
     return record_output(state, session_id, run_id, output_text)
 
 
@@ -458,7 +480,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "open": result = open_session(state, args.intent, args.decision_class, args.authority, args.owner, args.ethics_trigger)
         elif args.command == "assign": result = assign(state, args.session_id, args.role, args.deliverable, args.kind)
         elif args.command == "output": result = record_output(state, args.session_id, args.run_id, args.summary)
-        elif args.command == "run": result = execute_assignment(state, args.session_id, args.run_id, args.prompt, timeout=args.timeout, claude_bin=args.claude_bin, model=args.model)
+        elif args.command == "run": result = execute_assignment(state, args.session_id, args.run_id, args.prompt, timeout=args.timeout, claude_bin=args.claude_bin, model=args.model, state_path=path)
         elif args.command == "synthesize": result = synthesize(state, args.session_id, args.recommendation, args.dissent)
         elif args.command == "decide": result = decide(state, args.session_id, args.decision, args.by, args.execution_owner)
         elif args.command == "render":
