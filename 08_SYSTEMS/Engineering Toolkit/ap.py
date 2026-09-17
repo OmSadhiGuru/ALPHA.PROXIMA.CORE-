@@ -25,6 +25,8 @@ COMMANDS = {
     "council": ("council_kernel.py", "Minimum Viable Council session kernel"),
     "app": ("alpha_app.py", "Alpha Proxima App — the Foundation's operate and know halves"),
     "spatial": ("alpha_spatial.py", "System Backbone contract as Markdown or JSON — first consumer of /api/v1/system-backbone"),
+    "role-registry": ("role_registry.py", "Parse the Agent and Subagent Registry as JSON"),
+    "office": ("office_spatial.py", "3D office visualization — Council roles as a spatial read model"),
     "node-registry": ("../Institutional Knowledge Graph/Tools/node_registry.py", "Generate the Institutional Knowledge Graph node registry"),
     "relationship-extract": ("../Institutional Knowledge Graph/Tools/relationship_extractor.py", "Generate the Institutional Knowledge Graph relationship registry"),
     "truth-kernel": ("../Institutional Knowledge Graph/Tools/truth_kernel.py", "Build the read-only Truth Kernel contract and validation report"),

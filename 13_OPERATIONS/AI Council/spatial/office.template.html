@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Alpha Proxima — 3D Office</title>
+<style>
+  :root{color-scheme:dark;--ink:#e8edf1;--muted:#9fb0ba;--line:#26323b;--panel:#101820;--bg:#070c10;
+        --available:#6ee7b7;--busy:#ffcf6e;--executing:#ff9d6e;--idle:#5c6b76;--accent:#7fb8ff;--brain:#a48bff}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}
+  #scene{position:fixed;inset:0}
+  #hud{position:fixed;inset:0;pointer-events:none}
+  .pill{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;
+        background:rgba(16,24,32,.85);border:1px solid var(--line);border-radius:8px;
+        padding:3px 8px;font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+  .pill.pod{pointer-events:none}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .dot.available{background:var(--available)}
+  .dot.busy{background:var(--busy)}
+  .dot.executing{background:var(--executing);animation:pulse 1.1s ease-in-out infinite}
+  .dot.idle{background:var(--idle)}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(1.5)}}
+  .pill.brain{font-size:12px;font-weight:600;letter-spacing:.02em;border-color:var(--brain);
+              box-shadow:0 0 18px -4px var(--brain)}
+  .pill.brain .dot{background:var(--brain)}
+  header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
+         align-items:baseline;pointer-events:none;background:linear-gradient(var(--bg),transparent)}
+  header h1{font-size:15px;margin:0;letter-spacing:.04em;text-transform:uppercase}
+  header .meta{color:var(--muted);font-size:12px}
+  #panel{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:90vw;background:var(--panel);
+         border-left:1px solid var(--line);padding:20px;overflow:auto;transform:translateX(100%);
+         transition:transform .2s ease}
+  #panel.open{transform:translateX(0)}
+  #panel h2{margin:0 0 2px;font-size:16px}
+  #panel .owner{color:var(--muted);font-size:12px;margin-bottom:14px}
+  #panel .field{margin:10px 0}
+  #panel .field b{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+  #panel .state{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;text-transform:uppercase}
+  #panel .state.available{background:rgba(110,231,183,.15);color:var(--available)}
+  #panel .state.blocked{background:rgba(92,107,118,.25);color:var(--muted)}
+  #panel .state.advisory-only{background:rgba(255,207,110,.15);color:var(--busy)}
+  #panel .assignment-status.executing{color:var(--executing)}
+  #panel .brain-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+  #panel .brain-stats div{font-size:12px}
+  #panel .brain-stats b{display:block;font-size:17px;color:var(--brain)}
+  #panel .cmd{background:#04070a;border:1px solid var(--line);border-radius:8px;padding:10px;
+              font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;word-break:break-word;user-select:all}
+  #panel .close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);
+                font-size:18px;cursor:pointer;pointer-events:auto}
+  #panel button.copy{margin-top:8px;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+                      border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;pointer-events:auto}
+  ul.outputs{list-style:none;margin:0;padding:0}
+  ul.outputs li{border-top:1px solid var(--line);padding:8px 0;font-size:12px;color:var(--muted)}
+  #panel, #panel button{pointer-events:auto}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="hud"></div>
+<header>
+  <h1>Alpha Proxima · Council 3D Office</h1>
+  <span class="meta"><a id="galaxyLink" href="#" style="pointer-events:auto">Galactic Council →</a> · <span id="genmeta"></span></span>
+</header>
+<script>document.getElementById('galaxyLink').href = '/galaxy' + window.location.search;</script>
+<aside id="panel">
+  <button class="close" onclick="closePanel()">✕</button>
+  <div id="panelBody"></div>
+</aside>
+
+<!--
+  Deliberate exception to this repo's "no network call" convention: this is
+  the one template that intentionally loads a remote script. Pinned to an
+  exact version -- never @latest -- so the page's behavior cannot change
+  underneath it.
+-->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+const VIEW = /*__OFFICE_VIEW__*/null;
+
+(function () {
+  const desks = VIEW.desks;
+  const owners = VIEW.registry.owners;
+
+  document.getElementById('genmeta').textContent =
+    desks.length + ' roles · ' + owners.length + ' owners · ' + VIEW.generated_at;
+
+  // ---- layout: one pod per owner, sized by role count, on a loose grid ----
+  const COLS = 4, CELL = 9;
+  const podFor = {}, deskFor = {};
+  owners.forEach((o, i) => {
+    const col = i % COLS, row = Math.floor(i / COLS);
+    podFor[o.owner] = {
+      x: (col - (COLS - 1) / 2) * CELL,
+      z: row * CELL,
+      w: 3.4 + o.role_ids.length * 1.1,
+      d: 3.4,
+      roleIds: o.role_ids,
+      unstaffed: o.owner === 'Owner pending',
+    };
+  });
+  Object.values(podFor).forEach(pod => {
+    pod.roleIds.forEach((id, i) => {
+      const spread = (pod.roleIds.length - 1) / 2;
+      deskFor[id] = { x: pod.x + (i - spread) * 1.6, z: pod.z + 0.6 };
+    });
+  });
+
+  // ---- scene / isometric camera ----
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x070c10);
+  const frustum = 16, aspect = window.innerWidth / window.innerHeight;
+  const camera = new THREE.OrthographicCamera(-frustum * aspect, frustum * aspect, frustum, -frustum, 0.1, 200);
+  const isoDir = new THREE.Vector3(1, 1.15, 1).normalize();
+  let camDist = 30, camTarget = new THREE.Vector3(0, 0, (Object.keys(podFor).length / COLS) * CELL / 2);
+  function placeCamera() {
+    camera.position.copy(camTarget).addScaledVector(isoDir, camDist);
+    camera.lookAt(camTarget);
+  }
+  placeCamera();
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('scene').appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.9);
+  sun.position.set(20, 30, 10);
+  scene.add(sun);
+
+  const STATE_COLOR = { available: 0x6ee7b7, blocked: 0x5c6b76, 'advisory-only': 0xffcf6e };
+  const STATUS_COLOR = { available: 0x6ee7b7, busy: 0xffcf6e, executing: 0xff9d6e, idle: 0x5c6b76 };
+
+  // 'executing' = a real `claude` call is running right now (pulses).
+  // 'busy' = assigned but not yet started. 'available'/'idle' = registry state.
+  function statusOf(desk) {
+    const active = desk.active_assignment;
+    if (active && active.status === 'executing') return 'executing';
+    if (active) return 'busy';
+    if (desk.state === 'available') return 'available';
+    return 'idle';
+  }
+
+  const clickTargets = [];
+  const deskState = {}; // roleId -> { dotMaterial, pillDot, status }
+
+  // ---- pods ----
+  Object.entries(podFor).forEach(([owner, pod]) => {
+    const floorMat = new THREE.MeshStandardMaterial({
+      color: pod.unstaffed ? 0x1a2229 : 0x162029,
+      roughness: 0.95,
+      transparent: pod.unstaffed,
+      opacity: pod.unstaffed ? 0.55 : 1,
+    });
+    const floor = new THREE.Mesh(new THREE.BoxGeometry(pod.w, 0.3, pod.d), floorMat);
+    floor.position.set(pod.x, -0.15, pod.z);
+    scene.add(floor);
+
+    const label = document.createElement('div');
+    label.className = 'pill pod';
+    label.style.background = 'rgba(16,24,32,.6)';
+    label.textContent = owner;
+    document.getElementById('hud').appendChild(label);
+    pod.labelEl = label;
+    pod.labelAnchor = new THREE.Vector3(pod.x, 1.6, pod.z - pod.d / 2 - 0.3);
+  });
+
+  // ---- desks ----
+  function makeDesk(deskInfo, roleId) {
+    const group = new THREE.Group();
+    const deskMat = new THREE.MeshStandardMaterial({ color: 0x2b3742, roughness: 0.7 });
+    const top = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.08, 0.7), deskMat);
+    top.position.y = 0.75;
+    group.add(top);
+    const legGeo = new THREE.BoxGeometry(0.08, 0.75, 0.08);
+    [[-0.55, -0.3], [0.55, -0.3], [-0.55, 0.3], [0.55, 0.3]].forEach(([dx, dz]) => {
+      const leg = new THREE.Mesh(legGeo, deskMat);
+      leg.position.set(dx, 0.375, dz);
+      group.add(leg);
+    });
+    const chair = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.5, 12),
+      new THREE.MeshStandardMaterial({ color: 0x1c252d }));
+    chair.position.set(0, 0.25, 0.65);
+    group.add(chair);
+
+    const status = statusOf(deskInfo);
+    const dotColor = STATUS_COLOR[status] ?? STATE_COLOR[deskInfo.state] ?? 0x5c6b76;
+    const dotMat = new THREE.MeshStandardMaterial({
+      color: dotColor, emissive: dotColor,
+      emissiveIntensity: status === 'executing' ? 1.4 : (status === 'busy' ? 1.0 : 0.4),
+    });
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 12), dotMat);
+    dot.position.set(0.5, 1.0, -0.3);
+    group.add(dot);
+
+    group.position.set(deskFor[roleId].x, 0, deskFor[roleId].z);
+    group.userData = { roleId };
+    scene.add(group);
+    clickTargets.push(top);
+    top.userData = { roleId };
+
+    const label = document.createElement('div');
+    label.className = 'pill';
+    const pillDot = document.createElement('span');
+    pillDot.className = 'dot ' + status;
+    label.appendChild(pillDot);
+    label.appendChild(document.createTextNode(deskInfo.named_role));
+    label.style.cursor = 'pointer';
+    label.onclick = () => openPanel(roleId);
+    document.getElementById('hud').appendChild(label);
+
+    deskState[roleId] = { dotMat, pillDot, status };
+    return { anchor: new THREE.Vector3(deskFor[roleId].x, 1.4, deskFor[roleId].z), el: label };
+  }
+
+  const deskLabels = desks.map(d => makeDesk(d, d.id));
+  const podLabels = Object.values(podFor);
+
+  // ---- the Brain: the Alpha Proxima vault, at the center of the room ----
+  const gridRows = Math.ceil(owners.length / COLS);
+  const brainAnchorPos = new THREE.Vector3(0, 2.2, ((gridRows - 1) * CELL) / 2);
+  const brainGroup = new THREE.Group();
+  const brainCore = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(1.1, 1),
+    new THREE.MeshStandardMaterial({ color: 0xa48bff, emissive: 0xa48bff, emissiveIntensity: 0.6,
+                                     wireframe: true, transparent: true, opacity: 0.85 }));
+  brainCore.position.copy(brainAnchorPos);
+  brainGroup.add(brainCore);
+  const brainGlow = new THREE.PointLight(0xa48bff, 1.2, 14);
+  brainGlow.position.copy(brainAnchorPos);
+  brainGroup.add(brainGlow);
+  // A slow particle halo -- the vault's notes, orbiting the core.
+  const particleCount = 120;
+  const particlePositions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount; i++) {
+    const r = 1.6 + Math.random() * 0.9;
+    const theta = Math.random() * Math.PI * 2, phi = Math.acos(2 * Math.random() - 1);
+    particlePositions[i * 3] = brainAnchorPos.x + r * Math.sin(phi) * Math.cos(theta);
+    particlePositions[i * 3 + 1] = brainAnchorPos.y + r * Math.cos(phi) * 0.6;
+    particlePositions[i * 3 + 2] = brainAnchorPos.z + r * Math.sin(phi) * Math.sin(theta);
+  }
+  const particleGeo = new THREE.BufferGeometry();
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+  const particles = new THREE.Points(particleGeo,
+    new THREE.PointsMaterial({ color: 0xcabaff, size: 0.05, transparent: true, opacity: 0.8 }));
+  brainGroup.add(particles);
+  scene.add(brainGroup);
+
+  const brainLabel = document.createElement('div');
+  brainLabel.className = 'pill brain';
+  brainLabel.style.cursor = 'pointer';
+  brainLabel.onclick = () => openBrainPanel();
+  document.getElementById('hud').appendChild(brainLabel);
+  function renderBrainLabel(brain) {
+    brainLabel.innerHTML = '<span class="dot"></span>ALPHA PROXIMA VAULT · ' + brain.note_count + ' notes · ' +
+      Math.round(brain.connectedness * 100) + '% connected';
+  }
+  renderBrainLabel(VIEW.brain);
+  let currentBrain = VIEW.brain;
+
+  // ---- interaction: click a desk top, orbit drag, wheel zoom ----
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  renderer.domElement.addEventListener('click', (event) => {
+    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects(clickTargets)[0];
+    if (hit) openPanel(hit.object.userData.roleId);
+  });
+
+  let dragging = false, lastX = 0, lastY = 0, azimuth = 0;
+  renderer.domElement.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    azimuth -= (e.clientX - lastX) * 0.005;
+    lastX = e.clientX; lastY = e.clientY;
+    const dir = isoDir.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), azimuth);
+    camera.position.copy(camTarget).addScaledVector(dir, camDist);
+    camera.lookAt(camTarget);
+  });
+  renderer.domElement.addEventListener('wheel', (e) => {
+    camDist = Math.min(60, Math.max(10, camDist + e.deltaY * 0.02));
+    placeCamera();
+  }, { passive: true });
+
+  // Touch: one finger orbits (same math as mouse drag), two fingers pinch
+  // to zoom. Taps still reach the `click` handler above -- browsers
+  // synthesize it from a touchend with little movement, so selection needs
+  // no separate touch code. `{passive:false}` + preventDefault stops the
+  // page itself from scrolling/zooming while a gesture is in progress.
+  let pinchStartDist = 0, pinchStartCamDist = camDist;
+  function touchDist(touches) {
+    return Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+  }
+  renderer.domElement.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      pinchStartDist = touchDist(e.touches);
+      pinchStartCamDist = camDist;
+    }
+  }, { passive: true });
+  renderer.domElement.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      const t = e.touches[0];
+      azimuth -= (t.clientX - lastX) * 0.005;
+      lastX = t.clientX; lastY = t.clientY;
+      const dir = isoDir.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), azimuth);
+      camera.position.copy(camTarget).addScaledVector(dir, camDist);
+      camera.lookAt(camTarget);
+    } else if (e.touches.length === 2) {
+      e.preventDefault();
+      const dist = touchDist(e.touches);
+      if (pinchStartDist > 0) {
+        camDist = Math.min(60, Math.max(10, pinchStartCamDist * (pinchStartDist / dist)));
+        placeCamera();
+      }
+    }
+  }, { passive: false });
+  renderer.domElement.addEventListener('touchend', (e) => {
+    if (e.touches.length === 0) dragging = false;
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    const a = window.innerWidth / window.innerHeight;
+    camera.left = -frustum * a; camera.right = frustum * a;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  function project(vec3) {
+    const p = vec3.clone().project(camera);
+    return { x: (p.x * 0.5 + 0.5) * window.innerWidth, y: (-p.y * 0.5 + 0.5) * window.innerHeight };
+  }
+
+  const clock = new THREE.Clock();
+  (function tick() {
+    const t = clock.getElapsedTime();
+    deskLabels.forEach(({ anchor, el }) => {
+      const p = project(anchor);
+      el.style.left = p.x + 'px'; el.style.top = p.y + 'px';
+    });
+    podLabels.forEach(pod => {
+      const p = project(pod.labelAnchor);
+      pod.labelEl.style.left = p.x + 'px'; pod.labelEl.style.top = p.y + 'px';
+    });
+    const brainP = project(brainAnchorPos.clone().add(new THREE.Vector3(0, 1.3, 0)));
+    brainLabel.style.left = brainP.x + 'px'; brainLabel.style.top = brainP.y + 'px';
+    brainCore.rotation.y = t * 0.15;
+    brainCore.rotation.x = Math.sin(t * 0.1) * 0.2;
+    particles.rotation.y = -t * 0.05;
+
+    // Pulse any desk currently executing a real Claude call.
+    for (const roleId in deskState) {
+      const entry = deskState[roleId];
+      if (entry.status === 'executing') {
+        entry.dotMat.emissiveIntensity = 1.0 + Math.sin(t * 4) * 0.6;
+      }
+    }
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  })();
+
+  // ---- side panel ----
+  let openRoleId = null, brainPanelOpen = false;
+  window.closePanel = () => {
+    document.getElementById('panel').classList.remove('open');
+    openRoleId = null; brainPanelOpen = false;
+  };
+  window.openPanel = (roleId) => {
+    const desk = desks.find(d => d.id === roleId);
+    if (!desk) return;
+    openRoleId = roleId; brainPanelOpen = false;
+    const body = document.getElementById('panelBody');
+    const active = desk.active_assignment;
+    const cmd = active
+      ? 'ap.py council run ' + active.session_id + ' ' + active.run_id + ' --prompt "..."'
+      : '# assign this role to a session first:\nap.py council assign &lt;session_id&gt; ' + desk.id + ' "&lt;deliverable&gt;"';
+    body.innerHTML =
+      '<h2>' + desk.named_role + '</h2>' +
+      '<div class="owner">' + desk.operating_owner + ' · ' + desk.id + '</div>' +
+      '<div class="field"><b>State</b><span class="state ' + desk.state + '">' + desk.state + '</span></div>' +
+      '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
+      '<div class="field"><b>May instantiate</b>' + desk.may_instantiate.join(', ') + '</div>' +
+      (active
+        ? '<div class="field"><b>Active assignment</b><span class="assignment-status ' + active.status + '">' +
+          active.status.toUpperCase() + '</span> ' + active.session_id + ' / ' + active.run_id +
+          '<br>' + active.deliverable + '</div>'
+        : '<div class="field"><b>Active assignment</b>None</div>') +
+      '<div class="field"><b>Next command</b><div class="cmd" id="cmdText">' + cmd + '</div>' +
+      '<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById(\'cmdText\').textContent)">Copy</button></div>' +
+      (desk.recent_outputs.length
+        ? '<div class="field"><b>Recent outputs</b><ul class="outputs">' +
+          desk.recent_outputs.map(o => '<li>' + o.session_id + ' / ' + o.run_id + '<br>' + o.output + '</li>').join('') +
+          '</ul></div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
+  };
+
+  window.openBrainPanel = () => {
+    openRoleId = null; brainPanelOpen = true;
+    renderBrainPanel(currentBrain);
+    document.getElementById('panel').classList.add('open');
+  };
+  function renderBrainPanel(brain) {
+    document.getElementById('panelBody').innerHTML =
+      '<h2>Alpha Proxima Vault</h2>' +
+      '<div class="owner">The Foundation\'s knowledge, read-only</div>' +
+      '<div class="brain-stats">' +
+      '<div><b>' + brain.note_count + '</b>notes</div>' +
+      '<div><b>' + brain.domain_count + '</b>domains</div>' +
+      '<div><b>' + Math.round(brain.connectedness * 100) + '%</b>connected</div>' +
+      '<div><b>' + brain.coherence_defects + '</b>coherence defects</div>' +
+      '<div><b>' + brain.knowledge_nodes + '</b>knowledge nodes</div>' +
+      '<div><b>' + brain.knowledge_findings + '</b>findings</div>' +
+      '</div>' +
+      '<div class="field"><b>Truth Kernel health</b>' + brain.health_status + '</div>' +
+      '<div class="field"><b>Next command</b><div class="cmd" id="cmdText">ap.py app check --max-defects 0</div>' +
+      '<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById(\'cmdText\').textContent)">Copy</button></div>';
+  }
+
+  // ---- live polling: reflect real assignment/vault state without a reload ----
+  function applyDeskUpdate(desk) {
+    const entry = deskState[desk.id];
+    if (!entry) return;
+    const status = statusOf(desk);
+    if (status === entry.status) return; // no visible change; skip the DOM/material churn
+    entry.status = status;
+    entry.pillDot.className = 'dot ' + status;
+    const color = STATUS_COLOR[status] ?? STATE_COLOR[desk.state] ?? 0x5c6b76;
+    entry.dotMat.color.setHex(color);
+    entry.dotMat.emissive.setHex(color);
+    if (status !== 'executing') {
+      entry.dotMat.emissiveIntensity = status === 'busy' ? 1.0 : 0.4;
+    }
+  }
+
+  async function refresh() {
+    let fresh;
+    try {
+      // Preserve ?token=... (or any other query param) from the page's own URL,
+      // since the server requires it on every request, not just the first.
+      const res = await fetch('/api/office' + window.location.search);
+      if (!res.ok) return;
+      fresh = await res.json();
+    } catch (e) { return; } // a transient network hiccup shouldn't break the scene
+
+    fresh.desks.forEach(updated => {
+      const index = desks.findIndex(d => d.id === updated.id);
+      if (index === -1) return;
+      desks[index] = updated;
+      applyDeskUpdate(updated);
+    });
+    currentBrain = fresh.brain;
+    renderBrainLabel(currentBrain);
+    if (openRoleId) window.openPanel(openRoleId);
+    if (brainPanelOpen) renderBrainPanel(currentBrain);
+  }
+  setInterval(refresh, 5000);
+})();
+</script>
+</body>
+</html>

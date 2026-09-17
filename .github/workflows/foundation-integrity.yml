@@ -70,7 +70,7 @@ jobs:
           fi
           echo "No dependency manifest. Standard library only, as designed."
 
-      - name: Engineering Toolkit (Founder, App, Council, Validator)
+      - name: Engineering Toolkit (all test suites)
         run: python3 -m unittest discover -s "08_SYSTEMS/Engineering Toolkit" -p "test_*.py" -v
 
       - name: Truth Kernel

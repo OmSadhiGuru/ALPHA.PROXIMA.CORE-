@@ -91,7 +91,7 @@ A ceiling exists at all because a gate that can never pass is not a gate — it 
 
 ### Report versus gate
 
-- **Gated:** all Engineering Toolkit tests discovered by unittest (Founder, App, Council, Validator), the Truth Kernel suite, Founder state validity, both renderers, the coherence ceiling, the absence of a dependency manifest, and new validation errors or critical issues outside the reviewed baseline.
+- **Gated:** all Engineering Toolkit tests discovered by unittest (Founder, App, Council, Validator, Role Registry, Office Spatial), the Truth Kernel suite, Founder state validity, both renderers, the coherence ceiling, the absence of a dependency manifest, and new validation errors or critical issues outside the reviewed baseline.
 - **Reported, not gated:** inherited validation debt recorded in the reviewed baseline and validation warnings. Following [[Validation Debt Policy]], CI uses `--baseline "08_SYSTEMS/Engineering Toolkit/validation-baseline.json" --fail-on error`. Total debt and new issues appear separately in the run summary. CI never regenerates the baseline.
 
 Anything reported but not gated must say so explicitly in the summary. A number with no stated authority invites the reader to assume it has some.
