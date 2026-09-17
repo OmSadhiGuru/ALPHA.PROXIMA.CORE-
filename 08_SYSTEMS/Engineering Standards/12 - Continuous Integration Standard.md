@@ -3,9 +3,9 @@ title: "12 - Continuous Integration Standard"
 aliases: ["CI Standard", "Continuous Integration Standard", "Foundation Integrity", "Coherence Ratchet"]
 tags: [systems, engineering, standards, ci, automation, coherence, integrity, alpha-proxima]
 created: 2026-09-02
-updated: 2026-09-03
+updated: 2026-09-17
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CLAUDE"]
 artifact_type: engineering-standard
 standard_id: "ES-12"
@@ -91,8 +91,8 @@ A ceiling exists at all because a gate that can never pass is not a gate — it 
 
 ### Report versus gate
 
-- **Gated:** the two test suites, Founder state validity, both renderers, the coherence ceiling, and the absence of a dependency manifest.
-- **Reported, never gated:** vault validation. It carries pre-existing errors that belong to CN-001. Its output appears in the run summary so it stays visible without blocking unrelated work.
+- **Gated:** all Engineering Toolkit tests discovered by unittest (Founder, App, Council, Validator, Role Registry, Office Spatial), the Truth Kernel suite, Founder state validity, both renderers, the coherence ceiling, the absence of a dependency manifest, and new validation errors or critical issues outside the reviewed baseline.
+- **Reported, not gated:** inherited validation debt recorded in the reviewed baseline and validation warnings. Following [[Validation Debt Policy]], CI uses `--baseline "08_SYSTEMS/Engineering Toolkit/validation-baseline.json" --fail-on error`. Total debt and new issues appear separately in the run summary. CI never regenerates the baseline.
 
 Anything reported but not gated must say so explicitly in the summary. A number with no stated authority invites the reader to assume it has some.
 
