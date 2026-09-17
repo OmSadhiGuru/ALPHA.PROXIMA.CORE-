@@ -53,6 +53,8 @@ STATUS_VALUES = {
 }
 LIST_FIELDS = {"aliases", "tags", "authors", "dependencies", "related_documents", "related_research_programs"}
 WIKI_LINK_RE = re.compile(r"(?<!!)\[\[([^\]\n]+)\]\]")
+# Only equal-length backtick runs delimit a code span; unmatched runs remain text.
+INLINE_CODE_RE = re.compile(r"(?<!`)(`+)(?!`)(.*?)(?<!`)\1(?!`)", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 PLACEHOLDER_TARGETS = {"Author", "Founder", "Name", "Name or Role", "Note Title", "Target", "ADR-XXXX - Title"}
 
@@ -310,7 +312,7 @@ def validate_links(root: Path, notes: list[Note]) -> list[Issue]:
             path_by_name.setdefault(name, note.relative_path)
 
     for note in notes:
-        searchable_text = strip_fenced_blocks(note.text)
+        searchable_text = INLINE_CODE_RE.sub(" ", strip_fenced_blocks(note.text))
         for raw_target in WIKI_LINK_RE.findall(searchable_text):
             target = normalize_link_target(raw_target)
             if should_skip_link_target(target):
@@ -470,7 +472,7 @@ def render_markdown_report(root: Path, notes: list[Note], issues: list[Issue], b
             "",
             "## Future Improvements",
             "",
-            "- [ ] Add baseline support for legacy validation debt.",
+            "- [x] Baseline support preserves legacy debt and gates new issues.",
             "- [ ] Add JSON output for downstream automation.",
             "",
             "## Version History",
@@ -574,6 +576,14 @@ def main(argv: list[str]) -> int:
         f"{summary['info']} info"
     )
     new_issues = [issue for issue in issues if issue_signature(issue) not in baseline]
+    new_summary = summarize_issues(new_issues)
+    print(
+        "New issues: "
+        f"{new_summary['critical']} critical, "
+        f"{new_summary['error']} errors, "
+        f"{new_summary['warning']} warnings, "
+        f"{new_summary['info']} info"
+    )
     return 1 if should_fail(new_issues, args.fail_on) else 0
 
 

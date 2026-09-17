@@ -51,3 +51,7 @@ class CouncilKernelTests(unittest.TestCase):
         dashboard = ck.render_dashboard(state)
         self.assertIn("Council Console", dashboard)
         self.assertIn("Test bounded implementation", dashboard)
+
+
+if __name__ == "__main__":
+    unittest.main()
