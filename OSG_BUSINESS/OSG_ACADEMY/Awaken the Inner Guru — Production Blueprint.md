@@ -1,3 +1,19 @@
+---
+title: "Awaken the Inner Guru — Production Blueprint"
+aliases: []
+tags: ["osg", "academy", "learning"]
+created: "2026-07-04"
+updated: "2026-09-17"
+status: "draft"
+version: "1.1.0"
+authors: ["Chief Learning Architect", "LUMIAION"]
+artifact_type: "course-production-blueprint"
+institutional_owner: "Chief Learning Architect, OSG Academy"
+dependencies: ["[[OSG Learning Standard (OLS) v1.0]]"]
+related_documents: []
+related_research_programs: []
+---
+
 # Awaken the Inner Guru
 ## Master Course Production Blueprint
 

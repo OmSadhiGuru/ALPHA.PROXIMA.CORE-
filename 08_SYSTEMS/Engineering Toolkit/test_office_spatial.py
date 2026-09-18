@@ -7,6 +7,8 @@ Run: python3 "08_SYSTEMS/Engineering Toolkit/test_office_spatial.py"
 from __future__ import annotations
 
 import re
+import shutil
+from unittest.mock import patch
 import sys
 import tempfile
 import unittest
@@ -31,6 +33,24 @@ def council_state_with_one_assignment(tmp: str) -> Path:
 
 
 class TestBuildOfficeView(unittest.TestCase):
+    def test_root_selects_its_own_council_ledger_and_never_falls_back(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            relative = Path('13_OPERATIONS/AI Council/Agent and Subagent Registry.md')
+            target = root / relative
+            target.parent.mkdir(parents=True)
+            shutil.copyfile(office.VAULT_ROOT / relative, target)
+            state_path = root / '13_OPERATIONS/AI Council/state/council-state.json'
+            state = ck.empty_state()
+            ck.save(state, state_path)
+            before = state_path.read_bytes()
+            with patch.object(office, '_brain_summary', return_value={}):
+                self.assertEqual(office.build_office_view(root)['council']['counts']['active'], 0)
+                self.assertEqual(before, state_path.read_bytes())
+                state_path.unlink()
+                with self.assertRaises(office.council_kernel.StateError):
+                    office.build_office_view(root)
+
     def test_composes_registry_and_council(self):
         with tempfile.TemporaryDirectory() as tmp:
             state_path = council_state_with_one_assignment(tmp)

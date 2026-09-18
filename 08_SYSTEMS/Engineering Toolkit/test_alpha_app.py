@@ -221,6 +221,22 @@ class TestRelationships(unittest.TestCase):
         self.assertEqual(entry["links"], [])
         self.assertEqual(entry["unresolved"], [])
 
+    def test_inline_code_delimiters_match_validator_contract(self):
+        cases = [
+            "``[[example]] `nested` `` [[missing]]",
+            "`line one\n[[example]]` [[missing]]",
+            "`[[missing]]",
+            "``[[missing]]`",
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for body in cases:
+                with self.subTest(body=body):
+                    write_note(root, 'source.md', body=body)
+                    index = app.build_vault_index(root)
+                    self.assertEqual(index['coherence']['counts']['broken_links'], 1)
+                    self.assertEqual(app.link_targets(app.vault_validator.load_notes(root, False)[0]), ['missing'])
+
     def test_inline_code_does_not_hide_a_real_neighbouring_link(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = vault(tmp)

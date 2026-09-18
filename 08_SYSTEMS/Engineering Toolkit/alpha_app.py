@@ -162,7 +162,7 @@ def domain_of(relative_path: str) -> str:
     return relative_path.split("/", 1)[0] if "/" in relative_path else "root"
 
 
-INLINE_CODE_RE = re.compile(r"`+[^`\n]*`+")
+INLINE_CODE_RE = vault_validator.INLINE_CODE_RE
 
 
 def link_targets(note) -> list[str]:

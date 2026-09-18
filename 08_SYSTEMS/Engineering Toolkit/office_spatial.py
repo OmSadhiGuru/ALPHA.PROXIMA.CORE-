@@ -125,7 +125,7 @@ def _brain_summary(root: Path) -> dict[str, Any]:
 def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
     """The application's read model: the registry's roles, joined to live Council state."""
     registry = role_registry.load_roles(root)
-    state_path = council_state_path or council_kernel.DEFAULT_STATE
+    state_path = council_state_path or (root / "13_OPERATIONS" / "AI Council" / "state" / "council-state.json")
     state = council_kernel.load(state_path)
     sessions_view = council_kernel.build_view(state)
 
@@ -234,7 +234,7 @@ def serve(root: Path, template_path: Path, port: int = 8789,
                     self._json({"schema_version": "1.0.0", "roles": registry["roles"],
                                "owners": registry["owners"]})
                 elif self.path == "/api/v1/sessions":
-                    state = council_kernel.load(council_state_path or council_kernel.DEFAULT_STATE)
+                    state = council_kernel.load(council_state_path or (root / "13_OPERATIONS" / "AI Council" / "state" / "council-state.json"))
                     self._json(council_kernel.build_view(state))
                 elif self.path in ("/galaxy", "/galaxy.html", "/galaxy-prototype.html"):
                     view = galaxy_prototype.build_galaxy_view(root, council_state_path)

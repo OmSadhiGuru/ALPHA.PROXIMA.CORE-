@@ -102,6 +102,7 @@
 <header>
   <div>
     <h1>Alpha Proxima · Galactic Council <span style="color:var(--muted);font-weight:400">— prototype</span></h1>
+    <p>Read-only prototype. Seat placement and visual leads confer no institutional authority.</p>
     <nav id="breadcrumb" aria-label="Breadcrumb"></nav>
   </div>
   <div style="position:relative;pointer-events:auto;display:flex;gap:8px;align-items:center">
@@ -160,7 +161,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       '<li>' + (s.proposed ? '[Unassigned] ' + s.function : s.desk.named_role) + '</li>').join('') + '</ul>';
     html += '<h3>Council</h3>';
     galaxy.council.forEach(c => {
-      html += '<h4>' + c.owner + '</h4><ul><li><b>' + c.lead.named_role + '</b> (lead)</li>' +
+      html += '<h4>' + c.owner + '</h4><ul><li><b>' + c.lead.named_role + '</b> (visual lead only)</li>' +
         c.constellation.map(m => '<li>' + m.named_role + (m.state !== 'available' ? ' — ' + m.state : '') + '</li>').join('') +
         '</ul>';
     });
@@ -621,7 +622,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     body.innerHTML =
       '<h2>' + desk.named_role + '</h2>' +
       '<div class="sub">' + desk.operating_owner + ' · ' + desk.id +
-      (dept && dept.lead.id !== desk.id ? ' · reports via ' + dept.lead.named_role : '') + '</div>' +
+      (dept && dept.lead.id !== desk.id ? ' · visual grouping with ' + dept.lead.named_role : '') + '</div>' +
       '<div class="field"><b>Status</b><span class="badge ' + desk.state + '">' + desk.state + '</span></div>' +
       '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
       '<div class="field"><b>May instantiate (subagent kinds)</b>' +

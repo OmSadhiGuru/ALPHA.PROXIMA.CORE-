@@ -16,6 +16,25 @@ class CouncilKernelTests(unittest.TestCase):
     def open(self, state, cls="III", ethics="none"):
         return ck.open_session(state, "Test bounded implementation", cls, "IAI §3", "AGT-007", ethics)
 
+    def test_same_day_sessions_survive_save_and_reload(self):
+        state = ck.empty_state()
+        first = self.open(state)
+        second = self.open(state)
+        self.assertNotEqual(first['session_id'], second['session_id'])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'council-state.json'
+            ck.save(state, path)
+            restored = ck.load(path)
+            third = self.open(restored)
+            self.assertNotIn(third['session_id'], [first['session_id'], second['session_id']])
+            ck.validate_state(restored)
+
+    def test_session_serial_continues_after_three_digits(self):
+        state = ck.empty_state()
+        first = self.open(state)
+        first['session_id'] = first['session_id'].rsplit('-', 1)[0] + '-1000'
+        self.assertTrue(self.open(state)['session_id'].endswith('-1001'))
+
     def test_lifecycle_and_packet(self):
         state = ck.empty_state(); item = self.open(state)
         run = ck.assign(state, item["session_id"], "AGT-002", "Return a source packet", "subagent")
