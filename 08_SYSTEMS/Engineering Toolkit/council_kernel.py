@@ -56,6 +56,7 @@ def _load_sibling(filename: str, name: str):
 
 
 role_registry = _load_sibling("role_registry.py", "council_kernel_role_registry")
+state_io = _load_sibling("state_io.py", "council_state_io")
 
 
 def _role_sets(root: Path = VAULT_ROOT) -> tuple[set[str], set[str], set[str]]:
@@ -121,8 +122,7 @@ def load(path: Path) -> dict:
 def save(state: dict, path: Path) -> None:
     validate_state(state)
     state["updated_at"] = now()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    state_io.write_json_atomic(path, state)
 
 
 def session(state: dict, session_id: str) -> dict:
