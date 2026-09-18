@@ -21,6 +21,7 @@ Design constraints (see `Founder OS Architecture v1`):
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import re
 import sys
@@ -35,6 +36,19 @@ DEFAULT_STATE = FOUNDER_OS_DIR / "state" / "founder-state.json"
 DEFAULT_TEMPLATE = FOUNDER_OS_DIR / "console" / "console.template.html"
 DEFAULT_CONSOLE = FOUNDER_OS_DIR / "console" / "console.html"
 DEFAULT_MIRROR = FOUNDER_OS_DIR / "Founder Console.md"
+
+
+def _load_state_io():
+    spec = importlib.util.spec_from_file_location("founder_state_io", TOOLKIT_DIR / "state_io.py")
+    if spec is None or spec.loader is None:
+        raise ImportError("Cannot load state_io.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+state_io = _load_state_io()
+
 
 SCHEMA_VERSION = "1.1.0"
 MAX_PRIORITIES = 3
@@ -160,8 +174,7 @@ def load_state(path: Path) -> dict:
 def save_state(state: dict, path: Path) -> None:
     validate_state(state)
     state["updated_at"] = now_iso()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    state_io.write_json_atomic(path, state)
 
 
 def validate_state(state: dict) -> list[str]:

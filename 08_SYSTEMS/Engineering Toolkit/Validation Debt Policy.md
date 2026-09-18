@@ -94,8 +94,9 @@ historical operational roster with colliding AGT IDs. No automatic cross-store j
 renaming, appointment or migration is authorized by this cleanup. PR #47 should first
 obtain a Founder-approved identity crosswalk, including preservation of historical
 run references, and dispositions for the 16 C items above. It should separately bound
-state-write atomicity/concurrency work: existing Founder and Council writers remain
-non-atomic, and this PR does not claim simultaneous-writer safety. Any interface work
+state-write atomicity/concurrency work: at PR #46 the Founder and Council writers were
+non-atomic. The follow-up adds atomic publication only; it does not claim
+simultaneous-writer safety. Any interface work
 must consume the established read models and retain the prototype boundary. This is
 a recommended scope for review, not authorization to start PR #47.
 
@@ -115,3 +116,8 @@ must confirm the canonical identity mapping as part of the PR #47 review.
 Final vault validation: 16 inherited errors, 983 warnings, 36 informational findings;
 zero new findings of any severity. Coherence: 123 (19 orphans, 15 missing frontmatter,
 85 broken links, 4 empty notes), ratcheted from ceiling 129 to 123 under ES-12.
+
+
+The unapproved follow-up review is [[PR47 Identity and State Safety Review]]. It
+contains source-scoped identity candidates, historical-run protection and the staged
+state-write safety plan. It does not ratify any mapping or debt disposition.
