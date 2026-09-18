@@ -136,7 +136,7 @@ def next_session_id(state: dict) -> str:
     day = datetime.now(timezone.utc).strftime("%Y%m%d")
     prefix = f"MVC-{day}-"
     serials = [int(s["session_id"].rsplit("-", 1)[1]) for s in state["sessions"]
-               if re.fullmatch(rf"{prefix}\\d{{3}}", s["session_id"])]
+               if re.fullmatch(rf"{prefix}\d{{3,}}", s["session_id"])]
     return f"{prefix}{max(serials, default=0) + 1:03d}"
 
 

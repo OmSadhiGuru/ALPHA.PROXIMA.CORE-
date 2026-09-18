@@ -26,13 +26,12 @@ assignment is `classify_roles()` below, and it is deliberately explicit and
 narrow:
 
   * A department's lead is whichever of its roles is first in registry
-    order among those literally titled "*Lead*" (or the office's own
-    domain-lead role for single-role offices). Ties are broken by registry
-    order. This is a judgment call, not derived data -- documented here and
+    order unless LEAD_OVERRIDES selects another member of that owner group.
+    This is a judgment call, not derived data -- documented here and
     in the companion concept note, not asserted as registry fact.
   * Every role keeps its own `id`; nothing is invented, merged, or renamed.
   * A "coordination seat" with no real occupant is emitted as
-    `{"proposed": true, "role_id": None}` -- never a fabricated agent.
+    `{"proposed": true, "desk": None}` -- never a fabricated agent.
 
 ## What this does NOT do
 
@@ -120,25 +119,30 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
     """
     desks_by_id = {d["id"]: d for d in office_view["desks"]}
 
+    if "AGT-001" not in desks_by_id:
+        raise PrototypeError("Galaxy requires canonical AGT-001; no substitute center is invented.")
     center = desks_by_id["AGT-001"]
 
-    inner_circle: list[dict[str, Any]] = [{
-        "proposed": False,
-        "desk": desks_by_id["AGT-009"],
-        "function": "Holds context and writeback for LUMIAION",
-    }]
+    # Membership follows the current registry, including newly added roles.
+    # A removed or reassigned Memory Steward must not be fabricated or duplicated.
+    inner_circle: list[dict[str, Any]] = [
+        {"proposed": False, "desk": desk, "function": desk["named_role"]}
+        for desk in office_view["desks"]
+        if desk["id"] != center["id"] and desk["operating_owner"] == "LUMIAION"
+    ]
     for function in PROPOSED_COORDINATION_SEATS:
         inner_circle.append({"proposed": True, "desk": None, "function": function})
 
     by_owner: dict[str, list[dict[str, Any]]] = {}
     for owner in office_view["registry"]["owners"]:
-        by_owner[owner["owner"]] = [desks_by_id[rid] for rid in owner["role_ids"]]
+        by_owner[owner["owner"]] = [desks_by_id[rid] for rid in owner["role_ids"]
+                                    if rid != center["id"]]
 
     council: list[dict[str, Any]] = []
     unassigned: list[dict[str, Any]] = []
     for owner_name, members in by_owner.items():
-        if owner_name == "LUMIAION":
-            continue  # AGT-001 is the center; AGT-009 is already in the inner circle
+        if owner_name == "LUMIAION" or not members:
+            continue  # Center and current LUMIAION-owned roles are already placed.
         if owner_name == "Owner pending":
             unassigned.extend(members)
             continue
@@ -167,6 +171,8 @@ def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
     office_view = office_spatial.build_office_view(root, council_state_path)
     return {
         "schema_version": "1.0.0-prototype",
+        "read_only": True,
+        "classification_authority": "visual interpretation only; not institutional authority",
         "generated_at": role_registry.now_iso(),
         "galaxy": classify_roles(office_view),
         "brain": office_view["brain"],
@@ -249,7 +255,7 @@ def serve(root: Path, template_path: Path, port: int = 8790,
                     self._json(build_galaxy_view(root, council_state_path))
                 else:
                     self._json({"error": "not found"}, 404)
-            except (PrototypeError, role_registry.RegistryError, OSError) as exc:
+            except (PrototypeError, role_registry.RegistryError, office_spatial.council_kernel.StateError, OSError) as exc:
                 self._json({"error": str(exc)}, 500)
 
         def log_message(self, *args) -> None:
@@ -306,7 +312,7 @@ def main(argv: list[str] | None = None) -> int:
             token = args.token or _os.environ.get("ALPHA_APP_TOKEN")
             return serve(root, template_path, args.port, host=args.host, token=token,
                         council_state_path=state_path)
-    except (PrototypeError, role_registry.RegistryError, alpha_app.AppError) as exc:
+    except (PrototypeError, role_registry.RegistryError, office_spatial.council_kernel.StateError, alpha_app.AppError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     return 0

@@ -1,3 +1,19 @@
+---
+title: "OSG Learning Standard (OLS) v1.0"
+aliases: []
+tags: ["osg", "academy", "learning"]
+created: "2026-07-04"
+updated: "2026-09-17"
+status: "ratified"
+version: "1.0.0"
+authors: ["Chief Learning Architect", "LUMIAION"]
+artifact_type: "academy-constitutional-standard"
+institutional_owner: "Chief Learning Architect, OSG Academy"
+dependencies: []
+related_documents: ["[[Awaken the Inner Guru — Production Blueprint]]"]
+related_research_programs: []
+---
+
 # OSG Learning Standard (OLS) v1.0
 ## The Constitutional Learning Framework of OSG Academy
 

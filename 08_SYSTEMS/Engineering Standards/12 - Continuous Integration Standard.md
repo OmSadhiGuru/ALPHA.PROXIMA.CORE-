@@ -5,7 +5,7 @@ tags: [systems, engineering, standards, ci, automation, coherence, integrity, al
 created: 2026-09-02
 updated: 2026-09-17
 status: active
-version: "1.2.0"
+version: "1.3.0"
 authors: ["CLAUDE"]
 artifact_type: engineering-standard
 standard_id: "ES-12"
@@ -70,6 +70,7 @@ Running the vault index three times would answer the same question three times. 
 | 417 | PR #21 removed template placeholders that were never links |
 | 130 | PR #20 taught the indexer to resolve valid path-qualified Obsidian links |
 | 129 | FIR-001 landed as a connected, fully described document |
+| 123 | PR #46: three orphan repairs and two frontmatter repairs; PR #45 measured 128 already below 129 |
 
 The live value is `.github/coherence-ceiling` and the workflow run summary. This table preserves why the value moved; it is not another configuration source.
 
@@ -91,10 +92,18 @@ A ceiling exists at all because a gate that can never pass is not a gate — it 
 
 ### Report versus gate
 
-- **Gated:** all Engineering Toolkit tests discovered by unittest (Founder, App, Council, Validator, Role Registry, Office Spatial), the Truth Kernel suite, Founder state validity, both renderers, the coherence ceiling, the absence of a dependency manifest, and new validation errors or critical issues outside the reviewed baseline.
+- **Gated:** all Engineering Toolkit tests discovered by unittest (Founder, App, Council, Validator, Role Registry, Office Spatial, Galaxy prototype), the Truth Kernel suite, Founder state validity, both renderers, the coherence ceiling, the absence of a dependency manifest, and new validation errors or critical issues outside the reviewed baseline.
 - **Reported, not gated:** inherited validation debt recorded in the reviewed baseline and validation warnings. Following [[Validation Debt Policy]], CI uses `--baseline "08_SYSTEMS/Engineering Toolkit/validation-baseline.json" --fail-on error`. Total debt and new issues appear separately in the run summary. CI never regenerates the baseline.
 
 Anything reported but not gated must say so explicitly in the summary. A number with no stated authority invites the reader to assume it has some.
+
+### Shared link measurement
+
+The app coherence index and Vault Validator use the same equal-length inline-code
+span matcher. Multi-backtick and multiline examples are not institutional links;
+unmatched delimiters must not hide real broken links. Regression tests cover both
+instruments. PR #46 corrected the app's divergent matcher; the measured current
+corpus total did not change from that correction.
 
 ### Zero dependencies
 
@@ -193,7 +202,7 @@ A gate never observed failing is not a verified gate. The negative case was test
 
 1. **Lower the ceiling** with each repaired batch until it reaches zero, then delete `--max-defects` entirely.
 2. **A browser smoke test** for the app interface. Deliberately omitted from v1: it needs a browser on the runner, and the failure it would catch is better covered by an assertion inside `test_alpha_app.py`, which a contributor can also run locally.
-3. **Gate vault validation** once CN-001 closes the 17 errors, converting it from report to gate.
+3. **Retire inherited validation debt** as CN-001 repairs it; new errors already gate CI.
 4. **A release workflow**, if the Foundation ever publishes a versioned artifact. It does not today.
 
 ---
@@ -209,5 +218,7 @@ A gate never observed failing is not a verified gate. The negative case was test
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.3.0 | 2026-09-17 | CODEX | Post-PR-45 ratchet to 123, shared inline-code measurement and discovered Galaxy contract tests |
+| 1.2.0 | 2026-09-17 | CODEX | PR #45: all-suite discovery and new-error baseline gate |
 | 1.1.0 | 2026-09-03 | CODEX | Move the live ceiling into a validated one-line committed file after repeated workflow conflicts |
 | 1.0.0 | 2026-09-02 | CLAUDE | First CI standard: the two jobs, the ratchet, report-versus-gate, zero dependencies, and the no-`paths`-filter decision |

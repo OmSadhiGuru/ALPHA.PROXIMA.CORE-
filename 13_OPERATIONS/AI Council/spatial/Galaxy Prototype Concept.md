@@ -1,5 +1,12 @@
 ---
 title: "Galaxy Council Prototype — Concept Note"
+aliases: []
+tags: [systems, council, prototype, alpha-proxima]
+updated: 2026-09-17
+version: "0.1.0"
+dependencies: ["[[Agent and Subagent Registry]]"]
+related_documents: ["[[Tool 014 - Council Session Kernel]]"]
+related_research_programs: []
 status: draft
 created: 2026-09-12
 authors: ["CLAUDE"]
@@ -94,7 +101,7 @@ leads + 4 constellation + 2 unassigned = 16.
    instead of CODEX Engineering Lead). Fixed with an explicit
    `LEAD_OVERRIDES` map, documented in the module itself as a judgment call.
 
-## Verified this session (real, in a browser, this run)
+## Historical prototype-session verification (not replayed by PR #46)
 
 Department fly-to navigation, breadcrumb, Escape/back-to-council, hover
 label reveal, search by name and by skill, agent detail panel with real
