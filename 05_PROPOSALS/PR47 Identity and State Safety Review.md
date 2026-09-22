@@ -3,7 +3,7 @@ title: "PR47 Identity and State Safety Review"
 aliases: []
 tags: [proposal, engineering, identity, state, alpha-proxima]
 created: 2026-09-17
-updated: 2026-09-17
+updated: 2026-09-22
 status: draft
 version: "0.1.0"
 authors: ["CODEX"]
@@ -15,6 +15,12 @@ related_research_programs: []
 ---
 
 # PR47 Identity and State Safety Review
+
+> **Status update — 2026-09-22.** The bounded recommendation for source-scoped
+> references and preservation of historical runs is now accepted by
+> [[ADR-0003 - PR47 Source-Scoped Reference Contract]]. This review remains a
+> proposal for every candidate identity mapping, appointment, migration and debt
+> disposition. The historical provenance below records the state at drafting time.
 
 ## Review status and provenance
 
@@ -132,7 +138,9 @@ No test should invoke a live provider.
 
 Recommended next approval: **approve source-scoped references and preservation of
 historical runs, while keeping every candidate mapping and debt disposition unapproved**.
-This would authorize a narrowly scoped reference contract, not a roster migration.
+This bounded approval was recorded on 2026-09-22 in
+[[ADR-0003 - PR47 Source-Scoped Reference Contract]]. It authorizes a reference
+contract, not a roster migration.
 
 Alternative: review and approve selected candidate mappings individually before changing
 any reference contract. In either case, CLAUDE, JERANIUM and all proposed Founder seats
