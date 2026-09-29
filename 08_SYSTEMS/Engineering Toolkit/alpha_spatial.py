@@ -127,6 +127,52 @@ def render_report(backbone: dict[str, Any]) -> str:
         )
     lines.append("")
 
+    # "Registered and connected" and "live on the event membrane" are two
+    # different sentences. A reader seeing only the first would take the
+    # Foundation to be more wired than it is, so the second is printed beside
+    # it rather than left in the JSON for a machine to find.
+    health = backbone.get("integration_health")
+    if health:
+        hc = health["counts"]
+        lines.append(
+            f"## Integration health ({hc['live']} live of {hc['total']}, "
+            f"{hc['verified']} verified)")
+        lines.append("")
+        lines.append(
+            "`connected` above is the Founder's record of their own working setup. "
+            "`live` below means the event membrane can normalize this provider's "
+            "events — which takes an implemented, verified adapter. A system can "
+            "honestly be one without being the other.")
+        lines.append("")
+        lines.append("| Source | Registered in | Founder OS | Adapter | Effective | Live |")
+        lines.append("|---|---|---|---|---|---|")
+        for row in health["integrations"]:
+            lines.append(
+                f"| {row['label']} | {row['registered_in']} "
+                f"| {row['founder_status'] or '—'} | {row['adapter_status'] or '—'} "
+                f"| {row['status']} | {_bool_mark(row['live'])} |")
+        lines.append("")
+        if health["conflicts"]:
+            lines.append(
+                f"**{len(health['conflicts'])} conflict(s).** Founder OS and the "
+                f"adapter registry disagree; the backbone reports the weaker claim. "
+                f"Neither register is overwritten — the divergence is the signal.")
+            lines.append("")
+            for row in health["conflicts"]:
+                lines.append(
+                    f"- `{row['source']}` — Founder OS says `{row['founder_status']}`, "
+                    f"the adapter registry says `{row['adapter_status']}`.")
+            lines.append("")
+
+    live = backbone.get("live") or {}
+    if live.get("availability") and live["availability"] != "available":
+        lines.append(
+            f"## Live layer — {live['availability'].upper()}")
+        lines.append("")
+        lines.append(f"{live['detail']} No activity, presence or notification "
+                     f"figures are reported, because none were measured.")
+        lines.append("")
+
     lines.append(f"## Departments ({counts['departments']})")
     lines.append("")
     lines.append("| ID | Name | Role | Status | Authority |")

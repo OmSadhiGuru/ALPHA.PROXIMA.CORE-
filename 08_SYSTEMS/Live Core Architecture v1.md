@@ -5,14 +5,14 @@ tags: [systems, live, events, adapters, presence, notifications, alpha-proxima]
 created: 2026-09-29
 updated: 2026-09-29
 status: active
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
 dependencies: ["[[Institutional Node Taxonomy v1]]", "[[Alpha Proxima App Architecture v1]]", "[[12 - Continuous Integration Standard]]"]
-related_documents: ["[[Cognitive Function Registry]]", "[[Founder OS Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[Office Registry]]"]
+related_documents: ["[[Alpha Proxima App Architecture v1]]", "[[Cognitive Function Registry]]", "[[Founder OS Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[Office Registry]]"]
 related_research_programs: []
 ---
 
@@ -156,9 +156,21 @@ This file is the contract that infrastructure must satisfy, not the place it run
 
 ---
 
+## Consumed by the System Backbone
+
+Phase C surfaced these projections through the **existing** `/api/v1/system-backbone` (schema 1.1.0) rather than a competing API — see [[Alpha Proxima App Architecture v1]] §7.2.1. Three properties of that seam belong here, because they constrain this contract:
+
+**The App reads and never appends.** Single-writer discipline holds across the boundary: `alpha_app` imports `event_ledger` for its projections only, asserted by a test that the string `event_ledger.append` appears nowhere in the App.
+
+**Absence is reported before any count.** `read_ledger` returns `[]` for a path that does not exist, which is correct at this layer — a ledger not yet written is legitimately empty. One layer up that would be a lie, because a missing ledger and a quiet one would render identically. So the backbone reports `available` / `unavailable` / `error` first, and emits `null` counts where nothing was measured. **Never report calm without having looked** is the same rule as *never claim connected without verification*, applied to time instead of connectivity.
+
+**The membrane's status is the one that governs `live`.** Founder OS separately records integrations the Founder uses. Where the two registers disagree, the backbone reports the weaker claim, and nothing counts as live without an implemented adapter here. A registry that cannot prove an exchange does not get to call itself connected — not in this file, and not through a presentation layer either.
+
+---
+
 ## Future Improvements
 
-1. **Phase C** — surface `activity`, `presence` and `notification_summary` through the existing `/api/v1/system-backbone` rather than a competing API.
+1. ~~**Phase C** — surface `activity`, `presence` and `notification_summary` through the existing `/api/v1/system-backbone` rather than a competing API.~~ **Done** — schema 1.1.0.
 2. **Phase D** — GitHub as the first real adapter, with the fifteen event types the directive names.
 3. **Ledger compaction** for a multi-year ledger. Append-only does not mean unbounded; compaction must preserve history, not erase it.
 4. **`EventNode`** in the Knowledge Graph, once events are produced at volume.
@@ -177,4 +189,5 @@ This file is the contract that infrastructure must satisfy, not the place it run
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-29 | CLAUDE | Record the System Backbone seam: the App reads and never appends, absence is reported before any count, and the membrane's status governs `live` |
 | 1.0.0 | 2026-09-29 | CLAUDE | AlphaEvent v1, adapter membrane with honest statuses, append-only ledger, activity/presence/notification projections |
