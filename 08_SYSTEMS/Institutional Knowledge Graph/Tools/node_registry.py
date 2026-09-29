@@ -251,8 +251,8 @@ def finalize_node_ids(nodes: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return sorted(nodes, key=lambda node: str(node["source_path"]).lower())
 
 
-def build_nodes(root: Path, include_hidden: bool = False) -> list[dict[str, Any]]:
-    notes = vault_validator.load_notes(root, include_hidden)
+def build_nodes(root: Path, include_hidden: bool = False, notes=None) -> list[dict[str, Any]]:
+    notes = vault_validator.load_notes(root, include_hidden) if notes is None else notes
     if not include_hidden:
         notes = [note for note in notes if note.relative_path.split("/", 1)[0] not in NON_CANONICAL_TOPS]
     return finalize_node_ids([make_node(note) for note in notes])

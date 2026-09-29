@@ -167,10 +167,10 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
-    office_view = office_spatial.build_office_view(root, council_state_path)
+def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None, brain=None) -> dict[str, Any]:
+    office_view = office_spatial.build_office_view(root, council_state_path, brain=brain)
     return {
-        "schema_version": "1.0.0-prototype",
+        "schema_version": "1.1.0-council-virtual-brain",
         "read_only": True,
         "classification_authority": "visual interpretation only; not institutional authority",
         "generated_at": role_registry.now_iso(),

@@ -70,11 +70,11 @@ def validate(nodes: list[dict[str, Any]], unresolved: list[dict[str, Any]]) -> l
     return sorted(findings, key=lambda item: (order.get(item["severity"], 9), item["code"], item["path"], item["message"]))
 
 
-def build(root: Path) -> dict[str, Any]:
+def build(root: Path, notes=None) -> dict[str, Any]:
     root = root.expanduser().resolve()
     if not root.is_dir():
         raise FileNotFoundError(f"Vault root not found: {root}")
-    nodes = node_registry.build_nodes(root, include_hidden=False)
+    nodes = node_registry.build_nodes(root, include_hidden=False, notes=notes)
     relationships, unresolved = relationship_extractor.extract_relationships(nodes)
     findings = validate(nodes, unresolved)
     severities = Counter(item["severity"] for item in findings)

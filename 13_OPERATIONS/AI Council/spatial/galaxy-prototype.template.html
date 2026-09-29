@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Alpha Proxima — Galactic Council (prototype)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Alpha Proxima — Council Virtual Brain</title>
 <style>
   :root{color-scheme:dark;--ink:#eef1f6;--muted:#93a2b8;--line:#232e42;--panel:#0c1220;
         --bg-top:#050810;--bg-bottom:#0a1330;--gold:#ffe1a8;--accent:#8fb3ff;--brain:#a48bff}
@@ -38,7 +38,7 @@
   #breadcrumb{pointer-events:auto;font-size:12px;color:var(--muted)}
   #breadcrumb button{background:none;border:none;color:var(--accent);font:inherit;cursor:pointer;padding:0}
   #breadcrumb button:focus-visible, .label:focus-visible, #search:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  #backBtn,#sessionsBtn{pointer-events:auto;background:rgba(12,18,32,.85);border:1px solid var(--line);color:var(--ink);
+  #backBtn,#sessionsBtn,#brainBtn,#consoleBtn{pointer-events:auto;background:rgba(12,18,32,.85);border:1px solid var(--line);color:var(--ink);
            border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer}
   #backBtn{display:none}
   #backBtn.shown{display:inline-block}
@@ -55,6 +55,7 @@
   #searchResults.shown{display:block}
   #searchResults div{padding:6px 10px;font-size:12px;cursor:pointer;border-bottom:1px solid var(--line)}
   #searchResults div:hover, #searchResults div:focus-visible{background:#182236}
+  #navHint{position:fixed;left:18px;bottom:22px;color:var(--muted);font-size:11px;letter-spacing:.02em;pointer-events:none;z-index:2}
 
   #panel{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:92vw;background:var(--panel);
          border-left:1px solid var(--line);padding:20px;overflow:auto;transform:translateX(100%);
@@ -81,6 +82,10 @@
                      font-size:11px;margin:10px 0}
   #panel .satellites{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
   #panel .satellite{background:#141d30;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:11px}
+  #panel .brain-category,#panel .node-card{width:100%;text-align:left;background:#111a2b;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:10px;margin:6px 0;cursor:pointer}
+  #panel .brain-category b,#panel .node-card b{display:block;font-size:13px}
+  #panel .node-card small{color:var(--muted);display:block;margin-top:3px}
+  #panel .source-link{display:inline-block;color:var(--accent);cursor:pointer;background:transparent;border:0;padding:0;text-align:left;font:inherit;text-decoration:underline}
 
   #fallback{display:none;position:fixed;inset:0;overflow:auto;padding:24px;background:var(--bg-top)}
   #fallback.shown{display:block}
@@ -92,21 +97,28 @@
 
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
   a{color:var(--accent)}
+
+  button,input,a{min-height:44px}input,textarea{font-size:16px!important}#panel{padding-top:64px;overflow-wrap:anywhere}#panel .close{min-width:44px;min-height:44px}.label{min-height:44px}#searchResults{top:52px;max-height:45vh}#searchResults div{padding:14px}#officeLink{display:none}
+  @media(max-width:650px){header{padding:12px;display:block}header h1{font-size:12px}header p{font-size:11px;margin:4px 0 8px;max-width:36ch}header>div:last-child{flex-wrap:wrap!important;margin-top:8px}#search{width:min(190px,55vw)}#panel{width:100%;max-width:100%;top:140px;border-radius:20px 20px 0 0;padding:54px 20px 24px}.label{font-size:10px;padding:6px;max-width:155px;white-space:normal;text-align:center}.label.lumiaion{font-size:11px}#fallback{padding-top:190px}.sr-only:focus-within{position:fixed;top:180px;left:12px;width:calc(100% - 24px);height:auto;max-height:45vh;overflow:auto;clip:auto;background:#0c1220;z-index:5}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <div id="scene"></div>
 <div id="hud"></div>
+<div id="navHint">Drag to move through the constellation · pinch or scroll to approach · tap a node to enter</div>
 <div id="fallback" role="region" aria-label="Council structure (no WebGL)"></div>
 
 <header>
   <div>
-    <h1>Alpha Proxima · Galactic Council <span style="color:var(--muted);font-weight:400">— prototype</span></h1>
-    <p>Read-only prototype. Seat placement and visual leads confer no institutional authority.</p>
+    <h1>Alpha Proxima · Council Virtual Brain</h1>
+    <p>Enter the living memory field. Explore the Council, its knowledge nodes, and the paths that connect them.</p>
     <nav id="breadcrumb" aria-label="Breadcrumb"></nav>
   </div>
   <div style="position:relative;pointer-events:auto;display:flex;gap:8px;align-items:center">
     <a id="officeLink" href="#" style="color:var(--accent);font-size:12px">← Council 3D Office</a>
+    <button id="brainBtn">Memory Brain</button>
+    <button id="consoleBtn">Operations</button>
     <button id="sessionsBtn">Council Sessions</button>
     <button id="backBtn">← Back to Council</button>
     <input id="search" type="text" placeholder="Search name, role, or skill…" aria-label="Search roles" autocomplete="off">
@@ -135,7 +147,9 @@ document.getElementById('officeLink').href = '/' + window.location.search;
 
 (function () {
   const galaxy = VIEW.galaxy;
+  const virtualBrain = VIEW.brain.virtual_brain;
   const DEPT_COLORS = [0x8fb3ff, 0xffb37a, 0x9be3c8, 0xd9a8ff, 0xffd47a, 0x7fd9e0, 0xff9d9d, 0xb8c4ff];
+  const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
 
   // ---------------------------------------------------------------------
   // WebGL availability check -- an honest fallback, not a silent failure.
@@ -208,7 +222,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // ---------------------------------------------------------------------
   const scene = new THREE.Scene();
   const aspect = window.innerWidth / window.innerHeight;
-  const frustum = 15;
+  const frustum = Math.max(15, 24 / aspect);
   const camera = new THREE.OrthographicCamera(-frustum * aspect, frustum * aspect, frustum, -frustum, 0.1, 300);
 
   const VIEWS = {
@@ -224,6 +238,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   function applyCamera() {
     camera.position.copy(cameraVectorFor(camState));
     camera.lookAt(camState.target);
+    camera.zoom = 32 / camState.dist;
+    camera.updateProjectionMatrix();
   }
   applyCamera();
 
@@ -501,16 +517,18 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     }
   });
 
-  let dragging = false, lastX = 0;
+  let dragging = false, lastX = 0, lastY = 0;
   const pointerScreen = { x: -9999, y: -9999 };
-  renderer.domElement.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; });
+  renderer.domElement.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
   window.addEventListener('mouseup', () => dragging = false);
   window.addEventListener('mousemove', e => {
     pointerScreen.x = e.clientX; pointerScreen.y = e.clientY;
     if (!dragging) return;
-    const delta = (e.clientX - lastX) * 0.004;
-    lastX = e.clientX;
-    camState.azimuth += delta;
+    const dx = (e.clientX - lastX) * 0.004;
+    const dy = (e.clientY - lastY) * 0.004;
+    lastX = e.clientX; lastY = e.clientY;
+    camState.azimuth += dx;
+    camState.elevation = Math.min(1.75, Math.max(-0.45, camState.elevation - dy));
     applyCamera();
   });
   renderer.domElement.addEventListener('wheel', e => {
@@ -530,7 +548,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
   renderer.domElement.addEventListener('touchstart', e => {
     if (e.touches.length === 1) {
-      dragging = true; lastX = e.touches[0].clientX;
+      dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
       pointerScreen.x = e.touches[0].clientX; pointerScreen.y = e.touches[0].clientY;
     } else if (e.touches.length === 2) {
       dragging = false;
@@ -543,9 +561,11 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       e.preventDefault();
       const t = e.touches[0];
       pointerScreen.x = t.clientX; pointerScreen.y = t.clientY;
-      const delta = (t.clientX - lastX) * 0.004;
-      lastX = t.clientX;
-      camState.azimuth += delta;
+      const dx = (t.clientX - lastX) * 0.004;
+      const dy = (t.clientY - lastY) * 0.004;
+      lastX = t.clientX; lastY = t.clientY;
+      camState.azimuth += dx;
+      camState.elevation = Math.min(1.75, Math.max(-0.45, camState.elevation - dy));
       applyCamera();
     } else if (e.touches.length === 2) {
       e.preventDefault();
@@ -566,7 +586,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
 
   window.addEventListener('resize', () => {
     const a = window.innerWidth / window.innerHeight;
-    camera.left = -frustum * a; camera.right = frustum * a;
+    const f = Math.max(15, 24 / a);
+    camera.left = -f * a; camera.right = f * a; camera.top = f; camera.bottom = -f;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
@@ -681,11 +702,66 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       '<div><b>' + brain.knowledge_nodes + '</b>knowledge nodes</div>' +
       '<div><b>' + brain.knowledge_findings + '</b>findings</div>' +
       '</div>' +
-      '<div class="field"><b>Truth Kernel health</b>' + brain.health_status + '</div>' +
+      '<div class="field"><b>Truth Kernel health</b>' + esc(brain.health_status) + '</div>' +
+      '<button class="primary" onclick="window.openVirtualBrain()">Open memory brain</button>' +
       '<div class="field"><b>Next command</b><div class="cmd" id="cmdText">ap.py app check --max-defects 0</div>' +
       '<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById(\'cmdText\').textContent)">Copy</button></div>';
     document.getElementById('panel').classList.add('open');
   }
+
+  // The Council's brain is intentionally a projection, never a replacement
+  // ledger or a second Vault. It shows source metadata only and routes a
+  // selected document back through the parent application's guarded reader.
+  function sourceNode(path, label) {
+    return '<button class="source-link" onclick=\'window.openBrainSource(decodeURIComponent("' + encodeURIComponent(String(path || '')) + '"))\'>' + esc(label || path) + '</button>';
+  }
+  window.openBrainSource = (path) => {
+    if (!path) return;
+    window.parent.postMessage({type: 'open-note', path}, window.location.origin);
+  };
+  window.openVirtualBrain = (category) => {
+    const brain = virtualBrain;
+    const body = document.getElementById('panelBody');
+    const nodes = category ? brain.nodes.filter(node => node.category === category) : [];
+    const coverage = brain.source.coverage_complete
+      ? 'Vault coverage complete for this projection.'
+      : brain.source.unavailable_count + ' iCloud note(s) are unavailable on this Mac and are not treated as indexed content.';
+    if (!category) {
+      body.innerHTML =
+        '<h2>Node Virtual Brain</h2>' +
+        '<div class="sub">Derived, read-only cognitive map · ' + esc(brain.authority) + '</div>' +
+        '<div class="brain-stats"><div><b>' + brain.source.full_node_count + '</b>source nodes</div><div><b>' + brain.source.full_relationship_count + '</b>source links</div><div><b>' + brain.nodes.length + '</b>visible nodes</div><div><b>' + brain.links.length + '</b>visible links</div></div>' +
+        '<div class="field"><b>Coverage</b>' + esc(coverage) + '</div>' +
+        '<div class="field"><b>Workspace</b>' + esc(brain.workspace.message) + '</div>' +
+        '<div class="field"><b>Explore by Vault domain</b>' + brain.categories.map(item =>
+          '<button class="brain-category" onclick=\'window.openVirtualBrain(decodeURIComponent("' + encodeURIComponent(item.id) + '"))\'><b>' + esc(item.id) + '</b><small>' + item.count + ' represented node(s)</small></button>').join('') + '</div>' +
+        (brain.truncated ? '<div class="demo-flag">This mobile view intentionally limits the spatial field. It preserves the full source counts and never implies omitted notes are absent.</div>' : '');
+    } else {
+      body.innerHTML =
+        '<h2>' + esc(category) + '</h2>' +
+        '<div class="sub">' + nodes.length + ' represented node(s) · metadata only</div>' +
+        '<button class="copy" onclick="window.openVirtualBrain()">← All memory domains</button>' +
+        nodes.map(node => '<button class="node-card" onclick=\'window.openBrainNode(decodeURIComponent("' + encodeURIComponent(node.id) + '"))\'><b>' + esc(node.title) + '</b><small>' + esc(node.type) + ' · ' + esc(node.status) + ' · ' + esc(node.path) + '</small></button>').join('');
+    }
+    document.getElementById('panel').classList.add('open');
+  };
+  window.openBrainNode = (id) => {
+    const node = virtualBrain.nodes.find(item => item.id === id);
+    if (!node) return;
+    const localLinks = virtualBrain.links.filter(link => link.source === id || link.target === id);
+    document.getElementById('panelBody').innerHTML =
+      '<h2>' + esc(node.title) + '</h2>' +
+      '<div class="sub">Knowledge node · source metadata</div>' +
+      '<div class="field"><b>Canonical source</b>' + sourceNode(node.path, node.path) + '</div>' +
+      '<div class="field"><b>Type / status</b>' + esc(node.type) + ' · ' + esc(node.status) + '</div>' +
+      '<div class="field"><b>Owner</b>' + esc(node.owner) + '</div>' +
+      '<div class="field"><b>Identity</b>' + esc(node.identity_stability) + ' · ' + node.finding_count + ' validation finding(s)</div>' +
+      '<div class="field"><b>Tags</b><div class="satellites">' + (node.tags.length ? node.tags.map(tag => '<span class="satellite">' + esc(tag) + '</span>').join('') : '<span class="sub">No indexed tags</span>') + '</div></div>' +
+      '<div class="field"><b>Visible relationships</b>' + localLinks.length + ' · derived from the Truth Kernel</div>' +
+      '<button class="copy" onclick=\'window.openVirtualBrain(decodeURIComponent("' + encodeURIComponent(node.category) + '"))\'>← Back to domain</button>';
+    document.getElementById('panel').classList.add('open');
+  };
+  document.getElementById('brainBtn').onclick = () => window.openVirtualBrain();
 
   // ---------------------------------------------------------------------
   // Council Sessions logistics panel -- every open session and its
@@ -693,6 +769,33 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // surfaced inside this scene instead of a separate console.
   // ---------------------------------------------------------------------
   document.getElementById('sessionsBtn').onclick = () => openSessionsPanel();
+  document.getElementById('consoleBtn').onclick = () => openOperationalConsole();
+  function openOperationalConsole() {
+    activeRole = null; activeDept = null;
+    renderBreadcrumb(); updateLabelVisibility();
+    const council = VIEW.council;
+    const counts = council.counts;
+    const active = council.sessions.filter(item => item.state !== 'complete');
+    const accountable = active.map(item => {
+      const role = findDesk(item.accountable_role);
+      return '<div class="session-card ' + esc(item.state) + '">' +
+        '<div class="meta">' + esc(item.session_id) + ' · ' + esc(item.state) + '</div>' +
+        '<div style="margin:4px 0 6px"><b>' + esc(item.founder_intent) + '</b></div>' +
+        '<div class="sub">Accountable: ' + esc(role ? role.named_role : item.accountable_role) + ' · Next: ' + esc(item.next_action) + '</div>' +
+        (item.assignments.length ? '<div class="field"><b>Verified delivery receipts</b>' + item.assignments.map(run =>
+          '<div class="run"><span class="badge state">' + esc(run.status) + '</span> ' + esc(run.id) + ' · ' + esc(run.deliverable) +
+          (run.output ? '<br><span class="sub">' + esc(run.output) + '</span>' : '') + '</div>').join('') + '</div>' : '') +
+      '</div>';
+    }).join('') || '<p class="sub">No active operational sessions.</p>';
+    document.getElementById('panelBody').innerHTML =
+      '<h2>Council Operations</h2>' +
+      '<div class="sub">Local operating console · canonical Council state</div>' +
+      '<div class="brain-stats"><div><b>' + counts.active + '</b>active</div><div><b>' + counts.founder_review + '</b>Founder review</div><div><b>' + counts.blocked + '</b>blocked</div><div><b>' + counts.total + '</b>total sessions</div></div>' +
+      '<div class="next field"><b>System next action</b>' + esc(council.next_action) + '</div>' +
+      '<div class="field"><b>Accountability and delivery</b>' + accountable + '</div>' +
+      '<div class="demo-flag">This is the local operational read model. It makes work and receipts visible; opening, assigning, and approving remain explicit Council Kernel actions.</div>';
+    document.getElementById('panel').classList.add('open');
+  }
   function openSessionsPanel() {
     activeRole = null; activeDept = null;
     renderBreadcrumb(); updateLabelVisibility();
