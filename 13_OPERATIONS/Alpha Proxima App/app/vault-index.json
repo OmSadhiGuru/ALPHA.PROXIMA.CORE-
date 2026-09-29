@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T22:44:59+00:00",
+  "generated_at": "2026-09-29T22:47:29+00:00",
   "note_count": 394,
   "domains": [
     {
@@ -6422,7 +6422,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1114,
+      "words": 1129,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -14847,7 +14847,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "68ff2eb2d5ed4be0291c17fa2b3afa46a3364c9956321efab7dc80ea088ba272",
+      "fingerprint": "0fe45e39a9dc0dc307a447ba283467793fe7db89b38ead456129729dcac08c2a",
       "note_count": 394
     },
     "health": {
@@ -14905,6 +14905,6 @@
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "c750ed79b1d38849adc6b53377c5c2f626a72dda72586c925c861df3b833b663"
+    "contract_fingerprint": "f9619760d748f14885d23e45ec252025b641293c6e2a5ec94a3af87ec3b73f2f"
   }
 }

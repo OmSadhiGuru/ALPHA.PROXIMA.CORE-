@@ -116,6 +116,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap research-check` | Generate Research Integrity Report |
 | `ap research-management` | Generate Research Management Toolkit dashboard, index, and lifecycle diagram |
 | `ap graph-colors` | Apply official Obsidian Graph View color groups |
+| `ap retrieve` | Search the Vault — lexical and structural, explicitly not semantic |
 | `ap node-registry` | Generate Institutional Knowledge Graph node registry |
 | `ap relationship-extract` | Generate Institutional Knowledge Graph relationship registry |
 | `ap founder` | Founder OS state engine and Founder Console V1 |
