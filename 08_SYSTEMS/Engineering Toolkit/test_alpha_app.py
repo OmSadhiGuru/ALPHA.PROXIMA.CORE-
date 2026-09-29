@@ -527,5 +527,208 @@ class TestReachabilityGate(unittest.TestCase):
         self.assertIn("hmac.compare_digest", source)
 
 
+# ==========================================================================
+# Phase C -- the live layer reaching the System Backbone
+# ==========================================================================
+
+# A real Truth Kernel contract over a real (tiny) vault, built once.
+#
+# Deliberately not a hand-written stub: a stub of another module's output is a
+# second, unversioned copy of that module's schema, and it rots silently the
+# first time the Kernel adds a key.
+_KERNEL: dict = {}
+
+
+def kernel() -> dict:
+    if not _KERNEL:
+        _KERNEL.update(app.truth_kernel.build(vault(tempfile.mkdtemp())))
+    return _KERNEL
+
+
+def unavailable(reason: str = "not installed") -> dict:
+    return {"availability": "unavailable", "detail": reason, "view": None}
+
+
+class TestLiveLayerAvailability(unittest.TestCase):
+    """Absence is not silence. Zeros are a measurement; nothing was measured."""
+
+    def test_unavailable_layer_yields_null_counts_never_zero(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel(), unavailable())
+        counts = backbone["counts"]
+        self.assertIsNone(counts["events"])
+        self.assertIsNone(counts["unread_notifications"])
+        self.assertIsNone(counts["actors_working"])
+        self.assertEqual(backbone["live"]["availability"], "unavailable")
+
+    def test_the_reason_survives_into_the_contract(self):
+        backbone = app.build_system_backbone(
+            fos.empty_state(), kernel(), unavailable("ledger is a directory"))
+        self.assertIn("directory", backbone["live"]["detail"])
+        self.assertIn("directory", backbone["activity"]["detail"])
+
+    def test_a_real_read_reports_available(self):
+        live = app.read_live_layer()
+        self.assertIn(live["availability"], ("available", "unavailable", "error"))
+        if live["availability"] == "available":
+            self.assertIsNotNone(live["view"])
+
+    def test_a_damaged_ledger_is_readable_and_says_so(self):
+        """The ledger skips what it cannot parse. Skipping silently is the bug."""
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "event-ledger.jsonl"
+            bad.write_text("{not json at all\n", encoding="utf-8")
+            live = app.read_live_layer(ledger_path=bad)
+            # It reads — a torn write must not make history unreadable.
+            self.assertEqual(live["availability"], "available")
+            # But the loss is reported, not swallowed.
+            self.assertTrue(live["degraded"])
+            self.assertEqual(live["damaged_lines"], [1])
+            self.assertIn("lost", live["detail"])
+
+    def test_damage_reaches_the_backbone_contract(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "event-ledger.jsonl"
+            bad.write_text("{torn\n{also torn\n", encoding="utf-8")
+            live = app.read_live_layer(ledger_path=bad)
+            backbone = app.build_system_backbone(fos.empty_state(), kernel(), live)
+            self.assertTrue(backbone["live"]["degraded"])
+            self.assertEqual(backbone["live"]["damaged_lines"], [1, 2])
+
+    def test_a_healthy_ledger_is_not_reported_degraded(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            good = Path(tmp) / "event-ledger.jsonl"
+            good.write_text("", encoding="utf-8")
+            live = app.read_live_layer(ledger_path=good)
+            self.assertEqual(live["availability"], "available")
+            self.assertFalse(live["degraded"])
+            self.assertEqual(live["damaged_lines"], [])
+
+
+class TestBackboneRemainsBackwardCompatible(unittest.TestCase):
+    """Phase C extends the contract. It may not move a key a consumer reads."""
+
+    V1_KEYS = ("mode", "canonical_sources", "systems", "departments",
+               "attention", "counts", "truth_kernel")
+
+    def test_every_1_0_0_key_survives(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel(), unavailable())
+        for key in self.V1_KEYS:
+            self.assertIn(key, backbone, f"{key} was removed — consumers break")
+        for key in ("systems", "connected_systems", "departments",
+                    "attention_signals", "knowledge_nodes", "knowledge_findings"):
+            self.assertIn(key, backbone["counts"])
+
+    def test_schema_version_is_an_additive_minor_bump(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel(), unavailable())
+        self.assertEqual(backbone["schema_version"], "1.1.0")
+
+    def test_backbone_still_builds_with_two_arguments(self):
+        """`alpha_spatial` calls it positionally. That call must keep working."""
+        backbone = app.build_system_backbone(fos.empty_state(), kernel())
+        self.assertEqual(backbone["mode"], "read_only")
+
+    def test_the_four_directive_sections_are_present(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel(), unavailable())
+        for key in ("activity", "presence", "integration_health", "notification_summary"):
+            self.assertIn(key, backbone)
+
+
+class TestIntegrationHealth(unittest.TestCase):
+    """Two registers of integrations will drift. The drift is the signal."""
+
+    def state_with(self, name: str, status: str) -> dict:
+        state = fos.empty_state()
+        state["integrations"].append(
+            {"id": "INT-001", "name": name, "kind": "signal", "status": status})
+        return state
+
+    def health(self, state: dict) -> dict:
+        return app.build_integration_health(state, app.read_live_layer())
+
+    def row(self, health: dict, source: str) -> dict:
+        return next(r for r in health["integrations"] if r["source"] == source)
+
+    def test_declared_adapters_appear_even_when_unregistered(self):
+        health = self.health(fos.empty_state())
+        self.assertEqual(self.row(health, "github")["registered_in"], "adapter_only")
+
+    def test_founder_registration_without_an_adapter_is_surfaced_not_hidden(self):
+        health = self.health(self.state_with("Voice Capture", "planned"))
+        self.assertEqual(self.row(health, "voice_capture")["registered_in"], "founder_only")
+
+    def test_the_weaker_claim_wins_a_conflict(self):
+        """Founder OS believing GitHub is connected does not make a delivery happen."""
+        health = self.health(self.state_with("GitHub", "connected"))
+        row = self.row(health, "github")
+        self.assertEqual(row["founder_status"], "connected")
+        self.assertNotEqual(row["status"], "connected")
+        self.assertTrue(row["conflict"])
+
+    def test_nothing_counts_as_live_without_an_adapter_to_carry_it(self):
+        """The Founder's own setup may be connected; the membrane still is not."""
+        health = self.health(self.state_with("Obsidian Vault", "connected"))
+        row = self.row(health, "obsidian_vault")
+        self.assertEqual(row["status"], "connected")
+        self.assertFalse(row["live"])
+
+    def test_the_shipped_foundation_claims_nothing_live(self):
+        state = fos.load_state(fos.DEFAULT_STATE)
+        self.assertEqual(self.health(state)["counts"]["live"], 0)
+
+    def test_founder_vocabulary_is_translated_in_the_open(self):
+        self.assertEqual(app.translate_founder_status("not_connected"), "disconnected")
+        self.assertEqual(app.translate_founder_status("connected"), "connected")
+
+    def test_every_founder_state_is_translatable(self):
+        """A vocabulary that grows on one side must fail loudly, not be skipped."""
+        for status in fos.INTEGRATION_STATES:
+            self.assertNotEqual(
+                app.translate_founder_status(status), "unknown",
+                f"{status!r} has no adapter-vocabulary equivalent")
+
+    def test_every_adapter_status_can_be_ranked(self):
+        """A comparison must not meet a status word it cannot rank."""
+        modules = app.live_modules()
+        if not modules.get("available"):
+            self.skipTest("live layer unavailable")
+        for status in modules["adapters"].STATUSES:
+            self.assertIn(status, app._STATUS_CONFIDENCE,
+                          f"{status!r} has no confidence rank — conflicts would crash")
+
+    def test_an_unknown_status_is_reported_rather_than_guessed(self):
+        health = self.health(self.state_with("GitHub", "on_fire"))
+        row = self.row(health, "github")
+        self.assertTrue(row["untranslatable_status"])
+        self.assertTrue(row["conflict"])
+
+    def test_health_degrades_honestly_when_the_layer_is_unavailable(self):
+        health = app.build_integration_health(
+            fos.load_state(fos.DEFAULT_STATE), unavailable())
+        self.assertEqual(health["availability"], "unavailable")
+        # Founder-registered integrations still appear; none can be live.
+        self.assertTrue(health["counts"]["founder_only"] > 0)
+        self.assertEqual(health["counts"]["live"], 0)
+
+
+class TestBackboneSummaries(unittest.TestCase):
+    def test_activity_is_bounded_not_the_whole_feed(self):
+        """A control contract is not a mailbox; it must not grow without bound."""
+        backbone = app.build_system_backbone(
+            fos.empty_state(), kernel(), app.read_live_layer())
+        self.assertLessEqual(len(backbone["activity"]["items"]), 10)
+
+    def test_the_app_writes_nothing_through_the_live_layer(self):
+        """The App is a presentation layer. Single-writer discipline holds."""
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        for forbidden in (".append_event(", ".record_success(", ".record_failure(",
+                          ".mark_read(", ".notify(", ".set_presence("):
+            self.assertNotIn(forbidden, source,
+                             f"the App must not call {forbidden} — one writer per store")
+
+    def test_the_backbone_route_reads_the_servers_own_paths(self):
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        self.assertIn("read_live_layer(ledger_path, live_state_path, registry_path)", source)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

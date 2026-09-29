@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T16:03:24+00:00",
+  "generated_at": "2026-09-29T16:25:46+00:00",
   "note_count": 389,
   "domains": [
     {
@@ -5692,7 +5692,7 @@
       "domain": "08_SYSTEMS",
       "type": "architecture-specification",
       "status": "draft",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "Claude",
@@ -5710,7 +5710,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 2655,
+      "words": 2870,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -5722,7 +5722,7 @@
         "08-systems-foundational-architecture-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "08-systems-alpha-proxima-operating-model-v1-0-md",
@@ -7134,7 +7134,7 @@
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -9232,7 +9232,7 @@
       "domain": "13_OPERATIONS",
       "type": "architecture-specification",
       "status": "active",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Architecture",
       "engine": "Claude",
@@ -9249,9 +9249,9 @@
         "lumiaion",
         "alpha-proxima"
       ],
-      "updated": "2026-09-10",
+      "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3120,
+      "words": 3742,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
@@ -9261,10 +9261,12 @@
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
         "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-institutional-knowledge-graph-tools-tool-014-truth-kernel-md",
+        "08-systems-alpha-proxima-live-integration-layer-md",
         "13-operations-alpha-proxima-app-readme-md",
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
         "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
         "08-systems-engineering-standards-03-folder-naming-convention-md",
+        "08-systems-institutional-knowledge-graph-institutional-node-taxonomy-v1-md",
         "13-operations-founder-os-founder-console-md",
         "13-operations-founder-os-readme-md",
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
@@ -14677,7 +14679,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "7aefff591f0eae31dd66d1f9870348a5716402c46b82d5baf2725bdea43d219f",
+      "fingerprint": "16c133d93d7436b1683cf2fbe339ac2bee3d0f41ee556aab28426320cf8aad31",
       "note_count": 389
     },
     "health": {
@@ -14692,7 +14694,7 @@
     "counts": {
       "nodes": 389,
       "entities": 42,
-      "relationships": 2726,
+      "relationships": 2729,
       "entity_relationships": 496,
       "template_placeholders": 12,
       "unresolved_relationships": 265,
@@ -14728,13 +14730,13 @@
         "OWNED_BY": 2,
         "PART_OF": 163,
         "PRODUCED_BY": 96,
-        "REFERENCES": 1625,
+        "REFERENCES": 1626,
         "RELATED_TO": 504,
-        "REQUIRES": 319,
+        "REQUIRES": 321,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "df630e0b665028fdb5907539b76a4386e0735c7c6f605ae83819e23beb61636a"
+    "contract_fingerprint": "32ca1f2a2e2d944e29207a9ebb2baa182f6d6b350d486880c29e8dd64e4c4590"
   }
 }

@@ -5,7 +5,7 @@ tags: [systems, architecture, live-integration, events, adapters, notifications,
 created: 2026-09-29
 updated: 2026-09-29
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 authors: ["Claude — Chief Knowledge Architect"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -358,6 +358,17 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 - [[07 - Automation Standard]] — the approval boundary this respects
 - [[12 - Continuous Integration Standard]] — the zero-dependency gate
 
+## Consumed by the System Backbone
+
+`/api/v1/system-backbone` reached **schema 1.1.0** by surfacing these projections through the existing contract rather than a competing one — see [[Alpha Proxima App Architecture v1]] §7.2.1. Three properties of that seam belong here, because they constrain this layer.
+
+**The App reads and never writes.** `alpha_app` loads these modules for projections only. A test asserts the App calls none of `append_event`, `record_success`, `record_failure`, `mark_read`, `notify` or `set_presence` — one writer per store, enforced rather than intended.
+
+**Absence is reported before any count.** `live_modules()` already degrades honestly when the layer will not load; the backbone now carries that upward as `available` / `unavailable` / `error` and emits `null` counts where nothing was measured. *Never report calm without having looked* is the same rule as *never claim connected without an observed delivery*, applied to time instead of connectivity.
+
+**A skipped line is now a reported line.** `EventLedger.__iter__` skips what it cannot parse so a torn final write cannot make the history unreadable, and `damaged_lines()` makes the loss reportable. Until 1.1.0 nothing reported it, so a lossy ledger presented as healthy. The backbone now carries `live.degraded` and `live.damaged_lines`, and states that events on those lines are lost to every projection. The design was already right; what was missing was somebody asking the question.
+
+---
 ## Version History
 
 | Version | Date | Change |
