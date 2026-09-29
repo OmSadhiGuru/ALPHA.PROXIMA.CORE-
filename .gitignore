@@ -18,3 +18,7 @@ __pycache__/
 
 # Node
 node_modules/
+
+# Live Core operational state — events are operational, not canon.
+# The Markdown vault remains the Foundation's truth.
+13_OPERATIONS/Alpha Proxima App/live/*.jsonl

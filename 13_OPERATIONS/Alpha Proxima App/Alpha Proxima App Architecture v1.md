@@ -3,16 +3,16 @@ title: "Alpha Proxima App Architecture v1"
 aliases: ["Alpha Proxima App", "App Architecture", "Alpha Proxima App Architecture", "The App"]
 tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lumiaion, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-10
+updated: 2026-09-29
 status: active
-version: "1.3.0"
+version: "1.4.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
-dependencies: ["[[Founder OS Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
-related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]", "[[12 - Continuous Integration Standard]]"]
+dependencies: ["[[Founder OS Architecture v1]]", "[[Live Core Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
+related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Institutional Node Taxonomy v1]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
 
@@ -165,13 +165,61 @@ No endpoint writes to the Vault. Every response carries source or contract finge
 
 This endpoint is the systematic base for the spatial LUMIAION interface. A named system is not presented as connected until its adapter exists and the canonical Founder state records `connected`. Future adapters publish into the existing single-writer state contract; they do not write directly to the interface or create parallel stores.
 
+### 7.2.1 Schema 1.1.0 — the backbone acquires time
+
+Until now the backbone described **structure**: what exists, who owns it, what needs the Founder. [[Live Core Architecture v1]] gave the Foundation a contract for *when*, and 1.1.0 carries it into the same document rather than standing up a competing one.
+
+The bump is **additive only**. Every 1.0.0 key keeps its name, shape and meaning, and a test enumerates them so a future edit that moves one fails rather than ships. Four sections are added:
+
+| Section | Answers |
+|---|---|
+| `activity` | What has been happening — bounded summary, full stream at `/api/v1/activity` |
+| `presence` | Who is working right now, with expiry already applied |
+| `integration_health` | Which integrations the two registers agree on, and where they differ |
+| `notification_summary` | Whether anything is waiting, and how urgently |
+
+#### Absence is not silence
+
+A ledger that does not exist and a ledger that is healthy but quiet both produce zero events. They mean opposite things. So availability is reported before any count is — `available`, `unavailable`, or `error` with its reason — and where the live layer could not be read the counts are `null`, never `0`.
+
+Zero is a measurement. Reporting it when nothing was measured teaches the Founder that an empty feed means calm, precisely when it does not. This is the same discipline `event_adapters` applies in refusing to claim `connected` without verification, one layer up: **never report calm without having looked.**
+
+A corrupt ledger line is reported with its reason, never degraded into zeros. A gap that is reported can be repaired; a gap that is hidden compounds.
+
+#### Two registers of integrations, reconciled in the open
+
+Founder OS records what the Founder has **registered**. `event_adapters` records what the membrane can actually **normalize**. Two lists maintained by two processes drift, and the drift is the useful signal — an integration the Founder believes exists but no adapter declares is a gap in the plan; an adapter nobody registered is a gap in the record.
+
+Neither register is overwritten. Where they disagree, three rules apply:
+
+1. **The weaker claim is reported.** Registration is an intention; a verified adapter is evidence. Intention never outranks evidence — Founder OS believing GitHub is connected does not make an adapter exist.
+2. **`live` requires an adapter.** `connected` in Founder OS is the Founder's record of their own working setup; Obsidian is genuinely in use. `live` means the event membrane can carry this provider's events, which takes an implemented, verified adapter. These are two different sentences, and conflating them would reintroduce exactly the dishonesty the adapter registry refuses.
+3. **Vocabulary is translated in the open.** The two registers grew their status words separately and differ on one (`not_connected` ⇄ `disconnected`). The mapping is explicit and test-enforced against the Founder OS vocabulary, so a word added on one side fails loudly instead of being silently skipped.
+
+At the time of writing the Foundation reports **0 live of 19, 0 verified, 2 conflicts**. That is the honest number.
+
+#### The generated file carries counts, never live bodies
+
+`app.html` is a generated artifact that lives in git, and two things follow from that.
+
+**A static snapshot of a live feed is a lie with a timestamp.** An `app.html` rendered on Monday would still say *"CODEX is coding"* on Friday, from a file, with nothing running. That is fabricated realtime activity, and it is worse than an empty panel because it is confident.
+
+**The ledger is git-ignored operational state.** Inlining its contents into a committed file would move it into canon through the back door — the boundary [[Live Core Architecture v1]] exists to hold.
+
+So `render` keeps every live **count** and the availability that qualifies it, and drops the event, actor and notification **bodies** — the things that go stale — marking each section `static` with a note pointing at `serve`. `serve` is unaffected: it reads the ledger per request and shows everything. A test renders a ledger containing a distinctive entity id and asserts it appears nowhere in the output while the count still does.
+
 ### 7.3 API stability and compatibility
 
 | Endpoint | Status | Intended consumer |
 |---|---|---|
 | `/api/v1/app` | Stable, versioned | Complete LUMIAION, spatial, voice, and accessibility read model |
 | `/api/app` | Compatibility alias | Existing clients; new clients use `/api/v1/app` |
-| `/api/v1/system-backbone` | Stable, versioned | System topology, connectivity, attention, and knowledge health |
+| `/api/v1/system-backbone` | Stable, versioned (1.1.0) | System topology, connectivity, attention, knowledge health, and the live layer |
+| `/api/v1/live` | Stable, versioned | Composed live read model — activity, presence, notifications |
+| `/api/v1/activity` | Stable, versioned | The event stream |
+| `/api/v1/presence` | Stable, versioned | Current activity, with expiry applied at read time |
+| `/api/v1/notifications` | Stable, versioned | The notification feed and badge |
+| `/api/v1/integrations` | Stable, versioned | Reconciled integration health |
 | `/api/v1/truth-kernel`, `/nodes`, `/relationships`, `/validation`, `/health` | Stable, versioned | Deterministic graph consumers |
 | `/api/view`, `/api/vault` | Diagnostic compatibility endpoints | Local inspection only; not a client contract |
 | `/api/truth-kernel` | Legacy compatibility alias | Local inspection only; new clients use `/api/v1/truth-kernel` |
@@ -225,6 +273,9 @@ The chakra mapping recorded in [[Founder OS Architecture v1]] §7 remains a **pr
 | Python 3 standard library | Runtime. Nothing else. |
 | `founder_os.py` | Read model for the Operate half. Imported, never mutated. |
 | `vault_validator.py` | Markdown discovery and frontmatter parsing. Shared, not reimplemented. |
+| `event_ledger.py` | The live projections. Read-only to this module — the App appends nothing. |
+| `event_adapters.py` | The declared integration registry, for reconciliation against Founder OS. |
+| The event ledger | Operational state, git-ignored. Optional: absent is a reported state, not an error. |
 | `founder-state.json` | Canonical Founder state. Read-only to this module. |
 | The vault's Markdown notes | Canonical knowledge. Read-only to this module. |
 | A browser | Any browser from the last decade. No specific engine. |
@@ -240,6 +291,8 @@ The chakra mapping recorded in [[Founder OS Architecture v1]] §7 remains a **pr
 - [[Book III - Knowledge Integrity]] — the constitutional basis for coherence reporting
 - [[03 - Folder Naming Convention]] — the hierarchy the domain map measures against
 - [[CN-001 Execution Tracker]] — owner of every repair this app reports
+- [[Live Core Architecture v1]] — the event, adapter and ledger contracts the backbone surfaces
+- [[Institutional Node Taxonomy v1]] — the entity model `actor_id` resolves against
 
 ---
 
@@ -252,8 +305,12 @@ $AP show      # both halves, in the terminal
 $AP render    # regenerate app.html and vault-index.json
 $AP check     # coherence defects against a ceiling
 $AP serve     # http://127.0.0.1:8788/
-# GET /api/v1/system-backbone  # normalized systems, departments, attention, knowledge health
+# GET /api/v1/system-backbone  # structure and time, in one document (schema 1.1.0)
+# GET /api/v1/live              # activity, presence, notifications
+# GET /api/v1/integrations      # the two registers, reconciled
 open "13_OPERATIONS/Alpha Proxima App/app/app.html"
+
+$AP --ledger <path> show   # read a ledger other than the default
 
 # Off-host (e.g. a phone, over Tailscale) -- refused without a token (FD-002):
 export ALPHA_APP_TOKEN="$(python3 -c 'import secrets; print(secrets.token_urlsafe(24))')"
@@ -277,6 +334,26 @@ Performed 2026-09-01 on `main` at `99c081e`.
 
 No institutional note was created, modified, moved, or deleted by the app. The only pre-existing file changed by this work is `ap.py`, which gained one registry line.
 
+### Schema 1.1.0 — verified 2026-09-29
+
+| Check | Result |
+|---|---|
+| App engine tests | **74 passed** (23 added for the live layer) |
+| Full toolkit regression | **270 across 10 suites**, 247 existing unchanged |
+| Backward compatibility | every 1.0.0 key enumerated and asserted present |
+| `alpha_spatial.py`, the existing two-argument consumer | builds unchanged, reports 1.1.0 |
+| App coherence | **123 / 123** — ceiling untouched |
+| Missing ledger | `unavailable`; counts `null`, never `0` |
+| Corrupt ledger | `error` with the reason; never degraded to zeros |
+| Presence past TTL | dropped from `live`, reported `offline`, `claimed_state` retained |
+| Badge on 4 events (2 info, 1 presence, 1 critical) | **1** — volume ignored |
+| Integration health on the shipped Foundation | **0 live of 19, 0 verified, 2 conflicts** |
+| The App appends nothing to the ledger | asserted by test |
+| No event body reaches the rendered `app.html` | asserted by test; counts survive |
+| Every Phase C endpoint over loopback | `200`; unknown route `404` |
+
+Zero dependencies added. Standard library only.
+
 ---
 
 ## Future Improvements
@@ -295,6 +372,9 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 - Do the seven uncanonical folders get relocated, chartered in place, or archived? Three of them (`OSG_LAUNCH`, `OSG_BUSINESS`, `ALPHA PROXIMA`) hold 70 documents between them. This is CN-001's decision, and the largest single lever on the connectedness number.
 - Should coherence defects become Founder OS `blockers` automatically, so repair work enters the operating half instead of living only in a report?
 - Is 90.8% connectedness acceptable as a long-term floor, or does the Foundation commit to a target?
+- **The two integration registers name the same thing differently.** Founder OS has `Obsidian Vault`; the adapter registry declares `obsidian`. They do not reconcile, and they should not be reconciled by fuzzy matching — guessing that two similar names are one integration is the same error as inventing a graph edge. Either the Founder OS register adopts the adapter slug or the adapter registry adopts the Founder's label. This is a naming decision, not a code one.
+- **Should `integration_health` conflicts become Founder-attention signals?** Two registers disagreeing about GitHub is a fact the Founder would probably want surfaced beside blockers, not only inside a JSON section.
+- **Where do `read_keys` live?** The badge counts *unread* notifications, but nothing yet records what the Founder has read. Until it does, the badge counts everything meaningful forever. This is the first thing Phase H must settle.
 
 ---
 
@@ -302,6 +382,7 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.4.0 | 2026-09-29 | CLAUDE | System Backbone 1.1.0: strip live bodies from the generated file; additively add `activity`, `presence`, `integration_health` and `notification_summary`; report live-layer availability before any count; reconcile the two integration registers without overwriting either |
 | 1.3.0 | 2026-09-10 | Founder / CLAUDE | Add the FD-002 reachability gate: a non-loopback bind is refused without a token; every response is token-gated with a constant-time check |
 | 1.2.0 | 2026-09-09 | Founder / CODEX | Add the System Backbone contract, version the composed app endpoint, classify compatibility routes, and retire raw `/api/state` exposure |
 | 1.1.0 | 2026-09-03 | CODEX | Add the deterministic Truth Kernel read contract and interface projection |

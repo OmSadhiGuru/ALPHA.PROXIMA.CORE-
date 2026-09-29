@@ -100,6 +100,9 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 013 | active | [[Tool 013 - Alpha Proxima App]] | `08_SYSTEMS/Engineering Toolkit/alpha_app.py` |
 | 014 | draft | [[Tool 014 - Council Session Kernel]] | `08_SYSTEMS/Engineering Toolkit/council_kernel.py` |
 | 015 | active | [[Institutional Node Taxonomy v1]] | `08_SYSTEMS/Engineering Toolkit/entity_registry.py` |
+| 016 | active | [[Live Core Architecture v1]] | `08_SYSTEMS/Engineering Toolkit/alpha_event.py` |
+| 017 | active | [[Live Core Architecture v1]] | `08_SYSTEMS/Engineering Toolkit/event_adapters.py` |
+| 018 | active | [[Live Core Architecture v1]] | `08_SYSTEMS/Engineering Toolkit/event_ledger.py` |
 
 ## CLI Commands
 
@@ -121,6 +124,10 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap founder` | Founder OS state engine and Founder Console V1 |
 | `ap app` | Alpha Proxima App — the operate and know halves, and coherence reporting |
 | `ap entities` | Canonical identity for actors that are not documents (Node Taxonomy) |
+| `ap event` | AlphaEvent v1 contract — schema and validation |
+| `ap adapters` | Provider adapter contract and integration registry |
+| `ap live` | Append-only event ledger and the live projections |
+| `ap spatial` | System Backbone contract as Markdown or JSON — its first consumer |
 
 ---
 
