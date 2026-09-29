@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import re
 import sys
 from collections import Counter, defaultdict
@@ -118,17 +119,21 @@ def is_template_note(note: Note) -> bool:
 
 
 def iter_files(root: Path, include_hidden: bool) -> Iterable[Path]:
-    for path in root.rglob("*"):
-        if not path.is_file():
-            continue
-        relative_path = path.relative_to(root)
-        if any(relative_path.is_relative_to(skipped) for skipped in SKIPPED_DIRS):
-            continue
-        if not include_hidden and any(
-            part in HIDDEN_DIRS or part in TOOL_MANAGED_DIRS or part.startswith(".") for part in relative_path.parts
-        ):
-            continue
-        yield path
+    # Prune before descending: hidden caches may contain hundreds of thousands
+    # of files. Filtering after rglob visits those files on every API read.
+    for directory, dirs, files in os.walk(root, followlinks=False):
+        base = Path(directory)
+        dirs[:] = [name for name in dirs
+                   if not (base / name).is_symlink()
+                   and not any((base / name).relative_to(root).is_relative_to(skipped)
+                               for skipped in SKIPPED_DIRS)
+                   and (include_hidden or not (name.startswith(".") or name in HIDDEN_DIRS or name in TOOL_MANAGED_DIRS))]
+        for name in files:
+            path = base / name
+            if not include_hidden and (name.startswith(".") or name in TOOL_MANAGED_DIRS):
+                continue
+            if path.is_file() and path.resolve().is_relative_to(root.resolve()):
+                yield path
 
 
 def markdown_files(root: Path, include_hidden: bool) -> list[Path]:
