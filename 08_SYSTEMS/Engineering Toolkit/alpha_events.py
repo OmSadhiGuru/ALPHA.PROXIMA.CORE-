@@ -79,6 +79,7 @@ SOURCES = (
     "gemini",
     "perplexity",
     "pocket_ai",
+    "omi",
     "obsidian",
     "google_drive",
     "google_calendar",

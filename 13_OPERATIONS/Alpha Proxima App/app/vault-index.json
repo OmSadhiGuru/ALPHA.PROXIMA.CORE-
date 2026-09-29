@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T16:45:18+00:00",
-  "note_count": 390,
+  "generated_at": "2026-09-29T22:37:32+00:00",
+  "note_count": 393,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -78,7 +78,7 @@
       "id": "13_OPERATIONS",
       "name": "Operations",
       "question": "What is happening now",
-      "count": 36
+      "count": 39
     },
     {
       "id": "14_FUTURE",
@@ -5727,7 +5727,7 @@
       "domain": "08_SYSTEMS",
       "type": "architecture-specification",
       "status": "draft",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "Claude",
@@ -5745,7 +5745,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3123,
+      "words": 3995,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -6422,7 +6422,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1114,
+      "words": 1130,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -7155,7 +7155,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 1132,
+      "words": 1252,
       "links": [
         "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "03-ai-council-cognitive-function-registry-md",
@@ -7164,8 +7164,8 @@
         "13-operations-ai-council-agent-and-subagent-registry-md",
         "00-constitution-book-i-the-constitution-md",
         "03-ai-council-engine-registry-md",
-        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
         "08-systems-institutional-knowledge-graph-node-taxonomy-md",
+        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md"
       ],
       "unresolved": [],
@@ -9252,7 +9252,7 @@
       ],
       "updated": "2026-09-17",
       "has_frontmatter": true,
-      "words": 856,
+      "words": 1480,
       "links": [
         "13-operations-ai-council-agent-and-subagent-registry-md",
         "08-systems-engineering-toolkit-tool-014-council-session-kernel-md"
@@ -9305,7 +9305,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 13
+      "backlinks": 16
     },
     {
       "id": "13-operations-alpha-proxima-app-readme-md",
@@ -9345,6 +9345,97 @@
       ],
       "unresolved": [],
       "backlinks": 4
+    },
+    {
+      "id": "13-operations-alpha-proxima-app-unified-md",
+      "path": "13_OPERATIONS/Alpha Proxima App/UNIFIED.md",
+      "title": "Alpha Proxima Unified Interface",
+      "domain": "13_OPERATIONS",
+      "type": "implementation-guide",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Engineering Office",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "app",
+        "interface",
+        "founder-os"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 450,
+      "links": [
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "13-operations-founder-os-founder-os-architecture-v1-md"
+      ],
+      "unresolved": [],
+      "backlinks": 2
+    },
+    {
+      "id": "13-operations-alpha-proxima-app-universe-agents-md",
+      "path": "13_OPERATIONS/Alpha Proxima App/universe/AGENTS.md",
+      "title": "Alpha Proxima Universe Prototype Instructions",
+      "domain": "13_OPERATIONS",
+      "type": "implementation-guide",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Engineering Office",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "Founder",
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "app",
+        "interface",
+        "prototype"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 1294,
+      "links": [
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "13-operations-alpha-proxima-app-unified-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
+    },
+    {
+      "id": "13-operations-alpha-proxima-app-universe-third-party-md",
+      "path": "13_OPERATIONS/Alpha Proxima App/universe/THIRD_PARTY.md",
+      "title": "Alpha Proxima Universe Third Party Sources",
+      "domain": "13_OPERATIONS",
+      "type": "provenance-record",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Engineering Office",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "app",
+        "provenance",
+        "prototype"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 124,
+      "links": [
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "13-operations-alpha-proxima-app-unified-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
     },
     {
       "id": "13-operations-annual-reviews-annual-reviews-index-md",
@@ -9703,7 +9794,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 6
     },
     {
       "id": "13-operations-founder-os-readme-md",
@@ -13620,9 +13711,9 @@
     }
   ],
   "coherence": {
-    "note_count": 390,
-    "connected": 371,
-    "connectedness": 0.9513,
+    "note_count": 393,
+    "connected": 374,
+    "connectedness": 0.9517,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -14314,6 +14405,10 @@
         3
       ],
       [
+        "implementation-guide",
+        3
+      ],
+      [
         "readme",
         3
       ],
@@ -14410,10 +14505,6 @@
         1
       ],
       [
-        "implementation-guide",
-        1
-      ],
-      [
         "engineering-policy",
         1
       ],
@@ -14503,6 +14594,10 @@
       ],
       [
         "design-prototype-note",
+        1
+      ],
+      [
+        "provenance-record",
         1
       ],
       [
@@ -14597,7 +14692,7 @@
     "status": [
       [
         "active",
-        212
+        215
       ],
       [
         "ratified",
@@ -14716,25 +14811,25 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "2eebfea8dc87238b6d0535fe6410497364b6b054b7ea1162851f821c6803db6e",
-      "note_count": 390
+      "fingerprint": "886b9a8f5ac4b9a1985a459ba9796c1117bbf3da9dce9d1dd3b1b13c1cb7e059",
+      "note_count": 393
     },
     "health": {
       "status": "attention",
       "counts": {
         "errors": 20,
-        "warnings": 1011,
+        "warnings": 1000,
         "info": 12,
-        "findings": 1043
+        "findings": 1032
       }
     },
     "counts": {
-      "nodes": 390,
+      "nodes": 393,
       "entities": 42,
-      "relationships": 2736,
-      "entity_relationships": 498,
+      "relationships": 2768,
+      "entity_relationships": 501,
       "template_placeholders": 12,
-      "unresolved_relationships": 265,
+      "unresolved_relationships": 248,
       "node_types": {
         "canonical_synthesis": 4,
         "charter": 13,
@@ -14753,7 +14848,7 @@
         "standard": 40,
         "standing_order": 13,
         "theory": 9,
-        "unknown": 184
+        "unknown": 187
       },
       "entity_types": {
         "agent": 32,
@@ -14764,16 +14859,16 @@
       "relationship_types": {
         "EXTENDS": 2,
         "IMPLEMENTS": 11,
-        "OWNED_BY": 2,
-        "PART_OF": 163,
-        "PRODUCED_BY": 96,
-        "REFERENCES": 1630,
-        "RELATED_TO": 507,
-        "REQUIRES": 321,
+        "OWNED_BY": 5,
+        "PART_OF": 166,
+        "PRODUCED_BY": 97,
+        "REFERENCES": 1639,
+        "RELATED_TO": 515,
+        "REQUIRES": 329,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "7ae4d557f9fd538847afe5d4af60dd419269fed5b8b125193af9d249c6856303"
+    "contract_fingerprint": "fe2187bfd290ed1e83596df21e2d26bccde85a1f509424f7c443578c47bfe06c"
   }
 }
