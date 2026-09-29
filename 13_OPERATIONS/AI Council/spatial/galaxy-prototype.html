@@ -32,6 +32,40 @@
   #panel .brain-stats div{font-size:12px}
   #panel .brain-stats b{display:block;font-size:17px;color:var(--brain)}
 
+  /* The thought trail. Deliberately a thin strip at the bottom: the Founder
+     must be able to see where a path has led without the path competing with
+     the scene it describes. */
+  #thoughtTrail{position:fixed;left:0;right:0;bottom:0;padding:8px 14px;display:none;gap:6px;
+                align-items:center;flex-wrap:wrap;pointer-events:auto;z-index:3;
+                background:linear-gradient(to top,rgba(5,8,16,.92),rgba(5,8,16,0));font-size:11px}
+  #thoughtTrail.shown{display:flex}
+  #thoughtTrail .step{background:rgba(12,18,32,.9);border:1px solid var(--line);color:var(--ink);
+                      border-radius:999px;padding:3px 10px;font:inherit;cursor:pointer;white-space:nowrap}
+  #thoughtTrail .step.here{border-color:var(--gold);color:var(--gold)}
+  #thoughtTrail .step:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  #thoughtTrail .sep{color:var(--muted);opacity:.7}
+  #thoughtTrail .kind{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+                      margin-right:4px}
+
+  /* Edge legend. An inferred line that looked like a canonical one would be the
+     worst failure in this view, so the difference is stated, not just drawn. */
+  #edgeLegend{position:fixed;left:14px;bottom:44px;font-size:10px;color:var(--muted);
+              pointer-events:none;z-index:2;line-height:1.7}
+  #edgeLegend b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;
+                text-transform:uppercase;letter-spacing:.08em}
+  #edgeLegend i{display:inline-block;width:18px;height:0;border-top-width:2px;margin-right:6px;
+                vertical-align:middle}
+
+  /* Degraded state, stated rather than implied by an empty feed. */
+  #liveBanner{position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:4;display:none;
+              background:rgba(12,18,32,.94);border:1px solid var(--line);border-radius:8px;
+              padding:6px 12px;font-size:11px;color:var(--muted);max-width:88vw}
+  #liveBanner.shown{display:block}
+  #liveBanner.degraded{border-color:#ffcf6e;color:#ffcf6e}
+  .label.presence-stale{opacity:.45}
+  .label .pulse{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold);
+                margin-left:2px}
+
   header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
          align-items:flex-start;pointer-events:none;z-index:2}
   header h1{font-size:14px;margin:0 0 4px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
@@ -117,6 +151,14 @@
 <!-- Keyboard/screen-reader parity: every seat is also a real, focusable button here. -->
 <nav id="a11yList" class="sr-only" aria-label="Council roles (keyboard list)"></nav>
 
+<div id="liveBanner" role="status"></div>
+
+<!-- The reversible thought path. Buttons, not decoration: every step the
+     Founder has walked through is focusable and returns there. -->
+<nav id="thoughtTrail" aria-label="Thought path"></nav>
+
+<div id="edgeLegend" aria-hidden="true"></div>
+
 <aside id="panel" role="dialog" aria-label="Details">
   <button class="close" onclick="closePanel()" aria-label="Close">✕</button>
   <div id="panelBody"></div>
@@ -129,7 +171,7 @@
 -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-const VIEW = {"schema_version":"1.0.0-prototype","read_only":true,"classification_authority":"visual interpretation only; not institutional authority","generated_at":"2026-09-18T00:28:43+00:00","galaxy":{"center":{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"],"active_assignment":null,"recent_outputs":[]},"inner_circle":[{"proposed":false,"desk":{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"],"active_assignment":null,"recent_outputs":[]},"function":"Memory Steward"},{"proposed":true,"desk":null,"function":"Clarify Founder intent before it is routed"},{"proposed":true,"desk":null,"function":"Distribute and track work across the Council"},{"proposed":true,"desk":null,"function":"Check incoming data quality"},{"proposed":true,"desk":null,"function":"Prepare syntheses for LUMIAION's review"}],"council":[{"owner":"Research Intelligence Office","lead":{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Engineering Office","lead":{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"],"active_assignment":null,"recent_outputs":[{"session_id":"MVC-20260904-001","run_id":"RUN-002","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"},{"session_id":"MVC-20260904-001","run_id":"RUN-001","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"}]},"constellation":[{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Executive Office","lead":{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Institutional Observatory","lead":{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"Ethics Council when convened","lead":{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"ATHENA","lead":{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"VORTEX","lead":{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"SOHMA","lead":{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]}],"unassigned":[{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"],"active_assignment":null,"recent_outputs":[]}],"subagent_profiles":[{"profile":"Context Loader","output":"Minimal source packet and unresolved facts","boundary":"Read-only; preserve unknowns"},{"profile":"Constitutional Mapper","output":"Authority, conflicts, and ratification gates","boundary":"Advisory only"},{"profile":"Source Scout","output":"Source set with provenance","boundary":"No canonisation"},{"profile":"Evidence Classifier","output":"Claim-level Book III classes","boundary":"Provisional until review"},{"profile":"Citation Verifier","output":"Source-to-claim check","boundary":"Does not judge institutional acceptance"},{"profile":"Framework Mapper","output":"Competing models and relationships","boundary":"Preserve dissent"},{"profile":"Architect","output":"Design/specification","boundary":"Does not approve own design"},{"profile":"Builder","output":"Implemented artifact","boundary":"Scoped writes only"},{"profile":"Tester","output":"Reproducible verification record","boundary":"Passing tests are not approval"},{"profile":"Security Reviewer","output":"Risks and mitigations","boundary":"Does not expand permissions"},{"profile":"Ethics Trigger Classifier","output":"Review tier and reasons","boundary":"Cannot speak for Ethics Council"},{"profile":"Synthesis Editor","output":"One coherent decision surface","boundary":"Preserve material disagreement"},{"profile":"Recorder","output":"Attendance, inputs, outputs, decision, next action","boundary":"No invented votes or attendance"}]},"brain":{"note_count":384,"domain_count":21,"connectedness":0.9505,"coherence_defects":123,"knowledge_nodes":384,"knowledge_findings":1501,"health_status":"attention"},"council":{"generated_at":"2026-09-18T00:28:41+00:00","schema_version":"1.0.0","sessions":[{"session_id":"MVC-20260904-001","founder_intent":"Make the Council system more alive through a local operational console.","decision_class":"III","interim_authority_basis":"Interim Authority Instrument; Founder direction of 2026-09-04","facilitator":"AGT-001","accountable_role":"AGT-007","advisors":[],"assignments":[{"id":"RUN-001","role":"AGT-007","kind":"agent","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","status":"complete","created_at":"2026-09-04T15:18:07+00:00","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"},{"id":"RUN-002","role":"AGT-007","kind":"agent","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","status":"complete","created_at":"2026-09-04T22:56:40+00:00","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"}],"dissent":[{"recorded_at":"2026-09-04T15:18:07+00:00","text":"No model provider or autonomous worker was invoked; the console is a local read model only."}],"ethics_trigger":"none","recommendation":"Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.","founder_decision":{"decision":"approve","by":"Founder","recorded_at":"2026-09-04T15:30:04+00:00"},"execution_owner":"AGT-007","state":"investigating","opened_at":"2026-09-04T15:18:07+00:00","updated_at":"2026-09-04T22:56:40+00:00","next_action":"Route bounded execution."}],"counts":{"total":1,"active":1,"founder_review":0,"blocked":0},"next_action":"Route bounded execution."}};
+const VIEW = {"schema_version":"1.1.0-prototype","read_only":true,"classification_authority":"visual interpretation only; not institutional authority","generated_at":"2026-09-29T06:22:12+00:00","galaxy":{"center":{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"],"active_assignment":null,"recent_outputs":[]},"inner_circle":[{"proposed":false,"desk":{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"],"active_assignment":null,"recent_outputs":[]},"function":"Memory Steward"},{"proposed":true,"desk":null,"function":"Clarify Founder intent before it is routed"},{"proposed":true,"desk":null,"function":"Distribute and track work across the Council"},{"proposed":true,"desk":null,"function":"Check incoming data quality"},{"proposed":true,"desk":null,"function":"Prepare syntheses for LUMIAION's review"}],"council":[{"owner":"Research Intelligence Office","lead":{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Engineering Office","lead":{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"],"active_assignment":null,"recent_outputs":[{"session_id":"MVC-20260904-001","run_id":"RUN-002","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"},{"session_id":"MVC-20260904-001","run_id":"RUN-001","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"}]},"constellation":[{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Executive Office","lead":{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Institutional Observatory","lead":{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"Ethics Council when convened","lead":{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"ATHENA","lead":{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"VORTEX","lead":{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"SOHMA","lead":{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]}],"unassigned":[{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"],"active_assignment":null,"recent_outputs":[]}],"subagent_profiles":[{"profile":"Context Loader","output":"Minimal source packet and unresolved facts","boundary":"Read-only; preserve unknowns"},{"profile":"Constitutional Mapper","output":"Authority, conflicts, and ratification gates","boundary":"Advisory only"},{"profile":"Source Scout","output":"Source set with provenance","boundary":"No canonisation"},{"profile":"Evidence Classifier","output":"Claim-level Book III classes","boundary":"Provisional until review"},{"profile":"Citation Verifier","output":"Source-to-claim check","boundary":"Does not judge institutional acceptance"},{"profile":"Framework Mapper","output":"Competing models and relationships","boundary":"Preserve dissent"},{"profile":"Architect","output":"Design/specification","boundary":"Does not approve own design"},{"profile":"Builder","output":"Implemented artifact","boundary":"Scoped writes only"},{"profile":"Tester","output":"Reproducible verification record","boundary":"Passing tests are not approval"},{"profile":"Security Reviewer","output":"Risks and mitigations","boundary":"Does not expand permissions"},{"profile":"Ethics Trigger Classifier","output":"Review tier and reasons","boundary":"Cannot speak for Ethics Council"},{"profile":"Synthesis Editor","output":"One coherent decision surface","boundary":"Preserve material disagreement"},{"profile":"Recorder","output":"Attendance, inputs, outputs, decision, next action","boundary":"No invented votes or attendance"}]},"edges":[{"source":"VAULT","target":"AGT-001","type":"semantic","authority":"founder-state INT-001 — the Vault is the Founder OS memory layer","confidence":1.0,"direction":"bidirectional","interpreted":false,"note":"","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-009","type":"operational","authority":"Agent and Subagent Registry — operating owner","confidence":1.0,"direction":"directed","interpreted":false,"note":"","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-002","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Research Intelligence Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-002","target":"AGT-003","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-002","target":"AGT-004","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-007","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Engineering Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-007","target":"AGT-005","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Engineering Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-006","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Executive Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-006","target":"AGT-011","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Executive Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-008","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Institutional Observatory is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-010","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Ethics Council when convened is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-012","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"ATHENA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-013","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"VORTEX is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-014","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"SOHMA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-015","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T06:22:12+00:00"},{"source":"AGT-001","target":"AGT-016","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T06:22:12+00:00"}],"edge_summary":{"counts":{"semantic":1,"operational":5,"causal":0,"temporal":0,"structural":10,"inferred":0},"total":16,"interpreted":14,"canonical":2},"brain":{"note_count":386,"domain_count":21,"connectedness":0.9508,"coherence_defects":123,"knowledge_nodes":386,"knowledge_findings":1509,"health_status":"attention"},"council":{"generated_at":"2026-09-29T06:22:09+00:00","schema_version":"1.0.0","sessions":[{"session_id":"MVC-20260904-001","founder_intent":"Make the Council system more alive through a local operational console.","decision_class":"III","interim_authority_basis":"Interim Authority Instrument; Founder direction of 2026-09-04","facilitator":"AGT-001","accountable_role":"AGT-007","advisors":[],"assignments":[{"id":"RUN-001","role":"AGT-007","kind":"agent","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","status":"complete","created_at":"2026-09-04T15:18:07+00:00","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"},{"id":"RUN-002","role":"AGT-007","kind":"agent","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","status":"complete","created_at":"2026-09-04T22:56:40+00:00","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"}],"dissent":[{"recorded_at":"2026-09-04T15:18:07+00:00","text":"No model provider or autonomous worker was invoked; the console is a local read model only."}],"ethics_trigger":"none","recommendation":"Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.","founder_decision":{"decision":"approve","by":"Founder","recorded_at":"2026-09-04T15:30:04+00:00"},"execution_owner":"AGT-007","state":"investigating","opened_at":"2026-09-04T15:18:07+00:00","updated_at":"2026-09-04T22:56:40+00:00","next_action":"Route bounded execution."}],"counts":{"total":1,"active":1,"founder_review":0,"blocked":0},"next_action":"Route bounded execution."}};
 const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.getElementById('officeLink').href = '/' + window.location.search;
 
@@ -272,7 +314,9 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     vaultCore.position.copy(vaultPos);
     scene.add(vaultCore);
     scene.add(new THREE.PointLight(0xa48bff, 0.8, 12).translateX(vaultPos.x).translateY(vaultPos.y).translateZ(vaultPos.z));
-    line(vaultPos, positions['AGT-001'], 0xa48bff, 0.35);
+    // The Vault-to-LUMIAION line is no longer drawn here: it is a semantic edge
+    // in VIEW.edges, so it is styled by the same taxonomy as every other
+    // relationship instead of being a one-off.
     window.__vaultCore = vaultCore; // rotated in the render loop, defined below
   }
 
@@ -316,35 +360,109 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   function line(a, b, color, opacity) {
     const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
     const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: opacity ?? 0.25 });
-    scene.add(new THREE.Line(geo, mat));
+    const mesh = new THREE.Line(geo, mat);
+    scene.add(mesh);
+    return mesh;
   }
 
-  // Inner circle.
+  // ---------------------------------------------------------------------
+  // edges, drawn from the typed graph the view builder produced
+  // ---------------------------------------------------------------------
+  // The visual grammar carries the taxonomy, so the picture cannot say more
+  // than the data does:
+  //
+  //   semantic     bright, solid, thickest opacity  — the Foundation asserts it
+  //   operational  solid but quieter                — a registry states it
+  //   causal       warm                             — one event caused another
+  //   temporal     cool                             — the same thing, later
+  //   structural   very faint, short dashes         — navigation only
+  //   inferred     faint, long dashes               — this view assigned it
+  //
+  // An `interpreted` edge is always dashed regardless of its type: whatever
+  // else it is, it is partly this module's opinion, and it must never read as
+  // canon.
+  const EDGE_STYLE = {
+    semantic:    { color: 0xa48bff, opacity: 0.55 },
+    operational: { color: 0x9fd6ff, opacity: 0.34 },
+    causal:      { color: 0xff9d6e, opacity: 0.40 },
+    temporal:    { color: 0x6ee7b7, opacity: 0.30 },
+    structural:  { color: 0x4a5878, opacity: 0.16, dash: [0.18, 0.26] },
+    inferred:    { color: 0x6b7690, opacity: 0.20, dash: [0.45, 0.35] },
+  };
+
+  const edgeObjects = []; // { mesh, edge, a, b, baseOpacity }
+
+  function positionOf(nodeId) {
+    if (nodeId === 'VAULT') return vaultPos;
+    return positions[nodeId] || null;
+  }
+
+  function drawEdge(record) {
+    const a = positionOf(record.source), b = positionOf(record.target);
+    if (!a || !b) return null;   // a node this composition does not place
+    const style = EDGE_STYLE[record.type] || EDGE_STYLE.structural;
+    const dash = record.interpreted ? (style.dash || EDGE_STYLE.inferred.dash) : style.dash;
+    const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
+    let mesh;
+    if (dash) {
+      const mat = new THREE.LineDashedMaterial({
+        color: style.color, transparent: true, opacity: style.opacity,
+        dashSize: dash[0], gapSize: dash[1],
+      });
+      mesh = new THREE.Line(geo, mat);
+      mesh.computeLineDistances();   // required, or a dashed line renders solid
+    } else {
+      mesh = new THREE.Line(geo, new THREE.LineBasicMaterial({
+        color: style.color, transparent: true, opacity: style.opacity }));
+    }
+    scene.add(mesh);
+    edgeObjects.push({ mesh, edge: record, baseOpacity: style.opacity });
+    return mesh;
+  }
+
+  function renderEdgeLegend() {
+    const summary = VIEW.edge_summary || { counts: {} };
+    const rows = Object.keys(EDGE_STYLE)
+      .filter(type => (summary.counts[type] || 0) > 0)
+      .map(type => {
+        const style = EDGE_STYLE[type];
+        const hex = '#' + style.color.toString(16).padStart(6, '0');
+        const border = style.dash ? 'dashed' : 'solid';
+        return '<div><i style="border-top:2px ' + border + ' ' + hex + '"></i>' +
+               type + ' <span style="opacity:.7">(' + summary.counts[type] + ')</span></div>';
+      }).join('');
+    document.getElementById('edgeLegend').innerHTML =
+      '<b>Relationships</b>' + rows +
+      '<div style="margin-top:4px;opacity:.8">' + (summary.interpreted || 0) +
+      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>';
+  }
+
+  // Seats only. Relationships are drawn afterwards, from the typed edge graph,
+  // so nothing about which nodes exist decides which lines get drawn.
   galaxy.inner_circle.forEach(seat => {
     if (seat.proposed) {
       makeSeat(null, seat.__pos, 0x8899bb, 0.3, { dashed: true, dim: true });
     } else {
       makeSeat(seat.desk.id, positions[seat.desk.id], 0x9fd6ff, 0.28);
-      line(positions['AGT-001'], positions[seat.desk.id], 0x9fd6ff, 0.3);
     }
   });
 
-  // Council ring + constellations.
   galaxy.council.forEach(c => {
     const color = deptColorOf[c.owner];
     makeSeat(c.lead.id, positions[c.lead.id], color, 0.34);
-    line(positions['AGT-001'], positions[c.lead.id], color, 0.22);
     c.constellation.forEach(m => {
-      const dim = m.state !== 'available';
-      makeSeat(m.id, positions[m.id], color, 0.18, { dim });
-      line(positions[c.lead.id], positions[m.id], color, 0.18);
+      makeSeat(m.id, positions[m.id], color, 0.18, { dim: m.state !== 'available' });
     });
   });
 
-  // Unassigned holding cluster.
+  // Unowned roles. Held apart visually, and connected by a structural edge so
+  // they are reachable without claiming a department that does not exist.
   galaxy.unassigned.forEach(u => {
     makeSeat(u.id, positions[u.id], 0x6b7690, 0.22, { dashed: true, dim: true });
   });
+
+  (VIEW.edges || []).forEach(drawEdge);
+  renderEdgeLegend();
 
   // ---------------------------------------------------------------------
   // labels (HTML overlay, progressive disclosure by current view)
@@ -416,10 +534,16 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // navigation: overview <-> department <-> agent, with a bounded camera tween
   // ---------------------------------------------------------------------
   let activeDept = null, activeRole = null;
+  // `thoughtPath` is declared here rather than beside its own section below:
+  // `renderBreadcrumb` runs during setup and reads it, and a `let` still in its
+  // temporal dead zone would throw instead of reading as empty.
+  let thoughtPath = [];
   const breadcrumbEl = document.getElementById('breadcrumb');
   const backBtn = document.getElementById('backBtn');
 
   function renderBreadcrumb() {
+    // `pushThought` may not exist yet on the very first call during setup; the
+    // trail renders itself once a step is actually taken.
     let html = '<button onclick="window.goToOverview()">Council</button>';
     if (activeDept) html += ' / <button onclick="window.goToDept(\'' + activeDept + '\')">' + activeDept + '</button>';
     if (activeRole) {
@@ -427,7 +551,9 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       if (desk) html += ' / ' + desk.named_role;
     }
     breadcrumbEl.innerHTML = html;
-    backBtn.classList.toggle('shown', !!activeDept);
+    // Back is offered whenever there is somewhere to go back *to*, which is a
+    // property of the thought path, not of the department currently open.
+    backBtn.classList.toggle('shown', thoughtPath.length > 0 || !!activeDept);
   }
 
   function findDesk(id) {
@@ -455,6 +581,11 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   window.goToOverview = () => {
     activeDept = null; activeRole = null;
     tweenTo_(VIEWS.overview);
+    applyFocus(null);   // the whole scene comes back to full weight
+    // The overview is not a step on a path; it is where a path ends. Leaving a
+    // trail visible here would offer a route the Founder has already left.
+    thoughtPath = [];
+    renderTrail();
     renderBreadcrumb();
     updateLabelVisibility();
     closePanel();
@@ -465,17 +596,146 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     activeDept = owner; activeRole = null;
     const target = positions[c.lead.id].clone();
     tweenTo_({ target, dist: 9, elevation: 0.7, azimuth: c.__angle });
+    pushThought('department', owner);
     renderBreadcrumb();
     updateLabelVisibility();
   };
+  // ---------------------------------------------------------------------
+  // thought navigation
+  // ---------------------------------------------------------------------
+  // `thoughtPath` is the Founder's route through the Foundation's
+  // relationships, and it is reversible. The three rules:
+  //
+  //   * selecting a node not on the path appends it;
+  //   * selecting a node already on the path truncates back to it, so
+  //     revisiting is going back rather than looping forward;
+  //   * every step stays focusable, so the whole route is navigable by
+  //     keyboard, not only by clicking in the scene.
+  //
+  // Nothing here is stored. A thought path is a reading position, not a record.
+  // (`thoughtPath` itself is declared above, where the breadcrumb first reads it.)
+  const trailEl = document.getElementById('thoughtTrail');
+
+  function labelForStep(step) {
+    if (step.kind === 'vault') return 'Vault';
+    if (step.kind === 'department') return step.id;
+    if (step.kind === 'sessions') return 'Sessions';
+    const desk = findDesk(step.id);
+    return desk ? desk.named_role : step.id;
+  }
+
+  function pushThought(kind, id) {
+    const existing = thoughtPath.findIndex(step => step.kind === kind && step.id === id);
+    if (existing >= 0) {
+      // Already walked. Truncate rather than append: the path is a route, and a
+      // route that revisits a node has come back to it.
+      thoughtPath = thoughtPath.slice(0, existing + 1);
+    } else {
+      thoughtPath.push({ kind, id });
+    }
+    renderTrail();
+  }
+
+  function renderTrail() {
+    if (!thoughtPath.length) { trailEl.classList.remove('shown'); trailEl.innerHTML = ''; return; }
+    const parts = ['<span class="kind">thought path</span>'];
+    thoughtPath.forEach((step, index) => {
+      if (index) parts.push('<span class="sep">→</span>');
+      const here = index === thoughtPath.length - 1 ? ' here' : '';
+      parts.push('<button class="step' + here + '" data-index="' + index + '">' +
+                 labelForStep(step) + '</button>');
+    });
+    parts.push('<span class="sep">·</span><button class="step" data-index="-1">clear</button>');
+    trailEl.innerHTML = parts.join('');
+    trailEl.classList.add('shown');
+    trailEl.querySelectorAll('button').forEach(button => {
+      button.onclick = () => {
+        const index = Number(button.dataset.index);
+        if (index < 0) { thoughtPath = []; renderTrail(); window.goToOverview(); return; }
+        // Truncate to the chosen step, then re-enter it. Re-entering is what
+        // moves the camera and reopens the panel, so going back feels the same
+        // as going forward.
+        const step = thoughtPath[index];
+        thoughtPath = thoughtPath.slice(0, index);
+        enterStep(step);
+      };
+    });
+  }
+
+  function enterStep(step) {
+    if (step.kind === 'department') { window.goToDept(step.id); return; }
+    if (step.kind === 'vault') { openVaultPanel(); return; }
+    if (step.kind === 'sessions') { openSessionsPanel(); return; }
+    selectRole(step.id);
+  }
+
+  window.stepBack = () => {
+    if (thoughtPath.length > 1) {
+      thoughtPath.pop();
+      const previous = thoughtPath.pop();
+      enterStep(previous);
+      return;
+    }
+    thoughtPath = [];
+    renderTrail();
+    window.goToOverview();
+  };
+
+  // ---------------------------------------------------------------------
+  // immersive focus
+  // ---------------------------------------------------------------------
+  // Entering a node should feel like entering a thought, so the scene responds
+  // as a whole: the node grows and brightens, unrelated context recedes, and
+  // the edges that explain *why* this node matters stay legible. Nothing is
+  // hidden — dimmed context keeps the Founder oriented, where culling would
+  // make each selection a fresh disorientation.
+  const FOCUS_SCALE = 1.7;
+  let focusedId = null;
+
+  function connectedEdges(nodeId) {
+    return edgeObjects.filter(item => item.edge.source === nodeId || item.edge.target === nodeId);
+  }
+
+  function applyFocus(nodeId) {
+    focusedId = nodeId;
+    Object.keys(meshFor).forEach(id => {
+      const mesh = meshFor[id];
+      const focused = id === nodeId;
+      const scale = focused ? FOCUS_SCALE : 1;
+      mesh.scale.setScalar(scale);
+      if (mesh.material && 'emissiveIntensity' in mesh.material) {
+        if (mesh.userData.baseEmissive === undefined) {
+          mesh.userData.baseEmissive = mesh.material.emissiveIntensity;
+        }
+        const base = mesh.userData.baseEmissive;
+        mesh.material.emissiveIntensity = !nodeId ? base : (focused ? base * 2.2 : base * 0.45);
+      }
+    });
+    const related = new Set(connectedEdges(nodeId).map(item => item.mesh.id));
+    edgeObjects.forEach(item => {
+      const base = item.baseOpacity;
+      item.mesh.material.opacity = !nodeId ? base
+        : (related.has(item.mesh.id) ? Math.min(1, base * 2.4) : base * 0.3);
+    });
+  }
+
   function selectRole(id) {
     activeRole = id;
     const dept = findDept(id);
     if (dept && dept.owner !== activeDept) window.goToDept(dept.owner);
+    // Focus on the node itself, not just its department: the camera settles on
+    // the seat, and the surrounding context dims rather than disappearing.
+    const seat = positions[id];
+    if (seat) {
+      tweenTo_({ target: seat.clone(), dist: 6.5, elevation: 0.55,
+                 azimuth: (dept && dept.__angle !== undefined) ? dept.__angle : camState.azimuth });
+    }
+    applyFocus(id);
+    pushThought('agent', id);
     renderBreadcrumb();
     openPanel(id);
   }
-  backBtn.onclick = () => window.goToOverview();
+  backBtn.onclick = () => window.stepBack();
 
   function updateLabelVisibility() {
     labels.forEach(l => {
@@ -668,6 +928,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // ---------------------------------------------------------------------
   function openVaultPanel() {
     activeRole = null; activeDept = null;
+    applyFocus('VAULT');
+    pushThought('vault', 'VAULT');
     renderBreadcrumb(); updateLabelVisibility();
     const brain = VIEW.brain;
     document.getElementById('panelBody').innerHTML =
@@ -695,6 +957,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   document.getElementById('sessionsBtn').onclick = () => openSessionsPanel();
   function openSessionsPanel() {
     activeRole = null; activeDept = null;
+    applyFocus(null);
+    pushThought('sessions', 'SESSIONS');
     renderBreadcrumb(); updateLabelVisibility();
     const council = VIEW.council;
     const body = document.getElementById('panelBody');

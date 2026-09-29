@@ -167,14 +167,149 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+# --------------------------------------------------------------------------
+# the edge taxonomy
+# --------------------------------------------------------------------------
+
+# Every line drawn between two nodes is one of these, and the distinction is
+# not decorative. A viewer must be able to tell "the registry says these are
+# related" from "this line exists so the node is reachable."
+#
+#   semantic     canonical: the Foundation states this relationship.
+#   operational  registry fact: ownership, assignment, reporting.
+#   causal       one event caused another. Only the event ledger creates these.
+#   temporal     the same entity, observed at different times.
+#   structural   navigation only. Carries no institutional claim whatsoever.
+#   inferred     this module assigned it. Never canonical, always marked.
+EDGE_TYPES = ("semantic", "operational", "causal", "temporal", "structural", "inferred")
+
+
+def edge(source_id: str, target_id: str, edge_type: str, *, authority: str,
+         confidence: float, direction: str = "directed",
+         interpreted: bool = False, note: str = "") -> dict[str, Any]:
+    """One typed edge, carrying where it came from and how much to trust it.
+
+    `authority` names the document or record that supports the edge, so a
+    viewer can check it. `interpreted` is true whenever any part of the edge was
+    decided here rather than read from a registry -- which is the flag the
+    renderer uses to make sure an inference never looks like canon.
+    """
+    if edge_type not in EDGE_TYPES:
+        raise PrototypeError(f"Unknown edge type {edge_type!r}. One of: {', '.join(EDGE_TYPES)}.")
+    if not 0.0 <= confidence <= 1.0:
+        raise PrototypeError(f"Edge confidence must be between 0 and 1, got {confidence!r}.")
+    return {
+        "source": source_id,
+        "target": target_id,
+        "type": edge_type,
+        "authority": authority,
+        "confidence": round(float(confidence), 2),
+        "direction": direction,
+        "interpreted": bool(interpreted),
+        "note": note,
+        "created_at": role_registry.now_iso(),
+    }
+
+
+def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
+    """Every relationship in the composition, typed and attributed.
+
+    Two rules govern this function, and they pull in opposite directions:
+
+      * **No visible node is orphaned.** A seat with no line looks like an
+        accident of layout rather than a role nobody has claimed.
+      * **No relationship is invented.** The registry does not say that
+        LUMIAION owns the Engineering Office, and this function must not say so
+        either.
+
+    They are reconciled by the `structural` type: an unowned or
+    visually-positioned node is connected for navigability with an edge that
+    states, in its own data, that it carries no institutional claim. The
+    renderer draws those differently, and `test_council_galaxy_prototype`
+    asserts that it must.
+    """
+    center = galaxy["center"]["id"]
+    edges: list[dict[str, Any]] = []
+
+    # The Vault is the memory layer LUMIAION reads from. This one is canonical.
+    edges.append(edge(
+        "VAULT", center, "semantic",
+        authority="founder-state INT-001 — the Vault is the Founder OS memory layer",
+        confidence=1.0, direction="bidirectional",
+    ))
+
+    # Registry fact: these roles report to LUMIAION as their operating owner.
+    for seat in galaxy["inner_circle"]:
+        if seat["proposed"] or not seat.get("desk"):
+            continue
+        edges.append(edge(
+            center, seat["desk"]["id"], "operational",
+            authority="Agent and Subagent Registry — operating owner",
+            confidence=1.0,
+        ))
+
+    for constellation in galaxy["council"]:
+        lead_id = constellation["lead"]["id"]
+        owner = constellation["owner"]
+        # Navigation only. The registry names the office, not a reporting line
+        # from LUMIAION to it, and the choice of which role is its visual lead
+        # is made in this module.
+        edges.append(edge(
+            center, lead_id, "structural",
+            authority="galaxy composition — radial layout",
+            confidence=0.0, interpreted=True,
+            note=f"{owner} is placed on the council ring; no reporting line is asserted.",
+        ))
+        for member in constellation["constellation"]:
+            # Shared registry ownership is a fact; drawing it through the lead
+            # rather than as a group is this module's arrangement.
+            edges.append(edge(
+                lead_id, member["id"], "operational",
+                authority=f"Agent and Subagent Registry — both roles owned by {owner}",
+                confidence=0.6, interpreted=True,
+                note="Shared owner is registry fact; routing through the visual lead is not.",
+            ))
+
+    # Roles with no owner. Connected so they are reachable, and marked so the
+    # absence of a real department is visible rather than papered over.
+    for role in galaxy["unassigned"]:
+        edges.append(edge(
+            center, role["id"], "structural",
+            authority="galaxy composition — holding cluster for unowned roles",
+            confidence=0.0, interpreted=True,
+            note="Registry owner is pending. This line exists only so the seat is reachable.",
+        ))
+
+    return edges
+
+
+def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
+    """Counts per type, plus how much of the graph is interpretation."""
+    counts = {edge_type: 0 for edge_type in EDGE_TYPES}
+    for item in edges:
+        counts[item["type"]] += 1
+    return {
+        "counts": counts,
+        "total": len(edges),
+        "interpreted": sum(1 for item in edges if item["interpreted"]),
+        "canonical": sum(1 for item in edges if not item["interpreted"]),
+    }
+
+
 def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
     office_view = office_spatial.build_office_view(root, council_state_path)
+    galaxy = classify_roles(office_view)
+    edges = build_edges(galaxy)
     return {
-        "schema_version": "1.0.0-prototype",
+        "schema_version": "1.1.0-prototype",
         "read_only": True,
         "classification_authority": "visual interpretation only; not institutional authority",
         "generated_at": role_registry.now_iso(),
-        "galaxy": classify_roles(office_view),
+        "galaxy": galaxy,
+        # Edges are data, not drawing calls, so their taxonomy can be tested and
+        # so a renderer cannot quietly upgrade an inference into a canonical line.
+        "edges": edges,
+        "edge_summary": edge_summary(edges),
         "brain": office_view["brain"],
         # The full session/assignment ledger (council_kernel.build_view), not
         # just counts -- feeds the "Council Sessions" logistics panel, which

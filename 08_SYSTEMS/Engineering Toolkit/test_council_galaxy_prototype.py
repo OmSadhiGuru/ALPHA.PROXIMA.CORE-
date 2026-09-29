@@ -138,5 +138,157 @@ class GalaxyContracts(unittest.TestCase):
                 galaxy.render_app({}, template)
 
 
+
+
+class EdgeTaxonomyContracts(unittest.TestCase):
+    """The rule this class exists to enforce: an inference never looks like canon."""
+
+    def setUp(self):
+        self.galaxy = galaxy.classify_roles(source_view())
+        self.edges = galaxy.build_edges(self.galaxy)
+
+    def node_ids(self):
+        return {desk['id'] for desk in occupants(self.galaxy)} | {'VAULT'}
+
+    def test_no_visible_node_is_left_orphaned(self):
+        touched = {edge['source'] for edge in self.edges} | {edge['target'] for edge in self.edges}
+        missing = self.node_ids() - touched
+        self.assertEqual(missing, set(),
+                         f"these seats would render unreachable: {sorted(missing)}")
+
+    def test_every_edge_carries_its_type_authority_confidence_and_direction(self):
+        for edge in self.edges:
+            with self.subTest(edge=(edge['source'], edge['target'])):
+                self.assertIn(edge['type'], galaxy.EDGE_TYPES)
+                self.assertTrue(edge['authority'].strip(), 'an edge with no authority is a guess')
+                self.assertIsInstance(edge['confidence'], float)
+                self.assertIn(edge['direction'], ('directed', 'bidirectional'))
+                self.assertTrue(edge['created_at'])
+
+    def test_an_unknown_edge_type_is_refused(self):
+        with self.assertRaises(galaxy.PrototypeError):
+            galaxy.edge('A', 'B', 'vibes', authority='x', confidence=1.0)
+
+    def test_confidence_outside_zero_to_one_is_refused(self):
+        for value in (-0.1, 1.5):
+            with self.subTest(confidence=value):
+                with self.assertRaises(galaxy.PrototypeError):
+                    galaxy.edge('A', 'B', 'semantic', authority='x', confidence=value)
+
+    def test_a_structural_edge_asserts_nothing_and_says_so(self):
+        structural = [edge for edge in self.edges if edge['type'] == 'structural']
+        self.assertTrue(structural, 'unowned roles must still be reachable')
+        for edge in structural:
+            with self.subTest(edge=(edge['source'], edge['target'])):
+                self.assertEqual(edge['confidence'], 0.0)
+                self.assertTrue(edge['interpreted'])
+                self.assertTrue(edge['note'].strip(),
+                                'a navigation-only line must say that is all it is')
+
+    def test_the_only_full_confidence_edges_are_the_ones_a_record_states(self):
+        for edge in self.edges:
+            if edge['confidence'] == 1.0:
+                with self.subTest(edge=(edge['source'], edge['target'])):
+                    self.assertFalse(edge['interpreted'])
+                    self.assertIn(edge['type'], ('semantic', 'operational'))
+
+    def test_no_edge_claims_lumiaion_owns_a_department(self):
+        # The registry names offices; it does not name a reporting line from
+        # LUMIAION to them. The radial layout must not invent one.
+        leads = {constellation['lead']['id'] for constellation in self.galaxy['council']}
+        for edge in self.edges:
+            if edge['source'] == self.galaxy['center']['id'] and edge['target'] in leads:
+                with self.subTest(target=edge['target']):
+                    self.assertEqual(edge['type'], 'structural')
+
+    def test_the_vault_relationship_is_the_canonical_one(self):
+        semantic = [edge for edge in self.edges if edge['type'] == 'semantic']
+        self.assertEqual(len(semantic), 1)
+        self.assertEqual({semantic[0]['source'], semantic[0]['target']},
+                         {'VAULT', self.galaxy['center']['id']})
+        self.assertIn('INT-001', semantic[0]['authority'])
+
+    def test_no_event_derived_edge_is_fabricated_without_events(self):
+        # `causal` and `temporal` edges may only come from the event ledger.
+        # This composition reads the registry, so it must produce none.
+        types = {edge['type'] for edge in self.edges}
+        self.assertNotIn('causal', types)
+        self.assertNotIn('temporal', types)
+
+    def test_the_summary_counts_what_is_interpretation(self):
+        summary = galaxy.edge_summary(self.edges)
+        self.assertEqual(summary['total'], len(self.edges))
+        self.assertEqual(summary['interpreted'] + summary['canonical'], summary['total'])
+        self.assertEqual(sum(summary['counts'].values()), summary['total'])
+
+    def test_the_view_publishes_the_graph_and_its_summary(self):
+        view = galaxy.build_galaxy_view(ROOT)
+        self.assertIn('edges', view)
+        self.assertIn('edge_summary', view)
+        self.assertEqual(view['edge_summary']['total'], len(view['edges']))
+
+
+class SpatialInterfaceContracts(unittest.TestCase):
+    """What the rendered page must still do, checked without a browser.
+
+    These are text assertions on the template, which is a weak form of test —
+    so each one targets a behavior whose *absence* would be a silent regression
+    rather than a visible break: a dashed style quietly dropped, a thought path
+    that stops truncating, an inference rendered as canon.
+    """
+
+    def setUp(self):
+        self.template = galaxy.DEFAULT_TEMPLATE.read_text(encoding='utf-8')
+
+    def test_the_page_draws_edges_from_the_view_rather_than_hardcoding_them(self):
+        self.assertIn('(VIEW.edges || []).forEach(drawEdge)', self.template)
+
+    def test_every_edge_type_in_the_taxonomy_has_a_visual_style(self):
+        for edge_type in galaxy.EDGE_TYPES:
+            if edge_type == 'inferred':
+                self.assertIn('inferred:', self.template)
+                continue
+            self.assertIn(f'{edge_type}:', self.template)
+
+    def test_an_interpreted_edge_is_forced_to_a_dashed_style(self):
+        self.assertIn('record.interpreted ?', self.template)
+        self.assertIn('LineDashedMaterial', self.template)
+        # Three.js renders a dashed material solid without this call.
+        self.assertIn('computeLineDistances()', self.template)
+
+    def test_the_legend_declares_how_much_of_the_graph_is_interpretation(self):
+        self.assertIn('interpretation, not canon', self.template)
+
+    def test_the_thought_path_truncates_on_a_revisit_rather_than_looping(self):
+        self.assertIn('thoughtPath.slice(0, existing + 1)', self.template)
+
+    def test_the_thought_path_is_keyboard_navigable(self):
+        self.assertIn('<button class="step', self.template)
+        self.assertIn('window.stepBack', self.template)
+
+    def test_selecting_a_node_focuses_the_camera_on_it(self):
+        self.assertIn('applyFocus(id)', self.template)
+        self.assertIn('FOCUS_SCALE', self.template)
+
+    def test_unrelated_context_is_dimmed_rather_than_hidden(self):
+        # Multiplying opacity keeps context visible; setting `visible = false`
+        # would make every selection a fresh disorientation.
+        self.assertIn('base * 0.3', self.template)
+        self.assertNotIn('visible = false', self.template)
+
+    def test_returning_to_the_overview_restores_the_whole_scene(self):
+        self.assertIn('applyFocus(null)', self.template)
+
+    def test_camera_movement_is_interpolated_and_respects_reduced_motion(self):
+        self.assertIn('tweenTo_', self.template)
+        self.assertIn('REDUCED_MOTION', self.template)
+
+    def test_the_rendered_page_matches_the_template_behaviour(self):
+        rendered = galaxy.DEFAULT_OUTPUT.read_text(encoding='utf-8')
+        for marker in ('drawEdge', 'thoughtPath', 'applyFocus', 'renderEdgeLegend'):
+            self.assertIn(marker, rendered,
+                          f'{marker} is in the template but not the committed render')
+
+
 if __name__ == '__main__':
     unittest.main()
