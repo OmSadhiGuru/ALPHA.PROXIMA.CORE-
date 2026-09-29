@@ -192,6 +192,47 @@ dead letters instead.
 This is also the only place `origin: webhook` is ever set, which is what lets a
 delivery promote an adapter to `connected`.
 
+### The memory graph
+
+`alpha_memory.py` reads the ledger and produces the temporal half of Memory:
+entities as nodes, and the ledger's own causation and chronology as edges. The
+taxonomy it shares with the Council view lives in `alpha_edges.py`, which makes
+the source asymmetry structural rather than conventional:
+
+- `registry_edge` refuses `causal` and `temporal` outright. A registry witnesses
+  structure; it cannot know that one thing caused another.
+- `ledger_edge` refuses `semantic`. An event cannot make a document say something.
+
+Four relationships come out, each witnessed rather than decided:
+
+| Edge | Meaning |
+|---|---|
+| `causal` | B names A as its cause — drawn between the *entities* the two events touched, so the picture shows a push leading to a commit |
+| `temporal` | two entities observed in order **inside one correlation group**; two unrelated things in sequence is a coincidence, not a relationship |
+| `operational` | an actor acted on an entity |
+| — | an entity's own chronology is a `timeline` **on the node**, not a self-loop: a line to itself cannot be walked |
+
+Sequence defers to causation on the same pair, because causation is strictly
+stronger and drawing both would double the visual weight of one fact. A workflow
+that returns to an entity draws one edge, not two arrows pointing at each other.
+
+#### The actor join, and why its residue is visible
+
+Events name actors as providers know them — `codex-bot`, `CI`, `Founder`. The
+Council knows registry roles. This is where a memory graph would most easily
+start lying: matching `codex-bot` to `CODEX Engineering Lead` because both
+contain "codex" would fabricate an institutional attribution from a string
+coincidence, and the result would be indistinguishable from a real one.
+
+So the join is an exact match on a registered name, or a stated alias a reader
+can audit. The shipped alias table is **empty**, and a stale alias raises rather
+than silently reading as unresolved. The unmatched actors are counted and
+printed, and today that is all of them — which is the true state of a Foundation
+whose Council does not report its own activity, and is worth seeing.
+
+`ap.py memory report` says so in those words. The spatial view says it too, at
+the point a viewer would otherwise assume a seat.
+
 ### Honest integration status
 
 An adapter's status is **observed, never declared**. The rules, each a refusal to
@@ -250,6 +291,8 @@ true only when the transport is live.
 | `alpha_live.py` | `alpha_events`, `alpha_adapters`, `state_io` | writes one projection file |
 | `/api/v1/*` live routes | all three, loaded lazily | degrades to canon if absent |
 | `alpha_ingress.py` | `alpha_events`, `alpha_adapters`, `alpha_live` | the only write path; refuses to start unsigned |
+| `alpha_edges.py` | nothing | reads and writes nothing; pure taxonomy |
+| `alpha_memory.py` | `alpha_edges`, `alpha_events` | derived and disposable; writes nothing |
 | Supabase migrations | a resumed project and credentials | **not applied** |
 | Push delivery | an APNs-equivalent credential | **does not exist** |
 
@@ -308,6 +351,12 @@ ap.py live project
 # One entity's whole life — the temporal half of Memory.
 ap.py live history PR-48
 
+# The ledger as a navigable graph, and who the Council does not recognize.
+ap.py memory report
+
+# Travel outward from one node, along typed and attributed relationships.
+ap.py memory path github:pull_request:PR-48
+
 # The contract itself, for an adapter author.
 ap.py events contract
 
@@ -323,10 +372,11 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 - **Runtime presence for the Council.** Today CODEX and Claude are observable
   through their commits, which is activity without presence. A runtime signal
   channel is what turns the Council from a list into a room.
-- **Causal and temporal edges in Memory.** The galaxy's edge taxonomy already
-  reserves both types and the view builder deliberately emits neither, because
-  only the event ledger may create them. Joining the ledger to the spatial view
-  is the next real step toward navigable institutional memory.
+- **Runtime presence that resolves to a seat.** The memory graph's unresolved
+  actor list is the measure of this gap: until CODEX and Claude report
+  themselves by a name the registry holds, every attribution stops at the
+  provider's login. Closing it is a runtime signal channel, not a matching
+  heuristic.
 - **Delivery.** Queue, retry and badge synchronization are modelled and tested;
   the send is absent because the credential is.
 - **Reconciliation** between the local ledger and a hosted one, which would make
@@ -373,4 +423,5 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 
 | Version | Date | Change |
 |---|---|---|
+| 1.1.0 | 2026-09-29 | Added the memory graph: shared edge taxonomy, ledger-witnessed causal and temporal relationships, the exact actor join and its visible residue. |
 | 1.0.0 | 2026-09-29 | First specification. AlphaEvent v1, adapter boundary, projections, GitHub normalization, signed webhook ingress, edge taxonomy. Supabase migrations verified locally, applied nowhere. |

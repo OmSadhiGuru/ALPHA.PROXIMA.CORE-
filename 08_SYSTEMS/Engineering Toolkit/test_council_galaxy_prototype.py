@@ -379,5 +379,126 @@ class LiveOverlayInterfaceContracts(unittest.TestCase):
         self.assertIn("realtime.mode === 'stale' || realtime.mode === 'unavailable'", self.template)
 
 
+class MemoryFieldContracts(unittest.TestCase):
+    """The ledger joined to the registry, without either borrowing the other's authority."""
+
+    def test_the_committed_render_carries_no_memory_graph(self):
+        # Same reason presence is excluded: the ledger is machine-local runtime
+        # state, and a committed artifact must not preserve one afternoon's
+        # activity as though it were structure.
+        rendered = galaxy.DEFAULT_OUTPUT.read_text(encoding='utf-8')
+        payload = json.loads(rendered.split('const VIEW = ', 1)[1].split(';\nconst REDUCED', 1)[0])
+        self.assertFalse(payload['memory']['available'])
+        self.assertEqual(payload['memory']['nodes'], [])
+        self.assertEqual(payload['memory']['edges'], [])
+        self.assertIn('Serve this page', payload['memory']['reason'])
+
+    def test_the_served_view_includes_the_memory_graph(self):
+        view = galaxy.build_galaxy_view(ROOT, include_live=True)
+        self.assertIn('memory', view)
+        self.assertIn('edge_summary', view['memory'])
+
+    def test_a_missing_ledger_dims_memory_without_breaking_the_registry_view(self):
+        with patch.object(galaxy, '_load_sibling', side_effect=OSError('no ledger')):
+            section = galaxy.build_memory_section(ROOT)
+        self.assertFalse(section['available'])
+        self.assertIn('no ledger', section['reason'])
+        self.assertEqual(section['nodes'], [])
+        # And the registry half is unaffected: it does not depend on occurrence.
+        view = galaxy.build_galaxy_view(ROOT, include_live=False)
+        self.assertGreater(len(view['edges']), 0)
+
+    def test_the_registry_and_ledger_graphs_are_built_by_different_constructors(self):
+        # The structural guarantee: the galaxy's own `edge` wrapper refuses the
+        # ledger-only types, so this view cannot assert causation however its
+        # code changes.
+        for edge_type in ('causal', 'temporal'):
+            with self.subTest(edge_type=edge_type):
+                with self.assertRaises(galaxy.PrototypeError):
+                    galaxy.edge('A', 'B', edge_type, authority='registry', confidence=1.0)
+
+    def test_no_registry_edge_is_ever_causal_or_temporal(self):
+        view = galaxy.build_galaxy_view(ROOT, include_live=False)
+        for item in view['edges']:
+            self.assertNotIn(item['type'], ('causal', 'temporal'))
+
+    def test_memory_edges_are_witnessed_rather_than_interpreted(self):
+        section = galaxy.build_memory_section(ROOT)
+        if section['available']:
+            self.assertEqual(section['edge_summary']['interpreted'], 0)
+
+    def test_the_memory_section_reports_its_unresolved_actors(self):
+        section = galaxy.build_memory_section(ROOT)
+        self.assertIn('unresolved_actors', section)
+        self.assertIn('actors_unresolved', section['counts'])
+
+
+class MemoryFieldInterfaceContracts(unittest.TestCase):
+    def setUp(self):
+        self.template = galaxy.DEFAULT_TEMPLATE.read_text(encoding='utf-8')
+
+    def test_memory_nodes_are_positioned_deterministically_from_their_id(self):
+        # A graph that reshuffles on every load cannot be learned.
+        self.assertIn('function hashAngle(id)', self.template)
+        self.assertIn('hashAngle(node.id)', self.template)
+        self.assertNotIn('Math.random()', self.template.split('hashAngle')[1][:400])
+
+    def test_memory_nodes_are_placed_outside_the_council_ring(self):
+        # The Council is who exists; memory is what happened. Overlapping them
+        # would make an event look like an institution.
+        self.assertIn("const radius = entity ? 30 : 25.5", self.template)
+
+    def test_memory_edges_go_through_the_same_renderer_as_registry_edges(self):
+        # One visual grammar. `drawEdge` does not know which builder produced an
+        # edge, which is the point of sharing the taxonomy.
+        self.assertIn('(memory.edges || []).forEach(drawEdge)', self.template)
+
+    def test_only_entities_awaiting_the_founder_are_labelled_at_rest(self):
+        self.assertIn("attention ? 'overview' : 'hover'", self.template)
+
+    def test_labelling_waits_until_the_label_layer_exists(self):
+        # The ordering bug this guards against threw on every load with a
+        # non-empty ledger, and was invisible in a static render.
+        body = self.template
+        self.assertIn('function labelMemoryNodes()', body)
+        self.assertLess(body.index('labelMemoryNodes();'), body.index('updateLabelVisibility();\n\n  // The live overlay'))
+        self.assertGreater(body.index('labelMemoryNodes();'), body.index('const labels = []'))
+
+    def test_an_entity_panel_shows_its_whole_timeline(self):
+        self.assertIn("node.timeline || []", self.template)
+        self.assertIn('<b>Timeline</b>', self.template)
+
+    def test_every_connection_names_the_record_supporting_it(self):
+        self.assertIn('escapeText(e.authority)', self.template)
+
+    def test_an_unresolved_actor_panel_refuses_to_guess_a_seat(self):
+        # Asserted on phrases that are contiguous in the *source*: the panel
+        # builds its prose by concatenation, so a sentence spanning two string
+        # literals is not findable here even though it renders correctly. The
+        # rendered wording is covered by the DOM harness instead.
+        self.assertIn('No Council seat', self.template)
+        self.assertIn('matching one by resemblance', self.template)
+
+    def test_ledger_text_reaching_the_panel_is_escaped(self):
+        for field in ('escapeText(node.label)', 'escapeText(step.title)',
+                      'escapeText(step.event_type)', 'escapeText(node.entity_type)'):
+            with self.subTest(field=field):
+                self.assertIn(field, self.template)
+
+    def test_memory_nodes_are_selectable_and_join_the_thought_path(self):
+        self.assertIn('selectMemoryNode(id)', self.template)
+        self.assertIn("pushThought('memory', id)", self.template)
+        self.assertIn("step.kind === 'memory'", self.template)
+
+    def test_the_legend_counts_both_graphs_so_every_line_has_a_key(self):
+        self.assertIn('const total = type =>', self.template)
+        self.assertIn('witnessed by the event ledger', self.template)
+
+    def test_the_rendered_page_carries_the_memory_behaviour(self):
+        rendered = galaxy.DEFAULT_OUTPUT.read_text(encoding='utf-8')
+        for marker in ('labelMemoryNodes', 'selectMemoryNode', 'openMemoryPanel', 'hashAngle'):
+            self.assertIn(marker, rendered)
+
+
 if __name__ == '__main__':
     unittest.main()

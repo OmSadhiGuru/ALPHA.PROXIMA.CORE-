@@ -102,6 +102,9 @@ def _load_sibling(filename: str, name: str):
 office_spatial = _load_sibling("office_spatial.py", "galaxy_prototype_office_spatial")
 role_registry = office_spatial.role_registry
 alpha_app = office_spatial.alpha_app
+# The relationship taxonomy, shared with the memory graph so both views mean the
+# same thing by a line.
+alpha_edges = _load_sibling("alpha_edges.py", "galaxy_alpha_edges")
 check_reachability_gate = alpha_app.check_reachability_gate
 LOOPBACK_HOSTS = alpha_app.LOOPBACK_HOSTS
 
@@ -170,45 +173,21 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
 # --------------------------------------------------------------------------
 # the edge taxonomy
 # --------------------------------------------------------------------------
-
-# Every line drawn between two nodes is one of these, and the distinction is
-# not decorative. A viewer must be able to tell "the registry says these are
-# related" from "this line exists so the node is reachable."
+# Defined in `alpha_edges`, shared with the memory graph. Both views must mean
+# the same thing by a line, or the Founder learns two visual languages.
 #
-#   semantic     canonical: the Foundation states this relationship.
-#   operational  registry fact: ownership, assignment, reporting.
-#   causal       one event caused another. Only the event ledger creates these.
-#   temporal     the same entity, observed at different times.
-#   structural   navigation only. Carries no institutional claim whatsoever.
-#   inferred     this module assigned it. Never canonical, always marked.
-EDGE_TYPES = ("semantic", "operational", "causal", "temporal", "structural", "inferred")
+# This view reads the role registry, so it builds through `registry_edge`, which
+# refuses `causal` and `temporal` outright: a registry witnesses structure, not
+# occurrence. Only the event ledger can say one thing caused another.
+EDGE_TYPES = alpha_edges.EDGE_TYPES
 
 
-def edge(source_id: str, target_id: str, edge_type: str, *, authority: str,
-         confidence: float, direction: str = "directed",
-         interpreted: bool = False, note: str = "") -> dict[str, Any]:
-    """One typed edge, carrying where it came from and how much to trust it.
-
-    `authority` names the document or record that supports the edge, so a
-    viewer can check it. `interpreted` is true whenever any part of the edge was
-    decided here rather than read from a registry -- which is the flag the
-    renderer uses to make sure an inference never looks like canon.
-    """
-    if edge_type not in EDGE_TYPES:
-        raise PrototypeError(f"Unknown edge type {edge_type!r}. One of: {', '.join(EDGE_TYPES)}.")
-    if not 0.0 <= confidence <= 1.0:
-        raise PrototypeError(f"Edge confidence must be between 0 and 1, got {confidence!r}.")
-    return {
-        "source": source_id,
-        "target": target_id,
-        "type": edge_type,
-        "authority": authority,
-        "confidence": round(float(confidence), 2),
-        "direction": direction,
-        "interpreted": bool(interpreted),
-        "note": note,
-        "created_at": role_registry.now_iso(),
-    }
+def edge(source_id: str, target_id: str, edge_type: str, **fields: Any) -> dict[str, Any]:
+    """A registry-authorized edge, with this module's error type on failure."""
+    try:
+        return alpha_edges.registry_edge(source_id, target_id, edge_type, **fields)
+    except alpha_edges.EdgeError as exc:
+        raise PrototypeError(str(exc)) from exc
 
 
 def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
@@ -285,15 +264,7 @@ def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
 
 def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     """Counts per type, plus how much of the graph is interpretation."""
-    counts = {edge_type: 0 for edge_type in EDGE_TYPES}
-    for item in edges:
-        counts[item["type"]] += 1
-    return {
-        "counts": counts,
-        "total": len(edges),
-        "interpreted": sum(1 for item in edges if item["interpreted"]),
-        "canonical": sum(1 for item in edges if not item["interpreted"]),
-    }
+    return alpha_edges.summarize(edges)
 
 
 # What the committed render says instead of live data. `galaxy-prototype.html`
@@ -302,6 +273,23 @@ def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
 # other would commit a moment of one developer's afternoon as though it were
 # institutional state, and would show a stale badge to anyone who opened the
 # file later. The served page fetches the real thing from its own origin.
+# The memory graph is derived from the event ledger, which is machine-local
+# runtime state. It is omitted from a static render for exactly the reason
+# presence is: a committed artifact must not preserve one afternoon's activity
+# as though it were structure.
+MEMORY_OMITTED = {
+    "available": False,
+    "reason": "Rendered without the memory graph. Serve this page to read the event ledger.",
+    "nodes": [],
+    "edges": [],
+    "edge_summary": {"counts": {kind: 0 for kind in alpha_edges.EDGE_TYPES},
+                     "total": 0, "interpreted": 0, "canonical": 0},
+    "counts": {"events": 0, "entities": 0, "actors": 0,
+               "actors_resolved": 0, "actors_unresolved": 0, "requires_founder": 0},
+    "unresolved_actors": [],
+}
+
+
 LIVE_OMITTED = {
     "available": False,
     "reason": "Rendered without live state. Presence and activity are read when this page is served.",
@@ -354,6 +342,34 @@ def build_live_section() -> dict[str, Any]:
     }
 
 
+def build_memory_section(root: Path) -> dict[str, Any]:
+    """The event ledger as a graph, or an honest statement of absence.
+
+    Separate from `build_live_section` because they answer different questions
+    and fail independently: live activity is "what is happening", the memory
+    graph is "what happened and what it led to". A ledger that cannot be read
+    must dim the memory field, not the presence dots, and neither may take down
+    the registry view — which exists whether or not anything has ever happened.
+    """
+    try:
+        alpha_events = _load_sibling("alpha_events.py", "galaxy_alpha_events_mem")
+        alpha_memory = _load_sibling("alpha_memory.py", "galaxy_alpha_memory")
+        events = alpha_events.EventLedger().events()
+        roles = role_registry.load_roles(root)["roles"]
+        graph = alpha_memory.build_memory_graph(events, roles)
+    except (PrototypeError, role_registry.RegistryError, OSError, KeyError, ValueError) as exc:
+        return dict(MEMORY_OMITTED, available=False, reason=f"Memory graph unavailable: {exc}")
+    return {
+        "available": True,
+        "reason": "",
+        "nodes": graph["nodes"],
+        "edges": graph["edges"],
+        "edge_summary": graph["edge_summary"],
+        "counts": graph["counts"],
+        "unresolved_actors": graph["unresolved_actors"],
+    }
+
+
 def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None,
                       include_live: bool = True) -> dict[str, Any]:
     office_view = office_spatial.build_office_view(root, council_state_path)
@@ -373,6 +389,10 @@ def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         # Activity, presence and the badge — the Council as an observable space
         # rather than a diagram. Honest about its own absence.
         "live": build_live_section() if include_live else dict(LIVE_OMITTED),
+        # What happened, joined to who exists. Ledger-authorized edges only:
+        # the registry edges above and these are built through different
+        # constructors precisely so neither can claim the other's authority.
+        "memory": build_memory_section(root) if include_live else dict(MEMORY_OMITTED),
         # The full session/assignment ledger (council_kernel.build_view), not
         # just counts -- feeds the "Council Sessions" logistics panel, which
         # is a second read of the same data the per-desk assignment fields
@@ -450,6 +470,8 @@ def serve(root: Path, template_path: Path, port: int = 8790,
                                "text/html; charset=utf-8")
                 elif self.path == "/api/galaxy":
                     self._json(build_galaxy_view(root, council_state_path))
+                elif self.path == "/api/v1/memory":
+                    self._json(build_memory_section(root))
                 elif self.path == "/api/v1/live":
                     # Same-origin, so the scene can refresh presence without a
                     # cross-origin request to the app's port. Read-only, like
