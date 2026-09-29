@@ -11,7 +11,7 @@ artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
-dependencies: ["[[Founder OS Architecture v1]]", "[[Alpha Proxima Live Integration Layer]]", "[[Institutional Node Taxonomy v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
+dependencies: ["[[Founder OS Architecture v1]]", "[[Alpha Proxima Live Integration Layer]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
 related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
