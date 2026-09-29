@@ -65,6 +65,19 @@
   .label.presence-stale{opacity:.45}
   .label .pulse{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold);
                 margin-left:2px}
+  /* Memory nodes read as a different substance from Council seats: the Council
+     is who exists, memory is what happened. Cooler, quieter, monospaced. */
+  .label.memory{border-color:#3a4a6a;color:#9fb4d8;font-family:ui-monospace,SFMono-Regular,monospace;
+                font-size:10px}
+  .label.memory .dot{background:#6ea8ff}
+  .label.memory.attention{border-color:#ff9d6e;color:#ffbb96}
+  .label.memory.attention .dot{background:#ff9d6e}
+  .label.actor{border-style:dotted;color:#8fa0c0;font-size:10px}
+  #panel .timeline{margin:8px 0;border-left:2px solid var(--line);padding-left:10px}
+  #panel .timeline div{font-size:11px;color:var(--muted);margin:5px 0}
+  #panel .timeline b{color:var(--ink);font-weight:600;display:block;font-size:12px}
+  #panel .unresolved{border:1px dashed #4a5878;border-radius:6px;padding:8px;margin:8px 0;
+                     font-size:11px;color:var(--muted)}
 
   header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
          align-items:flex-start;pointer-events:none;z-index:2}
@@ -422,19 +435,27 @@ document.getElementById('officeLink').href = '/' + window.location.search;
 
   function renderEdgeLegend() {
     const summary = VIEW.edge_summary || { counts: {} };
+    // Per-type rows cover both graphs, so a `causal` line in the scene always
+    // has a key entry explaining it.
+    const memCounts = ((VIEW.memory && VIEW.memory.edge_summary) || {}).counts || {};
+    const total = type => (summary.counts[type] || 0) + (memCounts[type] || 0);
     const rows = Object.keys(EDGE_STYLE)
-      .filter(type => (summary.counts[type] || 0) > 0)
+      .filter(type => total(type) > 0)
       .map(type => {
         const style = EDGE_STYLE[type];
         const hex = '#' + style.color.toString(16).padStart(6, '0');
         const border = style.dash ? 'dashed' : 'solid';
         return '<div><i style="border-top:2px ' + border + ' ' + hex + '"></i>' +
-               type + ' <span style="opacity:.7">(' + summary.counts[type] + ')</span></div>';
+               type + ' <span style="opacity:.7">(' + total(type) + ')</span></div>';
       }).join('');
+    const mem = (VIEW.memory && VIEW.memory.edge_summary) || { total: 0 };
     document.getElementById('edgeLegend').innerHTML =
       '<b>Relationships</b>' + rows +
       '<div style="margin-top:4px;opacity:.8">' + (summary.interpreted || 0) +
-      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>';
+      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>' +
+      (mem.total
+        ? '<div style="opacity:.8">' + mem.total + ' more witnessed by the event ledger.</div>'
+        : '');
   }
 
   // Seats only. Relationships are drawn afterwards, from the typed edge graph,
@@ -462,6 +483,70 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   });
 
   (VIEW.edges || []).forEach(drawEdge);
+
+  // ---------------------------------------------------------------------
+  // the memory field — what happened, placed around what exists
+  // ---------------------------------------------------------------------
+  // The Council ring is structure: who the Foundation has. This is occurrence:
+  // what it has observed. They are drawn in one scene because the Founder's
+  // question is usually about both at once ("who did this, and what did it lead
+  // to?"), and separated in space and styling because confusing the two would
+  // make an event look like an institution.
+  //
+  // Entities sit on an outer arc, actors just inside them, so an actor's lines
+  // to the entities it touched run inward-to-outward and do not cross the
+  // Council. Positions are deterministic in node id, so the same ledger always
+  // draws the same picture — a graph that reshuffles on every load cannot be
+  // learned.
+  const memory = VIEW.memory || { available: false, nodes: [], edges: [],
+                                  counts: {}, unresolved_actors: [] };
+  const memoryNodeById = {};
+
+  function hashAngle(id) {
+    // A small deterministic hash. Not for security — only so the same id lands
+    // in the same place across loads.
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+    return (h % 3600) / 3600;
+  }
+
+  (memory.nodes || []).forEach(node => {
+    memoryNodeById[node.id] = node;
+    const entity = node.kind === 'entity';
+    const radius = entity ? 30 : 25.5;
+    const angle = hashAngle(node.id) * Math.PI * 2;
+    const lift = entity ? 1.4 : 0.6;
+    positions[node.id] = new THREE.Vector3(
+      Math.cos(angle) * radius, lift, Math.sin(angle) * radius);
+  });
+
+  (memory.nodes || []).forEach(node => {
+    const attention = node.kind === 'entity' && node.requires_founder;
+    const color = node.kind === 'entity' ? (attention ? 0xff9d6e : 0x6ea8ff) : 0x8fa0c0;
+    makeSeat(node.id, positions[node.id], color, node.kind === 'entity' ? 0.22 : 0.16,
+             { dashed: node.kind === 'actor', dim: !attention });
+  });
+
+  // Labelling waits until the label layer exists, further down. Meshes and
+  // edges only need positions, so they are built here; text needs `addLabel`.
+  function labelMemoryNodes() {
+    (memory.nodes || []).forEach(node => {
+      const attention = node.kind === 'entity' && node.requires_founder;
+      addLabel(node.id, positions[node.id].clone().add(new THREE.Vector3(0, 0.35, 0)),
+               node.label,
+               'memory' + (attention ? ' attention' : '') + (node.kind === 'actor' ? ' actor' : ''),
+               // Entities needing the Founder are the one thing worth a label at
+               // rest; everything else reveals on approach, or the outer arc
+               // becomes the wall of text the brief forbids.
+               attention ? 'overview' : 'hover');
+    });
+  }
+
+  // Ledger-authorized edges, drawn by the same taxonomy as the registry ones —
+  // `drawEdge` does not know or care which builder produced them, which is the
+  // point of sharing the taxonomy.
+  (memory.edges || []).forEach(drawEdge);
+
   renderEdgeLegend();
 
   // ---------------------------------------------------------------------
@@ -685,6 +770,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   const trailEl = document.getElementById('thoughtTrail');
 
   function labelForStep(step) {
+    if (step.kind === 'memory') return nodeLabel(step.id);
     if (step.kind === 'vault') return 'Vault';
     if (step.kind === 'department') return step.id;
     if (step.kind === 'sessions') return 'Sessions';
@@ -731,6 +817,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
 
   function enterStep(step) {
+    if (step.kind === 'memory') { selectMemoryNode(step.id); return; }
     if (step.kind === 'department') { window.goToDept(step.id); return; }
     if (step.kind === 'vault') { openVaultPanel(); return; }
     if (step.kind === 'sessions') { openSessionsPanel(); return; }
@@ -788,6 +875,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
 
   function selectRole(id) {
+    if (memoryNodeById[id]) { selectMemoryNode(id); return; }
     activeRole = id;
     const dept = findDept(id);
     if (dept && dept.owner !== activeDept) window.goToDept(dept.owner);
@@ -811,6 +899,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       l.el.classList.toggle('shown', show);
     });
   }
+  labelMemoryNodes();
   updateLabelVisibility();
 
   // The live overlay decorates labels, so it starts only once they exist.
@@ -1010,6 +1099,94 @@ document.getElementById('officeLink').href = '/' + window.location.search;
            '<div class="meta" style="color:var(--muted);font-size:11px">' +
            escapeText(event.event_type) + ' · ' + relativeAge(event.age_seconds) +
            (event.requires_founder ? ' · awaiting the Founder' : '') + link + '</div></div>';
+  }
+
+  // ---------------------------------------------------------------------
+  // a memory node's panel — an entity's whole life, or an actor's reach
+  // ---------------------------------------------------------------------
+  function selectMemoryNode(id) {
+    const node = memoryNodeById[id];
+    if (!node) return;
+    activeRole = id;
+    const at = positions[id];
+    if (at) {
+      // Approach from outside the ring, so the Council stays behind the node
+      // rather than the camera flying through it.
+      tweenTo_({ target: at.clone(), dist: 7, elevation: 0.5,
+                 azimuth: Math.atan2(at.z, at.x) });
+    }
+    applyFocus(id);
+    pushThought('memory', id);
+    renderBreadcrumb();
+    openMemoryPanel(node);
+  }
+
+  function relatedMemoryEdges(id) {
+    return (memory.edges || []).filter(e => e.source === id || e.target === id);
+  }
+
+  function nodeLabel(id) {
+    if (memoryNodeById[id]) return memoryNodeById[id].label;
+    const desk = findDesk(id);
+    return desk ? desk.named_role : id;
+  }
+
+  function openMemoryPanel(node) {
+    const body = document.getElementById('panelBody');
+    const related = relatedMemoryEdges(node.id);
+    // Every line is labelled with the relationship it represents and the record
+    // that supports it, so "why are these connected?" is answerable in the
+    // panel rather than only in the data.
+    const connections = related.map(e => {
+      const other = e.source === node.id ? e.target : e.source;
+      const arrow = e.source === node.id ? '→' : '←';
+      return '<div>' + escapeText(e.type) + ' ' + arrow + ' <b>' +
+             escapeText(nodeLabel(other)) + '</b>' +
+             '<div style="color:var(--muted);font-size:10px">' +
+             escapeText(e.authority) + '</div></div>';
+    }).join('') || '<div style="color:var(--muted)">Nothing else connects to this yet.</div>';
+
+    if (node.kind === 'actor') {
+      body.innerHTML =
+        '<h2>' + escapeText(node.label) + '</h2>' +
+        '<div class="sub">actor · ' + escapeText(node.source) + ' · ' +
+        node.event_count + ' event(s)</div>' +
+        (node.resolved
+          ? '<div class="field"><b>Council seat</b>' + escapeText(node.role_id) +
+            '<div style="color:var(--muted);font-size:10px">' +
+            escapeText(node.resolution_basis) + '</div></div>'
+          // The residue, stated at the point a viewer would otherwise assume a
+          // seat: the Council does not recognize this name, and guessing one
+          // would fabricate an attribution.
+          : '<div class="unresolved"><b>No Council seat.</b> The registry has no ' +
+            'role under this name, and matching one by resemblance would invent ' +
+            'an attribution. Attribution stops at the provider\'s name.</div>') +
+        '<div class="field"><b>Acted on</b>' + connections + '</div>';
+      document.getElementById('panel').classList.add('open');
+      return;
+    }
+
+    const timeline = (node.timeline || []).map(step =>
+      '<div><b>' + escapeText(step.event_type) + '</b>' +
+      escapeText(step.title) + '<br>' + escapeText(step.actor) + ' · ' +
+      escapeText(step.occurred_at) + '</div>').join('');
+
+    body.innerHTML =
+      '<h2>' + escapeText(node.label) + '</h2>' +
+      '<div class="sub">' + escapeText(node.entity_type) + ' · ' +
+      escapeText(node.source) + ' · ' + node.event_count + ' event(s)</div>' +
+      (node.requires_founder
+        ? '<div class="field"><b>Status</b><span class="badge executing">awaiting the Founder</span></div>'
+        : '') +
+      '<div class="field"><b>Timeline</b><div class="timeline">' + timeline + '</div></div>' +
+      '<div class="field"><b>Connected</b>' + connections + '</div>' +
+      (node.deep_link
+        ? '<div class="field"><b>Deep link</b><div class="cmd" id="cmdText">' +
+          escapeText(node.deep_link) + '</div>' +
+          '<button class="copy" onclick="navigator.clipboard.writeText(' +
+          'document.getElementById(\'cmdText\').textContent)">Copy</button></div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
   }
 
   window.closePanel = () => document.getElementById('panel').classList.remove('open');

@@ -273,6 +273,23 @@ def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
 # other would commit a moment of one developer's afternoon as though it were
 # institutional state, and would show a stale badge to anyone who opened the
 # file later. The served page fetches the real thing from its own origin.
+# The memory graph is derived from the event ledger, which is machine-local
+# runtime state. It is omitted from a static render for exactly the reason
+# presence is: a committed artifact must not preserve one afternoon's activity
+# as though it were structure.
+MEMORY_OMITTED = {
+    "available": False,
+    "reason": "Rendered without the memory graph. Serve this page to read the event ledger.",
+    "nodes": [],
+    "edges": [],
+    "edge_summary": {"counts": {kind: 0 for kind in alpha_edges.EDGE_TYPES},
+                     "total": 0, "interpreted": 0, "canonical": 0},
+    "counts": {"events": 0, "entities": 0, "actors": 0,
+               "actors_resolved": 0, "actors_unresolved": 0, "requires_founder": 0},
+    "unresolved_actors": [],
+}
+
+
 LIVE_OMITTED = {
     "available": False,
     "reason": "Rendered without live state. Presence and activity are read when this page is served.",
@@ -325,6 +342,34 @@ def build_live_section() -> dict[str, Any]:
     }
 
 
+def build_memory_section(root: Path) -> dict[str, Any]:
+    """The event ledger as a graph, or an honest statement of absence.
+
+    Separate from `build_live_section` because they answer different questions
+    and fail independently: live activity is "what is happening", the memory
+    graph is "what happened and what it led to". A ledger that cannot be read
+    must dim the memory field, not the presence dots, and neither may take down
+    the registry view — which exists whether or not anything has ever happened.
+    """
+    try:
+        alpha_events = _load_sibling("alpha_events.py", "galaxy_alpha_events_mem")
+        alpha_memory = _load_sibling("alpha_memory.py", "galaxy_alpha_memory")
+        events = alpha_events.EventLedger().events()
+        roles = role_registry.load_roles(root)["roles"]
+        graph = alpha_memory.build_memory_graph(events, roles)
+    except (PrototypeError, role_registry.RegistryError, OSError, KeyError, ValueError) as exc:
+        return dict(MEMORY_OMITTED, available=False, reason=f"Memory graph unavailable: {exc}")
+    return {
+        "available": True,
+        "reason": "",
+        "nodes": graph["nodes"],
+        "edges": graph["edges"],
+        "edge_summary": graph["edge_summary"],
+        "counts": graph["counts"],
+        "unresolved_actors": graph["unresolved_actors"],
+    }
+
+
 def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None,
                       include_live: bool = True) -> dict[str, Any]:
     office_view = office_spatial.build_office_view(root, council_state_path)
@@ -344,6 +389,10 @@ def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         # Activity, presence and the badge — the Council as an observable space
         # rather than a diagram. Honest about its own absence.
         "live": build_live_section() if include_live else dict(LIVE_OMITTED),
+        # What happened, joined to who exists. Ledger-authorized edges only:
+        # the registry edges above and these are built through different
+        # constructors precisely so neither can claim the other's authority.
+        "memory": build_memory_section(root) if include_live else dict(MEMORY_OMITTED),
         # The full session/assignment ledger (council_kernel.build_view), not
         # just counts -- feeds the "Council Sessions" logistics panel, which
         # is a second read of the same data the per-desk assignment fields
@@ -421,6 +470,8 @@ def serve(root: Path, template_path: Path, port: int = 8790,
                                "text/html; charset=utf-8")
                 elif self.path == "/api/galaxy":
                     self._json(build_galaxy_view(root, council_state_path))
+                elif self.path == "/api/v1/memory":
+                    self._json(build_memory_section(root))
                 elif self.path == "/api/v1/live":
                     # Same-origin, so the scene can refresh presence without a
                     # cross-origin request to the app's port. Read-only, like

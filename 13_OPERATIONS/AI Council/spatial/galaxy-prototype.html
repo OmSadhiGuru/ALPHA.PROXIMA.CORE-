@@ -65,6 +65,19 @@
   .label.presence-stale{opacity:.45}
   .label .pulse{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold);
                 margin-left:2px}
+  /* Memory nodes read as a different substance from Council seats: the Council
+     is who exists, memory is what happened. Cooler, quieter, monospaced. */
+  .label.memory{border-color:#3a4a6a;color:#9fb4d8;font-family:ui-monospace,SFMono-Regular,monospace;
+                font-size:10px}
+  .label.memory .dot{background:#6ea8ff}
+  .label.memory.attention{border-color:#ff9d6e;color:#ffbb96}
+  .label.memory.attention .dot{background:#ff9d6e}
+  .label.actor{border-style:dotted;color:#8fa0c0;font-size:10px}
+  #panel .timeline{margin:8px 0;border-left:2px solid var(--line);padding-left:10px}
+  #panel .timeline div{font-size:11px;color:var(--muted);margin:5px 0}
+  #panel .timeline b{color:var(--ink);font-weight:600;display:block;font-size:12px}
+  #panel .unresolved{border:1px dashed #4a5878;border-radius:6px;padding:8px;margin:8px 0;
+                     font-size:11px;color:var(--muted)}
 
   header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
          align-items:flex-start;pointer-events:none;z-index:2}
@@ -171,7 +184,7 @@
 -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-const VIEW = {"schema_version":"1.1.0-prototype","read_only":true,"classification_authority":"visual interpretation only; not institutional authority","generated_at":"2026-09-29T06:37:31+00:00","galaxy":{"center":{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"],"active_assignment":null,"recent_outputs":[]},"inner_circle":[{"proposed":false,"desk":{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"],"active_assignment":null,"recent_outputs":[]},"function":"Memory Steward"},{"proposed":true,"desk":null,"function":"Clarify Founder intent before it is routed"},{"proposed":true,"desk":null,"function":"Distribute and track work across the Council"},{"proposed":true,"desk":null,"function":"Check incoming data quality"},{"proposed":true,"desk":null,"function":"Prepare syntheses for LUMIAION's review"}],"council":[{"owner":"Research Intelligence Office","lead":{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Engineering Office","lead":{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"],"active_assignment":null,"recent_outputs":[{"session_id":"MVC-20260904-001","run_id":"RUN-002","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"},{"session_id":"MVC-20260904-001","run_id":"RUN-001","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"}]},"constellation":[{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Executive Office","lead":{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Institutional Observatory","lead":{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"Ethics Council when convened","lead":{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"ATHENA","lead":{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"VORTEX","lead":{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"SOHMA","lead":{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]}],"unassigned":[{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"],"active_assignment":null,"recent_outputs":[]}],"subagent_profiles":[{"profile":"Context Loader","output":"Minimal source packet and unresolved facts","boundary":"Read-only; preserve unknowns"},{"profile":"Constitutional Mapper","output":"Authority, conflicts, and ratification gates","boundary":"Advisory only"},{"profile":"Source Scout","output":"Source set with provenance","boundary":"No canonisation"},{"profile":"Evidence Classifier","output":"Claim-level Book III classes","boundary":"Provisional until review"},{"profile":"Citation Verifier","output":"Source-to-claim check","boundary":"Does not judge institutional acceptance"},{"profile":"Framework Mapper","output":"Competing models and relationships","boundary":"Preserve dissent"},{"profile":"Architect","output":"Design/specification","boundary":"Does not approve own design"},{"profile":"Builder","output":"Implemented artifact","boundary":"Scoped writes only"},{"profile":"Tester","output":"Reproducible verification record","boundary":"Passing tests are not approval"},{"profile":"Security Reviewer","output":"Risks and mitigations","boundary":"Does not expand permissions"},{"profile":"Ethics Trigger Classifier","output":"Review tier and reasons","boundary":"Cannot speak for Ethics Council"},{"profile":"Synthesis Editor","output":"One coherent decision surface","boundary":"Preserve material disagreement"},{"profile":"Recorder","output":"Attendance, inputs, outputs, decision, next action","boundary":"No invented votes or attendance"}]},"edges":[{"source":"VAULT","target":"AGT-001","type":"semantic","authority":"founder-state INT-001 — the Vault is the Founder OS memory layer","confidence":1.0,"direction":"bidirectional","interpreted":false,"note":"","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-009","type":"operational","authority":"Agent and Subagent Registry — operating owner","confidence":1.0,"direction":"directed","interpreted":false,"note":"","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-002","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Research Intelligence Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-002","target":"AGT-003","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-002","target":"AGT-004","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-007","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Engineering Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-007","target":"AGT-005","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Engineering Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-006","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Executive Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-006","target":"AGT-011","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Executive Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-008","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Institutional Observatory is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-010","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Ethics Council when convened is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-012","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"ATHENA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-013","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"VORTEX is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-014","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"SOHMA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-015","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T06:37:31+00:00"},{"source":"AGT-001","target":"AGT-016","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T06:37:31+00:00"}],"edge_summary":{"counts":{"semantic":1,"operational":5,"causal":0,"temporal":0,"structural":10,"inferred":0},"total":16,"interpreted":14,"canonical":2},"brain":{"note_count":388,"domain_count":21,"connectedness":0.951,"coherence_defects":123,"knowledge_nodes":388,"knowledge_findings":1517,"health_status":"attention"},"live":{"available":false,"reason":"Rendered without live state. Presence and activity are read when this page is served.","realtime":{"mode":"unconfigured","detail":"This is a static render. Serve it with `ap.py galaxy-prototype serve` for live activity.","canonical_readable":true,"presence_trustworthy":false},"presence":[],"activity":[],"badge":0},"council":{"generated_at":"2026-09-29T06:37:28+00:00","schema_version":"1.0.0","sessions":[{"session_id":"MVC-20260904-001","founder_intent":"Make the Council system more alive through a local operational console.","decision_class":"III","interim_authority_basis":"Interim Authority Instrument; Founder direction of 2026-09-04","facilitator":"AGT-001","accountable_role":"AGT-007","advisors":[],"assignments":[{"id":"RUN-001","role":"AGT-007","kind":"agent","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","status":"complete","created_at":"2026-09-04T15:18:07+00:00","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"},{"id":"RUN-002","role":"AGT-007","kind":"agent","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","status":"complete","created_at":"2026-09-04T22:56:40+00:00","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"}],"dissent":[{"recorded_at":"2026-09-04T15:18:07+00:00","text":"No model provider or autonomous worker was invoked; the console is a local read model only."}],"ethics_trigger":"none","recommendation":"Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.","founder_decision":{"decision":"approve","by":"Founder","recorded_at":"2026-09-04T15:30:04+00:00"},"execution_owner":"AGT-007","state":"investigating","opened_at":"2026-09-04T15:18:07+00:00","updated_at":"2026-09-04T22:56:40+00:00","next_action":"Route bounded execution."}],"counts":{"total":1,"active":1,"founder_review":0,"blocked":0},"next_action":"Route bounded execution."}};
+const VIEW = {"schema_version":"1.1.0-prototype","read_only":true,"classification_authority":"visual interpretation only; not institutional authority","generated_at":"2026-09-29T16:13:51+00:00","galaxy":{"center":{"id":"AGT-001","named_role":"LUMIAION Orchestrator","parent_function":"CF-01","operating_owner":"LUMIAION","current_implementation":"Claude-family engine per current registry","state":"available","may_instantiate":["context loader","constitutional mapper","synthesis editor"],"active_assignment":null,"recent_outputs":[]},"inner_circle":[{"proposed":false,"desk":{"id":"AGT-009","named_role":"Memory Steward","parent_function":"CF-09","operating_owner":"LUMIAION","current_implementation":"Multi-engine","state":"available","may_instantiate":["context loader","writeback worker","archive linker"],"active_assignment":null,"recent_outputs":[]},"function":"Memory Steward"},{"proposed":true,"desk":null,"function":"Clarify Founder intent before it is routed"},{"proposed":true,"desk":null,"function":"Distribute and track work across the Council"},{"proposed":true,"desk":null,"function":"Check incoming data quality"},{"proposed":true,"desk":null,"function":"Prepare syntheses for LUMIAION's review"}],"council":[{"owner":"Research Intelligence Office","lead":{"id":"AGT-002","named_role":"Research Lead","parent_function":"CF-02","operating_owner":"Research Intelligence Office","current_implementation":"Perplexity per current registry","state":"available","may_instantiate":["source scout","evidence classifier","citation verifier"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-003","named_role":"Comparative Lead","parent_function":"CF-03","operating_owner":"Research Intelligence Office","current_implementation":"SanaLab per current registry","state":"available","may_instantiate":["framework mapper","contradiction analyst"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-004","named_role":"Education Lead","parent_function":"CF-04","operating_owner":"Research Intelligence Office","current_implementation":"Gemini per current registry","state":"available","may_instantiate":["glossary builder","curriculum adapter"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Engineering Office","lead":{"id":"AGT-007","named_role":"CODEX Engineering Lead","parent_function":"CF-07","operating_owner":"Engineering Office","current_implementation":"Codex / DeepSeek per current registry","state":"available","may_instantiate":["architect","builder","tester","security reviewer"],"active_assignment":null,"recent_outputs":[{"session_id":"MVC-20260904-001","run_id":"RUN-002","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"},{"session_id":"MVC-20260904-001","run_id":"RUN-001","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"}]},"constellation":[{"id":"AGT-005","named_role":"Computational Specialist","parent_function":"CF-05","operating_owner":"Engineering Office","current_implementation":"DeepSeek per current registry","state":"available","may_instantiate":["modeler","calculation verifier"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Executive Office","lead":{"id":"AGT-006","named_role":"Executive Briefing Lead","parent_function":"CF-06","operating_owner":"Executive Office","current_implementation":"Genspark per current registry","state":"available","may_instantiate":["brief writer","scenario analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[{"id":"AGT-011","named_role":"Strategic Intelligence Lead","parent_function":"CF-11","operating_owner":"Executive Office","current_implementation":"Unappointed","state":"blocked","may_instantiate":["none until appointment"],"active_assignment":null,"recent_outputs":[]}]},{"owner":"Institutional Observatory","lead":{"id":"AGT-008","named_role":"Observatory Lead","parent_function":"CF-08","operating_owner":"Institutional Observatory","current_implementation":"Comet per current registry","state":"available","may_instantiate":["signal monitor","drift detector","health reporter"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"Ethics Council when convened","lead":{"id":"AGT-010","named_role":"Ethics Sentinel","parent_function":"CF-10","operating_owner":"Ethics Council when convened","current_implementation":"No voting or review authority","state":"advisory-only","may_instantiate":["trigger classifier","risk mapper","dissent recorder"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"ATHENA","lead":{"id":"AGT-012","named_role":"ATHENA Domain Lead","parent_function":"CF-12","operating_owner":"ATHENA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["health evidence scout","training analyst","safety checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"VORTEX","lead":{"id":"AGT-013","named_role":"VORTEX Domain Lead","parent_function":"CF-13","operating_owner":"VORTEX","current_implementation":"Office-level implementation","state":"available","may_instantiate":["market researcher","financial modeler","risk analyst"],"active_assignment":null,"recent_outputs":[]},"constellation":[]},{"owner":"SOHMA","lead":{"id":"AGT-014","named_role":"SOHMA Domain Lead","parent_function":"CF-14","operating_owner":"SOHMA","current_implementation":"Office-level implementation","state":"available","may_instantiate":["phenomenology mapper","symbolic analyst","boundary checker"],"active_assignment":null,"recent_outputs":[]},"constellation":[]}],"unassigned":[{"id":"AGT-015","named_role":"JERANIUM Data & Systems Lead","parent_function":"CF-15","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["graph worker","data validator","systems analyst after appointment"],"active_assignment":null,"recent_outputs":[]},{"id":"AGT-016","named_role":"YUNA Synthesis & Learning Lead","parent_function":"CF-16","operating_owner":"Owner pending","current_implementation":"Unappointed","state":"blocked","may_instantiate":["synthesis planner","translation worker","learning adapter after appointment"],"active_assignment":null,"recent_outputs":[]}],"subagent_profiles":[{"profile":"Context Loader","output":"Minimal source packet and unresolved facts","boundary":"Read-only; preserve unknowns"},{"profile":"Constitutional Mapper","output":"Authority, conflicts, and ratification gates","boundary":"Advisory only"},{"profile":"Source Scout","output":"Source set with provenance","boundary":"No canonisation"},{"profile":"Evidence Classifier","output":"Claim-level Book III classes","boundary":"Provisional until review"},{"profile":"Citation Verifier","output":"Source-to-claim check","boundary":"Does not judge institutional acceptance"},{"profile":"Framework Mapper","output":"Competing models and relationships","boundary":"Preserve dissent"},{"profile":"Architect","output":"Design/specification","boundary":"Does not approve own design"},{"profile":"Builder","output":"Implemented artifact","boundary":"Scoped writes only"},{"profile":"Tester","output":"Reproducible verification record","boundary":"Passing tests are not approval"},{"profile":"Security Reviewer","output":"Risks and mitigations","boundary":"Does not expand permissions"},{"profile":"Ethics Trigger Classifier","output":"Review tier and reasons","boundary":"Cannot speak for Ethics Council"},{"profile":"Synthesis Editor","output":"One coherent decision surface","boundary":"Preserve material disagreement"},{"profile":"Recorder","output":"Attendance, inputs, outputs, decision, next action","boundary":"No invented votes or attendance"}]},"edges":[{"source":"VAULT","target":"AGT-001","type":"semantic","authority":"founder-state INT-001 — the Vault is the Founder OS memory layer","confidence":1.0,"direction":"bidirectional","interpreted":false,"note":"","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-009","type":"operational","authority":"Agent and Subagent Registry — operating owner","confidence":1.0,"direction":"directed","interpreted":false,"note":"","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-002","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Research Intelligence Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-002","target":"AGT-003","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-002","target":"AGT-004","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Research Intelligence Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-007","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Engineering Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-007","target":"AGT-005","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Engineering Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-006","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Executive Office is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-006","target":"AGT-011","type":"operational","authority":"Agent and Subagent Registry — both roles owned by Executive Office","confidence":0.6,"direction":"directed","interpreted":true,"note":"Shared owner is registry fact; routing through the visual lead is not.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-008","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Institutional Observatory is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-010","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"Ethics Council when convened is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-012","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"ATHENA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-013","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"VORTEX is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-014","type":"structural","authority":"galaxy composition — radial layout","confidence":0.0,"direction":"directed","interpreted":true,"note":"SOHMA is placed on the council ring; no reporting line is asserted.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-015","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T16:13:51+00:00"},{"source":"AGT-001","target":"AGT-016","type":"structural","authority":"galaxy composition — holding cluster for unowned roles","confidence":0.0,"direction":"directed","interpreted":true,"note":"Registry owner is pending. This line exists only so the seat is reachable.","created_at":"2026-09-29T16:13:51+00:00"}],"edge_summary":{"counts":{"semantic":1,"operational":5,"causal":0,"temporal":0,"structural":10,"inferred":0},"total":16,"interpreted":14,"canonical":2},"brain":{"note_count":388,"domain_count":21,"connectedness":0.951,"coherence_defects":123,"knowledge_nodes":388,"knowledge_findings":1517,"health_status":"attention"},"live":{"available":false,"reason":"Rendered without live state. Presence and activity are read when this page is served.","realtime":{"mode":"unconfigured","detail":"This is a static render. Serve it with `ap.py galaxy-prototype serve` for live activity.","canonical_readable":true,"presence_trustworthy":false},"presence":[],"activity":[],"badge":0},"memory":{"available":false,"reason":"Rendered without the memory graph. Serve this page to read the event ledger.","nodes":[],"edges":[],"edge_summary":{"counts":{"semantic":0,"operational":0,"causal":0,"temporal":0,"structural":0,"inferred":0},"total":0,"interpreted":0,"canonical":0},"counts":{"events":0,"entities":0,"actors":0,"actors_resolved":0,"actors_unresolved":0,"requires_founder":0},"unresolved_actors":[]},"council":{"generated_at":"2026-09-29T16:13:48+00:00","schema_version":"1.0.0","sessions":[{"session_id":"MVC-20260904-001","founder_intent":"Make the Council system more alive through a local operational console.","decision_class":"III","interim_authority_basis":"Interim Authority Instrument; Founder direction of 2026-09-04","facilitator":"AGT-001","accountable_role":"AGT-007","advisors":[],"assignments":[{"id":"RUN-001","role":"AGT-007","kind":"agent","deliverable":"Build and verify a read-only local Council Console backed by canonical Council state.","status":"complete","created_at":"2026-09-04T15:18:07+00:00","output":"Implemented Council Console with active, Founder-review, blocked, and total session signals; validated seven Council Kernel tests and local CLI rendering.","completed_at":"2026-09-04T15:18:07+00:00"},{"id":"RUN-002","role":"AGT-007","kind":"agent","deliverable":"Define the CODEX Engineering Orchestra department interface for bounded technical intake, verification, and writeback.","status":"complete","created_at":"2026-09-04T22:56:40+00:00","output":"Created CEO-001: a department-to-engineering contract with minimal briefs, verified delivery receipts, local-first cost discipline, escalation rules, and preserved LUMIAION/Founder authority.","completed_at":"2026-09-04T22:56:40+00:00"}],"dissent":[{"recorded_at":"2026-09-04T15:18:07+00:00","text":"No model provider or autonomous worker was invoked; the console is a local read model only."}],"ethics_trigger":"none","recommendation":"Use the local Console as the operating surface; keep state changes explicit through Kernel commands and add provider execution only through a separately approved adapter.","founder_decision":{"decision":"approve","by":"Founder","recorded_at":"2026-09-04T15:30:04+00:00"},"execution_owner":"AGT-007","state":"investigating","opened_at":"2026-09-04T15:18:07+00:00","updated_at":"2026-09-04T22:56:40+00:00","next_action":"Route bounded execution."}],"counts":{"total":1,"active":1,"founder_review":0,"blocked":0},"next_action":"Route bounded execution."}};
 const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.getElementById('officeLink').href = '/' + window.location.search;
 
@@ -422,19 +435,27 @@ document.getElementById('officeLink').href = '/' + window.location.search;
 
   function renderEdgeLegend() {
     const summary = VIEW.edge_summary || { counts: {} };
+    // Per-type rows cover both graphs, so a `causal` line in the scene always
+    // has a key entry explaining it.
+    const memCounts = ((VIEW.memory && VIEW.memory.edge_summary) || {}).counts || {};
+    const total = type => (summary.counts[type] || 0) + (memCounts[type] || 0);
     const rows = Object.keys(EDGE_STYLE)
-      .filter(type => (summary.counts[type] || 0) > 0)
+      .filter(type => total(type) > 0)
       .map(type => {
         const style = EDGE_STYLE[type];
         const hex = '#' + style.color.toString(16).padStart(6, '0');
         const border = style.dash ? 'dashed' : 'solid';
         return '<div><i style="border-top:2px ' + border + ' ' + hex + '"></i>' +
-               type + ' <span style="opacity:.7">(' + summary.counts[type] + ')</span></div>';
+               type + ' <span style="opacity:.7">(' + total(type) + ')</span></div>';
       }).join('');
+    const mem = (VIEW.memory && VIEW.memory.edge_summary) || { total: 0 };
     document.getElementById('edgeLegend').innerHTML =
       '<b>Relationships</b>' + rows +
       '<div style="margin-top:4px;opacity:.8">' + (summary.interpreted || 0) +
-      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>';
+      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>' +
+      (mem.total
+        ? '<div style="opacity:.8">' + mem.total + ' more witnessed by the event ledger.</div>'
+        : '');
   }
 
   // Seats only. Relationships are drawn afterwards, from the typed edge graph,
@@ -462,6 +483,70 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   });
 
   (VIEW.edges || []).forEach(drawEdge);
+
+  // ---------------------------------------------------------------------
+  // the memory field — what happened, placed around what exists
+  // ---------------------------------------------------------------------
+  // The Council ring is structure: who the Foundation has. This is occurrence:
+  // what it has observed. They are drawn in one scene because the Founder's
+  // question is usually about both at once ("who did this, and what did it lead
+  // to?"), and separated in space and styling because confusing the two would
+  // make an event look like an institution.
+  //
+  // Entities sit on an outer arc, actors just inside them, so an actor's lines
+  // to the entities it touched run inward-to-outward and do not cross the
+  // Council. Positions are deterministic in node id, so the same ledger always
+  // draws the same picture — a graph that reshuffles on every load cannot be
+  // learned.
+  const memory = VIEW.memory || { available: false, nodes: [], edges: [],
+                                  counts: {}, unresolved_actors: [] };
+  const memoryNodeById = {};
+
+  function hashAngle(id) {
+    // A small deterministic hash. Not for security — only so the same id lands
+    // in the same place across loads.
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+    return (h % 3600) / 3600;
+  }
+
+  (memory.nodes || []).forEach(node => {
+    memoryNodeById[node.id] = node;
+    const entity = node.kind === 'entity';
+    const radius = entity ? 30 : 25.5;
+    const angle = hashAngle(node.id) * Math.PI * 2;
+    const lift = entity ? 1.4 : 0.6;
+    positions[node.id] = new THREE.Vector3(
+      Math.cos(angle) * radius, lift, Math.sin(angle) * radius);
+  });
+
+  (memory.nodes || []).forEach(node => {
+    const attention = node.kind === 'entity' && node.requires_founder;
+    const color = node.kind === 'entity' ? (attention ? 0xff9d6e : 0x6ea8ff) : 0x8fa0c0;
+    makeSeat(node.id, positions[node.id], color, node.kind === 'entity' ? 0.22 : 0.16,
+             { dashed: node.kind === 'actor', dim: !attention });
+  });
+
+  // Labelling waits until the label layer exists, further down. Meshes and
+  // edges only need positions, so they are built here; text needs `addLabel`.
+  function labelMemoryNodes() {
+    (memory.nodes || []).forEach(node => {
+      const attention = node.kind === 'entity' && node.requires_founder;
+      addLabel(node.id, positions[node.id].clone().add(new THREE.Vector3(0, 0.35, 0)),
+               node.label,
+               'memory' + (attention ? ' attention' : '') + (node.kind === 'actor' ? ' actor' : ''),
+               // Entities needing the Founder are the one thing worth a label at
+               // rest; everything else reveals on approach, or the outer arc
+               // becomes the wall of text the brief forbids.
+               attention ? 'overview' : 'hover');
+    });
+  }
+
+  // Ledger-authorized edges, drawn by the same taxonomy as the registry ones —
+  // `drawEdge` does not know or care which builder produced them, which is the
+  // point of sharing the taxonomy.
+  (memory.edges || []).forEach(drawEdge);
+
   renderEdgeLegend();
 
   // ---------------------------------------------------------------------
@@ -685,6 +770,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   const trailEl = document.getElementById('thoughtTrail');
 
   function labelForStep(step) {
+    if (step.kind === 'memory') return nodeLabel(step.id);
     if (step.kind === 'vault') return 'Vault';
     if (step.kind === 'department') return step.id;
     if (step.kind === 'sessions') return 'Sessions';
@@ -731,6 +817,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
 
   function enterStep(step) {
+    if (step.kind === 'memory') { selectMemoryNode(step.id); return; }
     if (step.kind === 'department') { window.goToDept(step.id); return; }
     if (step.kind === 'vault') { openVaultPanel(); return; }
     if (step.kind === 'sessions') { openSessionsPanel(); return; }
@@ -788,6 +875,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
 
   function selectRole(id) {
+    if (memoryNodeById[id]) { selectMemoryNode(id); return; }
     activeRole = id;
     const dept = findDept(id);
     if (dept && dept.owner !== activeDept) window.goToDept(dept.owner);
@@ -811,6 +899,7 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       l.el.classList.toggle('shown', show);
     });
   }
+  labelMemoryNodes();
   updateLabelVisibility();
 
   // The live overlay decorates labels, so it starts only once they exist.
@@ -1010,6 +1099,94 @@ document.getElementById('officeLink').href = '/' + window.location.search;
            '<div class="meta" style="color:var(--muted);font-size:11px">' +
            escapeText(event.event_type) + ' · ' + relativeAge(event.age_seconds) +
            (event.requires_founder ? ' · awaiting the Founder' : '') + link + '</div></div>';
+  }
+
+  // ---------------------------------------------------------------------
+  // a memory node's panel — an entity's whole life, or an actor's reach
+  // ---------------------------------------------------------------------
+  function selectMemoryNode(id) {
+    const node = memoryNodeById[id];
+    if (!node) return;
+    activeRole = id;
+    const at = positions[id];
+    if (at) {
+      // Approach from outside the ring, so the Council stays behind the node
+      // rather than the camera flying through it.
+      tweenTo_({ target: at.clone(), dist: 7, elevation: 0.5,
+                 azimuth: Math.atan2(at.z, at.x) });
+    }
+    applyFocus(id);
+    pushThought('memory', id);
+    renderBreadcrumb();
+    openMemoryPanel(node);
+  }
+
+  function relatedMemoryEdges(id) {
+    return (memory.edges || []).filter(e => e.source === id || e.target === id);
+  }
+
+  function nodeLabel(id) {
+    if (memoryNodeById[id]) return memoryNodeById[id].label;
+    const desk = findDesk(id);
+    return desk ? desk.named_role : id;
+  }
+
+  function openMemoryPanel(node) {
+    const body = document.getElementById('panelBody');
+    const related = relatedMemoryEdges(node.id);
+    // Every line is labelled with the relationship it represents and the record
+    // that supports it, so "why are these connected?" is answerable in the
+    // panel rather than only in the data.
+    const connections = related.map(e => {
+      const other = e.source === node.id ? e.target : e.source;
+      const arrow = e.source === node.id ? '→' : '←';
+      return '<div>' + escapeText(e.type) + ' ' + arrow + ' <b>' +
+             escapeText(nodeLabel(other)) + '</b>' +
+             '<div style="color:var(--muted);font-size:10px">' +
+             escapeText(e.authority) + '</div></div>';
+    }).join('') || '<div style="color:var(--muted)">Nothing else connects to this yet.</div>';
+
+    if (node.kind === 'actor') {
+      body.innerHTML =
+        '<h2>' + escapeText(node.label) + '</h2>' +
+        '<div class="sub">actor · ' + escapeText(node.source) + ' · ' +
+        node.event_count + ' event(s)</div>' +
+        (node.resolved
+          ? '<div class="field"><b>Council seat</b>' + escapeText(node.role_id) +
+            '<div style="color:var(--muted);font-size:10px">' +
+            escapeText(node.resolution_basis) + '</div></div>'
+          // The residue, stated at the point a viewer would otherwise assume a
+          // seat: the Council does not recognize this name, and guessing one
+          // would fabricate an attribution.
+          : '<div class="unresolved"><b>No Council seat.</b> The registry has no ' +
+            'role under this name, and matching one by resemblance would invent ' +
+            'an attribution. Attribution stops at the provider\'s name.</div>') +
+        '<div class="field"><b>Acted on</b>' + connections + '</div>';
+      document.getElementById('panel').classList.add('open');
+      return;
+    }
+
+    const timeline = (node.timeline || []).map(step =>
+      '<div><b>' + escapeText(step.event_type) + '</b>' +
+      escapeText(step.title) + '<br>' + escapeText(step.actor) + ' · ' +
+      escapeText(step.occurred_at) + '</div>').join('');
+
+    body.innerHTML =
+      '<h2>' + escapeText(node.label) + '</h2>' +
+      '<div class="sub">' + escapeText(node.entity_type) + ' · ' +
+      escapeText(node.source) + ' · ' + node.event_count + ' event(s)</div>' +
+      (node.requires_founder
+        ? '<div class="field"><b>Status</b><span class="badge executing">awaiting the Founder</span></div>'
+        : '') +
+      '<div class="field"><b>Timeline</b><div class="timeline">' + timeline + '</div></div>' +
+      '<div class="field"><b>Connected</b>' + connections + '</div>' +
+      (node.deep_link
+        ? '<div class="field"><b>Deep link</b><div class="cmd" id="cmdText">' +
+          escapeText(node.deep_link) + '</div>' +
+          '<button class="copy" onclick="navigator.clipboard.writeText(' +
+          'document.getElementById(\'cmdText\').textContent)">Copy</button></div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
   }
 
   window.closePanel = () => document.getElementById('panel').classList.remove('open');
