@@ -5,7 +5,7 @@ tags: [proposals, live, events, adapters, reconciliation, alpha-proxima]
 created: 2026-09-29
 updated: 2026-09-29
 status: proposed
-version: "1.0.0"
+version: "1.1.0"
 authors: ["CLAUDE"]
 artifact_type: proposal
 institutional_owner: "Alpha Proxima Foundation"
@@ -46,6 +46,8 @@ PR #51 was opened at **06:46Z**. PR #52 was opened at **10:30Z**, roughly four h
 
 Both are draft, both are **4/4 green**, both hold coherence at **123/123**.
 
+**#51 is still moving.** Every figure below was re-measured at `8bc543d` (15:2x), which is two commits past the head this document first measured (`f795b73`). Those commits added a device/subscription CLI and fixed an RLS defect — see *Evidence of active hardening*. Any figure quoted from this document should be re-measured before it is relied on.
+
 ---
 
 ## Architecture
@@ -66,12 +68,12 @@ This is the dangerous case. A conflict is a warning; silent duplication is not.
 
 | Measure | The stack (#50/#52/#53) | The layer (#51) |
 |---|---|---|
-| Tests | 274 across 10 suites | **467 across 14 suites** |
+| Tests | 274 across 10 suites | **484 across 13 suites** |
 | CI | 4/4 green | 4/4 green |
 | Coherence | 123/123 | 123/123 |
 | Dependencies added | none | none |
 
-Both test counts were run locally, not read from the pull request bodies.
+Both counts were run locally, not read from the pull request bodies. An earlier revision of this document recorded #51 as *467 across 14 suites*: the test count was correct for the head then measured, and the **suite count was simply miscounted** — that branch had 13 suites then as it does now.
 
 ### Where the layer (#51) is stronger
 
@@ -105,11 +107,21 @@ Only the first is hard to retrofit. Free-text actors reintroduce at the event la
 
 PR #51 predates #50 and could not have used the entity model.
 
+### Evidence of active hardening
+
+After this document was first written, a security review of #51 found a defect worth recording, because *how* it was found argues for the branch as much as the fix does.
+
+The `founder_reads_*` RLS policies had **no matching `GRANT`**. PostgreSQL refuses on privilege grounds before consulting any policy, so every one of those tables answered *permission denied* and the activity feed was unreadable. Marking a notification read failed too: an `UPDATE` must read the rows it matches, and without `SELECT` the badge could never be cleared — the central interaction of the whole notification model.
+
+It failed **closed**, which is why nothing leaked and why nothing caught it. Every earlier test had queried as the table owner. The fix re-verifies as *each principal* separately, and nine tests now hold it — including that every table with a read policy has a grant, and that the `anon` revoke is the last word on privileges, since a revoke placed before a grant is undone by it.
+
+That is the same discipline that produced #51's observed-status design: assume the convenient reading is wrong, and test from the position of the party who will actually be refused.
+
 ### The two directions, measured
 
 | Direction | What must be ported | Volume |
 |---|---|---|
-| **A** — keep the stack, port #51 onto it | GitHub adapter, ingress, notification lifecycle, Supabase schema, secret scanning, bounds, causation, deep links, observed status | **~3,384 lines Python + 593 SQL** |
+| **A** — keep the stack, port #51 onto it | GitHub adapter, ingress, notification lifecycle, Supabase schema, secret scanning, bounds, causation, deep links, observed status | **3,458 lines Python + 647 SQL** |
 | **B** — keep #51, port the stack onto it | `entity_registry.py` (merges near-cleanly — one Markdown table conflict), type the `actor` field, extend the backbone to 1.1.0 | **~401 lines + two bounded changes** |
 
 Direction A is roughly an order of magnitude more work and would discard the better implementation of the Foundation's own stated principle.
@@ -184,4 +196,5 @@ cd /tmp/wt51 && python3 -m unittest discover -s "08_SYSTEMS/Engineering Toolkit"
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-09-29 | CLAUDE | Re-measure at #51 `8bc543d`: 484 tests / 13 suites, port volume 3,458 + 647; correct an earlier suite miscount; record the RLS finding as evidence of active hardening; note that #51 is still moving |
 | 1.0.0 | 2026-09-29 | CLAUDE | Line-level reconciliation of the two live-layer implementations; recommends Direction B |
