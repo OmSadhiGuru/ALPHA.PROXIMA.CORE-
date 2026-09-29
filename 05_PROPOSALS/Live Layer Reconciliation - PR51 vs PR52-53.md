@@ -5,7 +5,7 @@ tags: [proposals, live, events, adapters, reconciliation, alpha-proxima]
 created: 2026-09-29
 updated: 2026-09-29
 status: proposed
-version: "1.1.0"
+version: "1.2.0"
 authors: ["CLAUDE"]
 artifact_type: proposal
 institutional_owner: "Alpha Proxima Foundation"
@@ -32,7 +32,7 @@ End with **one** event contract. Lose none of the work that earned its place in 
 
 | Term | Meaning here |
 |---|---|
-| **The stack** | PR #50 → #52 → #53. Phases A, B, C of the Realignment Directive. |
+| **The stack** | PR #50 → #52. Phases A, B, C of the Realignment Directive. #53 was merged into #52 on 2026-09-29, so **#52 now carries Phases B and C together**; it is no longer a three-level stack. |
 | **The layer** | PR #51, "Live Integration Layer". Phases B, D, partial E, partial G in one PR. |
 | **Forward reference** | A document named in backticks rather than wiki-links because it exists only on an unmerged branch. It becomes a link when that branch lands. |
 | **Typed actor** | An `actor_id` matching `^(agent\|office\|organization\|person):[a-z0-9-]+$`, resolved against ratified registries. |
@@ -57,10 +57,11 @@ Both are draft, both are **4/4 green**, both hold coherence at **123/123**.
 | Pair | Conflicting files |
 |---|---|
 | #50 ↔ #51 | 1 — the Toolkit index table |
-| #52 ↔ #51 | 2 — `.gitignore`, the Toolkit index |
-| #53 ↔ #51 | 3 — the above plus `alpha_app.py` |
+| #52 ↔ #51 | **3** — `.gitignore`, the Toolkit index, `alpha_app.py` |
 
-**No Python file conflicts between #52 and #51.** The modules are named differently — `alpha_event.py` / `event_ledger.py` / `event_adapters.py` against `alpha_events.py` / `alpha_live.py` / `alpha_adapters.py` — so git would merge both without a murmur and leave the Foundation holding two complete event contracts for the same facts.
+Before #53 was merged into it, #52 conflicted in two files; absorbing Phase C brought `alpha_app.py` with it.
+
+**Until #53 landed, no Python file conflicted between #52 and #51.** The modules are named differently — `alpha_event.py` / `event_ledger.py` / `event_adapters.py` against `alpha_events.py` / `alpha_live.py` / `alpha_adapters.py` — so git would merge both without a murmur and leave the Foundation holding two complete event contracts for the same facts.
 
 This is the dangerous case. A conflict is a warning; silent duplication is not.
 
@@ -68,7 +69,7 @@ This is the dangerous case. A conflict is a warning; silent duplication is not.
 
 | Measure | The stack (#50/#52/#53) | The layer (#51) |
 |---|---|---|
-| Tests | 274 across 10 suites | **484 across 13 suites** |
+| Tests | **275 across 10 suites** (#50 + #52, Phases A–C) | **484 across 13 suites** |
 | CI | 4/4 green | 4/4 green |
 | Coherence | 123/123 | 123/123 |
 | Dependencies added | none | none |
@@ -134,14 +135,14 @@ Direction A is roughly an order of magnitude more work and would discard the bet
 
 1. **Merge #50 first.** The entity model is independent of both live layers and valuable regardless. Its only conflict with #51 is one row in a Markdown table.
 2. **Merge #51** as the canonical live layer.
-3. **Close #52 without merging.** Its contract is superseded. Nothing in it is lost that #51 does not do as well or better, except the typed actor — which step 4 carries forward.
-4. **Open one focused PR** that (a) types `actor` against `entity_registry`, and (b) extends `/api/v1/system-backbone` to 1.1.0 over `alpha_live` rather than `event_ledger`. This is #53's contribution, rebased onto the surviving contract.
+3. **Close #52 without merging.** Its event contract is superseded. Note that #52 now carries **Phase C as well as Phase B**, so closing it defers both — step 4 carries both forward.
+4. **Open one focused PR** that (a) types `actor` against `entity_registry`, and (b) extends `/api/v1/system-backbone` to 1.1.0 over `alpha_live` rather than `event_ledger`. This is Phase C's contribution, rebased onto the surviving contract.
 
 This leaves the Foundation with one contract, the stronger implementation, the typed identity, and the Phase C extension the Directive asked for.
 
 ### What this costs
 
-PR #52 — three modules, 953 lines, 51 tests — is discarded. That is the correct outcome of building without looking first, and the cost should be recorded rather than softened by merging both.
+PR #52's event layer — three modules, 953 lines, 51 tests — is discarded. Phase C's backbone extension is **not** discarded; it is re-pointed at `alpha_live` in step 4. That is the correct outcome of building without looking first, and the cost should be recorded rather than softened by merging both.
 
 ---
 
@@ -196,5 +197,6 @@ cd /tmp/wt51 && python3 -m unittest discover -s "08_SYSTEMS/Engineering Toolkit"
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-09-29 | CLAUDE | #53 merged into #52: the stack is now two levels, #52 carries Phases B and C, and its conflict surface against #51 grows from 2 files to 3 as `alpha_app.py` comes with it; restate what closing #52 would and would not discard |
 | 1.1.0 | 2026-09-29 | CLAUDE | Re-measure at #51 `8bc543d`: 484 tests / 13 suites, port volume 3,458 + 647; correct an earlier suite miscount; record the RLS finding as evidence of active hardening; note that #51 is still moving |
 | 1.0.0 | 2026-09-29 | CLAUDE | Line-level reconciliation of the two live-layer implementations; recommends Direction B |
