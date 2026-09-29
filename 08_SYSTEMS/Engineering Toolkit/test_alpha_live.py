@@ -10,9 +10,11 @@ test here, written as the refusal rather than the feature.
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 TOOLKIT_DIR = Path(__file__).resolve().parent
@@ -608,6 +610,91 @@ class ComposedViewTests(unittest.TestCase):
         fresh = live.LiveStore(self.store.path)
         self.assertEqual(fresh.badge_count(), 0)
         self.assertEqual(fresh.presence_view(now=NOON)["presence"], [])
+
+
+class CommandLineTests(unittest.TestCase):
+    """The CLI surface, including the one place a real credential is handled."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.state = Path(self.tmp.name) / "live.json"
+        self.ledger = Path(self.tmp.name) / "ledger.jsonl"
+        self.registry = Path(self.tmp.name) / "registry.json"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def run_cli(self, *args) -> tuple[int, str, str]:
+        import contextlib
+        import io
+        out, err = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            code = live.main(["--live-state", str(self.state), "--ledger", str(self.ledger),
+                              "--registry", str(self.registry), *args])
+        return code, out.getvalue(), err.getvalue()
+
+    def test_registering_a_device_refuses_without_the_token_in_the_environment(self):
+        import os
+        with patch.dict(os.environ, {}, clear=True):
+            code, _, err = self.run_cli("register-device", "iphone", "--platform", "ios")
+        self.assertEqual(code, 1)
+        # The reason matters: it is why the token is not simply an argument.
+        self.assertIn("process list", err)
+
+    def test_a_device_token_never_reaches_the_command_line_or_the_output(self):
+        import os
+        token = "an-apns-token-that-must-not-appear"
+        with patch.dict(os.environ, {"ALPHA_DEVICE_TOKEN": token}):
+            code, out, _ = self.run_cli("register-device", "iphone", "--platform", "ios")
+        self.assertEqual(code, 0)
+        self.assertNotIn(token, out)
+        # Nor the fingerprint: confirming a registration does not require echoing
+        # a stable identifier for the Founder's physical device.
+        self.assertNotIn("token_fingerprint", out)
+        self.assertNotIn(token, self.state.read_text(encoding="utf-8"))
+
+    def test_a_subscription_can_be_set_and_read_back(self):
+        code, _, _ = self.run_cli("subscribe", "SUB-eng", "--channel", "feed",
+                                  "--channel", "badge", "--source", "github")
+        self.assertEqual(code, 0)
+        code, out, _ = self.run_cli("subscriptions")
+        self.assertEqual(code, 0)
+        self.assertEqual(json.loads(out)[0]["channels"], ["feed", "badge"])
+
+    def test_a_stored_subscription_then_withholds_a_push(self):
+        self.run_cli("subscribe", "SUB-quiet", "--channel", "feed", "--channel", "badge",
+                     "--source", "github")
+        store = live.LiveStore(self.state)
+        record = store.notify(event("action"), at=NOON)
+        self.assertNotIn("push", record["channels"])
+
+    def test_the_queue_says_plainly_that_nothing_can_send(self):
+        store = live.LiveStore(self.state)
+        store.notify(event("action"), at=NOON)
+        store.save()
+        code, out, _ = self.run_cli("queue")
+        self.assertEqual(code, 0)
+        # Honest about the gap rather than implying a delivery attempt happened.
+        self.assertIn("No push credential exists", out)
+
+    def test_the_devices_view_from_the_cli_exposes_no_identifier_for_the_device(self):
+        import os
+        with patch.dict(os.environ, {"ALPHA_DEVICE_TOKEN": "t"}):
+            self.run_cli("register-device", "iphone", "--platform", "ios")
+        code, out, _ = self.run_cli("devices")
+        self.assertEqual(code, 0)
+        self.assertNotIn("fingerprint", out)
+
+    def test_an_unknown_channel_is_refused_by_the_parser(self):
+        with self.assertRaises(SystemExit):
+            self.run_cli("subscribe", "SUB-x", "--channel", "telepathy")
+
+    def test_status_reports_without_a_ledger_present(self):
+        # The layer must be inspectable on a machine where nothing has happened.
+        code, out, _ = self.run_cli("status")
+        self.assertEqual(code, 0)
+        self.assertIn("canonical", out)
+        self.assertIn("readable", out)
 
 
 if __name__ == "__main__":

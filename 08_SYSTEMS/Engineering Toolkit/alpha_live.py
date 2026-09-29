@@ -43,6 +43,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 from datetime import timedelta
 from pathlib import Path
@@ -783,6 +784,36 @@ def build_parser() -> argparse.ArgumentParser:
     link = sub.add_parser("deep-link", help="Build a deep link and its web equivalent.")
     link.add_argument("root", choices=ev.DEEP_LINK_ROOTS)
     link.add_argument("parts", nargs="*")
+
+    device = sub.add_parser("register-device", help="Register a Founder device for push.")
+    device.add_argument("device_id")
+    device.add_argument("--platform", required=True, help="ios, android, web, macos…")
+    device.add_argument("--label", default="", help="Human name, e.g. 'Founder iPhone'.")
+    device.add_argument(
+        "--token-env", default="ALPHA_DEVICE_TOKEN",
+        help="Environment variable holding the push token. The token is never "
+             "passed as an argument: a command line is visible in the process "
+             "list and lands in shell history.")
+
+    sub.add_parser("devices", help="Registered devices, with no token and no fingerprint.")
+
+    subscribe = sub.add_parser("subscribe", help="Set a notification preference.")
+    subscribe.add_argument("subscription_id")
+    subscribe.add_argument("--channel", action="append", required=True,
+                           choices=("feed", "badge", "push"),
+                           help="Repeatable. Channels this rule permits.")
+    subscribe.add_argument("--source", default="", choices=("",) + ev.SOURCES,
+                           help="Limit the rule to one provider.")
+    subscribe.add_argument("--event-type", default="", help="Limit the rule to one event type.")
+    subscribe.add_argument("--department", default="", choices=("",) + ev.DEPARTMENTS,
+                           help="Limit the rule to one department.")
+    subscribe.add_argument("--min-severity", default="", choices=("",) + ev.SEVERITIES,
+                           help="Ignore events quieter than this.")
+
+    sub.add_parser("subscriptions", help="Every stored notification preference.")
+
+    queue = sub.add_parser("queue", help="Notifications a delivery worker should attempt.")
+    queue.add_argument("--json", action="store_true", help="Machine-readable output.")
     return parser
 
 
@@ -848,6 +879,49 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "deep-link":
             native = ev.deep_link(args.root, *args.parts)
             return emit({"deep_link": native, "web_link": ev.web_deep_link(native)})
+
+        if args.command == "devices":
+            return emit(store.devices_view())
+
+        if args.command == "subscriptions":
+            return emit(store.subscriptions())
+
+        if args.command == "queue":
+            pending = store.queued()
+            if args.json:
+                return emit(pending)
+            if not pending:
+                print("Nothing queued.")
+                return 0
+            for record in pending:
+                print(f"{record['id']}  {record['state']:<10} attempts={record['attempts']}  "
+                      f"{','.join(record['channels']):<11} {record['title'][:48]}")
+            print(f"\n{len(pending)} notification(s) awaiting delivery. "
+                  "No push credential exists in this repository, so nothing sends.")
+            return 0
+
+        if args.command == "register-device":
+            token = os.environ.get(args.token_env, "")
+            if not token:
+                print(f"error: ${args.token_env} is not set. The push token is read from the "
+                      "environment, never from the command line: arguments are visible in the "
+                      "process list and land in shell history.", file=sys.stderr)
+                return 1
+            record = store.register_device(args.device_id, platform=args.platform,
+                                           token=token, label=args.label)
+            store.save()
+            # The fingerprint is not printed either. Confirming registration does
+            # not require echoing a stable identifier for the Founder's device.
+            return emit({key: value for key, value in record.items()
+                         if key != "token_fingerprint"})
+
+        if args.command == "subscribe":
+            record = store.set_subscription(
+                args.subscription_id, channels=args.channel, source=args.source,
+                event_type=args.event_type, department=args.department,
+                min_severity=args.min_severity)
+            store.save()
+            return emit(record)
 
         if args.command == "project":
             result = store.project_notifications(ledger.events())
