@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T16:39:07+00:00",
-  "note_count": 388,
+  "generated_at": "2026-09-29T16:41:29+00:00",
+  "note_count": 389,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -30,7 +30,7 @@
       "id": "05_PROPOSALS",
       "name": "Proposals",
       "question": "What is being considered",
-      "count": 10
+      "count": 11
     },
     {
       "id": "06_GOVERNANCE",
@@ -1226,7 +1226,7 @@
         "05-proposals-cn-0001-constitutional-alignment-gap-report-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "04-decisions-adr-0003-pr47-source-scoped-reference-contract-md",
@@ -1374,6 +1374,41 @@
       ],
       "unresolved": [],
       "backlinks": 2
+    },
+    {
+      "id": "05-proposals-live-layer-reconciliation-pr51-vs-pr52-53-md",
+      "path": "05_PROPOSALS/Live Layer Reconciliation - PR51 vs PR52-53.md",
+      "title": "Live Layer Reconciliation - PR51 vs PR52-53",
+      "domain": "05_PROPOSALS",
+      "type": "proposal",
+      "status": "adopted",
+      "version": "2.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Architecture",
+      "engine": "Claude",
+      "authors": [
+        "CLAUDE"
+      ],
+      "tags": [
+        "proposals",
+        "live",
+        "events",
+        "adapters",
+        "reconciliation",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 2135,
+      "links": [
+        "08-systems-alpha-proxima-live-integration-layer-md",
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "04-decisions-adr-0002-reconciling-the-four-institutional-taxonomies-md",
+        "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
     },
     {
       "id": "05-proposals-phase-iii-preparation-02-strategy-architecture-blueprint-md",
@@ -5710,7 +5745,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 2870,
+      "words": 3338,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -5722,7 +5757,7 @@
         "08-systems-foundational-architecture-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "08-systems-alpha-proxima-operating-model-v1-0-md",
@@ -6317,7 +6352,7 @@
         "08-systems-engineering-standards-03-folder-naming-convention-md"
       ],
       "unresolved": [],
-      "backlinks": 8
+      "backlinks": 9
     },
     {
       "id": "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
@@ -6414,7 +6449,7 @@
         "08-systems-alpha-proxima-live-integration-layer-md"
       ],
       "unresolved": [],
-      "backlinks": 29
+      "backlinks": 30
     },
     {
       "id": "08-systems-engineering-toolkit-osg-reading-color-css-guide-md",
@@ -9230,7 +9265,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 11
+      "backlinks": 12
     },
     {
       "id": "13-operations-alpha-proxima-app-readme-md",
@@ -13545,9 +13580,9 @@
     }
   ],
   "coherence": {
-    "note_count": 388,
-    "connected": 369,
-    "connectedness": 0.951,
+    "note_count": 389,
+    "connected": 370,
+    "connectedness": 0.9512,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -14255,6 +14290,10 @@
         2
       ],
       [
+        "proposal",
+        2
+      ],
+      [
         "research-program-index",
         2
       ],
@@ -14304,10 +14343,6 @@
       ],
       [
         "readiness-dependency-map",
-        1
-      ],
-      [
-        "proposal",
         1
       ],
       [
@@ -14569,6 +14604,10 @@
         1
       ],
       [
+        "adopted",
+        1
+      ],
+      [
         "pending_delivery",
         1
       ],
@@ -14612,7 +14651,7 @@
       ],
       [
         "Architecture",
-        2
+        3
       ],
       [
         "Strategy",
@@ -14637,28 +14676,28 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "b6155e4c9e0cdd87b0001a924c189bc42f90ac636fd3e7f14cc2edb3d02c3aa3",
-      "note_count": 388
+      "fingerprint": "118514a50ddefe58c116d923d8a3991daea6bdf2d9134f04ba147b2124473640",
+      "note_count": 389
     },
     "health": {
       "status": "attention",
       "counts": {
         "errors": 20,
-        "warnings": 1497,
-        "findings": 1517
+        "warnings": 1500,
+        "findings": 1520
       }
     },
     "counts": {
-      "nodes": 388,
-      "relationships": 2728,
-      "unresolved_relationships": 754,
+      "nodes": 389,
+      "relationships": 2738,
+      "unresolved_relationships": 756,
       "node_types": {
         "canonical_synthesis": 4,
         "charter": 13,
         "concept": 16,
         "engineering_tool": 22,
         "evidence_claim": 3,
-        "founder_directive": 15,
+        "founder_directive": 16,
         "future_research": 19,
         "office": 9,
         "open_question": 4,
@@ -14678,13 +14717,13 @@
         "OWNED_BY": 2,
         "PART_OF": 163,
         "PRODUCED_BY": 96,
-        "REFERENCES": 1625,
-        "RELATED_TO": 504,
-        "REQUIRES": 321,
+        "REFERENCES": 1630,
+        "RELATED_TO": 507,
+        "REQUIRES": 323,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "0185a74b9c4d18a172d2d6cb9367e34c6ac16254b4bddf26f7db17ac3e288c98"
+    "contract_fingerprint": "e0d111b3dfea4ace6d4ef109ae2dc5aea56a4a01ec598594f5de5ee83713b393"
   }
 }
