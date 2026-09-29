@@ -102,6 +102,9 @@ def _load_sibling(filename: str, name: str):
 office_spatial = _load_sibling("office_spatial.py", "galaxy_prototype_office_spatial")
 role_registry = office_spatial.role_registry
 alpha_app = office_spatial.alpha_app
+# The relationship taxonomy, shared with the memory graph so both views mean the
+# same thing by a line.
+alpha_edges = _load_sibling("alpha_edges.py", "galaxy_alpha_edges")
 check_reachability_gate = alpha_app.check_reachability_gate
 LOOPBACK_HOSTS = alpha_app.LOOPBACK_HOSTS
 
@@ -170,45 +173,21 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
 # --------------------------------------------------------------------------
 # the edge taxonomy
 # --------------------------------------------------------------------------
-
-# Every line drawn between two nodes is one of these, and the distinction is
-# not decorative. A viewer must be able to tell "the registry says these are
-# related" from "this line exists so the node is reachable."
+# Defined in `alpha_edges`, shared with the memory graph. Both views must mean
+# the same thing by a line, or the Founder learns two visual languages.
 #
-#   semantic     canonical: the Foundation states this relationship.
-#   operational  registry fact: ownership, assignment, reporting.
-#   causal       one event caused another. Only the event ledger creates these.
-#   temporal     the same entity, observed at different times.
-#   structural   navigation only. Carries no institutional claim whatsoever.
-#   inferred     this module assigned it. Never canonical, always marked.
-EDGE_TYPES = ("semantic", "operational", "causal", "temporal", "structural", "inferred")
+# This view reads the role registry, so it builds through `registry_edge`, which
+# refuses `causal` and `temporal` outright: a registry witnesses structure, not
+# occurrence. Only the event ledger can say one thing caused another.
+EDGE_TYPES = alpha_edges.EDGE_TYPES
 
 
-def edge(source_id: str, target_id: str, edge_type: str, *, authority: str,
-         confidence: float, direction: str = "directed",
-         interpreted: bool = False, note: str = "") -> dict[str, Any]:
-    """One typed edge, carrying where it came from and how much to trust it.
-
-    `authority` names the document or record that supports the edge, so a
-    viewer can check it. `interpreted` is true whenever any part of the edge was
-    decided here rather than read from a registry -- which is the flag the
-    renderer uses to make sure an inference never looks like canon.
-    """
-    if edge_type not in EDGE_TYPES:
-        raise PrototypeError(f"Unknown edge type {edge_type!r}. One of: {', '.join(EDGE_TYPES)}.")
-    if not 0.0 <= confidence <= 1.0:
-        raise PrototypeError(f"Edge confidence must be between 0 and 1, got {confidence!r}.")
-    return {
-        "source": source_id,
-        "target": target_id,
-        "type": edge_type,
-        "authority": authority,
-        "confidence": round(float(confidence), 2),
-        "direction": direction,
-        "interpreted": bool(interpreted),
-        "note": note,
-        "created_at": role_registry.now_iso(),
-    }
+def edge(source_id: str, target_id: str, edge_type: str, **fields: Any) -> dict[str, Any]:
+    """A registry-authorized edge, with this module's error type on failure."""
+    try:
+        return alpha_edges.registry_edge(source_id, target_id, edge_type, **fields)
+    except alpha_edges.EdgeError as exc:
+        raise PrototypeError(str(exc)) from exc
 
 
 def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
@@ -285,15 +264,7 @@ def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
 
 def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     """Counts per type, plus how much of the graph is interpretation."""
-    counts = {edge_type: 0 for edge_type in EDGE_TYPES}
-    for item in edges:
-        counts[item["type"]] += 1
-    return {
-        "counts": counts,
-        "total": len(edges),
-        "interpreted": sum(1 for item in edges if item["interpreted"]),
-        "canonical": sum(1 for item in edges if not item["interpreted"]),
-    }
+    return alpha_edges.summarize(edges)
 
 
 # What the committed render says instead of live data. `galaxy-prototype.html`
