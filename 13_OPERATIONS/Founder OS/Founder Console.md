@@ -3,7 +3,7 @@ title: "Founder Console"
 aliases: ["Founder Console", "Founder OS Console", "Console V1"]
 tags: [operations, founder-os, console, dashboard, lumiaion, alpha-proxima]
 created: 2026-08-26
-updated: 2026-09-04
+updated: 2026-09-29
 status: active
 version: "1.0.0"
 authors: ["LUMIAION", "CODEX"]
@@ -21,11 +21,11 @@ related_research_programs: []
 > [!warning] Generated file
 > This note is rendered from `state/founder-state.json` by `ap.py founder render`. Edits here are overwritten. Change state with `ap.py founder <command>`.
 
-_Rendered 2026-09-04T15:19:47+00:00 · schema 1.1.0_
+_Rendered 2026-09-29T04:48:39+00:00 · schema 1.1.0_
 
 ## Today
 
-**2026-09-04** — Make Founder state truthful and prove one executable FIR-001 lane
+**2026-09-04** — Make Founder state truthful and prove one executable FIR-001 lane ⚠️ **stale — set today's mission**
 
 _Set by LUMIAION · sprint FIR-001_
 
@@ -84,10 +84,10 @@ _No active Founder intent routes._
 | Area | Status | Detail |
 |---|---|---|
 | Repository | OK | Canonical checkout reconciled to origin/main 76a489e; FIR-001 is isolated on codex/fir001-state-truth with personal plugin/cache state excluded. |
-| Vault validation | DEGRADED | Tracked-corpus validator baseline: 0 critical, 22 errors, 983 warnings, 37 info; Console coherence is 127, below the 129 ceiling. |
+| Vault validation | DEGRADED | Tracked-corpus validation on canonical main f260e3a: 0 critical, 16 inherited errors, 983 warnings, 36 informational findings, and 0 new findings. Coherence is 123 at the enforced ceiling of 123. |
 | Open pull requests | OK | No open pull requests at the last verified remote refresh. |
 | Founder OS state | OK | Founder state validates; 46 Founder OS tests and 40 Alpha Proxima App tests pass. |
-| Memory / context | DEGRADED | Layer 3 semantic memory unbuilt; context loading remains manual and selective. |
+| Memory / context | DEGRADED | The structural title/path/metadata read model is available, but semantic retrieval and automatic session context remain unbuilt. Live coverage is partial whenever iCloud notes are unavailable and must be reported explicitly. |
 | Task queue | OK | Seven work units tracked; FIR-001 repository-health route is at Founder review with a persisted result. |
 
 ## Integrations
