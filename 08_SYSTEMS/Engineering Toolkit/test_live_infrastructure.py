@@ -44,6 +44,19 @@ def sql() -> str:
     return "\n".join(path.read_text(encoding="utf-8") for path in sorted(INFRA.glob("*.sql")))
 
 
+def sql_code() -> str:
+    """The migrations with `--` comments stripped.
+
+    Needed wherever a test scans for statements: this file's comments discuss
+    grants and revokes in prose, and a scan that reads them finds privileges
+    nobody granted.
+    """
+    return "\n".join(
+        re.sub(r"--.*$", "", line)
+        for line in sql().splitlines()
+    )
+
+
 def enum_values(name: str) -> list[str]:
     """The values of one `create type ... as enum (...)`, in declaration order."""
     match = re.search(rf"create type alpha\.{name} as enum \(([^)]*)\)", sql(), re.S)
@@ -197,7 +210,7 @@ class SchemaGuaranteeTests(unittest.TestCase):
         # And future tables inherit the denial rather than a grant.
         self.assertIn("alter default privileges in schema alpha revoke all on tables from anon",
                       body)
-        self.assertNotRegex(body, r"grant \w+[^;]*to [^;]*\banon\b")
+        self.assertNotRegex(sql_code(), r"grant \w+[^;]*to [^;]*\banon\b")
 
     def test_dead_letters_never_store_webhook_headers(self):
         # A rejected delivery's headers carry its signature. A debugging table is
@@ -208,6 +221,88 @@ class SchemaGuaranteeTests(unittest.TestCase):
 
     def test_the_schema_states_that_it_is_not_canonical_truth(self):
         self.assertIn("Not canonical truth", sql())
+
+
+class PrivilegeTests(unittest.TestCase):
+    """A policy without a grant is inert, and the failure is silent until used.
+
+    RLS narrows which rows a role may see; it does not confer the right to look.
+    With policies but no `GRANT SELECT`, PostgreSQL refuses on privilege grounds
+    before consulting any policy — so the Founder's feed reads "permission
+    denied" and, because an UPDATE must read the rows it matches, the badge can
+    never be cleared. Verified against PostgreSQL 16; these tests keep the
+    grants from being dropped again.
+    """
+
+    def grants_to(self, role: str) -> str:
+        """Every `grant ... to <role>` statement, concatenated. Code only."""
+        return "\n".join(
+            statement for statement in re.findall(r"grant [^;]+;", sql_code(), re.S)
+            if re.search(rf"\b{role}\b", statement)
+        )
+
+    def test_every_table_the_founder_has_a_read_policy_for_is_also_granted(self):
+        body = sql_code()
+        granted = self.grants_to("authenticated")
+        policied = re.findall(r"create policy founder_reads_(\w+) on alpha\.(\w+)", body)
+        self.assertTrue(policied, "no Founder read policies found")
+        for _, table in policied:
+            with self.subTest(table=table):
+                self.assertRegex(
+                    granted, rf"alpha\.{table}\b",
+                    f"alpha.{table} has a read policy but no SELECT grant, so the policy "
+                    "is inert and the read fails with permission denied",
+                )
+
+    def test_the_update_grant_is_column_scoped_not_whole_table(self):
+        granted = self.grants_to("authenticated")
+        self.assertIn("grant update (state, read_at, dismissed_at) on alpha.notifications",
+                      granted)
+        self.assertIn("revoke update on alpha.notifications from authenticated", sql_code())
+
+    def test_marking_a_notification_read_requires_and_has_its_select_grant(self):
+        # The subtle half of the defect: the column-level UPDATE grant alone is
+        # not enough, because the policy's USING clause reads the row.
+        self.assertRegex(self.grants_to("authenticated"), r"alpha\.notifications\b")
+
+    def test_the_device_table_is_never_granted_only_its_barrier_view(self):
+        granted = self.grants_to("authenticated")
+        self.assertNotRegex(granted, r"alpha\.devices\s*(,|to)\b")
+        self.assertIn("alpha.devices_readable", granted)
+        self.assertIn("revoke all on alpha.devices from authenticated, anon", sql_code())
+
+    def test_only_one_readable_device_view_exists(self):
+        # Two views for one job invites a later migration granting the wrong one.
+        body = sql_code()
+        views = re.findall(r"create view alpha\.(devices\w*)", body)
+        self.assertEqual(views, ["devices_readable"], f"found {views}")
+
+    def test_the_ingress_role_can_write_without_relying_on_an_rls_bypass(self):
+        # Supabase's service_role bypasses RLS, but a bypass is not a privilege.
+        # Stating the grants keeps the schema portable to any other Postgres.
+        granted = self.grants_to("service_role")
+        self.assertRegex(granted, r"grant select, insert on\s+alpha\.events")
+        self.assertIn("grant usage on all sequences in schema alpha to service_role", granted)
+
+    def test_the_ingress_role_is_never_granted_update_or_delete_on_events(self):
+        for statement in re.findall(r"grant [^;]+;", sql_code(), re.S):
+            if "service_role" in statement and "alpha.events" in statement:
+                with self.subTest(statement=statement.split("\n")[0]):
+                    self.assertNotIn("update", statement)
+                    self.assertNotIn("delete", statement)
+
+    def test_the_anon_denial_comes_after_every_grant(self):
+        # Order matters: a revoke that runs before a grant is undone by it.
+        body = sql_code()
+        last_grant = max(match.start() for match in re.finditer(r"grant ", body))
+        last_revoke = max(match.start()
+                          for match in re.finditer(r"revoke all on all tables in schema alpha from anon",
+                                                   body))
+        self.assertGreater(last_revoke, last_grant,
+                           "the anon revoke must be the last word on privileges")
+
+    def test_nothing_is_granted_to_anon_anywhere(self):
+        self.assertEqual(self.grants_to("anon"), "")
 
 
 if __name__ == "__main__":

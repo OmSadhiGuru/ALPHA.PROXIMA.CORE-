@@ -125,12 +125,10 @@ create table alpha.devices (
 comment on column alpha.devices.token_fingerprint is
   'sha256 prefix of the push token. The raw token is never stored here and never served.';
 
--- The only device shape any client may read. The fingerprint is not a
--- credential, but it is a stable identifier for a physical device, and a read
--- API has no use for it.
-create view alpha.devices_public as
-select device_id, platform, label, registered_at, last_seen, active
-from alpha.devices;
+-- The readable device shape is defined in 0003 (`alpha.devices_readable`),
+-- beside the revoke that makes it the *only* way to see a device. Defining a
+-- second one here would leave an ungranted view that a later migration could
+-- grant by mistake, exposing the fingerprint.
 
 -- --------------------------------------------------------------------------
 -- adapter_registry — honest integration status

@@ -42,6 +42,52 @@ alter table alpha.events           force row level security;
 alter table alpha.devices          force row level security;
 
 -- --------------------------------------------------------------------------
+-- privileges first, then policies
+-- --------------------------------------------------------------------------
+-- RLS narrows what a role may see; it does not grant the right to look. A
+-- policy without a matching GRANT is inert: Postgres refuses the statement on
+-- privilege grounds before any policy is consulted, and the read fails with
+-- "permission denied" rather than returning filtered rows.
+--
+-- This was verified against PostgreSQL 16: with the policies below but no
+-- grants, every one of these tables answered "permission denied for table",
+-- the activity feed was unreadable, and — because UPDATE also needs SELECT on
+-- the rows it matches — the Founder could not mark a notification read, which
+-- would have made the badge impossible to clear.
+--
+-- Granting SELECT here is therefore not a widening of access. The policies
+-- above and below remain the thing that decides which rows are visible; these
+-- grants are what let them apply at all.
+
+grant select on
+  alpha.events,
+  alpha.agent_presence,
+  alpha.notifications,
+  alpha.subscriptions,
+  alpha.adapter_registry,
+  alpha.dead_letters
+to authenticated;
+
+-- `devices` is deliberately absent: it is reachable only through
+-- `alpha.devices_readable` below, so no column-list mistake can expose the
+-- token fingerprint.
+
+-- The ingress writes as `service_role`. In Supabase that role bypasses RLS, but
+-- a bypass is not a privilege — and stating the grants here keeps the schema
+-- portable to any other Postgres, where it would otherwise fail on the first
+-- insert.
+grant select, insert on alpha.events to service_role;
+grant select, insert, update, delete on
+  alpha.agent_presence,
+  alpha.notifications,
+  alpha.devices,
+  alpha.adapter_registry,
+  alpha.subscriptions
+to service_role;
+grant select, insert on alpha.dead_letters to service_role;
+grant usage on all sequences in schema alpha to service_role;
+
+-- --------------------------------------------------------------------------
 -- the Founder reads
 -- --------------------------------------------------------------------------
 
@@ -68,6 +114,7 @@ create view alpha.devices_readable with (security_barrier = true) as
   select device_id, platform, label, registered_at, last_seen, active
   from alpha.devices;
 
+-- `devices` itself is never readable, only the barrier view over it.
 revoke all on alpha.devices from authenticated, anon;
 grant select on alpha.devices_readable to authenticated;
 
@@ -90,6 +137,10 @@ create policy founder_marks_notifications on alpha.notifications
   using (state in ('queued', 'delivered', 'failed'))
   with check (state in ('read', 'dismissed'));
 
+-- Narrowed to three columns, so a client cannot rewrite which channels a
+-- notification used or which severity it carried. The SELECT granted above is
+-- what makes this UPDATE possible at all: an update needs to read the rows it
+-- matches, and the policy's USING clause is evaluated against them.
 revoke update on alpha.notifications from authenticated;
 grant update (state, read_at, dismissed_at) on alpha.notifications to authenticated;
 
@@ -141,5 +192,10 @@ alter default privileges in schema alpha revoke all on functions from anon;
 
 grant usage on schema alpha to authenticated, service_role;
 grant select on alpha.activities, alpha.presence, alpha.integrations to authenticated;
+
+-- Last word: nothing above may have reached `anon`. Re-asserted after every
+-- grant in this file rather than trusting their order.
+revoke all on all tables in schema alpha from anon;
+revoke all on all sequences in schema alpha from anon;
 
 commit;
