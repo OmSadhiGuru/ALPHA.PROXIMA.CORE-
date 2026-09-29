@@ -447,12 +447,12 @@ def make_server(memory, host, port, token=None, universe=None):
                 if route == '/classic':
                     return self.send(alpha_app.render_app(memory.get(), alpha_app.DEFAULT_TEMPLATE).encode(), content_type='text/html; charset=utf-8')
                 if route == '/council-view':
-                    view = galaxy.build_galaxy_view(memory.root, brain=memory.brain())
+                    view = galaxy.build_galaxy_view(memory.root)
                     return self.send(galaxy.render_app(view, galaxy.DEFAULT_TEMPLATE).encode(), content_type='text/html; charset=utf-8')
                 if route == '/office':
                     return self.send(office_spatial.render_app(office_spatial.build_office_view(memory.root, brain=memory.brain()), office_spatial.DEFAULT_TEMPLATE).encode(), content_type='text/html; charset=utf-8')
                 if route == '/api/galaxy':
-                    return self.send(galaxy.build_galaxy_view(memory.root, brain=memory.brain()))
+                    return self.send(galaxy.build_galaxy_view(memory.root))
                 if route == '/api/office':
                     return self.send(office_spatial.build_office_view(memory.root, brain=memory.brain()))
                 if route.startswith('/universe/'):

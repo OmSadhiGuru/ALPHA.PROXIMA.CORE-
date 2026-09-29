@@ -32,6 +32,53 @@
   #panel .brain-stats div{font-size:12px}
   #panel .brain-stats b{display:block;font-size:17px;color:var(--brain)}
 
+  /* The thought trail. Deliberately a thin strip at the bottom: the Founder
+     must be able to see where a path has led without the path competing with
+     the scene it describes. */
+  #thoughtTrail{position:fixed;left:0;right:0;bottom:0;padding:8px 14px;display:none;gap:6px;
+                align-items:center;flex-wrap:wrap;pointer-events:auto;z-index:3;
+                background:linear-gradient(to top,rgba(5,8,16,.92),rgba(5,8,16,0));font-size:11px}
+  #thoughtTrail.shown{display:flex}
+  #thoughtTrail .step{background:rgba(12,18,32,.9);border:1px solid var(--line);color:var(--ink);
+                      border-radius:999px;padding:3px 10px;font:inherit;cursor:pointer;white-space:nowrap}
+  #thoughtTrail .step.here{border-color:var(--gold);color:var(--gold)}
+  #thoughtTrail .step:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  #thoughtTrail .sep{color:var(--muted);opacity:.7}
+  #thoughtTrail .kind{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+                      margin-right:4px}
+
+  /* Edge legend. An inferred line that looked like a canonical one would be the
+     worst failure in this view, so the difference is stated, not just drawn. */
+  #edgeLegend{position:fixed;left:14px;bottom:44px;font-size:10px;color:var(--muted);
+              pointer-events:none;z-index:2;line-height:1.7}
+  #edgeLegend b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;
+                text-transform:uppercase;letter-spacing:.08em}
+  #edgeLegend i{display:inline-block;width:18px;height:0;border-top-width:2px;margin-right:6px;
+                vertical-align:middle}
+
+  /* Degraded state, stated rather than implied by an empty feed. */
+  #liveBanner{position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:4;display:none;
+              background:rgba(12,18,32,.94);border:1px solid var(--line);border-radius:8px;
+              padding:6px 12px;font-size:11px;color:var(--muted);max-width:88vw}
+  #liveBanner.shown{display:block}
+  #liveBanner.degraded{border-color:#ffcf6e;color:#ffcf6e}
+  .label.presence-stale{opacity:.45}
+  .label .pulse{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold);
+                margin-left:2px}
+  /* Memory nodes read as a different substance from Council seats: the Council
+     is who exists, memory is what happened. Cooler, quieter, monospaced. */
+  .label.memory{border-color:#3a4a6a;color:#9fb4d8;font-family:ui-monospace,SFMono-Regular,monospace;
+                font-size:10px}
+  .label.memory .dot{background:#6ea8ff}
+  .label.memory.attention{border-color:#ff9d6e;color:#ffbb96}
+  .label.memory.attention .dot{background:#ff9d6e}
+  .label.actor{border-style:dotted;color:#8fa0c0;font-size:10px}
+  #panel .timeline{margin:8px 0;border-left:2px solid var(--line);padding-left:10px}
+  #panel .timeline div{font-size:11px;color:var(--muted);margin:5px 0}
+  #panel .timeline b{color:var(--ink);font-weight:600;display:block;font-size:12px}
+  #panel .unresolved{border:1px dashed #4a5878;border-radius:6px;padding:8px;margin:8px 0;
+                     font-size:11px;color:var(--muted)}
+
   header{position:fixed;top:0;left:0;right:0;padding:14px 18px;display:flex;justify-content:space-between;
          align-items:flex-start;pointer-events:none;z-index:2}
   header h1{font-size:14px;margin:0 0 4px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
@@ -128,6 +175,14 @@
 
 <!-- Keyboard/screen-reader parity: every seat is also a real, focusable button here. -->
 <nav id="a11yList" class="sr-only" aria-label="Council roles (keyboard list)"></nav>
+
+<div id="liveBanner" role="status"></div>
+
+<!-- The reversible thought path. Buttons, not decoration: every step the
+     Founder has walked through is focusable and returns there. -->
+<nav id="thoughtTrail" aria-label="Thought path"></nav>
+
+<div id="edgeLegend" aria-hidden="true"></div>
 
 <aside id="panel" role="dialog" aria-label="Details">
   <button class="close" onclick="closePanel()" aria-label="Close">✕</button>
@@ -288,7 +343,9 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     vaultCore.position.copy(vaultPos);
     scene.add(vaultCore);
     scene.add(new THREE.PointLight(0xa48bff, 0.8, 12).translateX(vaultPos.x).translateY(vaultPos.y).translateZ(vaultPos.z));
-    line(vaultPos, positions['AGT-001'], 0xa48bff, 0.35);
+    // The Vault-to-LUMIAION line is no longer drawn here: it is a semantic edge
+    // in VIEW.edges, so it is styled by the same taxonomy as every other
+    // relationship instead of being a one-off.
     window.__vaultCore = vaultCore; // rotated in the render loop, defined below
   }
 
@@ -332,35 +389,249 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   function line(a, b, color, opacity) {
     const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
     const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: opacity ?? 0.25 });
-    scene.add(new THREE.Line(geo, mat));
+    const mesh = new THREE.Line(geo, mat);
+    scene.add(mesh);
+    return mesh;
   }
 
-  // Inner circle.
+  // ---------------------------------------------------------------------
+  // edges, drawn from the typed graph the view builder produced
+  // ---------------------------------------------------------------------
+  // The visual grammar carries the taxonomy, so the picture cannot say more
+  // than the data does:
+  //
+  //   semantic     bright, solid, thickest opacity  — the Foundation asserts it
+  //   operational  solid but quieter                — a registry states it
+  //   causal       warm                             — one event caused another
+  //   temporal     cool                             — the same thing, later
+  //   structural   very faint, short dashes         — navigation only
+  //   inferred     faint, long dashes               — this view assigned it
+  //
+  // An `interpreted` edge is always dashed regardless of its type: whatever
+  // else it is, it is partly this module's opinion, and it must never read as
+  // canon.
+  const EDGE_STYLE = {
+    semantic:    { color: 0xa48bff, opacity: 0.55 },
+    operational: { color: 0x9fd6ff, opacity: 0.34 },
+    causal:      { color: 0xff9d6e, opacity: 0.40 },
+    temporal:    { color: 0x6ee7b7, opacity: 0.30 },
+    structural:  { color: 0x4a5878, opacity: 0.16, dash: [0.18, 0.26] },
+    inferred:    { color: 0x6b7690, opacity: 0.20, dash: [0.45, 0.35] },
+  };
+
+  const edgeObjects = []; // { mesh, edge, a, b, baseOpacity }
+
+  function positionOf(nodeId) {
+    if (nodeId === 'VAULT') return vaultPos;
+    return positions[nodeId] || null;
+  }
+
+  function drawEdge(record) {
+    const a = positionOf(record.source), b = positionOf(record.target);
+    if (!a || !b) return null;   // a node this composition does not place
+    const style = EDGE_STYLE[record.type] || EDGE_STYLE.structural;
+    const dash = record.interpreted ? (style.dash || EDGE_STYLE.inferred.dash) : style.dash;
+    const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
+    let mesh;
+    if (dash) {
+      const mat = new THREE.LineDashedMaterial({
+        color: style.color, transparent: true, opacity: style.opacity,
+        dashSize: dash[0], gapSize: dash[1],
+      });
+      mesh = new THREE.Line(geo, mat);
+      mesh.computeLineDistances();   // required, or a dashed line renders solid
+    } else {
+      mesh = new THREE.Line(geo, new THREE.LineBasicMaterial({
+        color: style.color, transparent: true, opacity: style.opacity }));
+    }
+    scene.add(mesh);
+    edgeObjects.push({ mesh, edge: record, baseOpacity: style.opacity });
+    return mesh;
+  }
+
+  function renderEdgeLegend() {
+    const summary = VIEW.edge_summary || { counts: {} };
+    // Per-type rows cover both graphs, so a `causal` line in the scene always
+    // has a key entry explaining it.
+    const memCounts = ((VIEW.memory && VIEW.memory.edge_summary) || {}).counts || {};
+    const total = type => (summary.counts[type] || 0) + (memCounts[type] || 0);
+    const rows = Object.keys(EDGE_STYLE)
+      .filter(type => total(type) > 0)
+      .map(type => {
+        const style = EDGE_STYLE[type];
+        const hex = '#' + style.color.toString(16).padStart(6, '0');
+        const border = style.dash ? 'dashed' : 'solid';
+        return '<div><i style="border-top:2px ' + border + ' ' + hex + '"></i>' +
+               type + ' <span style="opacity:.7">(' + total(type) + ')</span></div>';
+      }).join('');
+    const mem = (VIEW.memory && VIEW.memory.edge_summary) || { total: 0 };
+    document.getElementById('edgeLegend').innerHTML =
+      '<b>Relationships</b>' + rows +
+      '<div style="margin-top:4px;opacity:.8">' + (summary.interpreted || 0) +
+      ' of ' + (summary.total || 0) + ' are this view\'s interpretation, not canon.</div>' +
+      (mem.total
+        ? '<div style="opacity:.8">' + mem.total + ' more witnessed by the event ledger.</div>'
+        : '');
+  }
+
+  // Seats only. Relationships are drawn afterwards, from the typed edge graph,
+  // so nothing about which nodes exist decides which lines get drawn.
   galaxy.inner_circle.forEach(seat => {
     if (seat.proposed) {
       makeSeat(null, seat.__pos, 0x8899bb, 0.3, { dashed: true, dim: true });
     } else {
       makeSeat(seat.desk.id, positions[seat.desk.id], 0x9fd6ff, 0.28);
-      line(positions['AGT-001'], positions[seat.desk.id], 0x9fd6ff, 0.3);
     }
   });
 
-  // Council ring + constellations.
   galaxy.council.forEach(c => {
     const color = deptColorOf[c.owner];
     makeSeat(c.lead.id, positions[c.lead.id], color, 0.34);
-    line(positions['AGT-001'], positions[c.lead.id], color, 0.22);
     c.constellation.forEach(m => {
-      const dim = m.state !== 'available';
-      makeSeat(m.id, positions[m.id], color, 0.18, { dim });
-      line(positions[c.lead.id], positions[m.id], color, 0.18);
+      makeSeat(m.id, positions[m.id], color, 0.18, { dim: m.state !== 'available' });
     });
   });
 
-  // Unassigned holding cluster.
+  // Unowned roles. Held apart visually, and connected by a structural edge so
+  // they are reachable without claiming a department that does not exist.
   galaxy.unassigned.forEach(u => {
     makeSeat(u.id, positions[u.id], 0x6b7690, 0.22, { dashed: true, dim: true });
   });
+
+  (VIEW.edges || []).forEach(drawEdge);
+
+  // ---------------------------------------------------------------------
+  // the memory field — what happened, placed around what exists
+  // ---------------------------------------------------------------------
+  // The Council ring is structure: who the Foundation has. This is occurrence:
+  // what it has observed. They are drawn in one scene because the Founder's
+  // question is usually about both at once ("who did this, and what did it lead
+  // to?"), and separated in space and styling because confusing the two would
+  // make an event look like an institution.
+  //
+  // Entities sit on an outer arc, actors just inside them, so an actor's lines
+  // to the entities it touched run inward-to-outward and do not cross the
+  // Council. Positions are deterministic in node id, so the same ledger always
+  // draws the same picture — a graph that reshuffles on every load cannot be
+  // learned.
+  const memory = VIEW.memory || { available: false, nodes: [], edges: [],
+                                  counts: {}, unresolved_actors: [] };
+  const memoryNodeById = {};
+
+  function hashAngle(id) {
+    // A small deterministic hash. Not for security — only so the same id lands
+    // in the same place across loads.
+    let h = 0;
+    for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+    return (h % 3600) / 3600;
+  }
+
+  (memory.nodes || []).forEach(node => {
+    memoryNodeById[node.id] = node;
+    const entity = node.kind === 'entity';
+    const radius = entity ? 30 : 25.5;
+    const angle = hashAngle(node.id) * Math.PI * 2;
+    const lift = entity ? 1.4 : 0.6;
+    positions[node.id] = new THREE.Vector3(
+      Math.cos(angle) * radius, lift, Math.sin(angle) * radius);
+  });
+
+  (memory.nodes || []).forEach(node => {
+    const attention = node.kind === 'entity' && node.requires_founder;
+    const color = node.kind === 'entity' ? (attention ? 0xff9d6e : 0x6ea8ff) : 0x8fa0c0;
+    makeSeat(node.id, positions[node.id], color, node.kind === 'entity' ? 0.22 : 0.16,
+             { dashed: node.kind === 'actor', dim: !attention });
+  });
+
+  // Labelling waits until the label layer exists, further down. Meshes and
+  // edges only need positions, so they are built here; text needs `addLabel`.
+  function labelMemoryNodes() {
+    (memory.nodes || []).forEach(node => {
+      const attention = node.kind === 'entity' && node.requires_founder;
+      addLabel(node.id, positions[node.id].clone().add(new THREE.Vector3(0, 0.35, 0)),
+               node.label,
+               'memory' + (attention ? ' attention' : '') + (node.kind === 'actor' ? ' actor' : ''),
+               // Entities needing the Founder are the one thing worth a label at
+               // rest; everything else reveals on approach, or the outer arc
+               // becomes the wall of text the brief forbids.
+               attention ? 'overview' : 'hover');
+    });
+  }
+
+  // Ledger-authorized edges, drawn by the same taxonomy as the registry ones —
+  // `drawEdge` does not know or care which builder produced them, which is the
+  // point of sharing the taxonomy.
+  (memory.edges || []).forEach(drawEdge);
+
+  renderEdgeLegend();
+
+  // ---------------------------------------------------------------------
+  // the live overlay
+  // ---------------------------------------------------------------------
+  // Presence on top of structure. Three rules, and the second is the one that
+  // matters:
+  //
+  //   * a node reporting live work gets a pulse;
+  //   * a node whose report has expired is DIMMED, never pulsed — the read
+  //     model has already rewritten its state to `offline`, and this only has
+  //     to refuse to re-animate it;
+  //   * when the transport is not live, the banner says so, because a feed that
+  //     has simply stopped moving is indistinguishable from one with nothing
+  //     to show.
+  const WORKING_STATES = ['thinking', 'researching', 'coding', 'indexing'];
+  let live = VIEW.live || { available: false, presence: [], activity: [], badge: 0,
+                            realtime: { mode: 'unavailable', detail: 'No live data in this render.' } };
+  const pulseFor = {};   // node_id -> the dot element to animate
+
+  function renderLiveBanner() {
+    const banner = document.getElementById('liveBanner');
+    const realtime = live.realtime || {};
+    if (realtime.mode === 'live') { banner.classList.remove('shown'); return; }
+    // Everything except `live` is worth saying out loud.
+    const badge = live.badge ? ' · ' + live.badge + ' awaiting the Founder' : '';
+    banner.textContent = (realtime.detail || 'Live state unknown.') + badge;
+    banner.classList.add('shown');
+    banner.classList.toggle('degraded', realtime.mode === 'stale' || realtime.mode === 'unavailable');
+  }
+
+  // A node reports itself by the name it knows — "CODEX", or a registry role
+  // title — while the scene draws registry ids. Resolving both here means an
+  // agent never has to learn an id to be visible, and a presence report keyed
+  // either way lands on the right seat.
+  function presenceFor(nodeId) {
+    const rows = live.presence || [];
+    const desk = findDesk(nodeId);
+    const name = desk ? desk.named_role : null;
+    return rows.find(row => row.node_id === nodeId) ||
+           (name ? rows.find(row => row.node_id === name) : null) || null;
+  }
+
+  function applyPresence() {
+    labels.forEach(l => {
+      if (!l.id) return;
+      const row = presenceFor(l.id);
+      // `stale` comes from the read model, which already expired the record.
+      // The scene never computes TTL arithmetic itself and gets it wrong.
+      l.el.classList.toggle('presence-stale', !!(row && row.stale));
+      const working = row && !row.stale && WORKING_STATES.indexOf(row.state) >= 0;
+      if (working && !pulseFor[l.id]) {
+        const dot = document.createElement('span');
+        dot.className = 'pulse';
+        l.el.appendChild(dot);
+        pulseFor[l.id] = dot;
+      } else if (!working && pulseFor[l.id]) {
+        pulseFor[l.id].style.display = 'none';
+        delete pulseFor[l.id];
+      }
+    });
+  }
+
+  function latestEventFor(nodeId) {
+    const desk = findDesk(nodeId);
+    const name = desk ? desk.named_role : nodeId;
+    return (live.activity || []).find(row => row.actor === nodeId || row.actor === name) || null;
+  }
+
 
   // ---------------------------------------------------------------------
   // labels (HTML overlay, progressive disclosure by current view)
@@ -432,10 +703,16 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // navigation: overview <-> department <-> agent, with a bounded camera tween
   // ---------------------------------------------------------------------
   let activeDept = null, activeRole = null;
+  // `thoughtPath` is declared here rather than beside its own section below:
+  // `renderBreadcrumb` runs during setup and reads it, and a `let` still in its
+  // temporal dead zone would throw instead of reading as empty.
+  let thoughtPath = [];
   const breadcrumbEl = document.getElementById('breadcrumb');
   const backBtn = document.getElementById('backBtn');
 
   function renderBreadcrumb() {
+    // `pushThought` may not exist yet on the very first call during setup; the
+    // trail renders itself once a step is actually taken.
     let html = '<button onclick="window.goToOverview()">Council</button>';
     if (activeDept) html += ' / <button onclick="window.goToDept(\'' + activeDept + '\')">' + activeDept + '</button>';
     if (activeRole) {
@@ -443,7 +720,9 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       if (desk) html += ' / ' + desk.named_role;
     }
     breadcrumbEl.innerHTML = html;
-    backBtn.classList.toggle('shown', !!activeDept);
+    // Back is offered whenever there is somewhere to go back *to*, which is a
+    // property of the thought path, not of the department currently open.
+    backBtn.classList.toggle('shown', thoughtPath.length > 0 || !!activeDept);
   }
 
   function findDesk(id) {
@@ -471,6 +750,11 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   window.goToOverview = () => {
     activeDept = null; activeRole = null;
     tweenTo_(VIEWS.overview);
+    applyFocus(null);   // the whole scene comes back to full weight
+    // The overview is not a step on a path; it is where a path ends. Leaving a
+    // trail visible here would offer a route the Founder has already left.
+    thoughtPath = [];
+    renderTrail();
     renderBreadcrumb();
     updateLabelVisibility();
     closePanel();
@@ -481,17 +765,149 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     activeDept = owner; activeRole = null;
     const target = positions[c.lead.id].clone();
     tweenTo_({ target, dist: 9, elevation: 0.7, azimuth: c.__angle });
+    pushThought('department', owner);
     renderBreadcrumb();
     updateLabelVisibility();
   };
+  // ---------------------------------------------------------------------
+  // thought navigation
+  // ---------------------------------------------------------------------
+  // `thoughtPath` is the Founder's route through the Foundation's
+  // relationships, and it is reversible. The three rules:
+  //
+  //   * selecting a node not on the path appends it;
+  //   * selecting a node already on the path truncates back to it, so
+  //     revisiting is going back rather than looping forward;
+  //   * every step stays focusable, so the whole route is navigable by
+  //     keyboard, not only by clicking in the scene.
+  //
+  // Nothing here is stored. A thought path is a reading position, not a record.
+  // (`thoughtPath` itself is declared above, where the breadcrumb first reads it.)
+  const trailEl = document.getElementById('thoughtTrail');
+
+  function labelForStep(step) {
+    if (step.kind === 'memory') return nodeLabel(step.id);
+    if (step.kind === 'vault') return 'Vault';
+    if (step.kind === 'department') return step.id;
+    if (step.kind === 'sessions') return 'Sessions';
+    const desk = findDesk(step.id);
+    return desk ? desk.named_role : step.id;
+  }
+
+  function pushThought(kind, id) {
+    const existing = thoughtPath.findIndex(step => step.kind === kind && step.id === id);
+    if (existing >= 0) {
+      // Already walked. Truncate rather than append: the path is a route, and a
+      // route that revisits a node has come back to it.
+      thoughtPath = thoughtPath.slice(0, existing + 1);
+    } else {
+      thoughtPath.push({ kind, id });
+    }
+    renderTrail();
+  }
+
+  function renderTrail() {
+    if (!thoughtPath.length) { trailEl.classList.remove('shown'); trailEl.innerHTML = ''; return; }
+    const parts = ['<span class="kind">thought path</span>'];
+    thoughtPath.forEach((step, index) => {
+      if (index) parts.push('<span class="sep">→</span>');
+      const here = index === thoughtPath.length - 1 ? ' here' : '';
+      parts.push('<button class="step' + here + '" data-index="' + index + '">' +
+                 labelForStep(step) + '</button>');
+    });
+    parts.push('<span class="sep">·</span><button class="step" data-index="-1">clear</button>');
+    trailEl.innerHTML = parts.join('');
+    trailEl.classList.add('shown');
+    trailEl.querySelectorAll('button').forEach(button => {
+      button.onclick = () => {
+        const index = Number(button.dataset.index);
+        if (index < 0) { thoughtPath = []; renderTrail(); window.goToOverview(); return; }
+        // Truncate to the chosen step, then re-enter it. Re-entering is what
+        // moves the camera and reopens the panel, so going back feels the same
+        // as going forward.
+        const step = thoughtPath[index];
+        thoughtPath = thoughtPath.slice(0, index);
+        enterStep(step);
+      };
+    });
+  }
+
+  function enterStep(step) {
+    if (step.kind === 'memory') { selectMemoryNode(step.id); return; }
+    if (step.kind === 'department') { window.goToDept(step.id); return; }
+    if (step.kind === 'vault') { openVaultPanel(); return; }
+    if (step.kind === 'sessions') { openSessionsPanel(); return; }
+    selectRole(step.id);
+  }
+
+  window.stepBack = () => {
+    if (thoughtPath.length > 1) {
+      thoughtPath.pop();
+      const previous = thoughtPath.pop();
+      enterStep(previous);
+      return;
+    }
+    thoughtPath = [];
+    renderTrail();
+    window.goToOverview();
+  };
+
+  // ---------------------------------------------------------------------
+  // immersive focus
+  // ---------------------------------------------------------------------
+  // Entering a node should feel like entering a thought, so the scene responds
+  // as a whole: the node grows and brightens, unrelated context recedes, and
+  // the edges that explain *why* this node matters stay legible. Nothing is
+  // hidden — dimmed context keeps the Founder oriented, where culling would
+  // make each selection a fresh disorientation.
+  const FOCUS_SCALE = 1.7;
+  let focusedId = null;
+
+  function connectedEdges(nodeId) {
+    return edgeObjects.filter(item => item.edge.source === nodeId || item.edge.target === nodeId);
+  }
+
+  function applyFocus(nodeId) {
+    focusedId = nodeId;
+    Object.keys(meshFor).forEach(id => {
+      const mesh = meshFor[id];
+      const focused = id === nodeId;
+      const scale = focused ? FOCUS_SCALE : 1;
+      mesh.scale.setScalar(scale);
+      if (mesh.material && 'emissiveIntensity' in mesh.material) {
+        if (mesh.userData.baseEmissive === undefined) {
+          mesh.userData.baseEmissive = mesh.material.emissiveIntensity;
+        }
+        const base = mesh.userData.baseEmissive;
+        mesh.material.emissiveIntensity = !nodeId ? base : (focused ? base * 2.2 : base * 0.45);
+      }
+    });
+    const related = new Set(connectedEdges(nodeId).map(item => item.mesh.id));
+    edgeObjects.forEach(item => {
+      const base = item.baseOpacity;
+      item.mesh.material.opacity = !nodeId ? base
+        : (related.has(item.mesh.id) ? Math.min(1, base * 2.4) : base * 0.3);
+    });
+  }
+
   function selectRole(id) {
+    if (memoryNodeById[id]) { selectMemoryNode(id); return; }
     activeRole = id;
     const dept = findDept(id);
     if (dept && dept.owner !== activeDept) window.goToDept(dept.owner);
+    // Focus on the node itself, not just its department: the camera settles on
+    // the seat, and the surrounding context dims rather than disappearing.
+    const seat = positions[id];
+    if (seat) {
+      tweenTo_({ target: seat.clone(), dist: 6.5, elevation: 0.55,
+                 azimuth: (dept && dept.__angle !== undefined) ? dept.__angle : camState.azimuth });
+    }
+    applyFocus(id);
+    pushThought('agent', id);
     renderBreadcrumb();
     openPanel(id);
   }
-  backBtn.onclick = () => window.goToOverview();
+  backBtn.onclick = () => window.stepBack();
 
   function updateLabelVisibility() {
     labels.forEach(l => {
@@ -499,7 +915,37 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       l.el.classList.toggle('shown', show);
     });
   }
+  labelMemoryNodes();
   updateLabelVisibility();
+
+  // The live overlay decorates labels, so it starts only once they exist.
+  renderLiveBanner();
+  applyPresence();
+
+  // Refresh only when this page is being served — opened from `file://` there is
+  // no endpoint to ask, and a failed fetch every fifteen seconds would be noise.
+  if (window.location.protocol !== 'file:') {
+    setInterval(() => {
+      fetch('/api/v1/live' + window.location.search, { cache: 'no-store' })
+        .then(response => response.ok ? response.json() : null)
+        .then(fresh => {
+          if (!fresh) return;
+          live = fresh;
+          renderLiveBanner();
+          applyPresence();
+        })
+        // A failed refresh leaves the last known state on screen and says so
+        // through the banner; it must not blank the scene.
+        .catch(() => {
+          live = Object.assign({}, live, {
+            realtime: { mode: 'stale',
+                        detail: 'Lost contact with the live layer; showing the last known state.',
+                        canonical_readable: true, presence_trustworthy: false },
+          });
+          renderLiveBanner();
+        });
+    }, 15000);
+  }
 
   // ---------------------------------------------------------------------
   // interaction: click a seat mesh, drag to orbit (bounded), wheel zoom (bounded)
@@ -632,10 +1078,143 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     return '# no open assignment for this role yet:\nap.py council assign &lt;session_id&gt; ' + desk.id + ' "&lt;deliverable&gt;"';
   }
 
+  function escapeText(value) {
+    // The panel builds HTML by concatenation, and event titles come from
+    // external systems. Anything from the ledger is escaped before it lands in
+    // markup.
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function relativeAge(seconds) {
+    if (seconds == null) return 'unknown';
+    if (seconds < 60) return seconds + ' seconds ago';
+    if (seconds < 3600) return Math.round(seconds / 60) + ' minutes ago';
+    if (seconds < 86400) return Math.round(seconds / 3600) + ' hours ago';
+    return Math.round(seconds / 86400) + ' days ago';
+  }
+
+  function presenceField(nodeId) {
+    const row = presenceFor(nodeId);
+    if (!row) {
+      // No report at all is different from a report saying idle, and the panel
+      // says which one this is.
+      return '<div class="field"><b>Presence</b>No report. This role has never announced itself.</div>';
+    }
+    if (row.stale) {
+      return '<div class="field"><b>Presence</b>Offline. Last reported <i>' +
+             escapeText(row.reported_state) + '</i> ' + relativeAge(row.age_seconds) +
+             ' — not current.</div>';
+    }
+    return '<div class="field"><b>Presence</b>' + escapeText(row.state).toUpperCase() +
+           (row.activity ? ' · ' + escapeText(row.activity) : '') +
+           ' · ' + relativeAge(row.age_seconds) + '</div>';
+  }
+
+  function latestEventField(event) {
+    if (!event) return '';
+    const link = event.web_link
+      ? ' <a href="' + escapeText(event.web_link) + '" style="color:var(--accent)">open</a>' : '';
+    return '<div class="field"><b>Latest event</b>' + escapeText(event.title) +
+           '<div class="meta" style="color:var(--muted);font-size:11px">' +
+           escapeText(event.event_type) + ' · ' + relativeAge(event.age_seconds) +
+           (event.requires_founder ? ' · awaiting the Founder' : '') + link + '</div></div>';
+  }
+
+  // ---------------------------------------------------------------------
+  // a memory node's panel — an entity's whole life, or an actor's reach
+  // ---------------------------------------------------------------------
+  function selectMemoryNode(id) {
+    const node = memoryNodeById[id];
+    if (!node) return;
+    activeRole = id;
+    const at = positions[id];
+    if (at) {
+      // Approach from outside the ring, so the Council stays behind the node
+      // rather than the camera flying through it.
+      tweenTo_({ target: at.clone(), dist: 7, elevation: 0.5,
+                 azimuth: Math.atan2(at.z, at.x) });
+    }
+    applyFocus(id);
+    pushThought('memory', id);
+    renderBreadcrumb();
+    openMemoryPanel(node);
+  }
+
+  function relatedMemoryEdges(id) {
+    return (memory.edges || []).filter(e => e.source === id || e.target === id);
+  }
+
+  function nodeLabel(id) {
+    if (memoryNodeById[id]) return memoryNodeById[id].label;
+    const desk = findDesk(id);
+    return desk ? desk.named_role : id;
+  }
+
+  function openMemoryPanel(node) {
+    const body = document.getElementById('panelBody');
+    const related = relatedMemoryEdges(node.id);
+    // Every line is labelled with the relationship it represents and the record
+    // that supports it, so "why are these connected?" is answerable in the
+    // panel rather than only in the data.
+    const connections = related.map(e => {
+      const other = e.source === node.id ? e.target : e.source;
+      const arrow = e.source === node.id ? '→' : '←';
+      return '<div>' + escapeText(e.type) + ' ' + arrow + ' <b>' +
+             escapeText(nodeLabel(other)) + '</b>' +
+             '<div style="color:var(--muted);font-size:10px">' +
+             escapeText(e.authority) + '</div></div>';
+    }).join('') || '<div style="color:var(--muted)">Nothing else connects to this yet.</div>';
+
+    if (node.kind === 'actor') {
+      body.innerHTML =
+        '<h2>' + escapeText(node.label) + '</h2>' +
+        '<div class="sub">actor · ' + escapeText(node.source) + ' · ' +
+        node.event_count + ' event(s)</div>' +
+        (node.resolved
+          ? '<div class="field"><b>Council seat</b>' + escapeText(node.role_id) +
+            '<div style="color:var(--muted);font-size:10px">' +
+            escapeText(node.resolution_basis) + '</div></div>'
+          // The residue, stated at the point a viewer would otherwise assume a
+          // seat: the Council does not recognize this name, and guessing one
+          // would fabricate an attribution.
+          : '<div class="unresolved"><b>No Council seat.</b> The registry has no ' +
+            'role under this name, and matching one by resemblance would invent ' +
+            'an attribution. Attribution stops at the provider\'s name.</div>') +
+        '<div class="field"><b>Acted on</b>' + connections + '</div>';
+      document.getElementById('panel').classList.add('open');
+      return;
+    }
+
+    const timeline = (node.timeline || []).map(step =>
+      '<div><b>' + escapeText(step.event_type) + '</b>' +
+      escapeText(step.title) + '<br>' + escapeText(step.actor) + ' · ' +
+      escapeText(step.occurred_at) + '</div>').join('');
+
+    body.innerHTML =
+      '<h2>' + escapeText(node.label) + '</h2>' +
+      '<div class="sub">' + escapeText(node.entity_type) + ' · ' +
+      escapeText(node.source) + ' · ' + node.event_count + ' event(s)</div>' +
+      (node.requires_founder
+        ? '<div class="field"><b>Status</b><span class="badge executing">awaiting the Founder</span></div>'
+        : '') +
+      '<div class="field"><b>Timeline</b><div class="timeline">' + timeline + '</div></div>' +
+      '<div class="field"><b>Connected</b>' + connections + '</div>' +
+      (node.deep_link
+        ? '<div class="field"><b>Deep link</b><div class="cmd" id="cmdText">' +
+          escapeText(node.deep_link) + '</div>' +
+          '<button class="copy" onclick="navigator.clipboard.writeText(' +
+          'document.getElementById(\'cmdText\').textContent)">Copy</button></div>'
+        : '');
+    document.getElementById('panel').classList.add('open');
+  }
+
   window.closePanel = () => document.getElementById('panel').classList.remove('open');
   function openPanel(id) {
     const desk = findDesk(id);
     if (!desk) return;
+    const latest = latestEventFor(id);
     const dept = findDept(id);
     const body = document.getElementById('panelBody');
     const skills = (desk.may_instantiate || []);
@@ -645,6 +1224,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       '<div class="sub">' + desk.operating_owner + ' · ' + desk.id +
       (dept && dept.lead.id !== desk.id ? ' · visual grouping with ' + dept.lead.named_role : '') + '</div>' +
       '<div class="field"><b>Status</b><span class="badge ' + desk.state + '">' + desk.state + '</span></div>' +
+      presenceField(id) +
+      latestEventField(latest) +
       '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
       '<div class="field"><b>May instantiate (subagent kinds)</b>' +
       '<div class="satellites">' + skills.map(s => '<span class="satellite">' + s + '</span>').join('') + '</div></div>' +
@@ -689,6 +1270,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   // ---------------------------------------------------------------------
   function openVaultPanel() {
     activeRole = null; activeDept = null;
+    applyFocus('VAULT');
+    pushThought('vault', 'VAULT');
     renderBreadcrumb(); updateLabelVisibility();
     const brain = VIEW.brain;
     document.getElementById('panelBody').innerHTML =
@@ -798,6 +1381,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
   function openSessionsPanel() {
     activeRole = null; activeDept = null;
+    applyFocus(null);
+    pushThought('sessions', 'SESSIONS');
     renderBreadcrumb(); updateLabelVisibility();
     const council = VIEW.council;
     const body = document.getElementById('panelBody');

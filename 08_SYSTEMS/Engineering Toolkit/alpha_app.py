@@ -129,6 +129,30 @@ def _load_path(path: Path, name: str):
 vault_validator = _load_sibling("vault_validator.py", "vault_validator")
 founder_os = _load_sibling("founder_os.py", "founder_os")
 truth_kernel = _load_path(TRUTH_KERNEL_PATH, "alpha_app_truth_kernel")
+# The Live Integration Layer is loaded lazily, not here: it is an *extension* of
+# this API, and `render`, `show`, `check` and `index` must keep working — and
+# keep passing CI — on a machine where no event ledger has ever existed.
+_live_modules: dict[str, Any] = {}
+
+
+def live_modules() -> dict[str, Any]:
+    """Load the live layer on first use, or report why it is unavailable.
+
+    Returning a dict with `available: False` rather than raising is deliberate:
+    a missing live layer degrades the app to its canonical halves, which is
+    exactly the behavior `§19` asks for. The Foundation's knowledge does not
+    depend on the layer that reports activity about it.
+    """
+    if not _live_modules:
+        try:
+            events = _load_sibling("alpha_events.py", "alpha_app_alpha_events")
+            adapters = _load_sibling("alpha_adapters.py", "alpha_app_alpha_adapters")
+            live = _load_sibling("alpha_live.py", "alpha_app_alpha_live")
+            _live_modules.update({"available": True, "events": events,
+                                 "adapters": adapters, "live": live, "reason": ""})
+        except (AppError, ImportError, OSError) as exc:
+            _live_modules.update({"available": False, "reason": str(exc)})
+    return _live_modules
 
 
 # --------------------------------------------------------------------------
@@ -621,8 +645,57 @@ def check_reachability_gate(host: str, port: int, token: str | None) -> None:
         )
 
 
+LIVE_ROUTES = ("activity", "events", "presence", "notifications", "integrations", "live")
+
+
+def live_response(path: str, ledger_path: Path | None, live_state_path: Path | None,
+                  registry_path: Path | None) -> tuple[Any, int]:
+    """Serve one live projection, or say honestly that the layer is unavailable.
+
+    Returns `(payload, status)`. A `503` with a reason is the correct answer when
+    the layer cannot load: the interface then shows a degraded banner instead of
+    an empty feed, which would be indistinguishable from "nothing happened".
+    """
+    modules = live_modules()
+    if not modules.get("available"):
+        return ({"error": "live integration layer unavailable",
+                 "detail": modules.get("reason", "unknown"),
+                 "canonical_readable": True}, 503)
+    events, adapters, live = modules["events"], modules["adapters"], modules["live"]
+    ledger = events.EventLedger(ledger_path or events.DEFAULT_LEDGER)
+    store = live.LiveStore(live_state_path or live.DEFAULT_LIVE_STATE)
+    registry = adapters.AdapterRegistry(registry_path or adapters.DEFAULT_REGISTRY)
+
+    route = path[len("/api/v1/"):].strip("/")
+    head, _, rest = route.partition("/")
+    try:
+        if head == "live":
+            return (live.build_live_view(ledger, store, registry), 200)
+        if head == "activity":
+            return (live.build_activities(ledger.events()), 200)
+        if head == "events":
+            if rest:
+                # One entity's whole temporal history — the Memory read behind
+                # "select PR-48 and see its life". Events themselves stay
+                # immutable; this is a different view of them, not a copy.
+                return (live.build_entity_history(ledger.events(), rest), 200)
+            return ({"schema_version": events.SCHEMA_VERSION,
+                     "events": ledger.events()}, 200)
+        if head == "presence":
+            return (store.presence_view(), 200)
+        if head == "notifications":
+            return (store.notifications_view(), 200)
+        if head == "integrations":
+            return (registry.view(), 200)
+    except (events.EventError, adapters.AdapterError, OSError) as exc:
+        return ({"error": str(exc)}, 500)
+    return ({"error": "not found"}, 404)
+
+
 def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
-          host: str = "127.0.0.1", token: str | None = None) -> int:
+          host: str = "127.0.0.1", token: str | None = None,
+          ledger_path: Path | None = None, live_state_path: Path | None = None,
+          registry_path: Path | None = None) -> int:
     """Serve the app and its read model.
 
     Binding to 127.0.0.1 keeps the Foundation's state and index private by
@@ -695,6 +768,13 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
                     self._json(truth_kernel.summary(truth_kernel.build(root)))
                 elif self.path == "/api/v1/system-backbone":
                     self._json(build_system_backbone(state, truth_kernel.build(root)))
+                elif self.path.startswith("/api/v1/") and self.path[8:].split("/", 1)[0] in LIVE_ROUTES:
+                    # The Live Integration Layer, served beside the stable read
+                    # models rather than as a second API. Every route here is a
+                    # GET of a projection: there is no mutation endpoint, so no
+                    # interface can write Founder state through this server.
+                    self._json(*live_response(self.path, ledger_path, live_state_path,
+                                              registry_path))
                 elif self.path == "/api/state":
                     self._json({
                         "error": "endpoint retired: raw Founder state is not a presentation contract",
@@ -711,6 +791,7 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
     server = HTTPServer((host, port), Handler)
     print(f"Alpha Proxima App: http://{host}:{port}/{'?token=' + token if token else ''}")
     print(f"Read model:        http://{host}:{port}/api/app")
+    print(f"Live projections:  http://{host}:{port}/api/v1/live")
     print("Loopback only. Ctrl-C to stop." if host in LOOPBACK_HOSTS
           else "Token-gated — every request must present it. Ctrl-C to stop.")
     try:
@@ -756,6 +837,15 @@ def build_parser() -> argparse.ArgumentParser:
         "--token", default=None,
         help="Shared token every request must present (header 'Authorization: "
              "Bearer <token>' or '?token=' query param). Falls back to $ALPHA_APP_TOKEN.")
+    # Live-layer paths are options on `serve` alone: `render`, `show` and
+    # `check` do not read them, and giving them global flags would imply the
+    # canonical halves depend on the operational layer. They do not.
+    serve_cmd.add_argument("--ledger", default=None,
+                           help="Event ledger (JSONL) backing /api/v1/activity and /api/v1/events.")
+    serve_cmd.add_argument("--live-state", default=None,
+                           help="Live projection store backing /api/v1/presence and /notifications.")
+    serve_cmd.add_argument("--adapter-registry", default=None,
+                           help="Adapter health file backing /api/v1/integrations.")
     return parser
 
 
@@ -768,7 +858,12 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.command == "serve":
             token = args.token or os.environ.get("ALPHA_APP_TOKEN")
-            return serve(state_path, root, template_path, args.port, host=args.host, token=token)
+            return serve(
+                state_path, root, template_path, args.port, host=args.host, token=token,
+                ledger_path=Path(args.ledger) if args.ledger else None,
+                live_state_path=Path(args.live_state) if args.live_state else None,
+                registry_path=Path(args.adapter_registry) if args.adapter_registry else None,
+            )
 
         if args.command == "index":
             print(json.dumps(build_vault_index(root), indent=2, ensure_ascii=False))

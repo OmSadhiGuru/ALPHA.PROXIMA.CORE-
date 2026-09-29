@@ -102,6 +102,9 @@ def _load_sibling(filename: str, name: str):
 office_spatial = _load_sibling("office_spatial.py", "galaxy_prototype_office_spatial")
 role_registry = office_spatial.role_registry
 alpha_app = office_spatial.alpha_app
+# The relationship taxonomy, shared with the memory graph so both views mean the
+# same thing by a line.
+alpha_edges = _load_sibling("alpha_edges.py", "galaxy_alpha_edges")
 check_reachability_gate = alpha_app.check_reachability_gate
 LOOPBACK_HOSTS = alpha_app.LOOPBACK_HOSTS
 
@@ -167,15 +170,230 @@ def classify_roles(office_view: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None, brain=None) -> dict[str, Any]:
-    office_view = office_spatial.build_office_view(root, council_state_path, brain=brain)
+# --------------------------------------------------------------------------
+# the edge taxonomy
+# --------------------------------------------------------------------------
+# Defined in `alpha_edges`, shared with the memory graph. Both views must mean
+# the same thing by a line, or the Founder learns two visual languages.
+#
+# This view reads the role registry, so it builds through `registry_edge`, which
+# refuses `causal` and `temporal` outright: a registry witnesses structure, not
+# occurrence. Only the event ledger can say one thing caused another.
+EDGE_TYPES = alpha_edges.EDGE_TYPES
+
+
+def edge(source_id: str, target_id: str, edge_type: str, **fields: Any) -> dict[str, Any]:
+    """A registry-authorized edge, with this module's error type on failure."""
+    try:
+        return alpha_edges.registry_edge(source_id, target_id, edge_type, **fields)
+    except alpha_edges.EdgeError as exc:
+        raise PrototypeError(str(exc)) from exc
+
+
+def build_edges(galaxy: dict[str, Any]) -> list[dict[str, Any]]:
+    """Every relationship in the composition, typed and attributed.
+
+    Two rules govern this function, and they pull in opposite directions:
+
+      * **No visible node is orphaned.** A seat with no line looks like an
+        accident of layout rather than a role nobody has claimed.
+      * **No relationship is invented.** The registry does not say that
+        LUMIAION owns the Engineering Office, and this function must not say so
+        either.
+
+    They are reconciled by the `structural` type: an unowned or
+    visually-positioned node is connected for navigability with an edge that
+    states, in its own data, that it carries no institutional claim. The
+    renderer draws those differently, and `test_council_galaxy_prototype`
+    asserts that it must.
+    """
+    center = galaxy["center"]["id"]
+    edges: list[dict[str, Any]] = []
+
+    # The Vault is the memory layer LUMIAION reads from. This one is canonical.
+    edges.append(edge(
+        "VAULT", center, "semantic",
+        authority="founder-state INT-001 — the Vault is the Founder OS memory layer",
+        confidence=1.0, direction="bidirectional",
+    ))
+
+    # Registry fact: these roles report to LUMIAION as their operating owner.
+    for seat in galaxy["inner_circle"]:
+        if seat["proposed"] or not seat.get("desk"):
+            continue
+        edges.append(edge(
+            center, seat["desk"]["id"], "operational",
+            authority="Agent and Subagent Registry — operating owner",
+            confidence=1.0,
+        ))
+
+    for constellation in galaxy["council"]:
+        lead_id = constellation["lead"]["id"]
+        owner = constellation["owner"]
+        # Navigation only. The registry names the office, not a reporting line
+        # from LUMIAION to it, and the choice of which role is its visual lead
+        # is made in this module.
+        edges.append(edge(
+            center, lead_id, "structural",
+            authority="galaxy composition — radial layout",
+            confidence=0.0, interpreted=True,
+            note=f"{owner} is placed on the council ring; no reporting line is asserted.",
+        ))
+        for member in constellation["constellation"]:
+            # Shared registry ownership is a fact; drawing it through the lead
+            # rather than as a group is this module's arrangement.
+            edges.append(edge(
+                lead_id, member["id"], "operational",
+                authority=f"Agent and Subagent Registry — both roles owned by {owner}",
+                confidence=0.6, interpreted=True,
+                note="Shared owner is registry fact; routing through the visual lead is not.",
+            ))
+
+    # Roles with no owner. Connected so they are reachable, and marked so the
+    # absence of a real department is visible rather than papered over.
+    for role in galaxy["unassigned"]:
+        edges.append(edge(
+            center, role["id"], "structural",
+            authority="galaxy composition — holding cluster for unowned roles",
+            confidence=0.0, interpreted=True,
+            note="Registry owner is pending. This line exists only so the seat is reachable.",
+        ))
+
+    return edges
+
+
+def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
+    """Counts per type, plus how much of the graph is interpretation."""
+    return alpha_edges.summarize(edges)
+
+
+# What the committed render says instead of live data. `galaxy-prototype.html`
+# is a generated artifact in the Foundation's permanent record, and presence is
+# machine-local telemetry that expires in three minutes -- baking one into the
+# other would commit a moment of one developer's afternoon as though it were
+# institutional state, and would show a stale badge to anyone who opened the
+# file later. The served page fetches the real thing from its own origin.
+# The memory graph is derived from the event ledger, which is machine-local
+# runtime state. It is omitted from a static render for exactly the reason
+# presence is: a committed artifact must not preserve one afternoon's activity
+# as though it were structure.
+MEMORY_OMITTED = {
+    "available": False,
+    "reason": "Rendered without the memory graph. Serve this page to read the event ledger.",
+    "nodes": [],
+    "edges": [],
+    "edge_summary": {"counts": {kind: 0 for kind in alpha_edges.EDGE_TYPES},
+                     "total": 0, "interpreted": 0, "canonical": 0},
+    "counts": {"events": 0, "entities": 0, "actors": 0,
+               "actors_resolved": 0, "actors_unresolved": 0, "requires_founder": 0},
+    "unresolved_actors": [],
+}
+
+
+LIVE_OMITTED = {
+    "available": False,
+    "reason": "Rendered without live state. Presence and activity are read when this page is served.",
+    "realtime": {
+        "mode": "unconfigured",
+        "detail": "This is a static render. Serve it with `ap.py galaxy-prototype serve` for live activity.",
+        "canonical_readable": True,
+        "presence_trustworthy": False,
+    },
+    "presence": [],
+    "activity": [],
+    "badge": 0,
+}
+
+
+def build_live_section() -> dict[str, Any]:
+    """The Live Integration Layer's projections, or an honest statement of absence.
+
+    Wrapped in its own function with its own failure path because the galaxy is
+    a view of the *registry*, which exists, and the live layer is a view of
+    *activity*, which may not. A missing ledger must dim the presence dots, not
+    take down the scene.
+    """
+    try:
+        alpha_events = _load_sibling("alpha_events.py", "galaxy_alpha_events")
+        alpha_adapters = _load_sibling("alpha_adapters.py", "galaxy_alpha_adapters")
+        alpha_live = _load_sibling("alpha_live.py", "galaxy_alpha_live")
+        ledger = alpha_events.EventLedger()
+        store = alpha_live.LiveStore()
+        registry = alpha_adapters.AdapterRegistry()
+        view = alpha_live.build_live_view(ledger, store, registry, limit=25)
+    except (PrototypeError, OSError, KeyError, ValueError) as exc:
+        return {
+            "available": False,
+            "reason": str(exc),
+            # Stated rather than implied by an empty feed: an interface that
+            # cannot tell "nothing happened" from "I cannot see" is lying.
+            "realtime": {"mode": "unavailable", "detail": f"Live layer unavailable: {exc}",
+                         "canonical_readable": True, "presence_trustworthy": False},
+            "presence": [], "activity": [], "badge": 0,
+        }
     return {
-        "schema_version": "1.1.0-council-virtual-brain",
+        "available": True,
+        "reason": "",
+        "realtime": view["realtime"],
+        "presence": view["presence"]["presence"],
+        "activity": view["activity"]["activities"],
+        "badge": view["badge"]["badge"],
+        "integration_counts": view["integrations"]["counts"],
+    }
+
+
+def build_memory_section(root: Path) -> dict[str, Any]:
+    """The event ledger as a graph, or an honest statement of absence.
+
+    Separate from `build_live_section` because they answer different questions
+    and fail independently: live activity is "what is happening", the memory
+    graph is "what happened and what it led to". A ledger that cannot be read
+    must dim the memory field, not the presence dots, and neither may take down
+    the registry view — which exists whether or not anything has ever happened.
+    """
+    try:
+        alpha_events = _load_sibling("alpha_events.py", "galaxy_alpha_events_mem")
+        alpha_memory = _load_sibling("alpha_memory.py", "galaxy_alpha_memory")
+        events = alpha_events.EventLedger().events()
+        roles = role_registry.load_roles(root)["roles"]
+        graph = alpha_memory.build_memory_graph(
+            events, roles, entity_registry=alpha_memory.load_entity_registry(root))
+    except (PrototypeError, role_registry.RegistryError, OSError, KeyError, ValueError) as exc:
+        return dict(MEMORY_OMITTED, available=False, reason=f"Memory graph unavailable: {exc}")
+    return {
+        "available": True,
+        "reason": "",
+        "nodes": graph["nodes"],
+        "edges": graph["edges"],
+        "edge_summary": graph["edge_summary"],
+        "counts": graph["counts"],
+        "unresolved_actors": graph["unresolved_actors"],
+    }
+
+
+def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None,
+                      include_live: bool = True) -> dict[str, Any]:
+    office_view = office_spatial.build_office_view(root, council_state_path)
+    galaxy = classify_roles(office_view)
+    edges = build_edges(galaxy)
+    return {
+        "schema_version": "1.1.0-prototype",
         "read_only": True,
         "classification_authority": "visual interpretation only; not institutional authority",
         "generated_at": role_registry.now_iso(),
-        "galaxy": classify_roles(office_view),
+        "galaxy": galaxy,
+        # Edges are data, not drawing calls, so their taxonomy can be tested and
+        # so a renderer cannot quietly upgrade an inference into a canonical line.
+        "edges": edges,
+        "edge_summary": edge_summary(edges),
         "brain": office_view["brain"],
+        # Activity, presence and the badge — the Council as an observable space
+        # rather than a diagram. Honest about its own absence.
+        "live": build_live_section() if include_live else dict(LIVE_OMITTED),
+        # What happened, joined to who exists. Ledger-authorized edges only:
+        # the registry edges above and these are built through different
+        # constructors precisely so neither can claim the other's authority.
+        "memory": build_memory_section(root) if include_live else dict(MEMORY_OMITTED),
         # The full session/assignment ledger (council_kernel.build_view), not
         # just counts -- feeds the "Council Sessions" logistics panel, which
         # is a second read of the same data the per-desk assignment fields
@@ -253,6 +471,13 @@ def serve(root: Path, template_path: Path, port: int = 8790,
                                "text/html; charset=utf-8")
                 elif self.path == "/api/galaxy":
                     self._json(build_galaxy_view(root, council_state_path))
+                elif self.path == "/api/v1/memory":
+                    self._json(build_memory_section(root))
+                elif self.path == "/api/v1/live":
+                    # Same-origin, so the scene can refresh presence without a
+                    # cross-origin request to the app's port. Read-only, like
+                    # every other route in this module.
+                    self._json(build_live_section())
                 else:
                     self._json({"error": "not found"}, 404)
             except (PrototypeError, role_registry.RegistryError, office_spatial.council_kernel.StateError, OSError) as exc:
@@ -305,7 +530,9 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(build_galaxy_view(root, state_path), indent=2, ensure_ascii=False))
             return 0
         if args.command == "render":
-            written = write_output(build_galaxy_view(root, state_path), template_path, Path(args.output))
+            # Deliberately without live state -- see LIVE_OMITTED.
+            written = write_output(build_galaxy_view(root, state_path, include_live=False),
+                                   template_path, Path(args.output))
             print(f"wrote {written}")
             return 0
         if args.command == "serve":

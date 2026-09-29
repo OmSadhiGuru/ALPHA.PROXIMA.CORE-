@@ -12,7 +12,7 @@ institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]"]
-related_documents: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[Tool 001 - Vault Validator]]", "[[Tool 008 - Engineering CLI]]"]
+related_documents: ["[[ALPHA PROXIMA ENGINEERING HANDBOOK]]", "[[Tool 001 - Vault Validator]]", "[[Tool 008 - Engineering CLI]]", "[[Alpha Proxima Live Integration Layer]]"]
 related_research_programs: []
 ---
 
@@ -99,6 +99,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 012 | active | [[Tool 012 - Founder OS State Engine]] | `08_SYSTEMS/Engineering Toolkit/founder_os.py` |
 | 013 | active | [[Tool 013 - Alpha Proxima App]] | `08_SYSTEMS/Engineering Toolkit/alpha_app.py` |
 | 014 | draft | [[Tool 014 - Council Session Kernel]] | `08_SYSTEMS/Engineering Toolkit/council_kernel.py` |
+| 015 | active | [[Institutional Node Taxonomy v1]] | `08_SYSTEMS/Engineering Toolkit/entity_registry.py` |
 
 ## CLI Commands
 
@@ -119,6 +120,10 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap relationship-extract` | Generate Institutional Knowledge Graph relationship registry |
 | `ap founder` | Founder OS state engine and Founder Console V1 |
 | `ap app` | Alpha Proxima App — the operate and know halves, and coherence reporting |
+| `ap events` | AlphaEvent v1 contract, validation, and the append-only event ledger |
+| `ap adapters` | Provider adapters and the honest adapter registry |
+| `ap live` | Live projections — activity, presence, notifications, badge |
+| `ap entities` | Canonical identity for actors that are not documents (Node Taxonomy) |
 
 ---
 
@@ -184,6 +189,7 @@ Toolkit output is engineering evidence. It is not governance approval, canonical
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.6 | 2026-09-29 | Claude — Chief Knowledge Architect | Added the Live Integration Layer: `events`, `adapters`, `live` |
 | 1.0.5 | 2026-08-26 | [[CODEX]] | Added Tool 012 - Founder OS State Engine |
 | 1.0.4 | 2026-07-03 | [[CODEX]] | Added Tool 011 - Relationship Extractor |
 | 1.0.3 | 2026-07-03 | [[CODEX]] | Added Tool 010 - Node Registry Generator |

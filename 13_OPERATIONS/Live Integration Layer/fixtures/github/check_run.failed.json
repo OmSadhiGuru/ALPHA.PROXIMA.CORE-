@@ -1,0 +1,20 @@
+{
+  "provider": "github",
+  "kind": "check_run",
+  "delivery_id": "b3f1c2a0-0000-4000-8000-000000000002",
+  "received_at": "2026-09-29T14:20:00+00:00",
+  "payload": {
+    "sender": { "login": "github-actions[bot]" },
+    "repository": { "full_name": "OmSadhiGuru/ALPHA.PROXIMA.CORE-" },
+    "check_run": {
+      "id": 99100200,
+      "name": "Foundation Integrity / Knowledge coherence",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-29T14:15:00Z",
+      "completed_at": "2026-09-29T14:19:41Z",
+      "output": { "title": "Coherence defects exceed the ceiling of 123" },
+      "pull_requests": [ { "number": 48 } ]
+    }
+  }
+}
