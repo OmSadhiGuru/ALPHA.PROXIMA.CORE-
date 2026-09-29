@@ -27,6 +27,7 @@ COMMANDS = {
     "events": ("alpha_events.py", "AlphaEvent v1 contract, validation, and the append-only event ledger"),
     "adapters": ("alpha_adapters.py", "Provider adapters and the honest adapter registry"),
     "ingress": ("alpha_ingress.py", "Signed webhook receiver — the layer's only write path"),
+    "memory": ("alpha_memory.py", "Memory graph — the event ledger as a navigable temporal structure"),
     "live": ("alpha_live.py", "Live Integration Layer projections — activity, presence, notifications, badge"),
     "spatial": ("alpha_spatial.py", "System Backbone contract as Markdown or JSON — first consumer of /api/v1/system-backbone"),
     "role-registry": ("role_registry.py", "Parse the Agent and Subagent Registry as JSON"),
