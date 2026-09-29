@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T10:27:35+00:00",
+  "generated_at": "2026-09-29T10:44:54+00:00",
   "note_count": 388,
   "domains": [
     {
@@ -6348,7 +6348,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1130,
+      "words": 1146,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -7095,7 +7095,7 @@
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -7538,7 +7538,7 @@
       "domain": "08_SYSTEMS",
       "type": "architecture-specification",
       "status": "active",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Architecture",
       "engine": "Claude",
@@ -7556,7 +7556,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 1185,
+      "words": 1449,
       "links": [
         "08-systems-institutional-knowledge-graph-institutional-node-taxonomy-v1-md",
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
@@ -7567,7 +7567,7 @@
         "13-operations-office-registry-office-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -9231,7 +9231,7 @@
       "domain": "13_OPERATIONS",
       "type": "architecture-specification",
       "status": "active",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Architecture",
       "engine": "Claude",
@@ -9248,9 +9248,9 @@
         "lumiaion",
         "alpha-proxima"
       ],
-      "updated": "2026-09-10",
+      "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3120,
+      "words": 4348,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
@@ -9260,10 +9260,12 @@
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
         "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-institutional-knowledge-graph-tools-tool-014-truth-kernel-md",
+        "08-systems-live-core-architecture-v1-md",
         "13-operations-alpha-proxima-app-readme-md",
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
         "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
         "08-systems-engineering-standards-03-folder-naming-convention-md",
+        "08-systems-institutional-knowledge-graph-institutional-node-taxonomy-v1-md",
         "13-operations-founder-os-founder-console-md",
         "13-operations-founder-os-readme-md",
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
@@ -14638,7 +14640,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "ba0c1dfe18a2223e239cd1c221bc55a1a22c25b097f416ceeba55aa3cf606143",
+      "fingerprint": "4f1cd7064d998e54150f07441e151efd7ef8aab1613e90c29757a9fb66cdeb81",
       "note_count": 388
     },
     "health": {
@@ -14653,7 +14655,7 @@
     "counts": {
       "nodes": 388,
       "entities": 42,
-      "relationships": 2708,
+      "relationships": 2714,
       "entity_relationships": 496,
       "template_placeholders": 12,
       "unresolved_relationships": 263,
@@ -14689,13 +14691,13 @@
         "OWNED_BY": 2,
         "PART_OF": 162,
         "PRODUCED_BY": 96,
-        "REFERENCES": 1616,
-        "RELATED_TO": 500,
-        "REQUIRES": 315,
+        "REFERENCES": 1619,
+        "RELATED_TO": 502,
+        "REQUIRES": 316,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "4a49fc65d3869de53e804c92ffd5add79732105540bf0fa2b7afdbd65fd97486"
+    "contract_fingerprint": "c84ef69c2b790f08affc6b2242699ce30b7c670f695d6a4205da879c8f9ca788"
   }
 }

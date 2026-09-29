@@ -50,7 +50,7 @@ DEFAULT_APP = APP_DIR / "app" / "app.html"
 DEFAULT_INDEX = APP_DIR / "app" / "vault-index.json"
 TRUTH_KERNEL_PATH = VAULT_ROOT / "08_SYSTEMS" / "Institutional Knowledge Graph" / "Tools" / "truth_kernel.py"
 
-APP_VERSION = "1.4.0"
+APP_VERSION = "1.5.0"
 
 VIEW_PLACEHOLDER = "/*__ALPHA_APP_VIEW__*/null"
 
@@ -128,6 +128,8 @@ def _load_path(path: Path, name: str):
 
 vault_validator = _load_sibling("vault_validator.py", "vault_validator")
 founder_os = _load_sibling("founder_os.py", "founder_os")
+event_ledger = _load_sibling("event_ledger.py", "alpha_app_event_ledger")
+event_adapters = _load_sibling("event_adapters.py", "alpha_app_event_adapters")
 truth_kernel = _load_path(TRUTH_KERNEL_PATH, "alpha_app_truth_kernel")
 
 
@@ -400,13 +402,236 @@ def coherence_report(entries: list[dict[str, Any]]) -> dict[str, Any]:
 # the composed read model
 # --------------------------------------------------------------------------
 
-def build_system_backbone(state: dict, kernel: dict[str, Any]) -> dict[str, Any]:
+def read_live_layer(ledger_path: Path | None = None) -> dict[str, Any]:
+    """Read the live projections, and say plainly when there is nothing to read.
+
+    A ledger that does not exist and a ledger that is healthy but quiet both
+    produce zero events. They mean opposite things, and a control contract that
+    renders them identically teaches the Founder that an empty feed is calm --
+    exactly when it is not. So availability is reported before any count is:
+
+      * `available`   -- the ledger was read
+      * `unavailable` -- nothing has ever been recorded here
+      * `error`       -- the ledger exists and could not be read, with the reason
+
+    This is the Phase B rule applied one layer up. `event_adapters` refuses to
+    claim `connected` without verification; this refuses to report calm without
+    having looked.
+    """
+    path = Path(ledger_path or event_ledger.DEFAULT_LEDGER)
+    if not path.exists():
+        return {
+            "availability": "unavailable",
+            "path": str(path),
+            "detail": "No event ledger on disk. Nothing has been recorded yet.",
+            "activity": None, "presence": None, "notifications": None,
+        }
+    try:
+        view = event_ledger.build_live_view(path)
+    except (event_ledger.LedgerError, OSError, ValueError) as exc:
+        # Never degrade a corrupt ledger into zeros: a gap that is reported can
+        # be repaired, and a gap that is hidden compounds.
+        return {
+            "availability": "error",
+            "path": str(path),
+            "detail": str(exc),
+            "activity": None, "presence": None, "notifications": None,
+        }
+    return {
+        "availability": "available",
+        "path": str(path),
+        "detail": "",
+        "activity": view["activity"],
+        "presence": view["presence"],
+        "notifications": view["notifications"],
+    }
+
+
+# Where a Founder OS integration status and an adapter status disagree, the
+# weaker claim is the one the backbone reports. Registration is an intention;
+# a verified adapter is evidence. Intention never outranks evidence.
+_STATUS_CONFIDENCE = {
+    "blocked": 0, "disconnected": 1, "planned": 2, "degraded": 3, "connected": 4,
+}
+
+# Founder OS and the adapter registry grew their status vocabularies separately.
+# They agree on four words and differ on one, so the difference is translated
+# here, in the open, rather than left for `min()` to skip silently. A word that
+# appears in neither vocabulary becomes `unknown` and is reported as a conflict:
+# an untranslatable status is a drift signal, not a value to guess at.
+_FOUNDER_TO_ADAPTER_STATUS = {
+    "connected": "connected",
+    "not_connected": "disconnected",
+    "planned": "planned",
+    "blocked": "blocked",
+}
+
+
+def translate_founder_status(status: str | None) -> str:
+    """Founder OS integration vocabulary → adapter vocabulary."""
+    if status is None:
+        return "unknown"
+    return _FOUNDER_TO_ADAPTER_STATUS.get(str(status), "unknown")
+
+
+def build_integration_health(state: dict, registry: dict[str, Any]) -> dict[str, Any]:
+    """Reconcile the two registers of integrations, and report where they differ.
+
+    Founder OS records what the Founder has *registered*; `event_adapters`
+    records what the membrane can actually *normalize*. Two lists maintained by
+    two processes drift, and the drift is the useful signal: an integration the
+    Founder believes exists but no adapter declares is a gap in the plan, and an
+    adapter nobody registered is a gap in the record.
+
+    Neither list is overwritten. Divergence is surfaced, never resolved by
+    silently preferring one — the same discipline the Node Taxonomy applies to
+    identity collisions.
+    """
+    declared = {item["source"]: item for item in registry["adapters"]}
+    registered: dict[str, dict[str, Any]] = {}
+    for item in state["integrations"]:
+        slug = re.sub(r"[^a-z0-9]+", "_", str(item["name"]).lower()).strip("_")
+        registered.setdefault(slug, item)
+
+    rows: list[dict[str, Any]] = []
+    for source in sorted(set(declared) | set(registered)):
+        adapter = declared.get(source)
+        founder = registered.get(source)
+        adapter_status = adapter["status"] if adapter else None
+        founder_status = founder["status"] if founder else None
+        translated = translate_founder_status(founder_status) if founder else None
+
+        if adapter and founder:
+            where = "both"
+            candidates = [adapter_status] + ([translated] if translated != "unknown" else [])
+            effective = min(candidates, key=lambda s: _STATUS_CONFIDENCE[s])
+        elif adapter:
+            where, effective = "adapter_only", adapter_status
+        else:
+            where, effective = "founder_only", translated
+
+        # `live` means the event membrane carries events for this source, which
+        # takes an adapter. A Founder OS entry may legitimately say `connected`
+        # about the Founder's own working setup — Obsidian is genuinely in use —
+        # without any adapter existing to normalize its events. Those are two
+        # different sentences, and conflating them would reintroduce exactly the
+        # dishonesty `event_adapters` refuses: a live count nothing can verify.
+        live = bool(adapter) and effective in event_adapters.LIVE_STATUSES
+
+        conflict = bool(adapter and founder and adapter_status != translated)
+        rows.append({
+            "source": source,
+            "label": (adapter or {}).get("label") or (founder or {}).get("name") or source,
+            "registered_in": where,
+            "adapter_status": adapter_status,
+            "founder_status": founder_status,
+            "founder_status_translated": translated,
+            "status": effective,
+            "live": live,
+            "implemented": bool(adapter and adapter["implemented"]),
+            "evidence": (adapter or {}).get("evidence"),
+            "conflict": conflict,
+            "untranslatable_status": bool(founder and translated == "unknown"),
+            "event_types": (adapter or {}).get("event_types", []),
+        })
+
+    by_status: dict[str, int] = {}
+    for row in rows:
+        by_status[str(row["status"])] = by_status.get(str(row["status"]), 0) + 1
+
+    return {
+        "schema_version": "1.0.0",
+        "integrations": rows,
+        "conflicts": [r for r in rows if r["conflict"]],
+        "counts": {
+            "total": len(rows),
+            "live": sum(1 for r in rows if r["live"]),
+            "verified": sum(1 for r in rows if r["evidence"]),
+            "implemented": sum(1 for r in rows if r["implemented"]),
+            "adapter_only": sum(1 for r in rows if r["registered_in"] == "adapter_only"),
+            "founder_only": sum(1 for r in rows if r["registered_in"] == "founder_only"),
+            "conflicts": sum(1 for r in rows if r["conflict"]),
+            "untranslatable": sum(1 for r in rows if r["untranslatable_status"]),
+            "by_status": by_status,
+        },
+    }
+
+
+def summarize_notifications(live: dict[str, Any]) -> dict[str, Any]:
+    """The badge and what is behind it — a summary, never the feed itself.
+
+    The backbone is a control contract, not a mailbox. It answers "is something
+    waiting for me, and how urgent", and routes to `/api/v1/notifications` for
+    the rest. Carrying every item here would make the one document every
+    presentation layer reads grow without bound.
+    """
+    notifications = live.get("notifications")
+    if notifications is None:
+        return {
+            "availability": live["availability"],
+            "badge_count": None,
+            "detail": live["detail"],
+            "counts": {}, "requires_founder": [],
+        }
+    waiting = [item for item in notifications["items"]
+               if item["requires_founder"] and not item["read"]]
+    return {
+        "availability": "available",
+        "badge_count": notifications["badge_count"],
+        "detail": "",
+        "counts": notifications["counts"],
+        "requires_founder": waiting[:10],
+    }
+
+
+def summarize_activity(live: dict[str, Any], limit: int = 10) -> dict[str, Any]:
+    """Recent institutional events, bounded. The full stream is `/api/v1/activity`."""
+    activity = live.get("activity")
+    if activity is None:
+        return {
+            "availability": live["availability"], "detail": live["detail"],
+            "total": None, "by_source": {}, "by_severity": {}, "items": [],
+        }
+    return {
+        "availability": "available", "detail": "",
+        "total": activity["total"],
+        "by_source": activity["by_source"],
+        "by_severity": activity["by_severity"],
+        "items": activity["items"][:limit],
+    }
+
+
+def summarize_presence(live: dict[str, Any]) -> dict[str, Any]:
+    """Who is working right now, with expiry already applied by the projection."""
+    presence = live.get("presence")
+    if presence is None:
+        return {
+            "availability": live["availability"], "detail": live["detail"],
+            "actors": [], "counts": {},
+        }
+    return {
+        "availability": "available", "detail": "",
+        "as_of": presence["as_of"],
+        "ttl_seconds": presence["ttl_seconds"],
+        "actors": presence["actors"],
+        "counts": presence["counts"],
+    }
+
+
+def build_system_backbone(state: dict, kernel: dict[str, Any],
+                          live: dict[str, Any] | None = None) -> dict[str, Any]:
     """Normalize every registered system onto one read-only control contract.
 
     Registration is not the same as connectivity.  The contract deliberately
     preserves the state engine's honest statuses so a planned adapter never
     appears live merely because a presentation layer can name it.
+
+    `live` is optional: the backbone has always described *structure*, and it
+    keeps describing structure when no live layer is supplied. Passing one adds
+    time — activity, presence, integration health and the notification badge —
+    without changing a single key an existing consumer already reads.
     """
+    live = live or read_live_layer()
     systems = []
     for item in state["integrations"]:
         systems.append({
@@ -451,16 +676,33 @@ def build_system_backbone(state: dict, kernel: dict[str, Any]) -> dict[str, Any]
         for agent in state["agents"]
         if agent.get("office") == "Department" or agent["name"] in {"LUMIAION", "JERANIUM"}
     ]
+    integration_health = build_integration_health(state, event_adapters.build_registry())
+    notification_summary = summarize_notifications(live)
+    activity_summary = summarize_activity(live)
+    presence_summary = summarize_presence(live)
+
     return {
-        "schema_version": "1.0.0",
+        # 1.1.0: additive only. Every 1.0.0 key below is unchanged in name,
+        # shape and meaning, so a consumer written against 1.0.0 keeps working.
+        "schema_version": "1.1.0",
         "mode": "read_only",
         "canonical_sources": {
             "operate": "13_OPERATIONS/Founder OS/state/founder-state.json",
             "know": "obsidian_markdown",
+            "live": live["path"],
         },
         "systems": systems,
         "departments": departments,
         "attention": attention,
+        "live": {
+            "availability": live["availability"],
+            "path": live["path"],
+            "detail": live["detail"],
+        },
+        "activity": activity_summary,
+        "presence": presence_summary,
+        "integration_health": integration_health,
+        "notification_summary": notification_summary,
         "counts": {
             "systems": len(systems),
             "connected_systems": sum(item["connected"] for item in systems),
@@ -468,23 +710,34 @@ def build_system_backbone(state: dict, kernel: dict[str, Any]) -> dict[str, Any]
             "attention_signals": len(attention),
             "knowledge_nodes": kernel["counts"]["nodes"],
             "knowledge_findings": kernel["health"]["counts"]["findings"],
+            # `None` where the live layer could not be read. Not zero: zero is a
+            # measurement, and nothing was measured.
+            "events": activity_summary["total"],
+            "actors_working": presence_summary["counts"].get("working"),
+            "unread_notifications": notification_summary["badge_count"],
+            "live_integrations": integration_health["counts"]["live"],
+            "integration_conflicts": integration_health["counts"]["conflicts"],
         },
         "truth_kernel": truth_kernel.summary(kernel),
     }
 
 
-def build_app_view(state: dict, root: Path) -> dict[str, Any]:
+def build_app_view(state: dict, root: Path,
+                   ledger_path: Path | None = None) -> dict[str, Any]:
     """The application's read model: both halves, one document.
 
     This is the contract a second interface consumes — a spatial layer, a voice
     layer, an accessible layer. None of them need to know how state is stored or
     how the vault is laid out.
+
+    The live layer enters through the backbone rather than as a third half. The
+    Foundation still does two things; it now knows *when* it did them.
     """
     operate = founder_os.build_view(state)
     know = build_vault_index(root)
     kernel = truth_kernel.build(root)
     know["truth_kernel"] = truth_kernel.summary(kernel)
-    backbone = build_system_backbone(state, kernel)
+    backbone = build_system_backbone(state, kernel, read_live_layer(ledger_path))
     return {
         "app_version": APP_VERSION,
         "generated_at": now_iso(),
@@ -549,11 +802,44 @@ def render_app(view: dict, template_path: Path) -> str:
     return rendered.replace(fallback_placeholder, fallback) if fallback_placeholder in rendered else rendered
 
 
+def static_view(view: dict) -> dict:
+    """The read model as it may be written to a committed file.
+
+    `app.html` is a generated artifact that lives in git. Two things follow.
+
+    **A static snapshot of a live feed is a lie with a timestamp.** An
+    `app.html` rendered on Monday would still say "CODEX is coding" on Friday,
+    from a file, with nothing running. That is fabricated realtime activity,
+    and it is worse than an empty panel because it is confident. So the render
+    keeps every live *count* and the availability that qualifies it, and drops
+    the event, actor and notification *bodies* — the things that go stale.
+
+    **The ledger is git-ignored operational state.** Inlining its contents into
+    a committed file would move it into canon through the back door, which is
+    the boundary `Live Core Architecture v1` exists to hold.
+
+    `serve` is unaffected: it reads the ledger per request and shows everything.
+    """
+    backbone = dict(view["system_backbone"])
+    for section, keys in (("activity", ("items",)),
+                          ("presence", ("actors",)),
+                          ("notification_summary", ("requires_founder",))):
+        block = dict(backbone[section])
+        for key in keys:
+            block[key] = []
+        block["static"] = True
+        block["static_note"] = (
+            "Bodies omitted from the generated file: a snapshot of a live feed "
+            "goes stale silently. Run `ap.py app serve` for the live layer.")
+        backbone[section] = block
+    return {**view, "system_backbone": backbone}
+
+
 def write_outputs(view: dict, template_path: Path, app_path: Path,
                   index_path: Path | None) -> list[Path]:
     written = [app_path]
     app_path.parent.mkdir(parents=True, exist_ok=True)
-    app_path.write_text(render_app(view, template_path), encoding="utf-8")
+    app_path.write_text(render_app(static_view(view), template_path), encoding="utf-8")
     if index_path is not None:
         index_path.parent.mkdir(parents=True, exist_ok=True)
         index_path.write_text(
@@ -598,6 +884,28 @@ def summarize(view: dict) -> str:
         f"  unresolved   {kernel['counts']['unresolved_relationships']}",
         f"  findings     {kernel['health']['counts']['findings']}  [{kernel['health']['status'].upper()}]",
     ]
+
+    backbone = view["system_backbone"]
+    live, health = backbone["live"], backbone["integration_health"]
+    lines += ["", "LIVE"]
+    if live["availability"] != "available":
+        # Say why there is nothing, rather than printing zeros that read as calm.
+        lines.append(f"  ledger       {live['availability'].upper()} — {live['detail']}")
+    else:
+        presence, notify = backbone["presence"], backbone["notification_summary"]
+        lines += [
+            f"  events       {backbone['activity']['total']}",
+            f"  working      {presence['counts'].get('working', 0)} of "
+            f"{presence['counts'].get('live', 0)} present",
+            f"  unread       {notify['badge_count']} "
+            f"({len(notify['requires_founder'])} need the Founder)",
+        ]
+    lines.append(
+        f"  integrations {health['counts']['live']} live of {health['counts']['total']}"
+        f"  ({health['counts']['verified']} verified)")
+    if health["counts"]["conflicts"]:
+        lines.append(f"  conflicts    {health['counts']['conflicts']} "
+                     f"— Founder OS and the adapter registry disagree")
     return "\n".join(lines)
 
 
@@ -622,7 +930,8 @@ def check_reachability_gate(host: str, port: int, token: str | None) -> None:
 
 
 def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
-          host: str = "127.0.0.1", token: str | None = None) -> int:
+          host: str = "127.0.0.1", token: str | None = None,
+          ledger_path: Path | None = None) -> int:
     """Serve the app and its read model.
 
     Binding to 127.0.0.1 keeps the Foundation's state and index private by
@@ -673,7 +982,7 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
                     self._send(render_app(view, template_path).encode("utf-8"),
                                "text/html; charset=utf-8")
                 elif self.path in ("/api/app", "/api/v1/app"):
-                    self._json(build_app_view(state, root))
+                    self._json(build_app_view(state, root, ledger_path))
                 elif self.path == "/api/view":
                     self._json(founder_os.build_view(state))
                 elif self.path == "/api/vault":
@@ -694,7 +1003,26 @@ def serve(state_path: Path, root: Path, template_path: Path, port: int = 8788,
                 elif self.path == "/api/v1/health":
                     self._json(truth_kernel.summary(truth_kernel.build(root)))
                 elif self.path == "/api/v1/system-backbone":
-                    self._json(build_system_backbone(state, truth_kernel.build(root)))
+                    self._json(build_system_backbone(
+                        state, truth_kernel.build(root), read_live_layer(ledger_path)))
+                # The live projections, surfaced rather than reimplemented. Each
+                # is `event_ledger`'s own output; this module adds no logic and
+                # keeps no copy — the ledger stays the single source.
+                elif self.path == "/api/v1/live":
+                    self._json(read_live_layer(ledger_path))
+                elif self.path == "/api/v1/activity":
+                    self._json(summarize_activity(read_live_layer(ledger_path), limit=200))
+                elif self.path == "/api/v1/presence":
+                    self._json(summarize_presence(read_live_layer(ledger_path)))
+                elif self.path == "/api/v1/notifications":
+                    live = read_live_layer(ledger_path)
+                    self._json(live["notifications"] or {
+                        "availability": live["availability"], "detail": live["detail"],
+                        "badge_count": None, "items": [], "counts": {},
+                    })
+                elif self.path == "/api/v1/integrations":
+                    self._json(build_integration_health(
+                        state, event_adapters.build_registry()))
                 elif self.path == "/api/state":
                     self._json({
                         "error": "endpoint retired: raw Founder state is not a presentation contract",
@@ -734,6 +1062,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--template", default=str(DEFAULT_TEMPLATE), help="App template path.")
     parser.add_argument("--app", default=str(DEFAULT_APP), help="Rendered app output.")
     parser.add_argument("--index", default=str(DEFAULT_INDEX), help="Vault index output.")
+    parser.add_argument("--ledger", default=str(event_ledger.DEFAULT_LEDGER),
+                        help="Append-only event ledger the live projections read.")
 
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("render", help="Regenerate app.html and vault-index.json.")
@@ -764,18 +1094,20 @@ def main(argv: list[str] | None = None) -> int:
     root = Path(args.root).resolve()
     state_path = Path(args.state)
     template_path = Path(args.template)
+    ledger_path = Path(args.ledger)
 
     try:
         if args.command == "serve":
             token = args.token or os.environ.get("ALPHA_APP_TOKEN")
-            return serve(state_path, root, template_path, args.port, host=args.host, token=token)
+            return serve(state_path, root, template_path, args.port, host=args.host,
+                         token=token, ledger_path=ledger_path)
 
         if args.command == "index":
             print(json.dumps(build_vault_index(root), indent=2, ensure_ascii=False))
             return 0
 
         state = founder_os.load_state(state_path)
-        view = build_app_view(state, root)
+        view = build_app_view(state, root, ledger_path)
 
         if args.command == "view":
             print(json.dumps(view, indent=2, ensure_ascii=False))

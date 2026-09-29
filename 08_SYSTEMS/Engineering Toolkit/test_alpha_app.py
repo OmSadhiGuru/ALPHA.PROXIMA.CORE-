@@ -64,6 +64,26 @@ def vault(tmp: str) -> Path:
     return root
 
 
+# A real Truth Kernel contract over a real (tiny) vault, built once.
+#
+# Deliberately not a hand-written stub: a stub of another module's output is a
+# second, unversioned copy of that module's schema, and it rots silently the
+# first time the Kernel adds a key. Building the genuine article costs one
+# index of three notes and can never disagree with the thing it stands for.
+def _reference_kernel() -> dict:
+    tmp = tempfile.mkdtemp()
+    return app.truth_kernel.build(vault(tmp))
+
+
+KERNEL: dict = {}
+
+
+def kernel() -> dict:
+    if not KERNEL:
+        KERNEL.update(_reference_kernel())
+    return KERNEL
+
+
 class TestVaultIndex(unittest.TestCase):
     def test_indexes_every_note(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -525,6 +545,304 @@ class TestReachabilityGate(unittest.TestCase):
         """A naive `==` on a shared secret invites a timing attack."""
         source = Path(app.__file__).read_text(encoding="utf-8")
         self.assertIn("hmac.compare_digest", source)
+
+
+# ==========================================================================
+# Phase C -- the live layer reaching the System Backbone
+# ==========================================================================
+
+def presence_event(actor: str, state: str, occurred: str, ttl: int = 90) -> dict:
+    return {
+        "schema_version": "1.0", "event_id": f"evt-{actor}-{occurred}",
+        "source": "codex", "event_type": "codex.presence.heartbeat",
+        "entity_type": "presence", "entity_id": actor, "actor_id": actor,
+        "title": f"{actor} is {state}", "summary": "", "severity": "info",
+        "occurred_at": occurred, "received_at": occurred,
+        "requires_founder": False, "deep_link": None,
+        "metadata": {"presence_state": state, "ttl_seconds": ttl},
+    }
+
+
+def plain_event(key: str, severity: str, occurred: str, founder: bool = False) -> dict:
+    return {
+        "schema_version": "1.0", "event_id": f"evt-{key}",
+        "source": "github", "event_type": "github.pull_request.opened",
+        "entity_type": "pull_request", "entity_id": key, "actor_id": "agent:cf-07",
+        "title": f"PR {key}", "summary": "", "severity": severity,
+        "occurred_at": occurred, "received_at": occurred,
+        "requires_founder": founder, "deep_link": None, "metadata": {},
+    }
+
+
+def ledger_with(events: list[dict], directory: Path) -> Path:
+    path = directory / "event-ledger.jsonl"
+    path.write_text(
+        "\n".join(json.dumps(e, sort_keys=True) for e in events) + "\n", encoding="utf-8")
+    return path
+
+
+class TestLiveLayerAvailability(unittest.TestCase):
+    """Absence is not silence. Zeros are a measurement; nothing was measured."""
+
+    def test_missing_ledger_reports_unavailable_not_zero(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            live = app.read_live_layer(Path(tmp) / "nothing-here.jsonl")
+            self.assertEqual(live["availability"], "unavailable")
+            self.assertIsNone(live["activity"])
+            self.assertTrue(live["detail"])
+
+    def test_empty_ledger_is_available_and_reports_zero(self):
+        """A healthy quiet ledger and a missing one must not read alike."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "event-ledger.jsonl"
+            path.write_text("", encoding="utf-8")
+            live = app.read_live_layer(path)
+            self.assertEqual(live["availability"], "available")
+            self.assertEqual(live["activity"]["total"], 0)
+
+    def test_corrupt_ledger_is_reported_never_degraded_to_zero(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "event-ledger.jsonl"
+            path.write_text("{not json at all\n", encoding="utf-8")
+            live = app.read_live_layer(path)
+            self.assertEqual(live["availability"], "error")
+            self.assertIn("corrupt", live["detail"].lower())
+            self.assertIsNone(live["notifications"])
+
+    def test_backbone_counts_are_none_when_the_ledger_cannot_be_read(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            live = app.read_live_layer(Path(tmp) / "absent.jsonl")
+            backbone = app.build_system_backbone(fos.empty_state(), kernel(), live)
+            counts = backbone["counts"]
+            self.assertIsNone(counts["events"])
+            self.assertIsNone(counts["unread_notifications"])
+            self.assertIsNone(counts["actors_working"])
+            self.assertEqual(backbone["live"]["availability"], "unavailable")
+
+
+class TestBackboneRemainsBackwardCompatible(unittest.TestCase):
+    """Phase C extends the contract. It may not move a key a consumer reads."""
+
+    V1_KEYS = ("mode", "canonical_sources", "systems", "departments",
+               "attention", "counts", "truth_kernel")
+
+    def test_every_1_0_0_key_survives(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel())
+        for key in self.V1_KEYS:
+            self.assertIn(key, backbone, f"{key} was removed — consumers break")
+        for key in ("systems", "connected_systems", "departments",
+                    "attention_signals", "knowledge_nodes", "knowledge_findings"):
+            self.assertIn(key, backbone["counts"])
+
+    def test_schema_version_is_an_additive_minor_bump(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel())
+        self.assertEqual(backbone["schema_version"], "1.1.0")
+
+    def test_backbone_still_builds_with_two_arguments(self):
+        """`alpha_spatial` calls it positionally. That call must keep working."""
+        backbone = app.build_system_backbone(fos.empty_state(), kernel())
+        self.assertEqual(backbone["mode"], "read_only")
+
+    def test_the_four_directive_sections_are_present(self):
+        backbone = app.build_system_backbone(fos.empty_state(), kernel())
+        for key in ("activity", "presence", "integration_health", "notification_summary"):
+            self.assertIn(key, backbone)
+
+
+class TestIntegrationHealth(unittest.TestCase):
+    """Two registers of integrations will drift. The drift is the signal."""
+
+    def state_with(self, name: str, status: str) -> dict:
+        state = fos.empty_state()
+        state["integrations"].append(
+            {"id": "INT-001", "name": name, "kind": "signal", "status": status})
+        return state
+
+    def health(self, state: dict) -> dict:
+        return app.build_integration_health(state, app.event_adapters.build_registry())
+
+    def row(self, health: dict, source: str) -> dict:
+        return next(r for r in health["integrations"] if r["source"] == source)
+
+    def test_declared_adapters_appear_even_when_unregistered(self):
+        health = self.health(fos.empty_state())
+        self.assertEqual(self.row(health, "github")["registered_in"], "adapter_only")
+
+    def test_founder_registration_without_an_adapter_is_surfaced_not_hidden(self):
+        health = self.health(self.state_with("Voice Capture", "planned"))
+        self.assertEqual(self.row(health, "voice_capture")["registered_in"], "founder_only")
+
+    def test_the_weaker_claim_wins_a_conflict(self):
+        """Founder OS believing GitHub is connected does not make an adapter exist."""
+        health = self.health(self.state_with("GitHub", "connected"))
+        row = self.row(health, "github")
+        self.assertEqual(row["founder_status"], "connected")
+        self.assertEqual(row["adapter_status"], "planned")
+        self.assertEqual(row["status"], "planned")
+        self.assertTrue(row["conflict"])
+
+    def test_nothing_counts_as_live_without_an_adapter_to_carry_it(self):
+        """The Founder's own setup may be connected; the membrane still is not."""
+        health = self.health(self.state_with("Obsidian Vault", "connected"))
+        row = self.row(health, "obsidian_vault")
+        self.assertEqual(row["status"], "connected")
+        self.assertFalse(row["live"])
+        self.assertEqual(health["counts"]["live"], 0)
+
+    def test_the_shipped_foundation_claims_nothing_live_and_nothing_verified(self):
+        state = fos.load_state(fos.DEFAULT_STATE)
+        health = self.health(state)
+        self.assertEqual(health["counts"]["live"], 0)
+        self.assertEqual(health["counts"]["verified"], 0)
+
+    def test_founder_vocabulary_is_translated_in_the_open(self):
+        self.assertEqual(app.translate_founder_status("not_connected"), "disconnected")
+        self.assertEqual(app.translate_founder_status("connected"), "connected")
+
+    def test_every_founder_state_is_translatable(self):
+        """A vocabulary that grows on one side must fail loudly, not be skipped."""
+        for status in fos.INTEGRATION_STATES:
+            self.assertNotEqual(
+                app.translate_founder_status(status), "unknown",
+                f"{status!r} has no adapter-vocabulary equivalent")
+
+    def test_every_adapter_status_can_be_ranked(self):
+        """`min()` over the confidence map must not meet a word it does not know."""
+        for status in app.event_adapters.STATUSES:
+            self.assertIn(status, app._STATUS_CONFIDENCE,
+                          f"{status!r} has no confidence rank — conflicts would crash")
+
+    def test_an_unknown_status_is_reported_rather_than_guessed(self):
+        health = self.health(self.state_with("GitHub", "on_fire"))
+        row = self.row(health, "github")
+        self.assertTrue(row["untranslatable_status"])
+        self.assertTrue(row["conflict"])
+        self.assertEqual(row["status"], "planned")
+
+
+class TestLiveProjectionsInTheBackbone(unittest.TestCase):
+    def test_presence_expiry_reaches_the_backbone(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = ledger_with([
+                presence_event("agent:cf-07", "coding", "2026-09-29T10:00:00+00:00"),
+                presence_event("agent:cf-12", "thinking", "2026-09-29T11:59:30+00:00"),
+            ], Path(tmp))
+            live = app.read_live_layer(path)
+            backbone = app.build_system_backbone(fos.empty_state(), kernel(), live)
+            actors = {a["actor_id"]: a for a in backbone["presence"]["actors"]}
+            self.assertEqual(actors["agent:cf-07"]["state"], "offline")
+            self.assertEqual(actors["agent:cf-07"]["claimed_state"], "coding")
+
+    def test_the_badge_counts_meaning_not_volume(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = ledger_with([
+                plain_event("a", "info", "2026-09-29T10:00:00+00:00"),
+                plain_event("b", "update", "2026-09-29T10:01:00+00:00"),
+                plain_event("c", "critical", "2026-09-29T10:02:00+00:00", founder=True),
+            ], Path(tmp))
+            backbone = app.build_system_backbone(
+                fos.empty_state(), kernel(), app.read_live_layer(path))
+            summary = backbone["notification_summary"]
+            self.assertEqual(summary["badge_count"], 2)
+            self.assertEqual(len(summary["requires_founder"]), 1)
+
+    def test_the_backbone_summarizes_activity_rather_than_carrying_the_feed(self):
+        """A control contract is not a mailbox; it must not grow without bound."""
+        with tempfile.TemporaryDirectory() as tmp:
+            events = [plain_event(str(n), "info", f"2026-09-29T10:{n:02d}:00+00:00")
+                      for n in range(40)]
+            path = ledger_with(events, Path(tmp))
+            backbone = app.build_system_backbone(
+                fos.empty_state(), kernel(), app.read_live_layer(path))
+            self.assertEqual(backbone["activity"]["total"], 40)
+            self.assertLessEqual(len(backbone["activity"]["items"]), 10)
+
+    def test_the_app_view_carries_the_live_layer_through_one_read(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            path = ledger_with(
+                [plain_event("x", "action", "2026-09-29T10:00:00+00:00")], root)
+            view = app.build_app_view(fos.empty_state(), root, path)
+            self.assertEqual(view["system_backbone"]["counts"]["events"], 1)
+            self.assertEqual(view["app_version"], app.APP_VERSION)
+
+    def test_the_app_writes_nothing_to_the_ledger(self):
+        """The App is a presentation layer. Single-writer discipline holds."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = ledger_with(
+                [plain_event("x", "info", "2026-09-29T10:00:00+00:00")], Path(tmp))
+            before = path.read_bytes()
+            app.build_system_backbone(
+                fos.empty_state(), kernel(), app.read_live_layer(path))
+            self.assertEqual(path.read_bytes(), before)
+
+
+class TestLiveEndpointsAreDeclared(unittest.TestCase):
+    def test_every_phase_c_route_is_served(self):
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        for route in ("/api/v1/live", "/api/v1/activity", "/api/v1/presence",
+                      "/api/v1/notifications", "/api/v1/integrations"):
+            self.assertIn(f'"{route}"', source, f"{route} is not routed")
+
+    def test_the_app_never_appends_to_the_ledger(self):
+        source = Path(app.__file__).read_text(encoding="utf-8")
+        self.assertNotIn("event_ledger.append", source)
+
+
+class TestStaticRenderCarriesNoStaleLiveData(unittest.TestCase):
+    """A generated file that still says "CODEX is coding" three days later is
+    fabricated realtime activity — worse than an empty panel, because confident."""
+
+    def view_with_live(self, tmp: str) -> tuple[dict, dict]:
+        root = vault(tmp)
+        path = ledger_with([
+            plain_event("x", "critical", "2026-09-29T10:00:00+00:00", founder=True),
+            presence_event("agent:cf-07", "coding", "2026-09-29T10:00:00+00:00"),
+        ], root)
+        view = app.build_app_view(fos.empty_state(), root, path)
+        return view, app.static_view(view)
+
+    def test_counts_survive_but_bodies_do_not(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            live_view, static = self.view_with_live(tmp)
+            self.assertEqual(live_view["system_backbone"]["counts"]["events"], 2)
+            self.assertEqual(static["system_backbone"]["counts"]["events"], 2)
+            self.assertEqual(static["system_backbone"]["activity"]["items"], [])
+            self.assertEqual(static["system_backbone"]["presence"]["actors"], [])
+            self.assertEqual(
+                static["system_backbone"]["notification_summary"]["requires_founder"], [])
+
+    def test_the_static_view_says_it_is_static(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, static = self.view_with_live(tmp)
+            for section in ("activity", "presence", "notification_summary"):
+                self.assertTrue(static["system_backbone"][section]["static"])
+                self.assertIn("serve", static["system_backbone"][section]["static_note"])
+
+    def test_the_live_view_is_not_mutated_by_taking_a_static_one(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            live_view, _ = self.view_with_live(tmp)
+            # Both events, the presence heartbeat included: presence signals
+            # share the institutional ledger by design (Live Core, Open Questions).
+            self.assertEqual(len(live_view["system_backbone"]["activity"]["items"]), 2)
+            self.assertEqual(len(live_view["system_backbone"]["presence"]["actors"]), 1)
+
+    def test_no_event_body_reaches_the_rendered_file(self):
+        """The ledger is git-ignored. It must not enter canon through app.html."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = vault(tmp)
+            path = ledger_with(
+                [plain_event("secret-entity", "critical",
+                             "2026-09-29T10:00:00+00:00", founder=True)], root)
+            template = root / "t.html"
+            template.write_text(
+                "<html><script>var V=" + app.VIEW_PLACEHOLDER + ";</script></html>",
+                encoding="utf-8")
+            view = app.build_app_view(fos.empty_state(), root, path)
+            app.write_outputs(view, template, root / "app.html", None)
+            rendered = (root / "app.html").read_text(encoding="utf-8")
+            self.assertNotIn("secret-entity", rendered)
+            self.assertIn('"events":1', rendered.replace(" ", ""))
 
 
 if __name__ == "__main__":

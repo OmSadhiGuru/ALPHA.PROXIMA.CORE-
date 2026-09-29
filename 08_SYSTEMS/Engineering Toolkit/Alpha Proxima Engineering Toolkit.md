@@ -127,6 +127,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap event` | AlphaEvent v1 contract — schema and validation |
 | `ap adapters` | Provider adapter contract and integration registry |
 | `ap live` | Append-only event ledger and the live projections |
+| `ap spatial` | System Backbone contract as Markdown or JSON — its first consumer |
 
 ---
 
