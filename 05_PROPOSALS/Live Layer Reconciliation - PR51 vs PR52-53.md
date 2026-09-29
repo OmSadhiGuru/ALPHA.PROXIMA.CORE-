@@ -4,19 +4,23 @@ aliases: ["Live Layer Reconciliation", "PR51 vs PR52", "Duplicate Live Layer"]
 tags: [proposals, live, events, adapters, reconciliation, alpha-proxima]
 created: 2026-09-29
 updated: 2026-09-29
-status: proposed
-version: "1.2.0"
+status: adopted
+version: "2.0.0"
 authors: ["CLAUDE"]
 artifact_type: proposal
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
-dependencies: ["[[Alpha Proxima App Architecture v1]]"]
+dependencies: ["[[Alpha Proxima App Architecture v1]]", "[[Alpha Proxima Live Integration Layer]]"]
 related_documents: ["[[ADR-0002 - Reconciling the Four Institutional Taxonomies]]", "[[Alpha Proxima Engineering Toolkit]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
 
 # Live Layer Reconciliation — PR #51 vs PR #52/#53
+
+> **Outcome, recorded 2026-09-29.** #51 merged to `main` at `7f648af` and is the Foundation's canonical live layer. #52 and #53 were merged into #50, which is therefore superseded and must not merge — against this `main` it would install two event contracts. Phase A returned alone as #55. **Direction B was adopted**, with one variation: #52 was collapsed into #50 rather than closed, so the closure is still outstanding.
+>
+> This document is kept as the decision record. Everything below is written in the present tense of the decision, not of today.
 
 ## Purpose
 
@@ -131,12 +135,12 @@ Direction A is roughly an order of magnitude more work and would discard the bet
 
 ## Recommendation
 
-**Direction B.**
+**Direction B.** *(Adopted — see the outcome note at the top. Step status is marked against each item.)*
 
-1. **Merge #50 first.** The entity model is independent of both live layers and valuable regardless. Its only conflict with #51 is one row in a Markdown table.
-2. **Merge #51** as the canonical live layer.
-3. **Close #52 without merging.** Its event contract is superseded. Note that #52 now carries **Phase C as well as Phase B**, so closing it defers both — step 4 carries both forward.
-4. **Open one focused PR** that (a) types `actor` against `entity_registry`, and (b) extends `/api/v1/system-backbone` to 1.1.0 over `alpha_live` rather than `event_ledger`. This is Phase C's contribution, rebased onto the surviving contract.
+1. ~~**Merge #50 first.**~~ **Superseded in execution.** #51 merged first, and #50 had by then absorbed #52 and #53. The entity model returned on its own as **#55**, rebased onto the new `main` — one conflict, the Markdown table, exactly as predicted.
+2. ✅ **Merge #51** as the canonical live layer. *Done, `7f648af`.*
+3. ⏳ **Close #52 without merging.** Its event contract is superseded. Note that #52 now carries **Phase C as well as Phase B**, so closing it defers both — step 4 carries both forward.
+4. ⏳ **Open one focused PR** that (a) types `actor` against `entity_registry`, and (b) extends `/api/v1/system-backbone` to 1.1.0 over `alpha_live` rather than `event_ledger`. This is Phase C's contribution, rebased onto the surviving contract.
 
 This leaves the Foundation with one contract, the stronger implementation, the typed identity, and the Phase C extension the Directive asked for.
 
@@ -149,7 +153,7 @@ PR #52's event layer — three modules, 953 lines, 51 tests — is discarded. Ph
 ## Dependencies
 
 - `Institutional Node Taxonomy v1` (proposed, PR #50) — the entity model step 4 resolves against
-- `Live Core Architecture v1` (proposed, PR #52) — superseded by #51's contract if Direction B is taken; its *principles* survive, its code does not
+- [[Alpha Proxima Live Integration Layer]] — superseded by #51's contract if Direction B is taken; its *principles* survive, its code does not
 - [[Alpha Proxima App Architecture v1]] — §7.2.1 must be rewritten against `alpha_live`
 
 ---
@@ -197,6 +201,7 @@ cd /tmp/wt51 && python3 -m unittest discover -s "08_SYSTEMS/Engineering Toolkit"
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.0 | 2026-09-29 | CLAUDE | Outcome recorded: #51 merged to main at `7f648af` and is canonical; Direction B adopted with one variation (#52 collapsed into #50 rather than closed); Phase A returned as #55. Status moves from proposed to adopted, and the reference to the superseded `Live Core Architecture v1` is re-pointed at the document that actually landed |
 | 1.2.0 | 2026-09-29 | CLAUDE | #53 merged into #52: the stack is now two levels, #52 carries Phases B and C, and its conflict surface against #51 grows from 2 files to 3 as `alpha_app.py` comes with it; restate what closing #52 would and would not discard |
 | 1.1.0 | 2026-09-29 | CLAUDE | Re-measure at #51 `8bc543d`: 484 tests / 13 suites, port volume 3,458 + 647; correct an earlier suite miscount; record the RLS finding as evidence of active hardening; note that #51 is still moving |
 | 1.0.0 | 2026-09-29 | CLAUDE | Line-level reconciliation of the two live-layer implementations; recommends Direction B |
