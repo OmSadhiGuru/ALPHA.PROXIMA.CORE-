@@ -67,17 +67,27 @@ class AdapterError(Exception):
 # webhook ingress security
 # --------------------------------------------------------------------------
 
-def verify_github_signature(secret: str, body: bytes, header: str) -> bool:
-    """Constant-time check of GitHub's `X-Hub-Signature-256`.
+def verify_hmac_sha256(secret: str, body: bytes, header: str) -> bool:
+    """Constant-time check of a `sha256=<hex>` signature over the raw body.
 
     An unverified webhook body is an anonymous stranger claiming a commit
     happened. Callers treat a `False` here as a rejected delivery, not a
     degraded one — there is nothing to degrade to.
+
+    A missing secret returns False rather than skipping the check. "No secret
+    configured, so accept everything" is the single most likely way an ingress
+    becomes an open relay, and it is refused here as well as at startup.
     """
     if not secret or not header:
         return False
     expected = "sha256=" + hmac.new(secret.encode("utf-8"), body, hashlib.sha256).hexdigest()
     return hmac.compare_digest(expected, header)
+
+
+# GitHub's `X-Hub-Signature-256` is exactly this scheme. The alias keeps the
+# provider-specific name readable at its call sites without implying that a
+# second algorithm exists.
+verify_github_signature = verify_hmac_sha256
 
 
 # --------------------------------------------------------------------------

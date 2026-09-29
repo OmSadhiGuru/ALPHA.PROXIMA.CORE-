@@ -149,6 +149,49 @@ provider itself considers one thing happening once. Where a provider supplies no
 identifier, the key falls back to semantic content and is *marked* as the weaker
 guarantee (`d:` rather than `p:`), so an operator can see which promise applied.
 
+### The one write path
+
+`alpha_ingress.py` is the only component that accepts a `POST`, and it is a
+separate process on a separate port started by a separate command, because a
+write path should be something an operator starts on purpose rather than
+something that arrives with a read model.
+
+It checks in a fixed order, and the order is the design — each check is cheap
+enough to run before the next, and each one rejects a class of request the
+following check would otherwise have to trust:
+
+1. **Path** — unknown endpoints are refused before anything is read.
+2. **Size** — an oversized body is refused from its `Content-Length`, so a large
+   POST cannot exhaust memory ahead of authentication.
+3. **Rate** — a sliding window per provider, *before* the signature, because
+   HMAC over a body is the expensive part and a flood must not be able to buy it.
+4. **Signature** — constant-time, over the raw bytes, before any parse.
+5. **Replay** — a delivery id already seen is acknowledged and dropped.
+6. **Parse, then normalize** — only now is provider vocabulary read, and only by
+   the adapter.
+
+Four refusals are worth stating because each one is a way this component could
+have been dangerous:
+
+- **It refuses to start without a signing secret for every enabled provider.**
+  An endpoint that accepted unsigned deliveries "until the secret is configured"
+  would be an open relay that looked like an integration, and the Founder's
+  screen would show a connected adapter fed by anyone who found the URL.
+- **It refuses a non-loopback bind without being told it is behind TLS.** A
+  signature protects a body's integrity, not its confidentiality.
+- **It never echoes the payload.** A receiver that reflects what it was sent is
+  an open relay for whatever the sender wanted logged. Responses carry counts.
+- **An unauthenticated body is not even written to the dead letters.** Otherwise
+  anyone who found the URL could fill the Foundation's disk.
+
+An authentic delivery the adapter cannot report is answered `202`, not `400`:
+the delivery *was* genuine, and telling GitHub it sent something bad would make
+it retry a payload that will be rejected identically. The reason goes to the
+dead letters instead.
+
+This is also the only place `origin: webhook` is ever set, which is what lets a
+delivery promote an adapter to `connected`.
+
 ### Honest integration status
 
 An adapter's status is **observed, never declared**. The rules, each a refusal to
@@ -206,6 +249,7 @@ true only when the transport is live.
 | `alpha_adapters.py` | `alpha_events`, `state_io` | writes one health file |
 | `alpha_live.py` | `alpha_events`, `alpha_adapters`, `state_io` | writes one projection file |
 | `/api/v1/*` live routes | all three, loaded lazily | degrades to canon if absent |
+| `alpha_ingress.py` | `alpha_events`, `alpha_adapters`, `alpha_live` | the only write path; refuses to start unsigned |
 | Supabase migrations | a resumed project and credentials | **not applied** |
 | Push delivery | an APNs-equivalent credential | **does not exist** |
 
@@ -244,6 +288,8 @@ something it must not hold.
 | A corrupt health or projection file | Reads as empty; the layer degrades rather than refusing to start | Rebuild projections from the ledger |
 | A provider retries a delivery | Stored once; the retry is reported, not raised | None needed |
 | A payload the adapter cannot parse | Rejected at the boundary, counted as a failure, nothing stored | Fix the adapter; the dead-letter row says what arrived |
+| An unsigned or forged delivery | `401`, never parsed, never written anywhere | None needed; the attempt is not evidence about an adapter |
+| A flood of deliveries | `429` per provider, before any HMAC work | None needed |
 | Realtime transport down | `unconfigured`/`stale` is displayed; canon stays readable | Reconnect; resynchronize by `dedup_key` |
 | The whole live state deleted | Activity feed and unread markers are lost | Nothing institutional to recover — this is the design |
 
@@ -264,6 +310,12 @@ ap.py live history PR-48
 
 # The contract itself, for an adapter author.
 ap.py events contract
+
+# Why the door is shut today, in one honest sentence per reason.
+ap.py ingress check
+
+# Open it, once a secret exists. Loopback unless told it is behind TLS.
+GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 ```
 
 ## Future Improvements
@@ -310,4 +362,4 @@ ap.py events contract
 
 | Version | Date | Change |
 |---|---|---|
-| 1.0.0 | 2026-09-29 | First specification. AlphaEvent v1, adapter boundary, projections, GitHub normalization, edge taxonomy. Supabase migrations verified locally, applied nowhere. |
+| 1.0.0 | 2026-09-29 | First specification. AlphaEvent v1, adapter boundary, projections, GitHub normalization, signed webhook ingress, edge taxonomy. Supabase migrations verified locally, applied nowhere. |
