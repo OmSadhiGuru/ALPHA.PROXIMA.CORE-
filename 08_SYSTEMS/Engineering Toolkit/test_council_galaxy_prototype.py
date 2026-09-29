@@ -290,5 +290,94 @@ class SpatialInterfaceContracts(unittest.TestCase):
                           f'{marker} is in the template but not the committed render')
 
 
+class LiveOverlayContracts(unittest.TestCase):
+    """Presence on top of structure, without either lying about the other."""
+
+    def test_the_committed_render_carries_no_machine_local_telemetry(self):
+        # `galaxy-prototype.html` is in the Foundation's permanent record.
+        # Presence expires in three minutes; committing one would preserve a
+        # moment of one developer's afternoon as though it were state.
+        rendered = galaxy.DEFAULT_OUTPUT.read_text(encoding='utf-8')
+        self.assertIn('Rendered without live state', rendered)
+        payload = json.loads(rendered.split('const VIEW = ', 1)[1].split(';\nconst REDUCED', 1)[0])
+        self.assertFalse(payload['live']['available'])
+        self.assertEqual(payload['live']['presence'], [])
+        self.assertEqual(payload['live']['activity'], [])
+        self.assertEqual(payload['live']['badge'], 0)
+
+    def test_a_static_render_says_it_is_static_rather_than_showing_nothing(self):
+        # An interface that cannot distinguish "nothing happened" from "I cannot
+        # see" is lying by omission.
+        self.assertIn('static render', galaxy.LIVE_OMITTED['realtime']['detail'])
+        self.assertTrue(galaxy.LIVE_OMITTED['realtime']['canonical_readable'])
+        self.assertFalse(galaxy.LIVE_OMITTED['realtime']['presence_trustworthy'])
+
+    def test_the_served_view_includes_live_state(self):
+        view = galaxy.build_galaxy_view(ROOT, include_live=True)
+        self.assertIn('live', view)
+        self.assertIn('realtime', view['live'])
+
+    def test_a_missing_live_layer_dims_presence_rather_than_breaking_the_scene(self):
+        with patch.object(galaxy, '_load_sibling', side_effect=OSError('no ledger here')):
+            section = galaxy.build_live_section()
+        self.assertFalse(section['available'])
+        self.assertIn('no ledger here', section['reason'])
+        # The registry view must still be buildable and must still say the
+        # Foundation's own knowledge is readable.
+        self.assertTrue(section['realtime']['canonical_readable'])
+        self.assertFalse(section['realtime']['presence_trustworthy'])
+
+    def test_presence_never_reads_as_trustworthy_without_a_live_transport(self):
+        section = galaxy.build_live_section()
+        if section['realtime']['mode'] != 'live':
+            self.assertFalse(section['realtime']['presence_trustworthy'])
+
+    def test_the_live_section_reports_integration_counts_honestly(self):
+        section = galaxy.build_live_section()
+        if section['available']:
+            counts = section['integration_counts']
+            self.assertGreater(counts['total'], 0)
+            # Nothing has been verified in this repository, so nothing is
+            # connected. If this ever fails, a real delivery arrived.
+            self.assertEqual(counts['connected'], 0)
+
+
+class LiveOverlayInterfaceContracts(unittest.TestCase):
+    def setUp(self):
+        self.template = galaxy.DEFAULT_TEMPLATE.read_text(encoding='utf-8')
+
+    def test_the_scene_honours_the_read_models_staleness_rather_than_recomputing_it(self):
+        # Every client computing TTL arithmetic is every client getting it wrong
+        # differently.
+        self.assertIn("row.stale", self.template)
+        self.assertNotIn('ttl_seconds', self.template)
+
+    def test_an_expired_report_is_dimmed_and_never_pulsed(self):
+        self.assertIn("classList.toggle('presence-stale'", self.template)
+        self.assertIn('!row.stale &&', self.template)
+
+    def test_presence_resolves_a_report_keyed_by_id_or_by_name(self):
+        # An agent reports itself by the name it knows; the scene draws registry
+        # ids. Forcing agents to learn ids would make presence silently empty.
+        self.assertIn('function presenceFor(nodeId)', self.template)
+        self.assertIn('row.node_id === name', self.template)
+
+    def test_text_from_the_event_ledger_is_escaped_before_it_becomes_markup(self):
+        self.assertIn('function escapeText(', self.template)
+        for field in ('escapeText(event.title)', 'escapeText(row.state)'):
+            self.assertIn(field, self.template)
+
+    def test_the_page_only_refreshes_when_there_is_an_origin_to_ask(self):
+        self.assertIn("window.location.protocol !== 'file:'", self.template)
+        self.assertIn("'/api/v1/live'", self.template)
+
+    def test_a_failed_refresh_keeps_the_last_known_state_and_says_so(self):
+        self.assertIn('Lost contact with the live layer', self.template)
+
+    def test_the_banner_distinguishes_unconfigured_from_degraded(self):
+        # Nothing connected is not the same as something broken.
+        self.assertIn("realtime.mode === 'stale' || realtime.mode === 'unavailable'", self.template)
+
+
 if __name__ == '__main__':
     unittest.main()

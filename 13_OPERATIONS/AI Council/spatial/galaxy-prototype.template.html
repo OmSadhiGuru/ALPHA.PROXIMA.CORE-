@@ -465,6 +465,74 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   renderEdgeLegend();
 
   // ---------------------------------------------------------------------
+  // the live overlay
+  // ---------------------------------------------------------------------
+  // Presence on top of structure. Three rules, and the second is the one that
+  // matters:
+  //
+  //   * a node reporting live work gets a pulse;
+  //   * a node whose report has expired is DIMMED, never pulsed — the read
+  //     model has already rewritten its state to `offline`, and this only has
+  //     to refuse to re-animate it;
+  //   * when the transport is not live, the banner says so, because a feed that
+  //     has simply stopped moving is indistinguishable from one with nothing
+  //     to show.
+  const WORKING_STATES = ['thinking', 'researching', 'coding', 'indexing'];
+  let live = VIEW.live || { available: false, presence: [], activity: [], badge: 0,
+                            realtime: { mode: 'unavailable', detail: 'No live data in this render.' } };
+  const pulseFor = {};   // node_id -> the dot element to animate
+
+  function renderLiveBanner() {
+    const banner = document.getElementById('liveBanner');
+    const realtime = live.realtime || {};
+    if (realtime.mode === 'live') { banner.classList.remove('shown'); return; }
+    // Everything except `live` is worth saying out loud.
+    const badge = live.badge ? ' · ' + live.badge + ' awaiting the Founder' : '';
+    banner.textContent = (realtime.detail || 'Live state unknown.') + badge;
+    banner.classList.add('shown');
+    banner.classList.toggle('degraded', realtime.mode === 'stale' || realtime.mode === 'unavailable');
+  }
+
+  // A node reports itself by the name it knows — "CODEX", or a registry role
+  // title — while the scene draws registry ids. Resolving both here means an
+  // agent never has to learn an id to be visible, and a presence report keyed
+  // either way lands on the right seat.
+  function presenceFor(nodeId) {
+    const rows = live.presence || [];
+    const desk = findDesk(nodeId);
+    const name = desk ? desk.named_role : null;
+    return rows.find(row => row.node_id === nodeId) ||
+           (name ? rows.find(row => row.node_id === name) : null) || null;
+  }
+
+  function applyPresence() {
+    labels.forEach(l => {
+      if (!l.id) return;
+      const row = presenceFor(l.id);
+      // `stale` comes from the read model, which already expired the record.
+      // The scene never computes TTL arithmetic itself and gets it wrong.
+      l.el.classList.toggle('presence-stale', !!(row && row.stale));
+      const working = row && !row.stale && WORKING_STATES.indexOf(row.state) >= 0;
+      if (working && !pulseFor[l.id]) {
+        const dot = document.createElement('span');
+        dot.className = 'pulse';
+        l.el.appendChild(dot);
+        pulseFor[l.id] = dot;
+      } else if (!working && pulseFor[l.id]) {
+        pulseFor[l.id].style.display = 'none';
+        delete pulseFor[l.id];
+      }
+    });
+  }
+
+  function latestEventFor(nodeId) {
+    const desk = findDesk(nodeId);
+    const name = desk ? desk.named_role : nodeId;
+    return (live.activity || []).find(row => row.actor === nodeId || row.actor === name) || null;
+  }
+
+
+  // ---------------------------------------------------------------------
   // labels (HTML overlay, progressive disclosure by current view)
   // ---------------------------------------------------------------------
   const labels = []; // { el, pos, id, tier }
@@ -745,6 +813,35 @@ document.getElementById('officeLink').href = '/' + window.location.search;
   }
   updateLabelVisibility();
 
+  // The live overlay decorates labels, so it starts only once they exist.
+  renderLiveBanner();
+  applyPresence();
+
+  // Refresh only when this page is being served — opened from `file://` there is
+  // no endpoint to ask, and a failed fetch every fifteen seconds would be noise.
+  if (window.location.protocol !== 'file:') {
+    setInterval(() => {
+      fetch('/api/v1/live' + window.location.search, { cache: 'no-store' })
+        .then(response => response.ok ? response.json() : null)
+        .then(fresh => {
+          if (!fresh) return;
+          live = fresh;
+          renderLiveBanner();
+          applyPresence();
+        })
+        // A failed refresh leaves the last known state on screen and says so
+        // through the banner; it must not blank the scene.
+        .catch(() => {
+          live = Object.assign({}, live, {
+            realtime: { mode: 'stale',
+                        detail: 'Lost contact with the live layer; showing the last known state.',
+                        canonical_readable: true, presence_trustworthy: false },
+          });
+          renderLiveBanner();
+        });
+    }, 15000);
+  }
+
   // ---------------------------------------------------------------------
   // interaction: click a seat mesh, drag to orbit (bounded), wheel zoom (bounded)
   // ---------------------------------------------------------------------
@@ -871,10 +968,55 @@ document.getElementById('officeLink').href = '/' + window.location.search;
     return '# no open assignment for this role yet:\nap.py council assign &lt;session_id&gt; ' + desk.id + ' "&lt;deliverable&gt;"';
   }
 
+  function escapeText(value) {
+    // The panel builds HTML by concatenation, and event titles come from
+    // external systems. Anything from the ledger is escaped before it lands in
+    // markup.
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function relativeAge(seconds) {
+    if (seconds == null) return 'unknown';
+    if (seconds < 60) return seconds + ' seconds ago';
+    if (seconds < 3600) return Math.round(seconds / 60) + ' minutes ago';
+    if (seconds < 86400) return Math.round(seconds / 3600) + ' hours ago';
+    return Math.round(seconds / 86400) + ' days ago';
+  }
+
+  function presenceField(nodeId) {
+    const row = presenceFor(nodeId);
+    if (!row) {
+      // No report at all is different from a report saying idle, and the panel
+      // says which one this is.
+      return '<div class="field"><b>Presence</b>No report. This role has never announced itself.</div>';
+    }
+    if (row.stale) {
+      return '<div class="field"><b>Presence</b>Offline. Last reported <i>' +
+             escapeText(row.reported_state) + '</i> ' + relativeAge(row.age_seconds) +
+             ' — not current.</div>';
+    }
+    return '<div class="field"><b>Presence</b>' + escapeText(row.state).toUpperCase() +
+           (row.activity ? ' · ' + escapeText(row.activity) : '') +
+           ' · ' + relativeAge(row.age_seconds) + '</div>';
+  }
+
+  function latestEventField(event) {
+    if (!event) return '';
+    const link = event.web_link
+      ? ' <a href="' + escapeText(event.web_link) + '" style="color:var(--accent)">open</a>' : '';
+    return '<div class="field"><b>Latest event</b>' + escapeText(event.title) +
+           '<div class="meta" style="color:var(--muted);font-size:11px">' +
+           escapeText(event.event_type) + ' · ' + relativeAge(event.age_seconds) +
+           (event.requires_founder ? ' · awaiting the Founder' : '') + link + '</div></div>';
+  }
+
   window.closePanel = () => document.getElementById('panel').classList.remove('open');
   function openPanel(id) {
     const desk = findDesk(id);
     if (!desk) return;
+    const latest = latestEventFor(id);
     const dept = findDept(id);
     const body = document.getElementById('panelBody');
     const skills = (desk.may_instantiate || []);
@@ -884,6 +1026,8 @@ document.getElementById('officeLink').href = '/' + window.location.search;
       '<div class="sub">' + desk.operating_owner + ' · ' + desk.id +
       (dept && dept.lead.id !== desk.id ? ' · visual grouping with ' + dept.lead.named_role : '') + '</div>' +
       '<div class="field"><b>Status</b><span class="badge ' + desk.state + '">' + desk.state + '</span></div>' +
+      presenceField(id) +
+      latestEventField(latest) +
       '<div class="field"><b>Current implementation</b>' + desk.current_implementation + '</div>' +
       '<div class="field"><b>May instantiate (subagent kinds)</b>' +
       '<div class="satellites">' + skills.map(s => '<span class="satellite">' + s + '</span>').join('') + '</div></div>' +

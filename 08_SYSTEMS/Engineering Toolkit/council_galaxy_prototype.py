@@ -296,7 +296,66 @@ def edge_summary(edges: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
+# What the committed render says instead of live data. `galaxy-prototype.html`
+# is a generated artifact in the Foundation's permanent record, and presence is
+# machine-local telemetry that expires in three minutes -- baking one into the
+# other would commit a moment of one developer's afternoon as though it were
+# institutional state, and would show a stale badge to anyone who opened the
+# file later. The served page fetches the real thing from its own origin.
+LIVE_OMITTED = {
+    "available": False,
+    "reason": "Rendered without live state. Presence and activity are read when this page is served.",
+    "realtime": {
+        "mode": "unconfigured",
+        "detail": "This is a static render. Serve it with `ap.py galaxy-prototype serve` for live activity.",
+        "canonical_readable": True,
+        "presence_trustworthy": False,
+    },
+    "presence": [],
+    "activity": [],
+    "badge": 0,
+}
+
+
+def build_live_section() -> dict[str, Any]:
+    """The Live Integration Layer's projections, or an honest statement of absence.
+
+    Wrapped in its own function with its own failure path because the galaxy is
+    a view of the *registry*, which exists, and the live layer is a view of
+    *activity*, which may not. A missing ledger must dim the presence dots, not
+    take down the scene.
+    """
+    try:
+        alpha_events = _load_sibling("alpha_events.py", "galaxy_alpha_events")
+        alpha_adapters = _load_sibling("alpha_adapters.py", "galaxy_alpha_adapters")
+        alpha_live = _load_sibling("alpha_live.py", "galaxy_alpha_live")
+        ledger = alpha_events.EventLedger()
+        store = alpha_live.LiveStore()
+        registry = alpha_adapters.AdapterRegistry()
+        view = alpha_live.build_live_view(ledger, store, registry, limit=25)
+    except (PrototypeError, OSError, KeyError, ValueError) as exc:
+        return {
+            "available": False,
+            "reason": str(exc),
+            # Stated rather than implied by an empty feed: an interface that
+            # cannot tell "nothing happened" from "I cannot see" is lying.
+            "realtime": {"mode": "unavailable", "detail": f"Live layer unavailable: {exc}",
+                         "canonical_readable": True, "presence_trustworthy": False},
+            "presence": [], "activity": [], "badge": 0,
+        }
+    return {
+        "available": True,
+        "reason": "",
+        "realtime": view["realtime"],
+        "presence": view["presence"]["presence"],
+        "activity": view["activity"]["activities"],
+        "badge": view["badge"]["badge"],
+        "integration_counts": view["integrations"]["counts"],
+    }
+
+
+def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None,
+                      include_live: bool = True) -> dict[str, Any]:
     office_view = office_spatial.build_office_view(root, council_state_path)
     galaxy = classify_roles(office_view)
     edges = build_edges(galaxy)
@@ -311,6 +370,9 @@ def build_galaxy_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         "edges": edges,
         "edge_summary": edge_summary(edges),
         "brain": office_view["brain"],
+        # Activity, presence and the badge — the Council as an observable space
+        # rather than a diagram. Honest about its own absence.
+        "live": build_live_section() if include_live else dict(LIVE_OMITTED),
         # The full session/assignment ledger (council_kernel.build_view), not
         # just counts -- feeds the "Council Sessions" logistics panel, which
         # is a second read of the same data the per-desk assignment fields
@@ -388,6 +450,11 @@ def serve(root: Path, template_path: Path, port: int = 8790,
                                "text/html; charset=utf-8")
                 elif self.path == "/api/galaxy":
                     self._json(build_galaxy_view(root, council_state_path))
+                elif self.path == "/api/v1/live":
+                    # Same-origin, so the scene can refresh presence without a
+                    # cross-origin request to the app's port. Read-only, like
+                    # every other route in this module.
+                    self._json(build_live_section())
                 else:
                     self._json({"error": "not found"}, 404)
             except (PrototypeError, role_registry.RegistryError, office_spatial.council_kernel.StateError, OSError) as exc:
@@ -440,7 +507,9 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(build_galaxy_view(root, state_path), indent=2, ensure_ascii=False))
             return 0
         if args.command == "render":
-            written = write_output(build_galaxy_view(root, state_path), template_path, Path(args.output))
+            # Deliberately without live state -- see LIVE_OMITTED.
+            written = write_output(build_galaxy_view(root, state_path, include_live=False),
+                                   template_path, Path(args.output))
             print(f"wrote {written}")
             return 0
         if args.command == "serve":
