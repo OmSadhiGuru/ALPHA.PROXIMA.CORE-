@@ -118,6 +118,8 @@ zero new findings of any severity. Coherence: 123 (19 orphans, 15 missing frontm
 85 broken links, 4 empty notes), ratcheted from ceiling 129 to 123 under ES-12.
 
 
-The unapproved follow-up review is [[PR47 Identity and State Safety Review]]. It
-contains source-scoped identity candidates, historical-run protection and the staged
-state-write safety plan. It does not ratify any mapping or debt disposition.
+[[ADR-0003 - PR47 Source-Scoped Reference Contract]] accepts the PR #47
+source-scoped reference and historical-run preservation boundary. The linked
+[[PR47 Identity and State Safety Review]] remains unapproved for every candidate
+mapping and debt disposition; neither document resolves the remaining debt by
+assumption.
