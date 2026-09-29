@@ -1,6 +1,6 @@
 ---
 title: "Institutional Node Taxonomy v1"
-aliases: ["Node Taxonomy", "Entity Taxonomy", "KnowledgeNode Taxonomy", "Entity Registry"]
+aliases: ["Entity Taxonomy", "KnowledgeNode Taxonomy", "Entity Registry"]
 tags: [systems, knowledge-graph, taxonomy, entities, truth-kernel, alpha-proxima]
 created: 2026-09-29
 updated: 2026-09-29
@@ -127,6 +127,21 @@ The App's coherence ratchet and the Truth Kernel answer different questions. The
 | **Owns** | Document-level hygiene | Graph integrity |
 
 The system must always be able to say *App coherence: 123 defects* and *Truth graph: 20 errors, 985 warnings, 12 informational* without a single ambiguous global red.
+
+---
+
+## Why this note does not claim the alias "Node Taxonomy"
+
+[[Node Taxonomy]] is the established note beside this one, and at least five
+documents link to it by that name. An alias here shadowing that title would
+silently redirect every one of those canonical references to this document —
+a broken link is visible, but a link that resolves to the wrong place is not.
+
+This note is therefore reachable as *Institutional Node Taxonomy v1*, *Entity
+Taxonomy*, *KnowledgeNode Taxonomy* or *Entity Registry*, and never by the name
+its neighbour already holds. The two documents describe different instruments:
+[[Node Taxonomy]] classifies the Markdown documents in the graph, this one
+classifies the typed actors that are not documents at all.
 
 ---
 
