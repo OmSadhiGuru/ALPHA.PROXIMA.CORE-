@@ -133,8 +133,8 @@
 <body>
 <div class="wrap" id="app"></div>
 <script id="view-data" type="application/json">{
-  "generated_at": "2026-09-04T15:19:47+00:00",
-  "today": "2026-09-04",
+  "generated_at": "2026-09-29T04:48:39+00:00",
+  "today": "2026-09-29",
   "schema_version": "1.1.0",
   "founder": {
     "name": "Frederick Belizaire Gunville",
@@ -147,7 +147,7 @@
     "set_at": "2026-09-04T13:38:33+00:00",
     "sprint_id": "FIR-001"
   },
-  "mission_is_stale": false,
+  "mission_is_stale": true,
   "priorities": [],
   "next_action": null,
   "decisions": [
@@ -462,9 +462,9 @@
       "id": "SYS-002",
       "area": "Vault validation",
       "status": "degraded",
-      "detail": "Tracked-corpus validator baseline: 0 critical, 22 errors, 983 warnings, 37 info; Console coherence is 127, below the 129 ceiling.",
-      "checked_at": "2026-09-04T13:38:48+00:00",
-      "source": "FIR-001 Repository Health Result; app check --max-defects 129"
+      "detail": "Tracked-corpus validation on canonical main f260e3a: 0 critical, 16 inherited errors, 983 warnings, 36 informational findings, and 0 new findings. Coherence is 123 at the enforced ceiling of 123.",
+      "checked_at": "2026-09-29T04:48:39+00:00",
+      "source": "vault_validator.py --baseline validation-baseline.json --fail-on error; ap.py app check --max-defects 123; verified 2026-09-29"
     },
     {
       "id": "SYS-003",
@@ -486,9 +486,9 @@
       "id": "SYS-005",
       "area": "Memory / context",
       "status": "degraded",
-      "detail": "Layer 3 semantic memory unbuilt; context loading remains manual and selective.",
-      "checked_at": "2026-08-26T09:20:54+00:00",
-      "source": "LUMIAION Architecture Spec v0.1 §3"
+      "detail": "The structural title/path/metadata read model is available, but semantic retrieval and automatic session context remain unbuilt. Live coverage is partial whenever iCloud notes are unavailable and must be reported explicitly.",
+      "checked_at": "2026-09-29T04:48:39+00:00",
+      "source": "alpha_app.py read model; INT-006 Semantic memory; live unified interface coverage check 2026-09-29"
     },
     {
       "id": "SYS-006",
