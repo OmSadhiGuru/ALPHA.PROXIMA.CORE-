@@ -1,0 +1,23 @@
+{
+  "provider": "github",
+  "kind": "pull_request",
+  "delivery_id": "b3f1c2a0-0000-4000-8000-000000000001",
+  "received_at": "2026-09-29T14:02:11+00:00",
+  "payload": {
+    "action": "opened",
+    "sender": { "login": "codex-bot" },
+    "repository": { "full_name": "OmSadhiGuru/ALPHA.PROXIMA.CORE-" },
+    "pull_request": {
+      "number": 48,
+      "title": "Memory navigation implementation",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "changed_files": 3,
+      "additions": 412,
+      "deletions": 18,
+      "updated_at": "2026-09-29T14:02:05Z",
+      "head": { "ref": "codex/memory-navigation" }
+    }
+  }
+}

@@ -18,3 +18,9 @@ __pycache__/
 
 # Node
 node_modules/
+
+# Live Integration Layer runtime state (operational transport, not institutional
+# truth). The ledger, adapter health and live projections are rebuilt from
+# deliveries; committing them would put machine-local telemetry in the
+# Foundation's permanent record. Fixtures and migrations ARE committed.
+13_OPERATIONS/Live Integration Layer/state/
