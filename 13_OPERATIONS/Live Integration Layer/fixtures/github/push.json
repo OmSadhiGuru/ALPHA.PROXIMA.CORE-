@@ -1,0 +1,24 @@
+{
+  "provider": "github",
+  "kind": "push",
+  "delivery_id": "b3f1c2a0-0000-4000-8000-000000000003",
+  "received_at": "2026-09-29T14:01:00+00:00",
+  "payload": {
+    "ref": "refs/heads/codex/memory-navigation",
+    "after": "9f2c1ab7d4e5f60718293a4b5c6d7e8f90a1b2c3",
+    "pusher": { "name": "codex-bot" },
+    "sender": { "login": "codex-bot" },
+    "repository": { "full_name": "OmSadhiGuru/ALPHA.PROXIMA.CORE-" },
+    "commits": [
+      {
+        "id": "9f2c1ab7d4e5f60718293a4b5c6d7e8f90a1b2c3",
+        "message": "feat(memory): add temporal event relationships",
+        "timestamp": "2026-09-29T14:00:44Z",
+        "author": { "name": "CODEX" },
+        "added": ["a.py"],
+        "modified": ["b.py", "c.py"],
+        "removed": []
+      }
+    ]
+  }
+}
