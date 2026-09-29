@@ -99,6 +99,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | 012 | active | [[Tool 012 - Founder OS State Engine]] | `08_SYSTEMS/Engineering Toolkit/founder_os.py` |
 | 013 | active | [[Tool 013 - Alpha Proxima App]] | `08_SYSTEMS/Engineering Toolkit/alpha_app.py` |
 | 014 | draft | [[Tool 014 - Council Session Kernel]] | `08_SYSTEMS/Engineering Toolkit/council_kernel.py` |
+| 015 | active | [[Institutional Node Taxonomy v1]] | `08_SYSTEMS/Engineering Toolkit/entity_registry.py` |
 
 ## CLI Commands
 
@@ -122,6 +123,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap events` | AlphaEvent v1 contract, validation, and the append-only event ledger |
 | `ap adapters` | Provider adapters and the honest adapter registry |
 | `ap live` | Live projections — activity, presence, notifications, badge |
+| `ap entities` | Canonical identity for actors that are not documents (Node Taxonomy) |
 
 ---
 
