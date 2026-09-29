@@ -24,6 +24,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 TOOLKIT_DIR = Path(__file__).resolve().parent
+VAULT_ROOT = TOOLKIT_DIR.parent.parent
 
 
 def _load(filename: str, name: str):
@@ -180,56 +181,135 @@ class SummaryTests(unittest.TestCase):
 # --------------------------------------------------------------------------
 
 class ActorResolutionTests(unittest.TestCase):
+    """Two ratified sources, an exact match in each, and an honest tier."""
+
     def setUp(self):
         self.index = mem.build_role_index([
             role("AGT-007", "CODEX Engineering Lead"),
             role("AGT-002", "Research Lead"),
         ])
 
-    def test_an_exact_registered_name_resolves(self):
-        role_id, basis = mem.resolve_actor("CODEX Engineering Lead", self.index)
-        self.assertEqual(role_id, "AGT-007")
-        self.assertIn("exact registered name", basis)
+    def test_an_exact_registered_name_resolves_as_a_seat(self):
+        found = mem.resolve_actor("CODEX Engineering Lead", self.index)
+        self.assertEqual(found["id"], "AGT-007")
+        self.assertEqual(found["tier"], "seat")
+        self.assertEqual(found["confidence"], 1.0)
+        self.assertFalse(found["interpreted"])
+        self.assertIn("exact registered name", found["basis"])
 
     def test_a_role_id_resolves_to_itself(self):
-        self.assertEqual(mem.resolve_actor("AGT-007", self.index)[0], "AGT-007")
+        self.assertEqual(mem.resolve_actor("AGT-007", self.index)["id"], "AGT-007")
 
-    def test_a_substring_does_not_resolve(self):
-        # The heart of it: matching "CODEX" to "CODEX Engineering Lead" would
-        # fabricate an institutional attribution from a string coincidence, and
-        # the result would be indistinguishable from a real one.
-        for actor in ("CODEX", "codex", "codex-bot", "Codex Engineering", "Engineering Lead"):
+    def test_a_substring_never_resolves_from_either_source(self):
+        # The heart of it: a string coincidence turned into an institutional
+        # attribution is indistinguishable from a real one once on screen.
+        index = mem.build_role_index(
+            [role("AGT-007", "CODEX Engineering Lead")],
+            mem.load_entity_registry(VAULT_ROOT))
+        for actor in ("Codex Engineering", "Engineering Lead", "Research",
+                      "Memory", "Lead"):
             with self.subTest(actor=actor):
-                role_id, basis = mem.resolve_actor(actor, self.index)
-                self.assertIsNone(role_id)
-                self.assertEqual(basis, "")
+                self.assertIsNone(mem.resolve_actor(actor, index))
 
-    def test_the_founder_and_ci_are_not_council_seats(self):
-        for actor in ("Founder", "CI"):
+    def test_a_provider_login_is_not_an_institutional_actor(self):
+        index = mem.build_role_index([], mem.load_entity_registry(VAULT_ROOT))
+        for actor in ("codex-bot", "github-actions[bot]", "OmSadhiGuru", "CI"):
             with self.subTest(actor=actor):
-                self.assertIsNone(mem.resolve_actor(actor, self.index)[0])
+                self.assertIsNone(mem.resolve_actor(actor, index))
 
     def test_an_empty_actor_resolves_to_nothing(self):
-        self.assertEqual(mem.resolve_actor("", self.index), (None, ""))
+        self.assertIsNone(mem.resolve_actor("", self.index))
+        self.assertIsNone(mem.resolve_actor("   ", self.index))
 
-    def test_a_stated_alias_resolves_and_says_so(self):
+    def test_a_stated_alias_resolves_as_a_seat(self):
         with patch.dict(mem.ACTOR_ALIASES, {"codex-bot": "CODEX Engineering Lead"}):
-            role_id, basis = mem.resolve_actor("codex-bot", self.index)
-        self.assertEqual(role_id, "AGT-007")
-        self.assertIn("stated alias", basis)
+            found = mem.resolve_actor("codex-bot", self.index)
+        self.assertEqual(found["id"], "AGT-007")
+        self.assertIn("stated alias", found["basis"])
 
     def test_a_stale_alias_is_an_error_not_a_silent_miss(self):
-        # An alias pointing at a role the registry no longer holds needs
-        # repairing. Reporting it as merely unresolved would hide that.
         with patch.dict(mem.ACTOR_ALIASES, {"codex-bot": "A Role That Was Removed"}):
             with self.assertRaises(mem.MemoryError_) as caught:
                 mem.resolve_actor("codex-bot", self.index)
         self.assertIn("Repair or remove", str(caught.exception))
 
     def test_the_shipped_alias_table_is_empty_and_that_is_deliberate(self):
-        # If this ever fails, someone added an attribution the Foundation should
-        # have decided explicitly. Read it before changing the test.
+        # The taxonomy supplies ratified names now, so a hand-written alias needs
+        # a reason. If this fails, someone added an attribution that should have
+        # been a registry entry.
         self.assertEqual(mem.ACTOR_ALIASES, {})
+
+    def test_with_no_source_at_all_nothing_resolves(self):
+        empty = mem.build_role_index([], None)
+        for actor in ("CODEX Engineering Lead", "LUMIAION", "Founder"):
+            with self.subTest(actor=actor):
+                self.assertIsNone(mem.resolve_actor(actor, empty))
+
+
+class InstitutionalTaxonomyTests(unittest.TestCase):
+    """What the Institutional Node Taxonomy adds, and what it refuses to claim."""
+
+    def setUp(self):
+        self.registry = mem.load_entity_registry(VAULT_ROOT)
+        if self.registry is None:
+            self.skipTest("entity registry unavailable in this tree")
+        self.index = mem.build_role_index([], self.registry)
+
+    def test_the_names_the_foundation_uses_for_itself_resolve(self):
+        # These are why the taxonomy was needed: names the Foundation uses
+        # constantly that no Council seat holds.
+        for actor, expected in (("LUMIAION", "office:lumiaion"),
+                                ("Founder", "person:founder"),
+                                ("JERANIUM", "agent:cf-15")):
+            with self.subTest(actor=actor):
+                found = mem.resolve_actor(actor, self.index)
+                self.assertIsNotNone(found, f"{actor} should resolve")
+                self.assertEqual(found["id"], expected)
+                self.assertEqual(found["tier"], "identity")
+
+    def test_an_identity_match_is_a_full_confidence_claim(self):
+        found = mem.resolve_actor("LUMIAION", self.index)
+        self.assertEqual(found["confidence"], 1.0)
+        self.assertFalse(found["interpreted"])
+
+    def test_an_engine_name_resolves_only_as_a_citation(self):
+        # The taxonomy cites CODEX as the engine fulfilling CF-07. It does not
+        # say an actor called CODEX *is* CF-07 — engines move between functions.
+        found = mem.resolve_actor("CODEX", self.index)
+        self.assertIsNotNone(found)
+        self.assertEqual(found["tier"], "engine")
+        self.assertLess(found["confidence"], 1.0)
+        self.assertTrue(found["interpreted"])
+        self.assertIn("engine", found["basis"])
+
+    def test_every_engine_tier_match_is_an_interpretation(self):
+        for actor in ("CODEX", "Claude", "Gemini", "Perplexity"):
+            with self.subTest(actor=actor):
+                found = mem.resolve_actor(actor, self.index)
+                if found and found["tier"] == "engine":
+                    self.assertTrue(found["interpreted"])
+                    self.assertLess(found["confidence"], 1.0)
+
+    def test_a_basis_always_names_the_document_conferring_identity(self):
+        for actor in ("LUMIAION", "Founder", "CODEX"):
+            with self.subTest(actor=actor):
+                found = mem.resolve_actor(actor, self.index)
+                self.assertTrue(found["basis"].strip())
+                self.assertIn(".md", found["basis"])
+
+    def test_a_council_seat_outranks_the_taxonomy(self):
+        # Both sources can name the same actor. The Council's own record of its
+        # seats is the stronger claim about who acted.
+        index = mem.build_role_index([role("AGT-007", "CODEX Engineering Lead")],
+                                     self.registry)
+        found = mem.resolve_actor("CODEX Engineering Lead", index)
+        self.assertEqual(found["tier"], "seat")
+        self.assertEqual(found["id"], "AGT-007")
+
+    def test_a_placeholder_is_never_an_actor(self):
+        for actor in ("Owner pending", "TBD", "Unappointed"):
+            with self.subTest(actor=actor):
+                self.assertIsNone(mem.resolve_actor(actor, self.index))
 
 
 # --------------------------------------------------------------------------
@@ -394,6 +474,77 @@ class MemoryGraphTests(unittest.TestCase):
         self.assertIn("exact registered name", seat_edges[0]["authority"])
         self.assertEqual(graph["counts"]["actors_resolved"], 1)
 
+    def test_an_engine_tier_resolution_is_drawn_as_an_interpretation(self):
+        # The one place in this graph where an edge is not a plain witness: the
+        # taxonomy citing an engine for a function does not say the engine is it.
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        if registry is None:
+            self.skipTest("entity registry unavailable in this tree")
+        graph = mem.build_memory_graph([event(actor="CODEX", event_id="e-1")], [],
+                                       entity_registry=registry)
+        seat_edges = [i for i in graph["edges"] if i["target"].startswith("agent:")]
+        self.assertEqual(len(seat_edges), 1)
+        self.assertTrue(seat_edges[0]["interpreted"])
+        self.assertLess(seat_edges[0]["confidence"], 1.0)
+        self.assertIn("engines move between functions", seat_edges[0]["note"])
+
+    def test_an_identity_tier_resolution_is_drawn_as_witnessed(self):
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        if registry is None:
+            self.skipTest("entity registry unavailable in this tree")
+        graph = mem.build_memory_graph([event(actor="LUMIAION", event_id="e-1")], [],
+                                       entity_registry=registry)
+        seat_edges = [i for i in graph["edges"] if i["target"].startswith("office:")]
+        self.assertEqual(len(seat_edges), 1)
+        self.assertFalse(seat_edges[0]["interpreted"])
+        self.assertEqual(seat_edges[0]["confidence"], 1.0)
+
+    def test_the_counts_split_resolutions_by_what_entitled_them(self):
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        if registry is None:
+            self.skipTest("entity registry unavailable in this tree")
+        graph = mem.build_memory_graph(
+            [event(actor="LUMIAION", event_id="e-1"),
+             event(actor="CODEX", event_id="e-2", entity_id="PR-49"),
+             event(actor="codex-bot", event_id="e-3", entity_id="PR-50")],
+            [], entity_registry=registry)
+        # "resolved" must never read as one uniform strength.
+        self.assertEqual(graph["counts"]["actors_by_tier"], {"identity": 1, "engine": 1})
+        self.assertEqual(graph["counts"]["actors_unresolved"], 1)
+
+    def test_the_taxonomy_shrinks_the_residue_without_inventing_anything(self):
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        if registry is None:
+            self.skipTest("entity registry unavailable in this tree")
+        without = mem.build_memory_graph(self.events, [])
+        with_taxonomy = mem.build_memory_graph(self.events, [], entity_registry=registry)
+        self.assertLess(with_taxonomy["counts"]["actors_unresolved"],
+                        without["counts"]["actors_unresolved"])
+        # Whatever still fails to resolve is genuinely not an institutional actor.
+        still = {row["actor"] for row in with_taxonomy["unresolved_actors"]}
+        self.assertTrue(still.issubset({"codex-bot", "CI", "github-actions[bot]"}),
+                        f"unexpected residue: {still}")
+
+    def test_no_actor_node_leaks_its_internal_resolution_scratch_field(self):
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        graph = mem.build_memory_graph(self.events, [], entity_registry=registry)
+        for node in graph["nodes"]:
+            self.assertNotIn("_resolution", node)
+
+    def test_every_actor_node_states_the_tier_that_resolved_it(self):
+        registry = mem.load_entity_registry(VAULT_ROOT)
+        graph = mem.build_memory_graph(self.events, [], entity_registry=registry)
+        for node in graph["nodes"]:
+            if node["kind"] != "actor":
+                continue
+            with self.subTest(actor=node["label"]):
+                if node["resolved"]:
+                    self.assertIn(node["resolution_tier"], mem.RESOLUTION_TIERS)
+                    self.assertTrue(node["resolution_basis"])
+                else:
+                    self.assertEqual(node["resolution_tier"], "")
+                    self.assertEqual(node["resolution_basis"], "")
+
     def test_the_unresolved_residue_is_reported_with_counts_worst_first(self):
         residue = self.graph["unresolved_actors"]
         self.assertEqual({row["actor"] for row in residue}, {"codex-bot", "CODEX", "CI"})
@@ -524,8 +675,10 @@ class CommandLineTests(unittest.TestCase):
     def test_the_report_names_the_unrecognized_actors_honestly(self):
         code, out, _ = self.run_cli("report")
         self.assertEqual(code, 0)
-        self.assertIn("ACTORS THE COUNCIL DOES NOT RECOGNIZE", out)
+        self.assertIn("ACTORS NO RATIFIED REGISTRY NAMES", out)
         self.assertIn("honest state", out)
+        # And says what it checked, so "unresolved" is not mistaken for "unchecked".
+        self.assertIn("Institutional Node Taxonomy", out)
 
     def test_the_report_marks_what_awaits_the_founder(self):
         _, out, _ = self.run_cli("report")

@@ -122,7 +122,7 @@ def _brain_summary(root: Path) -> dict[str, Any]:
     }
 
 
-def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None) -> dict[str, Any]:
+def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None = None, brain=None) -> dict[str, Any]:
     """The application's read model: the registry's roles, joined to live Council state."""
     registry = role_registry.load_roles(root)
     state_path = council_state_path or (root / "13_OPERATIONS" / "AI Council" / "state" / "council-state.json")
@@ -143,7 +143,7 @@ def build_office_view(root: Path = VAULT_ROOT, council_state_path: Path | None =
         "registry": registry,
         "council": sessions_view,
         "desks": desks,
-        "brain": _brain_summary(root),
+        "brain": _brain_summary(root) if brain is None else brain,
     }
 
 

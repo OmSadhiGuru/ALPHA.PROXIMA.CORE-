@@ -92,45 +92,140 @@ def _load_sibling(filename: str, name: str):
 # resolving an actor to a Council seat
 # --------------------------------------------------------------------------
 
-def build_role_index(roles: Iterable[dict[str, Any]]) -> dict[str, str]:
-    """Map every exact registry name to its role id.
+# A resolution's strength, and what each tier is allowed to claim.
+#
+#   seat       The Agent and Subagent Registry names this actor as a role. The
+#              Council's own record of who it has; nothing is stronger.
+#   identity   The Institutional Node Taxonomy names this actor outright — its
+#              label, its code, its identifier. A ratified institutional actor.
+#   engine     The taxonomy cites this name only as an *engine* fulfilling a
+#              cognitive function. Engines move between functions and labels do
+#              not, so "the actor called CODEX did this" is not the same claim as
+#              "CF-07 did this". It resolves, and it resolves weakly, and the
+#              edge it produces says so.
+RESOLUTION_TIERS = {
+    "seat": {"confidence": 1.0, "interpreted": False},
+    "identity": {"confidence": 1.0, "interpreted": False},
+    "engine": {"confidence": 0.5, "interpreted": True},
+}
 
-    Exact only. A substring or fuzzy match would turn a string coincidence into
-    an institutional attribution, and the result would be indistinguishable from
-    a real one in the interface.
+
+def build_role_index(roles: Iterable[dict[str, Any]] = (),
+                     entity_registry: dict[str, Any] | None = None) -> dict[str, Any]:
+    """The identity index an actor is resolved against.
+
+    Two sources, consulted in order of what they entitle a claim to be:
+
+      * the **Agent and Subagent Registry**, via `roles` — the Council's own
+        record of its seats, matched on the exact registered name;
+      * the **Institutional Node Taxonomy**, via `entity_registry` — 42 typed
+        actors derived from registries the Foundation has ratified, which is what
+        lets `LUMIAION`, `JERANIUM` and `Founder` resolve at all. They are names
+        the Foundation uses constantly and that no Council seat holds.
+
+    Both are exact. Neither does substring or fuzzy matching, because a string
+    coincidence turned into an institutional attribution is indistinguishable
+    from a real one once it is on screen.
     """
-    index: dict[str, str] = {}
+    seats: dict[str, str] = {}
     for role in roles:
         name = str(role.get("named_role") or "").strip()
         if name:
-            index[name] = role["id"]
-        index[role["id"]] = role["id"]
-    return index
+            seats[name] = role["id"]
+        seats[role["id"]] = role["id"]
+    return {"seats": seats, "entities": entity_registry}
 
 
-def resolve_actor(actor: str, role_index: dict[str, str]) -> tuple[str | None, str]:
-    """Resolve an event's actor to a Council role id, or say why it could not.
+def load_entity_registry(root: Path) -> dict[str, Any] | None:
+    """The Institutional Node Taxonomy, or None when it cannot be read.
 
-    Returns `(role_id, basis)`. `basis` is the record that supports the match, so
-    an interface can show it, and it is empty exactly when `role_id` is None.
+    Absence is survivable and reported: without it, the names the Foundation uses
+    for itself do not resolve and the residue grows. That is a smaller failure
+    than guessing.
+    """
+    try:
+        module = _load_sibling("entity_registry.py", "alpha_memory_entity_registry")
+    except (MemoryError_, OSError):
+        return None
+    try:
+        return module.build(root)
+    except (module.EntityError, OSError, KeyError, ValueError):
+        # A root without the ratified registries — a test fixture, a partial
+        # checkout — has no taxonomy to offer. Every actor then falls to the
+        # residue, which is reported. Refusing to build the graph at all would
+        # be a worse answer than building it with fewer attributions.
+        return None
+
+
+def _entity_tier(registry: dict[str, Any], entity_id: str, reference: str) -> str:
+    """Whether `reference` is the entity's own name or merely an engine it cites."""
+    module = sys.modules.get("alpha_memory_entity_registry")
+    normalize = module.normalize if module else (lambda value: value.strip().lower())
+    record = next((item for item in registry["entities"]
+                   if item["entity_id"] == entity_id), None)
+    if record is None:
+        return "identity"
+    key = normalize(reference)
+    if key in {normalize(alias) for alias in record.get("aliases", [])}:
+        return "identity"
+    if key in {normalize(alias) for alias in record.get("secondary_aliases", [])}:
+        return "engine"
+    # Resolved through a derived form (a CF code, or a parenthetical stripped).
+    # The taxonomy's own machinery got there, so it is an identity claim.
+    return "identity"
+
+
+def resolve_actor(actor: str, index: dict[str, Any]) -> dict[str, Any] | None:
+    """Resolve an event's actor to an institutional identity, or decline.
+
+    Returns a record carrying the id, the record that supports it, the tier, and
+    how much that tier entitles the claim to weigh — or None, which is a real
+    answer and the common one. `codex-bot` and `github-actions[bot]` are a GitHub
+    login and a CI runner; neither is an institutional actor, and inventing one
+    for them would be the fabrication this whole module is arranged to avoid.
     """
     name = (actor or "").strip()
     if not name:
-        return None, ""
-    if name in role_index:
-        return role_index[name], "Agent and Subagent Registry — exact registered name"
+        return None
+
+    seats = index.get("seats") or {}
+    if name in seats:
+        return {
+            "id": seats[name], "tier": "seat",
+            "basis": "Agent and Subagent Registry — exact registered name",
+            **RESOLUTION_TIERS["seat"],
+        }
+
     if name in ACTOR_ALIASES:
         target = ACTOR_ALIASES[name]
-        if target in role_index:
-            return role_index[target], f"stated alias: {name} is {target}"
-        # An alias pointing at a role the registry no longer holds is a stale
-        # claim, and stale is not the same as unresolved. Surfacing it as
-        # unresolved would hide a mapping that needs repairing.
+        if target in seats:
+            return {
+                "id": seats[target], "tier": "seat",
+                "basis": f"stated alias: {name} is {target}",
+                **RESOLUTION_TIERS["seat"],
+            }
         raise MemoryError_(
             f"ACTOR_ALIASES maps {name!r} to {target!r}, which is not in the registry. "
             "Repair or remove the alias rather than letting it resolve to nothing."
         )
-    return None, ""
+
+    registry = index.get("entities")
+    if registry:
+        module = sys.modules.get("alpha_memory_entity_registry")
+        if module is not None:
+            found = module.resolve(registry, name)
+            if found:
+                tier = _entity_tier(registry, found, name)
+                record = next((item for item in registry["entities"]
+                               if item["entity_id"] == found), {})
+                basis = (
+                    f"{record.get('canonical_source', 'Institutional Node Taxonomy')} — "
+                    + ("names this actor" if tier == "identity"
+                       else f"cites {name} as an engine fulfilling this function")
+                )
+                return {"id": found, "tier": tier, "basis": basis,
+                        **RESOLUTION_TIERS[tier]}
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -152,7 +247,8 @@ def actor_node_id(actor: str) -> str:
 
 def build_memory_graph(events: Iterable[dict[str, Any]],
                        roles: Iterable[dict[str, Any]] = (),
-                       now: str | None = None) -> dict[str, Any]:
+                       now: str | None = None,
+                       entity_registry: dict[str, Any] | None = None) -> dict[str, Any]:
     """Turn the event ledger into nodes and typed, attributed edges.
 
     Four kinds of relationship come out, and every one of them is something the
@@ -173,7 +269,7 @@ def build_memory_graph(events: Iterable[dict[str, Any]],
     it again and it reflects the ledger at that instant.
     """
     ordered = ev.sort_events(events)
-    role_index = build_role_index(roles)
+    role_index = build_role_index(roles, entity_registry)
 
     nodes: dict[str, dict[str, Any]] = {}
     edges: list[dict[str, Any]] = []
@@ -228,23 +324,27 @@ def build_memory_graph(events: Iterable[dict[str, Any]],
 
         actor = event["actor"]
         actor_id = actor_node_id(actor)
-        role_id, basis = resolve_actor(actor, role_index)
+        resolution = resolve_actor(actor, role_index)
         actor_entry = nodes.setdefault(actor_id, {
             "id": actor_id,
             "kind": "actor",
             "label": actor,
             "source": event["source"],
             "department": event["department"],
-            "role_id": role_id,
-            "resolution_basis": basis,
-            "resolved": role_id is not None,
+            "role_id": resolution["id"] if resolution else None,
+            "resolution_basis": resolution["basis"] if resolution else "",
+            # Which record entitled the match, so an interface can weigh it. An
+            # `engine` resolution is a citation, not an identity.
+            "resolution_tier": resolution["tier"] if resolution else "",
+            "resolved": resolution is not None,
             "event_count": 0,
             "first_seen": event["occurred_at"],
             "last_seen": event["occurred_at"],
         })
         actor_entry["event_count"] += 1
         actor_entry["last_seen"] = event["occurred_at"]
-        if role_id is None:
+        actor_entry["_resolution"] = resolution
+        if resolution is None:
             unresolved_actors[actor] = unresolved_actors.get(actor, 0) + 1
 
     # -- causal edges: between the entities two linked events touch ------
@@ -333,16 +433,33 @@ def build_memory_graph(events: Iterable[dict[str, Any]],
     # above — which are witnessed — and the residue is reported rather than
     # papered over.
     resolved_links = 0
+    by_tier: dict[str, int] = {}
     for node in nodes.values():
-        if node["kind"] == "actor" and node["resolved"]:
-            resolved_links += 1
-            edges.append(ae.ledger_edge(
-                node["id"], node["role_id"], "operational",
-                authority=node["resolution_basis"],
-                confidence=1.0,
-                note="this actor is a Council seat",
-                created_at=stamp,
-            ))
+        if node["kind"] != "actor":
+            continue
+        resolution = node.pop("_resolution", None)
+        if resolution is None:
+            continue
+        resolved_links += 1
+        by_tier[resolution["tier"]] = by_tier.get(resolution["tier"], 0) + 1
+        # The edge inherits the tier's weight. An `engine` match is drawn as an
+        # interpretation, because the taxonomy citing CODEX as the engine behind
+        # CF-07 does not say that an actor called CODEX *is* CF-07 — engines move
+        # between functions, and `alpha_edges` refuses a confident interpretation.
+        edges.append(ae.ledger_edge(
+            node["id"], resolution["id"], "operational",
+            authority=resolution["basis"],
+            confidence=resolution["confidence"],
+            interpreted=resolution["interpreted"],
+            note=("this actor holds that institutional identity"
+                  if resolution["tier"] != "engine"
+                  else "the taxonomy cites this name as an engine fulfilling that "
+                       "function; engines move between functions"),
+            created_at=stamp,
+        ))
+
+    for node in nodes.values():
+        node.pop("_resolution", None)
 
     summary = ae.summarize(edges)
     return {
@@ -359,6 +476,9 @@ def build_memory_graph(events: Iterable[dict[str, Any]],
             "actors": sum(1 for node in nodes.values() if node["kind"] == "actor"),
             "actors_resolved": resolved_links,
             "actors_unresolved": len(unresolved_actors),
+            # Split by what entitled each match, so "resolved" is never read as
+            # one uniform strength.
+            "actors_by_tier": by_tier,
             "requires_founder": sum(1 for node in nodes.values()
                                     if node["kind"] == "entity" and node["requires_founder"]),
         },
@@ -449,8 +569,10 @@ def render_report(graph: dict[str, Any]) -> str:
         f"MEMORY GRAPH — {counts['events']} event(s) over {counts['entities']} entity(ies)",
         "",
         f"  authority   {graph['authority']}",
-        f"  actors      {counts['actors']} ({counts['actors_resolved']} resolved to a Council "
-        f"seat, {counts['actors_unresolved']} not)",
+        f"  actors      {counts['actors']} ({counts['actors_resolved']} resolved, "
+        f"{counts['actors_unresolved']} not)"
+        + (f" — {', '.join(f'{n} by {tier}' for tier, n in sorted(counts['actors_by_tier'].items()))}"
+           if counts.get("actors_by_tier") else ""),
         f"  attention   {counts['requires_founder']} entity(ies) awaiting the Founder",
         "",
     ]
@@ -473,14 +595,32 @@ def render_report(graph: dict[str, Any]) -> str:
             )
         lines.append("")
 
+    actors = [node for node in graph["nodes"] if node["kind"] == "actor"]
+    resolved = [node for node in actors if node["resolved"]]
+    if resolved:
+        lines.append("  ATTRIBUTED ACTORS")
+        for node in sorted(resolved, key=lambda n: (n["resolution_tier"], n["label"])):
+            mark = "~" if node["resolution_tier"] == "engine" else " "
+            lines.append(
+                f"    {mark} {node['label']:<22} {node['role_id']:<22} "
+                f"{node['resolution_tier']}"
+            )
+        if any(node["resolution_tier"] == "engine" for node in resolved):
+            lines.append("")
+            lines.append("  ~ resolved only as an engine the taxonomy cites for that function.")
+            lines.append("    Engines move between functions, so this is a citation rather than")
+            lines.append("    an identity, and its edge is drawn as an interpretation.")
+        lines.append("")
+
     if graph["unresolved_actors"]:
-        lines.append("  ACTORS THE COUNCIL DOES NOT RECOGNIZE")
+        lines.append("  ACTORS NO RATIFIED REGISTRY NAMES")
         for row in graph["unresolved_actors"]:
             lines.append(f"      {row['actor']:<24} {row['event_count']:>3} event(s)")
         lines.append("")
-        lines.append("  These acted on the Foundation and map to no registry role. Until the")
-        lines.append("  Council reports its own activity, attribution stops at the provider's")
-        lines.append("  name for them — which is the honest state, not a defect to smooth over.")
+        lines.append("  These acted on the Foundation and match neither a Council seat nor the")
+        lines.append("  Institutional Node Taxonomy. A GitHub login and a CI runner are not")
+        lines.append("  institutional actors, so attribution stops at the provider's name —")
+        lines.append("  which is the honest state, not a defect to smooth over.")
     if graph["orphans"]:
         lines.append("")
         lines.append(f"  ORPHANED NODES: {', '.join(graph['orphans'])}")
@@ -510,7 +650,8 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         events = ev.EventLedger(args.ledger).events()
-        graph = build_memory_graph(events, load_roles(root))
+        graph = build_memory_graph(events, load_roles(root),
+                                   entity_registry=load_entity_registry(root))
 
         if args.command == "view":
             print(json.dumps(graph, indent=2, ensure_ascii=False))

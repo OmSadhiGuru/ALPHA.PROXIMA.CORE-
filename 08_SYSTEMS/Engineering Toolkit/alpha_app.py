@@ -304,7 +304,7 @@ def resolve_links(entries: list[dict[str, Any]]) -> None:
         entry["unresolved"] = unresolved
 
 
-def build_vault_index(root: Path) -> dict[str, Any]:
+def build_vault_index(root: Path, notes=None) -> dict[str, Any]:
     """Index the Foundation's knowledge, one record per note.
 
     Backlinks are derived rather than stored: storing both directions would put
@@ -316,7 +316,7 @@ def build_vault_index(root: Path) -> dict[str, Any]:
 
     notes = [
         note
-        for note in vault_validator.load_notes(root, include_hidden=False)
+        for note in (vault_validator.load_notes(root, include_hidden=False) if notes is None else notes)
         if domain_of(note.relative_path) not in EXCLUDED_TOPS
         and not note.relative_path.startswith(".")
     ]
@@ -755,7 +755,7 @@ def build_system_backbone(state: dict, kernel: dict[str, Any],
     }
 
 
-def build_app_view(state: dict, root: Path,
+def build_app_view(state: dict, root: Path, notes=None,
                    live: dict[str, Any] | None = None) -> dict[str, Any]:
     """The application's read model: both halves, one document.
 
@@ -767,8 +767,8 @@ def build_app_view(state: dict, root: Path,
     Foundation still does two things; it now knows *when* it did them.
     """
     operate = founder_os.build_view(state)
-    know = build_vault_index(root)
-    kernel = truth_kernel.build(root)
+    know = build_vault_index(root, notes=notes)
+    kernel = truth_kernel.build(root, notes=notes)
     know["truth_kernel"] = truth_kernel.summary(kernel)
     backbone = build_system_backbone(state, kernel, live)
     return {

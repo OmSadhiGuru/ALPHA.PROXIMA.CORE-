@@ -356,7 +356,8 @@ def build_memory_section(root: Path) -> dict[str, Any]:
         alpha_memory = _load_sibling("alpha_memory.py", "galaxy_alpha_memory")
         events = alpha_events.EventLedger().events()
         roles = role_registry.load_roles(root)["roles"]
-        graph = alpha_memory.build_memory_graph(events, roles)
+        graph = alpha_memory.build_memory_graph(
+            events, roles, entity_registry=alpha_memory.load_entity_registry(root))
     except (PrototypeError, role_registry.RegistryError, OSError, KeyError, ValueError) as exc:
         return dict(MEMORY_OMITTED, available=False, reason=f"Memory graph unavailable: {exc}")
     return {

@@ -33,11 +33,76 @@ node_registry = load_tool("node_registry.py", "truth_kernel_node_registry")
 relationship_extractor = load_tool("relationship_extractor.py", "truth_kernel_relationship_extractor")
 
 
+def _load_toolkit(filename: str, name: str):
+    """Load a module from the Engineering Toolkit, which is a sibling tree."""
+    path = TOOL_DIR.parents[1] / "Engineering Toolkit" / filename
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load Truth Kernel component: {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+entity_registry = _load_toolkit("entity_registry.py", "truth_kernel_entity_registry")
+
+
+# A relationship that lands on a registered actor is resolved, not broken. These
+# are the frontmatter fields that name actors rather than documents; a wiki-link
+# in prose is always a document reference and is never reclassified here.
+ENTITY_BEARING_FIELDS = frozenset({"authors", "institutional_owner", "reasoning_engine"})
+
+
+def partition_unresolved(
+    unresolved: list[dict[str, Any]], entities: dict[str, Any]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Split unresolved relationships into entity edges, placeholders, and the rest.
+
+    The graph reported 750 unresolved relationships, and roughly 630 of them
+    named `CODEX`, `LUMIAION` or `Alpha Proxima Foundation`. None of those is a
+    missing document; all of them are actors the Foundation has ratified in a
+    registry. Resolving them against the entity model turns a permanent red into
+    typed edges that carry their own provenance.
+
+    What does *not* move: a wiki-link to a document that does not exist, an
+    ambiguous target, a collision. Those were real before this change and are
+    real after it.
+    """
+    entity_edges: list[dict[str, Any]] = []
+    placeholders: list[dict[str, Any]] = []
+    remaining: list[dict[str, Any]] = []
+
+    for rel in unresolved:
+        field = str(rel.get("source_detail") or "")
+        raw = str(rel.get("target_raw") or "")
+        if field in ENTITY_BEARING_FIELDS or rel.get("relationship_type") in ("OWNED_BY", "PRODUCED_BY"):
+            if entity_registry.is_placeholder(raw):
+                placeholders.append({**rel, "resolution": "template_placeholder"})
+                continue
+            entity_id = entity_registry.resolve(entities, raw)
+            if entity_id:
+                entity_edges.append({
+                    **rel,
+                    "target_entity_id": entity_id,
+                    "target_kind": "entity",
+                    "resolution": "entity",
+                })
+                continue
+        elif entity_registry.is_placeholder(raw):
+            placeholders.append({**rel, "resolution": "template_placeholder"})
+            continue
+        remaining.append(rel)
+
+    return entity_edges, placeholders, remaining
+
+
 def finding(severity: str, code: str, path: str, message: str) -> dict[str, str]:
     return {"severity": severity, "code": code, "path": path, "message": message}
 
 
-def validate(nodes: list[dict[str, Any]], unresolved: list[dict[str, Any]]) -> list[dict[str, str]]:
+def validate(nodes: list[dict[str, Any]], unresolved: list[dict[str, Any]],
+             placeholders: list[dict[str, Any]] | None = None) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     ids = Counter(str(node["node_id"]) for node in nodes)
     for node in nodes:
@@ -66,17 +131,29 @@ def validate(nodes: list[dict[str, Any]], unresolved: list[dict[str, Any]]) -> l
             f"{rel.get('relationship_type')} target: {rel.get('target_raw')}",
         ))
 
+    for rel in placeholders or []:
+        findings.append(finding(
+            "info",
+            "template_placeholder",
+            str(rel.get("source_path", "")),
+            f"{rel.get('relationship_type')} target is template scaffolding: "
+            f"{rel.get('target_raw')}",
+        ))
+
     order = {"error": 0, "warning": 1, "info": 2}
     return sorted(findings, key=lambda item: (order.get(item["severity"], 9), item["code"], item["path"], item["message"]))
 
 
-def build(root: Path) -> dict[str, Any]:
+def build(root: Path, notes=None) -> dict[str, Any]:
     root = root.expanduser().resolve()
     if not root.is_dir():
         raise FileNotFoundError(f"Vault root not found: {root}")
-    nodes = node_registry.build_nodes(root, include_hidden=False)
-    relationships, unresolved = relationship_extractor.extract_relationships(nodes)
-    findings = validate(nodes, unresolved)
+    nodes = node_registry.build_nodes(root, include_hidden=False, notes=notes)
+    relationships, raw_unresolved = relationship_extractor.extract_relationships(nodes)
+    entities = entity_registry.build(root, strict=False)
+    entity_relationships, placeholders, unresolved = partition_unresolved(
+        raw_unresolved, entities)
+    findings = validate(nodes, unresolved, placeholders)
     severities = Counter(item["severity"] for item in findings)
     node_types = Counter(str(node["node_type"]) for node in nodes)
     relationship_types = Counter(str(rel["relationship_type"]) for rel in relationships)
@@ -90,23 +167,35 @@ def build(root: Path) -> dict[str, Any]:
             "fingerprint": source_fingerprint,
             "note_count": len(nodes),
         },
+        # Status follows errors alone. A warning is a real issue that does not
+        # invalidate graph integrity, and an informational finding is an expected
+        # state; neither should hold the Foundation at ATTENTION indefinitely,
+        # because a standing red that nobody can clear is a red nobody reads.
         "health": {
             "status": "attention" if severities.get("error", 0) else "ready",
             "counts": {
                 "errors": severities.get("error", 0),
                 "warnings": severities.get("warning", 0),
+                "info": severities.get("info", 0),
                 "findings": len(findings),
             },
         },
         "counts": {
             "nodes": len(nodes),
+            "entities": entities["counts"]["entities"],
             "relationships": len(relationships),
+            "entity_relationships": len(entity_relationships),
+            "template_placeholders": len(placeholders),
             "unresolved_relationships": len(unresolved),
             "node_types": dict(sorted(node_types.items())),
+            "entity_types": dict(sorted(entities["counts"]["by_type"].items())),
             "relationship_types": dict(sorted(relationship_types.items())),
         },
         "nodes": nodes,
+        "entities": entities["entities"],
         "relationships": relationships,
+        "entity_relationships": entity_relationships,
+        "template_placeholders": placeholders,
         "unresolved_relationships": unresolved,
         "validation": {"findings": findings},
     }
@@ -149,12 +238,21 @@ def render_report(contract: dict[str, Any]) -> str:
         f"- Generated: `{now}`",
         f"- Source fingerprint: `{contract['source']['fingerprint']}`",
         f"- Contract fingerprint: `{contract['contract_fingerprint']}`",
-        f"- Nodes: `{counts['nodes']}`",
-        f"- Relationships: `{counts['relationships']}`",
+        f"- Document nodes: `{counts['nodes']}`",
+        f"- Entity nodes: `{counts.get('entities', 0)}`",
+        f"- Document relationships: `{counts['relationships']}`",
+        f"- Entity relationships: `{counts.get('entity_relationships', 0)}`",
+        f"- Template placeholders: `{counts.get('template_placeholders', 0)}`",
         f"- Unresolved relationships: `{counts['unresolved_relationships']}`",
         f"- Errors: `{health['counts']['errors']}`",
         f"- Warnings: `{health['counts']['warnings']}`",
+        f"- Informational: `{health['counts'].get('info', 0)}`",
         f"- Health: `{health['status']}`", "",
+        "Health follows **errors only**. A warning is a real issue that does not",
+        "invalidate graph integrity; an informational finding is an expected state.",
+        "This scan measures *typed graph integrity* and is deliberately independent",
+        "of the App's document-level coherence ratchet — the two answer different",
+        "questions and are not expected to agree on a number.", "",
         "## Findings", "",
         "| Severity | Code | Source path | Message |",
         "|---|---|---|---|",
