@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T06:09:29+00:00",
-  "note_count": 387,
+  "generated_at": "2026-09-29T10:27:35+00:00",
+  "note_count": 388,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -48,7 +48,7 @@
       "id": "08_SYSTEMS",
       "name": "Systems",
       "question": "How the Foundation works",
-      "count": 71
+      "count": 72
     },
     {
       "id": "09_OFFICES",
@@ -668,7 +668,7 @@
         "06-governance-epoch-v-interim-authority-instrument-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "03-ai-council-council-node-architecture-md",
@@ -6278,7 +6278,7 @@
         "08-systems-engineering-standards-03-folder-naming-convention-md"
       ],
       "unresolved": [],
-      "backlinks": 7
+      "backlinks": 8
     },
     {
       "id": "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
@@ -6348,7 +6348,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1056,
+      "words": 1130,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -6371,6 +6371,7 @@
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
         "08-systems-engineering-toolkit-tool-014-council-session-kernel-md",
         "08-systems-institutional-knowledge-graph-institutional-node-taxonomy-v1-md",
+        "08-systems-live-core-architecture-v1-md",
         "08-systems-research-management-toolkit-research-management-toolkit-v1-0-md",
         "08-systems-institutional-knowledge-graph-engineering-program-ep-001-institutional-knowledge-graph-md"
       ],
@@ -7094,7 +7095,7 @@
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md"
       ],
       "unresolved": [],
-      "backlinks": 1
+      "backlinks": 2
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -7129,7 +7130,7 @@
         "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md",
@@ -7529,6 +7530,44 @@
       ],
       "unresolved": [],
       "backlinks": 3
+    },
+    {
+      "id": "08-systems-live-core-architecture-v1-md",
+      "path": "08_SYSTEMS/Live Core Architecture v1.md",
+      "title": "Live Core Architecture v1",
+      "domain": "08_SYSTEMS",
+      "type": "architecture-specification",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Architecture",
+      "engine": "Claude",
+      "authors": [
+        "CLAUDE"
+      ],
+      "tags": [
+        "systems",
+        "live",
+        "events",
+        "adapters",
+        "presence",
+        "notifications",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 1185,
+      "links": [
+        "08-systems-institutional-knowledge-graph-institutional-node-taxonomy-v1-md",
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
+        "03-ai-council-cognitive-function-registry-md",
+        "13-operations-founder-os-founder-os-architecture-v1-md",
+        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
+        "13-operations-office-registry-office-registry-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -9230,7 +9269,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 10
+      "backlinks": 11
     },
     {
       "id": "13-operations-alpha-proxima-app-readme-md",
@@ -9628,7 +9667,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 5
+      "backlinks": 6
     },
     {
       "id": "13-operations-founder-os-readme-md",
@@ -9815,7 +9854,7 @@
         "14-future-readme-md"
       ],
       "unresolved": [],
-      "backlinks": 19
+      "backlinks": 20
     },
     {
       "id": "13-operations-operational-health-fir-001-repository-health-result-md",
@@ -13511,9 +13550,9 @@
     }
   ],
   "coherence": {
-    "note_count": 387,
-    "connected": 368,
-    "connectedness": 0.9509,
+    "note_count": 388,
+    "connected": 369,
+    "connectedness": 0.951,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -14194,7 +14233,7 @@
       ],
       [
         "architecture-specification",
-        5
+        6
       ],
       [
         "engineering-report",
@@ -14484,7 +14523,7 @@
     "status": [
       [
         "active",
-        212
+        213
       ],
       [
         "ratified",
@@ -14569,11 +14608,11 @@
         5
       ],
       [
-        "Institutional Architecture",
-        3
+        "Architecture",
+        4
       ],
       [
-        "Architecture",
+        "Institutional Architecture",
         3
       ],
       [
@@ -14599,23 +14638,23 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "fcfd4596c0081f41a7271105acd50e23eae93e43dd5ba66338220209e5764805",
-      "note_count": 387
+      "fingerprint": "ba0c1dfe18a2223e239cd1c221bc55a1a22c25b097f416ceeba55aa3cf606143",
+      "note_count": 388
     },
     "health": {
       "status": "attention",
       "counts": {
         "errors": 20,
-        "warnings": 1004,
+        "warnings": 1006,
         "info": 12,
-        "findings": 1036
+        "findings": 1038
       }
     },
     "counts": {
-      "nodes": 387,
+      "nodes": 388,
       "entities": 42,
-      "relationships": 2699,
-      "entity_relationships": 494,
+      "relationships": 2708,
+      "entity_relationships": 496,
       "template_placeholders": 12,
       "unresolved_relationships": 263,
       "node_types": {
@@ -14636,7 +14675,7 @@
         "standard": 40,
         "standing_order": 13,
         "theory": 9,
-        "unknown": 182
+        "unknown": 183
       },
       "entity_types": {
         "agent": 32,
@@ -14650,13 +14689,13 @@
         "OWNED_BY": 2,
         "PART_OF": 162,
         "PRODUCED_BY": 96,
-        "REFERENCES": 1614,
-        "RELATED_TO": 496,
-        "REQUIRES": 312,
+        "REFERENCES": 1616,
+        "RELATED_TO": 500,
+        "REQUIRES": 315,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "085c823f1cc84535d3f4d9616e619de89334d21de2717cadeb5f0c7490bfdfc6"
+    "contract_fingerprint": "4a49fc65d3869de53e804c92ffd5add79732105540bf0fa2b7afdbd65fd97486"
   }
 }
