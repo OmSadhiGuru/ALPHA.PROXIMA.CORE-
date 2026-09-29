@@ -5,7 +5,7 @@ tags: [systems, architecture, live-integration, events, adapters, notifications,
 created: 2026-09-29
 updated: 2026-09-29
 status: draft
-version: "1.1.0"
+version: "1.2.0"
 authors: ["Claude — Chief Knowledge Architect"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
@@ -216,22 +216,44 @@ Sequence defers to causation on the same pair, because causation is strictly
 stronger and drawing both would double the visual weight of one fact. A workflow
 that returns to an entity draws one edge, not two arrows pointing at each other.
 
-#### The actor join, and why its residue is visible
+#### The actor join, its three tiers, and why its residue is visible
 
 Events name actors as providers know them — `codex-bot`, `CI`, `Founder`. The
-Council knows registry roles. This is where a memory graph would most easily
-start lying: matching `codex-bot` to `CODEX Engineering Lead` because both
-contain "codex" would fabricate an institutional attribution from a string
-coincidence, and the result would be indistinguishable from a real one.
+Foundation knows ratified institutional identities. This is where a memory graph
+would most easily start lying: matching `codex-bot` to `CODEX Engineering Lead`
+because both contain "codex" would fabricate an institutional attribution from a
+string coincidence, and the result would be indistinguishable from a real one.
 
-So the join is an exact match on a registered name, or a stated alias a reader
-can audit. The shipped alias table is **empty**, and a stale alias raises rather
-than silently reading as unresolved. The unmatched actors are counted and
-printed, and today that is all of them — which is the true state of a Foundation
-whose Council does not report its own activity, and is worth seeing.
+So every match is exact, against two ratified sources, and the tier that
+entitled it travels with it:
 
-`ap.py memory report` says so in those words. The spatial view says it too, at
-the point a viewer would otherwise assume a seat.
+| Tier | Source | Claim | Weight |
+|---|---|---|---|
+| `seat` | Agent and Subagent Registry, exact registered name | the Council's own record of who it has | 1.0, witnessed |
+| `identity` | Institutional Node Taxonomy names the actor outright | a ratified institutional actor | 1.0, witnessed |
+| `engine` | the taxonomy cites the name only as an engine fulfilling a function | a citation, not an identity | 0.5, **interpreted** |
+
+The third tier is the one that needed care. `CODEX` resolves to `CF-07` — but
+only as a *secondary* alias, because the taxonomy cites CODEX as the engine
+behind that function. Engines move between functions; labels do not. So "an actor
+called CODEX did this" is not the claim "CF-07 did this". An engine-tier match
+therefore resolves as an interpretation, and `alpha_edges` refuses a confident
+interpretation outright — the guard holds this honest by construction rather than
+by anyone remembering to. In the spatial view that edge draws dashed while a
+ratified identity draws solid.
+
+What still refuses to resolve is the point. Substrings (`Codex Engineering`,
+`Engineering Lead`), placeholders (`Owner pending`, `TBD`, `Unappointed`) and
+provider logins (`codex-bot`, `github-actions[bot]`, `OmSadhiGuru`) all decline,
+each asserted by test. `CI` declines too: a CI runner is not an institutional
+actor and should not be given one.
+
+The residue is counted, listed with its event counts, and explained — and the
+report says which registries it checked, so "unresolved" is never mistaken for
+"unchecked". The spatial view says the same at the point a viewer would otherwise
+assume a seat. The hand-written alias table remains **empty**, because the
+taxonomy now supplies ratified names and a hand-written mapping would need a
+reason; a stale alias raises rather than silently reading as unresolved.
 
 ### Honest integration status
 
@@ -292,7 +314,8 @@ true only when the transport is live.
 | `/api/v1/*` live routes | all three, loaded lazily | degrades to canon if absent |
 | `alpha_ingress.py` | `alpha_events`, `alpha_adapters`, `alpha_live` | the only write path; refuses to start unsigned |
 | `alpha_edges.py` | nothing | reads and writes nothing; pure taxonomy |
-| `alpha_memory.py` | `alpha_edges`, `alpha_events` | derived and disposable; writes nothing |
+| `alpha_memory.py` | `alpha_edges`, `alpha_events`, `entity_registry` | derived and disposable; writes nothing |
+| `entity_registry.py` | ratified Markdown registries | derives 42 typed actors; authors none |
 | Supabase migrations | a resumed project and credentials | **not applied** |
 | Push delivery | an APNs-equivalent credential | **does not exist** |
 
@@ -372,11 +395,18 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 - **Runtime presence for the Council.** Today CODEX and Claude are observable
   through their commits, which is activity without presence. A runtime signal
   channel is what turns the Council from a list into a room.
-- **Runtime presence that resolves to a seat.** The memory graph's unresolved
-  actor list is the measure of this gap: until CODEX and Claude report
-  themselves by a name the registry holds, every attribution stops at the
-  provider's login. Closing it is a runtime signal channel, not a matching
-  heuristic.
+- **Runtime presence reported under a ratified name.** The Institutional Node
+  Taxonomy closed most of this gap: what remains unresolved is `codex-bot` and
+  `CI`, and neither *should* resolve — a GitHub login and a CI runner are not
+  institutional actors. The real remainder is narrower than it looked: an agent
+  reporting its own work should announce itself as the identity acting, so an
+  attribution lands at `seat` or `identity` rather than at `engine`, which is a
+  citation. That is a runtime signal channel, not a matching heuristic.
+- **Promoting an engine-tier attribution.** Today CODEX attributes to CF-07 only
+  as the engine the taxonomy cites. Were CODEX a registered seat, or the taxonomy
+  to name it directly, the same event would attribute at full confidence. Which
+  of those the Foundation wants is a governance question, not an implementation
+  one.
 - **Delivery.** Queue, retry and badge synchronization are modelled and tested;
   the send is absent because the credential is.
 - **Reconciliation** between the local ledger and a hosted one, which would make
@@ -412,5 +442,6 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 
 | Version | Date | Change |
 |---|---|---|
+| 1.2.0 | 2026-09-29 | Actor resolution consults the Institutional Node Taxonomy alongside the Council registry, in three tiers. An engine-tier match resolves as an interpretation, not an identity. Residue falls to the two actors that should not resolve. |
 | 1.1.0 | 2026-09-29 | Added the memory graph: shared edge taxonomy, ledger-witnessed causal and temporal relationships, the exact actor join and its visible residue. |
 | 1.0.0 | 2026-09-29 | First specification. AlphaEvent v1, adapter boundary, projections, GitHub normalization, signed webhook ingress, edge taxonomy. Supabase migrations verified locally, applied nowhere. |

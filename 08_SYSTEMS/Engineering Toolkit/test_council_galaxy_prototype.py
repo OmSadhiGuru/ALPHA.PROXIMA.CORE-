@@ -422,10 +422,26 @@ class MemoryFieldContracts(unittest.TestCase):
         for item in view['edges']:
             self.assertNotIn(item['type'], ('causal', 'temporal'))
 
-    def test_memory_edges_are_witnessed_rather_than_interpreted(self):
+    def test_the_only_interpreted_memory_edge_is_an_engine_attribution(self):
+        """Everything the ledger reports is witnessed. One join is not.
+
+        The taxonomy citing CODEX as the engine behind CF-07 does not say an
+        actor called CODEX *is* CF-07 — engines move between functions. That is
+        the single inference this graph makes, and it must be the only one.
+        """
         section = galaxy.build_memory_section(ROOT)
-        if section['available']:
-            self.assertEqual(section['edge_summary']['interpreted'], 0)
+        if not section['available']:
+            self.skipTest('memory section unavailable in this tree')
+        interpreted = [item for item in section['edges'] if item['interpreted']]
+        for item in interpreted:
+            with self.subTest(edge=(item['source'], item['target'])):
+                self.assertTrue(item['source'].startswith('actor:'))
+                self.assertIn('engine', item['note'])
+                self.assertLess(item['confidence'], 1.0)
+        # And causation and chronology are never interpretations.
+        for item in section['edges']:
+            if item['type'] in ('causal', 'temporal'):
+                self.assertFalse(item['interpreted'])
 
     def test_the_memory_section_reports_its_unresolved_actors(self):
         section = galaxy.build_memory_section(ROOT)
