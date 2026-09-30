@@ -96,12 +96,29 @@ def _table_rows(lines: list[str], expected_columns: int) -> list[list[str]]:
 # per-table parsers
 # --------------------------------------------------------------------------
 
+# Cells a registry author writes to mean "nothing here". Treated as absent so a
+# placeholder can never become a name the Foundation answers to.
+_PLACEHOLDER_NAMES = {"", "-", "—", "–", "n/a", "na", "none", "tbd", "pending"}
+
+
+def _recognised_names(cell: str) -> list[str]:
+    """Split a `Recognised names` cell into names, dropping placeholders."""
+    names: list[str] = []
+    for part in str(cell or "").replace(",", ";").split(";"):
+        name = part.strip()
+        if name and name.lower() not in _PLACEHOLDER_NAMES:
+            if name not in names:
+                names.append(name)
+    return names
+
+
 def parse_roles_table(markdown_text: str) -> list[dict[str, Any]]:
-    rows = _table_rows(_section_lines(markdown_text, "Agent Roles"), expected_columns=7)
+    rows = _table_rows(_section_lines(markdown_text, "Agent Roles"), expected_columns=8)
     roles: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     for cells in rows:
-        role_id, named_role, parent_function, operating_owner, current_implementation, state, may_instantiate = cells
+        (role_id, named_role, parent_function, operating_owner,
+         current_implementation, state, may_instantiate, recognised_names) = cells
         if not ROLE_ID_RE.fullmatch(role_id):
             raise RegistryError(f"Malformed role ID {role_id!r} in registry.")
         if role_id in seen_ids:
@@ -115,6 +132,13 @@ def parse_roles_table(markdown_text: str) -> list[dict[str, Any]]:
         roles.append({
             "id": role_id,
             "named_role": named_role,
+            # Short names the registry recognises for this seat, beside its
+            # descriptive title. An agent reports itself as `CODEX`, not as
+            # `CODEX Engineering Lead`, and attribution should not depend on
+            # the agent knowing its own full registry title. Placeholders are
+            # dropped, so an unpopulated row yields an empty list rather than
+            # a seat named "—".
+            "recognised_names": _recognised_names(recognised_names),
             "parent_function": parent_function,
             "operating_owner": operating_owner,
             "current_implementation": current_implementation,

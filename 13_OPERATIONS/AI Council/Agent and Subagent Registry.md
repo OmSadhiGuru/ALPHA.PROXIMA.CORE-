@@ -3,9 +3,9 @@ title: "Agent and Subagent Registry"
 aliases: ["Agent Registry", "Subagent Registry", "ASR"]
 tags: [operations, agents, subagents, council, routing, alpha-proxima]
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-30
 status: active
-version: "1.0.0"
+version: "1.1.1"
 authors: ["Founder", "CODEX (CF-07)"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
@@ -34,26 +34,32 @@ Approved by the Founder on 2026-09-03 for use with the [[Minimum Viable Council 
 
 ### Agent Roles
 
-| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate |
-|----|------------|-----------------|-----------------|------------------------|-------|-----------------|
-| AGT-001 | LUMIAION Orchestrator | CF-01 | LUMIAION | Claude-family engine per current registry | available | context loader; constitutional mapper; synthesis editor |
-| AGT-002 | Research Lead | CF-02 | Research Intelligence Office | Perplexity per current registry | available | source scout; evidence classifier; citation verifier |
-| AGT-003 | Comparative Lead | CF-03 | Research Intelligence Office | SanaLab per current registry | available | framework mapper; contradiction analyst |
-| AGT-004 | Education Lead | CF-04 | Research Intelligence Office | Gemini per current registry | available | glossary builder; curriculum adapter |
-| AGT-005 | Computational Specialist | CF-05 | Engineering Office | DeepSeek per current registry | available | modeler; calculation verifier |
-| AGT-006 | Executive Briefing Lead | CF-06 | Executive Office | Genspark per current registry | available | brief writer; scenario analyst |
-| AGT-007 | CODEX Engineering Lead | CF-07 | Engineering Office | Codex / DeepSeek per current registry | available | architect; builder; tester; security reviewer |
-| AGT-008 | Observatory Lead | CF-08 | Institutional Observatory | Comet per current registry | available | signal monitor; drift detector; health reporter |
-| AGT-009 | Memory Steward | CF-09 | LUMIAION | Multi-engine | available | context loader; writeback worker; archive linker |
-| AGT-010 | Ethics Sentinel | CF-10 | Ethics Council when convened | No voting or review authority | advisory-only | trigger classifier; risk mapper; dissent recorder |
-| AGT-011 | Strategic Intelligence Lead | CF-11 | Executive Office | Unappointed | blocked | none until appointment |
-| AGT-012 | ATHENA Domain Lead | CF-12 | ATHENA | Office-level implementation | available | health evidence scout; training analyst; safety checker |
-| AGT-013 | VORTEX Domain Lead | CF-13 | VORTEX | Office-level implementation | available | market researcher; financial modeler; risk analyst |
-| AGT-014 | SOHMA Domain Lead | CF-14 | SOHMA | Office-level implementation | available | phenomenology mapper; symbolic analyst; boundary checker |
-| AGT-015 | JERANIUM Data & Systems Lead | CF-15 | Owner pending | Unappointed | blocked | graph worker; data validator; systems analyst after appointment |
-| AGT-016 | YUNA Synthesis & Learning Lead | CF-16 | Owner pending | Unappointed | blocked | synthesis planner; translation worker; learning adapter after appointment |
+| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate | Recognised names |
+|----|------------|-----------------|-----------------|------------------------|-------|-----------------|------------------|
+| AGT-001 | LUMIAION Orchestrator | CF-01 | LUMIAION | Claude-family engine per current registry | available | context loader; constitutional mapper; synthesis editor | — |
+| AGT-002 | Research Lead | CF-02 | Research Intelligence Office | Perplexity per current registry | available | source scout; evidence classifier; citation verifier | — |
+| AGT-003 | Comparative Lead | CF-03 | Research Intelligence Office | SanaLab per current registry | available | framework mapper; contradiction analyst | — |
+| AGT-004 | Education Lead | CF-04 | Research Intelligence Office | Gemini per current registry | available | glossary builder; curriculum adapter | — |
+| AGT-005 | Computational Specialist | CF-05 | Engineering Office | DeepSeek per current registry | available | modeler; calculation verifier | — |
+| AGT-006 | Executive Briefing Lead | CF-06 | Executive Office | Genspark per current registry | available | brief writer; scenario analyst | — |
+| AGT-007 | CODEX Engineering Lead | CF-07 | Engineering Office | Codex / DeepSeek per current registry | available | architect; builder; tester; security reviewer | CODEX |
+| AGT-008 | Observatory Lead | CF-08 | Institutional Observatory | Comet per current registry | available | signal monitor; drift detector; health reporter | — |
+| AGT-009 | Memory Steward | CF-09 | LUMIAION | Multi-engine | available | context loader; writeback worker; archive linker | — |
+| AGT-010 | Ethics Sentinel | CF-10 | Ethics Council when convened | No voting or review authority | advisory-only | trigger classifier; risk mapper; dissent recorder | — |
+| AGT-011 | Strategic Intelligence Lead | CF-11 | Executive Office | Unappointed | blocked | none until appointment | — |
+| AGT-012 | ATHENA Domain Lead | CF-12 | ATHENA | Office-level implementation | available | health evidence scout; training analyst; safety checker | — |
+| AGT-013 | VORTEX Domain Lead | CF-13 | VORTEX | Office-level implementation | available | market researcher; financial modeler; risk analyst | — |
+| AGT-014 | SOHMA Domain Lead | CF-14 | SOHMA | Office-level implementation | available | phenomenology mapper; symbolic analyst; boundary checker | — |
+| AGT-015 | JERANIUM Data & Systems Lead | CF-15 | Owner pending | Unappointed | blocked | graph worker; data validator; systems analyst after appointment | — |
+| AGT-016 | YUNA Synthesis & Learning Lead | CF-16 | Owner pending | Unappointed | blocked | synthesis planner; translation worker; learning adapter after appointment | — |
 
 “Available” means the current registry names an implementation that may be requested within existing authority. It is not a fresh engine appointment. “Blocked” means no execution may be attributed to that named role until appointment is recorded.
+
+**Recognised names** are additional names this registry accepts as identifying the seat, beside its descriptive title. They exist because an agent reports its own work under the name it knows itself by — `CODEX`, not `CODEX Engineering Lead` — and attribution should not depend on the agent reciting its full registry title.
+
+A recognised name is a statement by this registry, not an inference from resemblance. Matching is on the whole name, case aside; a partial name such as `Engineering Lead` identifies no seat, and neither does a provider account such as `codex-bot`. Where this column is `—`, the seat is identified by its title and ID alone.
+
+Adding a recognised name is an act of attribution: work reported under that name will be recorded against that seat. One name may identify only one seat, and a name claimed by two rows is a collision the registry must repair rather than a tie for a reader to break.
 
 ### Standard Subagent Profiles
 
@@ -90,9 +96,11 @@ Approved by the Founder on 2026-09-03 for use with the [[Minimum Viable Council 
 - [[Cognitive Function Registry]]
 - [[Office Registry]]
 - [[Founder Intent Routing Procedure]]
+- [[Blocked Role Consolidation Proposal]]
 
 ## Open Questions
 
+- [x] Founder ratified [[Blocked Role Consolidation Proposal]] as the operational coverage model for AGT-011, AGT-015, and AGT-016. Their roles remain blocked; no appointment, merger, or activation was made.
 - [ ] Replace generic subagent profile labels with Founder-preferred NODA names after the source architecture is located.
 - [ ] Define runtime/tool permission profiles for each subagent before automation.
 - [ ] Decide whether AGT IDs belong in the generated node registry.
@@ -101,5 +109,7 @@ Approved by the Founder on 2026-09-03 for use with the [[Minimum Viable Council 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-09-30 | Founder + CODEX | Recorded Founder ratification of the blocked-role coverage model; the three role states remain blocked. |
+| 1.1.0 | 2026-09-30 | Founder | Added the Recognised names column and registered `CODEX` as a recognised name of AGT-007, so work reported under that name is attributed to the seat rather than to the engine fulfilling CF-07. No new seat, no appointment, no change to authority. |
 | 1.0.0 | 2026-09-03 | Founder | Approved for operational routing and bounded subagent use; no engine or human appointment implied. |
 | 0.1.0 | 2026-09-03 | Founder + CODEX (CF-07) | Initial operational registry of 16 named agent roles and bounded subagent profiles; no appointments created. |

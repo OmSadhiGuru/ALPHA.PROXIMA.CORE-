@@ -195,7 +195,7 @@ class ActorResolutionTests(unittest.TestCase):
         self.assertEqual(found["tier"], "seat")
         self.assertEqual(found["confidence"], 1.0)
         self.assertFalse(found["interpreted"])
-        self.assertIn("exact registered name", found["basis"])
+        self.assertIn("registered name for this seat", found["basis"])
 
     def test_a_role_id_resolves_to_itself(self):
         self.assertEqual(mem.resolve_actor("AGT-007", self.index)["id"], "AGT-007")
@@ -244,6 +244,85 @@ class ActorResolutionTests(unittest.TestCase):
         for actor in ("CODEX Engineering Lead", "LUMIAION", "Founder"):
             with self.subTest(actor=actor):
                 self.assertIsNone(mem.resolve_actor(actor, empty))
+
+
+class RecognisedSeatNameTests(unittest.TestCase):
+    """CODEX is a registered seat name now, so it attributes to the seat."""
+
+    def setUp(self):
+        self.roles = mem.load_roles(VAULT_ROOT)
+        self.registry = mem.load_entity_registry(VAULT_ROOT)
+        self.index = mem.build_role_index(self.roles, self.registry)
+
+    def test_codex_resolves_to_its_seat_at_full_confidence(self):
+        # Before the registry recognised the name, this resolved to the
+        # cognitive function at engine tier, as an interpretation.
+        found = mem.resolve_actor("CODEX", self.index)
+        self.assertEqual(found["id"], "AGT-007")
+        self.assertEqual(found["tier"], "seat")
+        self.assertEqual(found["confidence"], 1.0)
+        self.assertFalse(found["interpreted"])
+
+    def test_the_seat_outranks_the_engine_citation_for_the_same_name(self):
+        # Both sources name CODEX. The Council's own record of its seats is the
+        # stronger claim about who acted, so the ladder must not fall through.
+        self.assertIsNotNone(self.registry, "the taxonomy must still cite CODEX as an engine")
+        self.assertEqual(mem.resolve_actor("CODEX", self.index)["tier"], "seat")
+
+    def test_capitalisation_does_not_change_the_attribution(self):
+        # An agent that reports itself as `codex` must not attribute differently
+        # from one that reports `CODEX`.
+        ids = {mem.resolve_actor(spelling, self.index)["id"]
+               for spelling in ("CODEX", "codex", "CoDeX", "  CODEX  ")}
+        tiers = {mem.resolve_actor(spelling, self.index)["tier"]
+                 for spelling in ("CODEX", "codex", "CoDeX", "  CODEX  ")}
+        self.assertEqual(ids, {"AGT-007"})
+        self.assertEqual(tiers, {"seat"})
+
+    def test_the_full_title_and_the_id_still_resolve(self):
+        for actor in ("CODEX Engineering Lead", "AGT-007", "agt-007"):
+            with self.subTest(actor=actor):
+                self.assertEqual(mem.resolve_actor(actor, self.index)["id"], "AGT-007")
+
+    def test_a_partial_name_still_identifies_no_seat(self):
+        # Recognising a short name must not have loosened matching.
+        for actor in ("Codex Engineering", "Engineering Lead", "CODE", "Lead"):
+            with self.subTest(actor=actor):
+                self.assertIsNone(mem.resolve_actor(actor, self.index))
+
+    def test_a_provider_account_is_still_not_the_seat(self):
+        for actor in ("codex-bot", "github-actions[bot]", "OmSadhiGuru"):
+            with self.subTest(actor=actor):
+                self.assertIsNone(mem.resolve_actor(actor, self.index))
+
+    def test_a_placeholder_cell_never_becomes_a_seat_name(self):
+        for actor in ("—", "-", "n/a", "none", "TBD", "pending"):
+            with self.subTest(actor=actor):
+                self.assertIsNone(mem.resolve_actor(actor, self.index))
+
+    def test_two_seats_claiming_one_name_is_refused_rather_than_ordered(self):
+        # Preferring whichever row parsed first would attribute work by accident
+        # of document order.
+        with self.assertRaises(mem.MemoryError_) as caught:
+            mem.build_role_index([
+                {"id": "AGT-007", "named_role": "CODEX Engineering Lead",
+                 "recognised_names": ["CODEX"]},
+                {"id": "AGT-017", "named_role": "Another Lead",
+                 "recognised_names": ["codex"]},
+            ])
+        self.assertIn("cannot identify two seats", str(caught.exception))
+
+    def test_a_recognised_name_may_repeat_within_one_seat(self):
+        index = mem.build_role_index([
+            {"id": "AGT-007", "named_role": "CODEX Engineering Lead",
+             "recognised_names": ["CODEX", "CODEX"]},
+        ])
+        self.assertEqual(mem.resolve_actor("CODEX", index)["id"], "AGT-007")
+
+    def test_a_seat_with_no_recognised_names_is_unaffected(self):
+        by_id = {role["id"]: role for role in self.roles}
+        self.assertEqual(by_id["AGT-002"]["recognised_names"], [])
+        self.assertEqual(mem.resolve_actor("Research Lead", self.index)["id"], "AGT-002")
 
 
 class InstitutionalTaxonomyTests(unittest.TestCase):
@@ -471,7 +550,7 @@ class MemoryGraphTests(unittest.TestCase):
             [event(actor="CODEX Engineering Lead", event_id="e-1")], self.roles)
         seat_edges = [i for i in graph["edges"] if i["target"] == "AGT-007"]
         self.assertEqual(len(seat_edges), 1)
-        self.assertIn("exact registered name", seat_edges[0]["authority"])
+        self.assertIn("registered name for this seat", seat_edges[0]["authority"])
         self.assertEqual(graph["counts"]["actors_resolved"], 1)
 
     def test_an_engine_tier_resolution_is_drawn_as_an_interpretation(self):

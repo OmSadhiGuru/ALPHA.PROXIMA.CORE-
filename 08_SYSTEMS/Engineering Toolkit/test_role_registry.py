@@ -15,6 +15,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import role_registry as rr  # noqa: E402
 
+VAULT_ROOT = Path(__file__).resolve().parent.parent.parent
+
 
 MINIMAL_DOC = """---
 version: "9.9.9"
@@ -24,10 +26,10 @@ version: "9.9.9"
 
 ### Agent Roles
 
-| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate |
+| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate | Recognised names |
 |----|------------|-----------------|-----------------|------------------------|-------|-----------------|
-| AGT-001 | Test Lead | CF-01 | Test Office | Claude | available | context loader; tester |
-| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none |
+| AGT-001 | Test Lead | CF-01 | Test Office | Claude | available | context loader; tester | TESTER |
+| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none | — |
 
 ### Standard Subagent Profiles
 
@@ -120,8 +122,8 @@ class TestErrors(unittest.TestCase):
 
     def test_malformed_row_raises(self):
         bad = MINIMAL_DOC.replace(
-            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none |",
-            "| AGT-002 | Blocked Lead | CF-02 | Test Office | blocked | none |",  # one column short
+            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none | — |",
+            "| AGT-002 | Blocked Lead | CF-02 | Test Office | blocked | none |",  # two columns short
         )
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(rr.RegistryError):
@@ -129,8 +131,8 @@ class TestErrors(unittest.TestCase):
 
     def test_duplicate_role_id_raises(self):
         bad = MINIMAL_DOC.replace(
-            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none |",
-            "| AGT-001 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none |",
+            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none | — |",
+            "| AGT-001 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none | — |",
         )
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(rr.RegistryError):
@@ -138,8 +140,8 @@ class TestErrors(unittest.TestCase):
 
     def test_unrecognized_state_raises(self):
         bad = MINIMAL_DOC.replace(
-            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none |",
-            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | pending | none |",
+            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | blocked | none | — |",
+            "| AGT-002 | Blocked Lead | CF-02 | Test Office | Unappointed | pending | none | — |",
         )
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(rr.RegistryError):
@@ -153,7 +155,7 @@ class TestErrors(unittest.TestCase):
     def test_zero_data_rows_raises(self):
         headers_only = """### Agent Roles
 
-| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate |
+| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate | Recognised names |
 |----|------------|-----------------|-----------------|------------------------|-------|-----------------|
 
 ### Standard Subagent Profiles
@@ -182,6 +184,62 @@ class TestNeverWrites(unittest.TestCase):
         source = Path(rr.__file__).read_text(encoding="utf-8")
         for forbidden in ("write_text(", ".write(", "save_state", "save_roles"):
             self.assertNotIn(forbidden, source)
+
+
+class TestRecognisedNames(unittest.TestCase):
+    """Short names the registry states for a seat, beside its descriptive title."""
+
+    def test_a_recognised_name_is_parsed(self):
+        roles = rr.parse_roles_table(MINIMAL_DOC)
+        self.assertEqual(roles[0]["recognised_names"], ["TESTER"])
+
+    def test_a_placeholder_is_not_a_name(self):
+        # Otherwise a seat would answer to "—" and an em dash would attribute work.
+        roles = rr.parse_roles_table(MINIMAL_DOC)
+        self.assertEqual(roles[1]["recognised_names"], [])
+
+    def test_placeholders_are_recognised_in_every_spelling_an_author_might_use(self):
+        for placeholder in ("", "-", "—", "–", "n/a", "N/A", "none", "TBD", "pending", "  "):
+            with self.subTest(placeholder=placeholder):
+                self.assertEqual(rr._recognised_names(placeholder), [])
+
+    def test_several_names_may_be_listed(self):
+        self.assertEqual(rr._recognised_names("CODEX; Codex Engine"),
+                         ["CODEX", "Codex Engine"])
+        self.assertEqual(rr._recognised_names("CODEX, Codex Engine"),
+                         ["CODEX", "Codex Engine"])
+
+    def test_a_repeated_name_is_listed_once(self):
+        self.assertEqual(rr._recognised_names("CODEX; CODEX"), ["CODEX"])
+
+    def test_the_live_registry_registers_codex_to_agt_007(self):
+        # The Founder's instruction, asserted against the real document.
+        roles = rr.load_roles(VAULT_ROOT)["roles"]
+        by_id = {role["id"]: role for role in roles}
+        self.assertIn("CODEX", by_id["AGT-007"]["recognised_names"])
+        self.assertEqual(by_id["AGT-007"]["named_role"], "CODEX Engineering Lead")
+
+    def test_no_recognised_name_is_claimed_by_two_seats(self):
+        roles = rr.load_roles(VAULT_ROOT)["roles"]
+        claimed: dict[str, str] = {}
+        for role in roles:
+            for name in role["recognised_names"]:
+                key = name.casefold()
+                self.assertNotIn(key, claimed,
+                                 f"{name!r} is claimed by {claimed.get(key)} and {role['id']}")
+                claimed[key] = role["id"]
+
+    def test_no_recognised_name_duplicates_another_seats_title(self):
+        # A short name that is some other seat's full title would make one
+        # document say two different things about who acted.
+        roles = rr.load_roles(VAULT_ROOT)["roles"]
+        titles = {role["named_role"].casefold(): role["id"] for role in roles}
+        for role in roles:
+            for name in role["recognised_names"]:
+                owner = titles.get(name.casefold())
+                if owner is not None:
+                    self.assertEqual(owner, role["id"],
+                                     f"{name!r} is {owner}'s title but recognised for {role['id']}")
 
 
 if __name__ == "__main__":
