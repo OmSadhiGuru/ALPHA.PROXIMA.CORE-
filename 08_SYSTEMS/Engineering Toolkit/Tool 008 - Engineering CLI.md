@@ -3,16 +3,16 @@ title: "Tool 008 - Engineering CLI"
 aliases: ["Alpha Proxima CLI", "Engineering CLI", "ap CLI", "Engineering Toolkit Tool 008"]
 tags: [systems, engineering, toolkit, cli, alpha-proxima]
 created: 2026-07-02
-updated: 2026-07-03
+updated: 2026-09-30
 status: active
-version: "1.0.3"
+version: "1.0.4"
 authors: ["CODEX"]
 artifact_type: implementation-note
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Implementation"
 reasoning_engine: "CODEX"
 dependencies: ["Python 3 standard library", "[[06 - CLI Standard]]"]
-related_documents: ["[[Alpha Proxima Engineering Toolkit]]"]
+related_documents: ["[[Alpha Proxima Engineering Toolkit]]", "[[Role Semantics Architecture v1]]"]
 related_research_programs: []
 ---
 
@@ -46,6 +46,7 @@ python3 "08_SYSTEMS/Engineering Toolkit/ap.py" <command> [options]
 | `relationship-extract` | [[Tool 011 - Relationship Extractor]] |
 | `founder` | [[Tool 012 - Founder OS State Engine]] |
 | `council` | [[Tool 014 - Council Session Kernel]] |
+| `semantics` | [[Role Semantics Architecture v1]] |
 
 ## Usage Examples
 
