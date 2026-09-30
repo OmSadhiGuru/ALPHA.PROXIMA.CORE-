@@ -24,3 +24,13 @@ node_modules/
 # deliveries; committing them would put machine-local telemetry in the
 # Foundation's permanent record. Fixtures and migrations ARE committed.
 13_OPERATIONS/Live Integration Layer/state/
+
+# Truth Kernel derived output. `ap.py truth-kernel` rebuilds this tree from the
+# vault on every run: ~220k lines of JSON that is a *projection* of the Markdown,
+# never a source of it. Committing it would put a regenerated artifact in the
+# permanent record and make it conflict on every branch that runs the tool.
+#
+# Scoped to `generated/` on purpose. `.alpha-proxima/evidence/` is committed and
+# stays committed — a dated QA manifest is a record of what was true at a moment,
+# which is the opposite of a rebuildable projection.
+.alpha-proxima/generated/

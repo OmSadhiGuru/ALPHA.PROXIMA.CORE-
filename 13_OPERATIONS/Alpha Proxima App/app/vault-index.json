@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T01:22:10+00:00",
+  "generated_at": "2026-09-30T01:53:59+00:00",
   "note_count": 394,
   "domains": [
     {
@@ -5745,7 +5745,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3995,
+      "words": 4209,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -5757,7 +5757,7 @@
         "08-systems-foundational-architecture-md"
       ],
       "unresolved": [],
-      "backlinks": 3
+      "backlinks": 4
     },
     {
       "id": "08-systems-alpha-proxima-operating-model-v1-0-md",
@@ -9303,7 +9303,7 @@
       "domain": "13_OPERATIONS",
       "type": "architecture-specification",
       "status": "active",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Architecture",
       "engine": "Claude",
@@ -9320,9 +9320,9 @@
         "lumiaion",
         "alpha-proxima"
       ],
-      "updated": "2026-09-10",
+      "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3120,
+      "words": 3742,
       "links": [
         "13-operations-founder-os-founder-os-architecture-v1-md",
         "08-systems-institutional-knowledge-graph-tools-tool-010-node-registry-generator-md",
@@ -9332,6 +9332,7 @@
         "08-systems-engineering-standards-02-yaml-frontmatter-standard-md",
         "08-systems-engineering-standards-12-continuous-integration-standard-md",
         "08-systems-institutional-knowledge-graph-tools-tool-014-truth-kernel-md",
+        "08-systems-alpha-proxima-live-integration-layer-md",
         "13-operations-alpha-proxima-app-readme-md",
         "08-systems-engineering-toolkit-tool-013-alpha-proxima-app-md",
         "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
@@ -14847,7 +14848,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "bd1d5ea5bdb41f915c0f932358686dd742e7cfd71e3383e3d0a67a2d4001f159",
+      "fingerprint": "553d26a168a22e72235f0ac9d46e2a520ba6480812bae3eda050ed93af0404df",
       "note_count": 394
     },
     "health": {
@@ -14862,7 +14863,7 @@
     "counts": {
       "nodes": 394,
       "entities": 42,
-      "relationships": 2779,
+      "relationships": 2781,
       "entity_relationships": 503,
       "template_placeholders": 12,
       "unresolved_relationships": 248,
@@ -14898,13 +14899,13 @@
         "OWNED_BY": 5,
         "PART_OF": 166,
         "PRODUCED_BY": 97,
-        "REFERENCES": 1644,
+        "REFERENCES": 1645,
         "RELATED_TO": 519,
-        "REQUIRES": 331,
+        "REQUIRES": 332,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "664e00f7b08aa0702d478277773980e95eb5635e733e860208f66704a10569fe"
+    "contract_fingerprint": "8e3cbc4df83002366ffee951bca14eca878aeba9d884ced691761c7f618b60cb"
   }
 }
