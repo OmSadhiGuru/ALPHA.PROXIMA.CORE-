@@ -438,6 +438,41 @@ GITHUB_WEBHOOK_SECRET=... ap.py ingress serve
 - [[07 - Automation Standard]] — the approval boundary this respects
 - [[12 - Continuous Integration Standard]] — the zero-dependency gate
 
+## Captures: Omi and Pocket AI
+
+Two adapters cited a `ContextItem` contract as the reason they could not exist. `alpha_context.py` is that contract, and both are now implemented against it.
+
+### The body never enters the ledger
+
+A ContextItem carries **a reference and its shape** — when a capture happened, how long it was, which provider holds it, the provider's category, and a short title. It carries no transcript, no memory text, no content of any kind. Those stay with the provider.
+
+The reason is measured, not assumed. A survey of the Founder's Omi account found that of **200 durable memories scanned, zero** were unmarked for sensitivity: the corpus is essentially all personal. The ledger is git-ignored, but git-ignored is a property of one checkout, not a guarantee about every machine that will ever hold one. A pipeline that moves personal content out of a provider and onto disk has made a privacy decision on the Founder's behalf; this contract declines to make it.
+
+So the Foundation learns *that* a capture happened, when, and roughly about what. To read it, you open Omi. That is a smaller capability than a full sync, and the one that can be granted without a governance conversation. **The Founder chose it explicitly** over a vault inbox and over full synchronisation.
+
+Two properties hold it in place, tested separately:
+
+| Property | How |
+|---|---|
+| A content-bearing delivery yields a content-free event | the adapter reads only the fields it should; a fixture carrying a transcript is normalized and the transcript appears nowhere in the result |
+| A ContextItem carrying content is refused | `body_leaks()` walks the item recursively and rejects any field named `text`, `body`, `transcript`, … — the mirror of `secret_leaks()`, which keeps credentials out; this keeps the Founder's own words out |
+
+### Sensitivity is conservative, and silence is not permission
+
+`sensitive` is the default. Only an explicit `false` from the provider lowers a capture to `standard`. Pocket AI states nothing about sensitivity, so everything it sends is sensitive.
+
+### A capture is a proposal, never a record
+
+Severity is always `info` and `requires_founder` always False. A device that records the Founder does not get to interrupt the Founder — and an adapter that could raise its own severity would eventually learn that marking everything urgent is how to be seen. Attention is earned by the Founder promoting a capture, never claimed by the device that made it.
+
+`suggested_kind` maps the provider's category onto what a capture *might* become — task, idea, reference. It is addressed to a person. An unrecognised category proposes nothing rather than guessing.
+
+### Neither claims a connection
+
+Both normalize correctly against fixtures and both read **`disconnected`**. No webhook secret exists and no delivery has been observed.
+
+The Omi adapter's `blocked_reason` records a distinction worth keeping: **a session-scoped Omi connector held by an operating agent is that agent's tooling, not a Foundation integration.** An agent that can read Omi has not thereby connected the Foundation to Omi, and the registry must not report otherwise.
+
 ## Consumed by the System Backbone
 
 `/api/v1/system-backbone` reached **schema 1.1.0** by surfacing these projections through the existing contract rather than a competing one — see [[Alpha Proxima App Architecture v1]] §7.2.1. Three properties of that seam belong here, because they constrain this layer.

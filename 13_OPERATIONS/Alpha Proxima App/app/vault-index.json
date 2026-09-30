@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T22:16:20+00:00",
+  "generated_at": "2026-09-30T01:24:30+00:00",
   "note_count": 393,
   "domains": [
     {
@@ -5745,7 +5745,7 @@
       ],
       "updated": "2026-09-29",
       "has_frontmatter": true,
-      "words": 3701,
+      "words": 4209,
       "links": [
         "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
         "08-systems-lumiaion-architecture-spec-v0-1-md",
@@ -6422,7 +6422,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1114,
+      "words": 1130,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -14812,7 +14812,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "63618955cebbc70ed2f54e80f703d629d35fc0b2ea74a81cc40c434d3adc63aa",
+      "fingerprint": "f0eb7e091d75da67bbc4e09432ae86aec858d1a1c42b134cd3c9a5f201697ddc",
       "note_count": 393
     },
     "health": {
@@ -14870,6 +14870,6 @@
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "6fcbf4838c329bf4e9032ff6f360229ea40b03b39cf8fa52a38cd98184e00df2"
+    "contract_fingerprint": "fc955615865ca10351e85e254432b5887e1247e01a3ad83b24131dc66d23d64f"
   }
 }
