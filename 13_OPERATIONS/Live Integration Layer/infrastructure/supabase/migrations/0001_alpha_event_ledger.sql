@@ -42,6 +42,7 @@ create type alpha.severity as enum ('info', 'update', 'action', 'critical');
 
 create type alpha.event_source as enum (
   'github', 'chatgpt', 'codex', 'claude', 'gemini', 'perplexity', 'pocket_ai',
+  'omi',
   'obsidian', 'google_drive', 'google_calendar', 'notion', 'n8n', 'alpha_proxima'
 );
 
