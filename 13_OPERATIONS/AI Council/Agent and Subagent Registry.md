@@ -5,7 +5,7 @@ tags: [operations, agents, subagents, council, routing, alpha-proxima]
 created: 2026-09-03
 updated: 2026-09-30
 status: active
-version: "1.1.0"
+version: "1.1.1"
 authors: ["Founder", "CODEX (CF-07)"]
 artifact_type: operations-registry
 institutional_owner: "Alpha Proxima Foundation"
@@ -96,9 +96,11 @@ Adding a recognised name is an act of attribution: work reported under that name
 - [[Cognitive Function Registry]]
 - [[Office Registry]]
 - [[Founder Intent Routing Procedure]]
+- [[Blocked Role Consolidation Proposal]]
 
 ## Open Questions
 
+- [x] Founder ratified [[Blocked Role Consolidation Proposal]] as the operational coverage model for AGT-011, AGT-015, and AGT-016. Their roles remain blocked; no appointment, merger, or activation was made.
 - [ ] Replace generic subagent profile labels with Founder-preferred NODA names after the source architecture is located.
 - [ ] Define runtime/tool permission profiles for each subagent before automation.
 - [ ] Decide whether AGT IDs belong in the generated node registry.
@@ -107,6 +109,7 @@ Adding a recognised name is an act of attribution: work reported under that name
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-09-30 | Founder + CODEX | Recorded Founder ratification of the blocked-role coverage model; the three role states remain blocked. |
 | 1.1.0 | 2026-09-30 | Founder | Added the Recognised names column and registered `CODEX` as a recognised name of AGT-007, so work reported under that name is attributed to the seat rather than to the engine fulfilling CF-07. No new seat, no appointment, no change to authority. |
 | 1.0.0 | 2026-09-03 | Founder | Approved for operational routing and bounded subagent use; no engine or human appointment implied. |
 | 0.1.0 | 2026-09-03 | Founder + CODEX (CF-07) | Initial operational registry of 16 named agent roles and bounded subagent profiles; no appointments created. |
