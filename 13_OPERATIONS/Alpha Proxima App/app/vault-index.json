@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T01:24:30+00:00",
+  "generated_at": "2026-09-30T03:06:53+00:00",
   "note_count": 393,
   "domains": [
     {
@@ -9129,7 +9129,7 @@
       "domain": "13_OPERATIONS",
       "type": "operations-registry",
       "status": "active",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "owner": "Alpha Proxima Foundation",
       "function": "Engineering Intelligence",
       "engine": "CODEX",
@@ -9145,9 +9145,9 @@
         "routing",
         "alpha-proxima"
       ],
-      "updated": "2026-09-03",
+      "updated": "2026-09-30",
       "has_frontmatter": true,
-      "words": 969,
+      "words": 1211,
       "links": [
         "13-operations-operational-procedures-minimum-viable-council-procedure-md",
         "03-ai-council-council-node-architecture-md",
@@ -14812,7 +14812,7 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "f0eb7e091d75da67bbc4e09432ae86aec858d1a1c42b134cd3c9a5f201697ddc",
+      "fingerprint": "1f430026ee9a052f4a529a47b815b8fe2201614ec1cd3a4d5f445b0204470685",
       "note_count": 393
     },
     "health": {
@@ -14870,6 +14870,6 @@
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "fc955615865ca10351e85e254432b5887e1247e01a3ad83b24131dc66d23d64f"
+    "contract_fingerprint": "dc48e029124fd0595c9f64b0fd3367490903e1bbaffad94e97070fd9e42dd2bf"
   }
 }
