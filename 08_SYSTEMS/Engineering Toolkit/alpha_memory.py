@@ -127,12 +127,37 @@ def build_role_index(roles: Iterable[dict[str, Any]] = (),
     coincidence turned into an institutional attribution is indistinguishable
     from a real one once it is on screen.
     """
+    # Keyed on the casefolded name. The Institutional Node Taxonomy already
+    # matches case-insensitively, and a seat that answered to `CODEX` but not
+    # `codex` would attribute the same actor at two different tiers depending on
+    # how it happened to capitalise itself. Case is not semantic in a name;
+    # exactness is about the whole string, not its casing.
     seats: dict[str, str] = {}
+
+    def register(name: str, role_id: str) -> None:
+        key = str(name or "").strip().casefold()
+        if not key:
+            return
+        existing = seats.get(key)
+        if existing and existing != role_id:
+            # Two seats answering to one name is an identity collision the
+            # registry has to resolve. Silently preferring either would
+            # attribute work to whichever row happened to parse first.
+            raise MemoryError_(
+                f"The registry recognises {name!r} for both {existing} and {role_id}. "
+                "One name cannot identify two seats — repair the Recognised names column."
+            )
+        seats[key] = role_id
+
     for role in roles:
-        name = str(role.get("named_role") or "").strip()
-        if name:
-            seats[name] = role["id"]
-        seats[role["id"]] = role["id"]
+        register(role.get("named_role") or "", role["id"])
+        register(role["id"], role["id"])
+        # Short names the registry recognises for the seat. An agent reports
+        # itself as `CODEX`, not as `CODEX Engineering Lead`, and attribution
+        # should not depend on the agent knowing its own full registry title.
+        # Still exact: the registry states these names, this does not infer them.
+        for recognised in role.get("recognised_names") or []:
+            register(recognised, role["id"])
     return {"seats": seats, "entities": entity_registry}
 
 
@@ -189,18 +214,19 @@ def resolve_actor(actor: str, index: dict[str, Any]) -> dict[str, Any] | None:
         return None
 
     seats = index.get("seats") or {}
-    if name in seats:
+    seat_id = seats.get(name.casefold())
+    if seat_id:
         return {
-            "id": seats[name], "tier": "seat",
-            "basis": "Agent and Subagent Registry — exact registered name",
+            "id": seat_id, "tier": "seat",
+            "basis": "Agent and Subagent Registry — registered name for this seat",
             **RESOLUTION_TIERS["seat"],
         }
 
     if name in ACTOR_ALIASES:
         target = ACTOR_ALIASES[name]
-        if target in seats:
+        if target.casefold() in seats:
             return {
-                "id": seats[target], "tier": "seat",
+                "id": seats[target.casefold()], "tier": "seat",
                 "basis": f"stated alias: {name} is {target}",
                 **RESOLUTION_TIERS["seat"],
             }
