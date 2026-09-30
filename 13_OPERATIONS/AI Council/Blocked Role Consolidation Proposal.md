@@ -4,8 +4,8 @@ aliases: ["Blocked Role Coverage", "AGT-011 AGT-015 AGT-016 Consolidation"]
 tags: [operations, council, agents, governance, proposal]
 created: 2026-09-30
 updated: 2026-09-30
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 authors: ["Founder", "CODEX"]
 artifact_type: governance-proposal
 institutional_owner: "Alpha Proxima Foundation"
@@ -59,11 +59,12 @@ does not create a fourth permanent identity.
 4. No task, output, or run may claim that AGT-011, AGT-015, or AGT-016
    executed work while blocked.
 
-## Founder decision required
+## Ratification
 
-The Founder may ratify this operational coverage model. A later separate
-decision is still required to appoint, retire, rename, or activate any of the
-three blocked roles. Those changes are intentionally outside this proposal.
+The Founder ratified this operational coverage model on 2026-09-30. A later
+separate decision is still required to appoint, retire, rename, or activate
+any of the three blocked roles. Those changes are intentionally outside this
+decision.
 
 ## Verification
 
