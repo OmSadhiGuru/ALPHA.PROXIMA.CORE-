@@ -26,6 +26,7 @@ COMMANDS = {
     "app": ("alpha_app.py", "Alpha Proxima App — the Foundation's operate and know halves"),
     "events": ("alpha_events.py", "AlphaEvent v1 contract, validation, and the append-only event ledger"),
     "adapters": ("alpha_adapters.py", "Provider adapters and the honest adapter registry"),
+    "context": ("alpha_context.py", "ContextItem v1 — the capture contract for Omi and Pocket AI"),
     "ingress": ("alpha_ingress.py", "Signed webhook receiver — the layer's only write path"),
     "memory": ("alpha_memory.py", "Memory graph — the event ledger as a navigable temporal structure"),
     "live": ("alpha_live.py", "Live Integration Layer projections — activity, presence, notifications, badge"),

@@ -50,6 +50,7 @@ DEFAULT_REGISTRY = LIVE_DIR / "state" / "adapter-registry.json"
 
 sys.path.insert(0, str(TOOLKIT_DIR))
 import alpha_events as ev  # noqa: E402  (path-based sibling import, as the toolkit does elsewhere)
+import alpha_context as ctx  # noqa: E402  (the capture contract, same convention)
 import state_io  # noqa: E402
 
 REGISTRY_SCHEMA_VERSION = "1.0.0"
@@ -733,19 +734,142 @@ class PerplexityAdapter(PlannedAdapter):
     configuration = ("PERPLEXITY_API_KEY",)
 
 
-class PocketAIAdapter(PlannedAdapter):
+# --------------------------------------------------------------------------
+# capture providers — Omi and Pocket AI
+# --------------------------------------------------------------------------
+
+def _as_count(value: Any) -> int | None:
+    """A count the provider may have sent as a string, a float, or not at all."""
+    if value is None or isinstance(value, bool):
+        return None
+    try:
+        number = int(float(value))
+    except (TypeError, ValueError):
+        return None
+    return number if number >= 0 else None
+
+
+class CaptureAdapter(Adapter):
+    """Shared behaviour for providers that capture what the Founder said.
+
+    Omi and Pocket AI produce the same institutional thing — a capture — and
+    the difference between them is vocabulary, not meaning. So a subclass
+    supplies only the mapping from provider noun to `capture_kind`, and the
+    boundary rules live here where neither can forget them.
+
+    Content never crosses this boundary. `ContextItem` refuses any field that
+    carries a body, and these adapters read only the provider's own title,
+    timestamps, counts and category. To read a capture, open the provider.
+    """
+
+    department = "MEMORY"
+    kinds: dict[str, str] = {}
+
+    def context_item(self, kind: str, payload: dict[str, Any]) -> dict[str, Any]:
+        raise NotImplementedError
+
+    def actor_id(self) -> str:
+        """Who acted. A capture device records the Founder; it does not speak."""
+        return "person:founder"
+
+    def normalize(self, delivery: dict[str, Any]) -> list[dict[str, Any]]:
+        delivery = self.check_delivery(delivery)
+        try:
+            item = self.context_item(delivery["kind"], delivery["payload"])
+            return [ctx.to_event(item, actor=self.actor_id(), department=self.department)]
+        except ctx.ContextError as exc:
+            # Translated at the boundary on purpose. `alpha_ingress` catches
+            # `AdapterError`, so a ContextError escaping here would crash the
+            # webhook receiver instead of becoming a 202 and a dead letter —
+            # which is precisely the failure the ingress exists to avoid. One
+            # exception type at the boundary is what makes a boundary useful.
+            raise AdapterError(f"{self.provider}: {exc}") from exc
+
+
+class OmiAdapter(CaptureAdapter):
+    adapter_id = "ADP-OMI"
+    provider = "omi"
+    display_name = "Omi"
+    # Normalization is implemented and fixture-tested; no delivery has been
+    # observed, so the registry may not call this connected.
+    declared_status = "disconnected"
+    capabilities = ("memory", "conversation", "action_item")
+    accepts = ("memory.created", "conversation.created", "action_item.created")
+    kinds = {
+        "memory.created": "memory",
+        "conversation.created": "conversation",
+        "action_item.created": "action_item",
+    }
+    blocked_reason = (
+        "Normalization is implemented and tested against fixtures. No webhook "
+        "secret is configured and no delivery has been observed, so nothing has "
+        "demonstrated a connection. A session-scoped Omi connector held by an "
+        "operating agent is that agent's tooling, not a Foundation integration."
+    )
+    configuration = ("OMI_WEBHOOK_SECRET",)
+
+    # Omi's own categories mapped onto what a capture might become. Anything
+    # unrecognised proposes nothing rather than guessing.
+    SUGGESTS = {
+        "work": "task", "entrepreneurship": "task", "business": "task",
+        "education": "reference", "science": "reference", "technology": "reference",
+        "philosophy": "idea", "inspiration": "idea", "design": "idea",
+    }
+
+    def context_item(self, kind: str, payload: dict[str, Any]) -> dict[str, Any]:
+        category = str(payload.get("category") or "")
+        # Omi marks most of its corpus sensitive. An absent flag is not a
+        # licence to treat a capture as ordinary, so the default stands and
+        # only an explicit `false` lowers it.
+        sensitivity = "standard" if payload.get("sensitive") is False else ctx.DEFAULT_SENSITIVITY
+        return ctx.make_context_item(
+            provider=self.provider,
+            provider_item_id=payload.get("id") or payload.get("memory_id") or "",
+            capture_kind=self.kinds[kind],
+            occurred_at=str(payload.get("created_at") or ev.now_iso()),
+            title=_short(payload.get("title") or payload.get("label") or "Omi capture"),
+            sensitivity=sensitivity,
+            suggested_kind=self.SUGGESTS.get(category, "none"),
+            reference=str(payload.get("app_url") or ""),
+            category=category,
+            duration_seconds=_as_count(payload.get("duration_seconds")),
+            word_count=_as_count(payload.get("word_count")),
+        )
+
+
+class PocketAIAdapter(CaptureAdapter):
     adapter_id = "ADP-POCKET-AI"
     provider = "pocket_ai"
     display_name = "Pocket AI"
-    declared_status = "planned"
-    department = "MEMORY"
+    declared_status = "disconnected"
     capabilities = ("capture", "transcript", "classification")
     accepts = ("capture.created", "transcript.ready")
+    kinds = {
+        "capture.created": "voice_note",
+        "transcript.ready": "transcript",
+    }
     blocked_reason = (
-        "Depends on the same ContextItem contract as INT-003 (OMI); no adapter "
-        "or credential exists in this repository."
+        "Normalization is implemented and tested against fixtures. No webhook "
+        "secret is configured and no delivery has been observed."
     )
     configuration = ("POCKET_AI_WEBHOOK_SECRET",)
+
+    def context_item(self, kind: str, payload: dict[str, Any]) -> dict[str, Any]:
+        return ctx.make_context_item(
+            provider=self.provider,
+            provider_item_id=payload.get("id") or payload.get("capture_id") or "",
+            capture_kind=self.kinds[kind],
+            occurred_at=str(payload.get("captured_at") or ev.now_iso()),
+            title=_short(payload.get("title") or "Pocket AI capture"),
+            # Pocket AI states nothing about sensitivity, so the conservative
+            # default applies to everything it sends.
+            sensitivity=ctx.DEFAULT_SENSITIVITY,
+            suggested_kind="none",
+            reference=str(payload.get("url") or ""),
+            category=str(payload.get("category") or ""),
+            duration_seconds=_as_count(payload.get("duration_seconds")),
+            word_count=_as_count(payload.get("word_count")),
+        )
 
 
 class ObsidianAdapter(PlannedAdapter):
@@ -847,6 +971,7 @@ ADAPTER_CLASSES: tuple[type[Adapter], ...] = (
     GeminiAdapter,
     PerplexityAdapter,
     PocketAIAdapter,
+    OmiAdapter,
     ObsidianAdapter,
     GoogleDriveAdapter,
     GoogleCalendarAdapter,

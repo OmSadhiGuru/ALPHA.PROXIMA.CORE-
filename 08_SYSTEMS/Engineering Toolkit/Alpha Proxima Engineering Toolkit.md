@@ -122,6 +122,7 @@ The toolkit is organized as reusable local-first capabilities. Each tool receive
 | `ap founder` | Founder OS state engine and Founder Console V1 |
 | `ap app` | Alpha Proxima App — the operate and know halves, and coherence reporting |
 | `ap events` | AlphaEvent v1 contract, validation, and the append-only event ledger |
+| `ap context` | ContextItem v1 — the capture contract for Omi and Pocket AI |
 | `ap adapters` | Provider adapters and the honest adapter registry |
 | `ap live` | Live projections — activity, presence, notifications, badge |
 | `ap entities` | Canonical identity for actors that are not documents (Node Taxonomy) |
