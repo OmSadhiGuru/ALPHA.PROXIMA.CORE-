@@ -256,12 +256,12 @@ version: "1.0.0"
 
 ### Agent Roles
 
-| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate |
-|----|-----------|-----------------|-----------------|------------------------|-------|-----------------|
-| AGT-001 | LUMIAION Orchestrator | CF-01 | LUMIAION | Claude-family | available | context loader; constitutional drafter |
-| AGT-007 | CODEX Engineering Lead | CF-07 | Engineering Office | Codex | available | architect; builder |
-| AGT-012 | ATHENA Domain Lead | CF-12 | ATHENA Office | ATHENA | available | health evidence scout |
-| AGT-015 | JERANIUM Data & Systems Lead | CF-15 | JERANIUM | none | blocked | none until appointment |
+| ID | Named role | Parent Function | Operating owner | Current implementation | State | May instantiate | Recognised names |
+|----|-----------|-----------------|-----------------|------------------------|-------|-----------------|------------------|
+| AGT-001 | LUMIAION Orchestrator | CF-01 | LUMIAION | Claude-family | available | context loader; constitutional drafter | — |
+| AGT-007 | CODEX Engineering Lead | CF-07 | Engineering Office | Codex | available | architect; builder | CODEX |
+| AGT-012 | ATHENA Domain Lead | CF-12 | ATHENA Office | ATHENA | available | health evidence scout | — |
+| AGT-015 | JERANIUM Data & Systems Lead | CF-15 | JERANIUM | none | blocked | none until appointment | — |
 
 ### Standard Subagent Profiles
 
