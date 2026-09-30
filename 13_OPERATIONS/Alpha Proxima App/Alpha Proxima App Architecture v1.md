@@ -3,15 +3,15 @@ title: "Alpha Proxima App Architecture v1"
 aliases: ["Alpha Proxima App", "App Architecture", "Alpha Proxima App Architecture", "The App"]
 tags: [operations, app, interface, architecture, founder-os, knowledge-graph, lumiaion, alpha-proxima]
 created: 2026-09-01
-updated: 2026-09-10
+updated: 2026-09-29
 status: active
-version: "1.3.0"
+version: "1.4.0"
 authors: ["CLAUDE"]
 artifact_type: architecture-specification
 institutional_owner: "Alpha Proxima Foundation"
 cognitive_function: "Architecture"
 reasoning_engine: "Claude"
-dependencies: ["[[Founder OS Architecture v1]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
+dependencies: ["[[Founder OS Architecture v1]]", "[[Alpha Proxima Live Integration Layer]]", "[[Knowledge Graph Architecture v1.0]]", "[[03 - Folder Naming Convention]]", "[[02 - YAML Frontmatter Standard]]"]
 related_documents: ["[[Alpha Proxima App README]]", "[[Founder Console]]", "[[Founder OS README]]", "[[Tool 013 - Alpha Proxima App]]", "[[Alpha Proxima Engineering Toolkit]]", "[[Book III - Knowledge Integrity]]", "[[CN-001 Execution Tracker]]", "[[12 - Continuous Integration Standard]]"]
 related_research_programs: []
 ---
@@ -165,13 +165,50 @@ No endpoint writes to the Vault. Every response carries source or contract finge
 
 This endpoint is the systematic base for the spatial LUMIAION interface. A named system is not presented as connected until its adapter exists and the canonical Founder state records `connected`. Future adapters publish into the existing single-writer state contract; they do not write directly to the interface or create parallel stores.
 
+### 7.2.1 Schema 1.1.0 — the backbone acquires time
+
+Until now the backbone described **structure**: what exists, who owns it, what needs the Founder. [[Alpha Proxima Live Integration Layer]] gave the Foundation a contract for *when*, and 1.1.0 carries it into the same document rather than standing up a competing one.
+
+The bump is **additive only**. Every 1.0.0 key keeps its name, shape and meaning, and a test enumerates them so an edit that moves one fails rather than ships. `alpha_spatial.py`, which calls `build_system_backbone` positionally with two arguments, is unchanged and picks up 1.1.0 for free.
+
+| Section | Answers |
+|---|---|
+| `activity` | What has been happening — bounded summary; full stream at `/api/v1/activity` |
+| `presence` | Who is working right now, with expiry already applied |
+| `integration_health` | Where the two registers of integrations agree, and where they differ |
+| `notification_summary` | Whether anything is waiting, and how urgently |
+
+#### Absence is not silence
+
+A live layer that will not load and one that is healthy but quiet both yield no activity. They mean opposite things. So availability is reported before any count is — `available`, `unavailable`, or `error` with its reason — and where the layer could not be read the counts are `null`, never `0`.
+
+Zero is a measurement. Reporting it when nothing was measured teaches the Founder that an empty feed means calm, precisely when it does not. This is the adapter registry's own rule one layer up: it refuses to call an integration `connected` without an observed delivery; this refuses to **report calm without having looked**.
+
+#### A readable ledger can still be lossy
+
+`EventLedger` skips a malformed line rather than raising, and that is the right choice — a torn final write must not make the entire history unreadable. It exposes `damaged_lines()` so the loss is **reportable**.
+
+Reportable is not reported. Before 1.1.0 nothing called it, so a ledger quietly losing records presented as perfectly healthy. The backbone now carries `live.degraded` and `live.damaged_lines`: a lossy ledger reads as available **and** degraded, with the line numbers and a plain statement that events on those lines are lost to every projection. Never silently clean.
+
+#### Two registers of integrations, reconciled in the open
+
+Founder OS records what the Founder has **registered**. The adapter registry records what the membrane has actually **observed**. Two lists maintained by two processes drift, and the drift is the useful signal.
+
+Neither register is overwritten. Three rules:
+
+1. **The weaker claim is reported.** Registration is an intention; an observed delivery is evidence. Intention never outranks evidence — Founder OS believing GitHub is connected does not make a delivery have happened.
+2. **`live` requires an adapter.** `connected` in Founder OS is the Founder's record of their own working setup; Obsidian is genuinely in use. `live` means the membrane can carry that provider's events. Two different sentences, and conflating them would reintroduce exactly the dishonesty observed status exists to refuse.
+3. **Vocabulary is translated in the open.** The registers differ on one word (`not_connected` ⇄ `disconnected`). The mapping is explicit and test-enforced against both vocabularies, so a word added to either fails loudly instead of being silently skipped.
+
+At the time of writing the Foundation reports **0 live of 20, 2 conflicts** — GitHub (registered `connected`, observed `disconnected`: the adapter is implemented but no signed delivery has ever arrived) and Google Calendar. That is the honest number.
+
 ### 7.3 API stability and compatibility
 
 | Endpoint | Status | Intended consumer |
 |---|---|---|
 | `/api/v1/app` | Stable, versioned | Complete LUMIAION, spatial, voice, and accessibility read model |
 | `/api/app` | Compatibility alias | Existing clients; new clients use `/api/v1/app` |
-| `/api/v1/system-backbone` | Stable, versioned | System topology, connectivity, attention, and knowledge health |
+| `/api/v1/system-backbone` | Stable, versioned (1.1.0) | System topology, connectivity, attention, knowledge health, and the live layer |
 | `/api/v1/truth-kernel`, `/nodes`, `/relationships`, `/validation`, `/health` | Stable, versioned | Deterministic graph consumers |
 | `/api/view`, `/api/vault` | Diagnostic compatibility endpoints | Local inspection only; not a client contract |
 | `/api/truth-kernel` | Legacy compatibility alias | Local inspection only; new clients use `/api/v1/truth-kernel` |
@@ -302,6 +339,7 @@ No institutional note was created, modified, moved, or deleted by the app. The o
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.4.0 | 2026-09-29 | CLAUDE | System Backbone 1.1.0: additively add `activity`, `presence`, `integration_health` and `notification_summary` over the Live Integration Layer; report availability before any count; surface damaged ledger lines rather than letting a lossy ledger read as clean; reconcile the two integration registers without overwriting either |
 | 1.3.0 | 2026-09-10 | Founder / CLAUDE | Add the FD-002 reachability gate: a non-loopback bind is refused without a token; every response is token-gated with a constant-time check |
 | 1.2.0 | 2026-09-09 | Founder / CODEX | Add the System Backbone contract, version the composed app endpoint, classify compatibility routes, and retire raw `/api/state` exposure |
 | 1.1.0 | 2026-09-03 | CODEX | Add the deterministic Truth Kernel read contract and interface projection |

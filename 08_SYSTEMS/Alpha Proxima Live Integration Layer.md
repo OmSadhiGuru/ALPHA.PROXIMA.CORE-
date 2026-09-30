@@ -473,6 +473,16 @@ Both normalize correctly against fixtures and both read **`disconnected`**. No w
 
 The Omi adapter's `blocked_reason` records a distinction worth keeping: **a session-scoped Omi connector held by an operating agent is that agent's tooling, not a Foundation integration.** An agent that can read Omi has not thereby connected the Foundation to Omi, and the registry must not report otherwise.
 
+## Consumed by the System Backbone
+
+`/api/v1/system-backbone` reached **schema 1.1.0** by surfacing these projections through the existing contract rather than a competing one — see [[Alpha Proxima App Architecture v1]] §7.2.1. Three properties of that seam belong here, because they constrain this layer.
+
+**The App reads and never writes.** `alpha_app` loads these modules for projections only. A test asserts the App calls none of `append_event`, `record_success`, `record_failure`, `mark_read`, `notify` or `set_presence` — one writer per store, enforced rather than intended.
+
+**Absence is reported before any count.** `live_modules()` already degrades honestly when the layer will not load; the backbone now carries that upward as `available` / `unavailable` / `error` and emits `null` counts where nothing was measured. *Never report calm without having looked* is the same rule as *never claim connected without an observed delivery*, applied to time instead of connectivity.
+
+**A skipped line is now a reported line.** `EventLedger.__iter__` skips what it cannot parse so a torn final write cannot make the history unreadable, and `damaged_lines()` makes the loss reportable. Until 1.1.0 nothing reported it, so a lossy ledger presented as healthy. The backbone now carries `live.degraded` and `live.damaged_lines`, and states that events on those lines are lost to every projection. The design was already right; what was missing was somebody asking the question.
+
 ---
 ## Version History
 
