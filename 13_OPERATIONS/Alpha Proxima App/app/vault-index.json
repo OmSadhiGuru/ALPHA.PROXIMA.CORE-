@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-30T03:06:53+00:00",
-  "note_count": 393,
+  "generated_at": "2026-09-30T11:06:10+00:00",
+  "note_count": 396,
   "domains": [
     {
       "id": "00_CONSTITUTION",
@@ -48,7 +48,7 @@
       "id": "08_SYSTEMS",
       "name": "Systems",
       "question": "How the Foundation works",
-      "count": 72
+      "count": 74
     },
     {
       "id": "09_OFFICES",
@@ -78,7 +78,7 @@
       "id": "13_OPERATIONS",
       "name": "Operations",
       "question": "What is happening now",
-      "count": 39
+      "count": 40
     },
     {
       "id": "14_FUTURE",
@@ -173,7 +173,7 @@
         "05-proposals-constitution-v2-0-ratification-draft-md"
       ],
       "unresolved": [],
-      "backlinks": 50
+      "backlinks": 51
     },
     {
       "id": "00-constitution-book-ii-governance-framework-md",
@@ -276,7 +276,7 @@
         "07-research-rp-002-rp-002-master-index-md"
       ],
       "unresolved": [],
-      "backlinks": 58
+      "backlinks": 59
     },
     {
       "id": "00-constitution-book-iv-cognitive-architecture-md",
@@ -668,7 +668,7 @@
         "06-governance-epoch-v-interim-authority-instrument-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "03-ai-council-council-node-architecture-md",
@@ -710,7 +710,7 @@
         "13-operations-office-registry-office-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 7
+      "backlinks": 9
     },
     {
       "id": "03-ai-council-departments-athena-charter-md",
@@ -2002,7 +2002,7 @@
       "words": 962,
       "links": [],
       "unresolved": [],
-      "backlinks": 18
+      "backlinks": 19
     },
     {
       "id": "06-governance-epoch-v-interim-authority-instrument-md",
@@ -6352,7 +6352,7 @@
         "08-systems-engineering-standards-03-folder-naming-convention-md"
       ],
       "unresolved": [],
-      "backlinks": 10
+      "backlinks": 11
     },
     {
       "id": "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
@@ -6422,7 +6422,7 @@
       ],
       "updated": "2026-08-26",
       "has_frontmatter": true,
-      "words": 1130,
+      "words": 1145,
       "links": [
         "08-systems-engineering-standards-alpha-proxima-engineering-handbook-md",
         "08-systems-engineering-standards-07-automation-standard-md",
@@ -6450,7 +6450,7 @@
         "08-systems-alpha-proxima-live-integration-layer-md"
       ],
       "unresolved": [],
-      "backlinks": 30
+      "backlinks": 31
     },
     {
       "id": "08-systems-engineering-toolkit-osg-reading-color-css-guide-md",
@@ -6751,7 +6751,7 @@
       "domain": "08_SYSTEMS",
       "type": "implementation-note",
       "status": "active",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "owner": "Alpha Proxima Foundation",
       "function": "Implementation",
       "engine": "CODEX",
@@ -6765,9 +6765,9 @@
         "cli",
         "alpha-proxima"
       ],
-      "updated": "2026-07-03",
+      "updated": "2026-09-30",
       "has_frontmatter": true,
-      "words": 328,
+      "words": 336,
       "links": [
         "08-systems-engineering-toolkit-tool-001-vault-validator-md",
         "08-systems-engineering-toolkit-tool-002-yaml-validator-md",
@@ -6782,12 +6782,13 @@
         "08-systems-institutional-knowledge-graph-tools-tool-011-relationship-extractor-md",
         "08-systems-engineering-toolkit-tool-012-founder-os-state-engine-md",
         "08-systems-engineering-toolkit-tool-014-council-session-kernel-md",
+        "08-systems-role-semantics-architecture-v1-md",
         "12-people-codex-md",
         "08-systems-engineering-standards-06-cli-standard-md",
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 7
+      "backlinks": 8
     },
     {
       "id": "08-systems-engineering-toolkit-tool-009-graph-color-system-md",
@@ -7204,7 +7205,7 @@
         "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md"
       ],
       "unresolved": [],
-      "backlinks": 14
+      "backlinks": 15
     },
     {
       "id": "08-systems-institutional-knowledge-graph-knowledge-graph-conventions-md",
@@ -7488,7 +7489,7 @@
         "08-systems-institutional-knowledge-graph-graph-readiness-assessment-md"
       ],
       "unresolved": [],
-      "backlinks": 4
+      "backlinks": 5
     },
     {
       "id": "08-systems-institutional-knowledge-graph-truth-kernel-node-contract-v0-1-md",
@@ -8342,6 +8343,48 @@
       "backlinks": 2
     },
     {
+      "id": "08-systems-role-semantics-architecture-v1-md",
+      "path": "08_SYSTEMS/Role Semantics Architecture v1.md",
+      "title": "Role Semantics Architecture v1",
+      "domain": "08_SYSTEMS",
+      "type": "architecture-note",
+      "status": "draft",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Institutional Architecture",
+      "engine": "Claude",
+      "authors": [
+        "Founder",
+        "Chief Knowledge Architect (CF-01)"
+      ],
+      "tags": [
+        "systems",
+        "architecture",
+        "semantics",
+        "roles",
+        "council",
+        "offices",
+        "agents",
+        "derived",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-30",
+      "has_frontmatter": true,
+      "words": 2150,
+      "links": [
+        "03-ai-council-cognitive-function-registry-md",
+        "13-operations-office-registry-office-registry-md",
+        "13-operations-ai-council-agent-and-subagent-registry-md",
+        "06-governance-epoch-v-governance-model-crosswalk-md",
+        "08-systems-engineering-toolkit-tool-008-engineering-cli-md",
+        "08-systems-institutional-knowledge-graph-tools-tool-014-truth-kernel-md",
+        "03-ai-council-council-node-architecture-md",
+        "00-constitution-book-i-the-constitution-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
+    },
+    {
       "id": "08-systems-the-orchestration-framework-md",
       "path": "08_SYSTEMS/The Orchestration Framework.md",
       "title": "The Orchestration Framework",
@@ -8384,6 +8427,42 @@
       ],
       "unresolved": [],
       "backlinks": 10
+    },
+    {
+      "id": "08-systems-vault-retrieval-architecture-v1-md",
+      "path": "08_SYSTEMS/Vault Retrieval Architecture v1.md",
+      "title": "Vault Retrieval Architecture v1",
+      "domain": "08_SYSTEMS",
+      "type": "architecture-specification",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "Architecture",
+      "engine": "Claude",
+      "authors": [
+        "CLAUDE"
+      ],
+      "tags": [
+        "systems",
+        "retrieval",
+        "memory",
+        "search",
+        "knowledge-graph",
+        "alpha-proxima"
+      ],
+      "updated": "2026-09-29",
+      "has_frontmatter": true,
+      "words": 1480,
+      "links": [
+        "08-systems-institutional-knowledge-graph-knowledge-graph-architecture-v1-0-md",
+        "00-constitution-book-iii-knowledge-integrity-md",
+        "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md",
+        "13-operations-founder-os-founder-os-architecture-v1-md",
+        "08-systems-engineering-standards-12-continuous-integration-standard-md",
+        "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md"
+      ],
+      "unresolved": [],
+      "backlinks": 0
     },
     {
       "id": "08-systems-visual-systems-color-system-implementation-checklist-md",
@@ -9129,7 +9208,7 @@
       "domain": "13_OPERATIONS",
       "type": "operations-registry",
       "status": "active",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "owner": "Alpha Proxima Foundation",
       "function": "Engineering Intelligence",
       "engine": "CODEX",
@@ -9147,17 +9226,18 @@
       ],
       "updated": "2026-09-30",
       "has_frontmatter": true,
-      "words": 1211,
+      "words": 1269,
       "links": [
         "13-operations-operational-procedures-minimum-viable-council-procedure-md",
         "03-ai-council-council-node-architecture-md",
         "03-ai-council-cognitive-function-registry-md",
         "13-operations-office-registry-office-registry-md",
         "13-operations-operational-procedures-founder-intent-routing-procedure-md",
+        "13-operations-ai-council-blocked-role-consolidation-proposal-md",
         "13-operations-ai-council-ai-council-operations-registry-md"
       ],
       "unresolved": [],
-      "backlinks": 11
+      "backlinks": 13
     },
     {
       "id": "13-operations-ai-council-ai-council-operations-registry-md",
@@ -9194,6 +9274,40 @@
       ],
       "unresolved": [],
       "backlinks": 3
+    },
+    {
+      "id": "13-operations-ai-council-blocked-role-consolidation-proposal-md",
+      "path": "13_OPERATIONS/AI Council/Blocked Role Consolidation Proposal.md",
+      "title": "Blocked Role Consolidation Proposal",
+      "domain": "13_OPERATIONS",
+      "type": "governance-proposal",
+      "status": "active",
+      "version": "1.0.0",
+      "owner": "Alpha Proxima Foundation",
+      "function": "",
+      "engine": "",
+      "authors": [
+        "Founder",
+        "CODEX"
+      ],
+      "tags": [
+        "operations",
+        "council",
+        "agents",
+        "governance",
+        "proposal"
+      ],
+      "updated": "2026-09-30",
+      "has_frontmatter": true,
+      "words": 440,
+      "links": [
+        "13-operations-ai-council-agent-and-subagent-registry-md",
+        "13-operations-operational-procedures-founder-intent-routing-procedure-md",
+        "13-operations-ai-council-spatial-galaxy-prototype-concept-md",
+        "03-ai-council-council-node-architecture-md"
+      ],
+      "unresolved": [],
+      "backlinks": 1
     },
     {
       "id": "13-operations-ai-council-mvc-001-council-activation-record-md",
@@ -9258,7 +9372,7 @@
         "08-systems-engineering-toolkit-tool-014-council-session-kernel-md"
       ],
       "unresolved": [],
-      "backlinks": 2
+      "backlinks": 3
     },
     {
       "id": "13-operations-alpha-proxima-app-alpha-proxima-app-architecture-v1-md",
@@ -9306,7 +9420,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 16
+      "backlinks": 17
     },
     {
       "id": "13-operations-alpha-proxima-app-readme-md",
@@ -9795,7 +9909,7 @@
         "08-systems-engineering-toolkit-alpha-proxima-engineering-toolkit-md"
       ],
       "unresolved": [],
-      "backlinks": 6
+      "backlinks": 7
     },
     {
       "id": "13-operations-founder-os-readme-md",
@@ -10016,7 +10130,7 @@
         "14-future-readme-md"
       ],
       "unresolved": [],
-      "backlinks": 19
+      "backlinks": 20
     },
     {
       "id": "13-operations-operational-health-fir-001-repository-health-result-md",
@@ -10164,7 +10278,7 @@
         "13-operations-operational-procedures-minimum-viable-council-procedure-md"
       ],
       "unresolved": [],
-      "backlinks": 8
+      "backlinks": 9
     },
     {
       "id": "13-operations-operational-procedures-minimum-viable-council-procedure-md",
@@ -13712,9 +13826,9 @@
     }
   ],
   "coherence": {
-    "note_count": 393,
-    "connected": 374,
-    "connectedness": 0.9517,
+    "note_count": 396,
+    "connected": 377,
+    "connectedness": 0.952,
     "orphans": [
       {
         "id": "07-research-rp-002-07-future-sources-rp-002-future-sources-md",
@@ -14390,12 +14504,12 @@
         8
       ],
       [
-        "operations-registry",
+        "architecture-specification",
         7
       ],
       [
-        "architecture-specification",
-        6
+        "operations-registry",
+        7
       ],
       [
         "engineering-report",
@@ -14570,6 +14684,10 @@
         1
       ],
       [
+        "architecture-note",
+        1
+      ],
+      [
         "implementation-checklist",
         1
       ],
@@ -14587,6 +14705,10 @@
       ],
       [
         "person-profile",
+        1
+      ],
+      [
+        "governance-proposal",
         1
       ],
       [
@@ -14693,7 +14815,7 @@
     "status": [
       [
         "active",
-        215
+        217
       ],
       [
         "ratified",
@@ -14705,7 +14827,7 @@
       ],
       [
         "draft",
-        36
+        37
       ],
       [
         "placeholder",
@@ -14778,16 +14900,16 @@
         6
       ],
       [
+        "Architecture",
+        5
+      ],
+      [
         "Engineering Intelligence",
         5
       ],
       [
-        "Architecture",
-        4
-      ],
-      [
         "Institutional Architecture",
-        3
+        4
       ],
       [
         "Strategy",
@@ -14812,25 +14934,25 @@
     "mode": "read_only",
     "source": {
       "root": ".",
-      "fingerprint": "1f430026ee9a052f4a529a47b815b8fe2201614ec1cd3a4d5f445b0204470685",
-      "note_count": 393
+      "fingerprint": "b407946335cc8a7f0ebdc8d4b0a5cdefb4a2b2ffed81ddeb130bb121ba326d04",
+      "note_count": 396
     },
     "health": {
       "status": "attention",
       "counts": {
         "errors": 20,
-        "warnings": 1000,
+        "warnings": 1007,
         "info": 12,
-        "findings": 1032
+        "findings": 1039
       }
     },
     "counts": {
-      "nodes": 393,
+      "nodes": 396,
       "entities": 42,
-      "relationships": 2770,
-      "entity_relationships": 501,
+      "relationships": 2807,
+      "entity_relationships": 507,
       "template_placeholders": 12,
-      "unresolved_relationships": 248,
+      "unresolved_relationships": 249,
       "node_types": {
         "canonical_synthesis": 4,
         "charter": 13,
@@ -14849,7 +14971,7 @@
         "standard": 40,
         "standing_order": 13,
         "theory": 9,
-        "unknown": 187
+        "unknown": 190
       },
       "entity_types": {
         "agent": 32,
@@ -14861,15 +14983,15 @@
         "EXTENDS": 2,
         "IMPLEMENTS": 11,
         "OWNED_BY": 5,
-        "PART_OF": 166,
-        "PRODUCED_BY": 97,
-        "REFERENCES": 1640,
-        "RELATED_TO": 515,
-        "REQUIRES": 330,
+        "PART_OF": 167,
+        "PRODUCED_BY": 99,
+        "REFERENCES": 1655,
+        "RELATED_TO": 526,
+        "REQUIRES": 338,
         "SUPERSEDES": 2,
         "SUPPORTS": 2
       }
     },
-    "contract_fingerprint": "dc48e029124fd0595c9f64b0fd3367490903e1bbaffad94e97070fd9e42dd2bf"
+    "contract_fingerprint": "64bbf9cd2ba13ca488703b95dfac2c5012ce5c8aa5f79dcf2a1ac557111ef058"
   }
 }

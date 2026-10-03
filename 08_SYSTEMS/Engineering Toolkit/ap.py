@@ -37,6 +37,7 @@ COMMANDS = {
     "office": ("office_spatial.py", "3D office visualization — Council roles as a spatial read model"),
     "node-registry": ("../Institutional Knowledge Graph/Tools/node_registry.py", "Generate the Institutional Knowledge Graph node registry"),
     "relationship-extract": ("../Institutional Knowledge Graph/Tools/relationship_extractor.py", "Generate the Institutional Knowledge Graph relationship registry"),
+    "retrieve": ("alpha_retrieval.py", "Vault retrieval — lexical and structural, not semantic (narrows BLK-002)"),
     "truth-kernel": ("../Institutional Knowledge Graph/Tools/truth_kernel.py", "Build the read-only Truth Kernel contract and validation report"),
 }
 
