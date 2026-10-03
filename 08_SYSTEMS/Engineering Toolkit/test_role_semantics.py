@@ -15,6 +15,8 @@ exist to hold them:
 
 from __future__ import annotations
 
+import inspect
+import re
 import sys
 import tempfile
 import unittest
@@ -649,6 +651,26 @@ class TestTableReading(unittest.TestCase):
     def test_prose_in_a_list_column_survives_as_one_item(self):
         record = by_id(self.contract)["office:engineering-office"]
         self.assertEqual(record["fields"]["review_cycle"]["value"], ["Daily and weekly"])
+
+    def test_the_fixture_agent_table_matches_the_parsers_schema(self):
+        """The fixture duplicates the registry's shape, so it drifts when that shape moves.
+
+        It already did: the Recognised names column landed in the Agent and
+        Subagent Registry while this fixture still wrote seven columns, and the
+        mismatch surfaced as forty-four unrelated errors rather than one. This
+        asserts the agreement directly, so the next schema change fails here with
+        a sentence that names the cause.
+        """
+        header = next(line for line in AGENT_REGISTRY.splitlines()
+                      if line.strip().startswith("| ID |"))
+        columns = len(header.strip().strip("|").split("|"))
+        # Read the parser's own expectation rather than restating it here, so the
+        # two cannot drift apart the way the fixture and the registry just did.
+        source = inspect.getsource(rs.rr.parse_roles_table)
+        wanted = int(re.search(r"expected_columns=(\d+)", source).group(1))
+        self.assertEqual(columns, wanted,
+                         f"fixture agent table has {columns} columns; "
+                         f"role_registry.parse_roles_table expects {wanted}")
 
     def test_the_agent_table_is_read_through_its_existing_parser(self):
         """One parser per document. A second would drift from the first."""
