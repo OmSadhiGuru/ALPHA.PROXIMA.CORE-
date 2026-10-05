@@ -3,9 +3,9 @@ title: "Founder Intent Routing Procedure"
 aliases: ["Unified Founder Routing", "One-Inbox Routing", "FIR-001"]
 tags: [operations, procedures, orchestration, routing, founder, lumiaion, alpha-proxima]
 created: 2026-08-28
-updated: 2026-09-04
+updated: 2026-10-04
 status: active
-version: "1.1.0"
+version: "1.2.0"
 authors: ["Founder", "LUMIAION", "CODEX"]
 artifact_type: operational-procedure
 institutional_owner: "Alpha Proxima Foundation"
@@ -168,6 +168,29 @@ $AP repository-health "Assess current repository health" \
 This is intentionally not a general dispatcher. New domains and delivery
 channels remain unimplemented until this route is reviewed and preserved.
 
+### Pocket reference review bridge
+
+Founder OS also implements a review-only bridge for a Pocket AlphaEvent that
+already passed the canonical adapter, normalization, privacy, provenance, and
+ledger-deduplication boundary. It does not retrieve provider content or classify
+it automatically. The Founder reviews the provider item, supplies a bounded
+classification, and explicitly attests that review at the CLI.
+
+Unreviewed, `none`, and `irrelevant` signals are suppressed. A `reference`
+classification records a reference-only receipt without escalation. A
+`founder_decision` classification creates an open decision; it does not approve
+or execute the decision.
+
+The deterministic receipt is produced by Founder OS under LUMIAION routing. A
+Founder-State JERANIUM record supports memory packaging. These operational IDs
+do not appoint, activate, or satisfy the blocked Council role AGT-015. Fixture
+and local replay evidence remains `SIMULATED`; only signed runtime ingress can
+establish a `LIVE` Pocket delivery.
+
+Repository health remains FIR-001's only executable worker route. The Pocket
+bridge stops at Founder review and therefore does not expand FIR-001 into a
+general dispatcher.
+
 ## Failure Recovery
 
 If a tool, engine, project, or session cannot reach the assigned owner:
@@ -182,6 +205,7 @@ If a tool, engine, project, or session cannot reach the assigned owner:
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
+| 1.2.0 | 2026-10-04 | Founder OS / CODEX | Clarified the review-only Pocket bridge, operational identity boundary, and LIVE versus SIMULATED evidence |
 | 1.1.0 | 2026-09-04 | Founder / LUMIAION / CODEX | Implemented, persisted, and Founder-approved the first repository-health execution |
 | 1.0.0 | 2026-09-03 | Founder | Approved FIR-001 and its Council Node Architecture integration for active operational routing. |
 | 0.2.0 | 2026-09-03 | Founder / CODEX (CF-07) | Connects FIR-001 to the Council Node Architecture and Agent/Subagent Registry; clarifies that subagents are implementation nodes without independent authority. |

@@ -21,6 +21,7 @@ Design constraints (see `Founder OS Architecture v1`):
 from __future__ import annotations
 
 import argparse
+import copy
 import importlib.util
 import json
 import re
@@ -502,6 +503,145 @@ def resolve_blocker(state: dict, blocker_id: str, note: str | None = None) -> di
     return record
 
 
+
+def review_pocket_capture(state: dict, ledger, event_id: str, *,
+                          classification: str, founder_reviewed: bool = False) -> dict:
+    """Promote an explicitly reviewed Pocket reference through the existing writer.
+
+    Classification is supplied by a human who reviewed the provider item. This
+    bounded FIR-001 review lane is not a transcript classifier, agent invocation,
+    or authorization service. Provider suggestions can never authorize promotion.
+    LUMIAION synthesis here is a deterministic review receipt, not generated advice
+    or evidence that either named agent executed.
+
+    Like the other state operations, the caller serializes writes and saves state.
+    The receipt is appended first, so a failed state save can be retried using the
+    same receipt. No raw title, URL, category, or body is copied into Founder state.
+    """
+    import alpha_context as context
+    import alpha_events as events
+
+    if classification not in {"none", "irrelevant", "reference", "founder_decision"}:
+        raise StateError("Unknown Pocket review classification.")
+    capture = next((e for e in ledger if e.get("event_id") == event_id), None)
+    if capture is None:
+        raise StateError("Pocket capture must already exist in the canonical ledger.")
+    metadata = capture.get("metadata", {})
+    if (events.validate(capture) or context.body_leaks(capture)
+            or capture.get("source") != "pocket_ai"
+            or capture.get("event_type") not in {
+                "pocket_ai.capture.voice_note", "pocket_ai.capture.transcript"}
+            or capture.get("entity_type") != "capture"
+            or metadata.get("provider_event_id") != capture.get("entity_id")
+            or metadata.get("content_location") != "provider"
+            or metadata.get("sensitivity") != "sensitive"
+            or capture.get("severity") != "info" or capture.get("requires_founder")
+            or capture.get("summary")):
+        raise StateError("Expected a valid reference-only Pocket capture with provenance.")
+    # Ignore unreviewed and irrelevant signals without spending Founder attention.
+    if not founder_reviewed or classification in {"none", "irrelevant"}:
+        return {"status": "suppressed", "classification": classification}
+
+    # Promotion identity spans capture.created and transcript.ready for one item.
+    # Reuse AlphaEvent's dedup mechanism instead of a second ingestion index.
+    # Resolve a completed retry before checking today's routing availability: a
+    # duplicate is a no-op, so later agent-state drift cannot make it non-idempotent.
+    key = events.dedup_key({
+        "source": "alpha_proxima", "event_type": "founder.capture.reviewed",
+        "metadata": {"provider_event_id": "pocket_ai:" + capture["entity_id"]},
+    })
+    existing = next((e for e in ledger if events.dedup_key(e) == key), None)
+    if existing and existing["metadata"].get("classification") != classification:
+        raise StateError("Capture already reviewed differently; resolve its existing record.")
+    previous = next((r for r in state["results"] if r.get("capture_review_key") == key), None)
+    if previous:
+        if not existing:
+            raise StateError("Founder review exists but its ledger receipt is missing.")
+        return {"status": "duplicate", "result": previous}
+
+    agents = {}
+    for name in ("LUMIAION", "JERANIUM"):
+        matches = [a for a in state["agents"] if a.get("name") == name]
+        if len(matches) != 1 or matches[0].get("status") not in {"active", "idle", "working"}:
+            raise StateError(f"{name} must be uniquely registered and available for review.")
+        agents[name] = matches[0]
+
+    # These IDs identify the operational Founder-State records. They do not
+    # appoint or activate same-named Council roles.
+    receipt = existing or events.make_event(
+        source="alpha_proxima", actor="person:founder", department="EXECUTIVE",
+        event_type="founder.capture.reviewed", entity_type="capture",
+        entity_id=capture["entity_id"], title="Reviewed Pocket reference",
+        provider_event_id="pocket_ai:" + capture["entity_id"],
+        correlation_id=capture["correlation_id"], causation_id=capture["event_id"],
+        deep_link=events.deep_link("memory", "pocket_ai", capture["entity_id"]),
+        severity="action" if classification == "founder_decision" else "info",
+        requires_founder=classification == "founder_decision",
+        metadata={"classification": classification, "reviewed_by": "Founder",
+                  "route": "LUMIAION -> JERANIUM -> LUMIAION",
+                  "routing_owner_id": agents["LUMIAION"]["id"],
+                  "memory_support_id": agents["JERANIUM"]["id"],
+                  "identity_scope": "founder_state_operational",
+                  "council_role_activation": False,
+                  "content_location": "provider", "sensitivity": "sensitive",
+                  "synthesis_mode": "deterministic_review_receipt"},
+    )
+
+    draft = copy.deepcopy(state)
+    provenance = {"provider": "pocket_ai", "provider_item_id": capture["entity_id"],
+                  "capture_event_id": receipt["causation_id"],
+                  "review_event_id": receipt["event_id"],
+                  "correlation_id": receipt["correlation_id"],
+                  "content_location": "provider", "sensitivity": "sensitive"}
+    item = {"id": next_id(draft, "context_items"), "source": "pocket_ai",
+            "summary": "Founder-reviewed Pocket reference.", "provenance": provenance}
+    draft["context_items"].append(item)
+    decision = None
+    if classification == "founder_decision":
+        decision = add_decision(
+            draft, "Review Pocket-derived proposal",
+            f"Reviewed reference {item['id']}; private content remains at the provider.",
+            "Review the provider item before choosing an institutional action.",
+            ["approve", "reject", "defer"], "No action executes while review is pending.")
+        decision["context_item_id"] = item["id"]
+        decision["provenance"] = provenance
+    result = {"id": next_id(draft, "results"), "kind": "pocket-review-receipt",
+              "summary": "Reviewed reference retained" + (
+                  "; Founder decision pending." if decision else "; no escalation requested."),
+              "produced_by": "Founder OS", "produced_at": receipt["occurred_at"],
+              "routing_owner": "LUMIAION",
+              "routing_owner_id": agents["LUMIAION"]["id"],
+              "memory_support_id": agents["JERANIUM"]["id"],
+              "identity_scope": "founder_state_operational",
+              "council_role_activation": False,
+              "synthesis_mode": "deterministic_review_receipt",
+              "classification": classification, "capture_review_key": key,
+              "context_item_id": item["id"], "provenance": provenance,
+              "decision_id": decision["id"] if decision else None}
+    draft["results"].append(result)
+    draft["handoffs"].append({
+        "id": next_id(draft, "handoffs"), "received_at": receipt["occurred_at"],
+        "founder_intent": "Review a Pocket-derived reference",
+        "success_condition": "A reference-only receipt reaches Founder State",
+        "primary_owner": "LUMIAION", "primary_owner_id": agents["LUMIAION"]["id"],
+        "supporting_roles": ["JERANIUM"],
+        "supporting_role_ids": [agents["JERANIUM"]["id"]],
+        "identity_scope": "founder_state_operational",
+        "council_role_activation": False,
+        "routing_decision": receipt["metadata"]["route"],
+        "context_sources": [item["id"]], "approval_gate": "founder_review",
+        "writeback_destination": "Founder OS/state/founder-state.json",
+        "state": "review", "next_action": "Founder reviews the referenced provider item",
+        "result_id": result["id"], "decision_id": result["decision_id"],
+    })
+    validate_state(draft)
+    if not existing:
+        ledger.append(receipt)
+    state.clear()
+    state.update(draft)
+    return {"status": "review", "result": result}
+
+
 def run_repository_health_lane(state: dict, intention: str, success_condition: str,
                                why: str,
                                vault_root: Path, report_path: Path) -> dict:
@@ -961,6 +1101,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("id")
     p.add_argument("--note")
 
+    p = sub.add_parser("capture-review", help="Promote an explicitly reviewed Pocket reference.")
+    p.add_argument("event_id")
+    p.add_argument("--ledger", required=True)
+    p.add_argument("--classification", required=True,
+                   choices=["none", "irrelevant", "reference", "founder_decision"])
+    p.add_argument("--founder-reviewed", action="store_true",
+                   help="Attest that the Founder reviewed the provider item; never set by ingress.")
+
     p = sub.add_parser(
         "repository-health",
         help="Run the Founder -> LUMIAION -> JERANIUM repository-health lane.",
@@ -1037,6 +1185,16 @@ def main(argv: list[str] | None = None) -> int:
                               args.needs_founder, args.blocking_ids)["id"])
         elif args.command == "blocker-resolve":
             print(resolve_blocker(state, args.id, args.note)["id"])
+        elif args.command == "capture-review":
+            import alpha_events
+            outcome = review_pocket_capture(
+                state, alpha_events.EventLedger(args.ledger), args.event_id,
+                classification=args.classification, founder_reviewed=args.founder_reviewed)
+            if outcome["status"] == "review":
+                save_state(state, state_path)
+            # Reference receipts do not regenerate public mirrors of private intake.
+            print(json.dumps(outcome, indent=2))
+            return 0
         elif args.command == "repository-health":
             lane = run_repository_health_lane(
                 state, args.intention, args.success_condition, args.why,
