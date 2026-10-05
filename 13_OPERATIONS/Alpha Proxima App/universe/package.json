@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prepare-sites-build.mjs",
+    "build": "vite build --configLoader runner && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
-    "test:sites": "node --test tests/sites-worker.test.mjs"
+    "test:sites": "node --test tests/sites-worker.test.mjs",
+    "test:gate": "node --test tests/gate-architecture.test.mjs tests/gate-depth.test.mjs tests/spatial-model.test.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "5.0.4",

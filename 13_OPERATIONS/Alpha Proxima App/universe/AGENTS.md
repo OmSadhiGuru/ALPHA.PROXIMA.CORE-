@@ -72,3 +72,9 @@ Each center opens its department workspace. Explicit-owner data comes from the e
 
 ## Higgsfield refinement (2026-09-28)
 The Founder requested Higgsfield to refine the existing interface. Its botanical GLB is a decorative volume in the same body coordinates, with clear central chakra targets and separate organic/neural visibility. Preserve actual geometry and free camera navigation; do not replace the body with a rendered still or video. Keep the local unified app as the working entry.
+
+## Gate of the Soul and full body rotation (2026-10-04)
+
+This supersedes the previous sphere, orbital dashboard, embodiment switches and mannequin presentation. Keep the approved `alpha-hero-gold-v2.jpg` as the Gate's visual identity. Seven chakra vortex portals open distinct department interfaces in the same mounted Universe. The Founder explicitly requires a full 360-degree spatial body, with side and back geometry, manual rotation, 2D return, recenter, pause, reduced motion and a functional WebGL fallback. Project the accessible hit targets from the same coordinates as the rendered centers.
+
+The current body surface is reconstructed from the reference silhouette with bounded depth. Its unseen profile and back are an interpretation, not an exact recovered model. Preserve source fidelity from the front and distinguish technical validation from Founder visual acceptance. Keep the canonical API and explicit-owner routing unchanged; hide/inert the parent iframe between routes so department and camera state survive.

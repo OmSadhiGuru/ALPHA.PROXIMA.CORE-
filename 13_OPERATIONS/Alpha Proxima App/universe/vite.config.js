@@ -1,3 +1,10 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-export default defineConfig({base:"/universe/", plugins:[react()], build:{outDir:"dist/client"}});
+import {defineConfig} from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base:'/universe/',
+  cacheDir:'.vite-cache',
+  plugins:[react()],
+  server:{proxy:{'/api':{target:'http://127.0.0.1:8788',changeOrigin:false}}},
+  build:{outDir:'dist/client'},
+})
