@@ -101,6 +101,8 @@ class PocketFounderProof(unittest.TestCase):
         founder.save_state(self.state, path)
         self.state = founder.load_state(path)
         self.ledger = events.EventLedger(self.ledger.path)
+        for name in ('LUMIAION', 'JERANIUM'):
+            next(a for a in self.state['agents'] if a['name'] == name)['status'] = 'blocked'
         before = copy.deepcopy(self.state)
         self.assertEqual(self.review()['status'], 'duplicate')
         self.assertEqual(self.state, before)

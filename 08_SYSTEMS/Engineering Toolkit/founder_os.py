@@ -542,6 +542,23 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
     if not founder_reviewed or classification in {"none", "irrelevant"}:
         return {"status": "suppressed", "classification": classification}
 
+    # Promotion identity spans capture.created and transcript.ready for one item.
+    # Reuse AlphaEvent's dedup mechanism instead of a second ingestion index.
+    # Resolve a completed retry before checking today's routing availability: a
+    # duplicate is a no-op, so later agent-state drift cannot make it non-idempotent.
+    key = events.dedup_key({
+        "source": "alpha_proxima", "event_type": "founder.capture.reviewed",
+        "metadata": {"provider_event_id": "pocket_ai:" + capture["entity_id"]},
+    })
+    existing = next((e for e in ledger if events.dedup_key(e) == key), None)
+    if existing and existing["metadata"].get("classification") != classification:
+        raise StateError("Capture already reviewed differently; resolve its existing record.")
+    previous = next((r for r in state["results"] if r.get("capture_review_key") == key), None)
+    if previous:
+        if not existing:
+            raise StateError("Founder review exists but its ledger receipt is missing.")
+        return {"status": "duplicate", "result": previous}
+
     agents = {}
     for name in ("LUMIAION", "JERANIUM"):
         matches = [a for a in state["agents"] if a.get("name") == name]
@@ -549,11 +566,9 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
             raise StateError(f"{name} must be uniquely registered and available for review.")
         agents[name] = matches[0]
 
-    # Promotion identity spans capture.created and transcript.ready for one item.
-    # Reuse AlphaEvent's dedup mechanism instead of a second ingestion index.
     # These IDs identify the operational Founder-State records. They do not
     # appoint or activate same-named Council roles.
-    receipt = events.make_event(
+    receipt = existing or events.make_event(
         source="alpha_proxima", actor="person:founder", department="EXECUTIVE",
         event_type="founder.capture.reviewed", entity_type="capture",
         entity_id=capture["entity_id"], title="Reviewed Pocket reference",
@@ -571,17 +586,6 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
                   "content_location": "provider", "sensitivity": "sensitive",
                   "synthesis_mode": "deterministic_review_receipt"},
     )
-    key = events.dedup_key(receipt)
-    existing = next((e for e in ledger if events.dedup_key(e) == key), None)
-    if existing:
-        if existing["metadata"].get("classification") != classification:
-            raise StateError("Capture already reviewed differently; resolve its existing record.")
-        receipt = existing
-    previous = next((r for r in state["results"] if r.get("capture_review_key") == key), None)
-    if previous:
-        if not existing:
-            raise StateError("Founder review exists but its ledger receipt is missing.")
-        return {"status": "duplicate", "result": previous}
 
     draft = copy.deepcopy(state)
     provenance = {"provider": "pocket_ai", "provider_item_id": capture["entity_id"],
