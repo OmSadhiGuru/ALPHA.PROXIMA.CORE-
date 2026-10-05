@@ -511,7 +511,8 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
     Classification is supplied by a human who reviewed the provider item. This
     bounded FIR-001 review lane is not a transcript classifier, agent invocation,
     or authorization service. Provider suggestions can never authorize promotion.
-    LUMIAION synthesis here is a deterministic review receipt, not generated advice.
+    LUMIAION synthesis here is a deterministic review receipt, not generated advice
+    or evidence that either named agent executed.
 
     Like the other state operations, the caller serializes writes and saves state.
     The receipt is appended first, so a failed state save can be retried using the
@@ -541,8 +542,17 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
     if not founder_reviewed or classification in {"none", "irrelevant"}:
         return {"status": "suppressed", "classification": classification}
 
+    agents = {}
+    for name in ("LUMIAION", "JERANIUM"):
+        matches = [a for a in state["agents"] if a.get("name") == name]
+        if len(matches) != 1 or matches[0].get("status") not in {"active", "idle", "working"}:
+            raise StateError(f"{name} must be uniquely registered and available for review.")
+        agents[name] = matches[0]
+
     # Promotion identity spans capture.created and transcript.ready for one item.
     # Reuse AlphaEvent's dedup mechanism instead of a second ingestion index.
+    # These IDs identify the operational Founder-State records. They do not
+    # appoint or activate same-named Council roles.
     receipt = events.make_event(
         source="alpha_proxima", actor="person:founder", department="EXECUTIVE",
         event_type="founder.capture.reviewed", entity_type="capture",
@@ -554,6 +564,10 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
         requires_founder=classification == "founder_decision",
         metadata={"classification": classification, "reviewed_by": "Founder",
                   "route": "LUMIAION -> JERANIUM -> LUMIAION",
+                  "routing_owner_id": agents["LUMIAION"]["id"],
+                  "memory_support_id": agents["JERANIUM"]["id"],
+                  "identity_scope": "founder_state_operational",
+                  "council_role_activation": False,
                   "content_location": "provider", "sensitivity": "sensitive",
                   "synthesis_mode": "deterministic_review_receipt"},
     )
@@ -568,11 +582,6 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
         if not existing:
             raise StateError("Founder review exists but its ledger receipt is missing.")
         return {"status": "duplicate", "result": previous}
-
-    for name in ("LUMIAION", "JERANIUM"):
-        matches = [a for a in state["agents"] if a.get("name") == name]
-        if len(matches) != 1 or matches[0].get("status") not in {"active", "idle", "working"}:
-            raise StateError(f"{name} must be uniquely registered and available for review.")
 
     draft = copy.deepcopy(state)
     provenance = {"provider": "pocket_ai", "provider_item_id": capture["entity_id"],
@@ -595,7 +604,12 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
     result = {"id": next_id(draft, "results"), "kind": "pocket-review-receipt",
               "summary": "Reviewed reference retained" + (
                   "; Founder decision pending." if decision else "; no escalation requested."),
-              "produced_by": "LUMIAION", "produced_at": receipt["occurred_at"],
+              "produced_by": "Founder OS", "produced_at": receipt["occurred_at"],
+              "routing_owner": "LUMIAION",
+              "routing_owner_id": agents["LUMIAION"]["id"],
+              "memory_support_id": agents["JERANIUM"]["id"],
+              "identity_scope": "founder_state_operational",
+              "council_role_activation": False,
               "synthesis_mode": "deterministic_review_receipt",
               "classification": classification, "capture_review_key": key,
               "context_item_id": item["id"], "provenance": provenance,
@@ -605,7 +619,11 @@ def review_pocket_capture(state: dict, ledger, event_id: str, *,
         "id": next_id(draft, "handoffs"), "received_at": receipt["occurred_at"],
         "founder_intent": "Review a Pocket-derived reference",
         "success_condition": "A reference-only receipt reaches Founder State",
-        "primary_owner": "LUMIAION", "supporting_roles": ["JERANIUM"],
+        "primary_owner": "LUMIAION", "primary_owner_id": agents["LUMIAION"]["id"],
+        "supporting_roles": ["JERANIUM"],
+        "supporting_role_ids": [agents["JERANIUM"]["id"]],
+        "identity_scope": "founder_state_operational",
+        "council_role_activation": False,
         "routing_decision": receipt["metadata"]["route"],
         "context_sources": [item["id"]], "approval_gate": "founder_review",
         "writeback_destination": "Founder OS/state/founder-state.json",
